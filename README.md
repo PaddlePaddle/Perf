@@ -82,8 +82,8 @@
   | GPU=32,BS=128 | 29524.6 | 21826.6 | - | - |
   | GPU=32,BS=256 | 31036.8<sup>[BS=208]</sup> | 23280.9 | - | -<sup>[BS=192]</sup> |
 
-> 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
-> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
+  > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
+  > Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
 
 ### 2. Bert Base Pre-Training
 > 详细数据请见[《Paddle Bert Base 性能测试报告》](./Bert)
