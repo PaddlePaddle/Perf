@@ -106,8 +106,8 @@
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=64 | - | 488.32 | 524.48 |
-  | GPU=1,BS=96 | - | 536.06 | 543.76 |
+  | GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
+  | GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
   | GPU=8,BS=64 | - | 3035.76 | 4058.34|
   | GPU=8,BS=96 | - | 3530.84 | 4208.12|
   | GPU=32,BS=64 | - | 14773.4 | - |
