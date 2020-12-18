@@ -95,7 +95,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/models.git
-  cd models && git checkout develop
+  cd models && git checkout 33d65b3150621fdfa4500b9ebac4a8dfcc7e2229
   ```
 
 
