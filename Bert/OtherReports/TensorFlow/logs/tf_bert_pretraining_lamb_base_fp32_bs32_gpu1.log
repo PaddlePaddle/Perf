@@ -1,0 +1,361 @@
+Container nvidia build =  13409399
+XLA activated
+2020-12-17 00:13:47.872570: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:152: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:178: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+W1217 00:13:49.555932 140195212871488 lazy_loader.py:50]
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+INFO:tensorflow:Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
+  optimizer_options {
+    global_jit_level: ON_1
+  }
+  rewrite_options {
+    memory_optimization: NO_MEM_OPT
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f802576ce80>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+I1217 00:13:50.303786 140195212871488 estimator.py:212] Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
+  optimizer_options {
+    global_jit_level: ON_1
+  }
+  rewrite_options {
+    memory_optimization: NO_MEM_OPT
+  }
+}
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f802576ce80>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+WARNING:tensorflow:Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f8025770bf8>) includes params argument, but params are not passed to Estimator.
+W1217 00:13:50.304723 140195212871488 model_fn.py:630] Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f8025770bf8>) includes params argument, but params are not passed to Estimator.
+INFO:tensorflow:***** Running training *****
+I1217 00:13:50.305303 140195212871488 run_pretraining.py:623] ***** Running training *****
+INFO:tensorflow:  Batch size = 32
+I1217 00:13:50.305431 140195212871488 run_pretraining.py:624]   Batch size = 32
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
+
+W1217 00:13:50.422714 140195212871488 module_wrapper.py:139] From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
+
+INFO:tensorflow:Calling model_fn.
+I1217 00:13:50.549406 140195212871488 estimator.py:1148] Calling model_fn.
+INFO:tensorflow:*** Features ***
+I1217 00:13:50.549662 140195212871488 run_pretraining.py:257] *** Features ***
+INFO:tensorflow:  name = input_ids, shape = (32, 128)
+I1217 00:13:50.549826 140195212871488 run_pretraining.py:259]   name = input_ids, shape = (32, 128)
+INFO:tensorflow:  name = input_mask, shape = (32, 128)
+I1217 00:13:50.549955 140195212871488 run_pretraining.py:259]   name = input_mask, shape = (32, 128)
+INFO:tensorflow:  name = masked_lm_ids, shape = (32, 20)
+I1217 00:13:50.550077 140195212871488 run_pretraining.py:259]   name = masked_lm_ids, shape = (32, 20)
+INFO:tensorflow:  name = masked_lm_positions, shape = (32, 20)
+I1217 00:13:50.550194 140195212871488 run_pretraining.py:259]   name = masked_lm_positions, shape = (32, 20)
+INFO:tensorflow:  name = masked_lm_weights, shape = (32, 20)
+I1217 00:13:50.550326 140195212871488 run_pretraining.py:259]   name = masked_lm_weights, shape = (32, 20)
+INFO:tensorflow:  name = next_sentence_labels, shape = (32, 1)
+I1217 00:13:50.550447 140195212871488 run_pretraining.py:259]   name = next_sentence_labels, shape = (32, 1)
+INFO:tensorflow:  name = segment_ids, shape = (32, 128)
+I1217 00:13:50.550574 140195212871488 run_pretraining.py:259]   name = segment_ids, shape = (32, 128)
+WARNING:tensorflow:From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+W1217 00:13:50.550829 140195212871488 module_wrapper.py:139] From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+W1217 00:13:50.552138 140195212871488 module_wrapper.py:139] From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:295: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+
+W1217 00:13:52.424803 140195212871488 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:295: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+
+WARNING:tensorflow:From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
+
+W1217 00:13:56.139472 140195212871488 module_wrapper.py:139] From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
+
+INFO:tensorflow:Done calling model_fn.
+I1217 00:14:05.369910 140195212871488 estimator.py:1150] Done calling model_fn.
+INFO:tensorflow:Create CheckpointSaverHook.
+I1217 00:14:05.371328 140195212871488 basic_session_run_hooks.py:541] Create CheckpointSaverHook.
+INFO:tensorflow:Graph was finalized.
+I1217 00:14:10.120013 140195212871488 monitored_session.py:240] Graph was finalized.
+2020-12-17 00:14:10.129903: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2399970000 Hz
+2020-12-17 00:14:10.132198: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x604faa0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-12-17 00:14:10.132230: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-12-17 00:14:10.135432: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-12-17 00:14:11.001842: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 00:14:11.004548: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x110ff6d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-12-17 00:14:11.004582: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2020-12-17 00:14:11.004894: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 00:14:11.007387: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:00:0b.0
+2020-12-17 00:14:11.007439: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-12-17 00:14:11.010934: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-12-17 00:14:11.012512: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-12-17 00:14:11.012943: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-12-17 00:14:11.015961: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-12-17 00:14:11.016680: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-12-17 00:14:11.016953: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-12-17 00:14:11.017105: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 00:14:11.022217: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 00:14:11.024782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0
+2020-12-17 00:14:11.024845: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-12-17 00:14:11.605045: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-17 00:14:11.605160: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0
+2020-12-17 00:14:11.605186: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N
+2020-12-17 00:14:11.605738: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 00:14:11.610956: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 00:14:11.616014: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14799 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:0b.0, compute capability: 7.0)
+2020-12-17 00:14:18.280342: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I1217 00:14:23.252419 140195212871488 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I1217 00:14:23.981729 140195212871488 session_manager.py:502] Done running local_init_op.
+INFO:tensorflow:Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt.
+I1217 00:14:36.121736 140195212871488 basic_session_run_hooks.py:606] Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt.
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:146: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
+
+W1217 00:14:44.502569 140195212871488 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:146: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
+
+2020-12-17 00:15:02.661910: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-12-17 00:15:03.388832: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-12-17 00:15:21.821903: I tensorflow/compiler/jit/xla_compilation_cache.cc:243] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+INFO:tensorflow:loss = 11.140965, step = 0
+I1217 00:15:28.616310 140195212871488 basic_session_run_hooks.py:262] loss = 11.140965, step = 0
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1217 00:16:06.321669 140195212871488 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1217 00:16:06.547002 140195212871488 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1217 00:16:06.768120 140195212871488 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1217 00:16:06.989581 140195212871488 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1217 00:16:07.205215 140195212871488 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+INFO:tensorflow:loss = 11.099093, step = 4 (2344.784 sec)
+I1217 00:54:33.400733 140195212871488 basic_session_run_hooks.py:260] loss = 11.099093, step = 4 (2344.784 sec)
+INFO:tensorflow:loss = 11.092067, step = 9 (2244.114 sec)
+I1217 01:31:57.514647 140195212871488 basic_session_run_hooks.py:260] loss = 11.092067, step = 9 (2244.114 sec)
+INFO:tensorflow:loss = 11.033543, step = 14 (2244.978 sec)
+I1217 02:09:22.492966 140195212871488 basic_session_run_hooks.py:260] loss = 11.033543, step = 14 (2244.978 sec)
+INFO:tensorflow:loss = 11.060103, step = 18 (2244.886 sec)
+I1217 02:46:47.378502 140195212871488 basic_session_run_hooks.py:260] loss = 11.060103, step = 18 (2244.886 sec)
+INFO:tensorflow:loss = 11.044298, step = 23 (2244.712 sec)
+I1217 03:24:12.090912 140195212871488 basic_session_run_hooks.py:260] loss = 11.044298, step = 23 (2244.712 sec)
+INFO:tensorflow:loss = 11.073622, step = 28 (2243.749 sec)
+I1217 04:01:35.839851 140195212871488 basic_session_run_hooks.py:260] loss = 11.073622, step = 28 (2243.749 sec)
+INFO:tensorflow:loss = 11.032332, step = 33 (2245.624 sec)
+I1217 04:39:01.464052 140195212871488 basic_session_run_hooks.py:260] loss = 11.032332, step = 33 (2245.624 sec)
+INFO:tensorflow:loss = 11.111258, step = 37 (2244.409 sec)
+I1217 05:16:25.873373 140195212871488 basic_session_run_hooks.py:260] loss = 11.111258, step = 37 (2244.409 sec)
+decayed_learning_rate_at_crossover_point = 7.500000e-04, adjusted_init_lr = 7.500000e-04
+Initializing LAMB Optimizer
+Skipping time record for  1  due to checkpoint-saving/warmup overhead
+DLL 2020-12-17 00:24:28.310729 - Iteration: 2  throughput_train : 115.984 seq/s mlm_loss : 10.4208  nsp_loss : 0.6971  total_loss : 11.1179  avg_loss_step : 11.0968  learning_rate : 0.0
+Skipping time record for  2  due to checkpoint-saving/warmup overhead
+DLL 2020-12-17 00:32:21.461952 - Iteration: 3  throughput_train : 142.940 seq/s mlm_loss : 10.3931  nsp_loss : 0.6959  total_loss : 11.0889  avg_loss_step : 11.0940  learning_rate : 3.75e-07
+Skipping time record for  3  due to checkpoint-saving/warmup overhead
+DLL 2020-12-17 00:40:15.387533 - Iteration: 4  throughput_train : 142.705 seq/s mlm_loss : 10.4261  nsp_loss : 0.6982  total_loss : 11.1243  avg_loss_step : 11.0952  learning_rate : 7.5e-07
+Skipping time record for  4  due to checkpoint-saving/warmup overhead
+DLL 2020-12-17 00:48:09.198818 - Iteration: 5  throughput_train : 142.740 seq/s mlm_loss : 10.4238  nsp_loss : 0.6797  total_loss : 11.1035  avg_loss_step : 11.0950  learning_rate : 1.125e-06
+Skipping time record for  5  due to checkpoint-saving/warmup overhead
+DLL 2020-12-17 00:56:38.237343 - Iteration: 6  throughput_train : 132.856 seq/s mlm_loss : 10.3703  nsp_loss : 0.6986  total_loss : 11.0689  avg_loss_step : 11.0939  learning_rate : 1.5e-06
+DLL 2020-12-17 01:04:32.111445 - Iteration: 7  throughput_train : 142.721 seq/s mlm_loss : 10.3939  nsp_loss : 0.6970  total_loss : 11.0909  avg_loss_step : 11.0933  learning_rate : 1.8750001e-06
+DLL 2020-12-17 01:12:26.327023 - Iteration: 8  throughput_train : 142.619 seq/s mlm_loss : 10.3725  nsp_loss : 0.6732  total_loss : 11.0457  avg_loss_step : 11.0925  learning_rate : 2.25e-06
+DLL 2020-12-17 01:20:20.544528 - Iteration: 9  throughput_train : 142.616 seq/s mlm_loss : 10.3803  nsp_loss : 0.6888  total_loss : 11.0691  avg_loss_step : 11.0922  learning_rate : 2.625e-06
+DLL 2020-12-17 01:28:14.546528 - Iteration: 10  throughput_train : 142.683 seq/s mlm_loss : 10.3905  nsp_loss : 0.6656  total_loss : 11.0561  avg_loss_step : 11.0919  learning_rate : 3e-06
+DLL 2020-12-17 01:36:08.550707 - Iteration: 11  throughput_train : 142.681 seq/s mlm_loss : 10.3862  nsp_loss : 0.6818  total_loss : 11.0681  avg_loss_step : 11.0910  learning_rate : 3.3750002e-06
+DLL 2020-12-17 01:44:02.889457 - Iteration: 12  throughput_train : 142.582 seq/s mlm_loss : 10.3791  nsp_loss : 0.6981  total_loss : 11.0772  avg_loss_step : 11.0894  learning_rate : 3.7500001e-06
+DLL 2020-12-17 01:51:56.856442 - Iteration: 13  throughput_train : 142.692 seq/s mlm_loss : 10.3885  nsp_loss : 0.6752  total_loss : 11.0637  avg_loss_step : 11.0882  learning_rate : 4.125e-06
+DLL 2020-12-17 01:59:51.083462 - Iteration: 14  throughput_train : 142.613 seq/s mlm_loss : 10.4029  nsp_loss : 0.6774  total_loss : 11.0802  avg_loss_step : 11.0872  learning_rate : 4.5e-06
+DLL 2020-12-17 02:07:45.228941 - Iteration: 15  throughput_train : 142.639 seq/s mlm_loss : 10.3805  nsp_loss : 0.6924  total_loss : 11.0729  avg_loss_step : 11.0853  learning_rate : 4.8750003e-06
+DLL 2020-12-17 02:15:39.555018 - Iteration: 16  throughput_train : 142.586 seq/s mlm_loss : 10.3940  nsp_loss : 0.7032  total_loss : 11.0972  avg_loss_step : 11.0832  learning_rate : 5.25e-06
+DLL 2020-12-17 02:23:34.008887 - Iteration: 17  throughput_train : 142.547 seq/s mlm_loss : 10.4256  nsp_loss : 0.6985  total_loss : 11.1242  avg_loss_step : 11.0813  learning_rate : 5.625e-06
+DLL 2020-12-17 02:31:27.633441 - Iteration: 18  throughput_train : 142.795 seq/s mlm_loss : 10.3968  nsp_loss : 0.6936  total_loss : 11.0904  avg_loss_step : 11.0797  learning_rate : 6e-06
+DLL 2020-12-17 02:39:21.484235 - Iteration: 19  throughput_train : 142.731 seq/s mlm_loss : 10.3753  nsp_loss : 0.6833  total_loss : 11.0585  avg_loss_step : 11.0771  learning_rate : 6.3750003e-06
+DLL 2020-12-17 02:47:15.855886 - Iteration: 20  throughput_train : 142.571 seq/s mlm_loss : 10.3936  nsp_loss : 0.6659  total_loss : 11.0595  avg_loss_step : 11.0756  learning_rate : 6.7500005e-06
+DLL 2020-12-17 02:55:09.968463 - Iteration: 21  throughput_train : 142.651 seq/s mlm_loss : 10.3925  nsp_loss : 0.7014  total_loss : 11.0939  avg_loss_step : 11.0750  learning_rate : 7.125e-06
+DLL 2020-12-17 03:03:03.822321 - Iteration: 22  throughput_train : 142.727 seq/s mlm_loss : 10.4072  nsp_loss : 0.6775  total_loss : 11.0846  avg_loss_step : 11.0718  learning_rate : 7.5000003e-06
+DLL 2020-12-17 03:10:57.935370 - Iteration: 23  throughput_train : 142.647 seq/s mlm_loss : 10.3662  nsp_loss : 0.7045  total_loss : 11.0707  avg_loss_step : 11.0692  learning_rate : 7.875e-06
+DLL 2020-12-17 03:18:52.505442 - Iteration: 24  throughput_train : 142.510 seq/s mlm_loss : 10.3634  nsp_loss : 0.6914  total_loss : 11.0548  avg_loss_step : 11.0679  learning_rate : 8.25e-06
+DLL 2020-12-17 03:26:46.368022 - Iteration: 25  throughput_train : 142.725 seq/s mlm_loss : 10.3528  nsp_loss : 0.6829  total_loss : 11.0357  avg_loss_step : 11.0645  learning_rate : 8.625e-06
+DLL 2020-12-17 03:34:40.389103 - Iteration: 26  throughput_train : 142.676 seq/s mlm_loss : 10.3696  nsp_loss : 0.6730  total_loss : 11.0425  avg_loss_step : 11.0618  learning_rate : 9e-06
+DLL 2020-12-17 03:42:34.235464 - Iteration: 27  throughput_train : 142.727 seq/s mlm_loss : 10.3930  nsp_loss : 0.7285  total_loss : 11.1215  avg_loss_step : 11.0592  learning_rate : 9.375e-06
+DLL 2020-12-17 03:50:28.165147 - Iteration: 28  throughput_train : 142.705 seq/s mlm_loss : 10.3867  nsp_loss : 0.6644  total_loss : 11.0511  avg_loss_step : 11.0567  learning_rate : 9.750001e-06
+DLL 2020-12-17 03:58:21.699606 - Iteration: 29  throughput_train : 142.822 seq/s mlm_loss : 10.3717  nsp_loss : 0.6982  total_loss : 11.0699  avg_loss_step : 11.0536  learning_rate : 1.0125001e-05
+DLL 2020-12-17 04:06:15.836149 - Iteration: 30  throughput_train : 142.642 seq/s mlm_loss : 10.3438  nsp_loss : 0.6800  total_loss : 11.0238  avg_loss_step : 11.0506  learning_rate : 1.05e-05
+DLL 2020-12-17 04:14:10.090472 - Iteration: 31  throughput_train : 142.607 seq/s mlm_loss : 10.3756  nsp_loss : 0.6662  total_loss : 11.0417  avg_loss_step : 11.0481  learning_rate : 1.0875e-05
+DLL 2020-12-17 04:22:04.475555 - Iteration: 32  throughput_train : 142.569 seq/s mlm_loss : 10.3584  nsp_loss : 0.6755  total_loss : 11.0338  avg_loss_step : 11.0448  learning_rate : 1.125e-05
+DLL 2020-12-17 04:29:58.543097 - Iteration: 33  throughput_train : 142.661 seq/s mlm_loss : 10.3949  nsp_loss : 0.6772  total_loss : 11.0721  avg_loss_step : 11.0402  learning_rate : 1.1625e-05
+DLL 2020-12-17 04:37:52.937742 - Iteration: 34  throughput_train : 142.566 seq/s mlm_loss : 10.3808  nsp_loss : 0.7021  total_loss : 11.0829  avg_loss_step : 11.0372  learning_rate : 1.2e-05
+DLL 2020-12-17 04:45:47.120983 - Iteration: 35  throughput_train : 142.628 seq/s mlm_loss : 10.3917  nsp_loss : 0.6721  total_loss : 11.0638  avg_loss_step : 11.0323  learning_rate : 1.2375001e-05
+DLL 2020-12-17 04:53:41.072751 - Iteration: 36  throughput_train : 142.697 seq/s mlm_loss : 10.4111  nsp_loss : 0.7011  total_loss : 11.1122  avg_loss_step : 11.0306  learning_rate : 1.2750001e-05
+DLL 2020-12-17 05:01:34.936710 - Iteration: 37  throughput_train : 142.722 seq/s mlm_loss : 10.3581  nsp_loss : 0.6755  total_loss : 11.0335  avg_loss_step : 11.0262  learning_rate : 1.3125001e-05
+DLL 2020-12-17 05:09:29.072445 - Iteration: 38  throughput_train : 142.643 seq/s mlm_loss : 10.3439  nsp_loss : 0.7228  total_loss : 11.0667  avg_loss_step : 11.0224  learning_rate : 1.3500001e-05
+DLL 2020-12-17 05:17:23.249398 - Iteration: 39  throughput_train : 142.630 seq/s mlm_loss : 10.3732  nsp_loss : 0.6645  total_loss : 11.0376  avg_loss_step : 11.0191  learning_rate : 1.3875e-05
+DLL 2020-12-17 05:25:17.212937 - Iteration: 40  throughput_train : 142.694 seq/s mlm_loss : 10.3123  nsp_loss : 0.7234  total_loss : 11.0357  avg_loss_step : 11.0142  learning_rate : 1.425e-05
+DLL 2020-12-17 05:33:11.268299 - Iteration: 41  throughput_train : 142.665 seq/s mlm_loss : 10.3396  nsp_loss : 0.6628  total_loss : 11.0024  avg_loss_step : 11.0092  learning_rate : 1.4625e-05 INFO:tensorflow:loss = 10.985982, step = 42 (2244.714 sec)
+I1217 05:53:50.587726 140195212871488 basic_session_run_hooks.py:260] loss = 10.985982, step = 42 (2244.714 sec)
+INFO:tensorflow:loss = 10.988934, step = 47 (2244.392 sec)
+I1217 06:31:14.979830 140195212871488 basic_session_run_hooks.py:260] loss = 10.988934, step = 47 (2244.392 sec)
+INFO:tensorflow:Saving checkpoints for 50 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt.
+I1217 06:52:12.074854 140195212871488 basic_session_run_hooks.py:606] Saving checkpoints for 50 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt.
+INFO:tensorflow:Loss for final step: 10.968001.
+I1217 06:52:17.778846 140195212871488 estimator.py:371] Loss for final step: 10.968001.
+INFO:tensorflow:-----------------------------
+I1217 06:52:17.780517 140195212871488 run_pretraining.py:642] -----------------------------
+INFO:tensorflow:Total Training Time = 23907.47 for Sentences = 3379200
+I1217 06:52:17.780609 140195212871488 run_pretraining.py:644] Total Training Time = 23907.47 for Sentences = 3379200
+INFO:tensorflow:Total Training Time W/O Overhead = 21317.67 for Sentences = 3041280
+I1217 06:52:17.780687 140195212871488 run_pretraining.py:646] Total Training Time W/O Overhead = 21317.67 for Sentences = 3041280
+INFO:tensorflow:Throughput Average (sentences/sec) with overhead = 141.34
+I1217 06:52:17.780742 140195212871488 run_pretraining.py:647] Throughput Average (sentences/sec) with overhead = 141.34
+INFO:tensorflow:Throughput Average (sentences/sec) = 142.66
+I1217 06:52:17.780807 140195212871488 run_pretraining.py:648] Throughput Average (sentences/sec) = 142.66
+INFO:tensorflow:-----------------------------
+I1217 06:52:17.781016 140195212871488 run_pretraining.py:650] -----------------------------
+INFO:tensorflow:***** Running evaluation *****
+I1217 06:52:17.781113 140195212871488 run_pretraining.py:653] ***** Running evaluation *****
+INFO:tensorflow:  Batch size = 8
+I1217 06:52:17.781175 140195212871488 run_pretraining.py:654]   Batch size = 8
+INFO:tensorflow:Calling model_fn.
+I1217 06:52:17.826325 140195212871488 estimator.py:1148] Calling model_fn.
+INFO:tensorflow:*** Features ***
+I1217 06:52:17.826504 140195212871488 run_pretraining.py:257] *** Features ***
+INFO:tensorflow:  name = input_ids, shape = (?, 128)
+I1217 06:52:17.826611 140195212871488 run_pretraining.py:259]   name = input_ids, shape = (?, 128)
+INFO:tensorflow:  name = input_mask, shape = (?, 128)
+I1217 06:52:17.826695 140195212871488 run_pretraining.py:259]   name = input_mask, shape = (?, 128)
+INFO:tensorflow:  name = masked_lm_ids, shape = (?, 20)
+I1217 06:52:17.826766 140195212871488 run_pretraining.py:259]   name = masked_lm_ids, shape = (?, 20)
+INFO:tensorflow:  name = masked_lm_positions, shape = (?, 20)
+I1217 06:52:17.826839 140195212871488 run_pretraining.py:259]   name = masked_lm_positions, shape = (?, 20)
+INFO:tensorflow:  name = masked_lm_weights, shape = (?, 20)
+I1217 06:52:17.826915 140195212871488 run_pretraining.py:259]   name = masked_lm_weights, shape = (?, 20)
+INFO:tensorflow:  name = next_sentence_labels, shape = (?, 1)
+I1217 06:52:17.826988 140195212871488 run_pretraining.py:259]   name = next_sentence_labels, shape = (?, 1)
+INFO:tensorflow:  name = segment_ids, shape = (?, 128)
+I1217 06:52:17.827060 140195212871488 run_pretraining.py:259]   name = segment_ids, shape = (?, 128)
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:337: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
+
+W1217 06:52:19.513547 140195212871488 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:337: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
+
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:341: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+W1217 06:52:19.560638 140195212871488 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:341: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+INFO:tensorflow:Done calling model_fn.
+I1217 06:52:19.632097 140195212871488 estimator.py:1150] Done calling model_fn.
+INFO:tensorflow:Starting evaluation at 2020-12-17T06:52:19Z
+I1217 06:52:19.648474 140195212871488 evaluation.py:255] Starting evaluation at 2020-12-17T06:52:19Z
+INFO:tensorflow:Graph was finalized.
+I1217 06:52:20.081450 140195212871488 monitored_session.py:240] Graph was finalized.
+2020-12-17 06:52:20.082595: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 06:52:20.083797: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties:
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:00:0b.0
+2020-12-17 06:52:20.083910: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-12-17 06:52:20.084018: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-12-17 06:52:20.084072: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-12-17 06:52:20.084271: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-12-17 06:52:20.084328: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-12-17 06:52:20.084373: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-12-17 06:52:20.084419: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-12-17 06:52:20.084582: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 06:52:20.085683: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 06:52:20.086707: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0
+2020-12-17 06:52:20.086807: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-17 06:52:20.086839: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0
+2020-12-17 06:52:20.086860: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N
+2020-12-17 06:52:20.087009: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 06:52:20.088099: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-12-17 06:52:20.089182: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14799 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:00:0b.0, compute capability: 7.0)
+INFO:tensorflow:Restoring parameters from /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt-50
+I1217 06:52:20.090346 140195212871488 saver.py:1284] Restoring parameters from /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt-50
+INFO:tensorflow:Running local_init_op.
+I1217 06:52:21.218701 140195212871488 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I1217 06:52:21.315331 140195212871488 session_manager.py:502] Done running local_init_op.
+INFO:tensorflow:Evaluation [10/100]
+I1217 06:52:28.304493 140195212871488 evaluation.py:167] Evaluation [10/100]
+INFO:tensorflow:Evaluation [20/100]
+I1217 06:52:28.528984 140195212871488 evaluation.py:167] Evaluation [20/100]
+INFO:tensorflow:Evaluation [30/100]
+I1217 06:52:28.753206 140195212871488 evaluation.py:167] Evaluation [30/100]
+INFO:tensorflow:Evaluation [40/100]
+I1217 06:52:28.980021 140195212871488 evaluation.py:167] Evaluation [40/100]
+INFO:tensorflow:Evaluation [50/100]
+I1217 06:52:29.205209 140195212871488 evaluation.py:167] Evaluation [50/100]
+INFO:tensorflow:Evaluation [60/100]
+I1217 06:52:29.430436 140195212871488 evaluation.py:167] Evaluation [60/100]
+INFO:tensorflow:Evaluation [70/100]
+I1217 06:52:29.655600 140195212871488 evaluation.py:167] Evaluation [70/100]
+INFO:tensorflow:Evaluation [80/100]
+I1217 06:52:29.879525 140195212871488 evaluation.py:167] Evaluation [80/100]
+INFO:tensorflow:Evaluation [90/100]
+I1217 06:52:30.105423 140195212871488 evaluation.py:167] Evaluation [90/100]
+INFO:tensorflow:Evaluation [100/100]
+I1217 06:52:30.331638 140195212871488 evaluation.py:167] Evaluation [100/100]
+INFO:tensorflow:Finished evaluation at 2020-12-17-06:52:30
+I1217 06:52:30.703469 140195212871488 evaluation.py:275] Finished evaluation at 2020-12-17-06:52:30
+INFO:tensorflow:Saving dict for global step 50: global_step = 50, loss = 10.953591, masked_lm_accuracy = 0.004404988, masked_lm_loss = 10.258033, next_sentence_accuracy = 0.53, next_sentence_loss = 0.69576484
+I1217 06:52:30.704073 140195212871488 estimator.py:2049] Saving dict for global step 50: global_step = 50, loss = 10.953591, masked_lm_accuracy = 0.004404988, masked_lm_loss = 10.258033, next_sentence_accuracy = 0.53, next_sentence_loss = 0.69576484
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 50: /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt-50
+I1217 06:52:31.128929 140195212871488 estimator.py:2109] Saving 'checkpoint_path' summary for global step 50: /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_201217001347/phase_1/model.ckpt-50
+INFO:tensorflow:-----------------------------
+I1217 06:52:31.130002 140195212871488 run_pretraining.py:682] -----------------------------
+INFO:tensorflow:Total Inference Time = 13.35 for Sentences = 800
+I1217 06:52:31.130230 140195212871488 run_pretraining.py:684] Total Inference Time = 13.35 for Sentences = 800
+INFO:tensorflow:Total Inference Time W/O Overhead = 2.23 for Sentences = 792
+I1217 06:52:31.130374 140195212871488 run_pretraining.py:686] Total Inference Time W/O Overhead = 2.23 for Sentences = 792
+INFO:tensorflow:Summary Inference Statistics on EVAL set
+I1217 06:52:31.130487 140195212871488 run_pretraining.py:687] Summary Inference Statistics on EVAL set
+INFO:tensorflow:Batch size = 8
+I1217 06:52:31.130597 140195212871488 run_pretraining.py:688] Batch size = 8
+INFO:tensorflow:Sequence Length = 128
+I1217 06:52:31.130750 140195212871488 run_pretraining.py:689] Sequence Length = 128
+INFO:tensorflow:Precision = fp32
+I1217 06:52:31.130870 140195212871488 run_pretraining.py:690] Precision = fp32
+INFO:tensorflow:Throughput Average (sentences/sec) = 355.62
+I1217 06:52:31.130990 140195212871488 run_pretraining.py:691] Throughput Average (sentences/sec) = 355.62
+INFO:tensorflow:-----------------------------
+I1217 06:52:31.131303 140195212871488 run_pretraining.py:693] -----------------------------
+INFO:tensorflow:***** Eval results *****
+I1217 06:52:31.131501 140195212871488 run_pretraining.py:697] ***** Eval results *****
+INFO:tensorflow:  global_step = 50
+I1217 06:52:31.131623 140195212871488 run_pretraining.py:699]   global_step = 50
+INFO:tensorflow:  loss = 10.953591
+I1217 06:52:31.131984 140195212871488 run_pretraining.py:699]   loss = 10.953591
+INFO:tensorflow:  masked_lm_accuracy = 0.004404988
+I1217 06:52:31.132138 140195212871488 run_pretraining.py:699]   masked_lm_accuracy = 0.004404988
+INFO:tensorflow:  masked_lm_loss = 10.258033
+I1217 06:52:31.132248 140195212871488 run_pretraining.py:699]   masked_lm_loss = 10.258033
+INFO:tensorflow:  next_sentence_accuracy = 0.53
+I1217 06:52:31.132375 140195212871488 run_pretraining.py:699]   next_sentence_accuracy = 0.53
+INFO:tensorflow:  next_sentence_loss = 0.69576484
+I1217 06:52:31.132485 140195212871488 run_pretraining.py:699]   next_sentence_loss = 0.69576484
+
+DLL 2020-12-17 05:41:05.309482 - Iteration: 42  throughput_train : 142.673 seq/s mlm_loss : 10.2858  nsp_loss : 0.6403  total_loss : 10.9261  avg_loss_step : 11.0067  learning_rate : 1.50000005e-05
+DLL 2020-12-17 05:48:59.321615 - Iteration: 43  throughput_train : 142.680 seq/s mlm_loss : 10.3239  nsp_loss : 0.7210  total_loss : 11.0449  avg_loss_step : 11.0028  learning_rate : 1.5375e-05
+DLL 2020-12-17 05:56:53.465847 - Iteration: 44  throughput_train : 142.639 seq/s mlm_loss : 10.3410  nsp_loss : 0.6933  total_loss : 11.0343  avg_loss_step : 10.9968  learning_rate : 1.575e-05
+DLL 2020-12-17 06:04:47.627978 - Iteration: 45  throughput_train : 142.634 seq/s mlm_loss : 10.3270  nsp_loss : 0.6983  total_loss : 11.0254  avg_loss_step : 10.9943  learning_rate : 1.6125001e-05
+DLL 2020-12-17 06:12:41.372462 - Iteration: 46  throughput_train : 142.760 seq/s mlm_loss : 10.3175  nsp_loss : 0.6553  total_loss : 10.9728  avg_loss_step : 10.9879  learning_rate : 1.65e-05
+DLL 2020-12-17 06:20:35.574448 - Iteration: 47  throughput_train : 142.623 seq/s mlm_loss : 10.2796  nsp_loss : 0.7204  total_loss : 11.0000  avg_loss_step : 10.9834  learning_rate : 1.6875001e-05
+DLL 2020-12-17 06:28:29.414596 - Iteration: 48  throughput_train : 142.734 seq/s mlm_loss : 10.2782  nsp_loss : 0.6428  total_loss : 10.9211  avg_loss_step : 10.9795  learning_rate : 1.725e-05
+DLL 2020-12-17 06:36:23.464307 - Iteration: 49  throughput_train : 142.669 seq/s mlm_loss : 10.2827  nsp_loss : 0.7026  total_loss : 10.9853  avg_loss_step : 10.9725  learning_rate : 1.7625001e-05
+DLL 2020-12-17 06:44:17.497577 - Iteration: 50  throughput_train : 142.676 seq/s mlm_loss : 10.2346  nsp_loss : 0.6981  total_loss : 10.9327  avg_loss_step : 10.9687  learning_rate : 1.8e-05
+DLL 2020-12-17 06:52:12.073379 - Iteration: 51  throughput_train : 142.841 seq/s mlm_loss : 10.2868  nsp_loss : 0.6812  total_loss : 10.9680  avg_loss_step : 10.9629  learning_rate : 1.8375e-05
+DLL 2020-12-17 06:52:17.780862 -  throughput_train : 142.665 seq/s
+DLL 2020-12-17 06:52:31.131111 -  throughput_val : 355.61611999116604
