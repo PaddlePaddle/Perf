@@ -259,7 +259,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 |1 | 128.53 | 128.92 | 524.48 | 543.76 |
 |8 | 999.99 | 995.88 | 4058.34 |4208.12 |
 |32 | 3994.05 | 3973.97 | 15941.1 | 16311.6|
-
+|32 | 3994.05 | 3973.97 | 15941.1 | 16311.6|
 > 关于batch_size 从32增加到48时，8卡和32卡性能并没有提升的问题，我们反复重测了多次。若了解相关原因，欢迎issue我们。
 
 ## 五、日志数据
@@ -273,7 +273,11 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 - [8卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu8.log)
 - [8卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu8.log)
 - [8卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
-- [32卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu32.log)
-- [32卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu32.log)
-- [32卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu32.log)
-- [32卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
+- [32卡 bs=32、FP32、GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu32.log)
+- [32卡 bs=48、FP32、GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu32.log)
+- [32卡 bs=64、AMP、GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu32.log)
+- [32卡 bs=96、AMP、GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
+- [32卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp32_bs32_gpu32.log)
+- [32卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp32_bs48_gpu32.log)
+- [32卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp16_bs64_gpu32.log)
+- [32卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp16_bs96_gpu32.log)
