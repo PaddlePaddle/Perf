@@ -58,6 +58,7 @@
   这部分不在本报告中详细展开，可参考NGC提供的[文档](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5#quick-start-guide)制作。
 
 - 下载NGC TensorFlow repo,并进入目录
+
    ```bash
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/TensorFlow/Classification/ConvNets
@@ -66,11 +67,13 @@
    ```
 
 - 制作Docker镜像
+
    ```bash
    docker build . -t nvidia_rn50_tf
    ```
 
 - 启动Docker
+
    ```bash
    # 假设制作好的TF_Record数据放在<path to tfrecords data>目录下
    nvidia-docker run --rm -it -v <path to tfrecords data>:/data/tfrecords --ipc=host nvidia_rn50_tf
@@ -78,7 +81,11 @@
 
 ### 2.多机（32卡）环境搭建
 
-> 我们会后续补充此内容。
+- IB配置(可选）
+请参考[这里](../../../utils/ib.md)
+	
+- MPI配置
+请参考[这里](../../../utils/mpi.md)
 
 ## 三、测试步骤
 
@@ -87,12 +94,14 @@
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
 - 下载我们编写的测试脚本，并执行该脚本
+
    ```bash
    wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/OtherReports/TensorFlow/scripts/tf_test_all.sh
    bash tf_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：
+
    ```bash
    /log/tf_gpu1_fp32_bs128.txt
    /log/tf_gpu1_amp_bs128.txt
@@ -106,7 +115,19 @@
 
 ### 2.多机（32卡）测试
 
-> 我们会后续补充此内容。
+使用[`$mpirun`](../../../utils/mpi.md#通信框架可以从MPI中获取信息) 命令启动多机训练进程，例如:
+
+```
+echo "runing fp32 128"
+$mpirun  python main.py --mode=training_benchmark \
+	--use_xla \
+	--warmup_steps 200 \
+	--num_iter 500 \
+	--iter_unit batch \
+	--batch_size 128 \
+	--data_dir=./data/tfrecords/ \
+	--results_dir=./results/gpu8_fp32_bs128
+```
 
 ## 四、测试结果
 

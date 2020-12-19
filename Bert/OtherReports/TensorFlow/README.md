@@ -105,13 +105,18 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 ### 2. 多机（32卡）环境搭建
 
-请参考PytorchBERT的[多机环境搭建](../PyTorch/README.md#2-多机32卡环境搭建)
+- IB配置(可选）
+请参考[这里](../../../utils/ib.md)
+	
+- MPI配置
+请参考[这里](../../../utils/mpi.md)
 
 ## 三、测试步骤
 
 为了更准确的测试 NGC TensorFlow 在 `NVIDIA DGX-1 (8x V100 16GB)` 的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
 官方提供的 [scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh) 执行脚本中，默认配置的是两阶段训练。我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。因此我们注释掉了[scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh#L60)的60行：
+
 ```bash
 # RUN PHASE 2
 # bash scripts/run_pretraining_lamb_phase2.sh $SCRIPT_ARGS |& tee -a $LOGFILE
@@ -130,6 +135,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 为了更方便地测试不同 batch_size、num_gpus、precision组合下的 Pre-Training 性能，我们单独编写了 `run_benchmark.sh` 脚本，并放在`scripts`目录下。
 
 - **shell 脚本内容如下：**
+
   ```bash
   #!/bin/bash
 
@@ -166,7 +172,10 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 基础配置和上文所述的单机配置相同，多机这部分主要侧重于多机和单机的差异部分。
 
-- 简介
+NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布式通信框架。
+
+- 我们需要改动原始[`mpi命令`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L68)为我们的`$mpirun`命令请参考[这里](../../../utils/mpi.md#需要把集群节点环境传给通信框架) 
+- 另外把[mpi](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L92)改为`$mpirun`
 
 
 ## 四、测试结果

@@ -55,6 +55,7 @@
 
 
 - 下载NGC PyTorch repo,并进入目录
+
    ```bash
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/PyTorch/Classification/ConvNets
@@ -63,11 +64,13 @@
    ```
 
 - 制作Docker镜像
+
    ```bash
    docker build . -t nvidia_rn50_pytorch
    ```
 
 - 启动Docker
+
    ```bash
    # 假设imagenet数据放在<path to data>目录下
    nvidia-docker run --rm -it -v <path to data>:/imagenet --ipc=host nvidia_rn50_pytorch
@@ -75,7 +78,11 @@
 
 ### 2.多机（32卡）环境搭建
 
-> 我们会后续补充此内容。
+- IB配置(可选）
+请参考[这里](../../../utils/ib.md)
+	
+- MPI配置
+请参考[这里](../../../utils/mpi.md)
 
 ## 三、测试步骤
 
@@ -84,12 +91,14 @@
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet50 v1.5 For PyTorch》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 
 - 下载我们编写的测试脚本，并执行该脚本
+
    ```bash
    wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/OtherReports/PyTorch/scripts/pytorch_test_all.sh
    bash pytorch_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：
+
    ```
    /log/pytorch_gpu1_fp32_bs128.txt
    /log/pytorch_gpu1_amp_bs128.txt
@@ -102,8 +111,56 @@
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
 
 ### 2.多机（32卡）测试
+为了方便测试，我们封装了一下NGC的启动脚本
 
-> 我们会后续补充此内容。
+```
+#!/bin/bash
+set -xe
+
+batch_size=$1  # batch size per gpu
+num_gpus=$2    # number of gpu
+precision=$3   # --amp or ""
+train_steps=${4:-100}    # max train steps
+
+export NODE_RANK=`python get_mpi_rank.py`
+
+export env_path=/workspace/DeepLearningExamples/PyTorch/Classification/ConvNets
+cd ${env_path}
+
+python ./multiproc.py \
+   --master_addr ${MASTER_NODE} \
+   --master_port ${MASTER_PORT} \
+   --nnodes ${NUM_NODES}  \
+   --nproc_per_node ${num_gpus} \
+   --node_rank ${NODE_RANK} \
+./main.py --arch resnet50 \
+	${precision} -b ${batch_size} \
+	--training-only \
+	-p 1 \
+	--raport-file benchmark.json \
+	--epochs 1 \
+	--prof ${train_steps} ./data/imagenet
+```
+
+然后使用一个脚本测试多个实验
+
+```
+# fp32
+echo "begin run 128 fp32 on 8 gpus"
+$mpirun bash ./run_benchmark.sh  128 8 ""
+
+echo "begin run 256 fp32 on 8 gpus"
+$mpirun bash ./run_benchmark.sh  256 8 ""
+
+# fp16
+echo "begin run 128 fp16 on 8 gpus"
+$mpirun bash ./run_benchmark.sh  128 8 "--amp"
+
+echo "begin run 256 fp16 on 8 gpus"
+$mpirun bash ./run_benchmark.sh  256 8 "--amp"
+```
+
+其中mpi的使用参考[这里](../../../utils/mpi.md#需要把集群节点环境传给通信框架) 
 
 
 ## 四、测试结果

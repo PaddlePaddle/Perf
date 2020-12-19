@@ -22,13 +22,8 @@ export SSHD_PORT=xxxx
 
 
 ##  MPI Cluster使用简介
-### 使用集群，我们主要需要知道几个信息：
-
-- Cluster nodes(size and ips(or hostnames))
-- Node rank
-- 环境变量统一
-
-### 下边是一个改造的脚本，主要获取可用`mpirun`命令。注意看注释部分
+### 需要把集群节点环境传给通信框架
+如MPI管理的进程中调用了Pytorch的Launch
 
 ```
 # 下边的环境变量需要根据集群的环境进行修改
@@ -57,18 +52,50 @@ mpirun="/usr/local/openmpi-3.1.0/bin/orterun --allow-run-as-root -tag-output \
    -x NCCL_IB_GID_INDEX \
    -x NCCL_DEBUG \
    -x NCCL_SOCKET_IFNAME \
-   -x IBV_DRIVERS -x MASTER_NODE -x MASTER_PORT -x NUM_NODES -x HOME_WORK_DIR"
+   -x IBV_DRIVERS -x MASTER_NODE -x MASTER_PORT -x NUM_NODES -x WORKSPACE"
 ```
-   
-#### 其中hostfile是一个配置文件，格式如下，注意其中的`slots=1`，表示单机启动一个MPI进程
 
-- 对Pytorch的Launch而言，代表`launch`进程，`launch`模块会启动多个GPU卡上的进程
-- 对于其他而言，需要设置`slots=8`，表示单机启动8个MPI进程
-	
+其中hostfile是一个配置文件, 注意其中的`slots=1`，表示单机启动一个MPI进程
+
 ```
 hostname1 slots=1
 hostname2 slots=1
 ```
+
+
+### 通信框架可以从MPI中获取信息
+如MPI管理进程，进程使用Horovod作为通信框架
+
+```
+# 下边的环境变量需要根据集群的环境进行修改
+export NCCL_IB_GID_INDEX=3
+export NCCL_DEBUG=INFO
+export NCCL_SOCKET_IFNAME=xgbe0
+# 注意这个变量，小坑，主要是让IB找到对应的设备驱动
+# 你的机器上可能不用写
+export IBV_DRIVERS=mlx5
+		
+# 传给mpi的变量需要根据自己的环境自己设定
+# 不熟悉 mpi的同学尤其要注意环境变量
+# slaver节点上的mpi启动时，其环境变量按道理应该继承当前机器环境，但经过测试未必是这样，还是直接手动指定来的保险
+mpirun="/usr/local/openmpi-3.1.0/bin/orterun --allow-run-as-root -tag-output \
+   -timestamp-output --hostfile ${WORKSPACE}/hostfile \
+   -mca btl_tcp_if_exclude docker0,lo,matrixdummy0,matrix0 \
+   -x PATH -x LD_LIBRARY_PATH \
+   -x NCCL_IB_GID_INDEX \
+   -x NCCL_DEBUG \
+   -x NCCL_SOCKET_IFNAME \
+   -x IBV_DRIVERS -x WORKSPACE"
+```
+
+其中hostfile为
+
+```
+hostname1 slots=8
+hostname2 slots=8
+```
+注意其中的`slots=8`，表示单机启动8(卡数个）个MPI进程
+   
 	
 #### 获得当前机器的mpirank，原作者在[这里](https://gist.github.com/serihiro/33f8f775cd8ba524d7b20d08d170e69c)，拷贝如下
 	

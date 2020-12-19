@@ -195,6 +195,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     
     # NODE_RANK主要用于多机，单机可以不用这行。
     export NODE_RANK=`python get_mpi_rank.py`
+    # 防止checkpoints冲突
+    rm -rf results/checkpoints
 
     # run pre-training
     bash scripts/run_pretraining.sh $train_batch_size 6e-3 $precision $num_gpus 0.2843 $train_steps 200 false true true $gradient_accumulation_steps
@@ -233,18 +235,18 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 	
 - **多机启动脚本**
 
-`$mpirun`命令请参考[这里](../../../utils/mpi.md)
-
-```
-# fp32
-echo "begin run bs:32 fp32 on 8 gpus"
-$mpirun bash ./run_benchmark.sh  32 8 fp32
+	`$mpirun`命令请参考[这里](../../../utils/mpi.md#需要把集群节点环境传给通信框架)
 	
-echo "begin run bs:48 fp32 on 8 gpus"
-$mpirun bash ./run_benchmark.sh  48 8 fp32
-	
-# add more test
-```
+	```
+	# fp32
+	echo "begin run bs:32 fp32 on 8 gpus"
+	$mpirun bash ./run_benchmark.sh  32 8 fp32
+		
+	echo "begin run bs:48 fp32 on 8 gpus"
+	$mpirun bash ./run_benchmark.sh  48 8 fp32
+		
+	# add more test
+	```
 	
 	
 ## 四、测试结果
