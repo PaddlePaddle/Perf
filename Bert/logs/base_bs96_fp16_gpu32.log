@@ -1,0 +1,77 @@
+-----------  Configuration Arguments -----------
+gpus: 0,1,2,3,4,5,6,7
+heter_worker_num: None
+heter_workers:
+http_port: None
+ips: 127.0.0.1
+log_dir: log
+nproc_per_node: None
+server_num: None
+servers:
+training_script: ./benchmark/bert/run_pretrain.py
+training_script_args: ['--model_type', 'bert', '--model_name_or_path', 'bert-base-uncased', '--max_predictions_per_seq', '20', '--batch_size', '96', '--use_amp', 'True', '--learning_rate', '1e-4', '--weight_decay', '1e-2', '--adam_epsilon', '1e-6', '--warmup_steps', '10000', '--input_dir', '/root/paddlejob/workspace/env_run/data/', '--output_dir', './tmp2/', '--logging_steps', '20', '--save_steps', '20000', '--max_steps', '500']
+worker_num: None
+workers:
+------------------------------------------------
+launch train in GPU mode
+/root/paddlejob/workspace/env_run/models/PaddleNLP/paddlenlp/seq2vec/encoder.py:683: DeprecationWarning: invalid escape sequence \s
+  """
+/root/paddlejob/workspace/env_run/models/PaddleNLP/paddlenlp/seq2vec/encoder.py:740: DeprecationWarning: invalid escape sequence \s
+  """
+[32m[2020-12-18 20:08:04,169] [    INFO][0m - Downloading bert-base-uncased-vocab.txt from https://paddle-hapi.bj.bcebos.com/models/bert/bert-base-uncased-vocab.txt[0m
+
+  0%|          | 0/227 [00:00<?, ?it/s]
+100%|██████████| 227/227 [00:00<00:00, 2289.64it/s]
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /root/paddlejob/workspace/env_run/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:58
+The behavior of expression A - B has been unified with elementwise_sub(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_sub(X, Y, axis=0) instead of A - B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /root/paddlejob/workspace/env_run/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:67
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:378
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:527
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:535
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /root/paddlejob/workspace/env_run/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:501
+The behavior of expression A / B has been unified with elementwise_div(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_div(X, Y, axis=0) instead of A / B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:617: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+  "It is recommended to use DistributedStrategy "
+server not ready, wait 3 sec to retry...
+not ready endpoints:['job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40607', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40608', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40609', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40610', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40611', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40612', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40613']
+server not ready, wait 3 sec to retry...
+not ready endpoints:['job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40607', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40608', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40609', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40610', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40611', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40612', 'job-0bb5fdc976c79555-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b:40613']
+W1218 20:08:16.360921  1531 device_context.cc:326] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W1218 20:08:16.367008  1531 device_context.cc:336] device: 0, cuDNN Version: 7.6.
+W1218 20:08:33.583545  1531 build_strategy.cc:116] Currently, fuse_broadcast_ops only works under Reduce mode.
+W1218 20:08:33.734078  1531 fuse_all_reduce_op_pass.cc:75] Find all_reduce operators: 206. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 20.
+global step 20, epoch: 0, batch: 19, loss: 11.197426, speed: 1.74 step/s, ips :167.08 sequences/s
+global step 40, epoch: 0, batch: 39, loss: 11.089871, speed: 4.77 step/s, ips :457.72 sequences/s
+global step 60, epoch: 0, batch: 59, loss: 10.914724, speed: 4.77 step/s, ips :458.10 sequences/s
+global step 80, epoch: 0, batch: 79, loss: 10.723740, speed: 4.78 step/s, ips :459.26 sequences/s
+global step 100, epoch: 0, batch: 99, loss: 10.561985, speed: 4.79 step/s, ips :459.80 sequences/s
+global step 120, epoch: 0, batch: 119, loss: 10.369303, speed: 4.78 step/s, ips :458.52 sequences/s
+global step 140, epoch: 0, batch: 139, loss: 10.191404, speed: 4.77 step/s, ips :458.24 sequences/s
+global step 160, epoch: 0, batch: 159, loss: 10.063056, speed: 4.80 step/s, ips :460.76 sequences/s
+global step 180, epoch: 0, batch: 179, loss: 10.010859, speed: 4.80 step/s, ips :460.58 sequences/s
+global step 200, epoch: 0, batch: 199, loss: 9.930153, speed: 4.78 step/s, ips :459.12 sequences/s
+global step 220, epoch: 0, batch: 12, loss: 9.879128, speed: 4.14 step/s, ips :397.02 sequences/s
+global step 240, epoch: 0, batch: 32, loss: 9.763649, speed: 4.78 step/s, ips :458.95 sequences/s
+global step 260, epoch: 0, batch: 52, loss: 9.735146, speed: 4.79 step/s, ips :459.98 sequences/s
+global step 280, epoch: 0, batch: 72, loss: 9.788185, speed: 4.78 step/s, ips :458.98 sequences/s
+global step 300, epoch: 0, batch: 92, loss: 9.739994, speed: 4.79 step/s, ips :459.57 sequences/s
+global step 320, epoch: 0, batch: 112, loss: 9.655311, speed: 4.78 step/s, ips :458.66 sequences/s
+global step 340, epoch: 0, batch: 132, loss: 9.721869, speed: 4.78 step/s, ips :459.10 sequences/s
+global step 360, epoch: 0, batch: 152, loss: 9.678893, speed: 4.78 step/s, ips :459.14 sequences/s
+global step 380, epoch: 0, batch: 172, loss: 9.572629, speed: 4.78 step/s, ips :459.13 sequences/s
+global step 400, epoch: 0, batch: 192, loss: 9.531414, speed: 4.78 step/s, ips :458.81 sequences/s
+global step 420, epoch: 0, batch: 5, loss: 9.547091, speed: 4.09 step/s, ips :392.40 sequences/s
+global step 440, epoch: 0, batch: 25, loss: 9.464081, speed: 4.76 step/s, ips :457.26 sequences/s
+global step 460, epoch: 0, batch: 45, loss: 9.436922, speed: 4.77 step/s, ips :458.00 sequences/s
+global step 480, epoch: 0, batch: 65, loss: 9.429239, speed: 4.76 step/s, ips :457.39 sequences/s
+global step 500, epoch: 0, batch: 85, loss: 9.515279, speed: 4.76 step/s, ips :457.42 sequences/s

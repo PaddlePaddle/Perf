@@ -126,7 +126,7 @@ $mpirun  python main.py --mode=training_benchmark \
 	--iter_unit batch \
 	--batch_size 128 \
 	--data_dir=./data/tfrecords/ \
-	--results_dir=./results/gpu8_fp32_bs128
+	--results_dir=./results/gpu32_fp32_bs128
 ```
 
 ## 四、测试结果
@@ -137,7 +137,7 @@ $mpirun  python main.py --mode=training_benchmark \
 |:-----:|:-----:|:-----:|:-----:|
 |1 | 408.3 | 954.9 | 978.8 |
 |8 | 3105.3 | 7829.9 | 7810.8 |
-|32 | - | - | - |
+|32 | 11622.9 | 21826.6 | 23280.9 |
 
 ## 五、日志数据
 - [1卡 FP32 BS=128 日志](./logs/tf_gpu1_fp32_bs128.txt)
