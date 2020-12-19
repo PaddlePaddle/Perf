@@ -95,7 +95,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/models.git
-  cd models && git checkout 33d65b3150621fdfa4500b9ebac4a8dfcc7e2229
+  cd models && git checkout 5b4aef8ecef2c6f9a4ec81652a4138c623a754ba
   ```
 
 
@@ -269,7 +269,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
    |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|:-----:|:-----:|
    |1 |147.14 | 153.47 | 595.49 | 628.25 |
-   |8 | - | - | - | - |
+   |8 | 1072.26 | 1119.37 | 3902.41 | 4202.70 |
    |32 | - | - | - | - |
 
 ### 2.与业内其它框架对比
