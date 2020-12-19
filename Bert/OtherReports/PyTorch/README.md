@@ -184,6 +184,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     # run pre-training
     bash scripts/run_pretraining.sh $train_batch_size 6e-3 $precision $num_gpus 0.2843 $train_steps 200 false true true $gradient_accumulation_steps
     ```
+    > 注：由于原始 global_batch_size=65536 对于 batch_size=48/96 时出现除不尽情况。因此我们按照就近原则，选取 67584 作为 global_batch_size.
 
 - **单卡启动脚本：**
 

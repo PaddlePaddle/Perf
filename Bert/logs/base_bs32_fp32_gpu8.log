@@ -1,0 +1,90 @@
+WARNING 2020-12-18 21:33:50,396 launch.py:314] Not found distinct arguments and compiled with cuda. Default use collective mode
+INFO 2020-12-18 21:33:50,398 launch_utils.py:471] Local start 8 processes. First process distributed environment info (Only For Debug):
+    +=======================================================================================+
+    |                        Distributed Envs                      Value                    |
+    +---------------------------------------------------------------------------------------+
+    |                       PADDLE_TRAINER_ID                        0                      |
+    |                 PADDLE_CURRENT_ENDPOINT                 127.0.0.1:29793               |
+    |                     PADDLE_TRAINERS_NUM                        8                      |
+    |                PADDLE_TRAINER_ENDPOINTS  ... 0.1:35154,127.0.0.1:29591,127.0.0.1:57496|
+    |                     FLAGS_selected_gpus                        0                      |
+    +=======================================================================================+
+
+INFO 2020-12-18 21:33:50,399 launch_utils.py:475] details abouts PADDLE_TRAINER_ENDPOINTS can be found in log/endpoints.log.
+-----------  Configuration Arguments -----------
+gpus: 0,1,2,3,4,5,6,7
+heter_worker_num: None
+heter_workers:
+http_port: None
+ips: 127.0.0.1
+log_dir: log
+nproc_per_node: None
+server_num: None
+servers:
+training_script: ./run_pretrain.py
+training_script_args: ['--model_type', 'bert', '--model_name_or_path', 'bert-base-uncased', '--max_predictions_per_seq', '20', '--batch_size', '32', '--learning_rate', '1e-4', '--weight_decay', '1e-2', '--adam_epsilon', '1e-6', '--warmup_steps', '10000', '--input_dir', '/workspace/models/bert_data/', '--output_dir', './tmp2/', '--logging_steps', '20', '--save_steps', '50000', '--max_steps', '500', '--use_amp', 'False', '--enable_addto', 'True']
+worker_num: None
+workers:
+------------------------------------------------
+launch train in GPU mode
+Gloo init with HTTP: need_init_all: False, args: {'http.host': '127.0.0.1', 'http.port': '29793', 'store.prefix': '', 'start_http_server': True, 'http_server_d': <DictProxy object, typeid 'dict' at 0x7f98b5b7a950>}
+to start http_server
+worker_key:_worker, size: {'_worker': 8}
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:29793']
+start http_server: 29793, {'_worker': 8}
+[32m[2020-12-18 21:33:56,982] [    INFO][0m - Found /root/.paddlenlp/models/bert-base-uncased/bert-base-uncased-vocab.txt[0m
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:58
+The behavior of expression A - B has been unified with elementwise_sub(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_sub(X, Y, axis=0) instead of A - B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:67
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/env3.7/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:378
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/env3.7/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:527
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/env3.7/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:535
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:298: UserWarning: /workspace/models/PaddleNLP/paddlenlp/transformers/bert/modeling.py:501
+The behavior of expression A / B has been unified with elementwise_div(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_div(X, Y, axis=0) instead of A / B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/workspace/models/env3.7/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:617: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+  "It is recommended to use DistributedStrategy "
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:24996', '127.0.0.1:16772', '127.0.0.1:53414', '127.0.0.1:60872', '127.0.0.1:35154', '127.0.0.1:29591', '127.0.0.1:57496']
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:24996', '127.0.0.1:16772', '127.0.0.1:53414', '127.0.0.1:60872', '127.0.0.1:35154', '127.0.0.1:29591', '127.0.0.1:57496']
+W1218 21:34:04.755458  5730 device_context.cc:320] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W1218 21:34:04.761037  5730 device_context.cc:330] device: 0, cuDNN Version: 7.6.
+W1218 21:34:24.291625  5730 build_strategy.cc:116] Currently, fuse_broadcast_ops only works under Reduce mode.
+W1218 21:34:24.448230  5730 fuse_all_reduce_op_pass.cc:75] Find all_reduce operators: 206. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 19.
+global step 20, epoch: 0, batch: 19, loss: 11.140008, speed: 1.51 step/s, ips: 48.36 sequences/s
+global step 40, epoch: 0, batch: 39, loss: 11.068165, speed: 4.23 step/s, ips: 135.26 sequences/s
+global step 60, epoch: 0, batch: 59, loss: 10.910196, speed: 4.20 step/s, ips: 134.51 sequences/s
+global step 80, epoch: 0, batch: 79, loss: 10.745554, speed: 4.19 step/s, ips: 134.21 sequences/s
+global step 100, epoch: 0, batch: 99, loss: 10.466980, speed: 4.20 step/s, ips: 134.43 sequences/s
+global step 120, epoch: 0, batch: 119, loss: 10.163377, speed: 4.19 step/s, ips: 134.05 sequences/s
+global step 140, epoch: 0, batch: 139, loss: 10.299764, speed: 4.20 step/s, ips: 134.30 sequences/s
+global step 160, epoch: 0, batch: 159, loss: 10.085843, speed: 4.20 step/s, ips: 134.34 sequences/s
+global step 180, epoch: 0, batch: 179, loss: 9.940905, speed: 4.19 step/s, ips: 134.08 sequences/s
+global step 200, epoch: 0, batch: 199, loss: 9.869316, speed: 4.18 step/s, ips: 133.90 sequences/s
+global step 220, epoch: 0, batch: 219, loss: 9.766950, speed: 4.19 step/s, ips: 134.03 sequences/s
+global step 240, epoch: 0, batch: 239, loss: 9.826408, speed: 4.19 step/s, ips: 134.03 sequences/s
+global step 260, epoch: 0, batch: 259, loss: 9.552658, speed: 4.19 step/s, ips: 134.10 sequences/s
+global step 280, epoch: 0, batch: 279, loss: 9.521400, speed: 4.19 step/s, ips: 133.95 sequences/s
+global step 300, epoch: 0, batch: 299, loss: 9.642759, speed: 4.19 step/s, ips: 134.13 sequences/s
+global step 320, epoch: 0, batch: 319, loss: 9.745977, speed: 4.19 step/s, ips: 133.92 sequences/s
+global step 340, epoch: 0, batch: 339, loss: 9.340879, speed: 4.19 step/s, ips: 134.06 sequences/s
+global step 360, epoch: 0, batch: 359, loss: 9.225571, speed: 4.18 step/s, ips: 133.64 sequences/s
+global step 380, epoch: 0, batch: 379, loss: 9.492818, speed: 4.18 step/s, ips: 133.76 sequences/s
+global step 400, epoch: 0, batch: 399, loss: 9.433019, speed: 4.19 step/s, ips: 133.99 sequences/s
+global step 420, epoch: 0, batch: 419, loss: 9.392838, speed: 4.18 step/s, ips: 133.73 sequences/s
+global step 440, epoch: 0, batch: 439, loss: 9.275103, speed: 4.18 step/s, ips: 133.68 sequences/s
+global step 460, epoch: 0, batch: 459, loss: 9.230361, speed: 4.17 step/s, ips: 133.40 sequences/s
+global step 480, epoch: 0, batch: 479, loss: 9.007637, speed: 4.18 step/s, ips: 133.64 sequences/s
+INFO 2020-12-18 21:36:32,680 launch.py:238] Local processes completed.
+global step 500, epoch: 0, batch: 499, loss: 9.271927, speed: 4.18 step/s, ips: 133.65 sequences/s
