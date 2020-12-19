@@ -1,0 +1,458 @@
+Sat Dec 19 14:59:49 2020[1,1]<stdout>:Container nvidia build =
+Sat Dec 19 14:59:49 2020[1,3]<stdout>:Container nvidia build =
+Sat Dec 19 14:59:49 2020[1,2]<stdout>:Container nvidia build =
+Sat Dec 19 14:59:49 2020[1,1]<stdout>:.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training//
+Sat Dec 19 14:59:49 2020[1,1]<stdout>:pytorch cmd: python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=1 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,3]<stdout>:.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training//
+Sat Dec 19 14:59:49 2020[1,3]<stdout>:pytorch cmd: python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=3 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,2]<stdout>:.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training//
+Sat Dec 19 14:59:49 2020[1,2]<stdout>:pytorch cmd: python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=2 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,1]<stdout>:Logs written to .//results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.201219145949.log
+Sat Dec 19 14:59:49 2020[1,3]<stdout>:Logs written to .//results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.201219145949.log
+Sat Dec 19 14:59:49 2020[1,2]<stdout>:Logs written to .//results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.201219145949.log
+Sat Dec 19 14:59:49 2020[1,0]<stdout>:Container nvidia build =  13419386
+Sat Dec 19 14:59:49 2020[1,1]<stdout>:+ python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=1 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,3]<stdout>:+ python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=3 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,2]<stdout>:+ python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=2 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,0]<stdout>:.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training//
+Sat Dec 19 14:59:49 2020[1,0]<stdout>:pytorch cmd: python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=0 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:49 2020[1,0]<stdout>:Logs written to .//results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.201219145949.log
+Sat Dec 19 14:59:49 2020[1,0]<stdout>:+ python -m torch.distributed.launch --nproc_per_node=8 --nnodes 4 --node_rank=0 --master_addr=job-0bb5fdda2be8f3b5-trainer-0.a5139f34-68ad-5528-8bb7-a906d3bfbf7b --master_port=36573 .//run_pretraining.py --input_dir=.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training// --output_dir=.//results/checkpoints --config_file=bert_config_base.json --bert_model=bert-base-uncased --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=50 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=132 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary .//results/dllogger.json
+Sat Dec 19 14:59:51 2020[1,3]<stdout>:device: cuda:3 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,3]<stdout>:device: cuda:6 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,3]<stdout>:device: cuda:4 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,3]<stdout>:device: cuda:2 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,3]<stdout>:device: cuda:0 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,0]<stdout>:device: cuda:4 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,0]<stdout>:device: cuda:3 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,0]<stdout>:device: cuda:1 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,0]<stdout>:device: cuda:6 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:51 2020[1,0]<stdout>:device: cuda:2 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:1 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:5 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,0]<stdout>:device: cuda:5 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,3]<stdout>:device: cuda:7 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:5 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:0 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,3]<stdout>:device: cuda:5 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:2 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,3]<stdout>:device: cuda:1 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:3 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:4 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:7 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:3 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:0 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,1]<stdout>:device: cuda:6 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:1 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:6 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:2 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:7 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,2]<stdout>:device: cuda:4 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,0]<stdout>:device: cuda:7 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,0]<stdout>:device: cuda:0 n_gpu: 1, distributed training: True, 16-bits training: True
+Sat Dec 19 14:59:52 2020[1,0]<stdout>:DLL 2020-12-19 14:59:52.751878 - PARAMETER Config : ["Namespace(allreduce_post_accumulation=True, allreduce_post_accumulation_fp16=True, amp=False, bert_model='bert-base-uncased', checkpoint_activations=False, config_file='bert_config_base.json', disable_progress_bar=False, do_train=True, fp16=True, gradient_accumulation_steps=132, init_checkpoint=None, init_loss_scale=1048576, input_dir='.//./data/hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5/wikicorpus_en/training//', json_summary='.//results/dllogger.json', learning_rate=0.006, local_rank=0, log_freq=1.0, loss_scale=0.0, max_predictions_per_seq=20, max_seq_length=128, max_steps=50.0, n_gpu=1, num_steps_per_checkpoint=200, num_train_epochs=3.0, output_dir='.//results/checkpoints', phase1_end_step=7038, phase2=False, resume_from_checkpoint=False, resume_step=-1, seed=12439, skip_checkpoint=False, steps_this_run=50.0, train_batch_size=64, use_env=False, warmup_proportion=0.2843)"]
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:Selected optimization level O2:  FP16 training with FP32 batchnorm and FP32 master weights.
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:Defaults for this optimization level are:
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:enabled                : True
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:opt_level              : O2
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:cast_model_type        : torch.float16
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:patch_torch_functions  : False
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:keep_batchnorm_fp32    : True
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:master_weights         : True
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:loss_scale             : dynamic
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:Processing user overrides (additional kwargs that are not None)...
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:After processing overrides, optimization options are:
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:enabled                : True
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:opt_level              : O2
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:cast_model_type        : torch.float16
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:patch_torch_functions  : False
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:keep_batchnorm_fp32    : True
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:master_weights         : True
+Sat Dec 19 14:59:58 2020[1,0]<stdout>:loss_scale             : dynamic
+Iteration:   0%|          | 0/1713 [00:00<?, ?it/s]Sat Dec 19 15:14:45 2020[1,0]<stdout>:
+Iteration:   0%|          | 1/1713 [00:00<08:38,  3.30it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 2/1713 [00:00<07:06,  4.01it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 3/1713 [00:00<06:01,  4.73it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 4/1713 [00:00<05:15,  5.42it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 5/1713 [00:00<04:43,  6.02it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 6/1713 [00:00<04:21,  6.53it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 7/1713 [00:01<04:06,  6.93it/s]Sat Dec 19 15:14:46 2020[1,0]<stdout>:
+Iteration:   0%|          | 8/1713 [00:01<05:18,  5.35it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 9/1713 [00:01<04:45,  5.97it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 10/1713 [00:01<04:22,  6.49it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 11/1713 [00:01<04:06,  6.91it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 12/1713 [00:01<03:54,  7.25it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 13/1713 [00:01<03:47,  7.49it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 14/1713 [00:02<03:41,  7.66it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 15/1713 [00:02<03:37,  7.80it/s]Sat Dec 19 15:14:47 2020[1,0]<stdout>:
+Iteration:   1%|          | 16/1713 [00:02<03:34,  7.90it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|          | 17/1713 [00:02<03:33,  7.96it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|          | 18/1713 [00:02<03:31,  8.02it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|          | 19/1713 [00:02<03:29,  8.07it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|          | 20/1713 [00:02<03:28,  8.10it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|          | 21/1713 [00:02<03:28,  8.12it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|▏         | 22/1713 [00:03<03:27,  8.13it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|▏         | 23/1713 [00:03<03:28,  8.12it/s]Sat Dec 19 15:14:48 2020[1,0]<stdout>:
+Iteration:   1%|▏         | 24/1713 [00:03<03:28,  8.11it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   1%|▏         | 25/1713 [00:03<03:28,  8.10it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 26/1713 [00:03<03:27,  8.12it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 27/1713 [00:03<03:27,  8.13it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 28/1713 [00:03<03:27,  8.14it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 29/1713 [00:03<03:26,  8.14it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 30/1713 [00:04<03:26,  8.16it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 31/1713 [00:04<03:25,  8.17it/s]Sat Dec 19 15:14:49 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 32/1713 [00:04<03:25,  8.18it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 33/1713 [00:04<03:25,  8.18it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 34/1713 [00:04<03:25,  8.18it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 35/1713 [00:04<03:25,  8.16it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 36/1713 [00:04<03:26,  8.13it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 37/1713 [00:04<03:26,  8.14it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 38/1713 [00:05<03:26,  8.13it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 39/1713 [00:05<03:25,  8.13it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 40/1713 [00:05<03:25,  8.14it/s]Sat Dec 19 15:14:50 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 41/1713 [00:05<03:24,  8.16it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   2%|▏         | 42/1713 [00:05<03:24,  8.17it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 43/1713 [00:05<03:24,  8.18it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 44/1713 [00:05<03:24,  8.16it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 45/1713 [00:05<03:24,  8.14it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 46/1713 [00:05<03:25,  8.13it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 47/1713 [00:06<03:25,  8.12it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 48/1713 [00:06<03:24,  8.13it/s]Sat Dec 19 15:14:51 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 49/1713 [00:06<03:24,  8.13it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 50/1713 [00:06<03:24,  8.13it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 51/1713 [00:06<03:24,  8.13it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 52/1713 [00:06<03:24,  8.12it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 53/1713 [00:06<03:24,  8.10it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 54/1713 [00:06<03:25,  8.09it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 55/1713 [00:07<03:24,  8.10it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 56/1713 [00:07<03:24,  8.12it/s]Sat Dec 19 15:14:52 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 57/1713 [00:07<03:23,  8.14it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 58/1713 [00:07<03:23,  8.14it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   3%|▎         | 59/1713 [00:07<03:22,  8.15it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   4%|▎         | 60/1713 [00:07<03:22,  8.17it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   4%|▎         | 61/1713 [00:07<03:22,  8.17it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   4%|▎         | 62/1713 [00:07<03:22,  8.16it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   4%|▎         | 63/1713 [00:08<03:22,  8.16it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   4%|▎         | 64/1713 [00:08<03:22,  8.15it/s]Sat Dec 19 15:14:53 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 65/1713 [00:08<03:22,  8.12it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 66/1713 [00:08<03:23,  8.11it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 67/1713 [00:08<03:22,  8.12it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 68/1713 [00:08<03:22,  8.12it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 69/1713 [00:08<03:22,  8.13it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 70/1713 [00:08<03:21,  8.14it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 71/1713 [00:09<03:21,  8.16it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 72/1713 [00:09<03:20,  8.17it/s]Sat Dec 19 15:14:54 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 73/1713 [00:09<03:20,  8.18it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 74/1713 [00:09<03:20,  8.17it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 75/1713 [00:09<03:21,  8.15it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 76/1713 [00:09<03:21,  8.14it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   4%|▍         | 77/1713 [00:09<03:20,  8.14it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 78/1713 [00:09<03:20,  8.16it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 79/1713 [00:10<03:20,  8.15it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 80/1713 [00:10<03:20,  8.16it/s]Sat Dec 19 15:14:55 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 81/1713 [00:10<03:19,  8.16it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 82/1713 [00:10<03:19,  8.16it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 83/1713 [00:10<03:20,  8.14it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 84/1713 [00:10<03:20,  8.11it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▍         | 85/1713 [00:10<03:20,  8.12it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 86/1713 [00:10<03:19,  8.14it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 87/1713 [00:11<03:19,  8.15it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 88/1713 [00:11<03:19,  8.15it/s]Sat Dec 19 15:14:56 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 89/1713 [00:11<03:19,  8.16it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 90/1713 [00:11<03:18,  8.16it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 91/1713 [00:11<03:19,  8.14it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 92/1713 [00:11<03:19,  8.11it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 93/1713 [00:11<03:19,  8.12it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   5%|▌         | 94/1713 [00:11<03:19,  8.11it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 95/1713 [00:12<03:19,  8.10it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 96/1713 [00:12<03:19,  8.11it/s]Sat Dec 19 15:14:57 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 97/1713 [00:12<03:18,  8.13it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 98/1713 [00:12<03:18,  8.14it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 99/1713 [00:12<03:18,  8.15it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 100/1713 [00:12<03:17,  8.15it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 101/1713 [00:12<03:18,  8.13it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 102/1713 [00:12<03:18,  8.11it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 103/1713 [00:12<03:18,  8.11it/s]Sat Dec 19 15:14:58 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 104/1713 [00:13<03:18,  8.12it/s]Sat Dec 19 15:14:59 2020[1,0]<stdout>:DLL 2020-12-19 15:14:59.459494 - Training Epoch: 0 Training Iteration: 48  average_loss : 7.991033380681818  step_loss : 8.0  learning_rate : 0.0012000000000000005
+Sat Dec 19 15:14:59 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 105/1713 [00:13<08:04,  3.32it/s]Sat Dec 19 15:14:59 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 106/1713 [00:13<06:37,  4.04it/s]Sat Dec 19 15:14:59 2020[1,0]<stdout>:
+Iteration:   6%|▌         | 107/1713 [00:14<05:36,  4.77it/s]Sat Dec 19 15:14:59 2020[1,0]<stdout>:
+Iteration:   6%|▋         | 108/1713 [00:14<04:54,  5.45it/s]Sat Dec 19 15:14:59 2020[1,0]<stdout>:
+Iteration:   6%|▋         | 109/1713 [00:14<04:24,  6.05it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   6%|▋         | 110/1713 [00:14<04:03,  6.57it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   6%|▋         | 111/1713 [00:14<03:49,  6.99it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 112/1713 [00:14<03:38,  7.31it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 113/1713 [00:14<03:31,  7.56it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 114/1713 [00:14<03:27,  7.72it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 115/1713 [00:15<03:24,  7.82it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 116/1713 [00:15<03:22,  7.89it/s]Sat Dec 19 15:15:00 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 117/1713 [00:15<03:20,  7.97it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 118/1713 [00:15<03:18,  8.03it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 119/1713 [00:15<03:17,  8.07it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 120/1713 [00:15<03:16,  8.10it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 121/1713 [00:15<03:15,  8.13it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 122/1713 [00:15<03:15,  8.14it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 123/1713 [00:16<03:15,  8.14it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 124/1713 [00:16<03:15,  8.14it/s]Sat Dec 19 15:15:01 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 125/1713 [00:16<03:14,  8.15it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 126/1713 [00:16<03:14,  8.15it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 127/1713 [00:16<03:14,  8.15it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   7%|▋         | 128/1713 [00:16<03:14,  8.16it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 129/1713 [00:16<03:13,  8.17it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 130/1713 [00:16<03:13,  8.17it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 131/1713 [00:17<03:13,  8.16it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 132/1713 [00:17<03:13,  8.18it/s]Sat Dec 19 15:15:02 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 133/1713 [00:17<03:13,  8.17it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 134/1713 [00:17<03:13,  8.15it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 135/1713 [00:17<03:14,  8.12it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 136/1713 [00:17<03:13,  8.13it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 137/1713 [00:17<03:13,  8.13it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 138/1713 [00:17<03:13,  8.14it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 139/1713 [00:18<03:13,  8.14it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 140/1713 [00:18<03:12,  8.16it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 141/1713 [00:18<03:12,  8.17it/s]Sat Dec 19 15:15:03 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 142/1713 [00:18<03:12,  8.17it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 143/1713 [00:18<03:12,  8.16it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 144/1713 [00:18<03:12,  8.15it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   8%|▊         | 145/1713 [00:18<03:12,  8.13it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   9%|▊         | 146/1713 [00:18<03:13,  8.12it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   9%|▊         | 147/1713 [00:18<03:12,  8.14it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   9%|▊         | 148/1713 [00:19<03:12,  8.14it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   9%|▊         | 149/1713 [00:19<03:11,  8.15it/s]Sat Dec 19 15:15:04 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 150/1713 [00:19<03:11,  8.17it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 151/1713 [00:19<03:11,  8.17it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 152/1713 [00:19<03:11,  8.15it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 153/1713 [00:19<03:12,  8.12it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 154/1713 [00:19<03:11,  8.12it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 155/1713 [00:19<03:11,  8.14it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 156/1713 [00:20<03:11,  8.15it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 157/1713 [00:20<03:10,  8.15it/s]Sat Dec 19 15:15:05 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 158/1713 [00:20<03:10,  8.16it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 159/1713 [00:20<03:10,  8.16it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 160/1713 [00:20<03:10,  8.16it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 161/1713 [00:20<03:10,  8.16it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:   9%|▉         | 162/1713 [00:20<03:09,  8.17it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 163/1713 [00:20<03:09,  8.17it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 164/1713 [00:21<03:09,  8.17it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 165/1713 [00:21<03:09,  8.16it/s]Sat Dec 19 15:15:06 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 166/1713 [00:21<03:09,  8.15it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 167/1713 [00:21<03:09,  8.14it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 168/1713 [00:21<03:10,  8.12it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 169/1713 [00:21<03:09,  8.13it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 170/1713 [00:21<03:09,  8.13it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|▉         | 171/1713 [00:21<03:09,  8.14it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|█         | 172/1713 [00:22<03:09,  8.14it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|█         | 173/1713 [00:22<03:08,  8.15it/s]Sat Dec 19 15:15:07 2020[1,0]<stdout>:
+Iteration:  10%|█         | 174/1713 [00:22<03:08,  8.16it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  10%|█         | 175/1713 [00:22<03:08,  8.15it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  10%|█         | 176/1713 [00:22<03:08,  8.15it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  10%|█         | 177/1713 [00:22<03:08,  8.15it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  10%|█         | 178/1713 [00:22<03:08,  8.13it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  10%|█         | 179/1713 [00:22<03:08,  8.12it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  11%|█         | 180/1713 [00:23<03:08,  8.13it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  11%|█         | 181/1713 [00:23<03:08,  8.14it/s]Sat Dec 19 15:15:08 2020[1,0]<stdout>:
+Iteration:  11%|█         | 182/1713 [00:23<03:07,  8.15it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 183/1713 [00:23<03:07,  8.16it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 184/1713 [00:23<03:07,  8.17it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 185/1713 [00:23<03:07,  8.15it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 186/1713 [00:23<03:07,  8.13it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 187/1713 [00:23<03:07,  8.13it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 188/1713 [00:24<03:07,  8.14it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 189/1713 [00:24<03:07,  8.14it/s]Sat Dec 19 15:15:09 2020[1,0]<stdout>:
+Iteration:  11%|█         | 190/1713 [00:24<03:06,  8.15it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  11%|█         | 191/1713 [00:24<03:06,  8.16it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  11%|█         | 192/1713 [00:24<03:06,  8.17it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  11%|█▏        | 193/1713 [00:24<03:06,  8.16it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  11%|█▏        | 194/1713 [00:24<03:06,  8.14it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  11%|█▏        | 195/1713 [00:24<03:06,  8.13it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  11%|█▏        | 196/1713 [00:25<03:06,  8.13it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 197/1713 [00:25<03:06,  8.13it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 198/1713 [00:25<03:06,  8.12it/s]Sat Dec 19 15:15:10 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 199/1713 [00:25<03:06,  8.14it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 200/1713 [00:25<03:05,  8.14it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 201/1713 [00:25<03:05,  8.14it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 202/1713 [00:25<03:05,  8.15it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 203/1713 [00:25<03:05,  8.16it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 204/1713 [00:25<03:04,  8.17it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 205/1713 [00:26<03:04,  8.18it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 206/1713 [00:26<03:04,  8.17it/s]Sat Dec 19 15:15:11 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 207/1713 [00:26<03:04,  8.15it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 208/1713 [00:26<03:05,  8.13it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 209/1713 [00:26<03:05,  8.12it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 210/1713 [00:26<03:04,  8.14it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 211/1713 [00:26<03:04,  8.14it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 212/1713 [00:26<03:04,  8.14it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 213/1713 [00:27<03:04,  8.15it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  12%|█▏        | 214/1713 [00:27<03:03,  8.15it/s]Sat Dec 19 15:15:12 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 215/1713 [00:27<03:04,  8.12it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 216/1713 [00:27<03:04,  8.10it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 217/1713 [00:27<03:04,  8.11it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 218/1713 [00:27<03:03,  8.13it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 219/1713 [00:27<03:03,  8.15it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 220/1713 [00:27<03:03,  8.15it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 221/1713 [00:28<03:02,  8.16it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 222/1713 [00:28<03:03,  8.14it/s]Sat Dec 19 15:15:13 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 223/1713 [00:28<03:03,  8.12it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 224/1713 [00:28<03:03,  8.10it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 225/1713 [00:28<03:03,  8.11it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 226/1713 [00:28<03:03,  8.12it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 227/1713 [00:28<03:02,  8.13it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 228/1713 [00:28<03:02,  8.14it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 229/1713 [00:29<03:02,  8.15it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 230/1713 [00:29<03:01,  8.16it/s]Sat Dec 19 15:15:14 2020[1,0]<stdout>:
+Iteration:  13%|█▎        | 231/1713 [00:29<03:01,  8.16it/s]Sat Dec 19 15:15:15 2020[1,0]<stdout>:
+Iteration:  14%|█▎        | 232/1713 [00:29<03:01,  8.15it/s]Sat Dec 19 15:15:15 2020[1,0]<stdout>:
+Iteration:  14%|█▎        | 233/1713 [00:29<03:01,  8.15it/s]Sat Dec 19 15:15:15 2020[1,0]<stdout>:
+Iteration:  14%|█▎        | 234/1713 [00:29<03:01,  8.14it/s]Sat Dec 19 15:15:15 2020[1,0]<stdout>:
+Iteration:  14%|█▎        | 235/1713 [00:29<03:01,  8.12it/s]Sat Dec 19 15:15:15 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 236/1713 [00:29<03:01,  8.13it/s]Sat Dec 19 15:15:16 2020[1,0]<stdout>:DLL 2020-12-19 15:15:16.337439 - Training Epoch: 0 Training Iteration: 49  average_loss : 7.98532196969697  step_loss : 7.98828125  learning_rate : 0.0008485281374238573
+Sat Dec 19 15:15:16 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 237/1713 [00:30<08:01,  3.07it/s]Sat Dec 19 15:15:16 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 238/1713 [00:30<06:30,  3.77it/s]Sat Dec 19 15:15:16 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 239/1713 [00:30<05:27,  4.50it/s]Sat Dec 19 15:15:16 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 240/1713 [00:31<04:43,  5.20it/s]Sat Dec 19 15:15:16 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 241/1713 [00:31<04:12,  5.84it/s]Sat Dec 19 15:15:16 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 242/1713 [00:31<03:50,  6.38it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 243/1713 [00:31<03:35,  6.83it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 244/1713 [00:31<03:24,  7.19it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 245/1713 [00:31<03:16,  7.46it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 246/1713 [00:31<03:11,  7.67it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 247/1713 [00:31<03:07,  7.81it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  14%|█▍        | 248/1713 [00:32<03:05,  7.89it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 249/1713 [00:32<03:04,  7.95it/s]Sat Dec 19 15:15:17 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 250/1713 [00:32<03:02,  8.00it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 251/1713 [00:32<03:01,  8.05it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 252/1713 [00:32<03:00,  8.08it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 253/1713 [00:32<03:00,  8.11it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 254/1713 [00:32<02:59,  8.13it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 255/1713 [00:32<02:59,  8.14it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▍        | 256/1713 [00:33<02:59,  8.12it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 257/1713 [00:33<02:59,  8.10it/s]Sat Dec 19 15:15:18 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 258/1713 [00:33<02:59,  8.10it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 259/1713 [00:33<02:58,  8.12it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 260/1713 [00:33<02:58,  8.13it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 261/1713 [00:33<02:58,  8.14it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 262/1713 [00:33<02:57,  8.16it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 263/1713 [00:33<02:57,  8.16it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 264/1713 [00:34<02:57,  8.17it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  15%|█▌        | 265/1713 [00:34<02:57,  8.17it/s]Sat Dec 19 15:15:19 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 266/1713 [00:34<02:56,  8.18it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 267/1713 [00:34<02:56,  8.17it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 268/1713 [00:34<02:57,  8.15it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 269/1713 [00:34<02:57,  8.15it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 270/1713 [00:34<02:57,  8.15it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 271/1713 [00:34<02:57,  8.15it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 272/1713 [00:35<02:56,  8.14it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 273/1713 [00:35<02:56,  8.15it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 274/1713 [00:35<02:56,  8.16it/s]Sat Dec 19 15:15:20 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 275/1713 [00:35<02:56,  8.16it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 276/1713 [00:35<02:55,  8.17it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 277/1713 [00:35<02:55,  8.16it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▌        | 278/1713 [00:35<02:56,  8.14it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▋        | 279/1713 [00:35<02:56,  8.12it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▋        | 280/1713 [00:35<02:56,  8.12it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▋        | 281/1713 [00:36<02:55,  8.14it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  16%|█▋        | 282/1713 [00:36<02:55,  8.14it/s]Sat Dec 19 15:15:21 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 283/1713 [00:36<02:55,  8.15it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 284/1713 [00:36<02:55,  8.16it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 285/1713 [00:36<02:54,  8.17it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 286/1713 [00:36<02:54,  8.16it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 287/1713 [00:36<02:55,  8.13it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 288/1713 [00:36<02:55,  8.13it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 289/1713 [00:37<02:54,  8.14it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 290/1713 [00:37<02:54,  8.15it/s]Sat Dec 19 15:15:22 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 291/1713 [00:37<02:54,  8.15it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 292/1713 [00:37<02:53,  8.17it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 293/1713 [00:37<02:53,  8.17it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 294/1713 [00:37<02:53,  8.17it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 295/1713 [00:37<02:53,  8.16it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 296/1713 [00:37<02:53,  8.17it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 297/1713 [00:38<02:53,  8.17it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 298/1713 [00:38<02:53,  8.15it/s]Sat Dec 19 15:15:23 2020[1,0]<stdout>:
+Iteration:  17%|█▋        | 299/1713 [00:38<02:53,  8.15it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 300/1713 [00:38<02:53,  8.14it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 301/1713 [00:38<02:53,  8.12it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 302/1713 [00:38<02:54,  8.10it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 303/1713 [00:38<02:53,  8.11it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 304/1713 [00:38<02:53,  8.12it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 305/1713 [00:39<02:53,  8.13it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 306/1713 [00:39<02:52,  8.14it/s]Sat Dec 19 15:15:24 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 307/1713 [00:39<02:52,  8.16it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 308/1713 [00:39<02:52,  8.16it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 309/1713 [00:39<02:52,  8.13it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 310/1713 [00:39<02:52,  8.12it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 311/1713 [00:39<02:52,  8.13it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 312/1713 [00:39<02:52,  8.13it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 313/1713 [00:40<02:52,  8.13it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 314/1713 [00:40<02:51,  8.15it/s]Sat Dec 19 15:15:25 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 315/1713 [00:40<02:51,  8.15it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  18%|█▊        | 316/1713 [00:40<02:51,  8.15it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▊        | 317/1713 [00:40<02:51,  8.13it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▊        | 318/1713 [00:40<02:51,  8.12it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▊        | 319/1713 [00:40<02:51,  8.11it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▊        | 320/1713 [00:40<02:51,  8.10it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▊        | 321/1713 [00:41<02:51,  8.11it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 322/1713 [00:41<02:51,  8.13it/s]Sat Dec 19 15:15:26 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 323/1713 [00:41<02:50,  8.14it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 324/1713 [00:41<02:50,  8.15it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 325/1713 [00:41<02:50,  8.14it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 326/1713 [00:41<02:50,  8.14it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 327/1713 [00:41<02:49,  8.15it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 328/1713 [00:41<02:49,  8.16it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 329/1713 [00:42<02:49,  8.17it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 330/1713 [00:42<02:49,  8.16it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 331/1713 [00:42<02:49,  8.15it/s]Sat Dec 19 15:15:27 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 332/1713 [00:42<02:49,  8.14it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 333/1713 [00:42<02:49,  8.14it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  19%|█▉        | 334/1713 [00:42<02:49,  8.12it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 335/1713 [00:42<02:49,  8.11it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 336/1713 [00:42<02:49,  8.13it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 337/1713 [00:42<02:48,  8.14it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 338/1713 [00:43<02:48,  8.15it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 339/1713 [00:43<02:48,  8.15it/s]Sat Dec 19 15:15:28 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 340/1713 [00:43<02:48,  8.16it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 341/1713 [00:43<02:48,  8.16it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|█▉        | 342/1713 [00:43<02:48,  8.15it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|██        | 343/1713 [00:43<02:48,  8.12it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|██        | 344/1713 [00:43<02:48,  8.12it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|██        | 345/1713 [00:43<02:48,  8.10it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|██        | 346/1713 [00:44<02:48,  8.09it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|██        | 347/1713 [00:44<02:48,  8.11it/s]Sat Dec 19 15:15:29 2020[1,0]<stdout>:
+Iteration:  20%|██        | 348/1713 [00:44<02:48,  8.11it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  20%|██        | 349/1713 [00:44<02:47,  8.12it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  20%|██        | 350/1713 [00:44<02:47,  8.13it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  20%|██        | 351/1713 [00:44<02:47,  8.14it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  21%|██        | 352/1713 [00:44<02:47,  8.14it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  21%|██        | 353/1713 [00:44<02:47,  8.13it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  21%|██        | 354/1713 [00:45<02:47,  8.13it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  21%|██        | 355/1713 [00:45<02:46,  8.14it/s]Sat Dec 19 15:15:30 2020[1,0]<stdout>:
+Iteration:  21%|██        | 356/1713 [00:45<02:46,  8.15it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 357/1713 [00:45<02:46,  8.16it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 358/1713 [00:45<02:46,  8.16it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 359/1713 [00:45<02:46,  8.15it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 360/1713 [00:45<02:46,  8.15it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 361/1713 [00:45<02:46,  8.14it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 362/1713 [00:46<02:46,  8.13it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 363/1713 [00:46<02:46,  8.10it/s]Sat Dec 19 15:15:31 2020[1,0]<stdout>:
+Iteration:  21%|██        | 364/1713 [00:46<02:46,  8.09it/s]Sat Dec 19 15:15:32 2020[1,0]<stdout>:
+Iteration:  21%|██▏       | 365/1713 [00:46<02:46,  8.09it/s]Sat Dec 19 15:15:32 2020[1,0]<stdout>:
+Iteration:  21%|██▏       | 366/1713 [00:46<02:46,  8.11it/s]Sat Dec 19 15:15:32 2020[1,0]<stdout>:
+Iteration:  21%|██▏       | 367/1713 [00:46<02:46,  8.11it/s]Sat Dec 19 15:15:32 2020[1,0]<stdout>:
+Iteration:  21%|██▏       | 368/1713 [00:46<02:45,  8.11it/s]Sat Dec 19 15:15:33 2020[1,0]<stdout>:DLL 2020-12-19 15:15:33.215673 - Training Epoch: 0 Training Iteration: 50  final_loss : 7.987234115600586
+Sat Dec 19 15:15:33 2020[1,0]<stdout>:DLL 2020-12-19 15:15:33.215825 - PARAMETER checkpoint_step : 50
+Sat Dec 19 15:15:35 2020[1,1]<stdout>:*****************************************
+Sat Dec 19 15:15:35 2020[1,1]<stdout>:Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+Sat Dec 19 15:15:35 2020[1,1]<stdout>:*****************************************
+Sat Dec 19 15:15:35 2020[1,2]<stdout>:*****************************************
+Sat Dec 19 15:15:35 2020[1,2]<stdout>:Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+Sat Dec 19 15:15:35 2020[1,2]<stdout>:*****************************************
+Sat Dec 19 15:15:35 2020[1,3]<stdout>:*****************************************
+Sat Dec 19 15:15:35 2020[1,3]<stdout>:Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed.
+Sat Dec 19 15:15:35 2020[1,3]<stdout>:*****************************************
+Sat Dec 19 15:15:35 2020[1,1]<stdout>:finished pretraining
+Sat Dec 19 15:15:35 2020[1,2]<stdout>:finished pretraining
+Sat Dec 19 15:15:35 2020[1,3]<stdout>:finished pretraining
+Sat Dec 19 15:15:35 2020[1,0]<stdout>:DLL 2020-12-19 15:15:35.590417 -  e2e_train_time : 944.743283033371  training_sequences_per_second : 15941.14934645845  final_loss : 7.987234115600586  raw_train_time : 932.7106645107269
+Sat Dec 19 15:15:35 2020[1,0]<stdout>:
