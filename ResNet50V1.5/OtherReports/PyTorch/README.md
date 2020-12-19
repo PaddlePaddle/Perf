@@ -111,6 +111,8 @@
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
 
 ### 2.多机（32卡）测试
+基础配置和上文所述的单机配置相同，多机这部分主要侧重于多机和单机的差异部分。
+
 为了方便测试，我们封装了一下NGC的启动脚本
 
 ```
@@ -142,7 +144,7 @@ python ./multiproc.py \
 	--prof ${train_steps} ./data/imagenet
 ```
 
-然后使用一个脚本测试多个实验
+然后使用一个脚本测试多组实验
 
 ```
 # fp32
