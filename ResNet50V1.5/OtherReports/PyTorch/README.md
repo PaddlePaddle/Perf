@@ -173,7 +173,7 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 |:-----:|:-----:|:-----:|:-----:|
 |1 | 364.3 | 828.7 | 841.6 |
 |8 | 2826.8 | 6014.7 | 6230.1(BS=248) |
-|32 | - | - | - |
+|32 | 10393.2 | 17940.7 | 21697.85 |
 
 > 其中，AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
 
@@ -184,3 +184,6 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 - [8卡 FP32 BS=128 日志](./logs/pytorch_gpu8_fp32_bs128.txt)
 - [8卡 AMP BS=128 日志](./logs/pytorch_gpu8_amp_bs128.txt)
 - [8卡 AMP BS=248 日志](./logs/pytorch_gpu8_amp_bs248.txt)
+- [32卡 FP32 BS=128 日志](./logs/pytorch_gpu32_fp32_bs128.txt)
+- [32卡 AMP BS=128 日志](./logs/pytorch_gpu32_amp_bs128.txt)
+- [32卡 AMP BS=248 日志](./logs/pytorch_gpu32_amp_bs256.txt)

@@ -146,3 +146,6 @@ $mpirun  python main.py --mode=training_benchmark \
 - [8卡 FP32 BS=128 日志](./logs/tf_gpu8_fp32_bs128.txt)
 - [8卡 AMP BS=128 日志](./logs/tf_gpu8_amp_bs128.txt)
 - [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
+- [32卡 FP32 BS=128 日志](./logs/tf_gpu32_fp32_bs128.txt)
+- [32卡 AMP BS=128 日志](./logs/tf_gpu32_amp_bs128.txt)
+- [32卡 AMP BS=256 日志](./logs/tf_gpu32_amp_bs256.txt)

@@ -186,7 +186,7 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 |:-----:|:-----:|:-----:|:-----:|:-----:|
 |1 | 142.67 | 148.23 | 488.32 | 536.06 |
 |8 | 984.73 | 1075.27 | 3035.76 | 3530.84 |
-|32 | - | - | - | -|
+|32 | 4379.4 | 4723.5 | 14773.4 | 16554.3|
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
@@ -199,3 +199,7 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 - [8卡 bs=48、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu8.log)
 - [8卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu8.log)
 - [8卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu8.log)
+- [32卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu32.log)
+- [32卡 bs=48、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu32.log)
+- [32卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu32.log)
+- [32卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu32.log)
