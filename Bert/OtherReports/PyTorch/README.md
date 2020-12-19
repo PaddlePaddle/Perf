@@ -299,6 +299,13 @@ $mpirun bash ./run_benchmark.sh  48 8 fp32
 # add more test
 ```
 
+其中hostfile是一个配置文件，格式如下，注意其中的slots=1，表示单机启动一个mpi进程即`launch`进程，`launch`模块会启动多个GPU卡上的进程
+
+```
+hostname1 slots=1
+hostname2 slots=1
+```
+
 - 获得当前机器的mpirank，原作者在[这里](https://gist.github.com/serihiro/33f8f775cd8ba524d7b20d08d170e69c)，拷贝如下
 
 ```
