@@ -251,6 +251,7 @@ Paddle Docker的基本信息如下：
 - [8卡 FP32 BS=96 日志](./logs/paddle_gpu8_fp32_bs96.txt)
 - [8卡 AMP BS=128 日志](./logs/paddle_gpu8_amp_bs128.txt)
 - [8卡 AMP BS=208 日志](./logs/paddle_gpu8_amp_bs208.txt)
-- [32卡 AMP BS=208 日志](./logs/paddle_gpu32_amp_bs208.txt)
-- [32卡 AMP BS=128 日志](./logs/paddle_gpu32_amp_bs128.txt)
 - [32卡 FP32 BS=96 日志](./logs/paddle_gpu32_fp32_bs96.txt)
+- [32卡 AMP BS=128 日志](./logs/paddle_gpu32_amp_bs128.txt)
+- [32卡 AMP BS=208 日志](./logs/paddle_gpu32_amp_bs208.txt)
+
