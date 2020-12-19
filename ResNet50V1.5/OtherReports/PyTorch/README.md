@@ -186,4 +186,4 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 - [8卡 AMP BS=248 日志](./logs/pytorch_gpu8_amp_bs248.txt)
 - [32卡 FP32 BS=128 日志](./logs/pytorch_gpu32_fp32_bs128.txt)
 - [32卡 AMP BS=128 日志](./logs/pytorch_gpu32_amp_bs128.txt)
-- [32卡 AMP BS=248 日志](./logs/pytorch_gpu32_amp_bs256.txt)
+- [32卡 AMP BS=256 日志](./logs/pytorch_gpu32_amp_bs256.txt)
