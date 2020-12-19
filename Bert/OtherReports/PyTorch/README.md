@@ -65,7 +65,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     ```
 
     我们将 `launch.sh` 脚本中的 `docker` 命令换为了 `nvidia-docker` 启动的支持 GPU 的容器，其他均保持不变，脚本如下：
-    
+
     ```bash
     #!/bin/bash
 
@@ -99,7 +99,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     ```bash
     # 解压数据集
     tar -xzvf benchmark_sample_hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5.tar.gz
-    
+
     # 放到 data/ 目录下
     mv benchmark_sample_hdf5_lower_case_1_seq_len_128_max_pred_20_masked_lm_prob_0.15_random_seed_12345_dupe_factor_5 bert/data/
     ```
@@ -108,13 +108,13 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 
 ### 2. 多机（32卡）环境搭建
-   
+
 - IB配置(可选）
 请参考[这里](../../../utils/ib.md)
-	
+
 - MPI配置
 请参考[这里](../../../utils/mpi.md)
-	
+
 ## 三、测试步骤
 
 为了更准确的测试 NGC PyTorch 在 `NVIDIA DGX-1 (8x V100 16GB)` 上的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
@@ -152,9 +152,9 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
   "vocab_size": 30522
   }
   ```
-  
+
 - 修改 `run_pretraining.sh`的第39行内容为：
- 
+
   ```bash
   BERT_CONFIG=bert_config_base.json
   ```
@@ -192,7 +192,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     gradient_accumulation_steps=$(expr 67584 \/ $batch_size \/ $num_gpus)
     train_batch_size=$(expr 67584 \/ $num_gpus)   # total batch_size per gpu
     train_steps=${4:-250}    # max train steps
-    
+
     # NODE_RANK主要用于多机，单机可以不用这行。
     export NODE_RANK=`python get_mpi_rank.py`
     # 防止checkpoints冲突
@@ -218,7 +218,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     ```bash
     bash scripts/run_benchmark.sh 64 8 fp16
     ```
-    
+
 
 ### 2. 多机（32卡）测试
 基础配置和上文所述的单机配置相同，多机这部分主要侧重于多机和单机的差异部分。
@@ -226,30 +226,30 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 - 简介
 
 	NGC Pytorch是使用Pytorch的自带的[`torch.distributed.launch`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L128)来启动单机多卡的。为了支持多机多卡，需要把多机的参数传递给launch脚本，修改为:
-	
+
 	```
 	python3 -m torch.distributed.launch --nproc_per_node=$num_gpus --nnodes ${NUM_NODES} \
 	    --node_rank=${NODE_RANK} --master_addr=${MASTER_NODE}  --master_port=${MASTER_PORT} $CMD
 	```
-	
+
 	我们需要把环境变量`${NUM_NODES}` `${NODE_RANK}` `${MASTER_NODE}`  `${MASTER_PORT}`传递给`run_pretraining.sh`脚本，即可在单机的基础上完成多机的启动。
-	
+
 - **多机启动脚本**
 
 	`$mpirun`命令请参考[这里](../../../utils/mpi.md#需要把集群节点环境传给通信框架)
-	
+
 	```
 	# fp32
 	echo "begin run bs:32 fp32 on 8 gpus"
 	$mpirun bash ./run_benchmark.sh  32 8 fp32
-		
+
 	echo "begin run bs:48 fp32 on 8 gpus"
 	$mpirun bash ./run_benchmark.sh  48 8 fp32
-		
+
 	# add more test
 	```
-	
-	
+
+
 ## 四、测试结果
 
 > 单位： sequences/sec
@@ -260,6 +260,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 |8 | 999.99 | 995.88 | 4058.34 |4208.12 |
 |32 | 3994.05 | 3973.97 | 15941.1 | 16311.6|
 
+> 关于batch_size 从32增加到48时，8卡和32卡性能并没有提升的问题，我们反复重测了多次。若了解相关原因，欢迎issue我们。
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
