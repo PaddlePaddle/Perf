@@ -145,6 +145,8 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   # run pre-training
   bash scripts/run_pretraining_lamb.sh $batch_size 64 8 7.5e-4 5e-4 $precision true $num_gpus 2000 200 $train_steps 200 $num_accumulation_steps_phase1 512 $bert_model
   ```
+  > 注：由于原始 global_batch_size=65536 对于 batch_size=48/96 时出现除不尽情况。因此我们按照就近原则，选取 67584 作为 global_batch_size.
+
 
 - **单卡启动脚本：**
 
