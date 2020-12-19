@@ -101,6 +101,8 @@
   | GPU=8,BS=48 | 1119.37  | 1075.27 |995.88  |
   | GPU=32,BS=32 | 3379.9 | 4379.354 | 3994.05 |
   | GPU=32,BS=48 | 4160.7 | 4723.5 | 3973.97 |
+  | GPU=32,BS=32<sup>W/O GradAcc| 3379.9 | - | - |
+  | GPU=32,BS=48<sup>W/O GradAcc| 4160.7 | - | - |
 
 - AMP测试
 
@@ -112,3 +114,7 @@
   | GPU=8,BS=96 | 4202.70 | 3530.84 | 4208.12|
   | GPU=32,BS=64 | 12685.4 | 14773.4 | 15941.1 |
   | GPU=32,BS=96 | 14511.9 | 16554.3 | 16311.6 |
+  | GPU=32,BS=64<sup>W/O GradAcc| 12685.4 | - | - |
+  | GPU=32,BS=96<sup>W/O GradAcc| 14511.9 | - | - |
+  > 在NGC TensorFlow和PyTorch实验中包含开启和未开启GradientAccumulation策略；PaddlePaddle暂未开启GradientAcc策略，后续会提供开启后的实验数据。
+  > accumulate_gradients=False 性能比较差，反复试验多次之后仍是如此；如有疑问，可联系PaddlePaddle团队。
