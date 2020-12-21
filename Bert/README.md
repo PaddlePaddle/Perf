@@ -56,9 +56,9 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 - **优化器**
 
-   在 Bert Base 的 Pre-Training 任务上，各个框架使用的优化器略有不同。NGC TensorFlow、NGC PyTorch 均支持 LAMBOptimizer，PaddlePaddle 默认使用的是 AdamOptimizer。
+   在 Bert Base 的 Pre-Training 任务上，各个框架使用的优化器略有不同。NGC TensorFlow、NGC PyTorch 均支持 LAMBOptimizer，PaddlePaddle 默认使用的是 AdamOptimizer。LAMBOptimizer 优化器由于支持**梯度聚合策略**，在多机参数更新时，通信开销更低，性能会比原生的 AdamOptimizer 优化器更好一些。
 
-   此处我们以各个框架默认使用的优化器为准，并测试模型的吞吐性能。
+   此处我们以各个框架默认使用的优化器为准，并测试模型的吞吐性能。Paddle 后续也会支持性能更优的 LAMBOptimizer 优化器。
 
 ## 二、环境介绍
 ### 1.物理机环境

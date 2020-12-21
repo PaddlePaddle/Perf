@@ -107,7 +107,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 - IB配置(可选）
 请参考[这里](../../../utils/ib.md)
-	
+
 - MPI配置
 请参考[这里](../../../utils/mpi.md)
 
@@ -151,7 +151,8 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   # run pre-training
   bash scripts/run_pretraining_lamb.sh $batch_size 64 8 7.5e-4 5e-4 $precision true $num_gpus 2000 200 $train_steps 200 $num_accumulation_steps_phase1 512 $bert_model
   ```
-  > 注：由于原始 global_batch_size=65536 对于 batch_size=48/96 时出现除不尽情况。因此我们按照就近原则，选取 67584 作为 global_batch_size.
+  > 注：由于原始 global_batch_size=65536 对于 batch_size=48/96 时出现除不尽情况。因此我们按照就近原则，选取 67584 作为 global_batch_size.<br>
+  > 计算公式：global_batch_size = batch_size_per_gpu * num_gpu * num_accumulation_steps
 
 
 - **单卡启动脚本：**
@@ -176,7 +177,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布式通信框架。
 
-- 我们需要改动原始[`mpi命令`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L68)为我们的`$mpirun`命令请参考[这里](https://github.com/PaddlePaddle/Perf/blob/master/utils/mpi.md#%E9%80%9A%E4%BF%A1%E6%A1%86%E6%9E%B6%E5%8F%AF%E4%BB%A5%E4%BB%8Empi%E4%B8%AD%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF) 
+- 我们需要改动原始[`mpi命令`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L68)为我们的`$mpirun`命令请参考[这里](https://github.com/PaddlePaddle/Perf/blob/master/utils/mpi.md#%E9%80%9A%E4%BF%A1%E6%A1%86%E6%9E%B6%E5%8F%AF%E4%BB%A5%E4%BB%8Empi%E4%B8%AD%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF)
 - 另外把[mpi](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L92)改为`$mpirun`
 
 
