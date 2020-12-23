@@ -180,6 +180,7 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 - 我们需要改动原始[`mpi命令`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L68)为我们的`$mpirun`命令请参考[这里](https://github.com/PaddlePaddle/Perf/blob/master/utils/mpi.md#%E9%80%9A%E4%BF%A1%E6%A1%86%E6%9E%B6%E5%8F%AF%E4%BB%A5%E4%BB%8Empi%E4%B8%AD%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF)
 - 另外把[mpi](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L92)改为`$mpirun`
 
+另：多机测试时，是否使用`gradient accumulation`对 性能影响很大。为了方便区分，我们同时测试了打开（默认打开）和关闭（W/O AccGrad）两种情况。关闭的测试方法为：设置[`num_accumulation_steps_phase1`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L30)为"false",同时设置[`allreduce_post_accumulation`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb_phase1.sh#L109) 为 "False"。
 
 ## 四、测试结果
 
