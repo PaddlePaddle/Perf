@@ -250,6 +250,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 	# add more test
 	```
 
+另：多机测试时，是否使用`gradient accumulation`对 性能影响很大。为了方便区分，我们同时测试了打开（默认打开）和关闭（W/O AccGrad）两种情况。关闭的测试方法为：设置[`accumulate_gradients`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L26)为"false",同时设置[`allreduce_post_accumulation`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L30) [`allreduce_post_accumulation_fp16`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L31) 为 "false"。
 
 ## 四、测试结果
 
