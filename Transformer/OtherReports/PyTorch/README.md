@@ -140,19 +140,5 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu1.log)
-- [单卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu1.log)
-- [单卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu1.log)
-- [单卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
-- [8卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu8.log)
-- [8卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu8.log)
-- [8卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu8.log)
-- [8卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
-- [32卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu32.log)
-- [32卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu32.log)
-- [32卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu32.log)
-- [32卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
-- [32卡 bs=32、FP32 no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp32_bs32_gpu32.log)
-- [32卡 bs=48、FP32 no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp32_bs48_gpu32.log)
-- [32卡 bs=64、AMP  no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp16_bs64_gpu32.log)
-- [32卡 bs=96、AMP  no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp16_bs96_gpu32.log)
+- [单卡 bs=2560、FP32](./logs/transformer.pyt_transformer_fp32_bs2560_gpu1.log)
+- [单卡 bs=5120、AMP](./logs/transformer.pyt_transformer_amp_bs5120_gpu1.log)

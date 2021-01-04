@@ -189,4 +189,4 @@ export CUDA_VISIBLE_DEVICES=0 & nohup python3.7 train.py > ./logs/transformer_bs
 ### 1.单机（单卡、8卡）日志
 
 - [单卡 bs=2560、FP32](./logs/transformer_bs2560_fp32_gpu1.log)
-- [单卡 bs=5120、AMP](./logs/transformer_bs5120_fp16_gpu1.log)
+- [单卡 bs=5120、AMP](./logs/transformer_bs5120_amp_gpu1.log)
