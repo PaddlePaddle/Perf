@@ -74,7 +74,13 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     若测试单机单卡 batch_size=2560、FP32 的训练性能，执行如下命令：
 
     ```
-    python3.7 train.py /data/wmt14_en_de_joined_dict \
+    RESULTS_DIR='/results'
+    CHECKPOINTS_DIR='/results/checkpoints'
+    STAT_FILE=${RESULTS_DIR}/run_log.json
+    mkdir -p $CHECKPOINTS_DIR
+
+    python /workspace/translation/train.py \
+      /data/wmt14_en_de_joined_dict \
         --arch transformer_wmt_en_de_big_t2t \
         --share-all-embeddings \
         --optimizer adam \
@@ -90,55 +96,63 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
         --weight-decay 0.0 \
         --criterion label_smoothed_cross_entropy \
         --label-smoothing 0.1 \
-        --max-tokens 5120 \
+        --max-tokens 2560 \
         --seed 1 \
+        --max-epoch 1 \
         --fuse-layer-norm \
-        --save-dir ./checkpoints
+        --log-interval 500 \
+        --save-dir ${CHECKPOINTS_DIR} \
+        --stat-file ${STAT_FILE} \
     ```
 
-- **FP32 训练命令：**
+- **AMP O2 训练命令：**
 
-    若测试单机单卡 batch_size=5120、AMP O1 的训练性能，执行如下命令：
+    若测试单机单卡 batch_size=5120、AMP O2 的训练性能，执行如下命令：
 
     ```
-    python3.7 train.py /data/wmt14_en_de_joined_dict \
-        --arch transformer_wmt_en_de_big_t2t \
-        --share-all-embeddings \
-        --optimizer adam \
-        --adam-betas '(0.9, 0.997)' \
-        --adam-eps "1e-9" \
-        --clip-norm 0.0 \
-        --lr-scheduler inverse_sqrt \
-        --warmup-init-lr 0.0 \
-        --warmup-updates 4000 \
-        --lr 0.0006 \
-        --min-lr 0.0 \
-        --dropout 0.1 \
-        --weight-decay 0.0 \
-        --criterion label_smoothed_cross_entropy \
-        --label-smoothing 0.1 \
-        --max-tokens 5120 \
-        --seed 1 \
-        --fuse-layer-norm \
-        --amp \
-        --amp-level O1 \
-        --save-dir ./checkpoints
+    RESULTS_DIR='/results'
+    CHECKPOINTS_DIR='/results/checkpoints'
+    STAT_FILE=${RESULTS_DIR}/run_log.json
+    mkdir -p $CHECKPOINTS_DIR
+
+    python /workspace/translation/train.py \
+      /data/wmt14_en_de_joined_dict \
+      --arch transformer_wmt_en_de_big_t2t \
+      --share-all-embeddings \
+      --optimizer adam \
+      --adam-betas '(0.9, 0.997)' \
+      --adam-eps "1e-9" \
+      --clip-norm 0.0 \
+      --lr-scheduler inverse_sqrt \
+      --warmup-init-lr 0.0 \
+      --warmup-updates 4000 \
+      --lr 0.0006 \
+      --min-lr 0.0 \
+      --dropout 0.1 \
+      --weight-decay 0.0 \
+      --criterion label_smoothed_cross_entropy \
+      --label-smoothing 0.1 \
+      --max-tokens 5120 \
+      --seed 1 \
+      --max-epoch 1 \
+      --fuse-layer-norm \
+      --amp \
+      --amp-level O2 \
+      --log-interval 500 \
+      --save-dir ${RESULTS_DIR} \
+      --stat-file ${STAT_FILE} \
     ```
 
 ## 四、测试结果
 
-> 单位： sequences/sec
+> 单位： tokens/sec
 
-|卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 128.53 | 128.92 | 524.48 | 543.76 |
-|8 | 999.99 | 995.88 | 4058.34 |4208.12 |
-|32 | 3994.1 | 3974.0 | 15941.1 | 16311.6|
-|32<sup>[W/O AccGrad]</sup> | 2836.7 | 3180.0 | 10391.2 | 12061.6|
-> 关于batch_size 从32增加到48时，8卡和32卡性能并没有提升的问题，我们反复重测了多次。若了解相关原因，欢迎issue我们。
+|卡数 | FP32(BS=2560) | AMP O2(BS=5120) |
+|:-----:|:-----:|:-----:|
+|1 | 7893.1 | 30523.5 |
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
 - [单卡 bs=2560、FP32](./logs/transformer.pyt_transformer_fp32_bs2560_gpu1.log)
-- [单卡 bs=5120、AMP](./logs/transformer.pyt_transformer_amp_bs5120_gpu1.log)
+- [单卡 bs=5120、AMP O2](./logs/transformer.pyt_transformer_amp_O2_bs5120_gpu1.log)
