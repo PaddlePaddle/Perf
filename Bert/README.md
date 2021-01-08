@@ -289,8 +289,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   | GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
   | GPU=8,BS=32 | 1072.26 | 984.73 | 999.99 |
   | GPU=8,BS=48 | 1119.37  | 1075.27 |995.88  |
-  | GPU=32,BS=32 | - | 4379.4 | 3994.1 |
-  | GPU=32,BS=48 | - | 4723.5 | 3974.0 |
+  | GPU=32,BS=32 | 4659.2 | 4379.4 | 3994.1 |
+  | GPU=32,BS=48 | 5036.2 | 4723.5 | 3974.0 |
   | GPU=32,BS=32<sup>[W/O AccGrad]</sup>  | 3379.9 | 2943.8 | 2836.7 |
   | GPU=32,BS=48<sup>[W/O AccGrad]</sup>  | 4160.7 | 3450.1 | 3180.0 |
 
@@ -303,8 +303,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   | GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
   | GPU=8,BS=64 | 3902.41 | 3035.76 | 4058.34|
   | GPU=8,BS=96 | 4202.70 | 3530.84 | 4208.12|
-  | GPU=32,BS=64 | - | 14773.4 | 15941.1 |
-  | GPU=32,BS=96 | - | 16554.3 | 16311.6 |
+  | GPU=32,BS=64 | 17819.7 | 14773.4 | 15941.1 |
+  | GPU=32,BS=96 | 18232.9 | 16554.3 | 16311.6 |
   | GPU=32,BS=64<sup>[W/O AccGrad]</sup> | 12685.4 | 9993.1 | 10391.2 |
   | GPU=32,BS=96<sup>[W/O AccGrad]</sup> | 14511.9 | 12767.2 | 12061.6 |
 
@@ -320,7 +320,11 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
 - [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
 - [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
-- [32卡 bs=96、AMP](./logs/base_bs96_fp16_gpu32.log)
-- [32卡 bs=64、AMP](./logs/base_bs64_fp16_gpu32.log)
-- [32卡 bs=32、FP32](./logs/base_bs32_fp32_gpu32.log)
-- [32卡 bs=48、FP32](./logs/base_bs48_fp32_gpu32.log)
+- [32卡 bs=32、FP32 on GradAcc](./logs/base_bs32_fp32_gpu32_gradacc.log)
+- [32卡 bs=48、FP32 on GradAcc](./logs/base_bs48_fp32_gpu32_gradacc.log)
+- [32卡 bs=64、AMP on GradAcc](./logs/base_bs64_fp16_gpu32_gradacc.log)
+- [32卡 bs=96、AMP on GradAcc](./logs/base_bs96_fp16_gpu32_gradacc.log)
+- [32卡 bs=32、FP32 no GradAcc](./logs/base_bs32_fp32_gpu32.log)
+- [32卡 bs=48、FP32 no GradAcc](./logs/base_bs48_fp32_gpu32.log)
+- [32卡 bs=64、AMP no GradAcc](./logs/base_bs64_fp16_gpu32.log)
+- [32卡 bs=96、AMP no GradAcc](./logs/base_bs96_fp16_gpu32.log)
