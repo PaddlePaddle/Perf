@@ -81,7 +81,7 @@ Paddle Docker的基本信息如下：
   ```
 
 - 数据部署
-  训练使用开源的Criteo数据集，下载地址为：https://fleet.bj.bcebos.com/ctr_data.tar.gz，将数据挂载进入Docker后，
+  训练使用开源的Criteo数据集，下载地址为：https://paddlerec.bj.bcebos.com/benchmark/criteo_benchmark_data.tar.gz，将数据挂载进入Docker后，
   数据集位于/data目录，具有如下目录结构：
   ```shell
   /data
