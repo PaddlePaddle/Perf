@@ -155,9 +155,9 @@ Paddle Docker的基本信息如下：
 
   | 参数 | PaddlePaddle | TensorFlow 1.12 |
   |:-----:|:-----:|:-----:|
-  | 4x4   | <sup>286895</sup>  | <sup>54028</sup> |
-  | 8x8   | <sup>541240</sup>  | <sup>182896</sup> |
-  | 16x16 | <sup>979231</sup>  | <sup>171248</sup> |
-  | 32x32 | <sup>1769282</sup> | <sup>342512</sup> |
+  | 4x4   | <sup>286895</sup>  | <sup>13507</sup> |
+  | 8x8   | <sup>541240</sup>  | <sup>22862</sup> |
+  | 16x16 | <sup>979231</sup>  | <sup>10703</sup> |
+  | 32x32 | <sup>1769282</sup> | <sup>21407</sup> |
 
 
