@@ -4,7 +4,7 @@
 
 此处给出了Paddle Wide&Deep 的详细测试报告，包括执行环境、Paddle版本、环境搭建方法、复现脚本、测试结果和测试日志。
 
-同时，给出了在同等执行环境下，业内几个知名框架在Wide&Deep模型下的性能数据，进行对比。
+同时，给出了在同等执行环境下，业内几个知名框架在wide&deep模型下的性能数据，进行对比。
 
 
 <!-- omit in toc -->
@@ -25,9 +25,9 @@
 
 我们统一使用 **吞吐能力** 作为衡量性能的数据指标。**吞吐能力** 是业界公认的、最主流的框架性能考核指标，它直接体现了框架训练的速度。
 
-Wide&Deep 作为推荐系统领域经典的代表性的模型。在测试性能时，我们以 **单位时间内能够完成训练的样本行数量（lines/sec）** 作为训练期间的吞吐性能。在其它框架中，默认也均采用相同的计算方式。
+Wide&Deep 作为推荐系统领域早期代表性的模型。在测试性能时，我们以 **单位时间内能够完成训练的样本行数量（example/sec）** 作为训练期间的吞吐性能。在其它框架中，默认也均采用相同的计算方式。
 
-测试中，我们选择4/8/16/32四种集群节点下，测试吞吐性能：
+测试中，我们选择4/8/16/32四种集群节点下，使用同构的CPU服务器，基于参数服务器模式测试吞吐性能：
 
 - **节点数**
 
@@ -35,10 +35,15 @@ Wide&Deep 作为推荐系统领域经典的代表性的模型。在测试性能�
    每台服务器均使用16线程进行训练。
 
 
-关于其它一些参数的说明：
-- **ASYNC**
+关于其它一些参数的说明，这些参数可以在`benchmark.yaml`中找到：
+
+- **sync_mode = async**
 
    AYSNC（异步训练） 能够提升参数服务器下模型的训练速度且在实际场景下对模型效果影响有限。因此，本次测试全部在打开 ASYNC 模式下进行。
+
+- **split_file_list = False**
+ 
+   参数服务器使用数据并行模式进行训练，若每台服务器上的数据是已经经过切分的，则配置该选项为`False`，若每台服务器都挂载了完整的数据目录，则设置该选项为`True`，进行均匀的数据切分。
 
 
 ## 二、环境介绍
@@ -72,6 +77,13 @@ Paddle Docker的基本信息如下：
   docker run -it -v <path to data>:/data hub.baidubce.com/paddlepaddle/paddle_manylinux_devel:cuda10.0-cudnn7 /bin/bash
   ```
 
+- 安装PaddlePaddle
+
+  paddle 版本应大于 realease/2.0
+  ```bash
+  pip instsall -U paddlepaddle
+  ```
+
 - 拉取PaddleRec
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleRec.git
@@ -80,12 +92,33 @@ Paddle Docker的基本信息如下：
   git checkout b0904fd250715b3c040c88881395bad06eea9be6
   ```
 
+- 进入Wide&Deep模型目录
+  ```bash
+  # cd PaddleRec
+  cd models/rank/wide_deep
+  ```
+
+  wide_deep目录有以下文件是benchmark测试相关：
+
+  - static_model.py       *模型组网*
+  - benchmark.yaml        *通用的benchmark超参配置*
+  - benchmark_reader.py   *benchmark适配的数据读取处理脚本*
+  - benchmark_data.sh     *下载数据的脚本文件*
+
 - 数据部署
-  训练使用开源的Criteo数据集，下载地址为：https://paddlerec.bj.bcebos.com/benchmark/criteo_benchmark_data.tar.gz，将数据挂载进入Docker后，
-  数据集位于/data目录，具有如下目录结构：
+  训练使用开源的Criteo数据集，下载地址为：https://paddlerec.bj.bcebos.com/benchmark/criteo_benchmark_data.tar.gz
+  
+  亦可直接使用模型目录下的 `benchmark_data.sh`脚本执行数据下载
+
+  ```bash
+  sh benchmark_data.sh
+  ```
+
+  将数据放置到PaddleRec/models/rank/wide_deep目录，数据集应具有如下目录结构：
+
   ```shell
-  /data
-   |---raw_data
+  /wide_deep
+   |---train_data
    |   |---part-55
    |   |---part-56
    |   |...
@@ -93,61 +126,104 @@ Paddle Docker的基本信息如下：
    |   |---part-226
    |   |---part-236
   ```
-  其中，raw_data子目录下包含训练数据集，文件名称为part-*，test_data子目录包含测试数据集，文件名称为part-*
+  其中，train_data子目录下包含训练数据集，文件名称为part-*，test_data子目录包含测试数据集，文件名称为part-*, 训练数据共有1024个Part，测试数据有10个Part
 
 ## 四、测试步骤
 
-### 2.多机（32机）测试
-- 执行多机测试前，需要预先配置好多机的环境变量，即每台机器都要配置当前运行所需的环境参数
-  参数服务器相关的环境变量配置列表：
+### 多机32机 16线程 Async + DataSet 模式 测试
+- 执行多机测试前，需要在每台机器上都执行上述步骤: 
+  1. 配置docker环境；
+  2. 安装Paddle；
+  3. 克隆PaddleRec；
+  4. 下载数据
 
-  | 环境变量 | 说明 | 示例 |
-  |:-----:|:-----:|:------:|
-  | PADDLE_PSERVERS_IP_PORT_LIST | PSERVER的IP:PORT列表 | "127.0.0.1:67001,127.0.0.1:67002" |
-  | PADDLE_TRAINERS_NUM | 当前TRAINER的个数 | "20" |
-  | TRAINING_ROLE | 目前两种角色 "TRAINER", "PSERVER" |
-  | PADDLE_TRAINER_ID | 每个TRAINER的id | 12 |
-  | PADDLE_PORT | 每个PSERVER服务的端口 | 67001 |
-  | POD_IP | 每个PSERVER服务的IP | "127.0.0.1" |
+- 确保各个机器之间的联通正常，通过IP可互相访问
 
-- 下载我们编写的测试脚本，并执行该脚本(每台机器均需要执行)
+- 通过`benchmark.yaml`配置训练模式及超参：
+
+  运行16线程 Async + DataSet 模式，需要配置如下超参
+
+  ```yaml
+  runner:
+    epochs: 15
+
+    sync_mode: "async"  # sync / async /geo / heter
+    thread_num: 16
+
+    reader_type: "QueueDataset"  # DataLoader / QueueDataset / RecDataset
+    pipe_command: "python benchmark_reader.py"
+    dataset_debug: False
+    split_file_list: False
+  ```
+
+  > 如果每个机器都挂载了全量的数据，配置`split_file_list: True`
+
+- 通过`fleetrun`命令启动分布式训练：
+
   ```bash
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs208.yaml
-  bash paddle_test_multi_node_all.sh
+  # pwd = PaddleRec/models/rank/wide_deep
+  fleetrun --servers="ip1:port1,ip2:port2,...,ip32:port32" --workers="ip1:port1,ip2:port2,...,ip32:port32" ../../../tools/static_ps_trainer.py -m benchmark.yaml
   ```
 
 - 执行后PSERVER端结束时输出日志类似如下：
+
+   日志位于`PaddleRec/models/rank/wide_deep/log/serverlog.*` 
+
    ```bash
    server.cpp:1037] Server[paddle::distributed::BrpcPsService] is serving on port=62004.
    server.cpp:1040] Check out http://IP:67002 in web browser.
    ```
 
 - 执行后WORKER端结束时输出日志类似如下：
+
+   日志位于`PaddleRec/models/rank/wide_deep/log/workerlog.*` 
+
    ```bash
    epoch 1 using time 2980.92606091, auc: 0.877906736262
    distributed training finished.
    server.cpp:1095] Server[paddle::distributed::DownpourPsClientService] is going to quit
    ```
 
+### 多机32机 16线程 Async + DataLoader 模式 测试
+
+- 通过`benchmark.yaml`配置训练模式及超参：
+
+  运行16线程 Async + DataLoader 模式，需要配置如下超参
+
+  ```yaml
+  runner:
+    epochs: 15
+
+    sync_mode: "async"  # sync / async /geo / heter
+    thread_num: 16
+
+    reader_type: "DataLoader"  # DataLoader / QueueDataset / RecDataset
+    split_file_list: False
+  ```
+
+  > 如果每个机器都挂载了全量的数据，配置`split_file_list: True`
+
+- 环境搭建、数据准备、运行命令、日志查看步骤与DataSet模式一致
+
 ## 五、测试结果
 
 ### 1.Paddle训练性能
 
 
-- 训练吞吐率(lines/sec)如下（数据是所有节点训练速度的加和）:
+- 训练吞吐率(example/sec)如下（数据是所有节点训练速度的加和）:
 
-| 节点数 | 吞吐 |
-|:-----:|:-----:|
-|4 | 285495 | 
-|8 | 533848 | 
-|16 | 1024367 |
-|32 | 928801 | 
+| 节点数 | 线程数 |DataSet吞吐 | DataLoader吞吐 |
+|:-----:|:-----:|:-----:|:-----:|
+|4 | 16 |285495 | 42436 | 
+|8 | 16 |533848 | 85533 | 
+|16 | 16 |1024367 |171728 | 
+|32 | 16 |2577493 | 348558 | 
 
 ### 2.与业内其它框架对比
 
 说明：
 - 同等执行环境下测试
-- 单位：`lines/sec`
+- 单位：`example/sec`
 - 对于支持 `ASYNC(异步训练)` 的框架，以下测试为开启 `ASYNC` 的数据
 
 结果：
@@ -158,6 +234,6 @@ Paddle Docker的基本信息如下：
   | 4x4   | <sup>285495</sup>  | <sup>21757</sup> |
   | 8x8   | <sup>533848</sup>  | <sup>23187</sup> |
   | 16x16 | <sup>1024367</sup>  | <sup>22500</sup> |
-  | 32x32 | <sup>928801</sup> | <sup>22853</sup> |
+  | 32x32 | <sup>2577493</sup> | <sup>22853</sup> |
 
 
