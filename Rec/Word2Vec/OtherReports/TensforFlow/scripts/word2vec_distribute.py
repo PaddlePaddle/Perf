@@ -111,14 +111,9 @@ def GetFileList(data_dir, trainer_nums, trainer_id):
 
 
 def upload(local_path, kind):
-    import paddlecloud.upload_utils as upload_utils
     sys_job_id = os.getenv("SYS_JOB_ID")
     output_path = os.getenv("OUTPUT_PATH")
     remote_path = output_path + "/" + sys_job_id + "/" + kind
-    upload_rst = upload_utils.upload_to_hdfs(
-        local_file_path=local_path, remote_file_path=remote_path)
-    logger.info("remote_path: {}, upload_rst: {}".format(
-        remote_path, upload_rst))
 
 
 def get_example_num(file_list):

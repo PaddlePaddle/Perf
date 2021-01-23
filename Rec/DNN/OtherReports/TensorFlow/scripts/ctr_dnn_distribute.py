@@ -12,7 +12,6 @@ import glob
 import json
 from datetime import date, timedelta
 
-import paddlecloud.upload_utils as upload_utils
 import tensorflow as tf
 import logging
 
@@ -119,10 +118,6 @@ def upload(trainer_id, model_path):
     output_path = os.getenv("OUTPUT_PATH")
     remote_path = output_path + "/" + sys_job_id + \
         "/model_trainer_" + str(trainer_id)
-    upload_rst = upload_utils.upload_to_hdfs(
-        local_file_path=model_path, remote_file_path=remote_path)
-    logger.info("remote_path: {}, upload_rst: {}".format(
-        remote_path, upload_rst))
 
 
 def get_example_num(file_list):
