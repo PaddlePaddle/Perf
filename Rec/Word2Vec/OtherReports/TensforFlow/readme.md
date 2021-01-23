@@ -1,6 +1,6 @@
-数据下载
+数据下载：
 ```bash
-wget --no-check-certificate https://paddlerec.bj.bcebos.com/benchmark/tf_criteo.tar.gz
+wget --no-check-certificate https://paddlerec.bj.bcebos.com/benchmark/word2vec_benchmark_data.tar.gz
 ```
 
 运行环境
@@ -16,8 +16,9 @@ wget --no-check-certificate https://paddlerec.bj.bcebos.com/benchmark/tf_criteo.
    | PADDLE_TRAINER_ID | 每个TRAINER的id | 12 |
    | PADDLE_PORT | 每个PSERVER服务的端口 | 67001 |
    | POD_IP | 每个PSERVER服务的IP | "127.0.0.1" |
+   
 
 运行命令：
 ```bash
-python wide_deep_distribute.py --sync_mode=False --is_local=False
+python -u word2vec_distribute.py --dist_mode=async --is_local=0
 ```

@@ -93,7 +93,7 @@ Paddle Docker的基本信息如下：
   git clone https://github.com/PaddlePaddle/PaddleRec.git
   cd PaddleRec
   # 本次测试是在如下版本下完成的：
-  git checkout b0904fd250715b3c040c88881395bad06eea9be6
+  git checkout a3a5ab001e7f46d251e57f57d7eb6f4ac925f9d5
   ```
 
 - 进入Word2Vec模型目录

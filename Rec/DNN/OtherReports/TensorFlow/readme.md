@@ -17,7 +17,8 @@ wget --no-check-certificate https://paddlerec.bj.bcebos.com/benchmark/tf_criteo.
    | PADDLE_PORT | 每个PSERVER服务的端口 | 67001 |
    | POD_IP | 每个PSERVER服务的IP | "127.0.0.1" |
 
+
 运行命令：
 ```bash
-python wide_deep_distribute.py --sync_mode=False --is_local=False
+python ctr_dnn_distribute.py --sync_mode=False --is_local=False
 ```
