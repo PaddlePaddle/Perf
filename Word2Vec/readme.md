@@ -25,9 +25,18 @@
 
 我们统一使用 **吞吐能力** 作为衡量性能的数据指标。**吞吐能力** 是业界公认的、最主流的框架性能考核指标，它直接体现了框架训练的速度。
 
-Word2Vec 作为推荐系统领域早期代表性的模型。在测试性能时，我们以 **单位时间内能够完成训练的单词数量（word/sec）** 作为训练期间的吞吐性能。在其它框架中，默认也均采用相同的计算方式。
+Word2Vec 作为推荐系统领域早期代表性的模型。在测试性能时，我们以 **单位时间内能够完成训练的单词数量（word/sec）** 作为训练期间的吞吐性能。在其它框架中，默认也均采用相同的计算方式。测试中，我们选择4/8/16/32四种集群节点下，使用同构的CPU服务器，基于参数服务器模式测试吞吐性能：
 
-测试中，我们选择4/8/16/32四种集群节点下，使用同构的CPU服务器，基于参数服务器模式测试吞吐性能：
+- **数据集**
+
+  全量训练集使用1 Billion Word Language Model Benchmark的训练集，该训练集一共包含30294863个文本。
+
+  全量测试集共包含19558个测试样例，每个测试样例由4个词组合构成，依次记为word_a, word_b, word_c, word_d。组合中，前两个词word_a和word_b之间的关系等于后两个词word_c和word_d之间的关系，例如:
+  ```
+  Beijing China Tokyo Japan
+  write writes go goes
+  ```
+  所以word2vec的测试任务实际上是一个常见的词类比任务，我们希望通过公式emb(word_b) - emb(word_a) + emb(word_c)计算出的词向量和emb(word_d)最相近。最终整个模型的评分用成功预测出word_d的数量来衡量。
 
 - **节点数**
 
@@ -165,7 +174,13 @@ Paddle Docker的基本信息如下：
 
   > 如果每个机器都挂载了全量的数据，配置`split_file_list: True`
 
-- 通过`fleetrun`命令启动分布式训练：
+- 启动单机训练，进行验证
+
+  ```bash
+  python -u ../../../tools/static_ps_trainer.py -m benchmark.yaml
+  ```
+
+- 通过`fleetrun`命令启动分布式训练，在每台机器上都需要执行以下命令：：
 
   ```bash
   # pwd = PaddleRec/models/recall/word2vec/benchmark
