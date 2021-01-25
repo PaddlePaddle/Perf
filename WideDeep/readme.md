@@ -227,13 +227,16 @@ Paddle Docker的基本信息如下：
 - 对于支持 `ASYNC(异步训练)` 的框架，以下测试为开启 `ASYNC` 的数据
 
 结果：
-- 测试(WORKER和SERVER数量相等)
 
-  | 参数 | PaddlePaddle | TensorFlow 1.12 |
+ WORKER和SERVER数量相等，每个节点上分别启动一个Worker进程与一个Server进程
+
+ > 注：Tensorflow性能数据是在与Paddle相同的机器配置环境下测得，使用了TF推荐的分布式API。若您可以测得更好的数据，欢迎与我们分享方法。
+
+  | 节点 | PaddlePaddle | TensorFlow 1.12 |
   |:-----:|:-----:|:-----:|
-  | 4x4   | <sup>285495</sup>  | <sup>21757</sup> |
-  | 8x8   | <sup>533848</sup>  | <sup>23187</sup> |
-  | 16x16 | <sup>1024367</sup>  | <sup>22500</sup> |
-  | 32x32 | <sup>2577493</sup> | <sup>22853</sup> |
+  | 4   | <sup>285495</sup>  | <sup>21757</sup> |
+  | 8   | <sup>533848</sup>  | <sup>23187</sup> |
+  | 16 | <sup>1024367</sup>  | <sup>22500</sup> |
+  | 32 | <sup>2577493</sup> | <sup>22853</sup> |
 
 
