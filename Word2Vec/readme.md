@@ -295,7 +295,9 @@ Paddle Docker的基本信息如下：
 
 WORKER和SERVER数量相等，每个节点上分别启动一个Worker进程与一个Server进程
 
-> 注：Tensorflow性能数据是在与Paddle相同的机器配置环境下测得，使用了TF推荐的分布式API。若您可以测得更好的数据，欢迎与我们分享方法。
+> 注：Tensorflow性能数据是在与Paddle相同的机器配置环境下测得，使用了TF推荐的分布式API，运行多次取平均值。
+
+> 若您可以测得更好的数据，欢迎联系我们，提供测试方法，更新数据
 
   | 节点 | PaddlePaddle：Async | PaddlePaddle：GEO |TensorFlow 1.12 |
   |:-----:|:-----:|:-----:|:-----:|
