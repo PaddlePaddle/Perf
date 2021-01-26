@@ -91,7 +91,7 @@ Paddle Docker的基本信息如下：
   git clone https://github.com/PaddlePaddle/PaddleRec.git
   cd PaddleRec
   # 本次测试是在如下版本下完成的：
-  git checkout a3a5ab001e7f46d251e57f57d7eb6f4ac925f9d5
+  git checkout 10c1bd7a89881fae1336a2075cbe793856771c72
   ```
 
 - 进入Wide&Deep模型目录
