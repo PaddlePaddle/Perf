@@ -250,7 +250,7 @@ Paddle Docker的基本信息如下：
   | 32 | <sup>2577493</sup> | <sup>22853</sup> |
 
 ## 六、日志数据
-### 1.单机（单卡、8卡）日志
+### 1.paddlepaddle 4机、8机、16机、32机log日志
 
 - [WideDeep DataSet 4机](./logs/WideDeep_DataSet_16Thread_4Node)
 - [WideDeep DataSet 8机](./logs/WideDeep_DataSet_16Thread_8Node)

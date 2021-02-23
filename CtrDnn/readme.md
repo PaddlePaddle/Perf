@@ -252,7 +252,7 @@ WORKER和SERVER数量相等，每个节点上分别启动一个Worker进程与�
 | 32 | <sup>2553503</sup> | <sup>21407</sup> |
 
 ## 六、日志数据
-### 1.单机（单卡、8卡）日志
+### 1.paddlepaddle 4机、8机、16机、32机log日志
 
 - [CtrDnn DataSet 4机](./logs/CtrDnn_DataSet_16Thread_4Node)
 - [CtrDnn DataSet 8机](./logs/CtrDnn_DataSet_16Thread_8Node)
