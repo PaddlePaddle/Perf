@@ -1,0 +1,46 @@
+2021-02-20 14:26:20,125 - INFO - Run Worker Begin
+I0220 14:26:20.288184 17480 communicator.h:202] Communicator Init Envs
+I0220 14:26:20.288213 17480 communicator.h:205] barrier_table_id: 2
+I0220 14:26:20.288218 17480 communicator.h:205] communicator_independent_recv_thread: 1
+I0220 14:26:20.288221 17480 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0220 14:26:20.288224 17480 communicator.h:205] communicator_max_merge_var_num: 16
+I0220 14:26:20.288228 17480 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0220 14:26:20.288230 17480 communicator.h:205] communicator_send_queue_size: 16
+I0220 14:26:20.288234 17480 communicator.h:205] communicator_send_wait_times: 5
+I0220 14:26:20.288237 17480 communicator.h:205] communicator_thread_pool_size: 5
+I0220 14:26:20.288240 17480 communicator.h:205] need_global_step: 0
+I0220 14:26:20.288244 17480 communicator.h:205] rpc_deadline: 180000
+I0220 14:26:20.288246 17480 communicator.h:205] rpc_retry_times: 3
+I0220 14:26:20.288250 17480 communicator.h:205] trainer_id: 0
+I0220 14:26:20.288252 17480 communicator.h:205] trainers: 4
+I0220 14:26:20.289086 17480 communicator.cc:42] Init With Gflags:
+I0220 14:26:20.289252 17480 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0220 14:26:20.297551 17480 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0220 14:26:20.297575 17480 server.cpp:1040] Check out http://szwg-aip-paddlecloud187.szwg01.baidu.com:8500 in web browser.
+2021-02-20 14:26:20,325 - INFO - Epoch: 0, Running DataLoader Begin.
+W0220 14:26:20.439005 17480 build_strategy.cc:423] fuse_bn_add_act_pass is only supported on GPU, skipped.
+2021-02-20 14:28:02,412 - INFO - Epoch: 0, Batch: 100, auc: [0.66075832], cost: [0.4951788],  avg_batch_cost: 1.02084 sec, avg_samples: 1000.00000, ips: 979.58359 example/sec
+2021-02-20 14:29:45,222 - INFO - Epoch: 0, Batch: 200, auc: [0.69528394], cost: [0.5211544],  avg_batch_cost: 1.02807 sec, avg_samples: 1000.00000, ips: 972.69734 example/sec
+2021-02-20 14:31:27,661 - INFO - Epoch: 0, Batch: 300, auc: [0.71212132], cost: [0.48315996],  avg_batch_cost: 1.02437 sec, avg_samples: 1000.00000, ips: 976.20569 example/sec
+2021-02-20 14:33:10,159 - INFO - Epoch: 0, Batch: 400, auc: [0.72341538], cost: [0.49967635],  avg_batch_cost: 1.02495 sec, avg_samples: 1000.00000, ips: 975.65766 example/sec
+2021-02-20 14:34:56,414 - INFO - Epoch: 0, Batch: 500, auc: [0.73156382], cost: [0.4954325],  avg_batch_cost: 1.06254 sec, avg_samples: 1000.00000, ips: 941.14520 example/sec
+2021-02-20 14:36:39,554 - INFO - Epoch: 0, Batch: 600, auc: [0.73740613], cost: [0.44538787],  avg_batch_cost: 1.03137 sec, avg_samples: 1000.00000, ips: 969.57986 example/sec
+2021-02-20 14:38:09,247 - INFO - Epoch: 0, using time 708.922027826 second, ips 15516.2451839 example/sec.
+2021-02-20 14:38:09,247 - INFO - -- Role: TRAINER --
+2021-02-20 14:38:15,534 - INFO - Epoch: 1, Running DataLoader Begin.
+2021-02-20 14:39:53,933 - INFO - Epoch: 1, Batch: 100, auc: [0.74596588], cost: [0.45167413],  avg_batch_cost: 0.98396 sec, avg_samples: 1000.00000, ips: 1016.30076 example/sec
+2021-02-20 14:41:33,473 - INFO - Epoch: 1, Batch: 200, auc: [0.74954063], cost: [0.46069366],  avg_batch_cost: 0.99538 sec, avg_samples: 1000.00000, ips: 1004.64608 example/sec
+2021-02-20 14:43:12,702 - INFO - Epoch: 1, Batch: 300, auc: [0.75272281], cost: [0.45542526],  avg_batch_cost: 0.99226 sec, avg_samples: 1000.00000, ips: 1007.79847 example/sec
+2021-02-20 14:44:52,541 - INFO - Epoch: 1, Batch: 400, auc: [0.75541878], cost: [0.47830218],  avg_batch_cost: 0.99837 sec, avg_samples: 1000.00000, ips: 1001.63408 example/sec
+2021-02-20 14:46:33,294 - INFO - Epoch: 1, Batch: 500, auc: [0.75761516], cost: [0.4633397],  avg_batch_cost: 1.00750 sec, avg_samples: 1000.00000, ips: 992.55365 example/sec
+2021-02-20 14:48:15,192 - INFO - Epoch: 1, Batch: 600, auc: [0.75959622], cost: [0.435328],  avg_batch_cost: 1.01895 sec, avg_samples: 1000.00000, ips: 981.40171 example/sec
+2021-02-20 14:49:45,566 - INFO - Epoch: 1, using time 690.0318501 second, ips 15941.0148943 example/sec.
+2021-02-20 14:49:45,566 - INFO - -- Role: TRAINER --
+2021-02-20 14:49:50,650 - INFO - Epoch: 2, Running DataLoader Begin.
+2021-02-20 14:51:31,378 - INFO - Epoch: 2, Batch: 100, auc: [0.76272334], cost: [0.4544691],  avg_batch_cost: 1.00725 sec, avg_samples: 1000.00000, ips: 992.79817 example/sec
+2021-02-20 14:53:11,600 - INFO - Epoch: 2, Batch: 200, auc: [0.76432647], cost: [0.46816003],  avg_batch_cost: 1.00219 sec, avg_samples: 1000.00000, ips: 997.81202 example/sec
+2021-02-20 14:54:52,490 - INFO - Epoch: 2, Batch: 300, auc: [0.76573791], cost: [0.4465547],  avg_batch_cost: 1.00887 sec, avg_samples: 1000.00000, ips: 991.20653 example/sec
+2021-02-20 14:56:33,305 - INFO - Epoch: 2, Batch: 400, auc: [0.76709753], cost: [0.47505945],  avg_batch_cost: 1.00813 sec, avg_samples: 1000.00000, ips: 991.93568 example/sec
+2021-02-20 14:58:14,593 - INFO - Epoch: 2, Batch: 500, auc: [0.76825644], cost: [0.45888668],  avg_batch_cost: 1.01286 sec, avg_samples: 1000.00000, ips: 987.30474 example/sec
+2021-02-20 14:59:55,094 - INFO - Epoch: 2, Batch: 600, auc: [0.76927754], cost: [0.4295093],  avg_batch_cost: 1.00499 sec, avg_samples: 1000.00000, ips: 995.03830 example/sec
+2021-02-20 15:01:24,612 - INFO - Epoch: 2, using time 693.961803913 second, ips 15850.7398217 example/sec.

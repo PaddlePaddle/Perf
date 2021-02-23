@@ -1,0 +1,121 @@
+2021-02-22 02:20:57,000 - INFO - Run Worker Begin
+I0222 02:20:57.160836 10450 communicator.h:202] Communicator Init Envs
+I0222 02:20:57.160864 10450 communicator.h:205] barrier_table_id: 2
+I0222 02:20:57.160869 10450 communicator.h:205] communicator_independent_recv_thread: 1
+I0222 02:20:57.160872 10450 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0222 02:20:57.160876 10450 communicator.h:205] communicator_max_merge_var_num: 16
+I0222 02:20:57.160879 10450 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0222 02:20:57.160882 10450 communicator.h:205] communicator_send_queue_size: 16
+I0222 02:20:57.160885 10450 communicator.h:205] communicator_send_wait_times: 5
+I0222 02:20:57.160888 10450 communicator.h:205] communicator_thread_pool_size: 5
+I0222 02:20:57.160892 10450 communicator.h:205] need_global_step: 0
+I0222 02:20:57.160894 10450 communicator.h:205] rpc_deadline: 180000
+I0222 02:20:57.160898 10450 communicator.h:205] rpc_retry_times: 3
+I0222 02:20:57.160902 10450 communicator.h:205] trainer_id: 0
+I0222 02:20:57.160904 10450 communicator.h:205] trainers: 8
+I0222 02:20:57.161751 10450 communicator.cc:42] Init With Gflags:
+I0222 02:20:57.161921 10450 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0222 02:20:57.171290 10450 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0222 02:20:57.171308 10450 server.cpp:1040] Check out http://szwg-aip-paddlecloud024.szwg01.baidu.com:8500 in web browser.
+2021-02-22 02:21:13,230 - INFO - Epoch: 0, Running Dataset Begin.
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.538677]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.544409]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.592031]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.498746]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.621078]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.48991]
+2021-02-22 02:22:21,706 - INFO - Epoch: 0, using time 68.4768021107 second, ips 80317.7693828 example/sec.
+2021-02-22 02:22:21,710 - INFO - -- Role: TRAINER --
+/home/disk2/task_data/history/20210222/0.app-user-20210222020515-1665--CtrDnn_benchamrk_8_DataSet_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1324: UserWarning: please ensure that you have set the auc states to zeros before saving inference model
+  "please ensure that you have set the auc states to zeros before saving inference model"
+/home/disk2/task_data/history/20210222/0.app-user-20210222020515-1665--CtrDnn_benchamrk_8_DataSet_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1397: UserWarning: save_inference_model specified the param `program_only` to True, It will not save params of Program.
+  "save_inference_model specified the param `program_only` to True, It will not save params of Program."
+2021-02-22 02:22:24,939 - INFO - Epoch: 1, Running Dataset Begin.
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.648557]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.506466]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.665904]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.472032]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.677269]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.511424]
+2021-02-22 02:23:32,754 - INFO - Epoch: 1, using time 67.8159320354 second, ips 81100.4705668 example/sec.
+2021-02-22 02:23:32,758 - INFO - -- Role: TRAINER --
+2021-02-22 02:23:35,781 - INFO - Epoch: 2, Running Dataset Begin.
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.689141]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.497359]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.697235]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.499766]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.704208]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.485837]
+2021-02-22 02:24:42,697 - INFO - Epoch: 2, using time 66.915626049 second, ips 82191.6243594 example/sec.

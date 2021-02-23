@@ -1,0 +1,35 @@
+2021-02-20 14:37:14,072 - INFO - Run Worker Begin
+I0220 14:37:14.234236  6479 communicator.h:202] Communicator Init Envs
+I0220 14:37:14.234263  6479 communicator.h:205] barrier_table_id: 2
+I0220 14:37:14.234267  6479 communicator.h:205] communicator_independent_recv_thread: 1
+I0220 14:37:14.234270  6479 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0220 14:37:14.234273  6479 communicator.h:205] communicator_max_merge_var_num: 16
+I0220 14:37:14.234277  6479 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0220 14:37:14.234279  6479 communicator.h:205] communicator_send_queue_size: 16
+I0220 14:37:14.234283  6479 communicator.h:205] communicator_send_wait_times: 5
+I0220 14:37:14.234287  6479 communicator.h:205] communicator_thread_pool_size: 5
+I0220 14:37:14.234289  6479 communicator.h:205] need_global_step: 0
+I0220 14:37:14.234292  6479 communicator.h:205] rpc_deadline: 180000
+I0220 14:37:14.234297  6479 communicator.h:205] rpc_retry_times: 3
+I0220 14:37:14.234299  6479 communicator.h:205] trainer_id: 0
+I0220 14:37:14.234302  6479 communicator.h:205] trainers: 16
+I0220 14:37:14.235141  6479 communicator.cc:42] Init With Gflags:
+I0220 14:37:14.235322  6479 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0220 14:37:14.243609  6479 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0220 14:37:14.243628  6479 server.cpp:1040] Check out http://szwg-aip-paddlecloud152.szwg01.baidu.com:8500 in web browser.
+2021-02-20 14:37:24,819 - INFO - Epoch: 0, Running DataLoader Begin.
+
+2021-02-20 14:39:07,881 - INFO - Epoch: 0, Batch: 100, auc: [0.66544927], cost: [0.49590692],  avg_batch_cost: 1.03059 sec, avg_samples: 1000.00000, ips: 970.31823 example/sec
+2021-02-20 14:40:23,060 - INFO - Epoch: 0, using time 178.241244078 second, ips 15428.2585618 example/sec.
+2021-02-20 14:40:23,061 - INFO - -- Role: TRAINER --
+/home/disk3/task_data/history/20210220/0.app-user-20210220132629-1625--CtrDnn_benchamrk_16_DataLoader_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1324: UserWarning: please ensure that you have set the auc states to zeros before saving inference model
+  "please ensure that you have set the auc states to zeros before saving inference model"
+/home/disk3/task_data/history/20210220/0.app-user-20210220132629-1625--CtrDnn_benchamrk_16_DataLoader_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1397: UserWarning: save_inference_model specified the param `program_only` to True, It will not save params of Program.
+  "save_inference_model specified the param `program_only` to True, It will not save params of Program."
+2021-02-20 14:40:24,813 - INFO - Epoch: 1, Running DataLoader Begin.
+2021-02-20 14:42:07,542 - INFO - Epoch: 1, Batch: 100, auc: [0.72524126], cost: [0.44577277],  avg_batch_cost: 1.02724 sec, avg_samples: 1000.00000, ips: 973.47791 example/sec
+2021-02-20 14:43:21,884 - INFO - Epoch: 1, using time 177.0713799 second, ips 15530.1890207 example/sec.
+2021-02-20 14:43:21,884 - INFO - -- Role: TRAINER --
+2021-02-20 14:43:23,477 - INFO - Epoch: 2, Running DataLoader Begin.
+2021-02-20 14:45:06,846 - INFO - Epoch: 2, Batch: 100, auc: [0.74644674], cost: [0.4334479],  avg_batch_cost: 1.03366 sec, avg_samples: 1000.00000, ips: 967.43380 example/sec
+2021-02-20 14:46:21,514 - INFO - Epoch: 2, using time 178.036450863 second, ips 15446.0055043 example/sec.
