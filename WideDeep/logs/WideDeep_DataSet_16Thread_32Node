@@ -1,0 +1,34 @@
+2021-02-22 02:30:48,333 - INFO - Run Worker Begin
+I0222 02:30:48.494199  4978 communicator.h:202] Communicator Init Envs
+I0222 02:30:48.494226  4978 communicator.h:205] barrier_table_id: 2
+I0222 02:30:48.494232  4978 communicator.h:205] communicator_independent_recv_thread: 1
+I0222 02:30:48.494235  4978 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0222 02:30:48.494238  4978 communicator.h:205] communicator_max_merge_var_num: 16
+I0222 02:30:48.494242  4978 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0222 02:30:48.494246  4978 communicator.h:205] communicator_send_queue_size: 16
+I0222 02:30:48.494248  4978 communicator.h:205] communicator_send_wait_times: 5
+I0222 02:30:48.494251  4978 communicator.h:205] communicator_thread_pool_size: 5
+I0222 02:30:48.494254  4978 communicator.h:205] need_global_step: 0
+I0222 02:30:48.494257  4978 communicator.h:205] rpc_deadline: 180000
+I0222 02:30:48.494271  4978 communicator.h:205] rpc_retry_times: 3
+I0222 02:30:48.494274  4978 communicator.h:205] trainer_id: 0
+I0222 02:30:48.494277  4978 communicator.h:205] trainers: 32
+I0222 02:30:48.495105  4978 communicator.cc:42] Init With Gflags:
+I0222 02:30:48.495308  4978 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0222 02:30:48.504380  4978 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0222 02:30:48.504405  4978 server.cpp:1040] Check out http://szwg-aip-paddlecloud239.szwg01.baidu.com:8500 in web browser.
+2021-02-22 02:30:55,605 - INFO - Epoch: 0, Running Dataset Begin.
+2021-02-22 02:31:15,523 - INFO - Epoch: 0, using time 19.9183461666 second, ips 69030.6307812 example/sec.
+2021-02-22 02:31:15,526 - INFO - -- Role: TRAINER --
+/home/disk1/task_data/history/20210222/0.app-user-20210222020521-1667--CtrDnn_benchamrk_32_DataSet_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1324: UserWarning: please ensure that you have set the auc states to zeros before saving inference model
+  "please ensure that you have set the auc states to zeros before saving inference model"
+/home/disk1/task_data/history/20210222/0.app-user-20210222020521-1667--CtrDnn_benchamrk_32_DataSet_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1397: UserWarning: save_inference_model specified the param `program_only` to True, It will not save params of Program.
+  "save_inference_model specified the param `program_only` to True, It will not save params of Program."
+2021-02-22 02:31:16,758 - INFO - Epoch: 1, Running Dataset Begin.
+2021-02-22 02:31:34,888 - INFO - Epoch: 1, using time 18.1307041645 second, ips 75836.8780123 example/sec.
+2021-02-22 02:31:34,892 - INFO - -- Role: TRAINER --
+2021-02-22 02:31:36,147 - INFO - Epoch: 2, Running Dataset Begin.
+2021-02-22 02:31:54,415 - INFO - Epoch: 2, using time 18.2680671215 second, ips 75266.638274 example/sec.
+2021-02-22 02:31:54,420 - INFO - -- Role: TRAINER --
+2021-02-22 02:31:55,618 - INFO - Epoch: 3, Running Dataset Begin.
+2021-02-22 02:32:13,147 - INFO - Epoch: 3, using time 17.5284540653 second, ips 78442.513805 example/sec.

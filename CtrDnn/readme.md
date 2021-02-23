@@ -251,4 +251,16 @@ WORKER和SERVER数量相等，每个节点上分别启动一个Worker进程与�
 | 16 | <sup>1448210</sup>  | <sup>10703</sup> |
 | 32 | <sup>2553503</sup> | <sup>21407</sup> |
 
+## 六、日志数据
+### 1.单机（单卡、8卡）日志
+
+- [CtrDnn DataSet 4机](./logs/CtrDnn_DataSet_16Thread_4Node)
+- [CtrDnn DataSet 8机](./logs/CtrDnn_DataSet_16Thread_8Node)
+- [CtrDnn DataSet 16机](./logs/CtrDnn_DataSet_16Thread_16Node)
+- [CtrDnn DataSet 32机](./logs/CtrDnn_DataSet_16Thread_32Node)
+- [CtrDnn DataLoader 4机](./logs/CtrDnn_DataLoader_16Thread_4Node)
+- [CtrDnn DataLoader 8机](./logs/CtrDnn_DataLoader_16Thread_8Node)
+- [CtrDnn DataLoader 16机](./logs/CtrDnn_DataLoader_16Thread_16Node)
+- [CtrDnn DataLoader 32机](./logs/CtrDnn_DataLoader_16Thread_32Node)
+
 

@@ -1,0 +1,36 @@
+2021-02-20 14:53:33,108 - INFO - Run Worker Begin
+I0220 14:53:33.269482  9974 communicator.h:202] Communicator Init Envs
+I0220 14:53:33.269510  9974 communicator.h:205] barrier_table_id: 2
+I0220 14:53:33.269515  9974 communicator.h:205] communicator_independent_recv_thread: 1
+I0220 14:53:33.269517  9974 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0220 14:53:33.269520  9974 communicator.h:205] communicator_max_merge_var_num: 16
+I0220 14:53:33.269523  9974 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0220 14:53:33.269527  9974 communicator.h:205] communicator_send_queue_size: 16
+I0220 14:53:33.269531  9974 communicator.h:205] communicator_send_wait_times: 5
+I0220 14:53:33.269533  9974 communicator.h:205] communicator_thread_pool_size: 5
+I0220 14:53:33.269537  9974 communicator.h:205] need_global_step: 0
+I0220 14:53:33.269541  9974 communicator.h:205] rpc_deadline: 180000
+I0220 14:53:33.269544  9974 communicator.h:205] rpc_retry_times: 3
+I0220 14:53:33.269547  9974 communicator.h:205] trainer_id: 0
+I0220 14:53:33.269551  9974 communicator.h:205] trainers: 8
+I0220 14:53:33.270395  9974 communicator.cc:42] Init With Gflags:
+I0220 14:53:33.270571  9974 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0220 14:53:33.280164  9974 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0220 14:53:33.280184  9974 server.cpp:1040] Check out http://szwg-aip-paddlecloud046.szwg01.baidu.com:8500 in web browser.
+2021-02-20 14:53:43,138 - INFO - Epoch: 0, Running DataLoader Begin.
+2021-02-20 14:55:25,405 - INFO - Epoch: 0, Batch: 100, auc: [0.66697924], cost: [0.48904157],  avg_batch_cost: 1.02264 sec, avg_samples: 1000.00000, ips: 977.85967 example/sec
+2021-02-20 14:57:06,645 - INFO - Epoch: 0, Batch: 200, auc: [0.70452168], cost: [0.49718627],  avg_batch_cost: 1.01238 sec, avg_samples: 1000.00000, ips: 987.77428 example/sec
+2021-02-20 14:58:48,948 - INFO - Epoch: 0, Batch: 300, auc: [0.72283918], cost: [0.485526],  avg_batch_cost: 1.02300 sec, avg_samples: 1000.00000, ips: 977.52000 example/sec
+2021-02-20 14:59:34,258 - INFO - Epoch: 0, using time 351.119771957 second, ips 15663.8971635 example/sec.
+2021-02-20 14:59:34,258 - INFO - -- Role: TRAINER --
+2021-02-20 14:59:37,236 - INFO - Epoch: 1, Running DataLoader Begin.
+2021-02-20 15:01:16,528 - INFO - Epoch: 1, Batch: 100, auc: [0.73836252], cost: [0.4579533],  avg_batch_cost: 0.99290 sec, avg_samples: 1000.00000, ips: 1007.15457 example/sec
+2021-02-20 15:02:59,876 - INFO - Epoch: 1, Batch: 200, auc: [0.74560816], cost: [0.4795927],  avg_batch_cost: 1.03345 sec, avg_samples: 1000.00000, ips: 967.63153 example/sec
+2021-02-20 15:04:42,229 - INFO - Epoch: 1, Batch: 300, auc: [0.75087416], cost: [0.47917268],  avg_batch_cost: 1.02350 sec, avg_samples: 1000.00000, ips: 977.04113 example/sec
+2021-02-20 15:05:27,270 - INFO - Epoch: 1, using time 350.03450799 second, ips 15712.46227 example/sec.
+2021-02-20 15:05:27,271 - INFO - -- Role: TRAINER --
+2021-02-20 15:05:30,163 - INFO - Epoch: 2, Running DataLoader Begin.
+2021-02-20 15:07:13,108 - INFO - Epoch: 2, Batch: 100, auc: [0.75698267], cost: [0.4493703],  avg_batch_cost: 1.02943 sec, avg_samples: 1000.00000, ips: 971.41427 example/sec
+2021-02-20 15:08:56,144 - INFO - Epoch: 2, Batch: 200, auc: [0.76030488], cost: [0.4777985],  avg_batch_cost: 1.03034 sec, avg_samples: 1000.00000, ips: 970.55788 example/sec
+2021-02-20 15:10:39,131 - INFO - Epoch: 2, Batch: 300, auc: [0.76304984], cost: [0.47043997],  avg_batch_cost: 1.02984 sec, avg_samples: 1000.00000, ips: 971.02673 example/sec
+2021-02-20 15:11:24,877 - INFO - Epoch: 2, using time 354.713696003 second, ips 15505.1921084 example/sec.

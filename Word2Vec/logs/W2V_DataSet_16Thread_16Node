@@ -1,0 +1,5356 @@
+2021-02-22 10:53:01,730 - INFO - Run Worker Begin
+I0222 10:53:01.792778  5946 communicator.h:202] Communicator Init Envs
+I0222 10:53:01.792804  5946 communicator.h:205] barrier_table_id: 4
+I0222 10:53:01.792809  5946 communicator.h:205] communicator_independent_recv_thread: 1
+I0222 10:53:01.792812  5946 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0222 10:53:01.792816  5946 communicator.h:205] communicator_max_merge_var_num: 16
+I0222 10:53:01.792819  5946 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0222 10:53:01.792822  5946 communicator.h:205] communicator_send_queue_size: 16
+I0222 10:53:01.792825  5946 communicator.h:205] communicator_send_wait_times: 5
+I0222 10:53:01.792829  5946 communicator.h:205] communicator_thread_pool_size: 48
+I0222 10:53:01.792831  5946 communicator.h:205] need_global_step: 0
+I0222 10:53:01.792834  5946 communicator.h:205] rpc_deadline: 180000
+I0222 10:53:01.792840  5946 communicator.h:205] rpc_retry_times: 0
+I0222 10:53:01.792842  5946 communicator.h:205] trainer_id: 0
+I0222 10:53:01.792845  5946 communicator.h:205] trainers: 16
+I0222 10:53:01.793742  5946 communicator.cc:42] Init With Gflags:
+I0222 10:53:01.793920  5946 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0222 10:53:01.801896  5946 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0222 10:53:01.801914  5946 server.cpp:1040] Check out http://szwg-aip-paddlecloud197.szwg01.baidu.com:8500 in web browser.
+2021-02-22 10:53:11,378 - INFO - Epoch: 0, Running Dataset Begin.
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.89516]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.36404]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.94195]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.4172]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.97896]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.05512]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.88529]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.92743]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54484]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72255]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.36735]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28718]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.28834]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.10518]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82683]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90333]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83187]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70274]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40375]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.92226]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.92981]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.66708]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17932]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13006]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.42825]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72568]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.7751]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44443]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.80982]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47374]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35435]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42589]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45725]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57271]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46189]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05253]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44845]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.9452]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64688]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47174]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68588]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55218]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33118]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.312]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26655]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42851]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38225]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69378]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82765]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28247]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18444]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17219]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58888]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28099]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50905]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26821]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70286]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16657]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.84979]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74256]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.22568]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.82485]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.729]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.03278]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.48796]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.96678]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12179]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4501]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.89046]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54846]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51485]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [4.00732]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45102]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25721]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28444]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58123]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0915]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.0624]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08726]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.4934]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73979]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.41527]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42256]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13158]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90398]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66725]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48516]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44515]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90523]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66606]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35257]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22595]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.37664]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.85638]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64323]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59188]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.38012]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.80937]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.75864]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.06555]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.89614]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34959]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.88754]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72171]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79219]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.71116]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.13425]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46348]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43616]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86808]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0354]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4269]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46653]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64397]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27925]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20834]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70903]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90178]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79942]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48674]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.61219]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36121]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65969]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11137]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3388]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24305]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.9307]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07244]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.95923]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07598]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73614]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.20139]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.53025]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6686]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57414]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43781]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50955]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86725]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50073]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52513]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39051]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54342]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.85278]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72506]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.7104]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63709]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.61107]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66165]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82592]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.00368]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.10754]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.97434]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4674]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.04724]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.0641]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44221]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39459]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15046]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86499]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45683]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72099]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.85118]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36567]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.78364]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3519]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05781]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54142]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.53401]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.70188]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50969]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40741]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45148]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41004]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39914]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57391]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24639]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18235]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.92131]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74585]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.01769]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42161]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6137]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51423]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37437]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44195]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27934]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47684]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74632]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2823]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77247]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44305]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.01047]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42158]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.03532]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.17868]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.05308]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.56984]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28773]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64758]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17935]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.81468]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.404]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32254]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.7288]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11989]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.23417]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54322]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12276]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35098]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26298]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46799]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57213]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40826]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.00211]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.10277]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38988]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40741]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69408]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73129]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48664]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33022]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77345]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.88142]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07486]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47302]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.86061]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31184]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42801]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28172]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6105]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72208]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24936]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14399]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36886]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.91145]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74322]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11752]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65225]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.831]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12439]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22194]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.8335]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86849]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.5936]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.97504]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19311]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26962]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.1877]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82074]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3825]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.00259]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68869]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.84185]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.82868]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51958]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58353]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51535]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.52153]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38526]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54978]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.39511]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.98764]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.87923]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34827]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58678]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.5491]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24893]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.10558]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50462]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51777]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.1897]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.25936]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07867]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77151]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3192]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.25369]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4361]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68874]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.29702]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41638]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.81779]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70952]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.9048]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12728]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73528]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46957]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6026]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.5951]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.89493]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54734]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67982]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.99221]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.09205]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43481]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.93421]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.7993]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.0218]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33849]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34354]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77991]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.97568]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46687]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12315]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.75836]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62965]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86308]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65027]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.10986]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.81106]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.23494]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38821]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49671]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90798]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82136]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34137]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12528]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.78444]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0136]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13342]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.06874]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67708]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46583]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.81645]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29774]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59293]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39739]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21966]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75592]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26876]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83477]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74279]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.0378]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66784]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31297]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.80218]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.1944]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.26729]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47439]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17412]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.97116]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59401]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05946]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.87474]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90845]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55351]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73918]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.98355]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16375]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43309]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64987]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48667]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2211]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.75156]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60228]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.97]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14834]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77627]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46491]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26826]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70469]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36169]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49571]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.95918]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.297]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83233]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19329]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05261]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0158]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21741]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22448]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32594]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4323]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.04654]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57879]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94189]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34845]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44699]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94826]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69038]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82115]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57463]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.91608]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37485]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62418]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20251]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.53019]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.96713]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62936]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90954]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.7369]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65352]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62935]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41345]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08485]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.00325]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47676]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79013]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70681]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.89234]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15159]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51761]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.92675]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74127]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.78227]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83869]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.81636]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52003]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12269]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25617]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63955]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68322]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67604]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51742]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69136]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39548]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.01682]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46824]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65092]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26181]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54059]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.10284]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86887]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.62672]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07226]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45665]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45116]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0121]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.04023]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.23684]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.76723]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62352]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67482]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63957]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.23051]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.98886]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.53084]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90931]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11734]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38369]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20873]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62389]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75029]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39413]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24743]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51592]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.8373]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.81682]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.56773]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59378]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.86591]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12908]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11894]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21157]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.76616]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18736]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57955]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3362]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.04704]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49859]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49901]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16119]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63178]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63744]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17594]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58735]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.8292]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48314]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27621]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73377]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49238]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20169]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47868]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43674]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70713]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44256]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24625]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17969]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46163]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94646]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77018]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52949]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16011]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.80785]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.94917]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17084]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40525]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13464]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.80348]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34036]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.96259]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29588]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40217]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.06827]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13067]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79338]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75925]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08874]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16729]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86034]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14219]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38563]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68866]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64259]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77059]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57921]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65006]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07197]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79228]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36964]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57954]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46289]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50749]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25138]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65593]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22365]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37852]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15064]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26082]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32411]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.22114]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60983]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.92958]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15915]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52955]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.02481]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.09982]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.1431]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2017]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21971]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39465]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64756]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.81099]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.23435]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57356]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54994]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.89193]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4695]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39552]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08849]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.01326]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.00771]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.71714]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25509]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.02429]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08685]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42104]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63852]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49525]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4183]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.94631]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.95966]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.88642]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31719]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28565]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.8775]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0659]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44874]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50712]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.03968]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79691]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4712]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94148]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.11331]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15557]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38665]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27384]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.56356]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33099]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21397]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34673]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67777]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66143]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22841]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33129]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32732]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86837]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66448]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38163]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14638]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75929]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.31742]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.62351]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.82519]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.02843]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18779]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24784]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67155]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4206]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20307]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35698]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68917]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16315]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44962]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.04215]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34358]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60452]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.9209]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.36025]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.2946]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27964]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.8186]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35623]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.09908]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.04486]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22641]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63407]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42707]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19335]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19077]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36563]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.61424]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19971]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.19331]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.85684]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.42956]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28719]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73364]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45673]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36349]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.40353]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21386]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37807]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.81667]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52862]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.1005]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24021]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.87355]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.5649]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.91516]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33567]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.03163]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.00224]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.4051]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.92657]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22595]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.80576]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4303]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17875]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26372]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58679]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63312]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.2615]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27469]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32024]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69145]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.74657]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25425]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25544]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.89116]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65976]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57783]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12364]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22803]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39295]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.5669]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6003]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28141]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28273]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50593]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.10889]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2748]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6319]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19886]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65385]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14287]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.89838]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55835]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.30635]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44727]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60661]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28098]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22766]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.56864]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52644]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.78544]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48499]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27698]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55022]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28621]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.87275]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33522]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18395]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73361]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64802]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63169]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49944]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79422]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43935]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49956]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.80143]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12748]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.0671]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19418]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60813]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60153]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3358]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3074]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13799]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24603]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63079]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07722]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40294]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6001]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51039]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40697]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55239]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29033]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59603]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.10523]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37136]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33188]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6432]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60424]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21301]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.9063]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21504]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31978]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.85542]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14685]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05639]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.87458]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14269]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.82857]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63577]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18126]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58641]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18654]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.975]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.77852]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.60527]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.76778]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.10138]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24892]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.71019]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27691]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63402]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.16396]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.95857]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58854]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15729]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32139]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73967]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63037]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22327]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75446]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19224]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.85502]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.99018]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.98897]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51567]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.10281]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75434]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59656]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.88394]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22351]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.82549]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.88549]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.04149]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.78311]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4408]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27435]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39902]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.97239]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68824]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57804]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27005]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.89872]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36027]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51715]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46573]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13908]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.76219]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.03657]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31363]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18261]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4187]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2184]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.49116]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33841]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.88014]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33987]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21525]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.09117]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19692]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39842]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12264]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.56469]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.23019]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35097]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.71743]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24704]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.03367]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.84518]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.97449]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0444]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41021]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59815]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.7716]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42258]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.93976]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70874]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08966]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.52058]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.75664]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29904]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4389]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65562]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19794]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20256]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.85511]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.76036]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62255]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79241]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11457]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31861]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20974]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07018]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57534]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83726]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65439]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41969]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.01042]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21375]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.63336]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2641]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43581]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40142]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28041]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41361]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.04825]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.59701]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6933]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.63048]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14051]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.79861]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.90764]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.4994]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51947]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37827]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.80666]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35653]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14111]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.30015]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44545]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.99026]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.95372]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28333]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.92581]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.8719]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07638]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46183]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33453]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.9935]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21431]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72836]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22688]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.53812]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33377]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.10351]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17396]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62059]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38124]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17141]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25962]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.54207]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.04725]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21334]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43045]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.87007]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.21435]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.91042]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42056]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15019]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34769]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.33287]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.61931]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.39193]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54929]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27424]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22148]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37324]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22837]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40653]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.00499]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64981]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29435]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.97041]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28452]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.1731]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.80008]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79008]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.9475]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34682]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48323]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.1359]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18361]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28715]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29594]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.01918]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2413]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.82936]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19423]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.00619]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58182]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62493]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.245]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.56326]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57169]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.84022]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08248]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42632]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.48593]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.94212]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.17229]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.97793]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.99326]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40385]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19012]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41703]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14799]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.30425]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83677]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08018]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37456]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.65746]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15785]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.38739]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.9646]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17838]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05086]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15304]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.28848]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64584]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.87217]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15573]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20545]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57117]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68569]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42884]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51447]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.99903]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.12885]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.62076]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13852]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40194]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.0523]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47047]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.35966]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20877]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.09725]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31292]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18586]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68681]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.89096]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11001]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47324]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26841]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.08474]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37881]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34367]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55782]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.61147]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.99343]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.72905]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69555]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.23651]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.51858]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34327]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15843]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.09142]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.93093]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42974]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15339]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.50584]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15329]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.79774]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.67491]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.77421]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40748]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.92142]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.64644]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.088]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66799]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.27416]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.9389]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.476]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.41576]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25773]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.88311]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54839]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25221]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.86904]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13093]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.73777]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94009]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83428]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.20248]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.88191]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.83546]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34686]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44623]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.46597]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94478]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.44209]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.36413]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58777]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.2372]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32185]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40258]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.74695]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.56345]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.68739]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.02842]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.56108]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14411]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34799]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.32511]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69711]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.7041]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3079]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.13245]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.11975]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.05338]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.29531]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.24058]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.07427]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.69039]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.5484]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.31914]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.63935]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18418]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [3.12057]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.42303]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.66897]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.25675]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.37648]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.5795]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.58219]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.17846]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22918]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.61097]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54147]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.94565]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.3455]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.34395]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.18858]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.55872]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.43803]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.19393]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.70018]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [1.79805]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.71862]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.03913]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.59812]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.15532]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.57534]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54612]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.47463]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.40516]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.14538]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.6987]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.22277]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.26179]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.54966]
+Epoch 0 Var LOSS	mean_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [2.45359]
+2021-02-22 11:22:13,769 - INFO - Epoch: 0, using time 1742.39053702 second, ips 18854.7454213 word/sec.

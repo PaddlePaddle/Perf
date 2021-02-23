@@ -321,5 +321,22 @@ WORKER和SERVER数量相等，每个节点上分别启动一个Worker进程与�
   | 16 | <sup>324421</sup>  | <sup>960883</sup> |<sup>71436</sup> |
   | 32 | <sup>534432</sup> | <sup>1503222</sup> |<sup>114037</sup> |
 
+## 六、日志数据
+### 1.单机（单卡、8卡）日志
 
-
+- [Word2Vec DataSet 4机](./logs/W2V_DataSet_16Thread_4Node)
+- [Word2Vec DataSet 8机](./logs/W2V_DataSet_16Thread_8Node)
+- [Word2Vec DataSet 16机](./logs/W2V_DataSet_16Thread_16Node)
+- [Word2Vec DataSet 32机](./logs/W2V_DataSet_16Thread_32Node)
+- [Word2Vec DataLoader 4机](./logs/W2V_DataLoader_16Thread_4Node)
+- [Word2Vec DataLoader 8机](./logs/W2V_DataLoader_16Thread_8Node)
+- [Word2Vec DataLoader 16机](./logs/W2V_DataLoader_16Thread_16Node)
+- [Word2Vec DataLoader 32机](./logs/W2V_DataLoader_16Thread_32Node)
+- [Word2Vec DataSet GEO 4机](./logs/W2V_DataSet_16Thread_4Node_GEO)
+- [Word2Vec DataSet GEO 8机](./logs/W2V_DataSet_16Thread_8Node_GEO)
+- [Word2Vec DataSet GEO 16机](./logs/W2V_DataSet_16Thread_16Node_GEO)
+- [Word2Vec DataSet GEO 32机](./logs/W2V_DataSet_16Thread_32Node_GEO)
+- [Word2Vec DataLoader GEO 4机](./logs/W2V_DataLoader_16Thread_4Node_GEO)
+- [Word2Vec DataLoader GEO 8机](./logs/W2V_DataLoader_16Thread_8Node_GEO)
+- [Word2Vec DataLoader GEO 16机](./logs/W2V_DataLoader_16Thread_16Node_GEO)
+- [Word2Vec DataLoader GEO 32机](./logs/W2V_DataLoader_16Thread_32Node_GEO)

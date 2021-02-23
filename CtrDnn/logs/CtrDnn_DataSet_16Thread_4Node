@@ -1,0 +1,211 @@
+2021-02-22 02:20:04,462 - INFO - Run Worker Begin
+I0222 02:20:04.630512 17743 communicator.h:202] Communicator Init Envs
+I0222 02:20:04.630543 17743 communicator.h:205] barrier_table_id: 2
+I0222 02:20:04.630548 17743 communicator.h:205] communicator_independent_recv_thread: 1
+I0222 02:20:04.630550 17743 communicator.h:205] communicator_is_sgd_optimizer: 1
+I0222 02:20:04.630553 17743 communicator.h:205] communicator_max_merge_var_num: 16
+I0222 02:20:04.630556 17743 communicator.h:205] communicator_min_send_grad_num_before_recv: 16
+I0222 02:20:04.630560 17743 communicator.h:205] communicator_send_queue_size: 16
+I0222 02:20:04.630564 17743 communicator.h:205] communicator_send_wait_times: 5
+I0222 02:20:04.630568 17743 communicator.h:205] communicator_thread_pool_size: 5
+I0222 02:20:04.630570 17743 communicator.h:205] need_global_step: 0
+I0222 02:20:04.630573 17743 communicator.h:205] rpc_deadline: 180000
+I0222 02:20:04.630578 17743 communicator.h:205] rpc_retry_times: 3
+I0222 02:20:04.630580 17743 communicator.h:205] trainer_id: 0
+I0222 02:20:04.630584 17743 communicator.h:205] trainers: 4
+I0222 02:20:04.631424 17743 communicator.cc:42] Init With Gflags:
+I0222 02:20:04.631592 17743 ps_client.cc:81] Create PSClient[BrpcPsClient] success
+I0222 02:20:04.639869 17743 server.cpp:1037] Server[paddle::distributed::DownpourPsClientService] is serving on port=8500.
+I0222 02:20:04.639894 17743 server.cpp:1040] Check out in web browser.
+2021-02-22 02:20:08,914 - INFO - Epoch: 0, Running Dataset Begin.
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.540806]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.545456]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.586322]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.575693]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.614472]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.54991]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.636908]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.52774]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.651338]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.495393]
+Epoch 0 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.662911]
+Epoch 0 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.47587]
+2021-02-22 02:22:19,513 - INFO - Epoch: 0, using time 130.599303007 second, ips 84225.62561 example/sec.
+2021-02-22 02:22:19,517 - INFO - -- Role: TRAINER --
+/home/disk1/task_data/history/20210222/0.app-user-20210222020430-1662--CtrDnn_benchamrk_4_DataSet_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1324: UserWarning: please ensure that you have set the auc states to zeros before saving inference model
+  "please ensure that you have set the auc states to zeros before saving inference model"
+/home/disk1/task_data/history/20210222/0.app-user-20210222020430-1662--CtrDnn_benchamrk_4_DataSet_async_conv_paddlecloud/logs/workspace/python27-gcc820/lib/python2.7/site-packages/paddle/fluid/io.py:1397: UserWarning: save_inference_model specified the param `program_only` to True, It will not save params of Program.
+  "save_inference_model specified the param `program_only` to True, It will not save params of Program."
+2021-02-22 02:22:24,765 - INFO - Epoch: 1, Running Dataset Begin.
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.678491]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.530952]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.684898]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.494112]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.690354]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.488244]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.695454]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.502412]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.69999]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.472921]
+Epoch 1 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.703869]
+Epoch 1 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.488272]
+2021-02-22 02:24:33,203 - INFO - Epoch: 1, using time 128.437875032 second, ips 85643.0238917 example/sec.
+2021-02-22 02:24:33,207 - INFO - -- Role: TRAINER --
+2021-02-22 02:24:38,405 - INFO - Epoch: 2, Running Dataset Begin.
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.711174]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.503124]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.713974]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.481535]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.717007]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.510908]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.719708]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.490567]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.722332]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.478607]
+Epoch 2 Var auc	auc_0.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: double
+  - data: [0.724346]
+Epoch 2 Var cost	mean_1.tmp_0	  - place: CPUPlace
+  - shape: [1]
+  - layout: NCHW
+  - dtype: float
+  - data: [0.455711]
+2021-02-22 02:26:46,919 - INFO - Epoch: 2, using time 128.514168978 second, ips 85592.180905 example/sec.
