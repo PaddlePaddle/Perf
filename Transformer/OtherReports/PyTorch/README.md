@@ -201,7 +201,10 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 |:-----:|:-----:|:-----:|:-----:|
 |1 |  |  |  |
 |8 |  |  |  |
-|32 |  |  |  |
+|32 | 166352.6 | 385625.7 | 590188.7 |
 
 ## 五、日志数据
 ### 1.日志
+- [4机32卡、FP32](./logs/pytorch_gpu32_fp32_bs2560)
+- [4机32卡、FP16](./logs/pytorch_gpu32_fp16_bs5120)
+- [4机32卡、AMP ](./logs/pytorch_gpu32_amp_bs5120)
