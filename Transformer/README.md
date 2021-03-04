@@ -155,7 +155,7 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=2560 |  |  |
   | GPU=8,BS=2560 |  |  |
-  | GPU=32,BS=2560 |  |  |
+  | GPU=32,BS=2560 | 194040.4 | 166352.6 |
 
 
 - AMP测试
@@ -164,7 +164,7 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=5120 |  |  |
   | GPU=8,BS=5120 |  |  |
-  | GPU=32,BS=5120 |  |  |
+  | GPU=32,BS=5120 | 613864.5 | 385625.7 |
 
 
 - FP16测试
@@ -173,8 +173,11 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=5120 |  |  |
   | GPU=8,BS=5120 |  |  |
-  | GPU=32,BS=5120 |  |  |
+  | GPU=32,BS=5120 | 678315.9 | 590188.7 |
 
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
+- [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2560)
+- [4机32卡、FP16](./logs/paddle_gpu32_fp16_bs5120)
+- [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs5120)
