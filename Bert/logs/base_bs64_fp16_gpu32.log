@@ -48,28 +48,28 @@ W1218 18:43:12.759692  1606 device_context.cc:326] Please NOTE: device: 0, GPU C
 W1218 18:43:12.765044  1606 device_context.cc:336] device: 0, cuDNN Version: 7.6.
 W1218 18:43:30.165313  1606 build_strategy.cc:116] Currently, fuse_broadcast_ops only works under Reduce mode.
 W1218 18:43:30.315951  1606 fuse_all_reduce_op_pass.cc:75] Find all_reduce operators: 206. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 20.
-global step 20, epoch: 0, batch: 19, loss: 11.232314, speed: 1.69 step/s, ips :107.87 sequences/s
-global step 40, epoch: 0, batch: 39, loss: 11.096504, speed: 6.29 step/s, ips :402.67 sequences/s
-global step 60, epoch: 0, batch: 59, loss: 10.969478, speed: 6.22 step/s, ips :397.89 sequences/s
-global step 80, epoch: 0, batch: 79, loss: 10.751760, speed: 6.23 step/s, ips :398.43 sequences/s
-global step 100, epoch: 0, batch: 99, loss: 10.569597, speed: 6.24 step/s, ips :399.13 sequences/s
-global step 120, epoch: 0, batch: 119, loss: 10.399589, speed: 6.24 step/s, ips :399.22 sequences/s
-global step 140, epoch: 0, batch: 139, loss: 10.271688, speed: 6.24 step/s, ips :399.52 sequences/s
-global step 160, epoch: 0, batch: 159, loss: 10.092750, speed: 6.26 step/s, ips :400.77 sequences/s
-global step 180, epoch: 0, batch: 179, loss: 10.003458, speed: 6.14 step/s, ips :392.78 sequences/s
-global step 200, epoch: 0, batch: 199, loss: 9.779929, speed: 6.16 step/s, ips :394.17 sequences/s
-global step 220, epoch: 0, batch: 219, loss: 9.972782, speed: 6.19 step/s, ips :396.48 sequences/s
-global step 240, epoch: 0, batch: 239, loss: 9.791308, speed: 6.20 step/s, ips :396.62 sequences/s
-global step 260, epoch: 0, batch: 259, loss: 9.754134, speed: 6.26 step/s, ips :400.95 sequences/s
-global step 280, epoch: 0, batch: 279, loss: 9.758636, speed: 6.27 step/s, ips :400.96 sequences/s
-global step 300, epoch: 0, batch: 299, loss: 9.693231, speed: 6.22 step/s, ips :398.24 sequences/s
-global step 320, epoch: 0, batch: 9, loss: 9.566251, speed: 4.98 step/s, ips :318.71 sequences/s
-global step 340, epoch: 0, batch: 29, loss: 9.612204, speed: 6.30 step/s, ips :403.44 sequences/s
-global step 360, epoch: 0, batch: 49, loss: 9.583789, speed: 6.28 step/s, ips :402.23 sequences/s
-global step 380, epoch: 0, batch: 69, loss: 9.629142, speed: 6.27 step/s, ips :401.16 sequences/s
-global step 400, epoch: 0, batch: 89, loss: 9.501705, speed: 6.34 step/s, ips :405.62 sequences/s
-global step 420, epoch: 0, batch: 109, loss: 9.497823, speed: 6.34 step/s, ips :405.59 sequences/s
-global step 440, epoch: 0, batch: 129, loss: 9.575566, speed: 6.30 step/s, ips :403.28 sequences/s
-global step 460, epoch: 0, batch: 149, loss: 9.449307, speed: 6.23 step/s, ips :398.52 sequences/s
-global step 480, epoch: 0, batch: 169, loss: 9.332241, speed: 6.21 step/s, ips :397.37 sequences/s
-global step 500, epoch: 0, batch: 189, loss: 9.357986, speed: 6.26 step/s, ips :400.32 sequences/s
+tobal step: 20, epoch: 0, batch: 19, loss: 11.261823, avg_reader_cost: 0.03219 sec, avg_batch_cost: 0.24018 sec, avg_samples: 64.00000, ips: 266.46950 sequences/sec
+tobal step: 40, epoch: 0, batch: 39, loss: 11.172828, avg_reader_cost: 0.00010 sec, avg_batch_cost: 0.10291 sec, avg_samples: 64.00000, ips: 621.89755 sequences/sec
+tobal step: 60, epoch: 0, batch: 59, loss: 11.231297, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.10303 sec, avg_samples: 64.00000, ips: 621.18554 sequences/sec
+tobal step: 80, epoch: 0, batch: 79, loss: 11.197614, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.10307 sec, avg_samples: 64.00000, ips: 620.91599 sequences/sec
+tobal step: 100, epoch: 0, batch: 99, loss: 11.225430, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.10311 sec, avg_samples: 64.00000, ips: 620.68355 sequences/sec
+tobal step: 120, epoch: 0, batch: 119, loss: 11.210236, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10309 sec, avg_samples: 64.00000, ips: 620.79501 sequences/sec
+tobal step: 140, epoch: 0, batch: 139, loss: 11.174594, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.23726 sec, avg_samples: 64.00000, ips: 269.75175 sequences/sec
+tobal step: 160, epoch: 0, batch: 159, loss: 11.231194, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10307 sec, avg_samples: 64.00000, ips: 620.95017 sequences/sec
+tobal step: 180, epoch: 0, batch: 179, loss: 11.189678, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10305 sec, avg_samples: 64.00000, ips: 621.03098 sequences/sec
+tobal step: 200, epoch: 0, batch: 199, loss: 11.169417, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10312 sec, avg_samples: 64.00000, ips: 620.65126 sequences/sec
+tobal step: 220, epoch: 0, batch: 219, loss: 11.232574, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10310 sec, avg_samples: 64.00000, ips: 620.77269 sequences/sec
+tobal step: 240, epoch: 0, batch: 239, loss: 11.203462, avg_reader_cost: 0.00005 sec, avg_batch_cost: 0.10301 sec, avg_samples: 64.00000, ips: 621.32472 sequences/sec
+tobal step: 260, epoch: 0, batch: 259, loss: 11.181962, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10312 sec, avg_samples: 64.00000, ips: 620.62055 sequences/sec
+tobal step: 280, epoch: 0, batch: 279, loss: 11.160850, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.23258 sec, avg_samples: 64.00000, ips: 275.17107 sequences/sec
+tobal step: 300, epoch: 0, batch: 299, loss: 11.111109, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10313 sec, avg_samples: 64.00000, ips: 620.59128 sequences/sec
+tobal step: 320, epoch: 0, batch: 9, loss: 11.162826, avg_reader_cost: 0.00573 sec, avg_batch_cost: 0.05442 sec, avg_samples: 32.00000, ips: 588.06658 sequences/sec
+tobal step: 340, epoch: 0, batch: 29, loss: 11.186553, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.10312 sec, avg_samples: 64.00000, ips: 620.63476 sequences/sec
+tobal step: 360, epoch: 0, batch: 49, loss: 11.187104, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.10306 sec, avg_samples: 64.00000, ips: 620.97783 sequences/sec
+tobal step: 380, epoch: 0, batch: 69, loss: 11.182100, avg_reader_cost: 0.00005 sec, avg_batch_cost: 0.10316 sec, avg_samples: 64.00000, ips: 620.42361 sequences/sec
+tobal step: 400, epoch: 0, batch: 89, loss: 11.121981, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.23234 sec, avg_samples: 64.00000, ips: 275.45825 sequences/sec
+tobal step: 420, epoch: 0, batch: 109, loss: 11.056742, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10304 sec, avg_samples: 64.00000, ips: 621.13330 sequences/sec
+tobal step: 440, epoch: 0, batch: 129, loss: 11.120833, avg_reader_cost: 0.00005 sec, avg_batch_cost: 0.10313 sec, avg_samples: 64.00000, ips: 620.60097 sequences/sec
+tobal step: 460, epoch: 0, batch: 149, loss: 11.089231, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10320 sec, avg_samples: 64.00000, ips: 620.15242 sequences/sec
+tobal step: 480, epoch: 0, batch: 169, loss: 11.086186, avg_reader_cost: 0.00005 sec, avg_batch_cost: 0.10326 sec, avg_samples: 64.00000, ips: 619.77170 sequences/sec
+tobal step: 500, epoch: 0, batch: 189, loss: 11.076219, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.10313 sec, avg_samples: 64.00000, ips: 620.56553 sequences/sec
