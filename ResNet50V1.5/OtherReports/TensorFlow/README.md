@@ -93,6 +93,16 @@
 
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
+- 修改`/workspace/rn50v15_tf/runtime/runner.py`文件249行
+修改前代码：
+  ```
+  config.inter_op_parallelism_threads = max(2, (multiprocessing.cpu_count() // max(hvd.size(), 8) - 2))
+  ```
+修改后代码：
+  ```
+  config.inter_op_parallelism_threads = 4
+  ```
+
 - 下载我们编写的测试脚本，并执行该脚本
 
    ```bash
@@ -135,7 +145,7 @@ $mpirun  python main.py --mode=training_benchmark \
 
 |卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 408.3 | 954.9 | 978.8 |
+|1 | 407.7 | 1108.9 | 1228.7 |
 |8 | 3105.3 | 7829.9 | 7810.8 |
 |32 | 11622.9 | 21826.6 | 23280.9 |
 
