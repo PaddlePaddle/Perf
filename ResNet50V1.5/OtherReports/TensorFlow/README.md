@@ -94,6 +94,7 @@
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
 - 修改`/workspace/rn50v15_tf/runtime/runner.py`文件249行
+
 修改前代码：
   ```
   config.inter_op_parallelism_threads = max(2, (multiprocessing.cpu_count() // max(hvd.size(), 8) - 2))
