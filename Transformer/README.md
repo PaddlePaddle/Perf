@@ -130,7 +130,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ## 四、测试步骤
 
-transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`。详细的测试方法在该目录已写明。
+transformer测试目录位于`/workspace/models/`。详细的测试方法在该目录已写明。
 根据测试的精度，需要调整configs/transformer.base.yaml中的参数。
 | 精度 | batch_size | use_amp | use_pure_fp16 |
 |:-----:|:-----:|:-----:|:-----:|
@@ -181,8 +181,8 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | —— | 213125.00  |
-  | GPU=8,BS=5120 | 213125.00  | 213125.00  |
+  | GPU=1,BS=5120 | —— | ——  |
+  | GPU=8,BS=5120 | —— | ——  |
   | GPU=32,BS=5120 | 682820.5 | 590188.7 |
 
 
