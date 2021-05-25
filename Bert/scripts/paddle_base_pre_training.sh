@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PYTHONPATH=/workspace/models/PaddleNLP
+export PYTHONPATH=/workspace/models/
 export DATA_DIR=/workspace/models/bert_data/
 
 export CUDA_VISIBLE_DEVICES=0
