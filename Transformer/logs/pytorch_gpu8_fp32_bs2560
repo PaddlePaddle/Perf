@@ -1,0 +1,207 @@
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 4
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 1
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 5
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 2
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 0
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 7
+| distributed init done!
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 6
+| distributed init done!
+| distributed init (rank 0): env://
+| distributed env init. MASTER_ADDR: 127.0.0.1, MASTER_PORT: 29500, WORLD_SIZE: 8, RANK: 3
+| distributed init done!
+| distributed init done!
+| distributed init done!
+| distributed init done!
+| distributed init done!
+| distributed init done!
+| initialized host df6665c7a5b6 as rank 0 and device id 0
+Namespace(adam_betas='(0.9, 0.997)', adam_eps=1e-09, adaptive_softmax_cutoff=None, amp=False, amp_level='O1', arch='transformer_wmt_en_de_big_t2t', attention_dropout=0.1, beam=4, bpe_codes=None, buffer_size=64, clip_norm=0.0, cpu=False, criterion='label_smoothed_cross_entropy', data='./data/wmt14_en_de_joined_dict', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_layers=6, decoder_learned_pos=False, decoder_normalize_before=True, device_id=0, distributed_backend='nccl', distributed_init_method='env://', distributed_port=-1, distributed_rank=0, distributed_world_size=8, do_sanity_check=False, dropout=0.1, enable_parallel_backward_allred_opt=False, enable_parallel_backward_allred_opt_correctness_check=False, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layers=6, encoder_learned_pos=False, encoder_normalize_before=True, fp16=False, fuse_dropout_add=False, fuse_layer_norm=True, fuse_relu_dropout=False, gen_subset='test', keep_interval_updates=-1, label_smoothing=0.1, left_pad_source=True, left_pad_target=False, lenpen=1, local_rank=0, log_interval=200, lr=[0.0006], lr_scheduler='inverse_sqrt', lr_shrink=0.1, max_epoch=0, max_len_a=0, max_len_b=200, max_positions=(1024, 1024), max_sentences=None, max_sentences_valid=None, max_source_positions=1024, max_target_positions=1024, max_tokens=2560, max_update=0, min_len=1, min_loss_scale=0.0001, min_lr=0.0, model_overrides='{}', momentum=0.99, nbest=1, no_beamable_mm=False, no_early_stop=False, no_epoch_checkpoints=False, no_save=False, no_token_positional_embeddings=False, num_shards=1, online_eval=False, optimizer='adam', pad_sequence=1, parallel_backward_allred_opt_threshold=0, path=None, prefix_size=0, print_alignment=False, profile=False, profiler_file=None, profiler_steps=100, quiet=False, raw_text=False, relu_dropout=0.1, remove_bpe=None, replace_unk=None, restore_file='checkpoint_last.pt', sampling=False, sampling_temperature=1, sampling_topk=-1, save_dir='./checkpoints/', save_interval=1, save_interval_updates=0, save_predictions=False, score_reference=False, seed=1, sentence_avg=False, sentencepiece=False, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=False, skip_invalid_size_inputs_valid_test=False, source_lang=None, stat_file='run_log.json', target_bleu=0.0, target_lang=None, test_cased_bleu=False, train_subset='train', unkpen=0, unnormalized=False, update_freq=[1], valid_subset='valid', validate_interval=1, warmup_init_lr=0.0, warmup_updates=4000, weight_decay=0.0)
+| [en] dictionary: 33712 types
+| [de] dictionary: 33712 types
+| ./data/wmt14_en_de_joined_dict train 4575637 examples
+| Sentences are being padded to multiples of: 1
+| ./data/wmt14_en_de_joined_dict valid 3000 examples
+| Sentences are being padded to multiples of: 1
+| ./data/wmt14_en_de_joined_dict test 3003 examples
+| Sentences are being padded to multiples of: 1
+| num. model params: 210808832
+| NOTICE: your device may support faster training with --amp
+| model transformer_wmt_en_de_big_t2t, criterion LabelSmoothedCrossEntropyCriterion
+| training on 8 GPUs
+| max tokens per GPU = 2560 and max sentences per GPU = None
+Transformer | epoch 0 | step 200 |avg loss 12.980 |avg tokens 17609.160 |tokens/s 58222.084 |walltime 74.015 |
+Transformer | epoch 0 | step 400 |avg loss 11.194 |avg tokens 17492.530 |tokens/s 57255.341 |walltime 135.118 |
+Transformer | epoch 0 | step 600 |avg loss 10.377 |avg tokens 17548.915 |tokens/s 57674.973 |walltime 195.973 |
+Transformer | epoch 0 | step 800 |avg loss 9.604 |avg tokens 17404.510 |tokens/s 57435.962 |walltime 256.578 |
+Transformer | epoch 0 | step 1000 |avg loss 9.063 |avg tokens 17483.960 |tokens/s 57351.895 |walltime 317.548 |
+Transformer | epoch 0 | step 1200 |avg loss 8.510 |avg tokens 17562.965 |tokens/s 57540.597 |walltime 378.594 |
+Transformer | epoch 0 | step 1400 |avg loss 8.028 |avg tokens 17325.265 |tokens/s 56881.391 |walltime 439.511 |
+Transformer | epoch 0 | step 1600 |avg loss 7.537 |avg tokens 17502.415 |tokens/s 57511.879 |walltime 500.377 |
+Transformer | epoch 0 | step 1800 |avg loss 7.082 |avg tokens 17520.430 |tokens/s 57533.626 |walltime 561.282 |
+Transformer | epoch 0 | step 2000 |avg loss 6.735 |avg tokens 17589.695 |tokens/s 57741.159 |walltime 622.208 |
+Transformer | epoch 0 | step 2200 |avg loss 6.499 |avg tokens 17442.945 |tokens/s 57336.132 |walltime 683.052 |
+Transformer | epoch 0 | step 2400 |avg loss 6.313 |avg tokens 17435.255 |tokens/s 57404.079 |walltime 743.798 |
+Transformer | epoch 0 | step 2600 |avg loss 6.148 |avg tokens 17389.970 |tokens/s 57263.172 |walltime 804.535 |
+Transformer | epoch 0 | step 2800 |avg loss 6.016 |avg tokens 17529.070 |tokens/s 57280.995 |walltime 865.739 |
+Transformer | epoch 0 | step 3000 |avg loss 5.916 |avg tokens 17359.975 |tokens/s 57121.674 |walltime 926.521 |
+Transformer | epoch 0 | step 3200 |avg loss 5.754 |avg tokens 17532.255 |tokens/s 57525.490 |walltime 987.476 |
+Transformer | epoch 0 | step 3400 |avg loss 5.714 |avg tokens 17591.585 |tokens/s 57791.287 |walltime 1048.356 |
+Transformer | epoch 0 | step 3600 |avg loss 5.746 |avg tokens 17508.155 |tokens/s 57708.554 |walltime 1109.033 |
+Transformer | epoch 0 | step 3800 |avg loss 5.675 |avg tokens 17443.625 |tokens/s 57518.852 |walltime 1169.687 |
+Transformer | epoch 0 | step 4000 |avg loss 5.596 |avg tokens 17491.550 |tokens/s 57550.953 |walltime 1230.473 |
+Transformer | epoch 0 | step 4200 |avg loss 5.553 |avg tokens 17483.485 |tokens/s 57621.175 |walltime 1291.158 |
+Transformer | epoch 0 | step 4400 |avg loss 5.487 |avg tokens 17441.245 |tokens/s 57489.492 |walltime 1351.834 |
+Transformer | epoch 0 | step 4600 |avg loss 5.434 |avg tokens 17413.020 |tokens/s 57289.370 |walltime 1412.624 |
+Transformer | epoch 0 | step 4800 |avg loss 5.378 |avg tokens 17477.325 |tokens/s 57576.227 |walltime 1473.334 |
+Transformer | epoch 0 | step 5000 |avg loss 5.346 |avg tokens 17623.940 |tokens/s 58039.238 |walltime 1534.065 |
+Transformer | epoch 0 | step 5200 |avg loss 5.289 |avg tokens 17474.440 |tokens/s 57456.967 |walltime 1594.891 |
+Transformer | epoch 0 | step 5400 |avg loss 5.259 |avg tokens 17491.720 |tokens/s 57686.351 |walltime 1655.535 |
+Transformer | epoch 0 | step 5600 |avg loss 5.207 |avg tokens 17403.475 |tokens/s 57338.887 |walltime 1716.239 |
+Transformer | epoch 0 | step 5800 |avg loss 5.187 |avg tokens 17390.185 |tokens/s 57228.423 |walltime 1777.014 |
+Transformer | epoch 0 | step 6000 |avg loss 5.147 |avg tokens 17456.185 |tokens/s 57541.578 |walltime 1837.687 |
+Transformer | epoch 0 | step 6200 |avg loss 5.167 |avg tokens 17372.105 |tokens/s 57215.820 |walltime 1898.412 |
+Transformer | epoch 0 | step 6400 |avg loss 5.132 |avg tokens 17483.825 |tokens/s 57627.158 |walltime 1959.091 |
+Transformer | epoch 0 | step 6600 |avg loss 5.038 |avg tokens 17385.005 |tokens/s 57210.642 |walltime 2019.867 |
+Transformer | epoch 0 | step 6800 |avg loss 5.042 |avg tokens 17384.490 |tokens/s 57351.563 |walltime 2080.491 |
+Transformer | epoch 0 | step 7000 |avg loss 5.023 |avg tokens 17362.890 |tokens/s 57208.284 |walltime 2141.192 |
+Transformer | epoch 0 | step 7200 |avg loss 4.991 |avg tokens 17397.115 |tokens/s 57343.107 |walltime 2201.869 |
+Transformer | epoch 0 | step 7400 |avg loss 5.004 |avg tokens 17380.285 |tokens/s 57441.119 |walltime 2262.384 |
+Transformer | epoch 0 | step 7600 |avg loss 4.965 |avg tokens 17368.855 |tokens/s 57161.030 |walltime 2323.156 |
+Transformer | epoch 0 | step 7800 |avg loss 4.984 |avg tokens 17287.795 |tokens/s 57032.962 |walltime 2383.780 |
+Transformer | epoch 0 | step 8000 |avg loss 4.959 |avg tokens 17513.375 |tokens/s 57762.845 |walltime 2444.418 |
+Epoch time: 2478.4947986602783
+Transformer | epoch 0 | step 8149 |avg loss 4.911 |avg tokens 17480.980 |tokens/s 57051.363 |walltime 2490.073 |
+Validation loss on subset valid: 4.512662489144385
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+/workspace/translation/fairseq/sequence_generator.py:376: UserWarning: Integer division of tensors using div or / is deprecated, and in a future release div will perform true division as in Python 3. Use true_divide or floor_divide (// in Python) instead. (Triggered internally at  ../aten/src/ATen/native/BinaryOps.cpp:66.)
+  torch.div(cand_indices, self.vocab_size, out=cand_beams)
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "./train.py", line 480, in <module>
+    distributed_main(ARGS)
+  File "/workspace/translation/distributed_train.py", line 57, in main
+    single_process_main(args)
+  File "/workspace/translation/train.py", line 139, in main
+    valid_bleu = score(args, trainer, datasets[valid_subsets[0]], src_dict, tgt_dict, 'valid.raw.de')
+  File "/workspace/translation/train.py", line 354, in score
+    sacrebleu_score = sacrebleu.corpus_bleu(predictions, refs, lowercase=not args.test_cased_bleu).score
+  File "/opt/conda/lib/python3.6/site-packages/sacrebleu.py", line 1031, in corpus_bleu
+    raise EOFError("Source and reference streams have different lengths!")
+EOFError: Source and reference streams have different lengths!
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/opt/conda/lib/python3.6/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/opt/conda/lib/python3.6/site-packages/torch/distributed/launch.py", line 263, in <module>
+    main()
+  File "/opt/conda/lib/python3.6/site-packages/torch/distributed/launch.py", line 259, in main
+    cmd=cmd)
+subprocess.CalledProcessError: Command '['/opt/conda/bin/python', '-u', './train.py', '--local_rank=7', './data/wmt14_en_de_joined_dict', '--arch', 'transformer_wmt_en_de_big_t2t', '--share-all-embeddings', '--optimizer', 'adam', '--adam-betas', '(0.9, 0.997)', '--adam-eps', '1e-9', '--clip-norm', '0.0', '--lr-scheduler', 'inverse_sqrt', '--warmup-init-lr', '0.0', '--warmup-updates', '4000', '--lr', '0.0006', '--min-lr', '0.0', '--dropout', '0.1', '--weight-decay', '0.0', '--criterion', 'label_smoothed_cross_entropy', '--log-interval', '200', '--label-smoothing', '0.1', '--max-tokens', '2560', '--seed', '1', '--save-dir', './checkpoints/', '--fuse-layer-norm', '--distributed-init-method', 'env://']' returned non-zero exit status 1.
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
