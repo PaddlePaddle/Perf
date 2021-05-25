@@ -211,7 +211,7 @@ Paddle Docker的基本信息如下：
 |卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=208)|
 |:-----:|:-----:|:-----:|:-----:|
 |1 | 377.21 | 1342.56  | 1396.573 |
-|8 | 2906.887 | 8690.84  | 9099.5 |
+|8 | 2906.887 | 8690.84  | —— |
 |32 | 11366.6 | 29715.2 | 34302.5 |
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
@@ -228,23 +228,23 @@ Paddle Docker的基本信息如下：
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 383<sup>[BS=96]</sup> | 407.7 | 364.2 | 387.1<sup>[BS=96]</sup> |
-  | GPU=8,BS=128 | 2753.3<sup>[BS=96]</sup> | 3070.5 | 2826.8 | 2998.1<sup>[BS=96]</sup> |
+  | GPU=1,BS=128 | 377.21 <sup>[BS=96]</sup> | 407.7 | 369.63  | 387.1<sup>[BS=96]</sup> |
+  | GPU=8,BS=128 | 2906.89 <sup>[BS=96]</sup> | 3070.5 | 2795.87  | 2998.1<sup>[BS=96]</sup> |
   | GPU=32,BS=128 | 11366.6<sup>[BS=96]</sup> | 11622.9 | 10393.2 | -<sup>[BS=96]</sup> |
 
 - AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 1335.1 | 1108.9 | 828.7 | 1380.6 |
-  | GPU=1,BS=256 | 1400.1<sup>[BS=208]</sup> | 1228.7 | 841.6 | 1447.6<sup>[BS=192]</sup> |
-  | GPU=8,BS=128 | 8322.9 | 7695.6 | 6014.7 | 9218.9 |
-  | GPU=8,BS=256 | 9099.5<sup>[BS=208]</sup> | 8378.0 | 6230.1<sup>[BS=248]</sup> | 9765.6<sup>[BS=192]</sup> |
+  | GPU=1,BS=128 | 1342.56  | 1108.9 | 807.56  | 1380.6 |
+  | GPU=1,BS=256 | 1396.57 <sup>[BS=208]</sup> | 1228.7 |815.53  | 1447.6<sup>[BS=192]</sup> |
+  | GPU=8,BS=128 | 8690.84  | 7695.6 | 5790.00  | 9218.9 |
+  | GPU=8,BS=256 | ——<sup>[BS=208]</sup> | 8378.0 | 6215.18<sup>[BS=254]</sup> | 9765.6<sup>[BS=192]</sup> |
   | GPU=32,BS=128 | 29715.2 | 27528.0 | 17940.7 | - |
   | GPU=32,BS=256 | 34302.5 | 33695.0 | 21588.1 | -<sup>[BS=192]</sup> |
 
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
-> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
+> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为254
 
 ## 六、日志数据
 - [1卡 FP32 BS=96 日志](./logs/paddle_gpu1_fp32_bs96.txt)
@@ -252,7 +252,6 @@ Paddle Docker的基本信息如下：
 - [1卡 AMP BS=208 日志](./logs/paddle_gpu1_amp_bs208.txt)
 - [8卡 FP32 BS=96 日志](./logs/paddle_gpu8_fp32_bs96.txt)
 - [8卡 AMP BS=128 日志](./logs/paddle_gpu8_amp_bs128.txt)
-- [8卡 AMP BS=208 日志](./logs/paddle_gpu8_amp_bs208.txt)
 - [32卡 FP32 BS=96 日志](./logs/paddle_gpu32_fp32_bs96.txt)
 - [32卡 AMP BS=128 日志](./logs/paddle_gpu32_amp_bs128.txt)
 - [32卡 AMP BS=208 日志](./logs/paddle_gpu32_amp_bs208.txt)
