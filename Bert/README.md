@@ -137,7 +137,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ## 四、测试步骤
 
-在 [benchmark/bert](https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/language_model/bert/static) 目录下，我们提供了用于测试的 `run_pretrain.py` 脚本。
+在 [PaddleNLP/examples/language_model/bert/static](https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/language_model/bert/static) 目录下，我们提供了用于测试的 `run_pretrain.py` 脚本。
 
 **重要参数：**
 - **model_type**: 训练模型的类型，此处统一指定为 `bert`
@@ -287,8 +287,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   |:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=32 | 147.14 | 142.67 | 127.08 |
   | GPU=1,BS=48 | 153.47 | 148.23 | 126.48 |
-  | GPU=8,BS=32 | 1072.26 | 984.73 | 1018.40 |
-  | GPU=8,BS=48 | 1119.37  | 1075.27 | 1012.80  |
+  | GPU=8,BS=32 | 1140.52 | 984.73 | 1018.40 |
+  | GPU=8,BS=48 | 1186.89  | 1075.27 | 1012.80  |
   | GPU=32,BS=32 | 4862.5 | 4379.4 | 3994.1 |
   | GPU=32,BS=48 | 4948.4 | 4723.5 | 3974.0 |
 
@@ -300,8 +300,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   |:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=64 | 595.49 | 488.32 | 511.13 |
   | GPU=1,BS=96 | 628.25 | 536.06 | 532.24 |
-  | GPU=8,BS=64 | 3902.41 | 3035.76 | 4063.19 |
-  | GPU=8,BS=96 | 4202.70 | 3530.84 | 4207.36 |
+  | GPU=8,BS=64 | 4329.79 | 3035.76 | 4063.19 |
+  | GPU=8,BS=96 | 4569.72 | 3530.84 | 4207.36 |
   | GPU=32,BS=64 | 18432.2 | 14773.4 | 15941.1 |
   | GPU=32,BS=96 | 18480.0 | 16554.3 | 16311.6 |
 
