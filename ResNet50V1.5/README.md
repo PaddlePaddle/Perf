@@ -48,7 +48,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
    |:-----:|:-----:|:-----:|:-----:|:-----:|
    | FP32 | 96 | 128 | 128 | 96 |
    | AMP | 128 | 128 | 128 | 128 |
-   | AMP | 208 | 256 | 256 | 192 |
+   | AMP | 208 | 254 | 254 | 192 |
 
 关于其它一些参数的说明：
 - **DALI**
@@ -65,11 +65,12 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 ### 1.物理机环境
 
 - 单机（单卡、8卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 450.80.02
-  - 内存：432 GB
+  - Driver Version: 460.32.03
+  - 内存：502 GB
+
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -82,8 +83,8 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
-- Docker: hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
-- Paddle：develop+613c46bc0745c8069c55686aef4adc775f9e27d1
+- Docker: paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82
+- Paddle：2.1.0.post101
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：10.1
 - cuDNN：7.6.5
@@ -92,13 +93,14 @@ Paddle Docker的基本信息如下：
 
 - 拉取docker
   ```bash
-  docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
+  paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82
   ```
 
 - 启动docker
   ```bash
   # 假设imagenet数据放在<path to data>目录下
-  nvidia-docker run --shm-size=64g -it -v <path to data>:/data hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+  nvidia-docker run --shm-size=64g -it -v <path to data>:/data 
+  paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82 /bin/bash
   ```
 
 - 拉取PaddleClas
@@ -106,7 +108,7 @@ Paddle Docker的基本信息如下：
   git clone https://github.com/PaddlePaddle/PaddleClas.git
   cd PaddleClas
   # 本次测试是在如下版本下完成的：
-  git checkout b0904fd250715b3c040c88881395bad06eea9be6
+  git checkout 15168d25f306b5c69cc81495676cb1a931ce5c83
   ```
 
 - 多机网络部署
@@ -208,8 +210,8 @@ Paddle Docker的基本信息如下：
 
 |卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=208)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 383.0 | 1335.1 | 1400.1 |
-|8 | 2753.3 | 8322.9 | 9099.5 |
+|1 | 377.21 | 1342.56  | 1396.573 |
+|8 | 2906.887 | 8690.84  | 9099.5 |
 |32 | 11366.6 | 29715.2 | 34302.5 |
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
