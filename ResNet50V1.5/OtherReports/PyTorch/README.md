@@ -24,11 +24,11 @@
 我们使用了与Paddle测试完全相同的物理机环境：
 
 - 单机（单卡、8卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 450.80.02
-  - 内存：432 GB
+  - Driver Version: 460.32.03
+  - 内存：502 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -42,7 +42,7 @@
 我们使用 NGC PyTorch 的代码仓库提供的Dockerfile制作镜像：
 
 - Docker: nvcr.io/nvidia/pytorch:20.07-py3
-- PyTorch：1.6.0a0+9907a3e
+- PyTorch：1.9.0a0+df837d0
 - 模型代码：[NVIDIA/DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 - CUDA：11
 - cuDNN：8.0.1
@@ -60,7 +60,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/PyTorch/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+   git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
    ```
 
 - 制作Docker镜像
@@ -102,10 +102,10 @@
    ```
    /log/pytorch_gpu1_fp32_bs128.txt
    /log/pytorch_gpu1_amp_bs128.txt
-   /log/pytorch_gpu1_amp_bs256.txt
+   /log/pytorch_gpu1_amp_bs254.txt
    /log/pytorch_gpu8_fp32_bs128.txt
    /log/pytorch_gpu8_amp_bs128.txt
-   /log/pytorch_gpu8_amp_bs248.txt
+   /log/pytorch_gpu8_amp_bs244.txt
    ```
 
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
@@ -171,8 +171,8 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 
 |卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 364.3 | 828.7 | 841.6 |
-|8 | 2826.8 | 6014.7 | 6230.1(BS=248) |
+|1 | 369.63  | 807.56  | 815.53(BS=254)  |
+|8 | 2795.87  | 5790.00  | 6215.18 (BS=244) |
 |32 | 10393.2 | 17940.7 | 21697.85 |
 
 > 其中，AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
@@ -180,10 +180,10 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 ## 五、日志数据
 - [1卡 FP32 BS=128 日志](./logs/pytorch_gpu1_fp32_bs128.txt)
 - [1卡 AMP BS=128 日志](./logs/pytorch_gpu1_amp_bs128.txt)
-- [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs256.txt)
+- [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs254.txt)
 - [8卡 FP32 BS=128 日志](./logs/pytorch_gpu8_fp32_bs128.txt)
 - [8卡 AMP BS=128 日志](./logs/pytorch_gpu8_amp_bs128.txt)
-- [8卡 AMP BS=248 日志](./logs/pytorch_gpu8_amp_bs248.txt)
+- [8卡 AMP BS=248 日志](./logs/pytorch_gpu8_amp_bs244.txt)
 - [32卡 FP32 BS=128 日志](./logs/pytorch_gpu32_fp32_bs128.txt)
 - [32卡 AMP BS=128 日志](./logs/pytorch_gpu32_amp_bs128.txt)
 - [32卡 AMP BS=256 日志](./logs/pytorch_gpu32_amp_bs256.txt)
