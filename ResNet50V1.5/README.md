@@ -44,7 +44,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
    本次测试，结合各框架具体情况，BatchSize选用如下：
 
-   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC 个MXNet |
+   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
    |:-----:|:-----:|:-----:|:-----:|:-----:|
    | FP32 | 96 | 128 | 128 | 96 |
    | AMP | 128 | 128 | 128 | 128 |
@@ -169,9 +169,12 @@ Paddle Docker的基本信息如下：
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs208.yaml
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs96.yaml
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs128.yaml
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs208.yaml
   bash paddle_test_all.sh
   ```
+  <div style='display: none'>
+   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs208.yaml
+   </div>
+
 
 - 执行后将得到如下日志文件：
    ```bash
@@ -180,7 +183,6 @@ Paddle Docker的基本信息如下：
    ./paddle_gpu1_amp_bs208.txt
    ./paddle_gpu8_fp32_bs96.txt
    ./paddle_gpu8_amp_bs128.txt
-   ./paddle_gpu8_amp_bs208.txt
    ```
 
 ### 2.多机（32卡）测试
@@ -228,23 +230,23 @@ Paddle Docker的基本信息如下：
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 377.21 <sup>[BS=96]</sup> | 407.7 | 369.63  | 387.1<sup>[BS=96]</sup> |
-  | GPU=8,BS=128 | 2906.89 <sup>[BS=96]</sup> | 3070.5 | 2795.87  | 2998.1<sup>[BS=96]</sup> |
+  | GPU=1,BS=128 | 377.21 <sup>[BS=96]</sup> | 410.55  | 369.63  | 387.1<sup>[BS=96]</sup> |
+  | GPU=8,BS=128 | 2906.89 <sup>[BS=96]</sup> | 3089.54  | 2795.87  | 2998.1<sup>[BS=96]</sup> |
   | GPU=32,BS=128 | 11366.6<sup>[BS=96]</sup> | 11622.9 | 10393.2 | -<sup>[BS=96]</sup> |
 
 - AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 1342.56  | 1108.9 | 807.56  | 1380.6 |
-  | GPU=1,BS=256 | 1396.57 <sup>[BS=208]</sup> | 1228.7 |815.53  | 1447.6<sup>[BS=192]</sup> |
-  | GPU=8,BS=128 | 8690.84  | 7695.6 | 5790.00  | 9218.9 |
-  | GPU=8,BS=256 | ——<sup>[BS=208]</sup> | 8378.0 | 6215.18<sup>[BS=254]</sup> | 9765.6<sup>[BS=192]</sup> |
+  | GPU=1,BS=128 | 1342.56  | 1194.14  | 807.56  | 1380.6 |
+  | GPU=1,BS=256 | 1396.57 <sup>[BS=208]</sup> | 1255.64 <sup>[BS=254]</sup> |815.53 <sup>[BS=254]</sup> | 1447.6<sup>[BS=192]</sup> |
+  | GPU=8,BS=128 | 8690.84  | 8701.89  | 5790.00  | 9218.9 |
+  | GPU=8,BS=256 | —— | 9525.40 <sup>[BS=254]</sup>  | 6215.18<sup>[BS=244]</sup> | 9765.6<sup>[BS=192]</sup> |
   | GPU=32,BS=128 | 29715.2 | 27528.0 | 17940.7 | - |
   | GPU=32,BS=256 | 34302.5 | 33695.0 | 21588.1 | -<sup>[BS=192]</sup> |
 
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
-> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为254
+> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为244, AMP 单卡在BatchSize=256时会OOM，因此下调BatchSize为254
 
 ## 六、日志数据
 - [1卡 FP32 BS=96 日志](./logs/paddle_gpu1_fp32_bs96.txt)

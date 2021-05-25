@@ -17,4 +17,4 @@ python -m paddle.distributed.launch --gpus="0,1,2,3,4,5,6,7" ./tools/static/trai
 
 python -m paddle.distributed.launch --gpus="0,1,2,3,4,5,6,7" ./tools/static/train.py -c ResNet50_8gpu_amp_bs128.yaml > paddle_gpu8_amp_bs128.txt 2>&1
 
-python -m paddle.distributed.launch --gpus="0,1,2,3,4,5,6,7" ./tools/static/train.py -c ResNet50_8gpu_amp_bs208.yaml > paddle_gpu8_amp_bs208.txt 2>&1
+#python -m paddle.distributed.launch --gpus="0,1,2,3,4,5,6,7" ./tools/static/train.py -c ResNet50_8gpu_amp_bs208.yaml > paddle_gpu8_amp_bs208.txt 2>&1
