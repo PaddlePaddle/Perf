@@ -64,11 +64,11 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 ### 1.物理机环境
 
 - 单机（单卡、8卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 450.80.02
-  - 内存：432 GB
+  - Driver Version: 460.32.03
+  - 内存：502 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -79,9 +79,9 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
-- **Paddle 版本**: `develop+613c46bc0745c8069c55686aef4adc775f9e27d1`
-- **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/models/tree/develop/PaddleNLP)
+- **镜像版本**: `paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82`
+- **Paddle 版本**: `2.1.0.post101`
+- **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `10.1`
 - **cuDnn 版本:** `7.6.5`
 
@@ -94,8 +94,9 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 - **拉取代码**
   ```bash
-  git clone https://github.com/PaddlePaddle/models.git
-  cd models && git checkout 5b4aef8ecef2c6f9a4ec81652a4138c623a754ba
+  git clone https://github.com/PaddlePaddle/PaddleNLP.git 
+  cd PaddleNLP && git checkout 792e47e709da09673bfd1e8099ae84bf931579c4
+  cp requirements.txt examples/language_model/bert/static && cd examples/language_model/bert/static
   ```
 
 
@@ -103,7 +104,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    ```bash
    # 拉取镜像
-   docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82 
 
    # 创建并进入容器
    nvidia-docker run --name=test_bert_paddle -it \
@@ -113,13 +114,14 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/models \
-    hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+    paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82 
    ```
 
 - **安装依赖**
    ```bash
    # 安装 PaddleNLP 中依赖库
-   pip3.7 install -r PaddleNLP/requirements.txt
+   pip install -r requirements.txt
+   pip install paddlenlp
    ```
 
 - **准备数据**
@@ -135,43 +137,42 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ## 四、测试步骤
 
-在 [benchmark/bert](https://github.com/PaddlePaddle/models/tree/develop/PaddleNLP/benchmark/bert) 目录下，我们提供了分别用于单机测试的 `run_pretrain_single.py` 脚本和用于多机测试的 `run_pretrain.py` 脚本。
+在 [benchmark/bert](https://github.com/PaddlePaddle/PaddleNLP/tree/develop/examples/language_model/bert/static) 目录下，我们提供了用于测试的 `run_pretrain.py` 脚本。
 
 **重要参数：**
 - **model_type**: 训练模型的类型，此处统一指定为 `bert`
 - **model_name_or_path:** 预训练模型的名字或路径，此处统一指定为 `bert-base-uncased`
 - **batch_size:** 每张 GPU 上的 batch_size 大小
 - **use_amp:** 使用是否混合精度训练
-- **enable_addto:** 是否开启梯度的 `addto` 聚合策略，默认开启
-- **max_steps:** 设置训练的迭代次数，统一设置为5000
-- **logging_steps:** 日志打印的步长，统一设置为100
+- **max_steps:** 设置训练的迭代次数
+- **logging_steps:** 日志打印的步长
 
 
 ### 1.单机（单卡、8卡）测试
 
-为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 `run_benchmark.sh` ，需放在 `benchmark/bert`目录下。
+为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 `run_benchmark.sh` ，需放在 `PaddleNLP/examples/language_model/bert/static`目录下。
 
 - **脚本内容如下：**
    ```bash
-   #!/bin/bash
-
-   export PYTHONPATH=/workspace/models/PaddleNLP
+   #!/bin/bash   
+   export PYTHONPATH=/workspace/models/
    export DATA_DIR=/workspace/models/bert_data/
+   
    export CUDA_VISIBLE_DEVICES=0
-
+   
    batch_size=${1:-32}
    num_gpus=${2:-1}
    use_amp=${3:-"True"}
    max_steps=${4:-500}
    logging_steps=${5:-20}
-
+   
    if [ $num_gpus = 1 ]; then
-      CMD="python3.7 ./run_pretrain_single.py"
+      CMD="python ./run_pretrain.py"
    else
       unset CUDA_VISIBLE_DEVICES
-      CMD="fleetrun --gpus 0,1,2,3,4,5,6,7 ./run_pretrain.py"
+      CMD="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 ./run_pretrain.py"
    fi
-
+   
    $CMD \
       --model_type bert \
       --model_name_or_path bert-base-uncased \
@@ -186,9 +187,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
       --logging_steps $logging_steps \
       --save_steps 50000 \
       --max_steps $max_steps \
-      --use_amp $use_amp\
-      --enable_addto True
-   ````
+      --use_amp $use_amp
+   ```
 
 - **单卡启动脚本：**
 
@@ -268,8 +268,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|:-----:|:-----:|
-   |1 |147.14 | 153.47 | 595.49 | 628.25 |
-   |8 | 1072.26 | 1119.37 | 3902.41 | 4202.70 |
+   |1 |147.14 | 153.47 | 595.49 | 628.65 |
+   |8 | 1140.52 | 1186.89 | 4329.79 | 4569.42 |
    |32 | 4862.5 | 4948.4 | 18432.2 | 18480.0 |
 
 ### 2.与业内其它框架对比
@@ -285,10 +285,10 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=32 | 147.14 | 142.67 | 128.53 |
-  | GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
-  | GPU=8,BS=32 | 1072.26 | 984.73 | 999.99 |
-  | GPU=8,BS=48 | 1119.37  | 1075.27 |995.88  |
+  | GPU=1,BS=32 | 147.14 | 142.67 | 127.08 |
+  | GPU=1,BS=48 | 153.47 | 148.23 | 126.48 |
+  | GPU=8,BS=32 | 1072.26 | 984.73 | 1018.40 |
+  | GPU=8,BS=48 | 1119.37  | 1075.27 | 1012.80  |
   | GPU=32,BS=32 | 4862.5 | 4379.4 | 3994.1 |
   | GPU=32,BS=48 | 4948.4 | 4723.5 | 3974.0 |
 
@@ -298,10 +298,10 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
-  | GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
-  | GPU=8,BS=64 | 3902.41 | 3035.76 | 4058.34|
-  | GPU=8,BS=96 | 4202.70 | 3530.84 | 4208.12|
+  | GPU=1,BS=64 | 595.49 | 488.32 | 511.13 |
+  | GPU=1,BS=96 | 628.25 | 536.06 | 532.24 |
+  | GPU=8,BS=64 | 3902.41 | 3035.76 | 4063.19 |
+  | GPU=8,BS=96 | 4202.70 | 3530.84 | 4207.36 |
   | GPU=32,BS=64 | 18432.2 | 14773.4 | 15941.1 |
   | GPU=32,BS=96 | 18480.0 | 16554.3 | 16311.6 |
 
