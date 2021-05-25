@@ -63,6 +63,14 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 ## 二、环境介绍
 ### 1.物理机环境
 
+- 单机（单卡、8卡）
+ - 系统：CentOS release 7.5 (Final)
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - Driver Version: 460.32.03
+  - 内存：502 GB
+
+- 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
@@ -71,11 +79,11 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04`
-- **Paddle 版本**: `develop+0f1fde51021e1c9deae099ee0c875c53128687b4`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:cuda11.0-cudnn8-runtime-ubuntu16.04-gcc82`
+- **Paddle 版本**: `2.1.0.post11`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP/tree/develop)
-- **CUDA 版本**: `10.1`
-- **cuDnn 版本:** `7.6.5`
+- **CUDA 版本**: `11.0`
+- **cuDnn 版本:** `8.0.5`
 
 
 ## 三、环境搭建
@@ -86,8 +94,9 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 - **拉取代码**
   ```bash
-  git clone https://github.com/PaddlePaddle/models.git
-  cd models && git checkout 643fd690044c249a5108d8c979f4025af50962e1
+  git clone https://github.com/PaddlePaddle/PaddleNLP.git
+  cd PaddleNLP && git checkout 792e47e709da09673bfd1e8099ae84bf931579c4
+  cp requirements.txt examples/machine_translation/transformer/static && cd examples/machine_translation/transformer/static
   ```
 
 
@@ -95,7 +104,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
    ```bash
    # 拉取镜像
-   docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:cuda11.0-cudnn8-runtime-ubuntu16.04-gcc82
 
    # 创建并进入容器
    nvidia-docker run --name=test_transformer_paddle -it \
@@ -105,13 +114,14 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/models \
-    hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+    paddlepaddle/paddle-benchmark:cuda11.0-cudnn8-runtime-ubuntu16.04-gcc82 /bin/bash
    ```
 
 - **安装依赖**
    ```bash
    # 安装 PaddleNLP 中依赖库
-   pip3.7 install -r PaddleNLP/requirements.txt
+   pip install -r requirements.txt
+   pip install paddlenlp
    ```
 
 - **准备数据**
@@ -137,8 +147,8 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
 
    |卡数 | FP32(BS=2560) | AMP(BS=5120) | FP16(BS=5120) |
    |:-----:|:-----:|:-----:|:-----:|
-   |1 | |  |  |
-   |8 |  |  |  |
+   |1 | 8689.17 | 35034.437 (O2) | —— |
+   |8 | 58715.90  | 221580.38  (O2) | —— |
    |32 | 194040.4 | 613864.5 | 678315.9 |
 
 ### 2.与业内其它框架对比
@@ -153,8 +163,8 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=2560 |  |  |
-  | GPU=8,BS=2560 |  |  |
+  | GPU=1,BS=2560 | 8689.17 | 8265.68  |
+  | GPU=8,BS=2560 | 58715.90 | 57428.00  |
   | GPU=32,BS=2560 | 183830.0 | 166352.6 |
 
 
@@ -162,8 +172,8 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 |  |  |
-  | GPU=8,BS=5120 |  |  |
+  | GPU=1,BS=5120 | 35034.44  | 31391.10  |
+  | GPU=8,BS=5120 | 221580.38  | 213125.00  |
   | GPU=32,BS=5120 | 645118.1 | 385625.7 |
 
 
@@ -171,13 +181,17 @@ transformer测试目录位于`/workspace/models/PaddleNLP/benchmark/transformer`
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 |  |  |
-  | GPU=8,BS=5120 |  |  |
+  | GPU=1,BS=5120 | —— | 213125.00  |
+  | GPU=8,BS=5120 | 213125.00  | 213125.00  |
   | GPU=32,BS=5120 | 682820.5 | 590188.7 |
 
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
+- [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs2560)
+- [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs2560)
+- [单机单卡、AMP](./logs/paddle_gpu1_amp_bs5120)
+- [单机八卡、AMP](/logs/paddle_gpu8_amp_bs5120)
 - [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2560)
 - [4机32卡、FP16](./logs/paddle_gpu32_fp16_bs5120)
 - [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs5120)
