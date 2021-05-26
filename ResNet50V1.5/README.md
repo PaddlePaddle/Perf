@@ -171,9 +171,6 @@ Paddle Docker的基本信息如下：
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs128.yaml
   bash paddle_test_all.sh
   ```
-  <div style='display: none'>
-   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs208.yaml
-   </div>
 
 
 - 执行后将得到如下日志文件：
