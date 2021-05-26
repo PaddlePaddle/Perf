@@ -64,7 +64,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 ### 1.物理机环境
 
 - 单机（单卡、8卡）
- - 系统：CentOS release 7.5 (Final)
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
   - Driver Version: 460.32.03
@@ -96,7 +96,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git
   cd PaddleNLP && git checkout 792e47e709da09673bfd1e8099ae84bf931579c4
-  cp requirements.txt examples/machine_translation/transformer/static && cd examples/machine_translation/transformer/static
+  cp requirements.txt examples/machine_translation/transformer/ && cd examples/machine_translation/transformer/
   ```
 
 
@@ -130,8 +130,8 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ## 四、测试步骤
 
-transformer测试目录位于`/workspace/models/`。详细的测试方法在该目录已写明。
-根据测试的精度，需要调整configs/transformer.base.yaml中的参数。
+transformer测试目录位于`/workspace/models/static`。详细的测试方法在该目录已写明。
+根据测试的精度，需要调整/workspace/models/configs/transformer.base.yaml中的参数。
 | 精度 | batch_size | use_amp | use_pure_fp16 |
 |:-----:|:-----:|:-----:|:-----:|
 | FP32 | 2560 | False | False |
@@ -147,8 +147,8 @@ transformer测试目录位于`/workspace/models/`。详细的测试方法在该�
 
    |卡数 | FP32(BS=2560) | AMP(BS=5120) | FP16(BS=5120) |
    |:-----:|:-----:|:-----:|:-----:|
-   |1 | 8689.17 | 35034.437 (O2) | —— |
-   |8 | 58715.90  | 221580.38  (O2) | —— |
+   |1 | 8689.17 | 35034.43 (O2) | —— |
+   |8 | 58121.59   | 221580.38  (O2) | —— |
    |32 | 194040.4 | 613864.5 | 678315.9 |
 
 ### 2.与业内其它框架对比
@@ -164,7 +164,7 @@ transformer测试目录位于`/workspace/models/`。详细的测试方法在该�
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=2560 | 8689.17 | 8265.68  |
-  | GPU=8,BS=2560 | 58715.90 | 57428.00  |
+  | GPU=8,BS=2560 | 58121.59  | 57428.00  |
   | GPU=32,BS=2560 | 183830.0 | 166352.6 |
 
 
@@ -191,7 +191,7 @@ transformer测试目录位于`/workspace/models/`。详细的测试方法在该�
 - [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs2560)
 - [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs2560)
 - [单机单卡、AMP](./logs/paddle_gpu1_amp_bs5120)
-- [单机八卡、AMP](/logs/paddle_gpu8_amp_bs5120)
+- [单机八卡、AMP](./logs/paddle_gpu8_amp_bs5120)
 - [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2560)
 - [4机32卡、FP16](./logs/paddle_gpu32_fp16_bs5120)
 - [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs5120)

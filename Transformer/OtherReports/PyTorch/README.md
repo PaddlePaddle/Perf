@@ -215,7 +215,7 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 - [单机单卡、FP32](./logs/pytorch_gpu1_fp32_bs2560)
 - [单机八卡、FP32](./logs/pytorch_gpu8_fp32_bs2560)
 - [单机单卡、AMP](./logs/pytorch_gpu1_amp_bs5120)
-- [单机八卡、AMP](/logs/pytorch_gpu8_amp_bs5120)
+- [单机八卡、AMP](./logs/pytorch_gpu8_amp_bs5120)
 - [4机32卡、FP32](./logs/pytorch_gpu32_fp32_bs2560)
 - [4机32卡、FP16](./logs/pytorch_gpu32_fp16_bs5120)
 - [4机32卡、AMP ](./logs/pytorch_gpu32_amp_bs5120)
