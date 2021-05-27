@@ -1,0 +1,224 @@
+2021-05-25 18:53:37.698113: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:152: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
+
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:178: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
+
+WARNING:tensorflow:From /workspace/nvidia-examples/resnet50v1.5/utils/hooks/training_hooks.py:29: The name tf.train.SessionRunHook is deprecated. Please use tf.estimator.SessionRunHook instead.
+
+WARNING:tensorflow:From /workspace/nvidia-examples/resnet50v1.5/utils/optimizers.py:27: The name tf.train.Optimizer is deprecated. Please use tf.compat.v1.train.Optimizer instead.
+
+WARNING:tensorflow:From ./main.py:34: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From ./main.py:34: The name tf.logging.ERROR is deprecated. Please use tf.compat.v1.logging.ERROR instead.
+
+:::NVLOGv0.2.3 None 1621940020.761494637 (runner.py:123) TF AMP is activated - Experimental Feature
+:::NVLOGv0.2.3 None 1621940020.763003826 (resnet_v1_5.py:93) Model HParams:
+:::NVLOGv0.2.3 None 1621940020.763555050 (resnet_v1_5.py:94) Name: "resnet50_v1.5"
+:::NVLOGv0.2.3 None 1621940020.764068365 (resnet_v1_5.py:95) Number of classes: 1001
+:::NVLOGv0.2.3 None 1621940020.764550924 (resnet_v1_5.py:96) Compute_format: "NCHW"
+:::NVLOGv0.2.3 None 1621940020.765019178 (resnet_v1_5.py:97) Input_format: "NHWC"
+:::NVLOGv0.2.3 None 1621940020.765516758 (resnet_v1_5.py:98) dtype: "<dtype: 'float32'>"
+:::NVLOGv0.2.3 None 1621940020.765955210 (runner.py:175) Deterministic Run - Seed: 1
+:::NVLOGv0.2.3 None 1621940020.957602501 (runner.py:385) Starting Model Training...
+:::NVLOGv0.2.3 None 1621940020.958151340 (runner.py:386) Training Epochs: 4
+:::NVLOGv0.2.3 None 1621940020.958601236 (runner.py:387) Total Steps: 500.0
+:::NVLOGv0.2.3 None 1621940020.959040403 (runner.py:388) Steps per Epoch: 125.0
+:::NVLOGv0.2.3 None 1621940020.959472895 (runner.py:389) Decay Steps: 14627.0
+:::NVLOGv0.2.3 None 1621940020.959904671 (runner.py:390) Weight Decay Factor: 0.0001
+:::NVLOGv0.2.3 None 1621940020.960331917 (runner.py:391) Init Learning Rate: 0.1
+:::NVLOGv0.2.3 None 1621940020.960769653 (runner.py:392) Momentum: 0.9
+:::NVLOGv0.2.3 None 1621940020.961197376 (runner.py:393) Num GPUs: 1
+:::NVLOGv0.2.3 None 1621940020.961633444 (runner.py:394) Per-GPU Batch Size: 254
+:::NVLOGv0.2.3 resnet 1621940020.962773561 (runner.py:236) XLA is activated - Experimental Feature
+2021-05-25 18:53:41.647414: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2021-05-25 18:53:42.060905: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:3f:00.0
+2021-05-25 18:53:42.062593: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 1 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:40:00.0
+2021-05-25 18:53:42.064223: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 2 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:41:00.0
+2021-05-25 18:53:42.065852: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 3 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:42:00.0
+2021-05-25 18:53:42.067480: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 4 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:62:00.0
+2021-05-25 18:53:42.069584: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 5 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:63:00.0
+2021-05-25 18:53:42.072781: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 6 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:64:00.0
+2021-05-25 18:53:42.075908: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 7 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:65:00.0
+2021-05-25 18:53:42.075934: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2021-05-25 18:53:42.078695: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2021-05-25 18:53:42.079953: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2021-05-25 18:53:42.080253: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2021-05-25 18:53:42.082655: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2021-05-25 18:53:42.083218: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2021-05-25 18:53:42.083359: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2021-05-25 18:53:42.104359: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0, 1, 2, 3, 4, 5, 6, 7
+:::NVLOGv0.2.3 resnet 1621940023.817958117 (learning_rate.py:52) Using step learning rate schedule
+2021-05-25 18:53:46.996836: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2400000000 Hz
+2021-05-25 18:53:46.997066: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6cdc0e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-05-25 18:53:46.997103: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-05-25 18:53:47.166297: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6bb9e00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-05-25 18:53:47.166344: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-16GB, Compute Capability 7.0
+2021-05-25 18:53:47.169499: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties: 
+name: Tesla V100-SXM2-16GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:3f:00.0
+2021-05-25 18:53:47.169571: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2021-05-25 18:53:47.169802: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2021-05-25 18:53:47.169841: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2021-05-25 18:53:47.169872: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2021-05-25 18:53:47.169906: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2021-05-25 18:53:47.169936: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2021-05-25 18:53:47.169967: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2021-05-25 18:53:47.174622: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0
+2021-05-25 18:53:47.174674: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2021-05-25 18:53:47.634145: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-05-25 18:53:47.634183: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0 
+2021-05-25 18:53:47.634191: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N 
+2021-05-25 18:53:47.637439: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 14797 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-16GB, pci bus id: 0000:3f:00.0, compute capability: 7.0)
+2021-05-25 18:53:47.946752: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:47.955250: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:48.933403: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:48.937363: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:49.328530: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+2021-05-25 18:53:49.469204: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:49.469482: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:49.646334: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:49.650294: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:50.179976: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:50.180280: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:53.108511: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:53.110767: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:54.452212: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:54.452603: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:54.458926: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:54.478029: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:54.487534: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:54.489509: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:54.701662: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:54.702032: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:55.752923: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:55.753202: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1343] No whitelist ops found, nothing to do
+2021-05-25 18:53:56.580835: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:53:56.602241: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 2356
+Recognized nodes available for conversion: 1524
+Total nodes converted: 416
+Total FP16 Cast ops used (excluding Const and Variable casts): 3
+Whitelisted nodes converted: 266
+Blacklisted nodes blocking conversion: 62
+Nodes blocked from conversion by blacklisted nodes: 8
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+2021-05-25 18:53:56.844651: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=resnet50_v1.5/input_reshape/transpose pad=resnet50_v1.5/conv2d/Pad transpose_after=resnet50_v1.5/conv2d/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer,gradients/resnet50_v1.5/conv2d/conv2d/Conv2D_grad/Conv2DBackpropFilter-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-05-25 18:53:57.845982: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2021-05-25 18:53:59.147691: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2021-05-25 18:54:40.587812: I tensorflow/compiler/jit/xla_compilation_cache.cc:243] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2021-05-25 18:54:41.676964: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:54:41.696881: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 2357
+Recognized nodes available for conversion: 1524
+Total nodes converted: 416
+Total FP16 Cast ops used (excluding Const and Variable casts): 3
+Whitelisted nodes converted: 266
+Blacklisted nodes blocking conversion: 62
+Nodes blocked from conversion by blacklisted nodes: 8
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+2021-05-25 18:54:41.924166: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=resnet50_v1.5/input_reshape/transpose pad=resnet50_v1.5/conv2d/Pad transpose_after=resnet50_v1.5/conv2d/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer,gradients/resnet50_v1.5/conv2d/conv2d/Conv2D_grad/Conv2DBackpropFilter-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-05-25 18:55:16.027625: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1987] Running auto_mixed_precision graph optimizer
+2021-05-25 18:55:16.048138: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1035] Automatic Mixed Precision Grappler Pass Summary:
+
+Total processable nodes: 2357
+Recognized nodes available for conversion: 1524
+Total nodes converted: 416
+Total FP16 Cast ops used (excluding Const and Variable casts): 3
+Whitelisted nodes converted: 266
+Blacklisted nodes blocking conversion: 62
+Nodes blocked from conversion by blacklisted nodes: 8
+
+For more information regarding mixed precision training, including how to make automatic mixed precision aware of a custom op type, please see the documentation available here:
+https://docs.nvidia.com/deeplearning/frameworks/tensorflow-user-guide/index.html#tfamp
+
+
+2021-05-25 18:55:16.277938: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=resnet50_v1.5/input_reshape/transpose pad=resnet50_v1.5/conv2d/Pad transpose_after=resnet50_v1.5/conv2d/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer,gradients/resnet50_v1.5/conv2d/conv2d/Conv2D_grad/Conv2DBackpropFilter-0-TransposeNCHWToNHWC-LayoutOptimizer
+:::NVLOGv0.2.3 resnet 1621940149.508816242 (benchmark_hooks.py:59) iteration: 200
+:::NVLOGv0.2.3 resnet 1621940149.511867762 (benchmark_hooks.py:60) total_ips: 1067.2251288760485
+:::NVLOGv0.2.3 resnet 1621940151.536353350 (benchmark_hooks.py:59) iteration: 210
+:::NVLOGv0.2.3 resnet 1621940151.538798332 (benchmark_hooks.py:60) total_ips: 1269.8044267512128
+:::NVLOGv0.2.3 resnet 1621940153.607786417 (benchmark_hooks.py:59) iteration: 220
+:::NVLOGv0.2.3 resnet 1621940153.610120535 (benchmark_hooks.py:60) total_ips: 1341.7310223749203
+:::NVLOGv0.2.3 resnet 1621940155.654605627 (benchmark_hooks.py:59) iteration: 230
+:::NVLOGv0.2.3 resnet 1621940155.656971455 (benchmark_hooks.py:60) total_ips: 1252.1296376609746
+:::NVLOGv0.2.3 resnet 1621940157.739876509 (benchmark_hooks.py:59) iteration: 240
+:::NVLOGv0.2.3 resnet 1621940157.742209435 (benchmark_hooks.py:60) total_ips: 997.7917395250213
+:::NVLOGv0.2.3 resnet 1621940159.844500065 (benchmark_hooks.py:59) iteration: 250
+:::NVLOGv0.2.3 resnet 1621940159.846820593 (benchmark_hooks.py:60) total_ips: 1300.5498537519104
+:::NVLOGv0.2.3 resnet 1621940161.908145428 (benchmark_hooks.py:59) iteration: 260
+:::NVLOGv0.2.3 resnet 1621940161.910479546 (benchmark_hooks.py:60) total_ips: 1266.5798180058637
+:::NVLOGv0.2.3 resnet 1621940163.986769199 (benchmark_hooks.py:59) iteration: 270
+:::NVLOGv0.2.3 resnet 1621940163.989133835 (benchmark_hooks.py:60) total_ips: 1236.35897066913
+:::NVLOGv0.2.3 resnet 1621940166.045808315 (benchmark_hooks.py:59) iteration: 280
+:::NVLOGv0.2.3 resnet 1621940166.048146725 (benchmark_hooks.py:60) total_ips: 1127.6824821535934
+:::NVLOGv0.2.3 resnet 1621940168.092880726 (benchmark_hooks.py:59) iteration: 290
+:::NVLOGv0.2.3 resnet 1621940168.095160723 (benchmark_hooks.py:60) total_ips: 1295.6340250819687
+:::NVLOGv0.2.3 resnet 1621940170.253471136 (benchmark_hooks.py:59) iteration: 300
+:::NVLOGv0.2.3 resnet 1621940170.256087780 (benchmark_hooks.py:60) total_ips: 738.2475420696231
+:::NVLOGv0.2.3 resnet 1621940172.204191685 (benchmark_hooks.py:59) iteration: 310
+:::NVLOGv0.2.3 resnet 1621940172.206568241 (benchmark_hooks.py:60) total_ips: 1239.9448971943473
+:::NVLOGv0.2.3 resnet 1621940174.273180008 (benchmark_hooks.py:59) iteration: 320
+:::NVLOGv0.2.3 resnet 1621940174.275678635 (benchmark_hooks.py:60) total_ips: 1214.775456216448
+:::NVLOGv0.2.3 resnet 1621940176.282738447 (benchmark_hooks.py:59) iteration: 330
+:::NVLOGv0.2.3 resnet 1621940176.285017490 (benchmark_hooks.py:60) total_ips: 1299.2872948660408
+:::NVLOGv0.2.3 resnet 1621940178.385986328 (benchmark_hooks.py:59) iteration: 340
+:::NVLOGv0.2.3 resnet 1621940178.388310194 (benchmark_hooks.py:60) total_ips: 1068.8848114169216
+:::NVLOGv0.2.3 resnet 1621940180.342311859 (benchmark_hooks.py:59) iteration: 350
+:::NVLOGv0.2.3 resnet 1621940180.344606400 (benchmark_hooks.py:60) total_ips: 1302.0742144006883
+:::NVLOGv0.2.3 resnet 1621940182.434978962 (benchmark_hooks.py:59) iteration: 360
+:::NVLOGv0.2.3 resnet 1621940182.437253475 (benchmark_hooks.py:60) total_ips: 985.3588300962926
+:::NVLOGv0.2.3 resnet 1621940184.443082094 (benchmark_hooks.py:59) iteration: 370
+:::NVLOGv0.2.3 resnet 1621940184.445416212 (benchmark_hooks.py:60) total_ips: 1348.5773947034304
+:::NVLOGv0.2.3 resnet 1621940186.416409016 (benchmark_hooks.py:59) iteration: 380
+:::NVLOGv0.2.3 resnet 1621940186.418688774 (benchmark_hooks.py:60) total_ips: 1277.5719742075985
+:::NVLOGv0.2.3 resnet 1621940188.509965897 (benchmark_hooks.py:59) iteration: 390
+:::NVLOGv0.2.3 resnet 1621940188.512269020 (benchmark_hooks.py:60) total_ips: 1286.597872805508
+:::NVLOGv0.2.3 resnet 1621940190.493962526 (benchmark_hooks.py:59) iteration: 400
+:::NVLOGv0.2.3 resnet 1621940190.496230602 (benchmark_hooks.py:60) total_ips: 1310.8183758869698
+:::NVLOGv0.2.3 resnet 1621940192.501823187 (benchmark_hooks.py:59) iteration: 410
+:::NVLOGv0.2.3 resnet 1621940192.504153490 (benchmark_hooks.py:60) total_ips: 1295.8184071704939
+:::NVLOGv0.2.3 resnet 1621940194.519094467 (benchmark_hooks.py:59) iteration: 420
+:::NVLOGv0.2.3 resnet 1621940194.521356821 (benchmark_hooks.py:60) total_ips: 1350.3859251513136
+:::NVLOGv0.2.3 resnet 1621940196.558792353 (benchmark_hooks.py:59) iteration: 430
+:::NVLOGv0.2.3 resnet 1621940196.561053991 (benchmark_hooks.py:60) total_ips: 1212.6032687319237
+:::NVLOGv0.2.3 resnet 1621940198.642393827 (benchmark_hooks.py:59) iteration: 440
+:::NVLOGv0.2.3 resnet 1621940198.644650936 (benchmark_hooks.py:60) total_ips: 1175.611463984145
+:::NVLOGv0.2.3 resnet 1621940200.637708187 (benchmark_hooks.py:59) iteration: 450
+:::NVLOGv0.2.3 resnet 1621940200.640011311 (benchmark_hooks.py:60) total_ips: 1318.6990377307577
+:::NVLOGv0.2.3 resnet 1621940202.663978338 (benchmark_hooks.py:59) iteration: 460
+:::NVLOGv0.2.3 resnet 1621940202.666467905 (benchmark_hooks.py:60) total_ips: 1299.7691887249161
+:::NVLOGv0.2.3 resnet 1621940204.839291334 (benchmark_hooks.py:59) iteration: 470
+:::NVLOGv0.2.3 resnet 1621940204.841679573 (benchmark_hooks.py:60) total_ips: 1344.5979798591732
+:::NVLOGv0.2.3 resnet 1621940206.790814400 (benchmark_hooks.py:59) iteration: 480
+:::NVLOGv0.2.3 resnet 1621940206.793155909 (benchmark_hooks.py:60) total_ips: 1273.926897252698
+:::NVLOGv0.2.3 resnet 1621940208.784402370 (benchmark_hooks.py:59) iteration: 490
+:::NVLOGv0.2.3 resnet 1621940208.786734104 (benchmark_hooks.py:60) total_ips: 1299.8611696091948
+:::NVLOGv0.2.3 resnet 1621940211.382129908 (benchmark_hooks.py:66) Average total_ips: 1255.6367517479598
+:::NVLOGv0.2.3 resnet 1621940212.293117762 (runner.py:508) Ending Model Training ...

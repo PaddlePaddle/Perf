@@ -44,11 +44,11 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
    本次测试，结合各框架具体情况，BatchSize选用如下：
 
-   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC 个MXNet |
+   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
    |:-----:|:-----:|:-----:|:-----:|:-----:|
    | FP32 | 96 | 128 | 128 | 96 |
    | AMP | 128 | 128 | 128 | 128 |
-   | AMP | 208 | 256 | 256 | 192 |
+   | AMP | 208 | 254 | 254 | 192 |
 
 关于其它一些参数的说明：
 - **DALI**
@@ -65,11 +65,12 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 ### 1.物理机环境
 
 - 单机（单卡、8卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 450.80.02
-  - 内存：432 GB
+  - Driver Version: 460.32.03
+  - 内存：502 GB
+
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -82,8 +83,8 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
-- Docker: hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
-- Paddle：develop+613c46bc0745c8069c55686aef4adc775f9e27d1
+- Docker: paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82
+- Paddle：2.1.0.post101
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：10.1
 - cuDNN：7.6.5
@@ -92,13 +93,14 @@ Paddle Docker的基本信息如下：
 
 - 拉取docker
   ```bash
-  docker pull hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04
+  paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82
   ```
 
 - 启动docker
   ```bash
   # 假设imagenet数据放在<path to data>目录下
-  nvidia-docker run --shm-size=64g -it -v <path to data>:/data hub.baidubce.com/paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04 /bin/bash
+  nvidia-docker run --shm-size=64g -it -v <path to data>:/data 
+  paddlepaddle/paddle-benchmark:cuda10.1-cudnn7-runtime-ubuntu16.04-gcc82 /bin/bash
   ```
 
 - 拉取PaddleClas
@@ -106,7 +108,7 @@ Paddle Docker的基本信息如下：
   git clone https://github.com/PaddlePaddle/PaddleClas.git
   cd PaddleClas
   # 本次测试是在如下版本下完成的：
-  git checkout b0904fd250715b3c040c88881395bad06eea9be6
+  git checkout 15168d25f306b5c69cc81495676cb1a931ce5c83
   ```
 
 - 多机网络部署
@@ -167,9 +169,9 @@ Paddle Docker的基本信息如下：
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_1gpu_amp_bs208.yaml
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_fp32_bs96.yaml
   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs128.yaml
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_8gpu_amp_bs208.yaml
   bash paddle_test_all.sh
   ```
+
 
 - 执行后将得到如下日志文件：
    ```bash
@@ -178,7 +180,6 @@ Paddle Docker的基本信息如下：
    ./paddle_gpu1_amp_bs208.txt
    ./paddle_gpu8_fp32_bs96.txt
    ./paddle_gpu8_amp_bs128.txt
-   ./paddle_gpu8_amp_bs208.txt
    ```
 
 ### 2.多机（32卡）测试
@@ -208,8 +209,8 @@ Paddle Docker的基本信息如下：
 
 |卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=208)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 383.0 | 1335.1 | 1400.1 |
-|8 | 2753.3 | 8322.9 | 9099.5 |
+|1 | 377.21 | 1342.56  | 1396.573 |
+|8 | 2906.887 | 8690.84  | —— |
 |32 | 11366.6 | 29715.2 | 34302.5 |
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
@@ -226,23 +227,23 @@ Paddle Docker的基本信息如下：
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 383<sup>[BS=96]</sup> | 407.7 | 364.2 | 387.1<sup>[BS=96]</sup> |
-  | GPU=8,BS=128 | 2753.3<sup>[BS=96]</sup> | 3070.5 | 2826.8 | 2998.1<sup>[BS=96]</sup> |
+  | GPU=1,BS=128 | 377.21 <sup>[BS=96]</sup> | 410.55  | 369.63  | 387.1<sup>[BS=96]</sup> |
+  | GPU=8,BS=128 | 2906.89 <sup>[BS=96]</sup> | 3089.54  | 2795.87  | 2998.1<sup>[BS=96]</sup> |
   | GPU=32,BS=128 | 11366.6<sup>[BS=96]</sup> | 11622.9 | 10393.2 | -<sup>[BS=96]</sup> |
 
 - AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 1335.1 | 1108.9 | 828.7 | 1380.6 |
-  | GPU=1,BS=256 | 1400.1<sup>[BS=208]</sup> | 1228.7 | 841.6 | 1447.6<sup>[BS=192]</sup> |
-  | GPU=8,BS=128 | 8322.9 | 7695.6 | 6014.7 | 9218.9 |
-  | GPU=8,BS=256 | 9099.5<sup>[BS=208]</sup> | 8378.0 | 6230.1<sup>[BS=248]</sup> | 9765.6<sup>[BS=192]</sup> |
+  | GPU=1,BS=128 | 1342.56  | 1194.14  | 807.56  | 1380.6 |
+  | GPU=1,BS=256 | 1396.57 <sup>[BS=208]</sup> | 1255.64 <sup>[BS=254]</sup> |815.53 <sup>[BS=254]</sup> | 1447.6<sup>[BS=192]</sup> |
+  | GPU=8,BS=128 | 8690.84  | 8701.89  | 5790.00  | 9218.9 |
+  | GPU=8,BS=256 | —— | 9525.40 <sup>[BS=254]</sup>  | 6215.18<sup>[BS=244]</sup> | 9765.6<sup>[BS=192]</sup> |
   | GPU=32,BS=128 | 29715.2 | 27528.0 | 17940.7 | - |
   | GPU=32,BS=256 | 34302.5 | 33695.0 | 21588.1 | -<sup>[BS=192]</sup> |
 
 > 以上测试，由于显存限制，下调了部分测试的BatchSize，并在表格中注明 <br>
-> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为248
+> Pytorch AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为244, AMP 单卡在BatchSize=256时会OOM，因此下调BatchSize为254
 
 ## 六、日志数据
 - [1卡 FP32 BS=96 日志](./logs/paddle_gpu1_fp32_bs96.txt)
@@ -250,7 +251,6 @@ Paddle Docker的基本信息如下：
 - [1卡 AMP BS=208 日志](./logs/paddle_gpu1_amp_bs208.txt)
 - [8卡 FP32 BS=96 日志](./logs/paddle_gpu8_fp32_bs96.txt)
 - [8卡 AMP BS=128 日志](./logs/paddle_gpu8_amp_bs128.txt)
-- [8卡 AMP BS=208 日志](./logs/paddle_gpu8_amp_bs208.txt)
 - [32卡 FP32 BS=96 日志](./logs/paddle_gpu32_fp32_bs96.txt)
 - [32卡 AMP BS=128 日志](./logs/paddle_gpu32_amp_bs128.txt)
 - [32卡 AMP BS=208 日志](./logs/paddle_gpu32_amp_bs208.txt)

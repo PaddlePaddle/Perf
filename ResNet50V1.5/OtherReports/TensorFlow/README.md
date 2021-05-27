@@ -24,11 +24,11 @@
 我们使用了与Paddle测试完全相同的物理机环境：
 
 - 单机（单卡、8卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 450.80.02
-  - 内存：432 GB
+  - Driver Version: 460.32.03
+  - 内存：502 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -42,7 +42,7 @@
 我们使用 NGC TensorFlow 的代码仓库提供的Dockerfile制作镜像：
 
 - Docker: nvcr.io/nvidia/tensorflow:20.06-tf1-py3
-- TensorFlow：1.15.2
+- TensorFlow：1.15.2+nv
 - 模型代码：[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 - CUDA：11
 - cuDNN：8.0.1
@@ -63,7 +63,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/TensorFlow/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+   git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
    ```
 
 - 制作Docker镜像
@@ -116,10 +116,10 @@
    ```bash
    /log/tf_gpu1_fp32_bs128.txt
    /log/tf_gpu1_amp_bs128.txt
-   /log/tf_gpu1_amp_bs256.txt
+   /log/tf_gpu1_amp_bs254.txt
    /log/tf_gpu8_fp32_bs128.txt
    /log/tf_gpu8_amp_bs128.txt
-   /log/tf_gpu8_amp_bs256.txt
+   /log/tf_gpu8_amp_bs254.txt
    ```
 
 由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
@@ -146,8 +146,8 @@ $mpirun  python main.py --mode=training_benchmark \
 
 |卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 407.7 | 1108.9 | 1228.7 |
-|8 | 3070.5 | 7695.6 | 8378.0 |
+|1 | 410.55  | 1194.14  | 1255.64 (BS=254) |
+|8 | 3089.54  | 8701.89  | 9525.40 (BS=254) |
 |32 | 11622.9 | 21826.6 | 23280.9 |
 
 ## 五、日志数据
