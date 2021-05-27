@@ -25,6 +25,13 @@
 
 我们使用了同一个物理机环境，对 [NGC TensorFlow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/LanguageModeling/BERT) 的 Bert 模型进行了测试，详细物理机配置，见[Paddle Bert Base 性能测试](../../README.md#1.物理机环境)。
 
+- 单机（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：Tesla V100-SXM2-16GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
+  - Driver Version: 460.32.03
+  - 内存：502 GB
+
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
@@ -53,7 +60,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   git clone https://github.com/NVIDIA/DeepLearningExamples
   cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
   # 本次测试是在如下版本下完成的：
-  git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+  git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
   ```
 
 - **构建镜像**
@@ -186,8 +193,8 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 
 |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 142.67 | 148.23 | 488.32 | 536.06 |
-|8 | 984.73 | 1075.27 | 3035.76 | 3530.84 |
+|1 | 140.07 | 147.77 | 442.48 | 488.62 |
+|8 | 1067.19 | 1129.25 | 3091.20 | 3564.28 |
 |32 | 4379.4 | 4723.5 | 14773.4 | 16554.3|
 |32<sup>[W/O AccGrad]</sup> | 2943.8 | 3450.1 | 9993.1 | 12767.2|
 
