@@ -28,7 +28,7 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
- - GPU：Tesla V100-SXM2-16GB * 8
+  - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
   - Driver Version: 460.32.03
   - 内存：502 GB
