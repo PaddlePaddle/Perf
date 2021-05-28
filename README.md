@@ -67,18 +67,18 @@
 
   | 参数 | [PaddlePaddle](./ResNet50V1.5) | [NGC TensorFlow 1.15](./ResNet50V1.5/OtherReports/TensorFlow) | [NGC PyTorch](./ResNet50V1.5/OtherReports/PyTorch) | [NGC MXNet](./ResNet50V1.5/OtherReports/MxNet) |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 383<sup>[BS=96]</sup> | 407.7 | 364.2 | 387.1<sup>[BS=96]</sup> |
-  | GPU=8,BS=128 | 2753.3<sup>[BS=96]</sup> | 3070.5 | 2826.8 | 2998.1<sup>[BS=96]</sup> |
+  | GPU=1,BS=128 | 377.21 <sup>[BS=96]</sup> | 410.55 | 369.63 | 387.1<sup>[BS=96]</sup> |
+  | GPU=8,BS=128 | 2906.89<sup>[BS=96]</sup> | 3089.54 | 2795.87 | 2998.1<sup>[BS=96]</sup> |
   | GPU=32,BS=128 | 11366.6<sup>[BS=96]</sup> | 11622.9 | 10393.2 | -<sup>[BS=96]</sup> |
 
 - AMP测试
 
   | 参数 | [PaddlePaddle](./ResNet50V1.5) | [NGC TensorFlow 1.15](./ResNet50V1.5/OtherReports/TensorFlow) | [NGC PyTorch](./ResNet50V1.5/OtherReports/PyTorch) | [NGC MXNet](./ResNet50V1.5/OtherReports/MxNet) |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=128 | 1335.1 | 1108.9 | 828.7 | 1380.6 |
-  | GPU=1,BS=256 | 1400.1<sup>[BS=208]</sup> | 1228.7 | 841.6 | 1447.6<sup>[BS=192]</sup> |
-  | GPU=8,BS=128 | 8322.9 | 7695.6 | 6014.7 | 9218.9 |
-  | GPU=8,BS=256 | 9099.5<sup>[BS=208]</sup> | 8378.0 | 6230.1<sup>[BS=248]</sup> | 9765.6<sup>[BS=192]</sup> |
+  | GPU=1,BS=128 | 1342.56 | 1194.14 | 807.56 | 1380.6 |
+  | GPU=1,BS=256 | 1396.57<sup>[BS=208]</sup> | 1255.64 | 815.53<sup>[BS=254]</sup> | 1447.6<sup>[BS=192]</sup> |
+  | GPU=8,BS=128 | 8690.84 | 8701.89 | 5790.00 | 9218.9 |
+  | GPU=8,BS=256 | —— | 9525.40<sup>[BS=254]</sup> | 6215.18<sup>[BS=248]</sup> | 9765.6<sup>[BS=192]</sup> |
   | GPU=32,BS=128 | 29715.2 | 27528.0 | 17940.7 | - |
   | GPU=32,BS=256 | 34302.5 | 33695.0 | 21588.1 | -<sup>[BS=192]</sup> |
 
@@ -95,10 +95,10 @@
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=32 | 147.14 | 142.67 | 128.53 |
-  | GPU=1,BS=48 | 153.47 | 148.23 | 128.92 |
-  | GPU=8,BS=32 | 1072.26 | 984.73 | 999.99 |
-  | GPU=8,BS=48 | 1119.37  | 1075.27 |995.88  |
+  | GPU=1,BS=32 | 147.14 | 140.07  | 127.09  |
+  | GPU=1,BS=48 | 152.19  | 147.77  | 126.48 |
+  | GPU=8,BS=32 | 1105.19  | 1067.19 | 1018.40 |
+  | GPU=8,BS=48 | 1149.40   | 1129.25 | 1012.80 |
   | GPU=32,BS=32 | 4862.5 | 4379.4 | 3994.1 |
   | GPU=32,BS=48 | 4948.4 | 4723.5 | 3974.0 |
 
@@ -106,9 +106,9 @@
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=64 | 595.49 | 488.32 | 524.48 |
-  | GPU=1,BS=96 | 628.25 | 536.06 | 543.76 |
-  | GPU=8,BS=64 | 3902.41 | 3035.76 | 4058.34|
-  | GPU=8,BS=96 | 4202.70 | 3530.84 | 4208.12|
+  | GPU=1,BS=64 | 584.22 | 442.48  | 511.13 |
+  | GPU=1,BS=96 | 622.29 | 488.62  | 532.24 |
+  | GPU=8,BS=64 | 3942.72  | 3091.20 | 4063.19 |
+  | GPU=8,BS=96 | 4188.46  | 3564.28 | 4207.36 |
   | GPU=32,BS=64 | 18432.2 | 14773.4 | 15941.1 |
   | GPU=32,BS=96 | 18480.0 | 16554.3 | 16311.6 |
