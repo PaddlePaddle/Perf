@@ -1,957 +1,371 @@
-[1,0]<stderr>:2020-12-16 08:02:11,659:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=96, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.096, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-1,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,0]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,0]<stdout>:DLL 2021-05-28 09:34:31.187811 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0]  kv_store : horovod  dtype : float32  amp : False  batch_size : 96  num_epochs : 3  run_epochs : -1  lr : 0.096  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-1,96  workspace : ./  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 3  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
+[1,0]<stderr>:[09:34:31[1,0]<stderr>:] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,0]<stderr>:[09:34:33] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
 [1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,0]<stderr>:2020-12-16 08:02:19,189:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2020-12-16 08:02:19,191:INFO: Starting epoch 0
-[1,0]<stderr>:[08:02:20] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,0]<stderr>::120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,0]<stdout>:61d7a676ab24:179:322 [0] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,0]<stdout>:61d7a676ab24:179:322 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,0]<stdout>:61d7a676ab24:179:322 [0] NCCL INFO NET/IB : No device found.
-[1,0]<stdout>:NCCL version 2.4.7+cuda10.1
-[1,0]<stdout>:61d7a676ab24:179:322 [0] NCCL INFO Setting affinity for GPU 0 to 0fffff
-[1,0]<stdout>:61d7a676ab24:179:322 [0] NCCL INFO Using 256 threads, Min Comp Cap 7, Trees enabled up to size -2
-[1,0]<stdout>:61d7a676ab24:179:322 [0] NCCL INFO comm 0x7ff7b8ae1040 rank 0 nranks 1 cudaDev 0 nvmlDev 0 - Init COMPLETE
-[1,0]<stderr>:2020-12-16 08:02:33,385:INFO: Epoch[0] Batch [0-19]	Speed: 135.2762488651407 samples/sec	LR: 0.0010922155688622753	
-[1,0]<stderr>:2020-12-16 08:02:38,301:INFO: Epoch[0] Batch [20-39]	Speed: 390.6625396056304 samples/sec	LR: 0.002241916167664671	
-[1,0]<stderr>:2020-12-16 08:02:43,201:INFO: Epoch[0] Batch [40-59]	Speed: 391.99921376862864 samples/sec	LR: 0.003391616766467066	
-[1,0]<stderr>:2020-12-16 08:02:48,122:INFO: Epoch[0] Batch [60-79]	Speed: 390.24610896982773 samples/sec	LR: 0.004541317365269462	
-[1,0]<stderr>:2020-12-16 08:02:53,030:INFO: Epoch[0] Batch [80-99]	Speed: 391.2046769307897 samples/sec	LR: 0.005691017964071857	
-[1,0]<stderr>:2020-12-16 08:02:57,949:INFO: Epoch[0] Batch [100-119]	Speed: 390.408376634401 samples/sec	LR: 0.0068407185628742515	
-[1,0]<stderr>:2020-12-16 08:03:02,871:INFO: Epoch[0] Batch [120-139]	Speed: 390.0894936598001 samples/sec	LR: 0.007990419161676646	
-[1,0]<stderr>:2020-12-16 08:03:07,790:INFO: Epoch[0] Batch [140-159]	Speed: 390.3622953237798 samples/sec	LR: 0.009140119760479041	
-[1,0]<stderr>:2020-12-16 08:03:12,720:INFO: Epoch[0] Batch [160-179]	Speed: 389.5282440570325 samples/sec	LR: 0.010289820359281436	
-[1,0]<stderr>:2020-12-16 08:03:17,658:INFO: Epoch[0] Batch [180-199]	Speed: 388.84633926253724 samples/sec	LR: 0.011439520958083833	
-[1,0]<stderr>:2020-12-16 08:03:22,586:INFO: Epoch[0] Batch [200-219]	Speed: 389.62899707057244 samples/sec	LR: 0.01258922155688623	
-[1,0]<stderr>:2020-12-16 08:03:27,520:INFO: Epoch[0] Batch [220-239]	Speed: 389.1778240081529 samples/sec	LR: 0.013738922155688624	
-[1,0]<stderr>:2020-12-16 08:03:32,459:INFO: Epoch[0] Batch [240-259]	Speed: 388.77939683427064 samples/sec	LR: 0.014888622754491019	
-[1,0]<stderr>:2020-12-16 08:03:37,408:INFO: Epoch[0] Batch [260-279]	Speed: 388.01493265081535 samples/sec	LR: 0.016038323353293412	
-[1,0]<stderr>:2020-12-16 08:03:42,354:INFO: Epoch[0] Batch [280-299]	Speed: 388.2498895957759 samples/sec	LR: 0.01718802395209581	
-[1,0]<stderr>:2020-12-16 08:03:47,295:INFO: Epoch[0] Batch [300-319]	Speed: 388.5739266303148 samples/sec	LR: 0.018337724550898205	
-[1,0]<stderr>:2020-12-16 08:03:52,243:INFO: Epoch[0] Batch [320-339]	Speed: 388.09350680794387 samples/sec	LR: 0.0194874251497006	
-[1,0]<stderr>:2020-12-16 08:03:57,192:INFO: Epoch[0] Batch [340-359]	Speed: 388.00704333454655 samples/sec	LR: 0.020637125748502995	
-[1,0]<stderr>:2020-12-16 08:04:02,142:INFO: Epoch[0] Batch [360-379]	Speed: 387.8596917462155 samples/sec	LR: 0.021786826347305388	
-[1,0]<stderr>:2020-12-16 08:04:07,098:INFO: Epoch[0] Batch [380-399]	Speed: 387.4378972463934 samples/sec	LR: 0.02293652694610778	
-[1,0]<stderr>:2020-12-16 08:04:12,056:INFO: Epoch[0] Batch [400-419]	Speed: 387.3091384947948 samples/sec	LR: 0.02408622754491018	
-[1,0]<stderr>:2020-12-16 08:04:17,008:INFO: Epoch[0] Batch [420-439]	Speed: 387.78203383880714 samples/sec	LR: 0.025235928143712578	
-[1,0]<stderr>:2020-12-16 08:04:21,968:INFO: Epoch[0] Batch [440-459]	Speed: 387.06979284696064 samples/sec	LR: 0.02638562874251497	
-[1,0]<stderr>:2020-12-16 08:04:26,927:INFO: Epoch[0] Batch [460-479]	Speed: 387.2691866488068 samples/sec	LR: 0.027535329341317367	
-[1,0]<stderr>:2020-12-16 08:04:31,884:INFO: Epoch[0] Batch [480-499]	Speed: 387.35440858789633 samples/sec	LR: 0.02868502994011976	
-[1,0]<stderr>:2020-12-16 08:04:31,887:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2020-12-16 08:04:31,887:INFO: Starting epoch 1
-[1,0]<stderr>:2020-12-16 08:04:36,838:INFO: Epoch[1] Batch [0-19]	Speed: 387.8005209959841 samples/sec	LR: 0.020292215568862276	
-[1,0]<stderr>:2020-12-16 08:04:41,786:INFO: Epoch[1] Batch [20-39]	Speed: 388.11615748089787 samples/sec	LR: 0.021441916167664672	
-[1,0]<stderr>:2020-12-16 08:04:46,745:INFO: Epoch[1] Batch [40-59]	Speed: 387.1957116767264 samples/sec	LR: 0.022591616766467065	
-[1,0]<stderr>:2020-12-16 08:04:51,693:INFO: Epoch[1] Batch [60-79]	Speed: 388.05053203894875 samples/sec	LR: 0.02374131736526946	
-[1,0]<stderr>:2020-12-16 08:04:56,654:INFO: Epoch[1] Batch [80-99]	Speed: 387.045310905998 samples/sec	LR: 0.02489101796407186	
-[1,0]<stderr>:2020-12-16 08:05:01,613:INFO: Epoch[1] Batch [100-119]	Speed: 387.19182085021805 samples/sec	LR: 0.026040718562874255	
-[1,0]<stderr>:2020-12-16 08:05:06,576:INFO: Epoch[1] Batch [120-139]	Speed: 386.8915510673352 samples/sec	LR: 0.027190419161676648	
-[1,0]<stderr>:2020-12-16 08:05:11,546:INFO: Epoch[1] Batch [140-159]	Speed: 386.4016336123867 samples/sec	LR: 0.028340119760479045	
-[1,0]<stderr>:2020-12-16 08:05:16,509:INFO: Epoch[1] Batch [160-179]	Speed: 386.87417268047153 samples/sec	LR: 0.029489820359281438	
-[1,0]<stderr>:2020-12-16 08:05:21,483:INFO: Epoch[1] Batch [180-199]	Speed: 386.083095950599 samples/sec	LR: 0.03063952095808383	
-[1,0]<stderr>:2020-12-16 08:05:26,441:INFO: Epoch[1] Batch [200-219]	Speed: 387.3258108166214 samples/sec	LR: 0.03178922155688623	
-[1,0]<stderr>:2020-12-16 08:05:31,408:INFO: Epoch[1] Batch [220-239]	Speed: 386.529956554722 samples/sec	LR: 0.032938922155688624	
-[1,0]<stderr>:2020-12-16 08:05:36,378:INFO: Epoch[1] Batch [240-259]	Speed: 386.39397661991865 samples/sec	LR: 0.03408862275449102	
-[1,0]<stderr>:2020-12-16 08:05:41,355:INFO: Epoch[1] Batch [260-279]	Speed: 385.8075161014557 samples/sec	LR: 0.03523832335329342	
-[1,0]<stderr>:2020-12-16 08:05:46,324:INFO: Epoch[1] Batch [280-299]	Speed: 386.41600287979134 samples/sec	LR: 0.03638802395209581	
-[1,0]<stderr>:2020-12-16 08:05:51,301:INFO: Epoch[1] Batch [300-319]	Speed: 385.8194012492439 samples/sec	LR: 0.037537724550898204	
-[1,0]<stderr>:2020-12-16 08:05:56,276:INFO: Epoch[1] Batch [320-339]	Speed: 385.94737469677517 samples/sec	LR: 0.0386874251497006	
-[1,0]<stderr>:2020-12-16 08:06:01,245:INFO: Epoch[1] Batch [340-359]	Speed: 386.49176049084303 samples/sec	LR: 0.039837125748503	
-[1,0]<stderr>:2020-12-16 08:06:06,218:INFO: Epoch[1] Batch [360-379]	Speed: 386.08542819258554 samples/sec	LR: 0.04098682634730539	
-[1,0]<stderr>:2020-12-16 08:06:11,204:INFO: Epoch[1] Batch [380-399]	Speed: 385.09718115683177 samples/sec	LR: 0.042136526946107776	
-[1,0]<stderr>:2020-12-16 08:06:16,179:INFO: Epoch[1] Batch [400-419]	Speed: 386.00148522878953 samples/sec	LR: 0.043286227544910176	
-[1,0]<stderr>:2020-12-16 08:06:21,167:INFO: Epoch[1] Batch [420-439]	Speed: 384.94375052132864 samples/sec	LR: 0.044435928143712576	
-[1,0]<stderr>:2020-12-16 08:06:26,152:INFO: Epoch[1] Batch [440-459]	Speed: 385.23156788199657 samples/sec	LR: 0.04558562874251497	
-[1,0]<stderr>:2020-12-16 08:06:31,135:INFO: Epoch[1] Batch [460-479]	Speed: 385.2802060067833 samples/sec	LR: 0.04673532934131736	
-[1,0]<stderr>:2020-12-16 08:06:36,125:INFO: Epoch[1] Batch [480-499]	Speed: 384.82385237216727 samples/sec	LR: 0.04788502994011976	
-[1,0]<stderr>:2020-12-16 08:06:36,129:INFO: Starting epoch 2
-[1,0]<stderr>:2020-12-16 08:06:41,102:INFO: Epoch[2] Batch [0-19]	Speed: 386.085520742452 samples/sec	LR: 0.039492215568862274	
-[1,0]<stderr>:2020-12-16 08:06:46,096:INFO: Epoch[2] Batch [20-39]	Speed: 384.518301169274 samples/sec	LR: 0.040641916167664674	
-[1,0]<stderr>:2020-12-16 08:06:51,077:INFO: Epoch[2] Batch [40-59]	Speed: 385.4539585516542 samples/sec	LR: 0.04179161676646707	
-[1,0]<stderr>:2020-12-16 08:06:56,057:INFO: Epoch[2] Batch [60-79]	Speed: 385.60639298070714 samples/sec	LR: 0.04294131736526947	
-[1,0]<stderr>:2020-12-16 08:07:01,035:INFO: Epoch[2] Batch [80-99]	Speed: 385.7301049644121 samples/sec	LR: 0.04409101796407185	
-[1,0]<stderr>:2020-12-16 08:07:06,022:INFO: Epoch[2] Batch [100-119]	Speed: 385.0197786629492 samples/sec	LR: 0.045240718562874246	
-[1,0]<stderr>:2020-12-16 08:07:11,012:INFO: Epoch[2] Batch [120-139]	Speed: 384.78119415777473 samples/sec	LR: 0.046390419161676646	
-[1,0]<stderr>:2020-12-16 08:07:16,001:INFO: Epoch[2] Batch [140-159]	Speed: 384.94658424391145 samples/sec	LR: 0.04754011976047904	
-[1,0]<stderr>:2020-12-16 08:07:20,991:INFO: Epoch[2] Batch [160-179]	Speed: 384.8421137141391 samples/sec	LR: 0.04868982035928144	
-[1,0]<stderr>:2020-12-16 08:07:25,983:INFO: Epoch[2] Batch [180-199]	Speed: 384.6008654955433 samples/sec	LR: 0.04983952095808383	
-[1,0]<stderr>:2020-12-16 08:07:30,970:INFO: Epoch[2] Batch [200-219]	Speed: 385.0592124867408 samples/sec	LR: 0.05098922155688623	
-[1,0]<stderr>:2020-12-16 08:07:35,969:INFO: Epoch[2] Batch [220-239]	Speed: 384.13494120177427 samples/sec	LR: 0.052138922155688626	
-[1,0]<stderr>:2020-12-16 08:07:40,963:INFO: Epoch[2] Batch [240-259]	Speed: 384.4711951569521 samples/sec	LR: 0.05328862275449101	
-[1,0]<stderr>:2020-12-16 08:07:45,962:INFO: Epoch[2] Batch [260-279]	Speed: 384.13761643945264 samples/sec	LR: 0.05443832335329342	
-[1,0]<stderr>:2020-12-16 08:07:50,963:INFO: Epoch[2] Batch [280-299]	Speed: 383.96854505727725 samples/sec	LR: 0.05558802395209581	
-[1,0]<stderr>:2020-12-16 08:07:55,959:INFO: Epoch[2] Batch [300-319]	Speed: 384.34555604263227 samples/sec	LR: 0.056737724550898205	
-[1,0]<stderr>:2020-12-16 08:08:00,952:INFO: Epoch[2] Batch [320-339]	Speed: 384.5621682353779 samples/sec	LR: 0.0578874251497006	
-[1,0]<stderr>:2020-12-16 08:08:05,948:INFO: Epoch[2] Batch [340-359]	Speed: 384.3844665799609 samples/sec	LR: 0.05903712574850299	
-[1,0]<stderr>:2020-12-16 08:08:10,947:INFO: Epoch[2] Batch [360-379]	Speed: 384.07569240745164 samples/sec	LR: 0.06018682634730539	
-[1,0]<stderr>:2020-12-16 08:08:15,951:INFO: Epoch[2] Batch [380-399]	Speed: 383.69948463272607 samples/sec	LR: 0.061336526946107785	
-[1,0]<stderr>:2020-12-16 08:08:20,951:INFO: Epoch[2] Batch [400-419]	Speed: 384.09476214882653 samples/sec	LR: 0.06248622754491018	
-[1,0]<stderr>:2020-12-16 08:08:25,940:INFO: Epoch[2] Batch [420-439]	Speed: 384.846729896744 samples/sec	LR: 0.06363592814371258	
-[1,0]<stderr>:2020-12-16 08:08:30,936:INFO: Epoch[2] Batch [440-459]	Speed: 384.38670495515555 samples/sec	LR: 0.06478562874251496	
-[1,0]<stderr>:2020-12-16 08:08:35,937:INFO: Epoch[2] Batch [460-479]	Speed: 383.91377668913816 samples/sec	LR: 0.06593532934131736	
-[1,0]<stderr>:2020-12-16 08:08:40,937:INFO: Epoch[2] Batch [480-499]	Speed: 384.0752161461216 samples/sec	LR: 0.06708502994011976	
-[1,0]<stderr>:2020-12-16 08:08:41,168:INFO: Experiment took: 389.46389174461365 sec
-[1,0]<stderr>:2020-12-16 08:08:45,635:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,4]<stderr>:2020-12-16 08:08:45,705:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,2]<stderr>:2020-12-16 08:08:45,712:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,7]<stderr>:2020-12-16 08:08:45,758:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,6]<stderr>:2020-12-16 08:08:45,761:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,3]<stderr>:2020-12-16 08:08:45,768:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,5]<stderr>:2020-12-16 08:08:45,778:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,1]<stderr>:2020-12-16 08:08:45,785:INFO: Start with arguments Namespace(amp=False, arch='resnetv15', batch_size=768, batchnorm_eps=1e-05, batchnorm_layout='NCHW', batchnorm_mom=0.9, begin_epoch=0, benchmark_iters=500, brightness=0, contrast=0, conv_layout='NCHW', dali_fuse_decoder=1, dali_nvjpeg_memory_padding=64, dali_prefetch_queue=2, dali_separ_val=False, dali_threads=3, dali_validation_threads=10, data_backend='dali-gpu', data_mxnet_threads=40, data_pred=None, data_train='/data/imagenet/train-val-recordio-passthrough/train.rec', data_train_idx='/data/imagenet/train-val-recordio-passthrough/train.idx', data_val='/data/imagenet/train-val-recordio-passthrough/val.rec', data_val_idx='/data/imagenet/train-val-recordio-passthrough/val.idx', data_val_resize=256, disp_batches=20, dtype='float32', fuse_bn_add_relu=0, fuse_bn_relu=0, gpus=[0, 1, 2, 3, 4, 5, 6, 7], image_shape=[3, 224, 224], input_layout='NCHW', kv_store='horovod', label_smoothing=0.1, load=None, log='log.log', lr=0.768, lr_factor=0.256, lr_schedule='cosine', lr_steps=[], max_crop_size=-1, max_random_area=1, max_random_aspect_ratio=1.33, max_random_h=0, max_random_l=0, max_random_rotate_angle=0, max_random_s=0, max_random_scale=1, max_random_shear_ratio=0, min_crop_size=-1, min_random_area=0.05, min_random_aspect_ratio=0.75, min_random_scale=1, mixup=0, mode='train', model_prefix='model', mom=0.875, no_metrics=True, num_classes=1000, num_epochs=3, num_examples=32000, num_groups=32, num_layers=50, optimizer='sgd', pca_noise=0, pooling_layout='NCHW', random_crop=0, random_mirror=1, random_resized_crop=1, report='benchmark_report_fp32.json-8,96', rgb_mean=[123.68, 116.779, 103.939], rgb_std=[58.393, 57.12, 57.375], saturation=0, save_frequency=-1, seed=None, test_io=False, test_io_mode='train', warmup_epochs=5, wd=3.0517578125e-05)
-[1,7]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,7]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,7]<stderr>:2020-12-16 08:08:54,620:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,7]<stderr>:2020-12-16 08:08:54,620:INFO: Starting epoch 0
-[1,5]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,5]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,5]<stderr>:2020-12-16 08:08:54,620:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,5]<stderr>:2020-12-16 08:08:54,621:INFO: Starting epoch 0
-[1,0]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,0]<stderr>:2020-12-16 08:08:54,623:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2020-12-16 08:08:54,623:INFO: Starting epoch 0
-[1,3]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,3]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,3]<stderr>:2020-12-16 08:08:54,623:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,3]<stderr>:2020-12-16 08:08:54,624:INFO: Starting epoch 0
-[1,1]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,0]<stderr>:  _iterator_deprecation_warning()
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,0]<stderr>:2021-05-28 09:34:36,899:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2021-05-28 09:34:36,900:INFO: Starting epoch 0
+[1,0]<stderr>:[09:34:37] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,0]<stdout>:DLL 2021-05-28 09:34:47.776213 - Epoch: 0 Iteration: 19  train.loss : 7.109247636795044  train.ips : 176.53320119789973  train.lr : 0.0010922155688622753 
+[1,0]<stdout>:DLL 2021-05-28 09:34:52.867746 - Epoch: 0 Iteration: 39  train.loss : 7.077702260017395  train.ips : 377.1831382250753  train.lr : 0.002241916167664671 
+[1,0]<stdout>:DLL 2021-05-28 09:34:57.961755 - Epoch: 0 Iteration: 59  train.loss : 7.054965591430664  train.ips : 376.9397490002727  train.lr : 0.003391616766467066 
+[1,0]<stdout>:DLL 2021-05-28 09:35:03.072927 - Epoch: 0 Iteration: 79  train.loss : 7.024885749816894  train.ips : 375.6733916787952  train.lr : 0.004541317365269462 
+[1,0]<stdout>:DLL 2021-05-28 09:35:08.187195 - Epoch: 0 Iteration: 99  train.loss : 6.976577711105347  train.ips : 375.45589136827067  train.lr : 0.005691017964071857 
+[1,0]<stdout>:DLL 2021-05-28 09:35:13.303307 - Epoch: 0 Iteration: 119  train.loss : 6.940174627304077  train.ips : 375.32863973503396  train.lr : 0.0068407185628742515 
+[1,0]<stdout>:DLL 2021-05-28 09:35:18.421153 - Epoch: 0 Iteration: 139  train.loss : 6.93169071674347  train.ips : 375.23470878233314  train.lr : 0.007990419161676646 
+[1,0]<stdout>:DLL 2021-05-28 09:35:23.548408 - Epoch: 0 Iteration: 159  train.loss : 6.891876745223999  train.ips : 374.5010070477063  train.lr : 0.009140119760479041 
+[1,0]<stdout>:DLL 2021-05-28 09:35:28.681528 - Epoch: 0 Iteration: 179  train.loss : 6.8746544361114506  train.ips : 374.0635099356205  train.lr : 0.010289820359281436 
+[1,0]<stdout>:DLL 2021-05-28 09:35:33.810993 - Epoch: 0 Iteration: 199  train.loss : 6.85946934223175  train.ips : 374.33956201920313  train.lr : 0.011439520958083833 
+[1,0]<stdout>:DLL 2021-05-28 09:35:38.935846 - Epoch: 0 Iteration: 219  train.loss : 6.860635685920715  train.ips : 374.6640730236045  train.lr : 0.01258922155688623 
+[1,0]<stdout>:DLL 2021-05-28 09:35:44.062571 - Epoch: 0 Iteration: 239  train.loss : 6.8578211784362795  train.ips : 374.52605272474034  train.lr : 0.013738922155688624 
+[1,0]<stdout>:DLL 2021-05-28 09:35:49.202564 - Epoch: 0 Iteration: 259  train.loss : 6.812794160842896  train.ips : 373.55992604379094  train.lr : 0.014888622754491019 
+[1,0]<stdout>:DLL 2021-05-28 09:35:54.340630 - Epoch: 0 Iteration: 279  train.loss : 6.843675231933593  train.ips : 373.7039808973948  train.lr : 0.016038323353293412 
+[1,0]<stdout>:DLL 2021-05-28 09:35:59.463739 - Epoch: 0 Iteration: 299  train.loss : 6.811371612548828  train.ips : 374.79889822189045  train.lr : 0.01718802395209581 
+[1,0]<stdout>:DLL 2021-05-28 09:36:04.597805 - Epoch: 0 Iteration: 319  train.loss : 6.772523593902588  train.ips : 374.0009870798612  train.lr : 0.018337724550898205 
+[1,0]<stdout>:DLL 2021-05-28 09:36:09.747251 - Epoch: 0 Iteration: 339  train.loss : 6.789898180961609  train.ips : 372.8744428747489  train.lr : 0.0194874251497006 
+[1,0]<stdout>:DLL 2021-05-28 09:36:14.885963 - Epoch: 0 Iteration: 359  train.loss : 6.772801542282105  train.ips : 373.66087414145215  train.lr : 0.020637125748502995 
+[1,0]<stdout>:DLL 2021-05-28 09:36:20.026927 - Epoch: 0 Iteration: 379  train.loss : 6.798625493049622  train.ips : 373.5108237042853  train.lr : 0.021786826347305388 
+[1,0]<stdout>:DLL 2021-05-28 09:36:25.170001 - Epoch: 0 Iteration: 399  train.loss : 6.767580580711365  train.ips : 373.34953872943476  train.lr : 0.02293652694610778 
+[1,0]<stdout>:DLL 2021-05-28 09:36:30.317584 - Epoch: 0 Iteration: 419  train.loss : 6.748815369606018  train.ips : 373.02266915828216  train.lr : 0.02408622754491018 
+[1,0]<stdout>:DLL 2021-05-28 09:36:35.467266 - Epoch: 0 Iteration: 439  train.loss : 6.744209170341492  train.ips : 372.85969923197433  train.lr : 0.025235928143712578 
+[1,0]<stdout>:DLL 2021-05-28 09:36:40.609041 - Epoch: 0 Iteration: 459  train.loss : 6.770486235618591  train.ips : 373.4384412256456  train.lr : 0.02638562874251497 
+[1,0]<stdout>:DLL 2021-05-28 09:36:45.752531 - Epoch: 0 Iteration: 479  train.loss : 6.7307572841644285  train.ips : 373.31907750632433  train.lr : 0.027535329341317367 
+[1,0]<stdout>:DLL 2021-05-28 09:36:50.888848 - Epoch: 0 Iteration: 499  train.loss : 6.720439028739929  train.ips : 373.8373696355191  train.lr : 0.02868502994011976 
+[1,0]<stdout>:DLL 2021-05-28 09:36:50.889171 - Epoch: 0  train.loss : 6.861747166633606  train.ips : 358.2370934819621 
+[1,0]<stderr>:2021-05-28 09:36:50,889:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2021-05-28 09:36:50,889:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2021-05-28 09:36:56.035718 - Epoch: 1 Iteration: 19  train.loss : 6.671185636520386  train.ips : 373.0787467432887  train.lr : 0.020292215568862276 
+[1,0]<stdout>:DLL 2021-05-28 09:37:01.187555 - Epoch: 1 Iteration: 39  train.loss : 6.665000247955322  train.ips : 372.7065137827658  train.lr : 0.021441916167664672 
+[1,0]<stdout>:DLL 2021-05-28 09:37:06.336941 - Epoch: 1 Iteration: 59  train.loss : 6.64890718460083  train.ips : 372.89289996788324  train.lr : 0.022591616766467065 
+[1,0]<stdout>:DLL 2021-05-28 09:37:11.497578 - Epoch: 1 Iteration: 79  train.loss : 6.598627781867981  train.ips : 372.06594067025117  train.lr : 0.02374131736526946 
+[1,0]<stdout>:DLL 2021-05-28 09:37:16.649831 - Epoch: 1 Iteration: 99  train.loss : 6.660322666168213  train.ips : 372.6755020250563  train.lr : 0.02489101796407186 
+[1,0]<stdout>:DLL 2021-05-28 09:37:21.820934 - Epoch: 1 Iteration: 119  train.loss : 6.6391520500183105  train.ips : 371.34091930151936  train.lr : 0.026040718562874255 
+[1,0]<stdout>:DLL 2021-05-28 09:37:26.993589 - Epoch: 1 Iteration: 139  train.loss : 6.624162125587463  train.ips : 371.2721482163126  train.lr : 0.027190419161676648 
+[1,0]<stdout>:DLL 2021-05-28 09:37:32.155964 - Epoch: 1 Iteration: 159  train.loss : 6.629361391067505  train.ips : 371.9532077050101  train.lr : 0.028340119760479045 
+[1,0]<stdout>:DLL 2021-05-28 09:37:37.325670 - Epoch: 1 Iteration: 179  train.loss : 6.631809997558594  train.ips : 371.41822943890276  train.lr : 0.029489820359281438 
+[1,0]<stdout>:DLL 2021-05-28 09:37:42.487011 - Epoch: 1 Iteration: 199  train.loss : 6.635447311401367  train.ips : 372.0280747082642  train.lr : 0.03063952095808383 
+[1,0]<stdout>:DLL 2021-05-28 09:37:47.656144 - Epoch: 1 Iteration: 219  train.loss : 6.613565802574158  train.ips : 371.4550461305419  train.lr : 0.03178922155688623 
+[1,0]<stdout>:DLL 2021-05-28 09:37:52.834271 - Epoch: 1 Iteration: 239  train.loss : 6.619916939735413  train.ips : 370.81290728143614  train.lr : 0.032938922155688624 
+[1,0]<stdout>:DLL 2021-05-28 09:37:58.002324 - Epoch: 1 Iteration: 259  train.loss : 6.584362006187439  train.ips : 371.5380432247623  train.lr : 0.03408862275449102 
+[1,0]<stdout>:DLL 2021-05-28 09:38:03.177746 - Epoch: 1 Iteration: 279  train.loss : 6.598400044441223  train.ips : 371.0178635418791  train.lr : 0.03523832335329342 
+[1,0]<stdout>:DLL 2021-05-28 09:38:08.365719 - Epoch: 1 Iteration: 299  train.loss : 6.619547414779663  train.ips : 370.1067377001263  train.lr : 0.03638802395209581 
+[1,0]<stdout>:DLL 2021-05-28 09:38:13.542819 - Epoch: 1 Iteration: 319  train.loss : 6.587295889854431  train.ips : 370.8894852487968  train.lr : 0.037537724550898204 
+[1,0]<stdout>:DLL 2021-05-28 09:38:18.728476 - Epoch: 1 Iteration: 339  train.loss : 6.592255973815918  train.ips : 370.2817125869682  train.lr : 0.0386874251497006 
+[1,0]<stdout>:DLL 2021-05-28 09:38:23.909364 - Epoch: 1 Iteration: 359  train.loss : 6.581678414344788  train.ips : 370.6164324678966  train.lr : 0.039837125748503 
+[1,0]<stdout>:DLL 2021-05-28 09:38:29.084385 - Epoch: 1 Iteration: 379  train.loss : 6.590044522285462  train.ips : 371.0510789953806  train.lr : 0.04098682634730539 
+[1,0]<stdout>:DLL 2021-05-28 09:38:34.265101 - Epoch: 1 Iteration: 399  train.loss : 6.503365111351013  train.ips : 370.64210417745284  train.lr : 0.042136526946107776 
+[1,0]<stdout>:DLL 2021-05-28 09:38:39.449443 - Epoch: 1 Iteration: 419  train.loss : 6.564527750015259  train.ips : 370.3680526990065  train.lr : 0.043286227544910176 
+[1,0]<stdout>:DLL 2021-05-28 09:38:44.636681 - Epoch: 1 Iteration: 439  train.loss : 6.579797863960266  train.ips : 370.1743460036794  train.lr : 0.044435928143712576 
+[1,0]<stdout>:DLL 2021-05-28 09:38:49.833086 - Epoch: 1 Iteration: 459  train.loss : 6.588388156890869  train.ips : 369.526839605512  train.lr : 0.04558562874251497 
+[1,0]<stdout>:DLL 2021-05-28 09:38:55.021637 - Epoch: 1 Iteration: 479  train.loss : 6.541983437538147  train.ips : 370.0769733797599  train.lr : 0.04673532934131736 
+[1,0]<stdout>:DLL 2021-05-28 09:39:00.214715 - Epoch: 1 Iteration: 499  train.loss : 6.546350431442261  train.ips : 369.74884596158984  train.lr : 0.04788502994011976 
+[1,0]<stdout>:DLL 2021-05-28 09:39:00.215321 - Epoch: 1  train.loss : 6.604618246078491  train.ips : 371.1551333045224 
+[1,0]<stderr>:2021-05-28 09:39:00,215:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2021-05-28 09:39:05.412252 - Epoch: 2 Iteration: 19  train.loss : 6.541383290290833  train.ips : 369.47848659358397  train.lr : 0.039492215568862274 
+[1,0]<stdout>:DLL 2021-05-28 09:39:10.591312 - Epoch: 2 Iteration: 39  train.loss : 6.479856276512146  train.ips : 370.80496779874636  train.lr : 0.040641916167664674 
+[1,0]<stdout>:DLL 2021-05-28 09:39:15.765280 - Epoch: 2 Iteration: 59  train.loss : 6.4973924398422245  train.ips : 371.1096094186349  train.lr : 0.04179161676646707 
+[1,0]<stdout>:DLL 2021-05-28 09:39:20.941224 - Epoch: 2 Iteration: 79  train.loss : 6.46949143409729  train.ips : 370.97152911615177  train.lr : 0.04294131736526947 
+[1,0]<stdout>:DLL 2021-05-28 09:39:26.118082 - Epoch: 2 Iteration: 99  train.loss : 6.4868992328643795  train.ips : 370.91970501684165  train.lr : 0.04409101796407185 
+[1,0]<stdout>:DLL 2021-05-28 09:39:31.298409 - Epoch: 2 Iteration: 119  train.loss : 6.4876203536987305  train.ips : 370.6742457358875  train.lr : 0.045240718562874246 
+[1,0]<stdout>:DLL 2021-05-28 09:39:36.480014 - Epoch: 2 Iteration: 139  train.loss : 6.475019955635071  train.ips : 370.5758426035616  train.lr : 0.046390419161676646 
+[1,0]<stdout>:DLL 2021-05-28 09:39:41.655370 - Epoch: 2 Iteration: 159  train.loss : 6.463229560852051  train.ips : 371.0122228049684  train.lr : 0.04754011976047904 
+[1,0]<stdout>:DLL 2021-05-28 09:39:46.828509 - Epoch: 2 Iteration: 179  train.loss : 6.42033634185791  train.ips : 371.17837162160293  train.lr : 0.04868982035928144 
+[1,0]<stdout>:DLL 2021-05-28 09:39:52.001072 - Epoch: 2 Iteration: 199  train.loss : 6.453028225898743  train.ips : 371.2111880406501  train.lr : 0.04983952095808383 
+[1,0]<stdout>:DLL 2021-05-28 09:39:57.165248 - Epoch: 2 Iteration: 219  train.loss : 6.453182172775269  train.ips : 371.8156320619537  train.lr : 0.05098922155688623 
+[1,0]<stdout>:DLL 2021-05-28 09:40:02.335599 - Epoch: 2 Iteration: 239  train.loss : 6.44382483959198  train.ips : 371.37542572024495  train.lr : 0.052138922155688626 
+[1,0]<stdout>:DLL 2021-05-28 09:40:07.504021 - Epoch: 2 Iteration: 259  train.loss : 6.435823774337768  train.ips : 371.51805746632596  train.lr : 0.05328862275449101 
+[1,0]<stdout>:DLL 2021-05-28 09:40:12.671299 - Epoch: 2 Iteration: 279  train.loss : 6.4419420003890995  train.ips : 371.60142566830507  train.lr : 0.05443832335329342 
+[1,0]<stdout>:DLL 2021-05-28 09:40:17.835436 - Epoch: 2 Iteration: 299  train.loss : 6.421795463562011  train.ips : 371.81758910912276  train.lr : 0.05558802395209581 
+[1,0]<stdout>:DLL 2021-05-28 09:40:23.004495 - Epoch: 2 Iteration: 319  train.loss : 6.442477822303772  train.ips : 371.4656350646764  train.lr : 0.056737724550898205 
+[1,0]<stdout>:DLL 2021-05-28 09:40:28.179106 - Epoch: 2 Iteration: 339  train.loss : 6.445917320251465  train.ips : 371.07115132842006  train.lr : 0.0578874251497006 
+[1,0]<stdout>:DLL 2021-05-28 09:40:33.354671 - Epoch: 2 Iteration: 359  train.loss : 6.392257118225098  train.ips : 370.9947888843045  train.lr : 0.05903712574850299 
+[1,0]<stdout>:DLL 2021-05-28 09:40:38.518625 - Epoch: 2 Iteration: 379  train.loss : 6.42833948135376  train.ips : 371.82783819259026  train.lr : 0.06018682634730539 
+[1,0]<stdout>:DLL 2021-05-28 09:40:43.692302 - Epoch: 2 Iteration: 399  train.loss : 6.403968238830567  train.ips : 371.13163791774906  train.lr : 0.061336526946107785 
+[1,0]<stdout>:DLL 2021-05-28 09:40:48.856054 - Epoch: 2 Iteration: 419  train.loss : 6.430225443840027  train.ips : 371.85201247322067  train.lr : 0.06248622754491018 
+[1,0]<stdout>:DLL 2021-05-28 09:40:54.028926 - Epoch: 2 Iteration: 439  train.loss : 6.397998332977295  train.ips : 371.19833795910193  train.lr : 0.06363592814371258 
+[1,0]<stdout>:DLL 2021-05-28 09:40:59.195314 - Epoch: 2 Iteration: 459  train.loss : 6.366108131408692  train.ips : 371.65618479598095  train.lr : 0.06478562874251496 
+[1,0]<stdout>:DLL 2021-05-28 09:41:04.360413 - Epoch: 2 Iteration: 479  train.loss : 6.3798998355865475  train.ips : 371.74934496603066  train.lr : 0.06593532934131736 
+[1,0]<stdout>:DLL 2021-05-28 09:41:09.538431 - Epoch: 2 Iteration: 499  train.loss : 6.36918523311615  train.ips : 370.8255599338791  train.lr : 0.06708502994011976 
+[1,0]<stdout>:DLL 2021-05-28 09:41:09.539014 - Epoch: 2  train.loss : 6.441088092803955  train.ips : 371.16242336319345 
+[1,0]<stdout>:DLL 2021-05-28 09:41:09.708730 - Summary: train.loss : 6.441088092803955  train.ips : 366.8515500498927 
+[1,0]<stdout>:DLL 2021-05-28 09:41:16.225100 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0, 1, 2, 3, 4, 5, 6, 7]  kv_store : horovod  dtype : float32  amp : False  batch_size : 768  num_epochs : 3  run_epochs : -1  lr : 0.768  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-8,96  workspace : ./  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 3  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
+[1,3]<stderr>:[09:41:16] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,5]<stderr>:[09:41:16] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for [1,5]<stderr>:CPU
+[1,0]<stderr>:[09:41:16] ../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
+[1,1]<stderr>:[09:41:16] ../src/storage/storage.cc:199: Using [1,1]<stderr>:Pooled (Naive) StorageManager for CPU
+[1,2]<stderr>:[[1,2]<stderr>:09:41:16[1,2]<stderr>:] [1,2]<stderr>:../src/storage/storage.cc[1,2]<stderr>::[1,2]<stderr>:199[1,2]<stderr>:: [1,2]<stderr>:Using [1,2]<stderr>:Pooled (Naive)[1,2]<stderr>: StorageManager for [1,2]<stderr>:CPU[1,2]<stderr>:
+[1,7]<stderr>:[[1,7]<stderr>:09:41:16] ../src/storage/storage.cc:[1,7]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
+[1,4]<stderr>:[[1,4]<stderr>:09:41:16[1,4]<stderr>:] [1,4]<stderr>:../src/storage/storage.cc[1,4]<stderr>::[1,4]<stderr>:199[1,4]<stderr>:: [1,4]<stderr>:Using [1,4]<stderr>:Pooled (Naive)[1,4]<stderr>: StorageManager for [1,4]<stderr>:CPU[1,4]<stderr>:
+[1,6]<stderr>:[[1,6]<stderr>:09:41:16[1,6]<stderr>:] [1,6]<stderr>:../src/storage/storage.cc[1,6]<stderr>::[1,6]<stderr>:199[1,6]<stderr>:: [1,6]<stderr>:Using [1,6]<stderr>:Pooled (Naive)[1,6]<stderr>: StorageManager for [1,6]<stderr>:CPU[1,6]<stderr>:
+[1,7]<stderr>:[09:41:20] ../src/storage/storage.cc:[1,7]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
+[1,1]<stderr>:[09:41:21] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[1,2]<stderr>:[09:41:21] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU[1,2]<stderr>:
+[1,3]<stderr>:[[1,3]<stderr>:09:41:21] ../src/storage/storage.cc:[1,3]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
+[1,0]<stderr>:[[1,0]<stderr>:09:41:21] [1,0]<stderr>:../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for GPU[1,0]<stderr>:
+[1,6]<stderr>:[[1,6]<stderr>:09:41:21] ../src/storage/storage.cc:[1,6]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
+[1,4]<stderr>:[[1,4]<stderr>:09:41:21] ../src/storage/storage.cc:[1,4]<stderr>:199: Using Pooled (Naive)[1,4]<stderr>: StorageManager for GPU
+[1,5]<stderr>:[[1,5]<stderr>:09:41:21] ../src/storage/storage.cc:[1,5]<stderr>:199: Using Pooled (Naive) StorageManager for GPU[1,5]<stderr>:
+[1,1]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
 [1,1]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,1]<stderr>:2020-12-16 08:08:54,627:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,1]<stderr>:2020-12-16 08:08:54,628:INFO: Starting epoch 0
-[1,6]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,6]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,6]<stderr>:2020-12-16 08:08:54,629:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,6]<stderr>:2020-12-16 08:08:54,629:INFO: Starting epoch 0
-[1,4]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,4]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,4]<stderr>:2020-12-16 08:08:54,630:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,4]<stderr>:2020-12-16 08:08:54,631:INFO: Starting epoch 0
-[1,2]<stderr>:/workspace/rn50/dali.py:175: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,1]<stderr>:  _iterator_deprecation_warning()
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,1]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,1]<stderr>:2021-05-28 09:41:26,101:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,1]<stderr>:2021-05-28 09:41:26,102:INFO: Starting epoch 0
+[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,0]<stderr>:  _iterator_deprecation_warning()
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,0]<stderr>:2021-05-28 09:41:26,108:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2021-05-28 09:41:26,108:INFO: Starting epoch 0
+[1,7]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,7]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,7]<stderr>:  _iterator_deprecation_warning()
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,7]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,7]<stderr>:2021-05-28 09:41:26,179:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,7]<stderr>:2021-05-28 09:41:26,179:INFO: Starting epoch 0
+[1,2]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
 [1,2]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,2]<stderr>:2020-12-16 08:08:54,632:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,2]<stderr>:2020-12-16 08:08:54,633:INFO: Starting epoch 0
-[1,1]<stderr>:[08:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,6]<stderr>:[08:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,6]<stderr>:
-[1,4]<stderr>:[08:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,4]<stderr>:
-[1,3]<stderr>:[[1,3]<stderr>:08:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120[1,3]<stderr>:: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,0]<stderr>:[[1,0]<stderr>:08:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: [1,0]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,7]<stderr>:[[1,7]<stderr>:08:09:06] [1,7]<stderr>:src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,2]<stderr>:[08:09:06] src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:[1,2]<stderr>:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,5]<stderr>:[08:09:06] [1,5]<stderr>:src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO NET/IB : No device found.
-[1,0]<stdout>:NCCL version 2.4.7+cuda10.1
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO NET/IB : No device found.
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO NET/IB : No device found.
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO NET/IB : No device found.
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO NET/IB : No device found.
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO NET/IB : No device found.
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Setting affinity for GPU 0 to 0fffff
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO NET/Socket : Using [0]eth0:192.168.1.4<0>
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO NET/IB : No device found.
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so).
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO NET/IB : No device found.
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Setting affinity for GPU 5 to 0fffff
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Setting affinity for GPU 3 to 0fffff
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Setting affinity for GPU 7 to 0fffff
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Setting affinity for GPU 1 to 0fffff
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Setting affinity for GPU 2 to 0fffff
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Setting affinity for GPU 4 to 0fffff
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Setting affinity for GPU 6 to 0fffff
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 00 :    0   1   2   3   7   5   6   4
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 01 :    0   1   5   4   7   6   2   3
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 02 :    0   2   6   7   4   5   1   3
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 03 :    0   3   1   5   4   7   6   2
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 04 :    0   3   2   6   7   4   5   1
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 05 :    0   4   6   5   7   3   2   1
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 06 :    0   1   2   3   7   5   6   4
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 07 :    0   1   5   4   7   6   2   3
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 08 :    0   2   6   7   4   5   1   3
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 09 :    0   3   1   5   4   7   6   2
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 10 :    0   3   2   6   7   4   5   1
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Channel 11 :    0   4   6   5   7   3   2   1
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 00 : 6[6] -> 4[4] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 00 : 1[1] -> 2[2] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 00 : 4[4] -> 0[0] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 00 : 3[3] -> 7[7] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 00 : 7[7] -> 5[5] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 00 : 0[0] -> 1[1] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 00 : 5[5] -> 6[6] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 00 : 2[2] -> 3[3] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 01 : 0[0] -> 1[1] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 01 : 1[1] -> 5[5] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 01 : 4[4] -> 7[7] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 01 : 6[6] -> 2[2] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 02 : 1[1] -> 3[3] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 01 : 7[7] -> 6[6] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 01 : 5[5] -> 4[4] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 01 : 2[2] -> 3[3] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 01 : 3[3] -> 0[0] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 02 : 6[6] -> 7[7] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 02 : 7[7] -> 4[4] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 02 : 4[4] -> 5[5] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 02 : 5[5] -> 1[1] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 02 : 2[2] -> 6[6] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 02 : 3[3] -> 0[0] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 02 : 0[0] -> 2[2] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 03 : 7[7] -> 6[6] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 03 : 5[5] -> 4[4] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 03 : 1[1] -> 5[5] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 03 : 0[0] -> 3[3] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 03 : 4[4] -> 7[7] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 04 : 4[4] -> 5[5] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 03 : 6[6] -> 2[2] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 04 : 6[6] -> 7[7] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 03 : 3[3] -> 1[1] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 03 : 2[2] -> 0[0] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 04 : 1[1] -> 0[0] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 04 : 3[3] -> 2[2] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 04 : 7[7] -> 4[4] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 04 : 5[5] -> 1[1] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 04 : 2[2] -> 6[6] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 05 : 7[7] -> 3[3] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 04 : 0[0] -> 3[3] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 05 : 5[5] -> 7[7] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 05 : 2[2] -> 1[1] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 05 : 4[4] -> 6[6] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 05 : 0[0] -> 4[4] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 06 : 7[7] -> 5[5] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 06 : 4[4] -> 0[0] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 05 : 6[6] -> 5[5] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 06 : 6[6] -> 4[4] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 05 : 1[1] -> 0[0] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 05 : 3[3] -> 2[2] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 06 : 1[1] -> 2[2] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 06 : 3[3] -> 7[7] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 06 : 5[5] -> 6[6] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 06 : 2[2] -> 3[3] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 07 : 6[6] -> 2[2] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 07 : 5[5] -> 4[4] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 06 : 0[0] -> 1[1] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 07 : 3[3] -> 0[0] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 07 : 2[2] -> 3[3] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 07 : 4[4] -> 7[7] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 07 : 7[7] -> 6[6] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 07 : 1[1] -> 5[5] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 07 : 0[0] -> 1[1] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 08 : 7[7] -> 4[4] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 08 : 0[0] -> 2[2] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 08 : 6[6] -> 7[7] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 08 : 3[3] -> 0[0] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 08 : 5[5] -> 1[1] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 08 : 1[1] -> 3[3] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 08 : 2[2] -> 6[6] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 09 : 3[3] -> 1[1] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 09 : 1[1] -> 5[5] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 09 : 6[6] -> 2[2] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 09 : 2[2] -> 0[0] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 09 : 0[0] -> 3[3] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 08 : 4[4] -> 5[5] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 10 : 2[2] -> 6[6] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 10 : 3[3] -> 2[2] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 10 : 0[0] -> 3[3] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 09 : 7[7] -> 6[6] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 09 : 5[5] -> 4[4] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 09 : 4[4] -> 7[7] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 10 : 7[7] -> 4[4] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 10 : 4[4] -> 5[5] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 10 : 6[6] -> 7[7] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO Ring 11 : 7[7] -> 3[3] via P2P/IPC
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO Ring 11 : 6[6] -> 5[5] via P2P/IPC
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 10 : 1[1] -> 0[0] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO Ring 11 : 3[3] -> 2[2] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 10 : 5[5] -> 1[1] via P2P/IPC
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO Ring 11 : 4[4] -> 6[6] via P2P/IPC
-[1,3]<stdout>:61d7a676ab24:403:1554 [3] NCCL INFO comm 0x7f1198b07070 rank 3 nranks 8 cudaDev 3 nvmlDev 3 - Init COMPLETE
-[1,6]<stdout>:61d7a676ab24:406:1555 [6] NCCL INFO comm 0x7f1f34af8830 rank 6 nranks 8 cudaDev 6 nvmlDev 6 - Init COMPLETE
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO Ring 11 : 1[1] -> 0[0] via P2P/IPC
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO Ring 11 : 2[2] -> 1[1] via P2P/IPC
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO Ring 11 : 5[5] -> 7[7] via P2P/IPC
-[1,7]<stdout>:61d7a676ab24:407:1553 [7] NCCL INFO comm 0x7f9170aeb970 rank 7 nranks 8 cudaDev 7 nvmlDev 7 - Init COMPLETE
-[1,2]<stdout>:61d7a676ab24:402:1548 [2] NCCL INFO comm 0x7fa3f8afb1e0 rank 2 nranks 8 cudaDev 2 nvmlDev 2 - Init COMPLETE
-[1,5]<stdout>:61d7a676ab24:405:1562 [5] NCCL INFO comm 0x7f3540aeb170 rank 5 nranks 8 cudaDev 5 nvmlDev 5 - Init COMPLETE
-[1,1]<stdout>:61d7a676ab24:401:1564 [1] NCCL INFO comm 0x7ff3a0b0c050 rank 1 nranks 8 cudaDev 1 nvmlDev 1 - Init COMPLETE
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Ring 11 : 0[0] -> 4[4] via P2P/IPC
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Using 256 threads, Min Comp Cap 7, Trees disabled
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO comm 0x7f5118aff520 rank 0 nranks 8 cudaDev 0 nvmlDev 0 - Init COMPLETE
-[1,4]<stdout>:61d7a676ab24:404:1547 [4] NCCL INFO comm 0x7fb038aebb30 rank 4 nranks 8 cudaDev 4 nvmlDev 4 - Init COMPLETE
-[1,0]<stdout>:61d7a676ab24:400:1544 [0] NCCL INFO Launch mode Parallel
-[1,1]<stderr>:2020-12-16 08:09:25,352:INFO: Epoch[0] Batch [0-19]	Speed: 499.9299467294493 samples/sec	LR: 0.06948571428571429	
-[1,5]<stderr>:2020-12-16 08:09:25,354:INFO: Epoch[0] Batch [0-19]	Speed: 499.7880815681771 samples/sec	LR: 0.06948571428571429	
-[1,7]<stderr>:2020-12-16 08:09:25,357:INFO: Epoch[0] Batch [0-19]	Speed: 499.72937569165634 samples/sec	LR: 0.06948571428571429	
-[1,2]<stderr>:2020-12-16 08:09:25,357:INFO: Epoch[0] Batch [0-19]	Speed: 499.9300359562042 samples/sec	LR: 0.06948571428571429	
-[1,6]<stderr>:2020-12-16 08:09:25,357:INFO: Epoch[0] Batch [0-19]	Speed: 499.8645482066058 samples/sec	LR: 0.06948571428571429	
-[1,4]<stderr>:2020-12-16 08:09:25,358:INFO: Epoch[0] Batch [0-19]	Speed: 499.88130737170974 samples/sec	LR: 0.06948571428571429	
-[1,0]<stderr>:2020-12-16 08:09:25,363:INFO: Epoch[0] Batch [0-19]	Speed: 499.6770393429501 samples/sec	LR: 0.06948571428571429	
-[1,3]<stderr>:2020-12-16 08:09:25,366:INFO: Epoch[0] Batch [0-19]	Speed: 499.63717138698325 samples/sec	LR: 0.06948571428571429	
-[1,7]<stderr>:2020-12-16 08:09:30,473:INFO: Epoch[0] Batch [20-39]	Speed: 3002.319735016528 samples/sec	LR: 0.14262857142857144	
-[1,6]<stderr>:2020-12-16 08:09:30,474:INFO: Epoch[0] Batch [20-39]	Speed: 3002.3864757222873 samples/sec	LR: 0.14262857142857144	
-[1,3]<stderr>:2020-12-16 08:09:30,476:INFO: Epoch[0] Batch [20-39]	Speed: 3006.2564880571963 samples/sec	LR: 0.14262857142857144	
-[1,2]<stderr>:2020-12-16 08:09:30,477:INFO: Epoch[0] Batch [20-39]	Speed: 3000.6858635017315 samples/sec	LR: 0.14262857142857144	
-[1,0]<stderr>:2020-12-16 08:09:30,477:INFO: Epoch[0] Batch [20-39]	Speed: 3003.924852488332 samples/sec	LR: 0.14262857142857144	
-[1,4]<stderr>:2020-12-16 08:09:30,479:INFO: Epoch[0] Batch [20-39]	Speed: 3000.072851683511 samples/sec	LR: 0.14262857142857144	
-[1,5]<stderr>:2020-12-16 08:09:30,481:INFO: Epoch[0] Batch [20-39]	Speed: 2996.323525595286 samples/sec	LR: 0.14262857142857144	
-[1,1]<stderr>:2020-12-16 08:09:30,482:INFO: Epoch[0] Batch [20-39]	Speed: 2994.7511590367913 samples/sec	LR: 0.14262857142857144	
-[1,5]<stderr>:2020-12-16 08:09:35,567:INFO: Epoch[0] Batch [40-59]	Speed: 3020.575300081262 samples/sec	LR: 0.21577142857142856	
-[1,1]<stderr>:2020-12-16 08:09:35,571:INFO: Epoch[0] Batch [40-59]	Speed: 3018.687537291676 samples/sec	LR: 0.21577142857142856	
-[1,6]<stderr>:2020-12-16 08:09:35,572:INFO: Epoch[0] Batch [40-59]	Speed: 3013.143365494197 samples/sec	LR: 0.21577142857142856	
-[1,7]<stderr>:2020-12-16 08:09:35,573:INFO: Epoch[0] Batch [40-59]	Speed: 3012.5069410932924 samples/sec	LR: 0.21577142857142856	
-[1,2]<stderr>:2020-12-16 08:09:35,573:INFO: Epoch[0] Batch [40-59]	Speed: 3014.4874040959908 samples/sec	LR: 0.21577142857142856	
-[1,0]<stderr>:2020-12-16 08:09:35,573:INFO: Epoch[0] Batch [40-59]	Speed: 3014.4435379079514 samples/sec	LR: 0.21577142857142856	
-[1,4]<stderr>:2020-12-16 08:09:35,575:INFO: Epoch[0] Batch [40-59]	Speed: 3014.677552687419 samples/sec	LR: 0.21577142857142856	
-[1,3]<stderr>:2020-12-16 08:09:35,577:INFO: Epoch[0] Batch [40-59]	Speed: 3011.5362672830424 samples/sec	LR: 0.21577142857142856	
-[1,5]<stderr>:2020-12-16 08:09:40,657:INFO: Epoch[0] Batch [60-79]	Speed: 3017.867100974269 samples/sec	LR: 0.28891428571428573	
-[1,2]<stderr>:2020-12-16 08:09:40,659:INFO: Epoch[0] Batch [60-79]	Speed: 3020.6622579900113 samples/sec	LR: 0.28891428571428573	
-[1,6]<stderr>:2020-12-16 08:09:40,659:INFO: Epoch[0] Batch [60-79]	Speed: 3019.5157789355476 samples/sec	LR: 0.28891428571428573	
-[1,4]<stderr>:2020-12-16 08:09:40,661:INFO: Epoch[0] Batch [60-79]	Speed: 3020.588754153429 samples/sec	LR: 0.28891428571428573	
-[1,0]<stderr>:2020-12-16 08:09:40,662:INFO: Epoch[0] Batch [60-79]	Speed: 3018.6470847870273 samples/sec	LR: 0.28891428571428573	
-[1,7]<stderr>:2020-12-16 08:09:40,663:INFO: Epoch[0] Batch [60-79]	Speed: 3017.6511071315754 samples/sec	LR: 0.28891428571428573	
-[1,1]<stderr>:2020-12-16 08:09:40,665:INFO: Epoch[0] Batch [60-79]	Speed: 3015.3381810012356 samples/sec	LR: 0.28891428571428573	
-[1,3]<stderr>:2020-12-16 08:09:40,665:INFO: Epoch[0] Batch [60-79]	Speed: 3019.0718901670857 samples/sec	LR: 0.28891428571428573	
-[1,5]<stderr>:2020-12-16 08:09:45,794:INFO: Epoch[0] Batch [80-99]	Speed: 2990.757129452931 samples/sec	LR: 0.36205714285714286	
-[1,1]<stderr>:2020-12-16 08:09:45,794:INFO: Epoch[0] Batch [80-99]	Speed: 2995.0924015705423 samples/sec	LR: 0.36205714285714286	
-[1,7]<stderr>:2020-12-16 08:09:45,796:INFO: Epoch[0] Batch [80-99]	Speed: 2992.9308428180657 samples/sec	LR: 0.36205714285714286	
-[1,4]<stderr>:2020-12-16 08:09:45,798:INFO: Epoch[0] Batch [80-99]	Speed: 2990.5542995724995 samples/sec	LR: 0.36205714285714286	
-[1,3]<stderr>:2020-12-16 08:09:45,798:INFO: Epoch[0] Batch [80-99]	Speed: 2992.8283732603136 samples/sec	LR: 0.36205714285714286	
-[1,2]<stderr>:2020-12-16 08:09:45,798:INFO: Epoch[0] Batch [80-99]	Speed: 2988.62746986369 samples/sec	LR: 0.36205714285714286	
-[1,0]<stderr>:2020-12-16 08:09:45,800:INFO: Epoch[0] Batch [80-99]	Speed: 2990.0422800070955 samples/sec	LR: 0.36205714285714286	
-[1,6]<stderr>:2020-12-16 08:09:45,801:INFO: Epoch[0] Batch [80-99]	Speed: 2987.575553196083 samples/sec	LR: 0.36205714285714286	
-[1,2]<stderr>:2020-12-16 08:09:50,910:INFO: Epoch[0] Batch [100-119]	Speed: 3005.482753249363 samples/sec	LR: 0.43520000000000003	
-[1,1]<stderr>:2020-12-16 08:09:50,911:INFO: Epoch[0] Batch [100-119]	Speed: 3002.026083180497 samples/sec	LR: 0.43520000000000003	
-[1,0]<stderr>:2020-12-16 08:09:50,911:INFO: Epoch[0] Batch [100-119]	Speed: 3005.027001370219 samples/sec	LR: 0.43520000000000003	
-[1,6]<stderr>:2020-12-16 08:09:50,911:INFO: Epoch[0] Batch [100-119]	Speed: 3005.8944646562672 samples/sec	LR: 0.43520000000000003	
-[1,4]<stderr>:2020-12-16 08:09:50,912:INFO: Epoch[0] Batch [100-119]	Speed: 3003.7924976931117 samples/sec	LR: 0.43520000000000003	
-[1,3]<stderr>:2020-12-16 08:09:50,912:INFO: Epoch[0] Batch [100-119]	Speed: 3003.5401455276983 samples/sec	LR: 0.43520000000000003	
-[1,5]<stderr>:2020-12-16 08:09:50,913:INFO: Epoch[0] Batch [100-119]	Speed: 3000.815009396803 samples/sec	LR: 0.43520000000000003	
-[1,7]<stderr>:2020-12-16 08:09:50,918:INFO: Epoch[0] Batch [100-119]	Speed: 2998.861398715914 samples/sec	LR: 0.43520000000000003	
-[1,5]<stderr>:2020-12-16 08:09:56,048:INFO: Epoch[0] Batch [120-139]	Speed: 2991.3232828129767 samples/sec	LR: 0.5083428571428572	
-[1,1]<stderr>:2020-12-16 08:09:56,050:INFO: Epoch[0] Batch [120-139]	Speed: 2988.962187310651 samples/sec	LR: 0.5083428571428572	
-[1,7]<stderr>:2020-12-16 08:09:56,051:INFO: Epoch[0] Batch [120-139]	Speed: 2992.8375493525805 samples/sec	LR: 0.5083428571428572	
-[1,2]<stderr>:2020-12-16 08:09:56,051:INFO: Epoch[0] Batch [120-139]	Speed: 2987.5387010356417 samples/sec	LR: 0.5083428571428572	
-[1,3]<stderr>:2020-12-16 08:09:56,052:INFO: Epoch[0] Batch [120-139]	Speed: 2988.9641287241247 samples/sec	LR: 0.5083428571428572	
-[1,4]<stderr>:2020-12-16 08:09:56,051:INFO: Epoch[0] Batch [120-139]	Speed: 2988.6934645532456 samples/sec	LR: 0.5083428571428572	
-[1,6]<stderr>:2020-12-16 08:09:56,055:INFO: Epoch[0] Batch [120-139]	Speed: 2986.605231524513 samples/sec	LR: 0.5083428571428572	
-[1,0]<stderr>:2020-12-16 08:09:56,056:INFO: Epoch[0] Batch [120-139]	Speed: 2985.913953855703 samples/sec	LR: 0.5083428571428572	
-[1,2]<stderr>:2020-12-16 08:10:01,160:INFO: Epoch[0] Batch [140-159]	Speed: 3006.917219650383 samples/sec	LR: 0.5814857142857143	
-[1,6]<stderr>:2020-12-16 08:10:01,160:INFO: Epoch[0] Batch [140-159]	Speed: 3008.929123661927 samples/sec	LR: 0.5814857142857143	
-[1,5]<stderr>:2020-12-16 08:10:01,163:INFO: Epoch[0] Batch [140-159]	Speed: 3002.9836362365113 samples/sec	LR: 0.5814857142857143	
-[1,0]<stderr>:2020-12-16 08:10:01,164:INFO: Epoch[0] Batch [140-159]	Speed: 3007.442195400504 samples/sec	LR: 0.5814857142857143	
-[1,1]<stderr>:2020-12-16 08:10:01,164:INFO: Epoch[0] Batch [140-159]	Speed: 3003.881993468203 samples/sec	LR: 0.5814857142857143	
-[1,3]<stderr>:2020-12-16 08:10:01,164:INFO: Epoch[0] Batch [140-159]	Speed: 3004.4723229679607 samples/sec	LR: 0.5814857142857143	
-[1,7]<stderr>:2020-12-16 08:10:01,165:INFO: Epoch[0] Batch [140-159]	Speed: 3003.4279870618284 samples/sec	LR: 0.5814857142857143	
-[1,4]<stderr>:2020-12-16 08:10:01,167:INFO: Epoch[0] Batch [140-159]	Speed: 3002.606727111375 samples/sec	LR: 0.5814857142857143	
-[1,6]<stderr>:2020-12-16 08:10:06,248:INFO: Epoch[0] Batch [160-179]	Speed: 3019.1372554532923 samples/sec	LR: 0.6546285714285714	
-[1,3]<stderr>:2020-12-16 08:10:06,251:INFO: Epoch[0] Batch [160-179]	Speed: 3019.9309195796 samples/sec	LR: 0.6546285714285714	
-[1,1]<stderr>:2020-12-16 08:10:06,251:INFO: Epoch[0] Batch [160-179]	Speed: 3019.576634556031 samples/sec	LR: 0.6546285714285714	
-[1,5]<stderr>:2020-12-16 08:10:06,251:INFO: Epoch[0] Batch [160-179]	Speed: 3019.0407648351074 samples/sec	LR: 0.6546285714285714	
-[1,4]<stderr>:2020-12-16 08:10:06,251:INFO: Epoch[0] Batch [160-179]	Speed: 3021.6004187358008 samples/sec	LR: 0.6546285714285714	
-[1,7]<stderr>:2020-12-16 08:10:06,252:INFO: Epoch[0] Batch [160-179]	Speed: 3019.5807388605917 samples/sec	LR: 0.6546285714285714	
-[1,2]<stderr>:2020-12-16 08:10:06,259:INFO: Epoch[0] Batch [160-179]	Speed: 3012.440031412846 samples/sec	LR: 0.6546285714285714	
-[1,0]<stderr>:2020-12-16 08:10:06,260:INFO: Epoch[0] Batch [160-179]	Speed: 3014.440858021445 samples/sec	LR: 0.6546285714285714	
-[1,5]<stderr>:2020-12-16 08:10:11,364:INFO: Epoch[0] Batch [180-199]	Speed: 3004.180491325861 samples/sec	LR: 0.7277714285714285	
-[1,2]<stderr>:2020-12-16 08:10:11,367:INFO: Epoch[0] Batch [180-199]	Speed: 3007.2477645604645 samples/sec	LR: 0.7277714285714285	
-[1,4]<stderr>:2020-12-16 08:10:11,368:INFO: Epoch[0] Batch [180-199]	Speed: 3002.1047018140584 samples/sec	LR: 0.7277714285714285	
-[1,1]<stderr>:2020-12-16 08:10:11,368:INFO: Epoch[0] Batch [180-199]	Speed: 3002.0392326295932 samples/sec	LR: 0.7277714285714285	
-[1,3]<stderr>:2020-12-16 08:10:11,369:INFO: Epoch[0] Batch [180-199]	Speed: 3000.8442225099266 samples/sec	LR: 0.7277714285714285	
-[1,6]<stderr>:2020-12-16 08:10:11,370:INFO: Epoch[0] Batch [180-199]	Speed: 2999.0812728118703 samples/sec	LR: 0.7277714285714285	
-[1,0]<stderr>:2020-12-16 08:10:11,373:INFO: Epoch[0] Batch [180-199]	Speed: 3004.4745648130606 samples/sec	LR: 0.7277714285714285	
-[1,7]<stderr>:2020-12-16 08:10:11,376:INFO: Epoch[0] Batch [180-199]	Speed: 2998.0281243006584 samples/sec	LR: 0.7277714285714285	
-[1,1]<stderr>:2020-12-16 08:10:16,499:INFO: Epoch[0] Batch [200-219]	Speed: 2993.619531270656 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:16,501:INFO: Epoch[0] Batch [200-219]	Speed: 2993.97331655859 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:16,502:INFO: Epoch[0] Batch [200-219]	Speed: 2996.7720409668486 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:16,502:INFO: Epoch[0] Batch [200-219]	Speed: 2992.8019575512694 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:16,503:INFO: Epoch[0] Batch [200-219]	Speed: 2991.670690728504 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:16,506:INFO: Epoch[0] Batch [200-219]	Speed: 2987.405292734793 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:16,508:INFO: Epoch[0] Batch [200-219]	Speed: 2987.9829271129756 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:16,511:INFO: Epoch[0] Batch [200-219]	Speed: 2989.6025744978206 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:21,607:INFO: Epoch[0] Batch [220-239]	Speed: 3007.336202908631 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:21,611:INFO: Epoch[0] Batch [220-239]	Speed: 3006.9111848986518 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:21,611:INFO: Epoch[0] Batch [220-239]	Speed: 3005.7847948074946 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:21,612:INFO: Epoch[0] Batch [220-239]	Speed: 3006.327752837239 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:21,612:INFO: Epoch[0] Batch [220-239]	Speed: 3008.6940333115053 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:21,612:INFO: Epoch[0] Batch [220-239]	Speed: 3009.6094485218327 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:21,614:INFO: Epoch[0] Batch [220-239]	Speed: 3010.3059755764552 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:21,625:INFO: Epoch[0] Batch [220-239]	Speed: 2998.3221108124994 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:26,705:INFO: Epoch[0] Batch [240-259]	Speed: 3013.2813375226333 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:26,707:INFO: Epoch[0] Batch [240-259]	Speed: 3014.431831070375 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:26,708:INFO: Epoch[0] Batch [240-259]	Speed: 3022.186675313212 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:26,708:INFO: Epoch[0] Batch [240-259]	Speed: 3014.333666468283 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:26,708:INFO: Epoch[0] Batch [240-259]	Speed: 3014.1963031752957 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:26,710:INFO: Epoch[0] Batch [240-259]	Speed: 3012.701207301562 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:26,710:INFO: Epoch[0] Batch [240-259]	Speed: 3014.1521634198025 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:26,711:INFO: Epoch[0] Batch [240-259]	Speed: 3012.501588209477 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:31,824:INFO: Epoch[0] Batch [260-279]	Speed: 3004.0427911376773 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:31,825:INFO: Epoch[0] Batch [260-279]	Speed: 3000.3397122958513 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:31,826:INFO: Epoch[0] Batch [260-279]	Speed: 3001.495165494409 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:31,826:INFO: Epoch[0] Batch [260-279]	Speed: 3001.331704161897 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:31,827:INFO: Epoch[0] Batch [260-279]	Speed: 3002.0999454095945 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:31,830:INFO: Epoch[0] Batch [260-279]	Speed: 2998.345833168115 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:31,831:INFO: Epoch[0] Batch [260-279]	Speed: 2999.441656842266 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:31,838:INFO: Epoch[0] Batch [260-279]	Speed: 2994.005179424417 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:36,959:INFO: Epoch[0] Batch [280-299]	Speed: 2991.6045644919627 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:36,963:INFO: Epoch[0] Batch [280-299]	Speed: 2989.2788097099938 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:36,968:INFO: Epoch[0] Batch [280-299]	Speed: 2987.358609570471 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:36,968:INFO: Epoch[0] Batch [280-299]	Speed: 2990.583174426204 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:36,968:INFO: Epoch[0] Batch [280-299]	Speed: 2987.492013701807 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:36,973:INFO: Epoch[0] Batch [280-299]	Speed: 2991.4409285169027 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:36,974:INFO: Epoch[0] Batch [280-299]	Speed: 2986.1686124382045 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:36,984:INFO: Epoch[0] Batch [280-299]	Speed: 2978.1967268663775 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:42,094:INFO: Epoch[0] Batch [300-319]	Speed: 2993.6121587349085 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:42,098:INFO: Epoch[0] Batch [300-319]	Speed: 2994.4712339397743 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:42,099:INFO: Epoch[0] Batch [300-319]	Speed: 2993.7470957992423 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:42,101:INFO: Epoch[0] Batch [300-319]	Speed: 3002.870119669655 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:42,102:INFO: Epoch[0] Batch [300-319]	Speed: 2994.9368766631205 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:42,102:INFO: Epoch[0] Batch [300-319]	Speed: 2995.609634567715 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:42,104:INFO: Epoch[0] Batch [300-319]	Speed: 2985.889459097313 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:42,111:INFO: Epoch[0] Batch [300-319]	Speed: 2986.816111377355 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:47,224:INFO: Epoch[0] Batch [320-339]	Speed: 2994.3544631559134 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:47,226:INFO: Epoch[0] Batch [320-339]	Speed: 2997.9776207933587 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:47,226:INFO: Epoch[0] Batch [320-339]	Speed: 2995.330941606712 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:47,229:INFO: Epoch[0] Batch [320-339]	Speed: 2994.2047203898087 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:47,229:INFO: Epoch[0] Batch [320-339]	Speed: 3001.200416635474 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:47,232:INFO: Epoch[0] Batch [320-339]	Speed: 2995.5883233798136 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:47,237:INFO: Epoch[0] Batch [320-339]	Speed: 2991.6216514536654 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:47,248:INFO: Epoch[0] Batch [320-339]	Speed: 2984.1237128682787 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:52,360:INFO: Epoch[0] Batch [340-359]	Speed: 2995.7577069447284 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:52,360:INFO: Epoch[0] Batch [340-359]	Speed: 2991.061773034137 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:52,363:INFO: Epoch[0] Batch [340-359]	Speed: 2990.406324698354 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:52,363:INFO: Epoch[0] Batch [340-359]	Speed: 2992.04138518197 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:52,366:INFO: Epoch[0] Batch [340-359]	Speed: 2990.682435988696 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:52,366:INFO: Epoch[0] Batch [340-359]	Speed: 2994.8214617257277 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:52,368:INFO: Epoch[0] Batch [340-359]	Speed: 3000.684605641833 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:52,368:INFO: Epoch[0] Batch [340-359]	Speed: 2987.3034782168393 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:10:57,462:INFO: Epoch[0] Batch [360-379]	Speed: 3010.720557253686 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:10:57,466:INFO: Epoch[0] Batch [360-379]	Speed: 3010.2933162428676 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:10:57,467:INFO: Epoch[0] Batch [360-379]	Speed: 3007.734239854451 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:10:57,469:INFO: Epoch[0] Batch [360-379]	Speed: 3010.148726074801 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:10:57,469:INFO: Epoch[0] Batch [360-379]	Speed: 3008.101762908135 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:10:57,470:INFO: Epoch[0] Batch [360-379]	Speed: 3009.641082677397 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:10:57,471:INFO: Epoch[0] Batch [360-379]	Speed: 3010.548492700235 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:10:57,472:INFO: Epoch[0] Batch [360-379]	Speed: 3009.5657241838726 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:11:02,601:INFO: Epoch[0] Batch [380-399]	Speed: 2991.9824680799366 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:11:02,602:INFO: Epoch[0] Batch [380-399]	Speed: 2988.423958376144 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:11:02,603:INFO: Epoch[0] Batch [380-399]	Speed: 2990.8840335947193 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:02,604:INFO: Epoch[0] Batch [380-399]	Speed: 2991.917995419649 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:02,607:INFO: Epoch[0] Batch [380-399]	Speed: 2990.8745917779083 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:11:02,609:INFO: Epoch[0] Batch [380-399]	Speed: 2990.385087480048 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:02,615:INFO: Epoch[0] Batch [380-399]	Speed: 2985.042353868728 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:11:02,616:INFO: Epoch[0] Batch [380-399]	Speed: 2985.384292435597 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:11:07,709:INFO: Epoch[0] Batch [400-419]	Speed: 3006.8133691617845 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:11:07,713:INFO: Epoch[0] Batch [400-419]	Speed: 3005.9142397388946 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:11:07,714:INFO: Epoch[0] Batch [400-419]	Speed: 3004.8590907416055 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:07,717:INFO: Epoch[0] Batch [400-419]	Speed: 3006.1338868736893 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:07,720:INFO: Epoch[0] Batch [400-419]	Speed: 3009.10507902972 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:07,721:INFO: Epoch[0] Batch [400-419]	Speed: 3001.9497067432762 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:11:07,721:INFO: Epoch[0] Batch [400-419]	Speed: 3004.5283700991536 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:11:07,726:INFO: Epoch[0] Batch [400-419]	Speed: 3005.958278801079 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:11:12,838:INFO: Epoch[0] Batch [420-439]	Speed: 2998.0890935087027 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:11:12,838:INFO: Epoch[0] Batch [420-439]	Speed: 2997.003041126452 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:12,842:INFO: Epoch[0] Batch [420-439]	Speed: 2999.2380662236806 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:12,842:INFO: Epoch[0] Batch [420-439]	Speed: 2996.679344216909 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:11:12,845:INFO: Epoch[0] Batch [420-439]	Speed: 3001.0712375654903 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:12,846:INFO: Epoch[0] Batch [420-439]	Speed: 2996.672095990987 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:11:12,847:INFO: Epoch[0] Batch [420-439]	Speed: 2997.154318824096 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:11:12,854:INFO: Epoch[0] Batch [420-439]	Speed: 2986.0700654868574 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:11:17,957:INFO: Epoch[0] Batch [440-459]	Speed: 3010.4168196223945 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:17,957:INFO: Epoch[0] Batch [440-459]	Speed: 3002.950602170177 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:11:17,957:INFO: Epoch[0] Batch [440-459]	Speed: 3000.3186132102765 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:11:17,963:INFO: Epoch[0] Batch [440-459]	Speed: 2997.1393995152343 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:17,964:INFO: Epoch[0] Batch [440-459]	Speed: 2999.3288268026067 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:17,965:INFO: Epoch[0] Batch [440-459]	Speed: 3000.6003314308814 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:11:17,965:INFO: Epoch[0] Batch [440-459]	Speed: 2999.7444407805197 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:11:17,967:INFO: Epoch[0] Batch [440-459]	Speed: 3000.3928106454796 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:11:23,067:INFO: Epoch[0] Batch [460-479]	Speed: 3009.596092078038 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:11:23,070:INFO: Epoch[0] Batch [460-479]	Speed: 3004.3323543899655 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:11:23,071:INFO: Epoch[0] Batch [460-479]	Speed: 3009.3989928701576 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:23,071:INFO: Epoch[0] Batch [460-479]	Speed: 3003.7380185258266 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:23,072:INFO: Epoch[0] Batch [460-479]	Speed: 3007.391233839438 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:11:23,074:INFO: Epoch[0] Batch [460-479]	Speed: 3006.514347891056 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:23,075:INFO: Epoch[0] Batch [460-479]	Speed: 3005.952528404426 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:11:23,078:INFO: Epoch[0] Batch [460-479]	Speed: 3000.1598905302358 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:28,177:INFO: Epoch[0] Batch [480-499]	Speed: 3008.6344585672973 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:28,179:INFO: Epoch[0] Batch [480-499]	Speed: 3007.555496298753 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:11:28,179:INFO: Starting epoch 1
-[1,5]<stderr>:2020-12-16 08:11:28,180:INFO: Epoch[0] Batch [480-499]	Speed: 3004.8139627037367 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:11:28,180:INFO: Starting epoch 1
-[1,7]<stderr>:2020-12-16 08:11:28,181:INFO: Epoch[0] Batch [480-499]	Speed: 3008.0812567726116 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:28,182:INFO: Epoch[0] Batch [480-499]	Speed: 3008.2658220577955 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:11:28,183:INFO: Starting epoch 1
-[1,7]<stderr>:2020-12-16 08:11:28,183:INFO: Starting epoch 1
-[1,1]<stderr>:2020-12-16 08:11:28,182:INFO: Epoch[0] Batch [480-499]	Speed: 3009.291035061065 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:11:28,184:INFO: Epoch[0] Batch [480-499]	Speed: 3003.735357640253 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:11:28,184:INFO: Starting epoch 1
-[1,1]<stderr>:2020-12-16 08:11:28,185:INFO: Starting epoch 1
-[1,4]<stderr>:2020-12-16 08:11:28,186:INFO: Starting epoch 1
-[1,2]<stderr>:2020-12-16 08:11:28,186:INFO: Epoch[0] Batch [480-499]	Speed: 3003.208315162833 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:11:28,188:INFO: Starting epoch 1
-[1,5]<stderr>:2020-12-16 08:11:33,272:INFO: Epoch[1] Batch [0-19]	Speed: 3018.0400031424397 samples/sec	LR: 0.22308571428571428	
-[1,1]<stderr>:2020-12-16 08:11:33,273:INFO: Epoch[1] Batch [0-19]	Speed: 3019.2307808387777 samples/sec	LR: 0.22308571428571428	
-[1,3]<stderr>:2020-12-16 08:11:33,274:INFO: Epoch[1] Batch [0-19]	Speed: 3015.1709506133 samples/sec	LR: 0.22308571428571428	
-[1,0]<stderr>:2020-12-16 08:11:33,277:INFO: Epoch[1] Batch [0-19]	Speed: 3015.6879429888572 samples/sec	LR: 0.22308571428571428	
-[1,4]<stderr>:2020-12-16 08:11:33,278:INFO: Epoch[1] Batch [0-19]	Speed: 3016.2282715791885 samples/sec	LR: 0.22308571428571428	
-[1,2]<stderr>:2020-12-16 08:11:33,280:INFO: Epoch[1] Batch [0-19]	Speed: 3016.7443552736254 samples/sec	LR: 0.22308571428571428	
-[1,7]<stderr>:2020-12-16 08:11:33,281:INFO: Epoch[1] Batch [0-19]	Speed: 3012.6014648859864 samples/sec	LR: 0.22308571428571428	
-[1,6]<stderr>:2020-12-16 08:11:33,282:INFO: Epoch[1] Batch [0-19]	Speed: 3010.0841713314176 samples/sec	LR: 0.22308571428571428	
-[1,1]<stderr>:2020-12-16 08:11:38,379:INFO: Epoch[1] Batch [20-39]	Speed: 3008.373706319412 samples/sec	LR: 0.2962285714285714	
-[1,4]<stderr>:2020-12-16 08:11:38,379:INFO: Epoch[1] Batch [20-39]	Speed: 3011.568927402569 samples/sec	LR: 0.2962285714285714	
-[1,3]<stderr>:2020-12-16 08:11:38,380:INFO: Epoch[1] Batch [20-39]	Speed: 3008.6111351355594 samples/sec	LR: 0.2962285714285714	
-[1,6]<stderr>:2020-12-16 08:11:38,383:INFO: Epoch[1] Batch [20-39]	Speed: 3011.212238444955 samples/sec	LR: 0.2962285714285714	
-[1,2]<stderr>:2020-12-16 08:11:38,383:INFO: Epoch[1] Batch [20-39]	Speed: 3010.2314277002088 samples/sec	LR: 0.2962285714285714	
-[1,0]<stderr>:2020-12-16 08:11:38,384:INFO: Epoch[1] Batch [20-39]	Speed: 3007.5387884425786 samples/sec	LR: 0.2962285714285714	
-[1,5]<stderr>:2020-12-16 08:11:38,386:INFO: Epoch[1] Batch [20-39]	Speed: 3003.8125252359473 samples/sec	LR: 0.2962285714285714	
-[1,7]<stderr>:2020-12-16 08:11:38,390:INFO: Epoch[1] Batch [20-39]	Speed: 3007.0111122800595 samples/sec	LR: 0.2962285714285714	
-[1,5]<stderr>:2020-12-16 08:11:43,502:INFO: Epoch[1] Batch [40-59]	Speed: 3002.2363482835044 samples/sec	LR: 0.3693714285714286	
-[1,4]<stderr>:2020-12-16 08:11:43,510:INFO: Epoch[1] Batch [40-59]	Speed: 2993.8009349094623 samples/sec	LR: 0.3693714285714286	
-[1,7]<stderr>:2020-12-16 08:11:43,510:INFO: Epoch[1] Batch [40-59]	Speed: 3000.050359319594 samples/sec	LR: 0.3693714285714286	
-[1,3]<stderr>:2020-12-16 08:11:43,511:INFO: Epoch[1] Batch [40-59]	Speed: 2993.542191005198 samples/sec	LR: 0.3693714285714286	
-[1,1]<stderr>:2020-12-16 08:11:43,512:INFO: Epoch[1] Batch [40-59]	Speed: 2992.655567364203 samples/sec	LR: 0.3693714285714286	
-[1,2]<stderr>:2020-12-16 08:11:43,512:INFO: Epoch[1] Batch [40-59]	Speed: 2994.8462424701765 samples/sec	LR: 0.3693714285714286	
-[1,6]<stderr>:2020-12-16 08:11:43,515:INFO: Epoch[1] Batch [40-59]	Speed: 2992.826565854834 samples/sec	LR: 0.3693714285714286	
-[1,0]<stderr>:2020-12-16 08:11:43,526:INFO: Epoch[1] Batch [40-59]	Speed: 2987.51016201726 samples/sec	LR: 0.3693714285714286	
-[1,6]<stderr>:2020-12-16 08:11:48,648:INFO: Epoch[1] Batch [60-79]	Speed: 2993.086159446085 samples/sec	LR: 0.44251428571428575	
-[1,5]<stderr>:2020-12-16 08:11:48,649:INFO: Epoch[1] Batch [60-79]	Speed: 2984.7425304656854 samples/sec	LR: 0.44251428571428575	
-[1,3]<stderr>:2020-12-16 08:11:48,654:INFO: Epoch[1] Batch [60-79]	Speed: 2986.9631771979266 samples/sec	LR: 0.44251428571428575	
-[1,0]<stderr>:2020-12-16 08:11:48,654:INFO: Epoch[1] Batch [60-79]	Speed: 2995.6583867913823 samples/sec	LR: 0.44251428571428575	
-[1,4]<stderr>:2020-12-16 08:11:48,654:INFO: Epoch[1] Batch [60-79]	Speed: 2985.8947178251233 samples/sec	LR: 0.44251428571428575	
-[1,7]<stderr>:2020-12-16 08:11:48,655:INFO: Epoch[1] Batch [60-79]	Speed: 2985.835627396392 samples/sec	LR: 0.44251428571428575	
-[1,1]<stderr>:2020-12-16 08:11:48,656:INFO: Epoch[1] Batch [60-79]	Speed: 2985.911601234344 samples/sec	LR: 0.44251428571428575	
-[1,2]<stderr>:2020-12-16 08:11:48,666:INFO: Epoch[1] Batch [60-79]	Speed: 2980.72824522579 samples/sec	LR: 0.44251428571428575	
-[1,5]<stderr>:2020-12-16 08:11:53,760:INFO: Epoch[1] Batch [80-99]	Speed: 3005.4760232096824 samples/sec	LR: 0.5156571428571428	
-[1,1]<stderr>:2020-12-16 08:11:53,765:INFO: Epoch[1] Batch [80-99]	Speed: 3006.925780618812 samples/sec	LR: 0.5156571428571428	
-[1,6]<stderr>:2020-12-16 08:11:53,765:INFO: Epoch[1] Batch [80-99]	Speed: 3001.422591499012 samples/sec	LR: 0.5156571428571428	
-[1,2]<stderr>:2020-12-16 08:11:53,767:INFO: Epoch[1] Batch [80-99]	Speed: 3011.5609030834225 samples/sec	LR: 0.5156571428571428	
-[1,3]<stderr>:2020-12-16 08:11:53,768:INFO: Epoch[1] Batch [80-99]	Speed: 3003.448989882414 samples/sec	LR: 0.5156571428571428	
-[1,7]<stderr>:2020-12-16 08:11:53,769:INFO: Epoch[1] Batch [80-99]	Speed: 3003.7742910677352 samples/sec	LR: 0.5156571428571428	
-[1,4]<stderr>:2020-12-16 08:11:53,772:INFO: Epoch[1] Batch [80-99]	Speed: 3001.7599015499122 samples/sec	LR: 0.5156571428571428	
-[1,0]<stderr>:2020-12-16 08:11:53,773:INFO: Epoch[1] Batch [80-99]	Speed: 3001.1246414170278 samples/sec	LR: 0.5156571428571428	
-[1,4]<stderr>:2020-12-16 08:11:58,903:INFO: Epoch[1] Batch [100-119]	Speed: 2993.452058472217 samples/sec	LR: 0.5888000000000001	
-[1,1]<stderr>:2020-12-16 08:11:58,903:INFO: Epoch[1] Batch [100-119]	Speed: 2989.49367405793 samples/sec	LR: 0.5888000000000001	
-[1,6]<stderr>:2020-12-16 08:11:58,905:INFO: Epoch[1] Batch [100-119]	Speed: 2988.53444448439 samples/sec	LR: 0.5888000000000001	
-[1,3]<stderr>:2020-12-16 08:11:58,906:INFO: Epoch[1] Batch [100-119]	Speed: 2989.9305722856548 samples/sec	LR: 0.5888000000000001	
-[1,7]<stderr>:2020-12-16 08:11:58,909:INFO: Epoch[1] Batch [100-119]	Speed: 2988.0694044408824 samples/sec	LR: 0.5888000000000001	
-[1,0]<stderr>:2020-12-16 08:11:58,910:INFO: Epoch[1] Batch [100-119]	Speed: 2990.468511229231 samples/sec	LR: 0.5888000000000001	
-[1,5]<stderr>:2020-12-16 08:11:58,911:INFO: Epoch[1] Batch [100-119]	Speed: 2982.011354086007 samples/sec	LR: 0.5888000000000001	
-[1,2]<stderr>:2020-12-16 08:11:58,913:INFO: Epoch[1] Batch [100-119]	Speed: 2985.3008754400657 samples/sec	LR: 0.5888000000000001	
-[1,4]<stderr>:2020-12-16 08:12:04,030:INFO: Epoch[1] Batch [120-139]	Speed: 2996.5104139122864 samples/sec	LR: 0.6619428571428572	
-[1,1]<stderr>:2020-12-16 08:12:04,030:INFO: Epoch[1] Batch [120-139]	Speed: 2996.2262581269624 samples/sec	LR: 0.6619428571428572	
-[1,3]<stderr>:2020-12-16 08:12:04,034:INFO: Epoch[1] Batch [120-139]	Speed: 2995.34807116248 samples/sec	LR: 0.6619428571428572	
-[1,7]<stderr>:2020-12-16 08:12:04,035:INFO: Epoch[1] Batch [120-139]	Speed: 2997.002622868274 samples/sec	LR: 0.6619428571428572	
-[1,0]<stderr>:2020-12-16 08:12:04,035:INFO: Epoch[1] Batch [120-139]	Speed: 2997.141490998179 samples/sec	LR: 0.6619428571428572	
-[1,2]<stderr>:2020-12-16 08:12:04,036:INFO: Epoch[1] Batch [120-139]	Speed: 2998.8311074785065 samples/sec	LR: 0.6619428571428572	
-[1,6]<stderr>:2020-12-16 08:12:04,037:INFO: Epoch[1] Batch [120-139]	Speed: 2993.3766740095753 samples/sec	LR: 0.6619428571428572	
-[1,5]<stderr>:2020-12-16 08:12:04,044:INFO: Epoch[1] Batch [120-139]	Speed: 2992.29917478797 samples/sec	LR: 0.6619428571428572	
-[1,5]<stderr>:2020-12-16 08:12:09,148:INFO: Epoch[1] Batch [140-159]	Speed: 3009.702806344413 samples/sec	LR: 0.7350857142857142	
-[1,1]<stderr>:2020-12-16 08:12:09,150:INFO: Epoch[1] Batch [140-159]	Speed: 3000.627723524132 samples/sec	LR: 0.7350857142857142	
-[1,0]<stderr>:2020-12-16 08:12:09,152:INFO: Epoch[1] Batch [140-159]	Speed: 3001.9835580912354 samples/sec	LR: 0.7350857142857142	
-[1,6]<stderr>:2020-12-16 08:12:09,153:INFO: Epoch[1] Batch [140-159]	Speed: 3002.926526952572 samples/sec	LR: 0.7350857142857142	
-[1,3]<stderr>:2020-12-16 08:12:09,154:INFO: Epoch[1] Batch [140-159]	Speed: 3000.4990129831663 samples/sec	LR: 0.7350857142857142	
-[1,4]<stderr>:2020-12-16 08:12:09,156:INFO: Epoch[1] Batch [140-159]	Speed: 2996.515152621574 samples/sec	LR: 0.7350857142857142	
-[1,2]<stderr>:2020-12-16 08:12:09,157:INFO: Epoch[1] Batch [140-159]	Speed: 2999.4895563193895 samples/sec	LR: 0.7350857142857142	
-[1,7]<stderr>:2020-12-16 08:12:09,162:INFO: Epoch[1] Batch [140-159]	Speed: 2995.8238776026083 samples/sec	LR: 0.7350857142857142	
-[1,5]<stderr>:2020-12-16 08:12:14,273:INFO: Epoch[1] Batch [160-179]	Speed: 2997.084882556177 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:14,275:INFO: Epoch[1] Batch [160-179]	Speed: 2997.0378963848307 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:14,277:INFO: Epoch[1] Batch [160-179]	Speed: 2998.351135863643 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:14,277:INFO: Epoch[1] Batch [160-179]	Speed: 2999.498354348838 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:14,281:INFO: Epoch[1] Batch [160-179]	Speed: 2994.956229375089 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:14,282:INFO: Epoch[1] Batch [160-179]	Speed: 2997.6300019332944 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:14,285:INFO: Epoch[1] Batch [160-179]	Speed: 2998.8213362421384 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:14,285:INFO: Epoch[1] Batch [160-179]	Speed: 2992.8489500304468 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:19,412:INFO: Epoch[1] Batch [180-199]	Speed: 2990.3911948844775 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:19,413:INFO: Epoch[1] Batch [180-199]	Speed: 2993.3307775801 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:19,413:INFO: Epoch[1] Batch [180-199]	Speed: 2991.3750902294746 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:19,413:INFO: Epoch[1] Batch [180-199]	Speed: 2988.7928780223165 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:19,416:INFO: Epoch[1] Batch [180-199]	Speed: 2988.9623259829586 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:19,417:INFO: Epoch[1] Batch [180-199]	Speed: 2991.260366299278 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:19,422:INFO: Epoch[1] Batch [180-199]	Speed: 2990.159686186095 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:19,429:INFO: Epoch[1] Batch [180-199]	Speed: 2986.1813465075807 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:24,507:INFO: Epoch[1] Batch [200-219]	Speed: 3017.5278574859803 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:24,509:INFO: Epoch[1] Batch [200-219]	Speed: 3014.066425991766 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:24,510:INFO: Epoch[1] Batch [200-219]	Speed: 3013.0769912159194 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:24,511:INFO: Epoch[1] Batch [200-219]	Speed: 3015.2879393742082 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:24,512:INFO: Epoch[1] Batch [200-219]	Speed: 3017.881803249753 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:24,513:INFO: Epoch[1] Batch [200-219]	Speed: 3021.9747405549847 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:24,514:INFO: Epoch[1] Batch [200-219]	Speed: 3010.898973650683 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:24,518:INFO: Epoch[1] Batch [200-219]	Speed: 3008.8938507409152 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:29,639:INFO: Epoch[1] Batch [220-239]	Speed: 2994.3039441732003 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:29,640:INFO: Epoch[1] Batch [220-239]	Speed: 2999.4505942379383 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:29,641:INFO: Epoch[1] Batch [220-239]	Speed: 2993.916132067909 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:29,642:INFO: Epoch[1] Batch [220-239]	Speed: 2991.478293728583 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:29,642:INFO: Epoch[1] Batch [220-239]	Speed: 2994.3253762607055 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:29,644:INFO: Epoch[1] Batch [220-239]	Speed: 2993.3234064665385 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:29,649:INFO: Epoch[1] Batch [220-239]	Speed: 2991.976354173933 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:29,651:INFO: Epoch[1] Batch [220-239]	Speed: 2989.1087711210503 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:34,797:INFO: Epoch[1] Batch [240-259]	Speed: 2978.3364737281677 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:34,800:INFO: Epoch[1] Batch [240-259]	Speed: 2977.1788292761057 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:34,804:INFO: Epoch[1] Batch [240-259]	Speed: 2979.6574882496307 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:34,805:INFO: Epoch[1] Batch [240-259]	Speed: 2974.9964680739236 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:34,805:INFO: Epoch[1] Batch [240-259]	Speed: 2974.8097811105135 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:34,808:INFO: Epoch[1] Batch [240-259]	Speed: 2971.947025546207 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:34,808:INFO: Epoch[1] Batch [240-259]	Speed: 2974.5411248851383 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:34,810:INFO: Epoch[1] Batch [240-259]	Speed: 2978.0728243619815 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:39,914:INFO: Epoch[1] Batch [260-279]	Speed: 3008.4348160722107 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:39,919:INFO: Epoch[1] Batch [260-279]	Speed: 3000.8085797927715 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:39,919:INFO: Epoch[1] Batch [260-279]	Speed: 3006.3681564180115 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:39,923:INFO: Epoch[1] Batch [260-279]	Speed: 3003.3254975115915 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:39,923:INFO: Epoch[1] Batch [260-279]	Speed: 3001.535579124901 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:39,924:INFO: Epoch[1] Batch [260-279]	Speed: 3000.0657267367055 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:39,927:INFO: Epoch[1] Batch [260-279]	Speed: 2994.4838997331785 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:39,928:INFO: Epoch[1] Batch [260-279]	Speed: 2998.814775590593 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:45,051:INFO: Epoch[1] Batch [280-299]	Speed: 2998.197644369028 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:45,052:INFO: Epoch[1] Batch [280-299]	Speed: 2992.597182110947 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:45,053:INFO: Epoch[1] Batch [280-299]	Speed: 2989.636841627533 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:45,056:INFO: Epoch[1] Batch [280-299]	Speed: 2995.6544865550936 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:45,058:INFO: Epoch[1] Batch [280-299]	Speed: 2991.920913303294 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:45,059:INFO: Epoch[1] Batch [280-299]	Speed: 2990.986647771813 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:45,059:INFO: Epoch[1] Batch [280-299]	Speed: 2990.7632383771347 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:45,060:INFO: Epoch[1] Batch [280-299]	Speed: 2988.2260187527977 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:50,162:INFO: Epoch[1] Batch [300-319]	Speed: 3006.0777798277277 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:50,162:INFO: Epoch[1] Batch [300-319]	Speed: 3006.2731816691767 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:50,165:INFO: Epoch[1] Batch [300-319]	Speed: 3006.4190833116922 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:50,167:INFO: Epoch[1] Batch [300-319]	Speed: 3006.9402361351695 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:50,168:INFO: Epoch[1] Batch [300-319]	Speed: 3006.976726406348 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:50,172:INFO: Epoch[1] Batch [300-319]	Speed: 3004.5479870890895 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:50,172:INFO: Epoch[1] Batch [300-319]	Speed: 3005.3293719128665 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:50,173:INFO: Epoch[1] Batch [300-319]	Speed: 2999.1157575789175 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:12:55,273:INFO: Epoch[1] Batch [320-339]	Speed: 3005.3808244187408 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:12:55,276:INFO: Epoch[1] Batch [320-339]	Speed: 3010.198233984899 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:12:55,277:INFO: Epoch[1] Batch [320-339]	Speed: 3003.2914758876395 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:12:55,278:INFO: Epoch[1] Batch [320-339]	Speed: 3004.651120620976 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:12:55,280:INFO: Epoch[1] Batch [320-339]	Speed: 3004.327871127553 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:12:55,281:INFO: Epoch[1] Batch [320-339]	Speed: 3004.6180498586173 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:12:55,281:INFO: Epoch[1] Batch [320-339]	Speed: 3006.4082804930986 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:12:55,282:INFO: Epoch[1] Batch [320-339]	Speed: 3006.519819824907 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:00,403:INFO: Epoch[1] Batch [340-359]	Speed: 2994.512432957039 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:00,403:INFO: Epoch[1] Batch [340-359]	Speed: 2996.428603853169 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:00,405:INFO: Epoch[1] Batch [340-359]	Speed: 2994.6892118782575 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:00,406:INFO: Epoch[1] Batch [340-359]	Speed: 2995.24195462819 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:00,411:INFO: Epoch[1] Batch [340-359]	Speed: 2994.0170064249282 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:00,412:INFO: Epoch[1] Batch [340-359]	Speed: 2993.7540516477043 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:00,413:INFO: Epoch[1] Batch [340-359]	Speed: 2993.485162074352 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:00,415:INFO: Epoch[1] Batch [340-359]	Speed: 2992.6167826205146 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:05,528:INFO: Epoch[1] Batch [360-379]	Speed: 2997.346052133701 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:05,529:INFO: Epoch[1] Batch [360-379]	Speed: 2996.526302584902 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:05,532:INFO: Epoch[1] Batch [360-379]	Speed: 2996.8183217912892 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:05,532:INFO: Epoch[1] Batch [360-379]	Speed: 2996.1503158550136 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:05,532:INFO: Epoch[1] Batch [360-379]	Speed: 3002.446083137701 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:05,534:INFO: Epoch[1] Batch [360-379]	Speed: 2998.622854339267 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:05,534:INFO: Epoch[1] Batch [360-379]	Speed: 2998.955207720135 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:05,538:INFO: Epoch[1] Batch [360-379]	Speed: 2997.432932828889 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:10,670:INFO: Epoch[1] Batch [380-399]	Speed: 2987.4945073504055 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:10,670:INFO: Epoch[1] Batch [380-399]	Speed: 2987.743754675269 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:10,671:INFO: Epoch[1] Batch [380-399]	Speed: 2988.949013500131 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:10,674:INFO: Epoch[1] Batch [380-399]	Speed: 2987.100146998439 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:10,674:INFO: Epoch[1] Batch [380-399]	Speed: 2987.496862466793 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:10,676:INFO: Epoch[1] Batch [380-399]	Speed: 2987.372600514087 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:10,676:INFO: Epoch[1] Batch [380-399]	Speed: 2987.3508522720686 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:10,677:INFO: Epoch[1] Batch [380-399]	Speed: 2988.745874177132 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:15,795:INFO: Epoch[1] Batch [400-419]	Speed: 2997.34591268238 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:15,800:INFO: Epoch[1] Batch [400-419]	Speed: 2997.025906084472 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:15,800:INFO: Epoch[1] Batch [400-419]	Speed: 2995.2251047941586 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:15,802:INFO: Epoch[1] Batch [400-419]	Speed: 2997.576582906969 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:15,804:INFO: Epoch[1] Batch [400-419]	Speed: 2995.4718832894823 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:15,805:INFO: Epoch[1] Batch [400-419]	Speed: 2995.327042223019 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:15,805:INFO: Epoch[1] Batch [400-419]	Speed: 2991.585393986786 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:15,805:INFO: Epoch[1] Batch [400-419]	Speed: 2993.841558982427 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:20,925:INFO: Epoch[1] Batch [420-439]	Speed: 2999.523771168279 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:20,925:INFO: Epoch[1] Batch [420-439]	Speed: 2997.1760706059576 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:20,926:INFO: Epoch[1] Batch [420-439]	Speed: 2999.7870421343728 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:20,927:INFO: Epoch[1] Batch [420-439]	Speed: 2995.856755058561 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:20,928:INFO: Epoch[1] Batch [420-439]	Speed: 2996.42971878136 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:20,929:INFO: Epoch[1] Batch [420-439]	Speed: 2992.316825620242 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:20,934:INFO: Epoch[1] Batch [420-439]	Speed: 2994.706890918348 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:20,936:INFO: Epoch[1] Batch [420-439]	Speed: 2993.7935614801854 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:26,074:INFO: Epoch[1] Batch [440-459]	Speed: 2983.569400575619 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:26,077:INFO: Epoch[1] Batch [440-459]	Speed: 2981.457136316035 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:26,077:INFO: Epoch[1] Batch [440-459]	Speed: 2983.54218086947 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:26,082:INFO: Epoch[1] Batch [440-459]	Speed: 2984.9588176795046 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:26,082:INFO: Epoch[1] Batch [440-459]	Speed: 2979.777112362388 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:26,084:INFO: Epoch[1] Batch [440-459]	Speed: 2977.7621497549594 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:26,084:INFO: Epoch[1] Batch [440-459]	Speed: 2982.8896093252993 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:26,093:INFO: Epoch[1] Batch [440-459]	Speed: 2974.1078884836543 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:31,210:INFO: Epoch[1] Batch [460-479]	Speed: 2992.8916338274544 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:31,212:INFO: Epoch[1] Batch [460-479]	Speed: 2989.7907065598665 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:31,213:INFO: Epoch[1] Batch [460-479]	Speed: 2994.7933402540666 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:13:31,215:INFO: Epoch[1] Batch [460-479]	Speed: 2993.651664822213 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:31,216:INFO: Epoch[1] Batch [460-479]	Speed: 2991.828794294728 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:31,218:INFO: Epoch[1] Batch [460-479]	Speed: 2991.0991287745182 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:31,219:INFO: Epoch[1] Batch [460-479]	Speed: 2987.6031236399463 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:31,219:INFO: Epoch[1] Batch [460-479]	Speed: 2996.5302050916703 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:36,357:INFO: Epoch[1] Batch [480-499]	Speed: 2988.289639343511 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:13:36,357:INFO: Epoch[1] Batch [480-499]	Speed: 2985.8147318092283 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:13:36,359:INFO: Starting epoch 2
-[1,5]<stderr>:2020-12-16 08:13:36,359:INFO: Starting epoch 2
-[1,4]<stderr>:2020-12-16 08:13:36,359:INFO: Epoch[1] Batch [480-499]	Speed: 2982.907563655524 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:36,361:INFO: Epoch[1] Batch [480-499]	Speed: 2986.734552866786 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:13:36,361:INFO: Starting epoch 2
-[1,2]<stderr>:2020-12-16 08:13:36,362:INFO: Epoch[1] Batch [480-499]	Speed: 2984.7410093750536 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:13:36,362:INFO: Starting epoch 2
-[1,7]<stderr>:2020-12-16 08:13:36,363:INFO: Epoch[1] Batch [480-499]	Speed: 2986.333748526117 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:13:36,364:INFO: Epoch[1] Batch [480-499]	Speed: 2985.996021144489 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:13:36,365:INFO: Starting epoch 2
-[1,2]<stderr>:2020-12-16 08:13:36,365:INFO: Starting epoch 2
-[1,1]<stderr>:2020-12-16 08:13:36,367:INFO: Starting epoch 2
-[1,0]<stderr>:2020-12-16 08:13:36,368:INFO: Epoch[1] Batch [480-499]	Speed: 2979.744311246688 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:13:36,372:INFO: Starting epoch 2
-[1,4]<stderr>:2020-12-16 08:13:41,497:INFO: Epoch[2] Batch [0-19]	Speed: 2990.731027966995 samples/sec	LR: 0.37668571428571435	
-[1,5]<stderr>:2020-12-16 08:13:41,498:INFO: Epoch[2] Batch [0-19]	Speed: 2989.0899099573016 samples/sec	LR: 0.37668571428571435	
-[1,3]<stderr>:2020-12-16 08:13:41,498:INFO: Epoch[2] Batch [0-19]	Speed: 2988.6416113375244 samples/sec	LR: 0.37668571428571435	
-[1,1]<stderr>:2020-12-16 08:13:41,501:INFO: Epoch[2] Batch [0-19]	Speed: 2991.8878442885716 samples/sec	LR: 0.37668571428571435	
-[1,6]<stderr>:2020-12-16 08:13:41,501:INFO: Epoch[2] Batch [0-19]	Speed: 2989.1589762610483 samples/sec	LR: 0.37668571428571435	
-[1,2]<stderr>:2020-12-16 08:13:41,504:INFO: Epoch[2] Batch [0-19]	Speed: 2988.9046394138036 samples/sec	LR: 0.37668571428571435	
-[1,7]<stderr>:2020-12-16 08:13:41,506:INFO: Epoch[2] Batch [0-19]	Speed: 2987.843936383692 samples/sec	LR: 0.37668571428571435	
-[1,0]<stderr>:2020-12-16 08:13:41,506:INFO: Epoch[2] Batch [0-19]	Speed: 2991.8421324424876 samples/sec	LR: 0.37668571428571435	
-[1,6]<stderr>:2020-12-16 08:13:46,635:INFO: Epoch[2] Batch [20-39]	Speed: 2992.119481709407 samples/sec	LR: 0.4498285714285715	
-[1,5]<stderr>:2020-12-16 08:13:46,635:INFO: Epoch[2] Batch [20-39]	Speed: 2990.288066378449 samples/sec	LR: 0.4498285714285715	
-[1,1]<stderr>:2020-12-16 08:13:46,636:INFO: Epoch[2] Batch [20-39]	Speed: 2991.663605634763 samples/sec	LR: 0.4498285714285715	
-[1,2]<stderr>:2020-12-16 08:13:46,638:INFO: Epoch[2] Batch [20-39]	Speed: 2992.50210243163 samples/sec	LR: 0.4498285714285715	
-[1,4]<stderr>:2020-12-16 08:13:46,638:INFO: Epoch[2] Batch [20-39]	Speed: 2987.645935036188 samples/sec	LR: 0.4498285714285715	
-[1,0]<stderr>:2020-12-16 08:13:46,640:INFO: Epoch[2] Batch [20-39]	Speed: 2992.242610137893 samples/sec	LR: 0.4498285714285715	
-[1,7]<stderr>:2020-12-16 08:13:46,641:INFO: Epoch[2] Batch [20-39]	Speed: 2991.281615951618 samples/sec	LR: 0.4498285714285715	
-[1,3]<stderr>:2020-12-16 08:13:46,647:INFO: Epoch[2] Batch [20-39]	Speed: 2983.6123727978065 samples/sec	LR: 0.4498285714285715	
-[1,4]<stderr>:2020-12-16 08:13:51,746:INFO: Epoch[2] Batch [40-59]	Speed: 3007.3274992213796 samples/sec	LR: 0.5229714285714285	
-[1,5]<stderr>:2020-12-16 08:13:51,749:INFO: Epoch[2] Batch [40-59]	Speed: 3003.630326449198 samples/sec	LR: 0.5229714285714285	
-[1,6]<stderr>:2020-12-16 08:13:51,752:INFO: Epoch[2] Batch [40-59]	Speed: 3001.9572602836747 samples/sec	LR: 0.5229714285714285	
-[1,0]<stderr>:2020-12-16 08:13:51,755:INFO: Epoch[2] Batch [40-59]	Speed: 3002.8116150989367 samples/sec	LR: 0.5229714285714285	
-[1,2]<stderr>:2020-12-16 08:13:51,755:INFO: Epoch[2] Batch [40-59]	Speed: 3001.4950256567467 samples/sec	LR: 0.5229714285714285	
-[1,1]<stderr>:2020-12-16 08:13:51,758:INFO: Epoch[2] Batch [40-59]	Speed: 2998.9898291924383 samples/sec	LR: 0.5229714285714285	
-[1,7]<stderr>:2020-12-16 08:13:51,761:INFO: Epoch[2] Batch [40-59]	Speed: 3000.088638450919 samples/sec	LR: 0.5229714285714285	
-[1,3]<stderr>:2020-12-16 08:13:51,762:INFO: Epoch[2] Batch [40-59]	Speed: 3002.9389844297652 samples/sec	LR: 0.5229714285714285	
-[1,4]<stderr>:2020-12-16 08:13:56,862:INFO: Epoch[2] Batch [60-79]	Speed: 3002.820852511177 samples/sec	LR: 0.5961142857142857	
-[1,1]<stderr>:2020-12-16 08:13:56,864:INFO: Epoch[2] Batch [60-79]	Speed: 3008.184492554284 samples/sec	LR: 0.5961142857142857	
-[1,6]<stderr>:2020-12-16 08:13:56,867:INFO: Epoch[2] Batch [60-79]	Speed: 3002.702729886551 samples/sec	LR: 0.5961142857142857	
-[1,5]<stderr>:2020-12-16 08:13:56,868:INFO: Epoch[2] Batch [60-79]	Speed: 3000.911876113589 samples/sec	LR: 0.5961142857142857	
-[1,2]<stderr>:2020-12-16 08:13:56,870:INFO: Epoch[2] Batch [60-79]	Speed: 3003.319057145031 samples/sec	LR: 0.5961142857142857	
-[1,0]<stderr>:2020-12-16 08:13:56,871:INFO: Epoch[2] Batch [60-79]	Speed: 3002.726241706085 samples/sec	LR: 0.5961142857142857	
-[1,7]<stderr>:2020-12-16 08:13:56,874:INFO: Epoch[2] Batch [60-79]	Speed: 3004.525007212314 samples/sec	LR: 0.5961142857142857	
-[1,3]<stderr>:2020-12-16 08:13:56,875:INFO: Epoch[2] Batch [60-79]	Speed: 3004.2589426522823 samples/sec	LR: 0.5961142857142857	
-[1,5]<stderr>:2020-12-16 08:14:02,002:INFO: Epoch[2] Batch [80-99]	Speed: 2992.033464587499 samples/sec	LR: 0.6692571428571429	
-[1,1]<stderr>:2020-12-16 08:14:02,002:INFO: Epoch[2] Batch [80-99]	Speed: 2989.6028519613033 samples/sec	LR: 0.6692571428571429	
-[1,4]<stderr>:2020-12-16 08:14:02,005:INFO: Epoch[2] Batch [80-99]	Speed: 2986.5112244307147 samples/sec	LR: 0.6692571428571429	
-[1,3]<stderr>:2020-12-16 08:14:02,006:INFO: Epoch[2] Batch [80-99]	Speed: 2994.284599890118 samples/sec	LR: 0.6692571428571429	
-[1,6]<stderr>:2020-12-16 08:14:02,008:INFO: Epoch[2] Batch [80-99]	Speed: 2988.0962910404296 samples/sec	LR: 0.6692571428571429	
-[1,0]<stderr>:2020-12-16 08:14:02,010:INFO: Epoch[2] Batch [80-99]	Speed: 2989.2388641594607 samples/sec	LR: 0.6692571428571429	
-[1,2]<stderr>:2020-12-16 08:14:02,014:INFO: Epoch[2] Batch [80-99]	Speed: 2986.661721696917 samples/sec	LR: 0.6692571428571429	
-[1,7]<stderr>:2020-12-16 08:14:02,017:INFO: Epoch[2] Batch [80-99]	Speed: 2986.894627767738 samples/sec	LR: 0.6692571428571429	
-[1,4]<stderr>:2020-12-16 08:14:07,139:INFO: Epoch[2] Batch [100-119]	Speed: 2992.1875763147173 samples/sec	LR: 0.7424000000000002	
-[1,1]<stderr>:2020-12-16 08:14:07,141:INFO: Epoch[2] Batch [100-119]	Speed: 2989.466484867361 samples/sec	LR: 0.7424000000000002	
-[1,0]<stderr>:2020-12-16 08:14:07,141:INFO: Epoch[2] Batch [100-119]	Speed: 2993.718577158485 samples/sec	LR: 0.7424000000000002	
-[1,6]<stderr>:2020-12-16 08:14:07,142:INFO: Epoch[2] Batch [100-119]	Speed: 2992.1096151971437 samples/sec	LR: 0.7424000000000002	
-[1,3]<stderr>:2020-12-16 08:14:07,143:INFO: Epoch[2] Batch [100-119]	Speed: 2989.7515798004765 samples/sec	LR: 0.7424000000000002	
-[1,5]<stderr>:2020-12-16 08:14:07,146:INFO: Epoch[2] Batch [100-119]	Speed: 2985.793836514528 samples/sec	LR: 0.7424000000000002	
-[1,2]<stderr>:2020-12-16 08:14:07,148:INFO: Epoch[2] Batch [100-119]	Speed: 2992.2580366485545 samples/sec	LR: 0.7424000000000002	
-[1,7]<stderr>:2020-12-16 08:14:07,151:INFO: Epoch[2] Batch [100-119]	Speed: 2991.9353638585667 samples/sec	LR: 0.7424000000000002	
-[1,1]<stderr>:2020-12-16 08:14:12,270:INFO: Epoch[2] Batch [120-139]	Speed: 2994.629355260803 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:12,272:INFO: Epoch[2] Batch [120-139]	Speed: 2994.260941754175 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:12,274:INFO: Epoch[2] Batch [120-139]	Speed: 2991.318282728324 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:12,276:INFO: Epoch[2] Batch [120-139]	Speed: 2991.5024635448344 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:12,276:INFO: Epoch[2] Batch [120-139]	Speed: 2995.356705646973 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:12,277:INFO: Epoch[2] Batch [120-139]	Speed: 2994.330664745075 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:12,279:INFO: Epoch[2] Batch [120-139]	Speed: 2991.4164818946997 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:12,279:INFO: Epoch[2] Batch [120-139]	Speed: 2995.3749496408195 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:17,378:INFO: Epoch[2] Batch [140-159]	Speed: 3009.710680160551 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:17,379:INFO: Epoch[2] Batch [140-159]	Speed: 3010.7164769998203 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:17,382:INFO: Epoch[2] Batch [140-159]	Speed: 3006.3537064015313 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:17,382:INFO: Epoch[2] Batch [140-159]	Speed: 3010.0128689834323 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:17,386:INFO: Epoch[2] Batch [140-159]	Speed: 3008.187442252167 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:17,387:INFO: Epoch[2] Batch [140-159]	Speed: 3002.1462510468564 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:17,387:INFO: Epoch[2] Batch [140-159]	Speed: 3005.4817717833657 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:17,388:INFO: Epoch[2] Batch [140-159]	Speed: 3004.9129098011795 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:22,485:INFO: Epoch[2] Batch [160-179]	Speed: 3008.715952914883 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:22,484:INFO: Epoch[2] Batch [160-179]	Speed: 3013.533496784955 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:22,486:INFO: Epoch[2] Batch [160-179]	Speed: 3007.289877410868 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:22,486:INFO: Epoch[2] Batch [160-179]	Speed: 3009.3344702795303 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:22,487:INFO: Epoch[2] Batch [160-179]	Speed: 3012.223264462265 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:22,487:INFO: Epoch[2] Batch [160-179]	Speed: 3008.6597494441003 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:22,490:INFO: Epoch[2] Batch [160-179]	Speed: 3009.6004504835087 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:22,490:INFO: Epoch[2] Batch [160-179]	Speed: 3011.233913262996 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:27,585:INFO: Epoch[2] Batch [180-199]	Speed: 3014.74004740981 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:27,586:INFO: Epoch[2] Batch [180-199]	Speed: 3011.0525018449703 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:27,587:INFO: Epoch[2] Batch [180-199]	Speed: 3010.8439549831355 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:27,589:INFO: Epoch[2] Batch [180-199]	Speed: 3011.080507301172 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:27,591:INFO: Epoch[2] Batch [180-199]	Speed: 3009.1081710811877 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:27,592:INFO: Epoch[2] Batch [180-199]	Speed: 3008.612680652981 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:27,593:INFO: Epoch[2] Batch [180-199]	Speed: 3008.338446419158 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:27,593:INFO: Epoch[2] Batch [180-199]	Speed: 3010.0990791526356 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:32,700:INFO: Epoch[2] Batch [200-219]	Speed: 3004.158497671497 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:32,702:INFO: Epoch[2] Batch [200-219]	Speed: 3002.9163090989964 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:32,707:INFO: Epoch[2] Batch [200-219]	Speed: 2999.0269644020586 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:32,708:INFO: Epoch[2] Batch [200-219]	Speed: 3002.1624793423553 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:32,708:INFO: Epoch[2] Batch [200-219]	Speed: 3003.200755325309 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:32,708:INFO: Epoch[2] Batch [200-219]	Speed: 3002.5280821820447 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:32,708:INFO: Epoch[2] Batch [200-219]	Speed: 3003.1146598607047 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:32,715:INFO: Epoch[2] Batch [200-219]	Speed: 2996.424283514267 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:37,841:INFO: Epoch[2] Batch [220-239]	Speed: 2992.1303210514097 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:37,844:INFO: Epoch[2] Batch [220-239]	Speed: 2994.67389949254 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:37,845:INFO: Epoch[2] Batch [220-239]	Speed: 2985.4072571366028 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:37,846:INFO: Epoch[2] Batch [220-239]	Speed: 2989.6937240224147 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:37,849:INFO: Epoch[2] Batch [220-239]	Speed: 2984.5401007575438 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:37,851:INFO: Epoch[2] Batch [220-239]	Speed: 2986.6316764127178 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:37,851:INFO: Epoch[2] Batch [220-239]	Speed: 2986.703952265779 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:37,853:INFO: Epoch[2] Batch [220-239]	Speed: 2985.5866983210008 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:42,969:INFO: Epoch[2] Batch [240-259]	Speed: 2999.9397185636985 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:42,969:INFO: Epoch[2] Batch [240-259]	Speed: 2998.2845744402357 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:42,970:INFO: Epoch[2] Batch [240-259]	Speed: 3002.110297603312 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:42,971:INFO: Epoch[2] Batch [240-259]	Speed: 3000.110712262674 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:42,974:INFO: Epoch[2] Batch [240-259]	Speed: 2992.649728736359 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:42,975:INFO: Epoch[2] Batch [240-259]	Speed: 2998.0021747722235 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:42,975:INFO: Epoch[2] Batch [240-259]	Speed: 2993.872862530442 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:42,976:INFO: Epoch[2] Batch [240-259]	Speed: 2993.7317930464037 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:48,109:INFO: Epoch[2] Batch [260-279]	Speed: 2988.5476146407245 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:48,110:INFO: Epoch[2] Batch [260-279]	Speed: 2992.137547323042 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:48,111:INFO: Epoch[2] Batch [260-279]	Speed: 2987.9861144897395 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:48,113:INFO: Epoch[2] Batch [260-279]	Speed: 2987.830218159412 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:48,113:INFO: Epoch[2] Batch [260-279]	Speed: 2986.514270223167 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:48,114:INFO: Epoch[2] Batch [260-279]	Speed: 2989.352045992152 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:48,122:INFO: Epoch[2] Batch [260-279]	Speed: 2983.9197086282693 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:48,128:INFO: Epoch[2] Batch [260-279]	Speed: 2981.1407891187187 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:53,243:INFO: Epoch[2] Batch [280-299]	Speed: 2991.9607916168543 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:53,244:INFO: Epoch[2] Batch [280-299]	Speed: 2992.001087856688 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:53,244:INFO: Epoch[2] Batch [280-299]	Speed: 2998.8665636423448 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:53,249:INFO: Epoch[2] Batch [280-299]	Speed: 2991.2082850948477 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:53,251:INFO: Epoch[2] Batch [280-299]	Speed: 2989.558735914454 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:53,252:INFO: Epoch[2] Batch [280-299]	Speed: 2988.4247901105555 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:53,257:INFO: Epoch[2] Batch [280-299]	Speed: 2986.109926391656 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:53,258:INFO: Epoch[2] Batch [280-299]	Speed: 2994.3507054869474 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:14:58,348:INFO: Epoch[2] Batch [300-319]	Speed: 3009.706883851198 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:14:58,350:INFO: Epoch[2] Batch [300-319]	Speed: 3007.774259979187 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:14:58,351:INFO: Epoch[2] Batch [300-319]	Speed: 3008.1072406217895 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:14:58,353:INFO: Epoch[2] Batch [300-319]	Speed: 3009.8324483478686 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:14:58,356:INFO: Epoch[2] Batch [300-319]	Speed: 3013.2996595799054 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:14:58,358:INFO: Epoch[2] Batch [300-319]	Speed: 3011.3529895822985 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:14:58,360:INFO: Epoch[2] Batch [300-319]	Speed: 3006.4902154973397 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:14:58,360:INFO: Epoch[2] Batch [300-319]	Speed: 3006.9281664711584 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:03,488:INFO: Epoch[2] Batch [320-339]	Speed: 2991.3846741037446 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:03,489:INFO: Epoch[2] Batch [320-339]	Speed: 2989.5175343673004 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:03,490:INFO: Epoch[2] Batch [320-339]	Speed: 2994.319948625119 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:03,491:INFO: Epoch[2] Batch [320-339]	Speed: 2992.9439127098995 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:03,491:INFO: Epoch[2] Batch [320-339]	Speed: 2988.7250764873575 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:03,491:INFO: Epoch[2] Batch [320-339]	Speed: 2987.054304342095 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:03,492:INFO: Epoch[2] Batch [320-339]	Speed: 2991.008310121988 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:03,494:INFO: Epoch[2] Batch [320-339]	Speed: 2992.5450543455895 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:08,622:INFO: Epoch[2] Batch [340-359]	Speed: 2993.4779292920493 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:08,623:INFO: Epoch[2] Batch [340-359]	Speed: 2993.6836599528647 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:08,623:INFO: Epoch[2] Batch [340-359]	Speed: 2993.0074562573914 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:08,624:INFO: Epoch[2] Batch [340-359]	Speed: 2991.225089765294 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:08,626:INFO: Epoch[2] Batch [340-359]	Speed: 2991.2834214915497 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:08,627:INFO: Epoch[2] Batch [340-359]	Speed: 2992.7556616702173 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:08,627:INFO: Epoch[2] Batch [340-359]	Speed: 2989.2176435199626 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:08,627:INFO: Epoch[2] Batch [340-359]	Speed: 2991.345783400772 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:13,743:INFO: Epoch[2] Batch [360-379]	Speed: 3000.957166594148 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:13,743:INFO: Epoch[2] Batch [360-379]	Speed: 2999.6867562856196 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:13,747:INFO: Epoch[2] Batch [360-379]	Speed: 3000.054271010831 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:13,748:INFO: Epoch[2] Batch [360-379]	Speed: 2999.3941778208045 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:13,749:INFO: Epoch[2] Batch [360-379]	Speed: 2996.6058878579443 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:13,750:INFO: Epoch[2] Batch [360-379]	Speed: 2996.089425474725 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:13,752:INFO: Epoch[2] Batch [360-379]	Speed: 2997.2874837206623 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:13,752:INFO: Epoch[2] Batch [360-379]	Speed: 2996.621080623512 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:18,849:INFO: Epoch[2] Batch [380-399]	Speed: 3008.2465778920932 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:18,852:INFO: Epoch[2] Batch [380-399]	Speed: 3010.6409239525237 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:18,854:INFO: Epoch[2] Batch [380-399]	Speed: 3010.956245857421 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:18,854:INFO: Epoch[2] Batch [380-399]	Speed: 3009.2518179312415 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:18,854:INFO: Epoch[2] Batch [380-399]	Speed: 3005.5680030275644 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:18,855:INFO: Epoch[2] Batch [380-399]	Speed: 3010.264059523735 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:18,860:INFO: Epoch[2] Batch [380-399]	Speed: 3004.5304719072515 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:18,863:INFO: Epoch[2] Batch [380-399]	Speed: 3003.381221836531 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:23,990:INFO: Epoch[2] Batch [400-419]	Speed: 2990.6182969950523 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:23,992:INFO: Epoch[2] Batch [400-419]	Speed: 2986.847822085716 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:23,996:INFO: Epoch[2] Batch [400-419]	Speed: 2987.355423532323 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:23,996:INFO: Epoch[2] Batch [400-419]	Speed: 2990.6538368767765 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:23,997:INFO: Epoch[2] Batch [400-419]	Speed: 2992.0402735170583 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:23,998:INFO: Epoch[2] Batch [400-419]	Speed: 2986.788555457054 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:23,998:INFO: Epoch[2] Batch [400-419]	Speed: 2985.005979092428 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:24,003:INFO: Epoch[2] Batch [400-419]	Speed: 2983.5522673016435 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:29,101:INFO: Epoch[2] Batch [420-439]	Speed: 3005.938222635034 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:29,101:INFO: Epoch[2] Batch [420-439]	Speed: 3010.117784457946 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:29,102:INFO: Epoch[2] Batch [420-439]	Speed: 3006.053934967395 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:29,103:INFO: Epoch[2] Batch [420-439]	Speed: 3011.8534664278045 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:29,106:INFO: Epoch[2] Batch [420-439]	Speed: 3006.0418724174324 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:29,107:INFO: Epoch[2] Batch [420-439]	Speed: 3005.69462469937 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:29,108:INFO: Epoch[2] Batch [420-439]	Speed: 3005.954211445072 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:29,110:INFO: Epoch[2] Batch [420-439]	Speed: 3004.135243584648 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:34,243:INFO: Epoch[2] Batch [440-459]	Speed: 2987.2649705889526 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:34,246:INFO: Epoch[2] Batch [440-459]	Speed: 2989.9296009507702 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:34,248:INFO: Epoch[2] Batch [440-459]	Speed: 2989.655987167561 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:34,249:INFO: Epoch[2] Batch [440-459]	Speed: 2987.353207161968 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:34,252:INFO: Epoch[2] Batch [440-459]	Speed: 2983.4211490026105 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:34,253:INFO: Epoch[2] Batch [440-459]	Speed: 2984.7303617840416 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:34,253:INFO: Epoch[2] Batch [440-459]	Speed: 2982.153667833924 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:34,254:INFO: Epoch[2] Batch [440-459]	Speed: 2981.841451193329 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:39,383:INFO: Epoch[2] Batch [460-479]	Speed: 2994.544864061967 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:39,383:INFO: Epoch[2] Batch [460-479]	Speed: 2988.185546932797 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:39,385:INFO: Epoch[2] Batch [460-479]	Speed: 2993.9410369668676 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:39,388:INFO: Epoch[2] Batch [460-479]	Speed: 2987.316083447398 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:39,388:INFO: Epoch[2] Batch [460-479]	Speed: 2988.9028367443966 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:39,391:INFO: Epoch[2] Batch [460-479]	Speed: 2989.321807849803 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:39,394:INFO: Epoch[2] Batch [460-479]	Speed: 2985.2216128632267 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:39,395:INFO: Epoch[2] Batch [460-479]	Speed: 2986.9244013761518 samples/sec	LR: 0	
-[1,5]<stderr>:2020-12-16 08:15:44,537:INFO: Epoch[2] Batch [480-499]	Speed: 2981.3782156844227 samples/sec	LR: 0	
-[1,1]<stderr>:2020-12-16 08:15:44,537:INFO: Epoch[2] Batch [480-499]	Speed: 2980.683011652304 samples/sec	LR: 0	
-[1,4]<stderr>:2020-12-16 08:15:44,540:INFO: Epoch[2] Batch [480-499]	Speed: 2978.442497337527 samples/sec	LR: 0	
-[1,2]<stderr>:2020-12-16 08:15:44,543:INFO: Epoch[2] Batch [480-499]	Speed: 2981.8737464347996 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:44,544:INFO: Epoch[2] Batch [480-499]	Speed: 2979.4853731706085 samples/sec	LR: 0	
-[1,0]<stderr>:2020-12-16 08:15:44,546:INFO: Epoch[2] Batch [480-499]	Speed: 2978.6259222367667 samples/sec	LR: 0	
-[1,3]<stderr>:2020-12-16 08:15:44,552:INFO: Epoch[2] Batch [480-499]	Speed: 2979.215871810752 samples/sec	LR: 0	
-[1,7]<stderr>:2020-12-16 08:15:44,557:INFO: Epoch[2] Batch [480-499]	Speed: 2975.415946688269 samples/sec	LR: 0	
-[1,6]<stderr>:2020-12-16 08:15:44,795:INFO: Experiment took: 418.9834580421448 sec
-[1,3]<stderr>:2020-12-16 08:15:44,795:INFO: Experiment took: 418.9891233444214 sec
-[1,4]<stderr>:2020-12-16 08:15:44,795:INFO: Experiment took: 419.0439383983612 sec
-[1,5]<stderr>:2020-12-16 08:15:44,795:INFO: Experiment took: 418.96517753601074 sec
-[1,7]<stderr>:2020-12-16 08:15:44,795:INFO: Experiment took: 418.9899523258209 sec
-[1,0]<stderr>:2020-12-16 08:15:44,796:INFO: Experiment took: 419.12896943092346 sec
-[1,1]<stderr>:2020-12-16 08:15:44,796:INFO: Experiment took: 418.9564414024353 sec
-[1,2]<stderr>:2020-12-16 08:15:44,796:INFO: Experiment took: 419.0354313850403 sec
-train.total_ips
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,2]<stderr>:  _iterator_deprecation_warning()
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,2]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,2]<stderr>:2021-05-28 09:41:26,233:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,2]<stderr>:2021-05-28 09:41:26,233:INFO: Starting epoch 0
+[1,6]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,6]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,6]<stderr>:  _iterator_deprecation_warning()
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,6]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,6]<stderr>:2021-05-28 09:41:26,241:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,6]<stderr>:2021-05-28 09:41:26,241:INFO: Starting epoch 0
+[1,4]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,4]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,4]<stderr>:  _iterator_deprecation_warning()
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,4]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,4]<stderr>:2021-05-28 09:41:26,390:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,4]<stderr>:2021-05-28 09:41:26,390:INFO: Starting epoch 0
+[1,5]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,5]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,5]<stderr>:  _iterator_deprecation_warning()
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,5]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,5]<stderr>:2021-05-28 09:41:26,586:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,5]<stderr>:2021-05-28 09:41:26,586:INFO: Starting epoch 0
+[1,3]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,3]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,3]<stderr>:  _iterator_deprecation_warning()
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,3]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,3]<stderr>:2021-05-28 09:41:26,668:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,3]<stderr>:2021-05-28 09:41:26,669:INFO: Starting epoch 0
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 12049, errno = 1
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 12833, errno = 1
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 11841, errno = 1
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 11057, errno = 1
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 10617, errno = 1
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 13281, errno = 1
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 12953, errno = 1
+[1,7]<stderr>:[6389caacd155:03289] Read -1, expected 7160, errno = 1
+[1,3]<stderr>:[6389caacd155:03285] Read -1, expected 7160, errno = 1
+[1,5]<stderr>:[6389caacd155:03287] Read -1, expected 7160, errno = 1
+[1,1]<stderr>:[6389caacd155:03283] Read -1, expected 7160, errno = 1
+[1,6]<stderr>:[6389caacd155:03288] Read -1, expected 7161, errno = 1
+[1,2]<stderr>:[6389caacd155:03284] Read -1, expected 7161, errno = 1
+[1,4]<stderr>:[6389caacd155:03286] Read -1, expected 7161, errno = 1
+[1,3]<stderr>:[[1,3]<stderr>:09:41:30[1,3]<stderr>:] [1,3]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,3]<stderr>::[1,3]<stderr>:120[1,3]<stderr>:: [1,3]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,3]<stderr>:
+[1,0]<stderr>:[09:41:31] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: [1,0]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,6]<stderr>:[[1,6]<stderr>:09:41:31[1,6]<stderr>:] [1,6]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,6]<stderr>::[1,6]<stderr>:120[1,6]<stderr>:: [1,6]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,6]<stderr>:
+[1,4]<stderr>:[[1,4]<stderr>:09:41:31] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,4]<stderr>:
+[1,2]<stderr>:[[1,2]<stderr>:09:41:31] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,2]<stderr>::120: [1,2]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,1]<stderr>:[[1,1]<stderr>:09:41:31[1,1]<stderr>:] [1,1]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,1]<stderr>::[1,1]<stderr>:120[1,1]<stderr>:: [1,1]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,1]<stderr>:
+[1,5]<stderr>:[[1,5]<stderr>:09:41:31[1,5]<stderr>:] [1,5]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,5]<stderr>::[1,5]<stderr>:120[1,5]<stderr>:: [1,5]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,5]<stderr>:
+[1,7]<stderr>:[09:41:31[1,7]<stderr>:] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 7681, errno = 1
+[1,0]<stdout>:DLL 2021-05-28 09:41:49.397077 - Epoch: 0 Iteration: 19  train.loss : 7.020129728317261  train.ips : 659.5459672488017  train.lr : 0.06948571428571429 
+[1,0]<stdout>:DLL 2021-05-28 09:41:54.995206 - Epoch: 0 Iteration: 39  train.loss : 6.860834455490112  train.ips : 2743.976715056005  train.lr : 0.14262857142857144 
+[1,0]<stdout>:DLL 2021-05-28 09:42:00.475665 - Epoch: 0 Iteration: 59  train.loss : 6.774098682403564  train.ips : 2802.908967001516  train.lr : 0.21577142857142856 
+[1,0]<stdout>:DLL 2021-05-28 09:42:06.221946 - Epoch: 0 Iteration: 79  train.loss : 6.697233033180237  train.ips : 2673.1533790534213  train.lr : 0.28891428571428573 
+[1,0]<stdout>:DLL 2021-05-28 09:42:11.892743 - Epoch: 0 Iteration: 99  train.loss : 6.619764447212219  train.ips : 2708.7331584258327  train.lr : 0.36205714285714286 
+[1,0]<stdout>:DLL 2021-05-28 09:42:17.497311 - Epoch: 0 Iteration: 119  train.loss : 6.636063718795777  train.ips : 2740.729539473953  train.lr : 0.43520000000000003 
+[1,0]<stdout>:DLL 2021-05-28 09:42:23.168049 - Epoch: 0 Iteration: 139  train.loss : 6.48054072856903  train.ips : 2708.770286710119  train.lr : 0.5083428571428572 
+[1,0]<stdout>:DLL 2021-05-28 09:42:28.902800 - Epoch: 0 Iteration: 159  train.loss : 6.475040006637573  train.ips : 2678.4934582937826  train.lr : 0.5814857142857143 
+[1,0]<stdout>:DLL 2021-05-28 09:42:34.594699 - Epoch: 0 Iteration: 179  train.loss : 6.421786785125732  train.ips : 2698.66807055723  train.lr : 0.6546285714285714 
+[1,0]<stdout>:DLL 2021-05-28 09:42:40.337395 - Epoch: 0 Iteration: 199  train.loss : 6.331347537040711  train.ips : 2674.808280696539  train.lr : 0.7277714285714285 
+[1,0]<stdout>:DLL 2021-05-28 09:42:46.108832 - Epoch: 0 Iteration: 219  train.loss : 6.311296987533569  train.ips : 2661.4618847044694  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:42:51.852837 - Epoch: 0 Iteration: 239  train.loss : 6.289458322525024  train.ips : 2674.256456194059  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:42:57.559327 - Epoch: 0 Iteration: 259  train.loss : 6.326748633384705  train.ips : 2691.753967343396  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:03.288741 - Epoch: 0 Iteration: 279  train.loss : 6.302648043632507  train.ips : 2680.9948266497368  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:09.075506 - Epoch: 0 Iteration: 299  train.loss : 6.2581006526947025  train.ips : 2654.4406726447146  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:14.823308 - Epoch: 0 Iteration: 319  train.loss : 6.259428238868713  train.ips : 2672.401464997372  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:20.580537 - Epoch: 0 Iteration: 339  train.loss : 6.295400857925415  train.ips : 2668.0282282641942  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:26.345451 - Epoch: 0 Iteration: 359  train.loss : 6.3014970302581785  train.ips : 2664.4829571258783  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:32.096503 - Epoch: 0 Iteration: 379  train.loss : 6.308769607543946  train.ips : 2670.9223800622344  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:37.800888 - Epoch: 0 Iteration: 399  train.loss : 6.297218894958496  train.ips : 2692.745604093289  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:43.568506 - Epoch: 0 Iteration: 419  train.loss : 6.294883108139038  train.ips : 2663.2347753273075  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:49.257172 - Epoch: 0 Iteration: 439  train.loss : 6.285993504524231  train.ips : 2700.215739764365  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:43:55.065706 - Epoch: 0 Iteration: 459  train.loss : 6.31629581451416  train.ips : 2644.469351013341  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:44:00.839332 - Epoch: 0 Iteration: 479  train.loss : 6.308709883689881  train.ips : 2660.4651350254667  train.lr : 0 
+[1,4]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
+[1,5]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
+[1,2]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
+[1,3]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
+[1,1]<stderr>:2021-05-28 09:44:06,714:INFO: Starting epoch 1
+[1,6]<stderr>:2021-05-28 09:44:06,713:INFO: Starting epoch 1
+[1,7]<stderr>:2021-05-28 09:44:06,715:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2021-05-28 09:44:06.716238 - Epoch: 0 Iteration: 499  train.loss : 6.307731008529663  train.ips : 2613.7241111546114  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:44:06.716509 - Epoch: 0  train.loss : 6.431240788459778  train.ips : 2390.9104638708013 
+[1,0]<stderr>:2021-05-28 09:44:06,716:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2021-05-28 09:44:12.512610 - Epoch: 1 Iteration: 19  train.loss : 6.239793419837952  train.ips : 2650.0957780907047  train.lr : 0.22308571428571428 
+[1,0]<stdout>:DLL 2021-05-28 09:44:18.380929 - Epoch: 1 Iteration: 39  train.loss : 6.170048713684082  train.ips : 2617.525746715595  train.lr : 0.2962285714285714 
+[1,0]<stdout>:DLL 2021-05-28 09:44:24.267417 - Epoch: 1 Iteration: 59  train.loss : 6.157049298286438  train.ips : 2609.4592733922036  train.lr : 0.3693714285714286 
+[1,0]<stdout>:DLL 2021-05-28 09:44:30.129575 - Epoch: 1 Iteration: 79  train.loss : 6.064148020744324  train.ips : 2620.301507995509  train.lr : 0.44251428571428575 
+[1,0]<stdout>:DLL 2021-05-28 09:44:36.041300 - Epoch: 1 Iteration: 99  train.loss : 6.146742415428162  train.ips : 2598.303301679164  train.lr : 0.5156571428571428 
+[1,0]<stdout>:DLL 2021-05-28 09:44:41.932396 - Epoch: 1 Iteration: 119  train.loss : 6.119830632209778  train.ips : 2607.418336290521  train.lr : 0.5888000000000001 
+[1,0]<stdout>:DLL 2021-05-28 09:44:47.786741 - Epoch: 1 Iteration: 139  train.loss : 6.113266658782959  train.ips : 2623.7928298496186  train.lr : 0.6619428571428572 
+[1,0]<stdout>:DLL 2021-05-28 09:44:53.678679 - Epoch: 1 Iteration: 159  train.loss : 6.066377711296082  train.ips : 2607.0469284160363  train.lr : 0.7350857142857142 
+[1,0]<stdout>:DLL 2021-05-28 09:44:59.594655 - Epoch: 1 Iteration: 179  train.loss : 6.022965979576111  train.ips : 2596.444886334898  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:05.512626 - Epoch: 1 Iteration: 199  train.loss : 6.0480858325958256  train.ips : 2595.568384854029  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:11.371938 - Epoch: 1 Iteration: 219  train.loss : 6.049123239517212  train.ips : 2621.5689663444136  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:17.261576 - Epoch: 1 Iteration: 239  train.loss : 6.047817349433899  train.ips : 2608.041526247643  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:23.175476 - Epoch: 1 Iteration: 259  train.loss : 6.011501574516297  train.ips : 2597.354546130759  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:29.100051 - Epoch: 1 Iteration: 279  train.loss : 6.054743862152099  train.ips : 2592.6948045179756  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:35.017992 - Epoch: 1 Iteration: 299  train.loss : 6.061690139770508  train.ips : 2595.566920852192  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:40.760756 - Epoch: 1 Iteration: 319  train.loss : 6.024531841278076  train.ips : 2674.7567526341622  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:46.691477 - Epoch: 1 Iteration: 339  train.loss : 6.081398677825928  train.ips : 2590.030609429898  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:52.634063 - Epoch: 1 Iteration: 359  train.loss : 6.049860715866089  train.ips : 2584.8178555160675  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:45:58.591842 - Epoch: 1 Iteration: 379  train.loss : 6.085769128799439  train.ips : 2578.2436138410376  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:46:04.294440 - Epoch: 1 Iteration: 399  train.loss : 6.011412286758423  train.ips : 2693.5903200427765  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:46:10.198687 - Epoch: 1 Iteration: 419  train.loss : 6.034331154823303  train.ips : 2601.6629786778317  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:46:16.122176 - Epoch: 1 Iteration: 439  train.loss : 6.095763635635376  train.ips : 2593.159410340242  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:46:22.208490 - Epoch: 1 Iteration: 459  train.loss : 6.075186491012573  train.ips : 2523.7940428918587  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:46:28.162016 - Epoch: 1 Iteration: 479  train.loss : 6.070958757400513  train.ips : 2580.0509478340364  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:46:33.909186 - Epoch: 1 Iteration: 499  train.loss : 6.092525935173034  train.ips : 2672.7043530875726  train.lr : 0 
+[1,4]<stderr>:2021-05-28 09:46:33,909:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2021-05-28 09:46:33.909392 - Epoch: 1  train.loss : 6.0797969388961794  train.ips : 2608.8235230803666 
+[1,0]<stderr>:2021-05-28 09:46:33,909:INFO: Starting epoch 2
+[1,5]<stderr>:2021-05-28 09:46:33,909:INFO: Starting epoch 2
+[1,6]<stderr>:2021-05-28 09:46:33,910:INFO: Starting epoch 2
+[1,2]<stderr>:2021-05-28 09:46:33,910:INFO: Starting epoch 2
+[1,1]<stderr>:2021-05-28 09:46:33,911:INFO: Starting epoch 2
+[1,3]<stderr>:2021-05-28 09:46:33,912:INFO: Starting epoch 2
+[1,7]<stderr>:2021-05-28 09:46:33,912:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2021-05-28 09:46:39.833540 - Epoch: 2 Iteration: 19  train.loss : 6.1147300720214846  train.ips : 2592.818036153878  train.lr : 0.37668571428571435 
+[1,0]<stdout>:DLL 2021-05-28 09:46:45.651483 - Epoch: 2 Iteration: 39  train.loss : 5.954317855834961  train.ips : 2640.2134907023205  train.lr : 0.4498285714285715 
+[1,0]<stdout>:DLL 2021-05-28 09:46:51.512375 - Epoch: 2 Iteration: 59  train.loss : 5.956040859222412  train.ips : 2620.8409902407966  train.lr : 0.5229714285714285 
+[1,0]<stdout>:DLL 2021-05-28 09:46:57.413512 - Epoch: 2 Iteration: 79  train.loss : 5.847063517570495  train.ips : 2602.9628403164984  train.lr : 0.5961142857142857 
+[1,0]<stdout>:DLL 2021-05-28 09:47:03.115458 - Epoch: 2 Iteration: 99  train.loss : 5.866199493408203  train.ips : 2693.8978052207362  train.lr : 0.6692571428571429 
+[1,0]<stdout>:DLL 2021-05-28 09:47:08.958551 - Epoch: 2 Iteration: 119  train.loss : 5.9078408002853395  train.ips : 2628.8406742712455  train.lr : 0.7424000000000002 
+[1,0]<stdout>:DLL 2021-05-28 09:47:14.781858 - Epoch: 2 Iteration: 139  train.loss : 5.95194981098175  train.ips : 2637.7774550504764  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:20.583570 - Epoch: 2 Iteration: 159  train.loss : 5.889734387397766  train.ips : 2647.5745644660446  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:26.518003 - Epoch: 2 Iteration: 179  train.loss : 5.825269341468811  train.ips : 2588.414335549282  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:32.492680 - Epoch: 2 Iteration: 199  train.loss : 5.903691124916077  train.ips : 2570.916716269675  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:38.323108 - Epoch: 2 Iteration: 219  train.loss : 5.894426798820495  train.ips : 2634.545405473222  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:44.171408 - Epoch: 2 Iteration: 239  train.loss : 5.898609089851379  train.ips : 2626.5282572561837  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:50.174847 - Epoch: 2 Iteration: 259  train.loss : 5.908939838409424  train.ips : 2558.619011162574  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:47:55.928646 - Epoch: 2 Iteration: 279  train.loss : 5.892929196357727  train.ips : 2669.6264533258723  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:01.840891 - Epoch: 2 Iteration: 299  train.loss : 5.936789393424988  train.ips : 2598.105993127075  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:07.615957 - Epoch: 2 Iteration: 319  train.loss : 5.920028042793274  train.ips : 2659.7863352699724  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:13.442574 - Epoch: 2 Iteration: 339  train.loss : 5.9352481126785275  train.ips : 2636.27375978999  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:19.251096 - Epoch: 2 Iteration: 359  train.loss : 5.863740277290344  train.ips : 2644.49301491411  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:25.133552 - Epoch: 2 Iteration: 379  train.loss : 5.9273371458053585  train.ips : 2611.2355049993635  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:30.842475 - Epoch: 2 Iteration: 399  train.loss : 5.893128132820129  train.ips : 2690.6003402565157  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:36.666399 - Epoch: 2 Iteration: 419  train.loss : 5.972978925704956  train.ips : 2637.4963600840206  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:42.648580 - Epoch: 2 Iteration: 439  train.loss : 5.8902973413467405  train.ips : 2567.730180977632  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:48.356224 - Epoch: 2 Iteration: 459  train.loss : 5.9025228261947635  train.ips : 2691.2110930623494  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:48:54.190450 - Epoch: 2 Iteration: 479  train.loss : 5.913335371017456  train.ips : 2632.81501212514  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:49:00.166083 - Epoch: 2 Iteration: 499  train.loss : 5.922242045402527  train.ips : 2570.519018175154  train.lr : 0 
+[1,0]<stdout>:DLL 2021-05-28 09:49:00.166346 - Epoch: 2  train.loss : 5.915575592041016  train.ips : 2625.5176930674925 
+[1,0]<stdout>:DLL 2021-05-28 09:49:00.344695 - Summary: train.loss : 5.915575592041016  train.ips : 2541.75056000622 
+train.ips
            |     96    |
 ------------------------
-     1     |   387.07  |
-     8     |   2998.1  |
-
-train.latency_avg
-           |     96    |
-------------------------
-     1     |  0.24802  |
-     8     |  0.25616  |
-
-train.latency_50
-           |     96    |
-------------------------
-     1     |  0.24801  |
-     8     |  0.25539  |
-
-train.latency_90
-           |     96    |
-------------------------
-     1     |  0.25059  |
-     8     |  0.26296  |
-
-train.latency_95
-           |     96    |
-------------------------
-     1     |  0.25136  |
-     8     |  0.26595  |
-
-train.latency_99
-           |     96    |
-------------------------
-     1     |  0.25527  |
-     8     |  0.27131  |
-
-train.latency_100
-           |     96    |
-------------------------
-     1     |  0.25827  |
-     8     |  0.29382  |
+     1     |   371.16  |
+     8     |   2617.1  |
 
