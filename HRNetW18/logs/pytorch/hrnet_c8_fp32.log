@@ -1,0 +1,1781 @@
+Mon May 31 00:14:12 2021[1,0]<stderr>:2021-05-31 00:14:12,906 - mmseg - INFO - Environment info:
+Mon May 31 00:14:12 2021[1,0]<stderr>:------------------------------------------------------------
+Mon May 31 00:14:12 2021[1,0]<stderr>:sys.platform: linux
+Mon May 31 00:14:12 2021[1,0]<stderr>:Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
+Mon May 31 00:14:12 2021[1,0]<stderr>:CUDA available: True
+Mon May 31 00:14:12 2021[1,0]<stderr>:GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
+Mon May 31 00:14:12 2021[1,0]<stderr>:CUDA_HOME: /usr/local/cuda
+Mon May 31 00:14:12 2021[1,0]<stderr>:NVCC: Build cuda_11.0_bu.TC445_37.28358933_0
+Mon May 31 00:14:12 2021[1,0]<stderr>:GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+Mon May 31 00:14:12 2021[1,0]<stderr>:PyTorch: 1.6.0a0+9907a3e
+Mon May 31 00:14:12 2021[1,0]<stderr>:PyTorch compiling details: PyTorch built with:
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - GCC 7.5
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - C++ Version: 201402
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - Intel(R) Math Kernel Library Version 2019.0.1 Product Build 20180928 for Intel(R) 64 architecture applications
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - Intel(R) MKL-DNN v1.2.0 (Git Hash N/A)
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - NNPACK is enabled
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - CPU capability usage: AVX2
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - CUDA Runtime 11.0
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_80,code=compute_80
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - CuDNN 8.0.1
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - Magma 2.5.2
+Mon May 31 00:14:12 2021[1,0]<stderr>:  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -fvisibility-inlines-hidden -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_INTERNAL_THREADPOOL_IMPL -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, FORCE_FALLBACK_CUDA_MPI=1, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_STATIC_DISPATCH=OFF, 
+Mon May 31 00:14:12 2021[1,0]<stderr>:
+Mon May 31 00:14:12 2021[1,0]<stderr>:TorchVision: 0.7.0a0
+Mon May 31 00:14:12 2021[1,0]<stderr>:OpenCV: 3.4.1
+Mon May 31 00:14:12 2021[1,0]<stderr>:MMCV: 1.2.7
+Mon May 31 00:14:12 2021[1,0]<stderr>:MMCV Compiler: GCC 7.5
+Mon May 31 00:14:12 2021[1,0]<stderr>:MMCV CUDA Compiler: 11.0
+Mon May 31 00:14:12 2021[1,0]<stderr>:MMSegmentation: 0.12.0+3e46c1b
+Mon May 31 00:14:12 2021[1,0]<stderr>:------------------------------------------------------------
+Mon May 31 00:14:12 2021[1,0]<stderr>:
+Mon May 31 00:14:12 2021[1,0]<stderr>:2021-05-31 00:14:12,906 - mmseg - INFO - Distributed training: True
+Mon May 31 00:14:13 2021[1,0]<stderr>:2021-05-31 00:14:13,324 - mmseg - INFO - Config:
+Mon May 31 00:14:13 2021[1,0]<stderr>:norm_cfg = dict(type='SyncBN', requires_grad=True)
+Mon May 31 00:14:13 2021[1,0]<stderr>:model = dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:    type='EncoderDecoder',
+Mon May 31 00:14:13 2021[1,0]<stderr>:    pretrained='open-mmlab://msra/hrnetv2_w18',
+Mon May 31 00:14:13 2021[1,0]<stderr>:    backbone=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:        type='HRNet',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        norm_cfg=dict(type='SyncBN', requires_grad=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:        norm_eval=False,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        extra=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:            stage1=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_modules=1,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_branches=1,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                block='BOTTLENECK',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_blocks=(4, ),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_channels=(64, )),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            stage2=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_modules=1,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_branches=2,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                block='BASIC',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_blocks=(4, 4),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_channels=(18, 36)),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            stage3=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_modules=4,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_branches=3,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                block='BASIC',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_blocks=(4, 4, 4),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_channels=(18, 36, 72)),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            stage4=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_modules=3,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_branches=4,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                block='BASIC',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_blocks=(4, 4, 4, 4),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                num_channels=(18, 36, 72, 144)))),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    decode_head=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:        type='FCNHead',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        in_channels=[18, 36, 72, 144],
+Mon May 31 00:14:13 2021[1,0]<stderr>:        in_index=(0, 1, 2, 3),
+Mon May 31 00:14:13 2021[1,0]<stderr>:        channels=270,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        input_transform='resize_concat',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        kernel_size=1,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        num_convs=1,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        concat_input=False,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        dropout_ratio=-1,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        num_classes=19,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        norm_cfg=dict(type='SyncBN', requires_grad=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:        align_corners=False,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        loss_decode=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    train_cfg=dict(),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    test_cfg=dict(mode='whole'))
+Mon May 31 00:14:13 2021[1,0]<stderr>:dataset_type = 'CityscapesDataset'
+Mon May 31 00:14:13 2021[1,0]<stderr>:data_root = 'data/cityscapes/'
+Mon May 31 00:14:13 2021[1,0]<stderr>:img_norm_cfg = dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+Mon May 31 00:14:13 2021[1,0]<stderr>:crop_size = (512, 1024)
+Mon May 31 00:14:13 2021[1,0]<stderr>:train_pipeline = [
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='LoadImageFromFile'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='LoadAnnotations'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='RandomFlip', prob=0.5),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='PhotoMetricDistortion'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:        type='Normalize',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        mean=[123.675, 116.28, 103.53],
+Mon May 31 00:14:13 2021[1,0]<stderr>:        std=[58.395, 57.12, 57.375],
+Mon May 31 00:14:13 2021[1,0]<stderr>:        to_rgb=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='DefaultFormatBundle'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+Mon May 31 00:14:13 2021[1,0]<stderr>:]
+Mon May 31 00:14:13 2021[1,0]<stderr>:test_pipeline = [
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(type='LoadImageFromFile'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:        type='MultiScaleFlipAug',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        img_scale=(2048, 1024),
+Mon May 31 00:14:13 2021[1,0]<stderr>:        flip=False,
+Mon May 31 00:14:13 2021[1,0]<stderr>:        transforms=[
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='Resize', keep_ratio=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='RandomFlip'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                type='Normalize',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                mean=[123.675, 116.28, 103.53],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                std=[58.395, 57.12, 57.375],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                to_rgb=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='ImageToTensor', keys=['img']),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='Collect', keys=['img'])
+Mon May 31 00:14:13 2021[1,0]<stderr>:        ])
+Mon May 31 00:14:13 2021[1,0]<stderr>:]
+Mon May 31 00:14:13 2021[1,0]<stderr>:data = dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:    samples_per_gpu=8,
+Mon May 31 00:14:13 2021[1,0]<stderr>:    workers_per_gpu=8,
+Mon May 31 00:14:13 2021[1,0]<stderr>:    train=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:        type='CityscapesDataset',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        data_root='data/cityscapes/',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        img_dir='leftImg8bit/train',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        ann_dir='gtFine/train',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        pipeline=[
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='LoadImageFromFile'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='LoadAnnotations'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='RandomFlip', prob=0.5),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='PhotoMetricDistortion'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                type='Normalize',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                mean=[123.675, 116.28, 103.53],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                std=[58.395, 57.12, 57.375],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                to_rgb=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='DMon May 31 00:14:13 2021[1,0]<stderr>:dir='leftImg8bit/val',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        ann_dir='gtFine/val',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        pipeline=[
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='LoadImageFromFile'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                type='MultiScaleFlipAug',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                img_scale=(2048, 1024),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                flip=False,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                transforms=[
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='Resize', keep_ratio=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='RandomFlip'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        type='Normalize',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        mean=[123.675, 116.28, 103.53],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        std=[58.395, 57.12, 57.375],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        to_rgb=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='ImageToTensor', keys=['img']),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='Collect', keys=['img'])
+Mon May 31 00:14:13 2021[1,0]<stderr>:                ])
+Mon May 31 00:14:13 2021[1,0]<stderr>:        ]),
+Mon May 31 00:14:13 2021[1,0]<stderr>:    test=dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:        type='CityscapesDataset',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        data_root='data/cityscapes/',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        img_dir='leftImg8bit/val',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        ann_dir='gtFine/val',
+Mon May 31 00:14:13 2021[1,0]<stderr>:        pipeline=[
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(type='LoadImageFromFile'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:            dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                type='MultiScaleFlipAug',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                img_scale=(2048, 1024),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                flip=False,
+Mon May 31 00:14:13 2021[1,0]<stderr>:                transforms=[
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='Resize', keep_ratio=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='RandomFlip'),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        type='Normalize',
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        mean=[123.675, 116.28, 103.53],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        std=[58.395, 57.12, 57.375],
+Mon May 31 00:14:13 2021[1,0]<stderr>:                        to_rgb=True),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='ImageToTensor', keys=['img']),
+Mon May 31 00:14:13 2021[1,0]<stderr>:                    dict(type='Collect', keys=['img'])
+Mon May 31 00:14:13 2021[1,0]<stderr>:                ])
+Mon May 31 00:14:13 2021[1,0]<stderr>:        ]))
+Mon May 31 00:14:13 2021[1,0]<stderr>:log_config = dict(
+Mon May 31 00:14:13 2021[1,0]<stderr>:    interval=2, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
+Mon May 31 00:14:13 2021[1,0]<stderr>:dist_params = dict(backend='nccl')
+Mon May 31 00:14:13 2021[1,0]<stderr>:log_level = 'INFO'
+Mon May 31 00:14:13 2021[1,0]<stderr>:load_from = None
+Mon May 31 00:14:13 2021[1,0]<stderr>:resume_from = None
+Mon May 31 00:14:13 2021[1,0]<stderr>:workflow = [('train', 1)]
+Mon May 31 00:14:13 2021[1,0]<stderr>:cudnn_benchmark = True
+Mon May 31 00:14:13 2021[1,0]<stderr>:optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
+Mon May 31 00:14:13 2021[1,0]<stderr>:optimizer_config = dict()
+Mon May 31 00:14:13 2021[1,0]<stderr>:lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
+Mon May 31 00:14:13 2021[1,0]<stderr>:runner = dict(type='IterBasedRunner', max_iters=10)
+Mon May 31 00:14:13 2021[1,0]<stderr>:checkpoint_config = dict(by_epoch=False, interval=8000)
+Mon May 31 00:14:13 2021[1,0]<stderr>:evaluation = dict(interval=8000, metric='mIoU')
+Mon May 31 00:14:13 2021[1,0]<stderr>:work_dir = './work_dirs/fcn_hr18_512x1024_80k_cityscapes'
+Mon May 31 00:14:13 2021[1,0]<stderr>:gpu_ids = range(0, 1)
+Mon May 31 00:14:13 2021[1,0]<stderr>:
+Mon May 31 00:14:13 2021[1,0]<stderr>:2021-05-31 00:14:13,522 - mmseg - INFO - Use load_from_openmmlab loader
+Mon May 31 00:14:13 2021[1,0]<stderr>:Downloading: "https://download.openmmlab.com/pretrain/third_party/hrnetv2_w18-00eb2006.pth" to /root/.cache/torch/checkpoints/hrnetv2_w18-00eb2006.pth
+Mon May 31 00:14:15 2021[1,0]<stderr>:
+  0%|          | 0.00/81.8M [00:00<?, ?B/s]Mon May 31 00:14:15 2021[1,0]<stderr>:
+  0%|          | 16.0k/81.8M [00:00<17:17, 82.7kB/s]Mon May 31 00:14:15 2021[1,0]<stderr>:
+  0%|          | 40.0k/81.8M [00:00<15:43, 90.8kB/s]Mon May 31 00:14:15 2021[1,0]<stderr>:
+  0%|          | 96.0k/81.8M [00:00<12:33, 114kB/s] Mon May 31 00:14:15 2021[1,0]<stderr>:
+  0%|          | 208k/81.8M [00:00<09:33, 149kB/s] Mon May 31 00:14:16 2021[1,0]<stderr>:
+  1%|          | 432k/81.8M [00:01<07:03, 201kB/s]Mon May 31 00:14:16 2021[1,0]<stderr>:
+  1%|          | 872k/81.8M [00:01<05:06, 277kB/s]Mon May 31 00:14:16 2021[1,0]<stderr>:
+  2%|▏         | 1.72M/81.8M [00:01<03:38, 385kB/s]Mon May 31 00:14:16 2021[1,0]<stderr>:
+  4%|▍         | 3.44M/81.8M [00:01<02:32, 540kB/s]Mon May 31 00:14:16 2021[1,0]<stderr>:
+  7%|▋         | 5.32M/81.8M [00:01<01:45, 762kB/s]Mon May 31 00:14:16 2021[1,0]<stderr>:
+  8%|▊         | 6.15M/81.8M [00:01<01:16, 1.03MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+  8%|▊         | 6.90M/81.8M [00:02<00:59, 1.31MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+  9%|▉         | 7.52M/81.8M [00:02<00:45, 1.72MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+ 10%|▉         | 8.14M/81.8M [00:02<00:35, 2.19MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+ 11%|█         | 8.79M/81.8M [00:02<00:27, 2.75MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+ 12%|█▏        | 9.41M/81.8M [00:02<00:23, 3.19MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+ 12%|█▏        | 10.0M/81.8M [00:02<00:22, 3.41MB/s]Mon May 31 00:14:17 2021[1,0]<stderr>:
+ 13%|█▎        | 10.5M/81.8M [00:02<00:21, 3.46MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 13%|█▎        | 11.0M/81.8M [00:02<00:19, 3.88MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 14%|█▍        | 11.8M/81.8M [00:03<00:15, 4.60MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 15%|█▌        | 12.5M/81.8M [00:03<00:14, 5.02MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 16%|█▌        | 13.1M/81.8M [00:03<00:13, 5.49MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 17%|█▋        | 13.7M/81.8M [00:03<00:12, 5.62MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 18%|█▊        | 14.5M/81.8M [00:03<00:11, 6.16MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 19%|█▊        | 15.2M/81.8M [00:03<00:10, 6.45MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 20%|█▉        | 16.0M/81.8M [00:03<00:10, 6.87MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 21%|██        | 16.8M/81.8M [00:03<00:09, 7.36MB/s]Mon May 31 00:14:18 2021[1,0]<stderr>:
+ 22%|██▏       | 17.6M/81.8M [00:03<00:08, 7.57MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 23%|██▎       | 18.5M/81.8M [00:03<00:08, 8.01MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 24%|██▎       | 19.4M/81.8M [00:04<00:08, 8.14MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 25%|██▍       | 20.1M/81.8M [00:04<00:08, 8.01MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 26%|██▌       | 20.9M/81.8M [00:04<00:08, 7.64MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 26%|██▋       | 21.7M/81.8M [00:04<00:09, 6.95MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 27%|██▋       | 22.4M/81.8M [00:04<00:10, 5.70MB/s]Mon May 31 00:14:19 2021[1,0]<stderr>:
+ 28%|██▊       | 23.0M/81.8M [00:04<00:13, 4.63MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 29%|██▊       | 23.5M/81.8M [00:04<00:14, 4.34MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 29%|██▉       | 24.0M/81.8M [00:05<00:12, 4.71MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 31%|███       | 25.0M/81.8M [00:05<00:10, 5.59MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 32%|███▏      | 26.1M/81.8M [00:05<00:08, 6.57MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 33%|███▎      | 27.1M/81.8M [00:05<00:07, 7.46MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 34%|███▍      | 28.1M/81.8M [00:05<00:06, 8.19MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 36%|███▌      | 29.1M/81.8M [00:05<00:06, 8.75MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 37%|███▋      | 30.1M/81.8M [00:05<00:05, 9.13MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 38%|███▊      | 31.1M/81.8M [00:05<00:05, 9.34MB/s]Mon May 31 00:14:20 2021[1,0]<stderr>:
+ 39%|███▉      | 32.0M/81.8M [00:05<00:05, 9.48MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 40%|████      | 33.1M/81.8M [00:05<00:05, 9.79MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 42%|████▏     | 34.0M/81.8M [00:06<00:05, 9.86MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 43%|████▎     | 35.0M/81.8M [00:06<00:04, 10.0MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 44%|████▍     | 36.0M/81.8M [00:06<00:04, 9.98MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 45%|████▌     | 37.0M/81.8M [00:06<00:04, 9.99MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 46%|████▋     | 37.9M/81.8M [00:06<00:04, 9.94MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 48%|████▊     | 38.9M/81.8M [00:06<00:04, 9.64MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 49%|████▊     | 39.8M/81.8M [00:06<00:04, 9.42MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 50%|████▉     | 40.7M/81.8M [00:06<00:04, 9.48MB/s]Mon May 31 00:14:21 2021[1,0]<stderr>:
+ 51%|█████     | 41.7M/81.8M [00:06<00:04, 9.44MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 52%|█████▏    | 42.6M/81.8M [00:07<00:04, 9.59MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 53%|█████▎    | 43.6M/81.8M [00:07<00:04, 9.32MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 54%|█████▍    | 44.5M/81.8M [00:07<00:04, 9.03MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 55%|█████▌    | 45.3M/81.8M [00:07<00:04, 8.98MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 56%|█████▋    | 46.2M/81.8M [00:07<00:04, 8.71MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 57%|█████▋    | 47.0M/81.8M [00:07<00:04, 8.67MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 59%|█████▊    | 47.9M/81.8M [00:07<00:04, 8.81MB/s]Mon May 31 00:14:22 2021[1,0]<stderr>:
+ 60%|█████▉    | 48.7M/81.8M [00:07<00:04, 8.41MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 61%|██████    | 49.6M/81.8M [00:07<00:05, 6.24MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 61%|██████▏   | 50.2M/81.8M [00:08<00:05, 5.68MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 62%|██████▏   | 50.8M/81.8M [00:08<00:05, 5.52MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 63%|██████▎   | 51.4M/81.8M [00:08<00:05, 5.58MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 64%|██████▎   | 52.0M/81.8M [00:08<00:05, 5.58MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 64%|██████▍   | 52.6M/81.8M [00:08<00:05, 5.17MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 65%|██████▍   | 53.1M/81.8M [00:08<00:05, 5.21MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 66%|██████▌   | 53.6M/81.8M [00:08<00:05, 5.30MB/s]Mon May 31 00:14:23 2021[1,0]<stderr>:
+ 66%|██████▋   | 54.2M/81.8M [00:08<00:05, 5.53MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 67%|██████▋   | 54.8M/81.8M [00:09<00:04, 5.77MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 68%|██████▊   | 55.4M/81.8M [00:09<00:04, 5.82MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 68%|██████▊   | 56.0M/81.8M [00:09<00:05, 4.89MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 69%|██████▉   | 56.5M/81.8M [00:09<00:06, 4.04MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 70%|███████   | 57.3M/81.8M [00:09<00:05, 4.76MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 71%|███████   | 58.0M/81.8M [00:09<00:04, 5.24MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 72%|███████▏  | 58.6M/81.8M [00:09<00:04, 5.50MB/s]Mon May 31 00:14:24 2021[1,0]<stderr>:
+ 72%|███████▏  | 59.2M/81.8M [00:09<00:04, 5.63MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 73%|███████▎  | 59.8M/81.8M [00:10<00:04, 5.23MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 74%|███████▎  | 60.3M/81.8M [00:10<00:04, 4.89MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 74%|███████▍  | 60.8M/81.8M [00:10<00:04, 4.72MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 75%|███████▍  | 61.3M/81.8M [00:10<00:04, 4.47MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 75%|███████▌  | 61.7M/81.8M [00:10<00:04, 4.40MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 76%|███████▌  | 62.2M/81.8M [00:10<00:04, 4.45MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 77%|███████▋  | 62.6M/81.8M [00:10<00:04, 4.50MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 77%|███████▋  | 63.1M/81.8M [00:10<00:04, 4.66MB/s]Mon May 31 00:14:25 2021[1,0]<stderr>:
+ 79%|███████▉  | 64.7M/81.8M [00:10<00:03, 5.88MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 80%|███████▉  | 65.4M/81.8M [00:11<00:02, 6.23MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 82%|████████▏ | 67.2M/81.8M [00:11<00:01, 7.80MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 84%|████████▎ | 68.3M/81.8M [00:11<00:01, 8.00MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 86%|████████▌ | 69.9M/81.8M [00:11<00:01, 9.48MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 87%|████████▋ | 71.1M/81.8M [00:11<00:01, 9.72MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 89%|████████▊ | 72.6M/81.8M [00:11<00:00, 10.9MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 90%|█████████ | 73.8M/81.8M [00:11<00:00, 11.0MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 92%|█████████▏| 75.2M/81.8M [00:11<00:00, 11.7MB/s]Mon May 31 00:14:26 2021[1,0]<stderr>:
+ 93%|█████████▎| 76.4M/81.8M [00:11<00:00, 11.9MB/s]Mon May 31 00:14:27 2021[1,0]<stderr>:
+ 95%|█████████▌| 77.8M/81.8M [00:12<00:00, 12.3MB/s]Mon May 31 00:14:27 2021[1,0]<stderr>:
+ 97%|█████████▋| 79.0M/81.8M [00:12<00:00, 12.4MB/s]Mon May 31 00:14:27 2021[1,0]<stderr>:
+ 98%|█████████▊| 80.3M/81.8M [00:12<00:00, 12.6MB/s]Mon May 31 00:14:27 2021[1,0]<stderr>:
+100%|█████████▉| 81.6M/81.8M [00:12<00:00, 12.6MB/s]Mon May 31 00:14:27 2021[1,0]<stderr>:
+100%|██████████| 81.8M/81.8M [00:12<00:00, 6.95MB/s]Mon May 31 00:14:27 2021[1,0]<stderr>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:NCCL version 2.7.5+cuda11.0
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:29 2021[1,0]<stdout>:
+Mon May 31 00:14:31 2021[1,0]<stderr>:2021-05-31 00:14:31,456 - mmseg - WARNING - The model and loaded state dict do not match exactly
+Mon May 31 00:14:31 2021[1,0]<stderr>:
+Mon May 31 00:14:31 2021[1,0]<stderr>:unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modules.0.0.bn1.weight, incre_modules.0.0.bn1.bias, incre_modules.0.0.bn1.running_mean, incre_modules.0.0.bn1.running_var, incre_modules.0.0.bn1.num_batches_tracked, incre_modules.0.0.conv2.weight, incre_modules.0.0.bn2.weight, incre_modules.0.0.bn2.bias, incre_modules.0.0.bn2.running_mean, incre_modules.0.0.bn2.running_var, incre_modules.0.0.bn2.num_batches_tracked, incre_modules.0.0.conv3.weight, incre_modules.0.0.bn3.weight, incre_modules.0.0.bn3.bias, incre_modules.0.0.bn3.running_mean, incre_modules.0.0.bn3.running_var, incre_modules.0.0.bn3.num_batches_tracked, incre_modules.0.0.downsample.0.weight, incre_modules.0.0.downsample.1.weight, incre_modules.0.0.downsample.1.bias, incre_modules.0.0.downsample.1.running_mean, incre_modules.0.0.downsample.1.running_var, incre_modules.0.0.downsample.1.num_batches_tracked, incre_modules.1.0.conv1.weight, incre_modules.1.0.bn1.weight, incre_modules.1.0.bn1.bias, incre_modules.1.0.bn1.running_mean, incre_modules.1.0.bn1.running_var, incre_modules.1.0.bn1.num_batches_tracked, incre_modules.1.0.conv2.weight, incre_modules.1.0.bn2.weight, incre_modules.1.0.bn2.bias, incre_modules.1.0.bn2.running_mean, incre_modules.1.0.bn2.running_var, incre_modules.1.0.bn2.num_batches_tracked, incre_modules.1.0.conv3.weight, incre_modules.1.0.bn3.weight, incre_modules.1.0.bn3.bias, incre_modules.1.0.bn3.running_mean, incre_modules.1.0.bn3.running_var, incre_modules.1.0.bn3.num_batches_tracked, incre_modules.1.0.downsample.0.weight, incre_modules.1.0.downsample.1.weight, incre_modules.1.0.downsample.1.bias, incre_modules.1.0.downsample.1.running_mean, incre_modules.1.0.downsample.1.running_var, incre_modules.1.0.downsample.1.num_batches_tracked, incre_modules.2.0.conv1.weight, incre_modules.2.0.bn1.weight, incre_modules.2.0.bn1.bias, incre_modules.2.0.bn1.running_mean, incre_modules.2.0.bn1.running_var, incre_modules.2.0.bn1.num_batches_tracked, incre_modules.2.0.conv2.weight, incre_modules.2.0.bn2.weight, incre_modules.2.0.bn2.bias, incre_modules.2.0.bn2.running_mean, incre_modules.2.0.bn2.running_var, incre_modules.2.0.bn2.num_batches_tracked, incre_modules.2.0.conv3.weight, incre_modules.2.0.bn3.weight, incre_modules.2.0.bn3.bias, incre_modules.2.0.bn3.running_mean, incre_modules.2.0.bn3.running_var, incre_modules.2.0.bn3.num_batches_tracked, incre_modules.2.0.downsample.0.weight, incre_modules.2.0.downsample.1.weight, incre_modules.2.0.downsample.1.bias, incre_modules.2.0.downsample.1.running_mean, incre_modules.2.0.downsample.1.running_var, incre_modules.2.0.downsample.1.num_batches_tracked, incre_modules.3.0.conv1.weight, incre_modules.3.0.bn1.weight, incre_modules.3.0.bn1.bias, incre_modules.3.0.bn1.running_mean, incre_modules.3.0.bn1.running_var, incre_modules.3.0.bn1.num_batches_tracked, incre_modules.3.0.conv2.weight, incre_modules.3.0.bn2.weight, incre_modules.3.0.bn2.bias, incre_modules.3.0.bn2.running_mean, incre_modules.3.0.bn2.running_var, incre_modules.3.0.bn2.num_batches_tracked, incre_modules.3.0.conv3.weight, incre_modules.3.0.bn3.weight, incre_modules.3.0.bn3.bias, incre_modules.3.0.bn3.running_mean, incre_modules.3.0.bn3.running_var, incre_modules.3.0.bn3.num_batches_tracked, incre_modules.3.0.downsample.0.weight, incre_modules.3.0.downsample.1.weight, incre_modules.3.0.downsample.1.bias, incre_modules.3.0.downsample.1.running_mean, incre_modules.3.0.downsample.1.running_var, incre_modules.3.0.downsample.1.num_batches_tracked, downsamp_modules.0.0.weight, downsamp_modules.0.0.bias, downsamp_modules.0.1.weight, downsamp_modules.0.1.bias, downsamp_modules.0.1.running_mean, downsamp_modules.0.1.running_var, downsamp_modules.0.1.num_batches_tracked, downsamp_modules.1.0.weight, downsamp_modules.1.0.bias, downsamp_modules.1.1.weight, downsamp_modules.1.1.bias, downsamp_modules.1.1.running_mean, downsamp_modules.1.1.running_var, downsamp_modules.1.1.num_batches_tracked, downsamp_modules.2.0.weight, downsamp_modulMon May 31 00:14:31 2021[1,0]<stderr>:es.2.0.bias, downsamp_modules.2.1.weight, downsamp_modules.2.1.bias, downsamp_modules.2.1.running_mean, downsamp_modules.2.1.running_var, downsamp_modules.2.1.num_batches_tracked, final_layer.0.weight, final_layer.0.bias, final_layer.1.weight, final_layer.1.bias, final_layer.1.running_mean, final_layer.1.running_var, final_layer.1.num_batches_tracked, classifier.weight, classifier.bias
+Mon May 31 00:14:31 2021[1,0]<stderr>:
+Mon May 31 00:14:31 2021[1,0]<stderr>:2021-05-31 00:14:31,461 - mmseg - INFO - EncoderDecoder(
+Mon May 31 00:14:31 2021[1,0]<stderr>:  (backbone): HRNet(
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (layer1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): Bottleneck(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (downsample): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (1): Bottleneck(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (2): Bottleneck(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (3): Bottleneck(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (transition1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (0): Conv2d(256, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (2): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Conv2d(256, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (stage2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:       Mon May 31 00:14:31 2021[1,0]<stderr>:     )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (transition2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (stage3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_Mon May 31 00:14:31 2021[1,0]<stderr>:stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:   Mon May 31 00:14:31 2021[1,0]<stderr>:             (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (1): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SMon May 31 00:14:31 2021[1,0]<stderr>:yncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleMon May 31 00:14:31 2021[1,0]<stderr>:List(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (2): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, Mon May 31 00:14:31 2021[1,0]<stderr>:3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        Mon May 31 00:14:31 2021[1,0]<stderr>:      (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (3): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2Mon May 31 00:14:31 2021[1,0]<stderr>:): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, epsMon May 31 00:14:31 2021[1,0]<stderr>:=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (transition3): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (stage4): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(Mon May 31 00:14:31 2021[1,0]<stderr>:
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), Mon May 31 00:14:31 2021[1,0]<stderr>:padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Mon May 31 00:14:31 2021[1,0]<stderr>:Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (3): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (1): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>: Mon May 31 00:14:31 2021[1,0]<stderr>:         (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): ConvMon May 31 00:14:31 2021[1,0]<stderr>:2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=Mon May 31 00:14:31 2021[1,0]<stderr>:(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (3): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (2): HRModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (branches): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              Mon May 31 00:14:31 2021[1,0]<stderr>:(relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(18, 18, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            Mon May 31 00:14:31 2021[1,0]<stderr>:  (conv1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): BasicBlock(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (conv2): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (bn2): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (relu): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (fuse_layers): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (0): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(36, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 18, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (1): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 36, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncMon May 31 00:14:31 2021[1,0]<stderr>:BatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (2): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): SyncBatchNorm(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Upsample()
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:          (3): ModuleList(
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 18, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(18, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 36, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (2): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (1): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(36, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (2): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:              (0): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:                (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:              )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            )
+Mon May 31 00:14:31 2021[1,0]<stderr>:            (3): None
+Mon May 31 00:14:31 2021[1,0]<stderr>:          )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        )
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (relu): ReLU()
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:  )
+Mon May 31 00:14:31 2021[1,0]<stderr>:  (decode_head): FCNHead(
+Mon May 31 00:14:31 2021[1,0]<stderr>:    input_transform=resize_concat, ignore_index=255, align_corners=False
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (loss_decode): CrossEntropyLoss()
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (conv_seg): Conv2d(270, 19, kernel_size=(1, 1), stride=(1, 1))
+Mon May 31 00:14:31 2021[1,0]<stderr>:    (convs): Sequential(
+Mon May 31 00:14:31 2021[1,0]<stderr>:      (0): ConvModule(
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (conv): Conv2d(270, 270, kernel_size=(1, 1), stride=(1, 1), bias=False)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (bn): SyncBatchNorm(270, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:        (activate): ReLU(inplace=True)
+Mon May 31 00:14:31 2021[1,0]<stderr>:      )
+Mon May 31 00:14:31 2021[1,0]<stderr>:    )
+Mon May 31 00:14:31 2021[1,0]<stderr>:  )
+Mon May 31 00:14:31 2021[1,0]<stderr>:)
+Mon May 31 00:14:31 2021[1,0]<stderr>:2021-05-31 00:14:31,549 - mmseg - INFO - Loaded 2975 images
+Mon May 31 00:14:32 2021[1,0]<stderr>:2021-05-31 00:14:32,174 - mmseg - INFO - Start running, host: root@localhost, work_dir: /root/paddlejob/workspace/env_run/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes
+Mon May 31 00:14:32 2021[1,0]<stderr>:2021-05-31 00:14:32,174 - mmseg - INFO - workflow: [('train', 1)], max: 10 iters
+Mon May 31 00:15:06 2021[1,0]<stderr>:2021-05-31 00:15:06,527 - mmseg - INFO - Iter [2/10]	lr: 9.104e-03, eta: 0:01:03, time: 7.924, data_time: 0.705, memory: 13657, decode.loss_seg: 2.7773, decode.acc_seg: 7.1027, loss: 2.7773
+Mon May 31 00:15:08 2021[1,0]<stderr>:2021-05-31 00:15:08,237 - mmseg - INFO - Iter [4/10]	lr: 7.282e-03, eta: 0:00:26, time: 0.854, data_time: 0.028, memory: 13657, decode.loss_seg: 2.5726, decode.acc_seg: 30.6998, loss: 2.5726
+Mon May 31 00:15:10 2021[1,0]<stderr>:2021-05-31 00:15:10,099 - mmseg - INFO - Iter [6/10]	lr: 5.405e-03, eta: 0:00:12, time: 0.921, data_time: 0.029, memory: 13657, decode.loss_seg: 2.4339, decode.acc_seg: 31.6898, loss: 2.4339
+Mon May 31 00:15:11 2021[1,0]<stderr>:2021-05-31 00:15:11,837 - mmseg - INFO - Iter [8/10]	lr: 3.450e-03, eta: 0:00:05, time: 0.868, data_time: 0.038, memory: 13657, decode.loss_seg: 2.2048, decode.acc_seg: 37.8229, loss: 2.2048
+Mon May 31 00:15:13 2021[1,0]<stderr>:2021-05-31 00:15:13,568 - mmseg - INFO - Iter [10/10]	lr: 1.346e-03, eta: 0:00:00, time: 0.872, data_time: 0.035, memory: 13657, decode.loss_seg: 2.1168, decode.acc_seg: 32.9700, loss: 2.1168
