@@ -1,6 +1,6 @@
-[1,0]<stdout>:DLL 2021-05-28 09:34:31.187811 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0]  kv_store : horovod  dtype : float32  amp : False  batch_size : 96  num_epochs : 3  run_epochs : -1  lr : 0.096  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-1,96  workspace : ./  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 3  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
-[1,0]<stderr>:[09:34:31[1,0]<stderr>:] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-[1,0]<stderr>:[09:34:33] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[1,0]<stdout>:DLL 2021-06-01 05:09:48.871656 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0]  kv_store : horovod  dtype : float32  amp : False  batch_size : 96  num_epochs : 3  run_epochs : -1  lr : 0.096  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-1,96  workspace : ./  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 3  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
+[1,0]<stderr>:[[1,0]<stderr>:05:09:48] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,0]<stderr>:[05:09:50] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
 [1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
 [1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
 [1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
@@ -15,220 +15,108 @@
 [1,0]<stderr>:  _iterator_deprecation_warning()
 [1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
 [1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,0]<stderr>:2021-05-28 09:34:36,899:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2021-05-28 09:34:36,900:INFO: Starting epoch 0
-[1,0]<stderr>:[09:34:37] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,0]<stdout>:DLL 2021-05-28 09:34:47.776213 - Epoch: 0 Iteration: 19  train.loss : 7.109247636795044  train.ips : 176.53320119789973  train.lr : 0.0010922155688622753 
-[1,0]<stdout>:DLL 2021-05-28 09:34:52.867746 - Epoch: 0 Iteration: 39  train.loss : 7.077702260017395  train.ips : 377.1831382250753  train.lr : 0.002241916167664671 
-[1,0]<stdout>:DLL 2021-05-28 09:34:57.961755 - Epoch: 0 Iteration: 59  train.loss : 7.054965591430664  train.ips : 376.9397490002727  train.lr : 0.003391616766467066 
-[1,0]<stdout>:DLL 2021-05-28 09:35:03.072927 - Epoch: 0 Iteration: 79  train.loss : 7.024885749816894  train.ips : 375.6733916787952  train.lr : 0.004541317365269462 
-[1,0]<stdout>:DLL 2021-05-28 09:35:08.187195 - Epoch: 0 Iteration: 99  train.loss : 6.976577711105347  train.ips : 375.45589136827067  train.lr : 0.005691017964071857 
-[1,0]<stdout>:DLL 2021-05-28 09:35:13.303307 - Epoch: 0 Iteration: 119  train.loss : 6.940174627304077  train.ips : 375.32863973503396  train.lr : 0.0068407185628742515 
-[1,0]<stdout>:DLL 2021-05-28 09:35:18.421153 - Epoch: 0 Iteration: 139  train.loss : 6.93169071674347  train.ips : 375.23470878233314  train.lr : 0.007990419161676646 
-[1,0]<stdout>:DLL 2021-05-28 09:35:23.548408 - Epoch: 0 Iteration: 159  train.loss : 6.891876745223999  train.ips : 374.5010070477063  train.lr : 0.009140119760479041 
-[1,0]<stdout>:DLL 2021-05-28 09:35:28.681528 - Epoch: 0 Iteration: 179  train.loss : 6.8746544361114506  train.ips : 374.0635099356205  train.lr : 0.010289820359281436 
-[1,0]<stdout>:DLL 2021-05-28 09:35:33.810993 - Epoch: 0 Iteration: 199  train.loss : 6.85946934223175  train.ips : 374.33956201920313  train.lr : 0.011439520958083833 
-[1,0]<stdout>:DLL 2021-05-28 09:35:38.935846 - Epoch: 0 Iteration: 219  train.loss : 6.860635685920715  train.ips : 374.6640730236045  train.lr : 0.01258922155688623 
-[1,0]<stdout>:DLL 2021-05-28 09:35:44.062571 - Epoch: 0 Iteration: 239  train.loss : 6.8578211784362795  train.ips : 374.52605272474034  train.lr : 0.013738922155688624 
-[1,0]<stdout>:DLL 2021-05-28 09:35:49.202564 - Epoch: 0 Iteration: 259  train.loss : 6.812794160842896  train.ips : 373.55992604379094  train.lr : 0.014888622754491019 
-[1,0]<stdout>:DLL 2021-05-28 09:35:54.340630 - Epoch: 0 Iteration: 279  train.loss : 6.843675231933593  train.ips : 373.7039808973948  train.lr : 0.016038323353293412 
-[1,0]<stdout>:DLL 2021-05-28 09:35:59.463739 - Epoch: 0 Iteration: 299  train.loss : 6.811371612548828  train.ips : 374.79889822189045  train.lr : 0.01718802395209581 
-[1,0]<stdout>:DLL 2021-05-28 09:36:04.597805 - Epoch: 0 Iteration: 319  train.loss : 6.772523593902588  train.ips : 374.0009870798612  train.lr : 0.018337724550898205 
-[1,0]<stdout>:DLL 2021-05-28 09:36:09.747251 - Epoch: 0 Iteration: 339  train.loss : 6.789898180961609  train.ips : 372.8744428747489  train.lr : 0.0194874251497006 
-[1,0]<stdout>:DLL 2021-05-28 09:36:14.885963 - Epoch: 0 Iteration: 359  train.loss : 6.772801542282105  train.ips : 373.66087414145215  train.lr : 0.020637125748502995 
-[1,0]<stdout>:DLL 2021-05-28 09:36:20.026927 - Epoch: 0 Iteration: 379  train.loss : 6.798625493049622  train.ips : 373.5108237042853  train.lr : 0.021786826347305388 
-[1,0]<stdout>:DLL 2021-05-28 09:36:25.170001 - Epoch: 0 Iteration: 399  train.loss : 6.767580580711365  train.ips : 373.34953872943476  train.lr : 0.02293652694610778 
-[1,0]<stdout>:DLL 2021-05-28 09:36:30.317584 - Epoch: 0 Iteration: 419  train.loss : 6.748815369606018  train.ips : 373.02266915828216  train.lr : 0.02408622754491018 
-[1,0]<stdout>:DLL 2021-05-28 09:36:35.467266 - Epoch: 0 Iteration: 439  train.loss : 6.744209170341492  train.ips : 372.85969923197433  train.lr : 0.025235928143712578 
-[1,0]<stdout>:DLL 2021-05-28 09:36:40.609041 - Epoch: 0 Iteration: 459  train.loss : 6.770486235618591  train.ips : 373.4384412256456  train.lr : 0.02638562874251497 
-[1,0]<stdout>:DLL 2021-05-28 09:36:45.752531 - Epoch: 0 Iteration: 479  train.loss : 6.7307572841644285  train.ips : 373.31907750632433  train.lr : 0.027535329341317367 
-[1,0]<stdout>:DLL 2021-05-28 09:36:50.888848 - Epoch: 0 Iteration: 499  train.loss : 6.720439028739929  train.ips : 373.8373696355191  train.lr : 0.02868502994011976 
-[1,0]<stdout>:DLL 2021-05-28 09:36:50.889171 - Epoch: 0  train.loss : 6.861747166633606  train.ips : 358.2370934819621 
-[1,0]<stderr>:2021-05-28 09:36:50,889:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2021-05-28 09:36:50,889:INFO: Starting epoch 1
-[1,0]<stdout>:DLL 2021-05-28 09:36:56.035718 - Epoch: 1 Iteration: 19  train.loss : 6.671185636520386  train.ips : 373.0787467432887  train.lr : 0.020292215568862276 
-[1,0]<stdout>:DLL 2021-05-28 09:37:01.187555 - Epoch: 1 Iteration: 39  train.loss : 6.665000247955322  train.ips : 372.7065137827658  train.lr : 0.021441916167664672 
-[1,0]<stdout>:DLL 2021-05-28 09:37:06.336941 - Epoch: 1 Iteration: 59  train.loss : 6.64890718460083  train.ips : 372.89289996788324  train.lr : 0.022591616766467065 
-[1,0]<stdout>:DLL 2021-05-28 09:37:11.497578 - Epoch: 1 Iteration: 79  train.loss : 6.598627781867981  train.ips : 372.06594067025117  train.lr : 0.02374131736526946 
-[1,0]<stdout>:DLL 2021-05-28 09:37:16.649831 - Epoch: 1 Iteration: 99  train.loss : 6.660322666168213  train.ips : 372.6755020250563  train.lr : 0.02489101796407186 
-[1,0]<stdout>:DLL 2021-05-28 09:37:21.820934 - Epoch: 1 Iteration: 119  train.loss : 6.6391520500183105  train.ips : 371.34091930151936  train.lr : 0.026040718562874255 
-[1,0]<stdout>:DLL 2021-05-28 09:37:26.993589 - Epoch: 1 Iteration: 139  train.loss : 6.624162125587463  train.ips : 371.2721482163126  train.lr : 0.027190419161676648 
-[1,0]<stdout>:DLL 2021-05-28 09:37:32.155964 - Epoch: 1 Iteration: 159  train.loss : 6.629361391067505  train.ips : 371.9532077050101  train.lr : 0.028340119760479045 
-[1,0]<stdout>:DLL 2021-05-28 09:37:37.325670 - Epoch: 1 Iteration: 179  train.loss : 6.631809997558594  train.ips : 371.41822943890276  train.lr : 0.029489820359281438 
-[1,0]<stdout>:DLL 2021-05-28 09:37:42.487011 - Epoch: 1 Iteration: 199  train.loss : 6.635447311401367  train.ips : 372.0280747082642  train.lr : 0.03063952095808383 
-[1,0]<stdout>:DLL 2021-05-28 09:37:47.656144 - Epoch: 1 Iteration: 219  train.loss : 6.613565802574158  train.ips : 371.4550461305419  train.lr : 0.03178922155688623 
-[1,0]<stdout>:DLL 2021-05-28 09:37:52.834271 - Epoch: 1 Iteration: 239  train.loss : 6.619916939735413  train.ips : 370.81290728143614  train.lr : 0.032938922155688624 
-[1,0]<stdout>:DLL 2021-05-28 09:37:58.002324 - Epoch: 1 Iteration: 259  train.loss : 6.584362006187439  train.ips : 371.5380432247623  train.lr : 0.03408862275449102 
-[1,0]<stdout>:DLL 2021-05-28 09:38:03.177746 - Epoch: 1 Iteration: 279  train.loss : 6.598400044441223  train.ips : 371.0178635418791  train.lr : 0.03523832335329342 
-[1,0]<stdout>:DLL 2021-05-28 09:38:08.365719 - Epoch: 1 Iteration: 299  train.loss : 6.619547414779663  train.ips : 370.1067377001263  train.lr : 0.03638802395209581 
-[1,0]<stdout>:DLL 2021-05-28 09:38:13.542819 - Epoch: 1 Iteration: 319  train.loss : 6.587295889854431  train.ips : 370.8894852487968  train.lr : 0.037537724550898204 
-[1,0]<stdout>:DLL 2021-05-28 09:38:18.728476 - Epoch: 1 Iteration: 339  train.loss : 6.592255973815918  train.ips : 370.2817125869682  train.lr : 0.0386874251497006 
-[1,0]<stdout>:DLL 2021-05-28 09:38:23.909364 - Epoch: 1 Iteration: 359  train.loss : 6.581678414344788  train.ips : 370.6164324678966  train.lr : 0.039837125748503 
-[1,0]<stdout>:DLL 2021-05-28 09:38:29.084385 - Epoch: 1 Iteration: 379  train.loss : 6.590044522285462  train.ips : 371.0510789953806  train.lr : 0.04098682634730539 
-[1,0]<stdout>:DLL 2021-05-28 09:38:34.265101 - Epoch: 1 Iteration: 399  train.loss : 6.503365111351013  train.ips : 370.64210417745284  train.lr : 0.042136526946107776 
-[1,0]<stdout>:DLL 2021-05-28 09:38:39.449443 - Epoch: 1 Iteration: 419  train.loss : 6.564527750015259  train.ips : 370.3680526990065  train.lr : 0.043286227544910176 
-[1,0]<stdout>:DLL 2021-05-28 09:38:44.636681 - Epoch: 1 Iteration: 439  train.loss : 6.579797863960266  train.ips : 370.1743460036794  train.lr : 0.044435928143712576 
-[1,0]<stdout>:DLL 2021-05-28 09:38:49.833086 - Epoch: 1 Iteration: 459  train.loss : 6.588388156890869  train.ips : 369.526839605512  train.lr : 0.04558562874251497 
-[1,0]<stdout>:DLL 2021-05-28 09:38:55.021637 - Epoch: 1 Iteration: 479  train.loss : 6.541983437538147  train.ips : 370.0769733797599  train.lr : 0.04673532934131736 
-[1,0]<stdout>:DLL 2021-05-28 09:39:00.214715 - Epoch: 1 Iteration: 499  train.loss : 6.546350431442261  train.ips : 369.74884596158984  train.lr : 0.04788502994011976 
-[1,0]<stdout>:DLL 2021-05-28 09:39:00.215321 - Epoch: 1  train.loss : 6.604618246078491  train.ips : 371.1551333045224 
-[1,0]<stderr>:2021-05-28 09:39:00,215:INFO: Starting epoch 2
-[1,0]<stdout>:DLL 2021-05-28 09:39:05.412252 - Epoch: 2 Iteration: 19  train.loss : 6.541383290290833  train.ips : 369.47848659358397  train.lr : 0.039492215568862274 
-[1,0]<stdout>:DLL 2021-05-28 09:39:10.591312 - Epoch: 2 Iteration: 39  train.loss : 6.479856276512146  train.ips : 370.80496779874636  train.lr : 0.040641916167664674 
-[1,0]<stdout>:DLL 2021-05-28 09:39:15.765280 - Epoch: 2 Iteration: 59  train.loss : 6.4973924398422245  train.ips : 371.1096094186349  train.lr : 0.04179161676646707 
-[1,0]<stdout>:DLL 2021-05-28 09:39:20.941224 - Epoch: 2 Iteration: 79  train.loss : 6.46949143409729  train.ips : 370.97152911615177  train.lr : 0.04294131736526947 
-[1,0]<stdout>:DLL 2021-05-28 09:39:26.118082 - Epoch: 2 Iteration: 99  train.loss : 6.4868992328643795  train.ips : 370.91970501684165  train.lr : 0.04409101796407185 
-[1,0]<stdout>:DLL 2021-05-28 09:39:31.298409 - Epoch: 2 Iteration: 119  train.loss : 6.4876203536987305  train.ips : 370.6742457358875  train.lr : 0.045240718562874246 
-[1,0]<stdout>:DLL 2021-05-28 09:39:36.480014 - Epoch: 2 Iteration: 139  train.loss : 6.475019955635071  train.ips : 370.5758426035616  train.lr : 0.046390419161676646 
-[1,0]<stdout>:DLL 2021-05-28 09:39:41.655370 - Epoch: 2 Iteration: 159  train.loss : 6.463229560852051  train.ips : 371.0122228049684  train.lr : 0.04754011976047904 
-[1,0]<stdout>:DLL 2021-05-28 09:39:46.828509 - Epoch: 2 Iteration: 179  train.loss : 6.42033634185791  train.ips : 371.17837162160293  train.lr : 0.04868982035928144 
-[1,0]<stdout>:DLL 2021-05-28 09:39:52.001072 - Epoch: 2 Iteration: 199  train.loss : 6.453028225898743  train.ips : 371.2111880406501  train.lr : 0.04983952095808383 
-[1,0]<stdout>:DLL 2021-05-28 09:39:57.165248 - Epoch: 2 Iteration: 219  train.loss : 6.453182172775269  train.ips : 371.8156320619537  train.lr : 0.05098922155688623 
-[1,0]<stdout>:DLL 2021-05-28 09:40:02.335599 - Epoch: 2 Iteration: 239  train.loss : 6.44382483959198  train.ips : 371.37542572024495  train.lr : 0.052138922155688626 
-[1,0]<stdout>:DLL 2021-05-28 09:40:07.504021 - Epoch: 2 Iteration: 259  train.loss : 6.435823774337768  train.ips : 371.51805746632596  train.lr : 0.05328862275449101 
-[1,0]<stdout>:DLL 2021-05-28 09:40:12.671299 - Epoch: 2 Iteration: 279  train.loss : 6.4419420003890995  train.ips : 371.60142566830507  train.lr : 0.05443832335329342 
-[1,0]<stdout>:DLL 2021-05-28 09:40:17.835436 - Epoch: 2 Iteration: 299  train.loss : 6.421795463562011  train.ips : 371.81758910912276  train.lr : 0.05558802395209581 
-[1,0]<stdout>:DLL 2021-05-28 09:40:23.004495 - Epoch: 2 Iteration: 319  train.loss : 6.442477822303772  train.ips : 371.4656350646764  train.lr : 0.056737724550898205 
-[1,0]<stdout>:DLL 2021-05-28 09:40:28.179106 - Epoch: 2 Iteration: 339  train.loss : 6.445917320251465  train.ips : 371.07115132842006  train.lr : 0.0578874251497006 
-[1,0]<stdout>:DLL 2021-05-28 09:40:33.354671 - Epoch: 2 Iteration: 359  train.loss : 6.392257118225098  train.ips : 370.9947888843045  train.lr : 0.05903712574850299 
-[1,0]<stdout>:DLL 2021-05-28 09:40:38.518625 - Epoch: 2 Iteration: 379  train.loss : 6.42833948135376  train.ips : 371.82783819259026  train.lr : 0.06018682634730539 
-[1,0]<stdout>:DLL 2021-05-28 09:40:43.692302 - Epoch: 2 Iteration: 399  train.loss : 6.403968238830567  train.ips : 371.13163791774906  train.lr : 0.061336526946107785 
-[1,0]<stdout>:DLL 2021-05-28 09:40:48.856054 - Epoch: 2 Iteration: 419  train.loss : 6.430225443840027  train.ips : 371.85201247322067  train.lr : 0.06248622754491018 
-[1,0]<stdout>:DLL 2021-05-28 09:40:54.028926 - Epoch: 2 Iteration: 439  train.loss : 6.397998332977295  train.ips : 371.19833795910193  train.lr : 0.06363592814371258 
-[1,0]<stdout>:DLL 2021-05-28 09:40:59.195314 - Epoch: 2 Iteration: 459  train.loss : 6.366108131408692  train.ips : 371.65618479598095  train.lr : 0.06478562874251496 
-[1,0]<stdout>:DLL 2021-05-28 09:41:04.360413 - Epoch: 2 Iteration: 479  train.loss : 6.3798998355865475  train.ips : 371.74934496603066  train.lr : 0.06593532934131736 
-[1,0]<stdout>:DLL 2021-05-28 09:41:09.538431 - Epoch: 2 Iteration: 499  train.loss : 6.36918523311615  train.ips : 370.8255599338791  train.lr : 0.06708502994011976 
-[1,0]<stdout>:DLL 2021-05-28 09:41:09.539014 - Epoch: 2  train.loss : 6.441088092803955  train.ips : 371.16242336319345 
-[1,0]<stdout>:DLL 2021-05-28 09:41:09.708730 - Summary: train.loss : 6.441088092803955  train.ips : 366.8515500498927 
-[1,0]<stdout>:DLL 2021-05-28 09:41:16.225100 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0, 1, 2, 3, 4, 5, 6, 7]  kv_store : horovod  dtype : float32  amp : False  batch_size : 768  num_epochs : 3  run_epochs : -1  lr : 0.768  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-8,96  workspace : ./  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 3  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
-[1,3]<stderr>:[09:41:16] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-[1,5]<stderr>:[09:41:16] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for [1,5]<stderr>:CPU
-[1,0]<stderr>:[09:41:16] ../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
-[1,1]<stderr>:[09:41:16] ../src/storage/storage.cc:199: Using [1,1]<stderr>:Pooled (Naive) StorageManager for CPU
-[1,2]<stderr>:[[1,2]<stderr>:09:41:16[1,2]<stderr>:] [1,2]<stderr>:../src/storage/storage.cc[1,2]<stderr>::[1,2]<stderr>:199[1,2]<stderr>:: [1,2]<stderr>:Using [1,2]<stderr>:Pooled (Naive)[1,2]<stderr>: StorageManager for [1,2]<stderr>:CPU[1,2]<stderr>:
-[1,7]<stderr>:[[1,7]<stderr>:09:41:16] ../src/storage/storage.cc:[1,7]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
-[1,4]<stderr>:[[1,4]<stderr>:09:41:16[1,4]<stderr>:] [1,4]<stderr>:../src/storage/storage.cc[1,4]<stderr>::[1,4]<stderr>:199[1,4]<stderr>:: [1,4]<stderr>:Using [1,4]<stderr>:Pooled (Naive)[1,4]<stderr>: StorageManager for [1,4]<stderr>:CPU[1,4]<stderr>:
-[1,6]<stderr>:[[1,6]<stderr>:09:41:16[1,6]<stderr>:] [1,6]<stderr>:../src/storage/storage.cc[1,6]<stderr>::[1,6]<stderr>:199[1,6]<stderr>:: [1,6]<stderr>:Using [1,6]<stderr>:Pooled (Naive)[1,6]<stderr>: StorageManager for [1,6]<stderr>:CPU[1,6]<stderr>:
-[1,7]<stderr>:[09:41:20] ../src/storage/storage.cc:[1,7]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
-[1,1]<stderr>:[09:41:21] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
-[1,2]<stderr>:[09:41:21] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU[1,2]<stderr>:
-[1,3]<stderr>:[[1,3]<stderr>:09:41:21] ../src/storage/storage.cc:[1,3]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
-[1,0]<stderr>:[[1,0]<stderr>:09:41:21] [1,0]<stderr>:../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for GPU[1,0]<stderr>:
-[1,6]<stderr>:[[1,6]<stderr>:09:41:21] ../src/storage/storage.cc:[1,6]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
-[1,4]<stderr>:[[1,4]<stderr>:09:41:21] ../src/storage/storage.cc:[1,4]<stderr>:199: Using Pooled (Naive)[1,4]<stderr>: StorageManager for GPU
-[1,5]<stderr>:[[1,5]<stderr>:09:41:21] ../src/storage/storage.cc:[1,5]<stderr>:199: Using Pooled (Naive) StorageManager for GPU[1,5]<stderr>:
-[1,1]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,1]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,1]<stderr>:  _iterator_deprecation_warning()
-[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,1]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,1]<stderr>:2021-05-28 09:41:26,101:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,1]<stderr>:2021-05-28 09:41:26,102:INFO: Starting epoch 0
-[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,0]<stderr>:  _iterator_deprecation_warning()
-[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,0]<stderr>:2021-05-28 09:41:26,108:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2021-05-28 09:41:26,108:INFO: Starting epoch 0
-[1,7]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,7]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,7]<stderr>:  _iterator_deprecation_warning()
-[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,7]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,7]<stderr>:2021-05-28 09:41:26,179:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,7]<stderr>:2021-05-28 09:41:26,179:INFO: Starting epoch 0
-[1,2]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,2]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,2]<stderr>:  _iterator_deprecation_warning()
-[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,2]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,2]<stderr>:2021-05-28 09:41:26,233:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,2]<stderr>:2021-05-28 09:41:26,233:INFO: Starting epoch 0
-[1,6]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,6]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,6]<stderr>:  _iterator_deprecation_warning()
-[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,6]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,6]<stderr>:2021-05-28 09:41:26,241:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,6]<stderr>:2021-05-28 09:41:26,241:INFO: Starting epoch 0
-[1,4]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,4]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,4]<stderr>:  _iterator_deprecation_warning()
-[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,4]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,4]<stderr>:2021-05-28 09:41:26,390:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,4]<stderr>:2021-05-28 09:41:26,390:INFO: Starting epoch 0
-[1,5]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,5]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,5]<stderr>:  _iterator_deprecation_warning()
-[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,5]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,5]<stderr>:2021-05-28 09:41:26,586:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,5]<stderr>:2021-05-28 09:41:26,586:INFO: Starting epoch 0
+[1,0]<stderr>:2021-06-01 05:09:54,700:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2021-06-01 05:09:54,701:INFO: Starting epoch 0
+[1,0]<stderr>:[05:09:55] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,0]<stdout>:DLL 2021-06-01 05:10:05.355821 - Epoch: 0 Iteration: 19  train.loss : 7.10924768447876  train.ips : 180.1985990805312  train.lr : 0.0010922155688622753 
+[1,0]<stdout>:DLL 2021-06-01 05:10:10.431327 - Epoch: 0 Iteration: 39  train.loss : 7.0777798891067505  train.ips : 378.3622517642827  train.lr : 0.002241916167664671 
+[1,0]<stdout>:DLL 2021-06-01 05:10:15.515590 - Epoch: 0 Iteration: 59  train.loss : 7.054994130134583  train.ips : 377.6614206081825  train.lr : 0.003391616766467066 
+[1,0]<stdout>:DLL 2021-06-01 05:10:20.595901 - Epoch: 0 Iteration: 79  train.loss : 7.024603104591369  train.ips : 377.9483802531441  train.lr : 0.004541317365269462 
+[1,0]<stdout>:DLL 2021-06-01 05:10:25.701316 - Epoch: 0 Iteration: 99  train.loss : 6.978341722488404  train.ips : 376.0950619571201  train.lr : 0.005691017964071857 
+[1,0]<stdout>:DLL 2021-06-01 05:10:30.802826 - Epoch: 0 Iteration: 119  train.loss : 6.944556522369385  train.ips : 376.39794085359534  train.lr : 0.0068407185628742515 
+[1,0]<stdout>:DLL 2021-06-01 05:10:35.914045 - Epoch: 0 Iteration: 139  train.loss : 6.93245370388031  train.ips : 375.67666889530005  train.lr : 0.007990419161676646 
+[1,0]<stdout>:DLL 2021-06-01 05:10:41.018287 - Epoch: 0 Iteration: 159  train.loss : 6.89790632724762  train.ips : 376.1850309344693  train.lr : 0.009140119760479041 
+[1,0]<stdout>:DLL 2021-06-01 05:10:46.130024 - Epoch: 0 Iteration: 179  train.loss : 6.872444033622742  train.ips : 375.64260265601894  train.lr : 0.010289820359281436 
+[1,0]<stdout>:DLL 2021-06-01 05:10:51.245909 - Epoch: 0 Iteration: 199  train.loss : 6.861011958122253  train.ips : 375.3319459257813  train.lr : 0.011439520958083833 
+[1,0]<stdout>:DLL 2021-06-01 05:10:56.361560 - Epoch: 0 Iteration: 219  train.loss : 6.863228154182434  train.ips : 375.3401329345149  train.lr : 0.01258922155688623 
+[1,0]<stdout>:DLL 2021-06-01 05:11:01.482918 - Epoch: 0 Iteration: 239  train.loss : 6.862673878669739  train.ips : 374.9219157841623  train.lr : 0.013738922155688624 
+[1,0]<stdout>:DLL 2021-06-01 05:11:06.606978 - Epoch: 0 Iteration: 259  train.loss : 6.808923983573914  train.ips : 374.7290671637329  train.lr : 0.014888622754491019 
+[1,0]<stdout>:DLL 2021-06-01 05:11:11.737823 - Epoch: 0 Iteration: 279  train.loss : 6.83887894153595  train.ips : 374.22763846057546  train.lr : 0.016038323353293412 
+[1,0]<stdout>:DLL 2021-06-01 05:11:16.858759 - Epoch: 0 Iteration: 299  train.loss : 6.815996670722962  train.ips : 374.9507886219422  train.lr : 0.01718802395209581 
+[1,0]<stdout>:DLL 2021-06-01 05:11:21.998519 - Epoch: 0 Iteration: 319  train.loss : 6.77588632106781  train.ips : 373.58014942623913  train.lr : 0.018337724550898205 
+[1,0]<stdout>:DLL 2021-06-01 05:11:27.141090 - Epoch: 0 Iteration: 339  train.loss : 6.786384510993957  train.ips : 373.38114750297945  train.lr : 0.0194874251497006 
+[1,0]<stdout>:DLL 2021-06-01 05:11:32.281346 - Epoch: 0 Iteration: 359  train.loss : 6.772744274139404  train.ips : 373.5445390242647  train.lr : 0.020637125748502995 
+[1,0]<stdout>:DLL 2021-06-01 05:11:37.435785 - Epoch: 0 Iteration: 379  train.loss : 6.795470571517944  train.ips : 372.5129730907416  train.lr : 0.021786826347305388 
+[1,0]<stdout>:DLL 2021-06-01 05:11:42.586237 - Epoch: 0 Iteration: 399  train.loss : 6.765649771690368  train.ips : 372.80572396928807  train.lr : 0.02293652694610778 
+[1,0]<stdout>:DLL 2021-06-01 05:11:47.744106 - Epoch: 0 Iteration: 419  train.loss : 6.749428415298462  train.ips : 372.27550295857986  train.lr : 0.02408622754491018 
+[1,0]<stdout>:DLL 2021-06-01 05:11:52.901737 - Epoch: 0 Iteration: 439  train.loss : 6.745044779777527  train.ips : 372.28474467954385  train.lr : 0.025235928143712578 
+[1,0]<stdout>:DLL 2021-06-01 05:11:58.065528 - Epoch: 0 Iteration: 459  train.loss : 6.775762057304382  train.ips : 371.83867159018484  train.lr : 0.02638562874251497 
+[1,0]<stdout>:DLL 2021-06-01 05:12:03.220982 - Epoch: 0 Iteration: 479  train.loss : 6.732827258110047  train.ips : 372.4405634098285  train.lr : 0.027535329341317367 
+[1,0]<stdout>:DLL 2021-06-01 05:12:08.397770 - Epoch: 0 Iteration: 499  train.loss : 6.724885153770447  train.ips : 370.91633942873995  train.lr : 0.02868502994011976 
+[1,0]<stdout>:DLL 2021-06-01 05:12:08.398202 - Epoch: 0  train.loss : 6.862684952735901  train.ips : 359.01921309584736 
+[1,0]<stderr>:2021-06-01 05:12:08,398:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2021-06-01 05:12:08,399:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2021-06-01 05:12:13.582310 - Epoch: 1 Iteration: 19  train.loss : 6.67410454750061  train.ips : 370.37307767291645  train.lr : 0.020292215568862276 
+[1,0]<stdout>:DLL 2021-06-01 05:12:18.745882 - Epoch: 1 Iteration: 39  train.loss : 6.6671209812164305  train.ips : 371.8569404288784  train.lr : 0.021441916167664672 
+[1,0]<stdout>:DLL 2021-06-01 05:12:23.908442 - Epoch: 1 Iteration: 59  train.loss : 6.652960276603698  train.ips : 371.92738841377525  train.lr : 0.022591616766467065 
+[1,0]<stdout>:DLL 2021-06-01 05:12:29.081334 - Epoch: 1 Iteration: 79  train.loss : 6.597232913970947  train.ips : 371.1880722216668  train.lr : 0.02374131736526946 
+[1,0]<stdout>:DLL 2021-06-01 05:12:34.254103 - Epoch: 1 Iteration: 99  train.loss : 6.661436533927917  train.ips : 371.1985090595366  train.lr : 0.02489101796407186 
+[1,0]<stdout>:DLL 2021-06-01 05:12:39.429928 - Epoch: 1 Iteration: 119  train.loss : 6.640393161773682  train.ips : 370.9837653388919  train.lr : 0.026040718562874255 
+[1,0]<stdout>:DLL 2021-06-01 05:12:44.608317 - Epoch: 1 Iteration: 139  train.loss : 6.625959491729736  train.ips : 370.79177022823933  train.lr : 0.027190419161676648 
+[1,0]<stdout>:DLL 2021-06-01 05:12:49.768575 - Epoch: 1 Iteration: 159  train.loss : 6.625098443031311  train.ips : 372.0936016162587  train.lr : 0.028340119760479045 
+[1,0]<stdout>:DLL 2021-06-01 05:12:54.947417 - Epoch: 1 Iteration: 179  train.loss : 6.632914781570435  train.ips : 370.7531731533917  train.lr : 0.029489820359281438 
+[1,0]<stdout>:DLL 2021-06-01 05:13:00.137331 - Epoch: 1 Iteration: 199  train.loss : 6.643287444114685  train.ips : 369.9711702256834  train.lr : 0.03063952095808383 
+[1,0]<stdout>:DLL 2021-06-01 05:13:05.322266 - Epoch: 1 Iteration: 219  train.loss : 6.605783152580261  train.ips : 370.3327454564008  train.lr : 0.03178922155688623 
+[1,0]<stdout>:DLL 2021-06-01 05:13:10.511143 - Epoch: 1 Iteration: 239  train.loss : 6.618060445785522  train.ips : 370.0448502943081  train.lr : 0.032938922155688624 
+[1,0]<stdout>:DLL 2021-06-01 05:13:15.688467 - Epoch: 1 Iteration: 259  train.loss : 6.584447455406189  train.ips : 370.86656319204485  train.lr : 0.03408862275449102 
+[1,0]<stdout>:DLL 2021-06-01 05:13:20.864216 - Epoch: 1 Iteration: 279  train.loss : 6.6026582479476925  train.ips : 370.98091128738616  train.lr : 0.03523832335329342 
+[1,0]<stdout>:DLL 2021-06-01 05:13:26.044824 - Epoch: 1 Iteration: 299  train.loss : 6.61783881187439  train.ips : 370.63671367635897  train.lr : 0.03638802395209581 
+[1,0]<stdout>:DLL 2021-06-01 05:13:31.241168 - Epoch: 1 Iteration: 319  train.loss : 6.596274375915527  train.ips : 369.5174460595059  train.lr : 0.037537724550898204 
+[1,0]<stdout>:DLL 2021-06-01 05:13:36.406222 - Epoch: 1 Iteration: 339  train.loss : 6.592847585678101  train.ips : 371.7516102146176  train.lr : 0.0386874251497006 
+[1,0]<stdout>:DLL 2021-06-01 05:13:41.590895 - Epoch: 1 Iteration: 359  train.loss : 6.580128717422485  train.ips : 370.34158440929906  train.lr : 0.039837125748503 
+[1,0]<stdout>:DLL 2021-06-01 05:13:46.765207 - Epoch: 1 Iteration: 379  train.loss : 6.591642928123474  train.ips : 371.0863523509169  train.lr : 0.04098682634730539 
+[1,0]<stdout>:DLL 2021-06-01 05:13:51.944382 - Epoch: 1 Iteration: 399  train.loss : 6.502375984191895  train.ips : 370.7452703649899  train.lr : 0.042136526946107776 
+[1,0]<stdout>:DLL 2021-06-01 05:13:57.115381 - Epoch: 1 Iteration: 419  train.loss : 6.5668810367584225  train.ips : 371.3198761028846  train.lr : 0.043286227544910176 
+[1,0]<stdout>:DLL 2021-06-01 05:14:02.291503 - Epoch: 1 Iteration: 439  train.loss : 6.575141644477844  train.ips : 370.9537230943791  train.lr : 0.044435928143712576 
+[1,0]<stdout>:DLL 2021-06-01 05:14:07.473323 - Epoch: 1 Iteration: 459  train.loss : 6.589802408218384  train.ips : 370.5486966985582  train.lr : 0.04558562874251497 
+[1,0]<stdout>:DLL 2021-06-01 05:14:12.661816 - Epoch: 1 Iteration: 479  train.loss : 6.544607615470886  train.ips : 370.0759869871044  train.lr : 0.04673532934131736 
+[1,0]<stdout>:DLL 2021-06-01 05:14:17.848471 - Epoch: 1 Iteration: 499  train.loss : 6.550023436546326  train.ips : 370.1985610224957  train.lr : 0.04788502994011976 
+[1,0]<stdout>:DLL 2021-06-01 05:14:17.848783 - Epoch: 1  train.loss : 6.605560896873474  train.ips : 370.7983221155442 
+[1,0]<stderr>:2021-06-01 05:14:17,849:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2021-06-01 05:14:23.028164 - Epoch: 2 Iteration: 19  train.loss : 6.5516445398330685  train.ips : 370.7105055110816  train.lr : 0.039492215568862274 
+[1,0]<stdout>:DLL 2021-06-01 05:14:28.195960 - Epoch: 2 Iteration: 39  train.loss : 6.480487585067749  train.ips : 371.5549110953595  train.lr : 0.040641916167664674 
+[1,0]<stdout>:DLL 2021-06-01 05:14:33.388672 - Epoch: 2 Iteration: 59  train.loss : 6.4999815940856935  train.ips : 369.77752178194163  train.lr : 0.04179161676646707 
+[1,0]<stdout>:DLL 2021-06-01 05:14:38.589240 - Epoch: 2 Iteration: 79  train.loss : 6.46984441280365  train.ips : 369.2093517380577  train.lr : 0.04294131736526947 
+[1,0]<stdout>:DLL 2021-06-01 05:14:43.776685 - Epoch: 2 Iteration: 99  train.loss : 6.488030815124512  train.ips : 370.145795750633  train.lr : 0.04409101796407185 
+[1,0]<stdout>:DLL 2021-06-01 05:14:48.960969 - Epoch: 2 Iteration: 119  train.loss : 6.488725972175598  train.ips : 370.38539369406953  train.lr : 0.045240718562874246 
+[1,0]<stdout>:DLL 2021-06-01 05:14:54.138542 - Epoch: 2 Iteration: 139  train.loss : 6.480525660514831  train.ips : 370.84938204768855  train.lr : 0.046390419161676646 
+[1,0]<stdout>:DLL 2021-06-01 05:14:59.317412 - Epoch: 2 Iteration: 159  train.loss : 6.461719274520874  train.ips : 370.75484592502534  train.lr : 0.04754011976047904 
+[1,0]<stdout>:DLL 2021-06-01 05:15:04.508877 - Epoch: 2 Iteration: 179  train.loss : 6.42621419429779  train.ips : 369.85759653617987  train.lr : 0.04868982035928144 
+[1,0]<stdout>:DLL 2021-06-01 05:15:09.708358 - Epoch: 2 Iteration: 199  train.loss : 6.449724102020264  train.ips : 369.291449817229  train.lr : 0.04983952095808383 
+[1,0]<stdout>:DLL 2021-06-01 05:15:14.895853 - Epoch: 2 Iteration: 219  train.loss : 6.445104455947876  train.ips : 370.150865736178  train.lr : 0.05098922155688623 
+[1,0]<stdout>:DLL 2021-06-01 05:15:20.084541 - Epoch: 2 Iteration: 239  train.loss : 6.4389225244522095  train.ips : 370.056804396128  train.lr : 0.052138922155688626 
+[1,0]<stdout>:DLL 2021-06-01 05:15:25.287365 - Epoch: 2 Iteration: 259  train.loss : 6.441977190971374  train.ips : 369.05948868364766  train.lr : 0.05328862275449101 
+[1,0]<stdout>:DLL 2021-06-01 05:15:30.488964 - Epoch: 2 Iteration: 279  train.loss : 6.445406746864319  train.ips : 369.1413001491084  train.lr : 0.05443832335329342 
+[1,0]<stdout>:DLL 2021-06-01 05:15:35.682406 - Epoch: 2 Iteration: 299  train.loss : 6.420055627822876  train.ips : 369.72275466020074  train.lr : 0.05558802395209581 
+[1,0]<stdout>:DLL 2021-06-01 05:15:40.876006 - Epoch: 2 Iteration: 319  train.loss : 6.446362137794495  train.ips : 369.71540494535094  train.lr : 0.056737724550898205 
+[1,0]<stdout>:DLL 2021-06-01 05:15:46.072018 - Epoch: 2 Iteration: 339  train.loss : 6.454976058006286  train.ips : 369.53307962569573  train.lr : 0.0578874251497006 
+[1,0]<stdout>:DLL 2021-06-01 05:15:51.264787 - Epoch: 2 Iteration: 359  train.loss : 6.403338861465454  train.ips : 369.76704584822573  train.lr : 0.05903712574850299 
+[1,0]<stdout>:DLL 2021-06-01 05:15:56.466268 - Epoch: 2 Iteration: 379  train.loss : 6.435645055770874  train.ips : 369.1537543712607  train.lr : 0.06018682634730539 
+[1,0]<stdout>:DLL 2021-06-01 05:16:01.663783 - Epoch: 2 Iteration: 399  train.loss : 6.411230564117432  train.ips : 369.42782445247883  train.lr : 0.061336526946107785 
+[1,0]<stdout>:DLL 2021-06-01 05:16:06.864441 - Epoch: 2 Iteration: 419  train.loss : 6.435193014144898  train.ips : 369.2031734258707  train.lr : 0.06248622754491018 
+[1,0]<stdout>:DLL 2021-06-01 05:16:12.057077 - Epoch: 2 Iteration: 439  train.loss : 6.395954513549805  train.ips : 369.77679167331513  train.lr : 0.06363592814371258 
+[1,0]<stdout>:DLL 2021-06-01 05:16:17.263245 - Epoch: 2 Iteration: 459  train.loss : 6.371044087409973  train.ips : 368.82320725538625  train.lr : 0.06478562874251496 
+[1,0]<stdout>:DLL 2021-06-01 05:16:22.454878 - Epoch: 2 Iteration: 479  train.loss : 6.38780517578125  train.ips : 369.84805028056655  train.lr : 0.06593532934131736 
+[1,0]<stdout>:DLL 2021-06-01 05:16:27.654689 - Epoch: 2 Iteration: 499  train.loss : 6.374119997024536  train.ips : 369.2660325899802  train.lr : 0.06708502994011976 
+[1,0]<stdout>:DLL 2021-06-01 05:16:27.655136 - Epoch: 2  train.loss : 6.4441613664627075  train.ips : 369.78204580302315 
+[1,0]<stdout>:DLL 2021-06-01 05:16:27.826680 - Summary: train.loss : 6.4441613664627075  train.ips : 366.5331936714715 
+[1,0]<stdout>:DLL 2021-06-01 05:16:34.514097 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0, 1, 2, 3, 4, 5, 6, 7]  kv_store : horovod  dtype : float32  amp : False  batch_size : 768  num_epochs : 3  run_epochs : -1  lr : 0.768  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-8,96  workspace : ./  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 3  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
+[1,4]<stderr>:[05:16:34[1,4]<stderr>:] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,6]<stderr>:[05:16:34] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for [1,6]<stderr>:CPU
+[1,1]<stderr>:[05:16:34] ../src/storage/storage.cc:[1,1]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
+[1,0]<stderr>:[05:16:34] ../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
+[1,2]<stderr>:[05:16:34] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,5]<stderr>:[05:16:34] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,7]<stderr>:[05:16:34] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,3]<stderr>:[05:16:34[1,3]<stderr>:] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
+[1,0]<stderr>:[[1,0]<stderr>:05:16:39] ../src/storage/storage.cc:199: Using [1,0]<stderr>:Pooled (Naive) StorageManager for GPU
+[1,3]<stderr>:[05:16:39] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[1,7]<stderr>:[05:16:39] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[1,6]<stderr>:[[1,6]<stderr>:05:16:39] ../src/storage/storage.cc:[1,6]<stderr>:199: Using Pooled (Naive) StorageManager for [1,6]<stderr>:GPU
+[1,1]<stderr>:[[1,1]<stderr>:05:16:39] ../src/storage/storage.cc:[1,1]<stderr>:199: Using Pooled (Naive)[1,1]<stderr>: StorageManager for GPU
+[1,2]<stderr>:[[1,2]<stderr>:05:16:39] ../src/storage/storage.cc:[1,2]<stderr>:199: Using Pooled (Naive) StorageManager for [1,2]<stderr>:GPU
+[1,5]<stderr>:[05:16:39] [1,5]<stderr>:../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
+[1,4]<stderr>:[[1,4]<stderr>:05:16:39] ../src/storage/storage.cc:[1,4]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
 [1,3]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
 [1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
 [1,3]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
@@ -243,129 +131,235 @@
 [1,3]<stderr>:  _iterator_deprecation_warning()
 [1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
 [1,3]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,3]<stderr>:2021-05-28 09:41:26,668:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,3]<stderr>:2021-05-28 09:41:26,669:INFO: Starting epoch 0
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 12049, errno = 1
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 12833, errno = 1
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 11841, errno = 1
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 11057, errno = 1
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 10617, errno = 1
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 13281, errno = 1
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 12953, errno = 1
-[1,7]<stderr>:[6389caacd155:03289] Read -1, expected 7160, errno = 1
-[1,3]<stderr>:[6389caacd155:03285] Read -1, expected 7160, errno = 1
-[1,5]<stderr>:[6389caacd155:03287] Read -1, expected 7160, errno = 1
-[1,1]<stderr>:[6389caacd155:03283] Read -1, expected 7160, errno = 1
-[1,6]<stderr>:[6389caacd155:03288] Read -1, expected 7161, errno = 1
-[1,2]<stderr>:[6389caacd155:03284] Read -1, expected 7161, errno = 1
-[1,4]<stderr>:[6389caacd155:03286] Read -1, expected 7161, errno = 1
-[1,3]<stderr>:[[1,3]<stderr>:09:41:30[1,3]<stderr>:] [1,3]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,3]<stderr>::[1,3]<stderr>:120[1,3]<stderr>:: [1,3]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,3]<stderr>:
-[1,0]<stderr>:[09:41:31] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: [1,0]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,6]<stderr>:[[1,6]<stderr>:09:41:31[1,6]<stderr>:] [1,6]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,6]<stderr>::[1,6]<stderr>:120[1,6]<stderr>:: [1,6]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,6]<stderr>:
-[1,4]<stderr>:[[1,4]<stderr>:09:41:31] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,4]<stderr>:
-[1,2]<stderr>:[[1,2]<stderr>:09:41:31] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,2]<stderr>::120: [1,2]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,1]<stderr>:[[1,1]<stderr>:09:41:31[1,1]<stderr>:] [1,1]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,1]<stderr>::[1,1]<stderr>:120[1,1]<stderr>:: [1,1]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,1]<stderr>:
-[1,5]<stderr>:[[1,5]<stderr>:09:41:31[1,5]<stderr>:] [1,5]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,5]<stderr>::[1,5]<stderr>:120[1,5]<stderr>:: [1,5]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,5]<stderr>:
-[1,7]<stderr>:[09:41:31[1,7]<stderr>:] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,0]<stderr>:[6389caacd155:03282] Read -1, expected 7681, errno = 1
-[1,0]<stdout>:DLL 2021-05-28 09:41:49.397077 - Epoch: 0 Iteration: 19  train.loss : 7.020129728317261  train.ips : 659.5459672488017  train.lr : 0.06948571428571429 
-[1,0]<stdout>:DLL 2021-05-28 09:41:54.995206 - Epoch: 0 Iteration: 39  train.loss : 6.860834455490112  train.ips : 2743.976715056005  train.lr : 0.14262857142857144 
-[1,0]<stdout>:DLL 2021-05-28 09:42:00.475665 - Epoch: 0 Iteration: 59  train.loss : 6.774098682403564  train.ips : 2802.908967001516  train.lr : 0.21577142857142856 
-[1,0]<stdout>:DLL 2021-05-28 09:42:06.221946 - Epoch: 0 Iteration: 79  train.loss : 6.697233033180237  train.ips : 2673.1533790534213  train.lr : 0.28891428571428573 
-[1,0]<stdout>:DLL 2021-05-28 09:42:11.892743 - Epoch: 0 Iteration: 99  train.loss : 6.619764447212219  train.ips : 2708.7331584258327  train.lr : 0.36205714285714286 
-[1,0]<stdout>:DLL 2021-05-28 09:42:17.497311 - Epoch: 0 Iteration: 119  train.loss : 6.636063718795777  train.ips : 2740.729539473953  train.lr : 0.43520000000000003 
-[1,0]<stdout>:DLL 2021-05-28 09:42:23.168049 - Epoch: 0 Iteration: 139  train.loss : 6.48054072856903  train.ips : 2708.770286710119  train.lr : 0.5083428571428572 
-[1,0]<stdout>:DLL 2021-05-28 09:42:28.902800 - Epoch: 0 Iteration: 159  train.loss : 6.475040006637573  train.ips : 2678.4934582937826  train.lr : 0.5814857142857143 
-[1,0]<stdout>:DLL 2021-05-28 09:42:34.594699 - Epoch: 0 Iteration: 179  train.loss : 6.421786785125732  train.ips : 2698.66807055723  train.lr : 0.6546285714285714 
-[1,0]<stdout>:DLL 2021-05-28 09:42:40.337395 - Epoch: 0 Iteration: 199  train.loss : 6.331347537040711  train.ips : 2674.808280696539  train.lr : 0.7277714285714285 
-[1,0]<stdout>:DLL 2021-05-28 09:42:46.108832 - Epoch: 0 Iteration: 219  train.loss : 6.311296987533569  train.ips : 2661.4618847044694  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:42:51.852837 - Epoch: 0 Iteration: 239  train.loss : 6.289458322525024  train.ips : 2674.256456194059  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:42:57.559327 - Epoch: 0 Iteration: 259  train.loss : 6.326748633384705  train.ips : 2691.753967343396  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:03.288741 - Epoch: 0 Iteration: 279  train.loss : 6.302648043632507  train.ips : 2680.9948266497368  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:09.075506 - Epoch: 0 Iteration: 299  train.loss : 6.2581006526947025  train.ips : 2654.4406726447146  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:14.823308 - Epoch: 0 Iteration: 319  train.loss : 6.259428238868713  train.ips : 2672.401464997372  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:20.580537 - Epoch: 0 Iteration: 339  train.loss : 6.295400857925415  train.ips : 2668.0282282641942  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:26.345451 - Epoch: 0 Iteration: 359  train.loss : 6.3014970302581785  train.ips : 2664.4829571258783  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:32.096503 - Epoch: 0 Iteration: 379  train.loss : 6.308769607543946  train.ips : 2670.9223800622344  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:37.800888 - Epoch: 0 Iteration: 399  train.loss : 6.297218894958496  train.ips : 2692.745604093289  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:43.568506 - Epoch: 0 Iteration: 419  train.loss : 6.294883108139038  train.ips : 2663.2347753273075  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:49.257172 - Epoch: 0 Iteration: 439  train.loss : 6.285993504524231  train.ips : 2700.215739764365  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:43:55.065706 - Epoch: 0 Iteration: 459  train.loss : 6.31629581451416  train.ips : 2644.469351013341  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:44:00.839332 - Epoch: 0 Iteration: 479  train.loss : 6.308709883689881  train.ips : 2660.4651350254667  train.lr : 0 
-[1,4]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
-[1,5]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
-[1,2]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
-[1,3]<stderr>:2021-05-28 09:44:06,712:INFO: Starting epoch 1
-[1,1]<stderr>:2021-05-28 09:44:06,714:INFO: Starting epoch 1
-[1,6]<stderr>:2021-05-28 09:44:06,713:INFO: Starting epoch 1
-[1,7]<stderr>:2021-05-28 09:44:06,715:INFO: Starting epoch 1
-[1,0]<stdout>:DLL 2021-05-28 09:44:06.716238 - Epoch: 0 Iteration: 499  train.loss : 6.307731008529663  train.ips : 2613.7241111546114  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:44:06.716509 - Epoch: 0  train.loss : 6.431240788459778  train.ips : 2390.9104638708013 
-[1,0]<stderr>:2021-05-28 09:44:06,716:INFO: Starting epoch 1
-[1,0]<stdout>:DLL 2021-05-28 09:44:12.512610 - Epoch: 1 Iteration: 19  train.loss : 6.239793419837952  train.ips : 2650.0957780907047  train.lr : 0.22308571428571428 
-[1,0]<stdout>:DLL 2021-05-28 09:44:18.380929 - Epoch: 1 Iteration: 39  train.loss : 6.170048713684082  train.ips : 2617.525746715595  train.lr : 0.2962285714285714 
-[1,0]<stdout>:DLL 2021-05-28 09:44:24.267417 - Epoch: 1 Iteration: 59  train.loss : 6.157049298286438  train.ips : 2609.4592733922036  train.lr : 0.3693714285714286 
-[1,0]<stdout>:DLL 2021-05-28 09:44:30.129575 - Epoch: 1 Iteration: 79  train.loss : 6.064148020744324  train.ips : 2620.301507995509  train.lr : 0.44251428571428575 
-[1,0]<stdout>:DLL 2021-05-28 09:44:36.041300 - Epoch: 1 Iteration: 99  train.loss : 6.146742415428162  train.ips : 2598.303301679164  train.lr : 0.5156571428571428 
-[1,0]<stdout>:DLL 2021-05-28 09:44:41.932396 - Epoch: 1 Iteration: 119  train.loss : 6.119830632209778  train.ips : 2607.418336290521  train.lr : 0.5888000000000001 
-[1,0]<stdout>:DLL 2021-05-28 09:44:47.786741 - Epoch: 1 Iteration: 139  train.loss : 6.113266658782959  train.ips : 2623.7928298496186  train.lr : 0.6619428571428572 
-[1,0]<stdout>:DLL 2021-05-28 09:44:53.678679 - Epoch: 1 Iteration: 159  train.loss : 6.066377711296082  train.ips : 2607.0469284160363  train.lr : 0.7350857142857142 
-[1,0]<stdout>:DLL 2021-05-28 09:44:59.594655 - Epoch: 1 Iteration: 179  train.loss : 6.022965979576111  train.ips : 2596.444886334898  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:05.512626 - Epoch: 1 Iteration: 199  train.loss : 6.0480858325958256  train.ips : 2595.568384854029  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:11.371938 - Epoch: 1 Iteration: 219  train.loss : 6.049123239517212  train.ips : 2621.5689663444136  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:17.261576 - Epoch: 1 Iteration: 239  train.loss : 6.047817349433899  train.ips : 2608.041526247643  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:23.175476 - Epoch: 1 Iteration: 259  train.loss : 6.011501574516297  train.ips : 2597.354546130759  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:29.100051 - Epoch: 1 Iteration: 279  train.loss : 6.054743862152099  train.ips : 2592.6948045179756  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:35.017992 - Epoch: 1 Iteration: 299  train.loss : 6.061690139770508  train.ips : 2595.566920852192  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:40.760756 - Epoch: 1 Iteration: 319  train.loss : 6.024531841278076  train.ips : 2674.7567526341622  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:46.691477 - Epoch: 1 Iteration: 339  train.loss : 6.081398677825928  train.ips : 2590.030609429898  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:52.634063 - Epoch: 1 Iteration: 359  train.loss : 6.049860715866089  train.ips : 2584.8178555160675  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:45:58.591842 - Epoch: 1 Iteration: 379  train.loss : 6.085769128799439  train.ips : 2578.2436138410376  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:46:04.294440 - Epoch: 1 Iteration: 399  train.loss : 6.011412286758423  train.ips : 2693.5903200427765  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:46:10.198687 - Epoch: 1 Iteration: 419  train.loss : 6.034331154823303  train.ips : 2601.6629786778317  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:46:16.122176 - Epoch: 1 Iteration: 439  train.loss : 6.095763635635376  train.ips : 2593.159410340242  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:46:22.208490 - Epoch: 1 Iteration: 459  train.loss : 6.075186491012573  train.ips : 2523.7940428918587  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:46:28.162016 - Epoch: 1 Iteration: 479  train.loss : 6.070958757400513  train.ips : 2580.0509478340364  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:46:33.909186 - Epoch: 1 Iteration: 499  train.loss : 6.092525935173034  train.ips : 2672.7043530875726  train.lr : 0 
-[1,4]<stderr>:2021-05-28 09:46:33,909:INFO: Starting epoch 2
-[1,0]<stdout>:DLL 2021-05-28 09:46:33.909392 - Epoch: 1  train.loss : 6.0797969388961794  train.ips : 2608.8235230803666 
-[1,0]<stderr>:2021-05-28 09:46:33,909:INFO: Starting epoch 2
-[1,5]<stderr>:2021-05-28 09:46:33,909:INFO: Starting epoch 2
-[1,6]<stderr>:2021-05-28 09:46:33,910:INFO: Starting epoch 2
-[1,2]<stderr>:2021-05-28 09:46:33,910:INFO: Starting epoch 2
-[1,1]<stderr>:2021-05-28 09:46:33,911:INFO: Starting epoch 2
-[1,3]<stderr>:2021-05-28 09:46:33,912:INFO: Starting epoch 2
-[1,7]<stderr>:2021-05-28 09:46:33,912:INFO: Starting epoch 2
-[1,0]<stdout>:DLL 2021-05-28 09:46:39.833540 - Epoch: 2 Iteration: 19  train.loss : 6.1147300720214846  train.ips : 2592.818036153878  train.lr : 0.37668571428571435 
-[1,0]<stdout>:DLL 2021-05-28 09:46:45.651483 - Epoch: 2 Iteration: 39  train.loss : 5.954317855834961  train.ips : 2640.2134907023205  train.lr : 0.4498285714285715 
-[1,0]<stdout>:DLL 2021-05-28 09:46:51.512375 - Epoch: 2 Iteration: 59  train.loss : 5.956040859222412  train.ips : 2620.8409902407966  train.lr : 0.5229714285714285 
-[1,0]<stdout>:DLL 2021-05-28 09:46:57.413512 - Epoch: 2 Iteration: 79  train.loss : 5.847063517570495  train.ips : 2602.9628403164984  train.lr : 0.5961142857142857 
-[1,0]<stdout>:DLL 2021-05-28 09:47:03.115458 - Epoch: 2 Iteration: 99  train.loss : 5.866199493408203  train.ips : 2693.8978052207362  train.lr : 0.6692571428571429 
-[1,0]<stdout>:DLL 2021-05-28 09:47:08.958551 - Epoch: 2 Iteration: 119  train.loss : 5.9078408002853395  train.ips : 2628.8406742712455  train.lr : 0.7424000000000002 
-[1,0]<stdout>:DLL 2021-05-28 09:47:14.781858 - Epoch: 2 Iteration: 139  train.loss : 5.95194981098175  train.ips : 2637.7774550504764  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:20.583570 - Epoch: 2 Iteration: 159  train.loss : 5.889734387397766  train.ips : 2647.5745644660446  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:26.518003 - Epoch: 2 Iteration: 179  train.loss : 5.825269341468811  train.ips : 2588.414335549282  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:32.492680 - Epoch: 2 Iteration: 199  train.loss : 5.903691124916077  train.ips : 2570.916716269675  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:38.323108 - Epoch: 2 Iteration: 219  train.loss : 5.894426798820495  train.ips : 2634.545405473222  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:44.171408 - Epoch: 2 Iteration: 239  train.loss : 5.898609089851379  train.ips : 2626.5282572561837  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:50.174847 - Epoch: 2 Iteration: 259  train.loss : 5.908939838409424  train.ips : 2558.619011162574  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:47:55.928646 - Epoch: 2 Iteration: 279  train.loss : 5.892929196357727  train.ips : 2669.6264533258723  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:01.840891 - Epoch: 2 Iteration: 299  train.loss : 5.936789393424988  train.ips : 2598.105993127075  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:07.615957 - Epoch: 2 Iteration: 319  train.loss : 5.920028042793274  train.ips : 2659.7863352699724  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:13.442574 - Epoch: 2 Iteration: 339  train.loss : 5.9352481126785275  train.ips : 2636.27375978999  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:19.251096 - Epoch: 2 Iteration: 359  train.loss : 5.863740277290344  train.ips : 2644.49301491411  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:25.133552 - Epoch: 2 Iteration: 379  train.loss : 5.9273371458053585  train.ips : 2611.2355049993635  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:30.842475 - Epoch: 2 Iteration: 399  train.loss : 5.893128132820129  train.ips : 2690.6003402565157  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:36.666399 - Epoch: 2 Iteration: 419  train.loss : 5.972978925704956  train.ips : 2637.4963600840206  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:42.648580 - Epoch: 2 Iteration: 439  train.loss : 5.8902973413467405  train.ips : 2567.730180977632  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:48.356224 - Epoch: 2 Iteration: 459  train.loss : 5.9025228261947635  train.ips : 2691.2110930623494  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:48:54.190450 - Epoch: 2 Iteration: 479  train.loss : 5.913335371017456  train.ips : 2632.81501212514  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:49:00.166083 - Epoch: 2 Iteration: 499  train.loss : 5.922242045402527  train.ips : 2570.519018175154  train.lr : 0 
-[1,0]<stdout>:DLL 2021-05-28 09:49:00.166346 - Epoch: 2  train.loss : 5.915575592041016  train.ips : 2625.5176930674925 
-[1,0]<stdout>:DLL 2021-05-28 09:49:00.344695 - Summary: train.loss : 5.915575592041016  train.ips : 2541.75056000622 
+[1,3]<stderr>:2021-06-01 05:16:44,445:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,3]<stderr>:2021-06-01 05:16:44,446:INFO: Starting epoch 0
+[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,0]<stderr>:  _iterator_deprecation_warning()
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,0]<stderr>:2021-06-01 05:16:44,540:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2021-06-01 05:16:44,541:INFO: Starting epoch 0
+[1,2]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,2]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,2]<stderr>:  _iterator_deprecation_warning()
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,2]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,2]<stderr>:2021-06-01 05:16:44,562:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,2]<stderr>:2021-06-01 05:16:44,563:INFO: Starting epoch 0
+[1,4]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,4]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,4]<stderr>:  _iterator_deprecation_warning()
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,4]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,4]<stderr>:2021-06-01 05:16:44,837:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,4]<stderr>:2021-06-01 05:16:44,838:INFO: Starting epoch 0
+[1,5]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,5]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,5]<stderr>:  _iterator_deprecation_warning()
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,5]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,5]<stderr>:2021-06-01 05:16:44,907:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,5]<stderr>:2021-06-01 05:16:44,907:INFO: Starting epoch 0
+[1,1]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,1]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,1]<stderr>:  _iterator_deprecation_warning()
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,1]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,1]<stderr>:2021-06-01 05:16:45,012:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,1]<stderr>:2021-06-01 05:16:45,013:INFO: Starting epoch 0
+[1,7]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,7]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,7]<stderr>:  _iterator_deprecation_warning()
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,7]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,7]<stderr>:2021-06-01 05:16:45,090:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,7]<stderr>:2021-06-01 05:16:45,109:INFO: Starting epoch 0
+[1,6]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:65: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:100: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:176: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,6]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,6]<stderr>:  _iterator_deprecation_warning()
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,6]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,6]<stderr>:2021-06-01 05:16:45,130:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,6]<stderr>:2021-06-01 05:16:45,130:INFO: Starting epoch 0
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 4321, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 4545, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 7329, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 4441, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 7577, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 6905, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 8817, errno = 1
+[1,2]<stderr>:[[1,2]<stderr>:05:16:48[1,2]<stderr>:] [1,2]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,2]<stderr>::[1,2]<stderr>:120[1,2]<stderr>:: [1,2]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,2]<stderr>:
+[1,3]<stderr>:[05:16:48] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,4]<stderr>:[[1,4]<stderr>:05:16:48[1,4]<stderr>:] [1,4]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,4]<stderr>::[1,4]<stderr>:120[1,4]<stderr>:: [1,4]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,4]<stderr>:
+[1,7]<stderr>:[05:16:49] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,6]<stderr>:[[1,6]<stderr>:05:16:49] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,1]<stderr>:[[1,1]<stderr>:05:16:49] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120[1,1]<stderr>:: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,5]<stderr>:[05:16:49] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,0]<stderr>:[[1,0]<stderr>:05:16:49] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,0]<stderr>:
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 6097, errno = 1
+[1,0]<stderr>:[6389caacd155:09427] Read -1, expected 5289, errno = 1
+[1,0]<stdout>:DLL 2021-06-01 05:17:08.405554 - Epoch: 0 Iteration: 19  train.loss : 7.020083212852478  train.ips : 643.6324785705717  train.lr : 0.06948571428571429 
+[1,0]<stdout>:DLL 2021-06-01 05:17:14.349553 - Epoch: 0 Iteration: 39  train.loss : 6.8575903415679935  train.ips : 2584.4282864129163  train.lr : 0.14262857142857144 
+[1,0]<stdout>:DLL 2021-06-01 05:17:19.870982 - Epoch: 0 Iteration: 59  train.loss : 6.777332878112793  train.ips : 2782.0093476225848  train.lr : 0.21577142857142856 
+[1,0]<stdout>:DLL 2021-06-01 05:17:25.356702 - Epoch: 0 Iteration: 79  train.loss : 6.698018288612365  train.ips : 2800.144988851926  train.lr : 0.28891428571428573 
+[1,0]<stdout>:DLL 2021-06-01 05:17:31.004758 - Epoch: 0 Iteration: 99  train.loss : 6.611727476119995  train.ips : 2719.6555760582537  train.lr : 0.36205714285714286 
+[1,0]<stdout>:DLL 2021-06-01 05:17:36.949060 - Epoch: 0 Iteration: 119  train.loss : 6.632210206985474  train.ips : 2584.103925208544  train.lr : 0.43520000000000003 
+[1,0]<stdout>:DLL 2021-06-01 05:17:42.859637 - Epoch: 0 Iteration: 139  train.loss : 6.482747960090637  train.ips : 2598.84655272532  train.lr : 0.5083428571428572 
+[1,0]<stdout>:DLL 2021-06-01 05:17:48.531261 - Epoch: 0 Iteration: 159  train.loss : 6.479751658439636  train.ips : 2708.314567593741  train.lr : 0.5814857142857143 
+[1,0]<stdout>:DLL 2021-06-01 05:17:54.031738 - Epoch: 0 Iteration: 179  train.loss : 6.418173694610596  train.ips : 2792.6381743302645  train.lr : 0.6546285714285714 
+[1,0]<stdout>:DLL 2021-06-01 05:17:59.488765 - Epoch: 0 Iteration: 199  train.loss : 6.34260048866272  train.ips : 2814.859664031871  train.lr : 0.7277714285714285 
+[1,0]<stdout>:DLL 2021-06-01 05:18:05.022315 - Epoch: 0 Iteration: 219  train.loss : 6.314433574676514  train.ips : 2775.9117637250006  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:10.577217 - Epoch: 0 Iteration: 239  train.loss : 6.313427686691284  train.ips : 2765.2714729632726  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:16.133277 - Epoch: 0 Iteration: 259  train.loss : 6.3293956279754635  train.ips : 2764.693322475598  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:21.610426 - Epoch: 0 Iteration: 279  train.loss : 6.3113960981369015  train.ips : 2804.526047160538  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:27.054475 - Epoch: 0 Iteration: 299  train.loss : 6.278957343101501  train.ips : 2821.5629330918573  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:32.702580 - Epoch: 0 Iteration: 319  train.loss : 6.280152153968811  train.ips : 2719.5970246263337  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:38.414480 - Epoch: 0 Iteration: 339  train.loss : 6.303945183753967  train.ips : 2689.23776757963  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:44.202189 - Epoch: 0 Iteration: 359  train.loss : 6.307539057731629  train.ips : 2654.004033375328  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:50.133151 - Epoch: 0 Iteration: 379  train.loss : 6.321034693717957  train.ips : 2589.9332553942077  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:18:56.176628 - Epoch: 0 Iteration: 399  train.loss : 6.2996727466583256  train.ips : 2541.7034651976896  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:19:02.101881 - Epoch: 0 Iteration: 419  train.loss : 6.310633587837219  train.ips : 2592.4120734046314  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:19:07.859068 - Epoch: 0 Iteration: 439  train.loss : 6.2953791379928585  train.ips : 2668.105022217398  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:19:13.682271 - Epoch: 0 Iteration: 459  train.loss : 6.330184555053711  train.ips : 2637.824652050161  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:19:19.545698 - Epoch: 0 Iteration: 479  train.loss : 6.318062686920166  train.ips : 2619.745203084967  train.lr : 0 
+[1,4]<stderr>:2021-06-01 05:19:25,499:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2021-06-01 05:19:25.500495 - Epoch: 0 Iteration: 499  train.loss : 6.321493482589721  train.ips : 2579.639986426005  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:19:25.500877 - Epoch: 0  train.loss : 6.438237752914429  train.ips : 2385.684216199262 
+[1,1]<stderr>:2021-06-01 05:19:25,500:INFO: Starting epoch 1
+[1,0]<stderr>:2021-06-01 05:19:25,501:INFO: Starting epoch 1
+[1,5]<stderr>:2021-06-01 05:19:25,502:INFO: Starting epoch 1
+[1,6]<stderr>:2021-06-01 05:19:25,502:INFO: Starting epoch 1
+[1,3]<stderr>:2021-06-01 05:19:25,503:INFO: Starting epoch 1
+[1,7]<stderr>:2021-06-01 05:19:25,503:INFO: Starting epoch 1
+[1,2]<stderr>:2021-06-01 05:19:25,525:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2021-06-01 05:19:31.303339 - Epoch: 1 Iteration: 19  train.loss : 6.210736656188965  train.ips : 2647.1918469568363  train.lr : 0.22308571428571428 
+[1,0]<stdout>:DLL 2021-06-01 05:19:37.034483 - Epoch: 1 Iteration: 39  train.loss : 6.154779171943664  train.ips : 2680.1965700461446  train.lr : 0.2962285714285714 
+[1,0]<stdout>:DLL 2021-06-01 05:19:42.946402 - Epoch: 1 Iteration: 59  train.loss : 6.157625389099121  train.ips : 2598.2740650104615  train.lr : 0.3693714285714286 
+[1,0]<stdout>:DLL 2021-06-01 05:19:48.757929 - Epoch: 1 Iteration: 79  train.loss : 6.068229031562805  train.ips : 2643.142896223984  train.lr : 0.44251428571428575 
+[1,0]<stdout>:DLL 2021-06-01 05:19:54.530570 - Epoch: 1 Iteration: 99  train.loss : 6.154982113838196  train.ips : 2660.9150032224475  train.lr : 0.5156571428571428 
+[1,0]<stdout>:DLL 2021-06-01 05:20:00.193521 - Epoch: 1 Iteration: 119  train.loss : 6.12959897518158  train.ips : 2712.481181531696  train.lr : 0.5888000000000001 
+[1,0]<stdout>:DLL 2021-06-01 05:20:05.936393 - Epoch: 1 Iteration: 139  train.loss : 6.108702158927917  train.ips : 2674.9000144447778  train.lr : 0.6619428571428572 
+[1,0]<stdout>:DLL 2021-06-01 05:20:11.571016 - Epoch: 1 Iteration: 159  train.loss : 6.070199298858642  train.ips : 2726.1041637416624  train.lr : 0.7350857142857142 
+[1,0]<stdout>:DLL 2021-06-01 05:20:17.270707 - Epoch: 1 Iteration: 179  train.loss : 6.011976003646851  train.ips : 2695.012999536542  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:23.153969 - Epoch: 1 Iteration: 199  train.loss : 6.0463975191116335  train.ips : 2610.8891437004613  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:28.922584 - Epoch: 1 Iteration: 219  train.loss : 6.044344067573547  train.ips : 2662.8050336140104  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:34.736726 - Epoch: 1 Iteration: 239  train.loss : 6.046278953552246  train.ips : 2641.9301159567026  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:40.550860 - Epoch: 1 Iteration: 259  train.loss : 6.015253186225891  train.ips : 2641.965543831988  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:46.253459 - Epoch: 1 Iteration: 279  train.loss : 6.0434787511825565  train.ips : 2693.6159974371885  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:51.934410 - Epoch: 1 Iteration: 299  train.loss : 6.067991328239441  train.ips : 2703.883471031335  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:20:57.744001 - Epoch: 1 Iteration: 319  train.loss : 6.026661467552185  train.ips : 2644.008423626686  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:03.372746 - Epoch: 1 Iteration: 339  train.loss : 6.0831399202346805  train.ips : 2728.9491134056534  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:09.068026 - Epoch: 1 Iteration: 359  train.loss : 6.048625040054321  train.ips : 2697.0885263410537  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:14.911743 - Epoch: 1 Iteration: 379  train.loss : 6.078319454193116  train.ips : 2628.5565473221504  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:20.708516 - Epoch: 1 Iteration: 399  train.loss : 6.012750720977783  train.ips : 2649.843767641338  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:26.299881 - Epoch: 1 Iteration: 419  train.loss : 6.036688256263733  train.ips : 2747.2094531504154  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:32.104481 - Epoch: 1 Iteration: 439  train.loss : 6.089782810211181  train.ips : 2646.2576021696314  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:37.738312 - Epoch: 1 Iteration: 459  train.loss : 6.074683022499085  train.ips : 2726.482116807319  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:43.487833 - Epoch: 1 Iteration: 479  train.loss : 6.06849467754364  train.ips : 2671.6424399967555  train.lr : 0 
+[1,4]<stderr>:2021-06-01 05:21:49,135:INFO: Starting epoch 2
+[1,1]<stderr>:2021-06-01 05:21:49,137:INFO: Starting epoch 2
+[1,7]<stderr>:2021-06-01 05:21:49,137:INFO: Starting epoch 2
+[1,5]<stderr>:2021-06-01 05:21:49,137:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2021-06-01 05:21:49.138208 - Epoch: 1 Iteration: 499  train.loss : 6.083362436294555  train.ips : 2718.512098156651  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:21:49.138528 - Epoch: 1  train.loss : 6.077323216438294  train.ips : 2673.3955142242 
+[1,3]<stderr>:2021-06-01 05:21:49,139:INFO: Starting epoch 2
+[1,0]<stderr>:2021-06-01 05:21:49,139:INFO: Starting epoch 2
+[1,2]<stderr>:2021-06-01 05:21:49,139:INFO: Starting epoch 2
+[1,6]<stderr>:2021-06-01 05:21:49,153:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2021-06-01 05:21:54.922146 - Epoch: 2 Iteration: 19  train.loss : 6.106345629692077  train.ips : 2655.8230529422417  train.lr : 0.37668571428571435 
+[1,0]<stdout>:DLL 2021-06-01 05:22:00.614199 - Epoch: 2 Iteration: 39  train.loss : 5.956260418891906  train.ips : 2698.5947069442063  train.lr : 0.4498285714285715 
+[1,0]<stdout>:DLL 2021-06-01 05:22:06.436957 - Epoch: 2 Iteration: 59  train.loss : 5.966768980026245  train.ips : 2638.058717962903  train.lr : 0.5229714285714285 
+[1,0]<stdout>:DLL 2021-06-01 05:22:12.222385 - Epoch: 2 Iteration: 79  train.loss : 5.849158811569214  train.ips : 2655.097378215103  train.lr : 0.5961142857142857 
+[1,0]<stdout>:DLL 2021-06-01 05:22:18.058582 - Epoch: 2 Iteration: 99  train.loss : 5.87346830368042  train.ips : 2631.9610974190896  train.lr : 0.6692571428571429 
+[1,0]<stdout>:DLL 2021-06-01 05:22:23.901991 - Epoch: 2 Iteration: 119  train.loss : 5.905289554595948  train.ips : 2628.6950099746323  train.lr : 0.7424000000000002 
+[1,0]<stdout>:DLL 2021-06-01 05:22:29.564012 - Epoch: 2 Iteration: 139  train.loss : 5.952954912185669  train.ips : 2712.9291646590627  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:22:35.217212 - Epoch: 2 Iteration: 159  train.loss : 5.892023968696594  train.ips : 2717.1297107079386  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:22:41.018265 - Epoch: 2 Iteration: 179  train.loss : 5.824491548538208  train.ips : 2647.9724120481133  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:22:46.828953 - Epoch: 2 Iteration: 199  train.loss : 5.909846401214599  train.ips : 2643.520864237049  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:22:52.598406 - Epoch: 2 Iteration: 219  train.loss : 5.881953382492066  train.ips : 2662.4057975386663  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:22:58.246653 - Epoch: 2 Iteration: 239  train.loss : 5.894704341888428  train.ips : 2719.563616997763  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:04.034271 - Epoch: 2 Iteration: 259  train.loss : 5.914513397216797  train.ips : 2654.0236041614253  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:09.812784 - Epoch: 2 Iteration: 279  train.loss : 5.886115002632141  train.ips : 2658.219060951849  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:15.637604 - Epoch: 2 Iteration: 299  train.loss : 5.929350209236145  train.ips : 2637.0962567724873  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:21.578660 - Epoch: 2 Iteration: 319  train.loss : 5.913257837295532  train.ips : 2585.478742808462  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:27.382125 - Epoch: 2 Iteration: 339  train.loss : 5.926004457473755  train.ips : 2646.7738996567405  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:33.256129 - Epoch: 2 Iteration: 359  train.loss : 5.856076312065125  train.ips : 2615.0001790025394  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:38.920308 - Epoch: 2 Iteration: 379  train.loss : 5.927080035209656  train.ips : 2711.9008054269916  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:44.683762 - Epoch: 2 Iteration: 399  train.loss : 5.891609048843383  train.ips : 2665.1642667939723  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:50.455833 - Epoch: 2 Iteration: 419  train.loss : 5.976100873947144  train.ips : 2661.2148533146205  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:23:56.269053 - Epoch: 2 Iteration: 439  train.loss : 5.885858082771302  train.ips : 2642.3351554818446  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:24:01.963090 - Epoch: 2 Iteration: 459  train.loss : 5.903800296783447  train.ips : 2697.648120328961  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:24:07.787151 - Epoch: 2 Iteration: 479  train.loss : 5.92095685005188  train.ips : 2637.44755523023  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:24:13.476722 - Epoch: 2 Iteration: 499  train.loss : 5.922633576393127  train.ips : 2699.769229889206  train.lr : 0 
+[1,0]<stdout>:DLL 2021-06-01 05:24:13.476965 - Epoch: 2  train.loss : 5.914664889335632  train.ips : 2660.415731319178 
+[1,0]<stdout>:DLL 2021-06-01 05:24:13.669697 - Summary: train.loss : 5.914664889335632  train.ips : 2573.1651539142135 
 train.ips
            |     96    |
 ------------------------
-     1     |   371.16  |
-     8     |   2617.1  |
+     1     |   370.29  |
+     8     |   2666.9  |
 
