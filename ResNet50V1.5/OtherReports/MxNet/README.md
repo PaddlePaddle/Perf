@@ -24,11 +24,12 @@
 我们使用了与Paddle测试完全相同的物理机环境：
 
 - 单机（单卡、8卡）
-  - 系统：CentOS Linux release 7.5.1804
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-16GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 450.80.02
-  - 内存：432 GB
+  - Driver Version: 460.32.03
+  - 内存：502 GB
+
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -41,8 +42,8 @@
 
 我们使用 NGC MxNet 的代码仓库提供的Dockerfile制作镜像：
 
-- Docker: nvcr.io/nvidia/mxnet:19.07-py3
-- MxNet：1.5.0
+- Docker: nvcr.io/nvidia/mxnet:20.12-py3
+- MxNet：1.8.0
 - 模型代码：[NVIDIA/DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5)
 - CUDA：10.1
 - cuDNN：7.6.1
@@ -59,7 +60,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/MxNet/Classification/RN50v1.5
    # 本次测试是在如下版本下完成的：
-   git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+   git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
    ```
 
 - 制作Docker镜像
@@ -114,8 +115,8 @@
 
 |卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=192)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 387.1 | 1380.6 | 1447.6 |
-|8 | 2998.1 | 9218.9 | 9765.6 |
+|1 | 370.29  | 1313.60 | 1394.40 |
+|8 | 2666.90   | 7942.80  | 8939.50 |
 |32 | - | - | - |
 
 ## 五、日志数据
