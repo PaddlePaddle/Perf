@@ -51,25 +51,60 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
 
 ## 二、环境搭建
 
+## 二、环境搭建
+
 ### 1. 单机（单卡、8卡）环境搭建
 
-我们遵循了 NGC PyTorch 官网提供的 [Quick Start Guide](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Translation/Transformer#quick-start-guide) 教程搭建了测试环境，主要过程如下：
+我们遵循了 NGC PyTorch 官网提供的 [Quick Start Guide](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT#quick-start-guide) 教程搭建了测试环境，主要过程如下：
 
-- **拉取代码**
+- **拉取镜像**
 
-    ```bash
+```bash
     git clone https://github.com/NVIDIA/DeepLearningExamples
-    cd DeepLearningExamples/PyTorch/Translation/Transformer
+    cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
-    ```
+    git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+```
 
 - **构建镜像**
 
-    ```bash
-    docker build . -t your.repository:transformer   # 构建镜像
-    nvidia-docker run -it --rm --ipc=host your.repository:transformer bash  # 启动容器
-    ```
+```bash
+    bash scripts/docker/build.sh   # 构建镜像
+```
+在此基础上，我们修改了一部分代码，以达到AI-Rank要求的输出和更方便的配置，并在不影响原始代码性能和精度的前提下修复了原始代码的[bug](https://github.com/open-mmlab/mmsegmentation/pull/522), 最终使用的代码是[sljlp/mmsegmentation](https://github.com/sljlp/mmsegmentation)
+
+- **从[mmsegmentation](https://github.com/sljlp/mmsegmentation)拉取模型代码**
+
+```bash
+    cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
+    git clone https://github.com/sljlp/mmsegmentation.git
+    cd mmsegmentation
+    # 本次测试是在如下版本下完成的：
+    git checkout 3e46c1b200bd29008e95626a527032c2c364917a
+```
+
+- **启动镜像**
+```bash
+    bash scripts/docker/launch.sh  # 启动容器
+```
+    我们将 `launch.sh` 脚本中的 `docker` 命令换为了 `nvidia-docker` 启动的支持 GPU 的容器，同时将`BERT`(即`$pwd`)目录替换为`mmsegmentation`目录，其他均保持不变，脚本如下：
+```bash
+    #!/bin/bash
+
+    CMD=${1:-/bin/bash}
+    NV_VISIBLE_DEVICES=${2:-"all"}
+    DOCKER_BRIDGE=${3:-"host"}
+
+    nvidia-docker run --name test_bert_torch -it  \
+    --net=$DOCKER_BRIDGE \
+    --shm-size=1g \
+    --ulimit memlock=-1 \
+    --ulimit stack=67108864 \
+    -e LD_LIBRARY_PATH='/workspace/install/lib/' \
+    -v $PWD/mmsegmentation:/workspace/mmsegmentation \
+    -v $PWD/mmsegmentation/results:/results \
+    mmsegmentation $CMD
+```  
 
 - **准备数据**
 

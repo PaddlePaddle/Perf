@@ -164,7 +164,7 @@ DeepLabV3P测试目录位于`/workspace/models/`。详细的测试方法在该�
 
 - FP32测试
 
-  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
+  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=4 | 6.3 | 4.3  |
   | GPU=8,BS=4 | 46  | 16.84  |
@@ -173,7 +173,7 @@ DeepLabV3P测试目录位于`/workspace/models/`。详细的测试方法在该�
 
 - AMP测试
 
-  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
+  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=4 | 17.0  | 8.33 |
   | GPU=8,BS=4 | 99.2  | 58.18  |

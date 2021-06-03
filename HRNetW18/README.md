@@ -159,7 +159,7 @@ HRNetW18测试目录位于`/workspace/models/`。详细的测试方法在该目�
 - 说明：
   - 同等执行环境下测试
   - 单位：`samples/sec`
-  - BatchSize FP32下选择 8, AMP下选择 8
+  - BatchSize FP32、AMP下均选择8
 
 
 - FP32测试
