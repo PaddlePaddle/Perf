@@ -1,0 +1,99 @@
+-----------  Configuration Arguments -----------
+gpus: 0,1,2,3,4,5,6,7
+heter_worker_num: None
+heter_workers: 
+http_port: None
+ips: 127.0.0.1
+log_dir: log
+nproc_per_node: None
+run_mode: None
+server_num: None
+servers: 
+training_script: train.py
+training_script_args: ['--config', 'benchmark/hrnet.yml', '--iters', '10', '--log_iters', '2', '--batch_size', '8', '--num_workers', '8']
+worker_num: None
+workers: 
+------------------------------------------------
+launch train in GPU mode!
+launch proc_id:4776 idx:0
+launch proc_id:4781 idx:1
+launch proc_id:4786 idx:2
+launch proc_id:4791 idx:3
+launch proc_id:4796 idx:4
+launch proc_id:4801 idx:5
+launch proc_id:4806 idx:6
+launch proc_id:4811 idx:7
+2021-05-31 17:31:28 [INFO]	
+------------Environment Information-------------
+platform: Linux-4.14.0_1-0-0-32-x86_64-with-debian-stretch-sid
+Python: 3.7.0 (default, May 26 2019, 06:13:42) [GCC 5.4.0 20160609]
+Paddle compiled with cuda: True
+NVCC: Cuda compilation tools, release 10.1, V10.1.105
+cudnn: 7.6
+GPUs used: 32
+CUDA_VISIBLE_DEVICES: None
+GPU: ['GPU 0: Tesla V100-SXM2-32GB', 'GPU 1: Tesla V100-SXM2-32GB', 'GPU 2: Tesla V100-SXM2-32GB', 'GPU 3: Tesla V100-SXM2-32GB', 'GPU 4: Tesla V100-SXM2-32GB', 'GPU 5: Tesla V100-SXM2-32GB', 'GPU 6: Tesla V100-SXM2-32GB', 'GPU 7: Tesla V100-SXM2-32GB']
+GCC: gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+PaddlePaddle: 0.0.0
+OpenCV: 4.4.0
+------------------------------------------------
+2021-05-31 17:31:29 [INFO]	
+---------------Config Information---------------
+batch_size: 8
+iters: 10
+learning_rate:
+  decay:
+    end_lr: 0.0
+    power: 0.9
+    type: poly
+  value: 0.01
+loss:
+  coef:
+  - 1
+  types:
+  - ignore_index: 255
+    type: CrossEntropyLoss
+model:
+  backbone:
+    pretrained: https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+    type: HRNet_W18
+  backbone_indices:
+  - -1
+  bias: false
+  num_classes: 19
+  type: FCN
+optimizer:
+  type: sgd
+  weight_decay: 0.0005
+train_dataset:
+  dataset_root: data/cityscapes
+  mode: train
+  transforms:
+  - max_scale_factor: 2.0
+    min_scale_factor: 0.5
+    scale_step_size: 0.25
+    type: ResizeStepScaling
+  - crop_size:
+    - 1024
+    - 512
+    type: RandomPaddingCrop
+  - type: RandomHorizontalFlip
+  - type: RandomDistort
+  - type: Normalize
+  type: Cityscapes
+val_dataset:
+  dataset_root: data/cityscapes
+  mode: val
+  transforms:
+  - type: Normalize
+  type: Cityscapes
+------------------------------------------------
+2021-05-31 17:31:50 [INFO]	[TRAIN] epoch: 1, iter: 2/10, loss: 2.9129, lr: 0.009095, batch_cost: 4.2859, reader_cost: 2.63752, ips: 1.8666 samples/sec | ETA 00:00:34
+INFO 2021-05-31 17:32:03,495 launch.py:268] Local processes completed.
+2021-05-31 17:31:51 [INFO]	[TRAIN] epoch: 1, iter: 4/10, loss: 2.6575, lr: 0.007254, batch_cost: 0.5941, reader_cost: 0.00392, ips: 13.4663 samples/sec | ETA 00:00:03
+2021-05-31 17:31:53 [INFO]	[TRAIN] epoch: 1, iter: 6/10, loss: 2.1690, lr: 0.005359, batch_cost: 0.5915, reader_cost: 0.00010, ips: 13.5260 samples/sec | ETA 00:00:02
+2021-05-31 17:31:54 [INFO]	[TRAIN] epoch: 1, iter: 8/10, loss: 1.7131, lr: 0.003384, batch_cost: 0.5962, reader_cost: 0.00085, ips: 13.4176 samples/sec | ETA 00:00:01
+2021-05-31 17:31:55 [INFO]	[TRAIN] epoch: 1, iter: 10/10, loss: 1.4958, lr: 0.001259, batch_cost: 0.5936, reader_cost: 0.00015, ips: 13.4781 samples/sec | ETA 00:00:00
+<class 'paddle.nn.layer.conv.Conv2D'>'s flops has been counted
+Customize Function has been applied to <class 'paddle.nn.layer.norm.SyncBatchNorm'>
+Total Flops: -1736046592     Total Params: 9675306

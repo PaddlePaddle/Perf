@@ -1,0 +1,127 @@
+-----------  Configuration Arguments -----------
+gpus: 0
+heter_worker_num: None
+heter_workers: 
+http_port: None
+ips: 127.0.0.1
+log_dir: log
+nproc_per_node: None
+run_mode: None
+server_num: None
+servers: 
+training_script: train.py
+training_script_args: ['--config', 'benchmark/hrnet.yml', '--iters', '100', '--log_iters', '10', '--batch_size', '8', '--num_workers', '8', '--fp16']
+worker_num: None
+workers: 
+------------------------------------------------
+launch train in GPU mode!
+launch proc_id:4245 idx:0
+2021-05-31 15:41:17 [INFO]	
+------------Environment Information-------------
+platform: Linux-4.14.0_1-0-0-32-x86_64-with-debian-stretch-sid
+Python: 3.7.0 (default, May 26 2019, 06:13:42) [GCC 5.4.0 20160609]
+Paddle compiled with cuda: True
+NVCC: Cuda compilation tools, release 10.1, V10.1.105
+cudnn: 7.6
+GPUs used: 1
+CUDA_VISIBLE_DEVICES: None
+GPU: ['GPU 0: Tesla V100-SXM2-32GB']
+GCC: gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+PaddlePaddle: 0.0.0
+OpenCV: 4.4.0
+------------------------------------------------
+2021-05-31 15:41:17 [INFO]	
+---------------Config Information---------------
+batch_size: 8
+iters: 100
+learning_rate:
+  decay:
+    end_lr: 0.0
+    power: 0.9
+    type: poly
+  value: 0.01
+loss:
+  coef:
+  - 1
+  types:
+  - ignore_index: 255
+    type: CrossEntropyLoss
+model:
+  backbone:
+    pretrained: https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+    type: HRNet_W18
+  backbone_indices:
+  - -1
+  bias: false
+  num_classes: 19
+  type: FCN
+optimizer:
+  type: sgd
+  weight_decay: 0.0005
+train_dataset:
+  dataset_root: data/cityscapes
+  mode: train
+  transforms:
+  - max_scale_factor: 2.0
+    min_scale_factor: 0.5
+    scale_step_size: 0.25
+    type: ResizeStepScaling
+  - crop_size:
+    - 1024
+    - 512
+    type: RandomPaddingCrop
+  - type: RandomHorizontalFlip
+  - type: RandomDistort
+  - type: Normalize
+  type: Cityscapes
+val_dataset:
+  dataset_root: data/cityscapes
+  mode: val
+  transforms:
+  - type: Normalize
+  type: Cityscapes
+------------------------------------------------
+W0531 15:41:17.362126  4245 device_context.cc:430] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W0531 15:41:17.362159  4245 device_context.cc:448] device: 0, cuDNN Version: 7.6.
+2021-05-31 15:41:21 [INFO]	Loading pretrained model from https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+Connecting to https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+Downloading hrnet_w18_ssld.tar.gz
+
+[                                                  ] 0.00%
+[==                                                ] 5.56%
+[==========                                        ] 20.27%
+[=================                                 ] 34.63%
+[=====================                             ] 43.54%
+[=============================                     ] 58.04%
+[====================================              ] 72.52%
+[===========================================       ] 86.51%
+[==================================================] 100.00%
+Uncompress hrnet_w18_ssld.tar.gz
+
+[                                                  ] 0.00%
+[=========================                         ] 50.00%
+[==================================================] 100.00%
+2021-05-31 15:41:27 [INFO]	There are 1525/1525 variables loaded into HRNet.
+2021-05-31 15:41:27 [INFO]	use amp to train
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/nn/layer/norm.py:641: UserWarning: When training, we now always track global mean and variance.
+  "When training, we now always track global mean and variance.")
+/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/dygraph/math_op_patch.py:239: UserWarning: The dtype of left and right variables are not the same, left dtype is paddle.float16, but right dtype is paddle.float32, the right dtype will convert to paddle.float16
+  format(lhs_dtype, rhs_dtype, lhs_dtype))
+/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/cross_entropy_loss.py:60: DeprecationWarning: [93m
+Warning:
+API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
+reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
+  logit, label, ignore_index=self.ignore_index, axis=axis)
+2021-05-31 15:41:35 [INFO]	[TRAIN] epoch: 1, iter: 10/100, loss: 2.0706, lr: 0.009186, batch_cost: 0.8453, reader_cost: 0.22934, ips: 9.4646 samples/sec | ETA 00:01:16
+2021-05-31 15:41:40 [INFO]	[TRAIN] epoch: 1, iter: 20/100, loss: 1.6915, lr: 0.008272, batch_cost: 0.4628, reader_cost: 0.00201, ips: 17.2847 samples/sec | ETA 00:00:37
+2021-05-31 15:41:44 [INFO]	[TRAIN] epoch: 1, iter: 30/100, loss: 1.0030, lr: 0.007347, batch_cost: 0.4625, reader_cost: 0.00283, ips: 17.2987 samples/sec | ETA 00:00:32
+2021-05-31 15:41:49 [INFO]	[TRAIN] epoch: 1, iter: 40/100, loss: 0.7358, lr: 0.006409, batch_cost: 0.4686, reader_cost: 0.00284, ips: 17.0717 samples/sec | ETA 00:00:28
+2021-05-31 15:41:54 [INFO]	[TRAIN] epoch: 1, iter: 50/100, loss: 1.1851, lr: 0.005455, batch_cost: 0.4604, reader_cost: 0.00277, ips: 17.3778 samples/sec | ETA 00:00:23
+2021-05-31 15:41:58 [INFO]	[TRAIN] epoch: 1, iter: 60/100, loss: 1.2143, lr: 0.004482, batch_cost: 0.4596, reader_cost: 0.00226, ips: 17.4057 samples/sec | ETA 00:00:18
+2021-05-31 15:42:03 [INFO]	[TRAIN] epoch: 1, iter: 70/100, loss: 0.7741, lr: 0.003485, batch_cost: 0.4788, reader_cost: 0.00272, ips: 16.7097 samples/sec | ETA 00:00:14
+2021-05-31 15:42:08 [INFO]	[TRAIN] epoch: 1, iter: 80/100, loss: 0.8895, lr: 0.002455, batch_cost: 0.4597, reader_cost: 0.00310, ips: 17.4023 samples/sec | ETA 00:00:09
+2021-05-31 15:42:12 [INFO]	[TRAIN] epoch: 1, iter: 90/100, loss: 0.9255, lr: 0.001372, batch_cost: 0.4588, reader_cost: 0.00228, ips: 17.4376 samples/sec | ETA 00:00:04
+2021-05-31 15:42:17 [INFO]	[TRAIN] epoch: 1, iter: 100/100, loss: 1.1004, lr: 0.000158, batch_cost: 0.4583, reader_cost: 0.00126, ips: 17.4559 samples/sec | ETA 00:00:00
+<class 'paddle.nn.layer.conv.Conv2D'>'s flops has been counted
+<class 'paddle.nn.layer.norm.BatchNorm2D'>'s flops has been counted
+Total Flops: -1736046592     Total Params: 9675306
