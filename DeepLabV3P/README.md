@@ -182,9 +182,9 @@ DeepLabV3P测试目录位于`/workspace/models/`。详细的测试方法在该�
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
-- [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs2)
-- [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs2)
-- [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2)
-- [单机单卡、AMP](./logs/paddle_gpu1_amp_bs4)
-- [单机八卡、AMP](./logs/paddle_gpu8_amp_bs4)
-- [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs4)
+- [单机单卡、FP32](./logs/paddle/Deeplabv3_FP32_BS4-N1.log)
+- [单机八卡、FP32](./logs/paddle/Deeplabv3_FP32_BS4-N8.log)
+- [4机32卡、FP32](./logs/paddle/Deeplabv3_FP32_BS4-N32.log)
+- [单机单卡、AMP](./logs/paddle/Deeplabv3_FP16_BS4-N1.log)
+- [单机八卡、AMP](./logs/paddle/Deeplabv3_FP16_BS4-N8.log)
+- [4机32卡、AMP ](./logs/paddle/Deeplabv3_FP16_BS4-N32.log)

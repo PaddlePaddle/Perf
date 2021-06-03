@@ -164,27 +164,27 @@ HRNetW18测试目录位于`/workspace/models/`。详细的测试方法在该目�
 
 - FP32测试
 
-  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
+  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | -- | --  |
-  | GPU=8,BS=8 | --  | --  |
-  | GPU=32,BS=8 | -- | -- |
+  | GPU=1,BS=8 | 18 | 15 |
+  | GPU=8,BS=8 | 104 | 75  |
+  | GPU=32,BS=8 | 428 | 243 |
 
 
 - AMP测试
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | --  | --  |
-  | GPU=8,BS=8 | --  | --  |
-  | GPU=32,BS=8 | -- | -- |
+  | GPU=1,BS=8 | 17.4 | 14.8  |
+  | GPU=8,BS=8 | 96  | 71  |
+  | GPU=32,BS=8 | 422 | 246 |
 
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
-- [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs2)
-- [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs2)
-- [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2)
-- [单机单卡、AMP](./logs/paddle_gpu1_amp_bs4)
-- [单机八卡、AMP](./logs/paddle_gpu8_amp_bs4)
-- [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs4)
+- [单机单卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N1.log)
+- [单机八卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N8.log)
+- [4机32卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N32.log)
+- [单机单卡、AMP](./logs/paddle/Hrnet_FP16_BS8-N1.log)
+- [单机八卡、AMP](./logs/paddle/Hrnet_FP16_BS8-N8.log)
+- [4机32卡、AMP ](./logs/paddle/Hrnet_FP16_BS8-N32.log)
