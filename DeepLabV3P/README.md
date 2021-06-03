@@ -139,7 +139,7 @@ DeepLabV3P测试目录位于`/workspace/models/`。详细的测试方法在该�
 
 | 精度 | batch_size | fp16 |
 |:-----:|:-----:|:-----:|
-| FP32 | 2 | NO |
+| FP32 | 4 | NO |
 | AMP | 4 | YES | 
 
 
@@ -149,35 +149,35 @@ DeepLabV3P测试目录位于`/workspace/models/`。详细的测试方法在该�
 
 - 训练吞吐率(samples/sec)如下:
 
-   |卡数 | FP32(BS=2) | AMP(BS=4) 
+   |卡数 | FP32(BS=4) | AMP(BS=4) 
    |:-----:|:-----:|:-----:|
-   |1 | -- | -- |
-   |8 | --   | -- |
-   |32 | -- | -- | 
+   |1 | 6.3 | 17.0 |
+   |8 | 46   | 99.2 |
+   |32 | 176 | 373.76 | 
 ### 2.与业内其它框架对比
 
 - 说明：
   - 同等执行环境下测试
   - 单位：`samples/sec`
-  - BatchSize FP32下选择 2, AMP下选择 4
+  - BatchSize FP32、AMP下均选择 4
 
 
 - FP32测试
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=2 | -- | --  |
-  | GPU=8,BS=2 | --  | --  |
-  | GPU=32,BS=2 | -- | -- |
+  | GPU=1,BS=4 | 6.3 | 4.3  |
+  | GPU=8,BS=4 | 46  | 16.84  |
+  | GPU=32,BS=4 | 176 | 60.95 |
 
 
 - AMP测试
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=4 | --  | --  |
-  | GPU=8,BS=4 | --  | --  |
-  | GPU=32,BS=4 | -- | -- |
+  | GPU=1,BS=4 | 17.0  | 8.33 |
+  | GPU=8,BS=4 | 99.2  | 58.18  |
+  | GPU=32,BS=4 | 373.76 | 203.2 |
 
 
 ## 六、日志数据
