@@ -151,9 +151,9 @@ HRNetW18测试目录位于`/workspace/models/`。详细的测试方法在该目�
 
    |卡数 | FP32(BS=8) | AMP(BS=8) 
    |:-----:|:-----:|:-----:|
-   |1 | -- | -- |
-   |8 | --   | -- |
-   |32 | -- | -- | 
+   |1 | 18 | 17.4 |
+   |8 | 104   | 96 |
+   |32 | 428 | 422 | 
 ### 2.与业内其它框架对比
 
 - 说明：
@@ -173,7 +173,7 @@ HRNetW18测试目录位于`/workspace/models/`。详细的测试方法在该目�
 
 - AMP测试
 
-  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
+  | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
   | GPU=1,BS=8 | 17.4 | 14.8  |
   | GPU=8,BS=8 | 96  | 71  |
