@@ -70,11 +70,11 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:cuda11.0-cudnn8-runtime-ubuntu16.04-gcc82`
+- **镜像版本**: `paddlepaddle-public/paddle_ubuntu1604:mlperf_cuda10.1_cudnn7.6.5_nccl2.4.7_dali0.24.0_py37`
 - **Paddle 版本**: `develop`
 - **模型代码**：[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg/tree/benchmark)
-- **CUDA 版本**: `11.0`
-- **cuDnn 版本:** `8.0.5`
+- **CUDA 版本**: `10.1`
+- **cuDnn 版本:** `7.6`
 
 
 ## 三、环境搭建
@@ -94,7 +94,7 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:cuda11.0-cudnn8-runtime-ubuntu16.04-gcc82
+   docker pull paddlepaddle-public/paddle_ubuntu1604:mlperf_cuda10.1_cudnn7.6.5_nccl2.4.7_dali0.24.0_py37
 
    # 创建并进入容器
    nvidia-docker run --name=test_transformer_paddle -it \
