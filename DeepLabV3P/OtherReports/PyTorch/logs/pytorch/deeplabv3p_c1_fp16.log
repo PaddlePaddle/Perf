@@ -1,0 +1,836 @@
+2021-05-31 00:00:01,794 - mmseg - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
+CUDA available: True
+GPU 0: Tesla V100-SXM2-32GB
+CUDA_HOME: /usr/local/cuda
+NVCC: Build cuda_11.0_bu.TC445_37.28358933_0
+GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+PyTorch: 1.6.0a0+9907a3e
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.5
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2019.0.1 Product Build 20180928 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v1.2.0 (Git Hash N/A)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.0
+  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_80,code=compute_80
+  - CuDNN 8.0.1
+  - Magma 2.5.2
+  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -fvisibility-inlines-hidden -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_INTERNAL_THREADPOOL_IMPL -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, FORCE_FALLBACK_CUDA_MPI=1, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_STATIC_DISPATCH=OFF, 
+
+TorchVision: 0.7.0a0
+OpenCV: 3.4.1
+MMCV: 1.2.7
+MMCV Compiler: GCC 7.5
+MMCV CUDA Compiler: 11.0
+MMSegmentation: 0.12.0+3e46c1b
+------------------------------------------------------------
+
+2021-05-31 00:00:01,794 - mmseg - INFO - Distributed training: False
+2021-05-31 00:00:02,184 - mmseg - INFO - Config:
+norm_cfg = dict(type='BN', requires_grad=True)
+model = dict(
+    type='EncoderDecoder',
+    pretrained='open-mmlab://resnet50_v1c',
+    backbone=dict(
+        type='ResNetV1c',
+        depth=50,
+        num_stages=4,
+        out_indices=(0, 1, 2, 3),
+        dilations=(1, 1, 2, 4),
+        strides=(1, 2, 1, 1),
+        norm_cfg=dict(type='BN', requires_grad=True),
+        norm_eval=False,
+        style='pytorch',
+        contract_dilation=True),
+    decode_head=dict(
+        type='DepthwiseSeparableASPPHead',
+        in_channels=2048,
+        in_index=3,
+        channels=512,
+        dilations=(1, 12, 24, 36),
+        c1_in_channels=256,
+        c1_channels=48,
+        dropout_ratio=0.1,
+        num_classes=19,
+        norm_cfg=dict(type='BN', requires_grad=True),
+        align_corners=False,
+        loss_decode=dict(
+            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+    auxiliary_head=dict(
+        type='FCNHead',
+        in_channels=1024,
+        in_index=2,
+        channels=256,
+        num_convs=1,
+        concat_input=False,
+        dropout_ratio=0.1,
+        num_classes=19,
+        norm_cfg=dict(type='BN', requires_grad=True),
+        align_corners=False,
+        loss_decode=dict(
+            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
+    train_cfg=dict(),
+    test_cfg=dict(mode='whole'))
+dataset_type = 'CityscapesDataset'
+data_root = 'data/cityscapes/'
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+crop_size = (512, 1024)
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations'),
+    dict(type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
+    dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
+    dict(type='RandomFlip', prob=0.5),
+    dict(type='PhotoMetricDistortion'),
+    dict(
+        type='Normalize',
+        mean=[123.675, 116.28, 103.53],
+        std=[58.395, 57.12, 57.375],
+        to_rgb=True),
+    dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(2048, 1024),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='ImageToTensor', keys=['img']),
+            dict(type='Collect', keys=['img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=4,
+    workers_per_gpu=8,
+    train=dict(
+        type='CityscapesDataset',
+        data_root='data/cityscapes/',
+        img_dir='leftImg8bit/train',
+        ann_dir='gtFine/train',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations'),
+            dict(
+                type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
+            dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
+            dict(type='RandomFlip', prob=0.5),
+            dict(type='PhotoMetricDistortion'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
+            dict(type='DefaultFormatBundle'),
+            dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+        ]),
+    val=dict(
+        type='CityscapesDataset',
+        data_root='data/cityscapes/',
+        img_dir='leftImg8bit/val',
+        ann_dir='gtFine/val',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(2048, 1024),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ]),
+    test=dict(
+        type='CityscapesDataset',
+        data_root='data/cityscapes/',
+        img_dir='leftImg8bit/val',
+        ann_dir='gtFine/val',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(2048, 1024),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ]))
+log_config = dict(
+    interval=10, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+cudnn_benchmark = True
+optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
+optimizer_config = dict(type='Fp16OptimizerHook', loss_scale=512.0)
+lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
+runner = dict(type='IterBasedRunner', max_iters=100)
+checkpoint_config = dict(by_epoch=False, interval=8000)
+evaluation = dict(interval=8000, metric='mIoU')
+work_dir = './work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes'
+gpu_ids = range(0, 1)
+
+2021-05-31 00:00:03,984 - mmseg - INFO - Use load_from_openmmlab loader
+Downloading: "https://download.openmmlab.com/pretrain/third_party/resnet50_v1c-2cccc1ad.pth" to /root/.cache/torch/checkpoints/resnet50_v1c-2cccc1ad.pth
+
+  0%|          | 0.00/97.8M [00:00<?, ?B/s]
+  0%|          | 16.0k/97.8M [00:00<22:38, 75.5kB/s]
+  0%|          | 40.0k/97.8M [00:00<20:25, 83.7kB/s]
+  0%|          | 96.0k/97.8M [00:00<16:14, 105kB/s] 
+  0%|          | 208k/97.8M [00:00<12:20, 138kB/s] 
+  0%|          | 432k/97.8M [00:01<09:06, 187kB/s]
+  1%|          | 864k/97.8M [00:01<06:35, 257kB/s]
+  2%|▏         | 1.69M/97.8M [00:01<04:42, 357kB/s]
+  3%|▎         | 3.38M/97.8M [00:01<03:17, 501kB/s]
+  6%|▌         | 5.86M/97.8M [00:01<02:17, 702kB/s]
+  8%|▊         | 7.66M/97.8M [00:02<01:35, 988kB/s]
+  9%|▉         | 8.62M/97.8M [00:02<01:11, 1.30MB/s]
+ 10%|▉         | 9.44M/97.8M [00:02<00:54, 1.70MB/s]
+ 10%|█         | 10.2M/97.8M [00:02<00:42, 2.14MB/s]
+ 11%|█         | 10.9M/97.8M [00:02<00:34, 2.67MB/s]
+ 12%|█▏        | 11.5M/97.8M [00:02<00:28, 3.16MB/s]
+ 12%|█▏        | 12.1M/97.8M [00:02<00:24, 3.60MB/s]
+ 13%|█▎        | 12.7M/97.8M [00:03<00:22, 4.05MB/s]
+ 14%|█▎        | 13.3M/97.8M [00:03<00:20, 4.38MB/s]
+ 14%|█▍        | 13.9M/97.8M [00:03<00:18, 4.72MB/s]
+ 15%|█▌        | 14.7M/97.8M [00:03<00:15, 5.52MB/s]
+ 16%|█▌        | 15.4M/97.8M [00:03<00:14, 5.88MB/s]
+ 16%|█▋        | 16.1M/97.8M [00:03<00:14, 5.88MB/s]
+ 17%|█▋        | 16.8M/97.8M [00:03<00:13, 6.22MB/s]
+ 18%|█▊        | 17.4M/97.8M [00:03<00:14, 5.77MB/s]
+ 18%|█▊        | 18.0M/97.8M [00:03<00:16, 5.19MB/s]
+ 19%|█▉        | 18.5M/97.8M [00:04<00:20, 4.03MB/s]
+ 20%|█▉        | 19.1M/97.8M [00:04<00:18, 4.52MB/s]
+ 20%|██        | 20.0M/97.8M [00:04<00:15, 5.33MB/s]
+ 21%|██▏       | 20.8M/97.8M [00:04<00:13, 5.96MB/s]
+ 22%|██▏       | 21.7M/97.8M [00:04<00:12, 6.55MB/s]
+ 23%|██▎       | 22.5M/97.8M [00:04<00:11, 7.09MB/s]
+ 24%|██▍       | 23.3M/97.8M [00:04<00:10, 7.46MB/s]
+ 25%|██▍       | 24.1M/97.8M [00:04<00:09, 7.78MB/s]
+ 26%|██▌       | 25.1M/97.8M [00:04<00:09, 8.32MB/s]
+ 27%|██▋       | 26.0M/97.8M [00:05<00:08, 8.65MB/s]
+ 27%|██▋       | 26.9M/97.8M [00:05<00:08, 8.71MB/s]
+ 29%|██▊       | 28.0M/97.8M [00:05<00:07, 9.51MB/s]
+ 30%|██▉       | 29.0M/97.8M [00:05<00:07, 9.82MB/s]
+ 31%|███       | 30.0M/97.8M [00:05<00:07, 9.78MB/s]
+ 32%|███▏      | 31.0M/97.8M [00:05<00:07, 9.36MB/s]
+ 33%|███▎      | 31.9M/97.8M [00:05<00:07, 9.45MB/s]
+ 34%|███▎      | 32.8M/97.8M [00:05<00:07, 9.31MB/s]
+ 35%|███▍      | 33.8M/97.8M [00:05<00:07, 9.50MB/s]
+ 35%|███▌      | 34.7M/97.8M [00:06<00:07, 9.28MB/s]
+ 36%|███▋      | 35.7M/97.8M [00:06<00:06, 9.49MB/s]
+ 37%|███▋      | 36.6M/97.8M [00:06<00:06, 9.27MB/s]
+ 38%|███▊      | 37.5M/97.8M [00:06<00:06, 9.42MB/s]
+ 39%|███▉      | 38.4M/97.8M [00:06<00:06, 8.97MB/s]
+ 40%|████      | 39.3M/97.8M [00:06<00:07, 8.72MB/s]
+ 41%|████      | 40.1M/97.8M [00:06<00:07, 8.19MB/s]
+ 42%|████▏     | 40.9M/97.8M [00:06<00:07, 7.71MB/s]
+ 43%|████▎     | 41.7M/97.8M [00:06<00:07, 7.50MB/s]
+ 43%|████▎     | 42.4M/97.8M [00:07<00:08, 6.72MB/s]
+ 44%|████▍     | 43.1M/97.8M [00:07<00:09, 6.20MB/s]
+ 45%|████▍     | 43.7M/97.8M [00:07<00:10, 5.51MB/s]
+ 45%|████▌     | 44.3M/97.8M [00:07<00:11, 4.72MB/s]
+ 46%|████▌     | 44.8M/97.8M [00:07<00:15, 3.69MB/s]
+ 46%|████▌     | 45.2M/97.8M [00:07<00:21, 2.61MB/s]
+ 47%|████▋     | 45.5M/97.8M [00:08<00:32, 1.69MB/s]
+ 47%|████▋     | 45.8M/97.8M [00:08<00:46, 1.16MB/s]
+ 47%|████▋     | 46.0M/97.8M [00:09<01:03, 850kB/s] 
+ 47%|████▋     | 46.1M/97.8M [00:09<01:07, 800kB/s]
+ 47%|████▋     | 46.3M/97.8M [00:09<01:02, 864kB/s]
+ 48%|████▊     | 46.5M/97.8M [00:09<00:50, 1.07MB/s]
+ 48%|████▊     | 46.8M/97.8M [00:09<00:39, 1.35MB/s]
+ 48%|████▊     | 47.1M/97.8M [00:09<00:32, 1.63MB/s]
+ 49%|████▊     | 47.5M/97.8M [00:09<00:26, 1.97MB/s]
+ 49%|████▉     | 47.9M/97.8M [00:10<00:22, 2.29MB/s]
+ 49%|████▉     | 48.3M/97.8M [00:10<00:19, 2.66MB/s]
+ 50%|████▉     | 48.7M/97.8M [00:10<00:17, 3.01MB/s]
+ 50%|█████     | 49.1M/97.8M [00:10<00:15, 3.32MB/s]
+ 51%|█████     | 49.5M/97.8M [00:10<00:14, 3.55MB/s]
+ 51%|█████     | 49.9M/97.8M [00:10<00:13, 3.81MB/s]
+ 51%|█████▏    | 50.4M/97.8M [00:10<00:12, 3.88MB/s]
+ 52%|█████▏    | 50.8M/97.8M [00:10<00:12, 4.06MB/s]
+ 52%|█████▏    | 51.2M/97.8M [00:10<00:12, 4.04MB/s]
+ 53%|█████▎    | 51.6M/97.8M [00:10<00:11, 4.18MB/s]
+ 53%|█████▎    | 52.1M/97.8M [00:11<00:11, 4.09MB/s]
+ 54%|█████▎    | 52.5M/97.8M [00:11<00:11, 4.05MB/s]
+ 54%|█████▍    | 52.9M/97.8M [00:11<00:12, 3.77MB/s]
+ 54%|█████▍    | 53.2M/97.8M [00:11<00:12, 3.74MB/s]
+ 55%|█████▍    | 53.6M/97.8M [00:11<00:12, 3.66MB/s]
+ 55%|█████▌    | 54.0M/97.8M [00:11<00:13, 3.46MB/s]
+ 56%|█████▌    | 54.3M/97.8M [00:11<00:12, 3.53MB/s]
+ 56%|█████▌    | 54.7M/97.8M [00:11<00:12, 3.50MB/s]
+ 56%|█████▋    | 55.1M/97.8M [00:11<00:12, 3.69MB/s]
+ 57%|█████▋    | 55.4M/97.8M [00:12<00:12, 3.63MB/s]
+ 57%|█████▋    | 55.8M/97.8M [00:12<00:12, 3.50MB/s]
+ 57%|█████▋    | 56.1M/97.8M [00:12<00:13, 3.15MB/s]
+ 58%|█████▊    | 56.4M/97.8M [00:12<00:15, 2.84MB/s]
+ 58%|█████▊    | 56.7M/97.8M [00:12<00:19, 2.26MB/s]
+ 58%|█████▊    | 57.0M/97.8M [00:12<00:25, 1.67MB/s]
+ 58%|█████▊    | 57.2M/97.8M [00:13<00:26, 1.64MB/s]
+ 59%|█████▊    | 57.4M/97.8M [00:13<00:23, 1.82MB/s]
+ 59%|█████▉    | 57.7M/97.8M [00:13<00:21, 1.99MB/s]
+ 59%|█████▉    | 57.9M/97.8M [00:13<00:31, 1.32MB/s]
+ 59%|█████▉    | 58.2M/97.8M [00:13<00:26, 1.58MB/s]
+ 60%|█████▉    | 58.4M/97.8M [00:13<00:22, 1.82MB/s]
+ 60%|██████    | 58.7M/97.8M [00:13<00:20, 2.02MB/s]
+ 60%|██████    | 59.0M/97.8M [00:13<00:18, 2.20MB/s]
+ 61%|██████    | 59.2M/97.8M [00:14<00:18, 2.23MB/s]
+ 61%|██████    | 59.5M/97.8M [00:14<00:18, 2.22MB/s]
+ 61%|██████    | 59.7M/97.8M [00:14<00:18, 2.15MB/s]
+ 61%|██████▏   | 59.9M/97.8M [00:14<00:19, 2.09MB/s]
+ 61%|██████▏   | 60.1M/97.8M [00:14<00:20, 1.91MB/s]
+ 62%|██████▏   | 60.3M/97.8M [00:14<00:23, 1.71MB/s]
+ 62%|██████▏   | 60.5M/97.8M [00:14<00:23, 1.68MB/s]
+ 62%|██████▏   | 60.7M/97.8M [00:14<00:22, 1.70MB/s]
+ 62%|██████▏   | 60.8M/97.8M [00:15<00:24, 1.59MB/s]
+ 62%|██████▏   | 61.0M/97.8M [00:15<00:27, 1.39MB/s]
+ 63%|██████▎   | 61.1M/97.8M [00:15<00:28, 1.37MB/s]
+ 63%|██████▎   | 61.3M/97.8M [00:15<00:27, 1.40MB/s]
+ 63%|██████▎   | 61.4M/97.8M [00:15<00:28, 1.33MB/s]
+ 63%|██████▎   | 61.6M/97.8M [00:15<00:28, 1.32MB/s]
+ 63%|██████▎   | 61.7M/97.8M [00:15<00:32, 1.16MB/s]
+ 63%|██████▎   | 61.8M/97.8M [00:15<00:34, 1.08MB/s]
+ 63%|██████▎   | 61.9M/97.8M [00:16<00:37, 991kB/s] 
+ 63%|██████▎   | 62.0M/97.8M [00:16<00:39, 957kB/s]
+ 64%|██████▎   | 62.1M/97.8M [00:16<00:39, 949kB/s]
+ 64%|██████▎   | 62.2M/97.8M [00:16<00:45, 823kB/s]
+ 64%|██████▎   | 62.3M/97.8M [00:16<00:49, 745kB/s]
+ 64%|██████▍   | 62.4M/97.8M [00:16<00:49, 747kB/s]
+ 64%|██████▍   | 62.5M/97.8M [00:16<00:48, 766kB/s]
+ 64%|██████▍   | 62.5M/97.8M [00:16<00:47, 775kB/s]
+ 64%|██████▍   | 62.6M/97.8M [00:17<00:51, 715kB/s]
+ 64%|██████▍   | 62.7M/97.8M [00:17<00:57, 644kB/s]
+ 64%|██████▍   | 62.8M/97.8M [00:17<01:01, 600kB/s]
+ 64%|██████▍   | 62.8M/97.8M [00:17<01:04, 569kB/s]
+ 64%|██████▍   | 62.9M/97.8M [00:17<01:08, 531kB/s]
+ 64%|██████▍   | 62.9M/97.8M [00:17<01:09, 523kB/s]
+ 64%|██████▍   | 63.0M/97.8M [00:17<01:12, 506kB/s]
+ 64%|██████▍   | 63.1M/97.8M [00:18<01:13, 493kB/s]
+ 65%|██████▍   | 63.1M/97.8M [00:18<01:12, 499kB/s]
+ 65%|██████▍   | 63.2M/97.8M [00:18<01:11, 507kB/s]
+ 65%|██████▍   | 63.2M/97.8M [00:18<01:08, 526kB/s]
+ 65%|██████▍   | 63.3M/97.8M [00:18<01:07, 539kB/s]
+ 65%|██████▍   | 63.3M/97.8M [00:18<01:05, 548kB/s]
+ 65%|██████▍   | 63.4M/97.8M [00:18<01:05, 551kB/s]
+ 65%|██████▍   | 63.5M/97.8M [00:18<01:01, 583kB/s]
+ 65%|██████▍   | 63.6M/97.8M [00:18<00:57, 623kB/s]
+ 65%|██████▌   | 63.6M/97.8M [00:19<00:54, 653kB/s]
+ 65%|██████▌   | 63.7M/97.8M [00:19<00:53, 672kB/s]
+ 65%|██████▌   | 63.8M/97.8M [00:19<00:50, 712kB/s]
+ 65%|██████▌   | 63.9M/97.8M [00:19<00:48, 727kB/s]
+ 65%|██████▌   | 63.9M/97.8M [00:19<00:47, 751kB/s]
+ 65%|██████▌   | 64.0M/97.8M [00:19<00:47, 748kB/s]
+ 66%|██████▌   | 64.1M/97.8M [00:19<00:45, 781kB/s]
+ 66%|██████▌   | 64.2M/97.8M [00:19<00:43, 811kB/s]
+ 66%|██████▌   | 64.3M/97.8M [00:19<00:43, 809kB/s]
+ 66%|██████▌   | 64.4M/97.8M [00:19<00:44, 796kB/s]
+ 66%|██████▌   | 64.4M/97.8M [00:20<00:44, 778kB/s]
+ 66%|██████▌   | 64.5M/97.8M [00:20<00:45, 773kB/s]
+ 66%|██████▌   | 64.6M/97.8M [00:20<00:44, 776kB/s]
+ 66%|██████▌   | 64.7M/97.8M [00:20<00:43, 797kB/s]
+ 66%|██████▌   | 64.8M/97.8M [00:20<00:44, 781kB/s]
+ 66%|██████▋   | 64.8M/97.8M [00:20<00:51, 673kB/s]
+ 66%|██████▋   | 64.9M/97.8M [00:20<00:46, 745kB/s]
+ 66%|██████▋   | 65.0M/97.8M [00:20<00:43, 793kB/s]
+ 67%|██████▋   | 65.1M/97.8M [00:20<00:40, 846kB/s]
+ 67%|██████▋   | 65.2M/97.8M [00:21<00:43, 784kB/s]
+ 67%|██████▋   | 65.3M/97.8M [00:21<00:38, 875kB/s]
+ 67%|██████▋   | 65.5M/97.8M [00:21<00:32, 1.04MB/s]
+ 67%|██████▋   | 65.7M/97.8M [00:21<00:27, 1.23MB/s]
+ 67%|██████▋   | 65.9M/97.8M [00:21<00:24, 1.36MB/s]
+ 68%|██████▊   | 66.1M/97.8M [00:21<00:21, 1.53MB/s]
+ 68%|██████▊   | 66.3M/97.8M [00:21<00:19, 1.66MB/s]
+ 68%|██████▊   | 66.5M/97.8M [00:21<00:18, 1.77MB/s]
+ 68%|██████▊   | 66.7M/97.8M [00:21<00:18, 1.80MB/s]
+ 68%|██████▊   | 66.9M/97.8M [00:22<00:17, 1.85MB/s]
+ 69%|██████▊   | 67.1M/97.8M [00:22<00:17, 1.82MB/s]
+ 69%|██████▉   | 67.3M/97.8M [00:22<00:17, 1.81MB/s]
+ 69%|██████▉   | 67.5M/97.8M [00:22<00:18, 1.71MB/s]
+ 69%|██████▉   | 67.6M/97.8M [00:22<00:17, 1.76MB/s]
+ 69%|██████▉   | 67.8M/97.8M [00:22<00:18, 1.69MB/s]
+ 69%|██████▉   | 68.0M/97.8M [00:22<00:19, 1.61MB/s]
+ 70%|██████▉   | 68.1M/97.8M [00:22<00:19, 1.60MB/s]
+ 70%|██████▉   | 68.3M/97.8M [00:22<00:18, 1.66MB/s]
+ 70%|███████   | 68.5M/97.8M [00:23<00:18, 1.66MB/s]
+ 70%|███████   | 68.7M/97.8M [00:23<00:18, 1.69MB/s]
+ 70%|███████   | 68.8M/97.8M [00:23<00:17, 1.69MB/s]
+ 71%|███████   | 69.0M/97.8M [00:23<00:17, 1.77MB/s]
+ 71%|███████   | 69.2M/97.8M [00:23<00:17, 1.71MB/s]
+ 71%|███████   | 69.3M/97.8M [00:23<00:19, 1.56MB/s]
+ 71%|███████   | 69.5M/97.8M [00:23<00:20, 1.45MB/s]
+ 71%|███████   | 69.6M/97.8M [00:23<00:22, 1.31MB/s]
+ 71%|███████▏  | 69.8M/97.8M [00:24<00:24, 1.19MB/s]
+ 71%|███████▏  | 69.9M/97.8M [00:24<00:26, 1.08MB/s]
+ 72%|███████▏  | 70.0M/97.8M [00:24<00:28, 1.01MB/s]
+ 72%|███████▏  | 70.1M/97.8M [00:24<00:34, 839kB/s] 
+ 72%|███████▏  | 70.2M/97.8M [00:24<00:39, 739kB/s]
+ 72%|███████▏  | 70.3M/97.8M [00:24<00:44, 651kB/s]
+ 72%|███████▏  | 70.4M/97.8M [00:25<00:54, 524kB/s]
+ 72%|███████▏  | 70.4M/97.8M [00:25<01:02, 459kB/s]
+ 72%|███████▏  | 70.5M/97.8M [00:25<01:10, 407kB/s]
+ 72%|███████▏  | 70.5M/97.8M [00:25<01:19, 362kB/s]
+ 72%|███████▏  | 70.6M/97.8M [00:25<01:25, 332kB/s]
+ 72%|███████▏  | 70.6M/97.8M [00:25<01:28, 324kB/s]
+ 72%|███████▏  | 70.7M/97.8M [00:25<01:25, 332kB/s]
+ 72%|███████▏  | 70.7M/97.8M [00:26<01:23, 340kB/s]
+ 72%|███████▏  | 70.7M/97.8M [00:26<01:17, 364kB/s]
+ 72%|███████▏  | 70.8M/97.8M [00:26<01:15, 374kB/s]
+ 72%|███████▏  | 70.8M/97.8M [00:26<01:13, 385kB/s]
+ 72%|███████▏  | 70.9M/97.8M [00:26<01:10, 403kB/s]
+ 73%|███████▎  | 70.9M/97.8M [00:26<01:09, 407kB/s]
+ 73%|███████▎  | 71.0M/97.8M [00:26<01:09, 403kB/s]
+ 73%|███████▎  | 71.0M/97.8M [00:26<01:11, 394kB/s]
+ 73%|███████▎  | 71.1M/97.8M [00:27<01:10, 396kB/s]
+ 73%|███████▎  | 71.1M/97.8M [00:27<01:11, 393kB/s]
+ 73%|███████▎  | 71.1M/97.8M [00:27<01:10, 397kB/s]
+ 73%|███████▎  | 71.2M/97.8M [00:27<01:14, 377kB/s]
+ 73%|███████▎  | 71.2M/97.8M [00:27<01:12, 383kB/s]
+ 73%|███████▎  | 71.3M/97.8M [00:27<01:14, 373kB/s]
+ 73%|███████▎  | 71.3M/97.8M [00:27<01:15, 367kB/s]
+ 73%|███████▎  | 71.3M/97.8M [00:27<01:16, 362kB/s]
+ 73%|███████▎  | 71.4M/97.8M [00:27<01:15, 369kB/s]
+ 73%|███████▎  | 71.4M/97.8M [00:28<01:16, 361kB/s]
+ 73%|███████▎  | 71.5M/97.8M [00:28<01:16, 359kB/s]
+ 73%|███████▎  | 71.5M/97.8M [00:28<01:20, 341kB/s]
+ 73%|███████▎  | 71.5M/97.8M [00:28<01:22, 334kB/s]
+ 73%|███████▎  | 71.6M/97.8M [00:28<01:22, 332kB/s]
+ 73%|███████▎  | 71.6M/97.8M [00:28<01:34, 292kB/s]
+ 73%|███████▎  | 71.7M/97.8M [00:28<01:24, 325kB/s]
+ 73%|███████▎  | 71.7M/97.8M [00:28<01:20, 340kB/s]
+ 73%|███████▎  | 71.7M/97.8M [00:29<01:14, 367kB/s]
+ 73%|███████▎  | 71.8M/97.8M [00:29<01:11, 381kB/s]
+ 73%|███████▎  | 71.8M/97.8M [00:29<01:09, 394kB/s]
+ 73%|███████▎  | 71.9M/97.8M [00:29<01:07, 402kB/s]
+ 74%|███████▎  | 71.9M/97.8M [00:29<01:06, 408kB/s]
+ 74%|███████▎  | 72.0M/97.8M [00:29<01:05, 413kB/s]
+ 74%|███████▎  | 72.0M/97.8M [00:29<01:02, 433kB/s]
+ 74%|███████▎  | 72.1M/97.8M [00:29<01:00, 445kB/s]
+ 74%|███████▎  | 72.1M/97.8M [00:29<01:00, 447kB/s]
+ 74%|███████▍  | 72.2M/97.8M [00:30<01:02, 432kB/s]
+ 74%|███████▍  | 72.2M/97.8M [00:30<01:00, 444kB/s]
+ 74%|███████▍  | 72.3M/97.8M [00:30<01:05, 407kB/s]
+ 74%|███████▍  | 72.3M/97.8M [00:30<01:05, 409kB/s]
+ 74%|███████▍  | 72.4M/97.8M [00:30<01:05, 408kB/s]
+ 74%|███████▍  | 72.4M/97.8M [00:30<01:04, 412kB/s]
+ 74%|███████▍  | 72.4M/97.8M [00:30<01:04, 413kB/s]
+ 74%|███████▍  | 72.5M/97.8M [00:30<01:03, 419kB/s]
+ 74%|███████▍  | 72.5M/97.8M [00:31<01:05, 407kB/s]
+ 74%|███████▍  | 72.6M/97.8M [00:31<01:11, 372kB/s]
+ 74%|███████▍  | 72.6M/97.8M [00:31<01:11, 370kB/s]
+ 74%|███████▍  | 72.7M/97.8M [00:31<01:34, 278kB/s]
+ 74%|███████▍  | 72.7M/97.8M [00:31<01:42, 257kB/s]
+ 74%|███████▍  | 72.7M/97.8M [00:31<01:29, 295kB/s]
+ 74%|███████▍  | 72.8M/97.8M [00:31<01:16, 342kB/s]
+ 74%|███████▍  | 72.9M/97.8M [00:31<01:05, 398kB/s]
+ 75%|███████▍  | 72.9M/97.8M [00:32<00:55, 469kB/s]
+ 75%|███████▍  | 73.0M/97.8M [00:32<00:49, 528kB/s]
+ 75%|███████▍  | 73.1M/97.8M [00:32<00:43, 601kB/s]
+ 75%|███████▍  | 73.2M/97.8M [00:32<00:38, 670kB/s]
+ 75%|███████▍  | 73.3M/97.8M [00:32<00:33, 763kB/s]
+ 75%|███████▌  | 73.4M/97.8M [00:32<00:30, 831kB/s]
+ 75%|███████▌  | 73.5M/97.8M [00:32<00:27, 915kB/s]
+ 75%|███████▌  | 73.6M/97.8M [00:32<00:25, 1.00MB/s]
+ 75%|███████▌  | 73.8M/97.8M [00:32<00:22, 1.10MB/s]
+ 76%|███████▌  | 73.9M/97.8M [00:33<00:21, 1.17MB/s]
+ 76%|███████▌  | 74.1M/97.8M [00:33<00:19, 1.26MB/s]
+ 76%|███████▌  | 74.2M/97.8M [00:33<00:19, 1.30MB/s]
+ 76%|███████▌  | 74.4M/97.8M [00:33<00:16, 1.47MB/s]
+ 76%|███████▋  | 74.6M/97.8M [00:33<00:15, 1.60MB/s]
+ 76%|███████▋  | 74.8M/97.8M [00:33<00:14, 1.71MB/s]
+ 77%|███████▋  | 75.0M/97.8M [00:33<00:12, 1.88MB/s]
+ 77%|███████▋  | 75.3M/97.8M [00:33<00:11, 2.13MB/s]
+ 77%|███████▋  | 75.6M/97.8M [00:33<00:09, 2.37MB/s]
+ 78%|███████▊  | 76.0M/97.8M [00:33<00:08, 2.59MB/s]
+ 78%|███████▊  | 76.3M/97.8M [00:34<00:08, 2.74MB/s]
+ 78%|███████▊  | 76.5M/97.8M [00:34<00:08, 2.71MB/s]
+ 79%|███████▊  | 76.8M/97.8M [00:34<00:08, 2.50MB/s]
+ 79%|███████▉  | 77.2M/97.8M [00:34<00:07, 2.80MB/s]
+ 79%|███████▉  | 77.5M/97.8M [00:34<00:07, 2.89MB/s]
+ 80%|███████▉  | 77.8M/97.8M [00:34<00:07, 2.92MB/s]
+ 80%|███████▉  | 78.1M/97.8M [00:34<00:06, 3.00MB/s]
+ 80%|████████  | 78.4M/97.8M [00:34<00:06, 3.07MB/s]
+ 81%|████████  | 78.7M/97.8M [00:34<00:06, 3.19MB/s]
+ 81%|████████  | 79.1M/97.8M [00:34<00:06, 3.22MB/s]
+ 81%|████████  | 79.4M/97.8M [00:35<00:05, 3.26MB/s]
+ 81%|████████▏ | 79.7M/97.8M [00:35<00:05, 3.30MB/s]
+ 82%|████████▏ | 80.1M/97.8M [00:35<00:05, 3.42MB/s]
+ 82%|████████▏ | 80.4M/97.8M [00:35<00:05, 3.51MB/s]
+ 83%|████████▎ | 80.8M/97.8M [00:35<00:04, 3.60MB/s]
+ 83%|████████▎ | 81.2M/97.8M [00:35<00:04, 3.68MB/s]
+ 83%|████████▎ | 81.6M/97.8M [00:35<00:04, 3.74MB/s]
+ 84%|████████▍ | 82.0M/97.8M [00:35<00:04, 3.86MB/s]
+ 84%|████████▍ | 82.4M/97.8M [00:35<00:04, 3.95MB/s]
+ 85%|████████▍ | 82.8M/97.8M [00:35<00:03, 4.01MB/s]
+ 85%|████████▌ | 83.1M/97.8M [00:36<00:03, 3.97MB/s]
+ 85%|████████▌ | 83.5M/97.8M [00:36<00:03, 3.99MB/s]
+ 86%|████████▌ | 83.9M/97.8M [00:36<00:03, 3.83MB/s]
+ 86%|████████▌ | 84.3M/97.8M [00:36<00:03, 3.69MB/s]
+ 87%|████████▋ | 84.7M/97.8M [00:36<00:03, 3.78MB/s]
+ 87%|████████▋ | 85.1M/97.8M [00:36<00:03, 3.48MB/s]
+ 87%|████████▋ | 85.4M/97.8M [00:36<00:03, 3.50MB/s]
+ 88%|████████▊ | 85.7M/97.8M [00:36<00:03, 3.42MB/s]
+ 88%|████████▊ | 86.1M/97.8M [00:36<00:03, 3.24MB/s]
+ 88%|████████▊ | 86.4M/97.8M [00:37<00:03, 3.15MB/s]
+ 89%|████████▊ | 86.7M/97.8M [00:37<00:04, 2.65MB/s]
+ 89%|████████▉ | 87.1M/97.8M [00:37<00:03, 2.98MB/s]
+ 89%|████████▉ | 87.4M/97.8M [00:37<00:03, 2.98MB/s]
+ 90%|████████▉ | 87.8M/97.8M [00:37<00:03, 3.17MB/s]
+ 90%|█████████ | 88.1M/97.8M [00:37<00:03, 3.30MB/s]
+ 90%|█████████ | 88.5M/97.8M [00:37<00:03, 3.04MB/s]
+ 91%|█████████ | 88.8M/97.8M [00:37<00:03, 2.90MB/s]
+ 91%|█████████ | 89.1M/97.8M [00:38<00:02, 3.08MB/s]
+ 91%|█████████▏| 89.5M/97.8M [00:38<00:02, 3.20MB/s]
+ 92%|█████████▏| 89.8M/97.8M [00:38<00:04, 1.94MB/s]
+ 93%|█████████▎| 90.8M/97.8M [00:38<00:02, 2.56MB/s]
+ 93%|█████████▎| 91.3M/97.8M [00:38<00:02, 2.90MB/s]
+ 94%|█████████▍| 91.7M/97.8M [00:38<00:02, 3.12MB/s]
+ 94%|█████████▍| 92.1M/97.8M [00:38<00:01, 3.32MB/s]
+ 95%|█████████▍| 92.6M/97.8M [00:39<00:01, 3.69MB/s]
+ 95%|█████████▌| 93.1M/97.8M [00:39<00:01, 3.96MB/s]
+ 96%|█████████▌| 93.6M/97.8M [00:39<00:01, 4.29MB/s]
+ 96%|█████████▌| 94.1M/97.8M [00:39<00:01, 3.54MB/s]
+ 97%|█████████▋| 94.9M/97.8M [00:39<00:00, 4.28MB/s]
+ 98%|█████████▊| 95.4M/97.8M [00:39<00:00, 4.48MB/s]
+ 98%|█████████▊| 95.9M/97.8M [00:39<00:00, 4.67MB/s]
+ 99%|█████████▊| 96.4M/97.8M [00:40<00:00, 3.01MB/s]
+100%|██████████| 97.8M/97.8M [00:40<00:00, 2.56MB/s]
+2021-05-31 00:00:47,666 - mmseg - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: fc.weight, fc.bias
+
+2021-05-31 00:00:47,671 - mmseg - INFO - EncoderDecoder(
+  (backbone): ResNetV1c(
+    (stem): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+      (3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (4): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): ReLU(inplace=True)
+      (6): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (7): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (8): ReLU(inplace=True)
+    )
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+  (decode_head): DepthwiseSeparableASPPHead(
+    input_transform=None, ignore_index=255, align_corners=False
+    (loss_decode): CrossEntropyLoss()
+    (conv_seg): Conv2d(512, 19, kernel_size=(1, 1), stride=(1, 1))
+    (dropout): Dropout2d(p=0.1, inplace=False)
+    (image_pool): Sequential(
+      (0): AdaptiveAvgPool2d(output_size=1)
+      (1): ConvModule(
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(inplace=True)
+      )
+    )
+    (aspp_modules): DepthwiseSeparableASPPModule(
+      (0): ConvModule(
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(inplace=True)
+      )
+      (1): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12), groups=2048, bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (2): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(24, 24), dilation=(24, 24), groups=2048, bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (3): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(36, 36), dilation=(36, 36), groups=2048, bias=False)
+          (bn): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+    )
+    (bottleneck): ConvModule(
+      (conv): Conv2d(2560, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): ReLU(inplace=True)
+    )
+    (c1_bottleneck): ConvModule(
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): ReLU(inplace=True)
+    )
+    (sep_bottleneck): Sequential(
+      (0): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(560, 560, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=560, bias=False)
+          (bn): BatchNorm2d(560, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(560, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (1): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+    )
+  )
+  (auxiliary_head): FCNHead(
+    input_transform=None, ignore_index=255, align_corners=False
+    (loss_decode): CrossEntropyLoss()
+    (conv_seg): Conv2d(256, 19, kernel_size=(1, 1), stride=(1, 1))
+    (dropout): Dropout2d(p=0.1, inplace=False)
+    (convs): Sequential(
+      (0): ConvModule(
+        (conv): Conv2d(1024, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(inplace=True)
+      )
+    )
+  )
+)
+2021-05-31 00:00:47,746 - mmseg - INFO - Loaded 2975 images
+2021-05-31 00:00:50,368 - mmseg - INFO - Start running, host: root@localhost, work_dir: /root/paddlejob/workspace/env_run/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
+2021-05-31 00:00:50,369 - mmseg - INFO - workflow: [('train', 1)], max: 100 iters
+2021-05-31 00:01:11,032 - mmseg - INFO - Iter [10/100]	lr: 9.194e-03, eta: 0:03:03, time: 2.042, data_time: 0.096, memory: 18705, decode.loss_seg: 2.3076, decode.acc_seg: 22.5851, aux.loss_seg: 1.0441, aux.acc_seg: 20.8697, loss: 3.3517
+2021-05-31 00:01:15,939 - mmseg - INFO - Iter [20/100]	lr: 8.290e-03, eta: 0:01:41, time: 0.491, data_time: 0.009, memory: 18705, decode.loss_seg: 1.8240, decode.acc_seg: 36.9929, aux.loss_seg: 0.7987, aux.acc_seg: 37.8518, loss: 2.6227
+2021-05-31 00:01:20,799 - mmseg - INFO - Iter [30/100]	lr: 7.374e-03, eta: 0:01:10, time: 0.486, data_time: 0.008, memory: 18705, decode.loss_seg: 1.5634, decode.acc_seg: 47.4974, aux.loss_seg: 0.7232, aux.acc_seg: 38.4190, loss: 2.2866
+2021-05-31 00:01:25,663 - mmseg - INFO - Iter [40/100]	lr: 6.445e-03, eta: 0:00:52, time: 0.486, data_time: 0.008, memory: 18705, decode.loss_seg: 1.3275, decode.acc_seg: 56.6157, aux.loss_seg: 0.6518, aux.acc_seg: 47.7833, loss: 1.9792
+2021-05-31 00:01:30,519 - mmseg - INFO - Iter [50/100]	lr: 5.501e-03, eta: 0:00:39, time: 0.486, data_time: 0.008, memory: 18705, decode.loss_seg: 1.6246, decode.acc_seg: 51.1544, aux.loss_seg: 0.7125, aux.acc_seg: 46.2102, loss: 2.3372
+2021-05-31 00:01:35,342 - mmseg - INFO - Iter [60/100]	lr: 4.538e-03, eta: 0:00:29, time: 0.482, data_time: 0.008, memory: 18705, decode.loss_seg: 0.9770, decode.acc_seg: 64.5230, aux.loss_seg: 0.5225, aux.acc_seg: 58.0038, loss: 1.4995
+2021-05-31 00:01:40,154 - mmseg - INFO - Iter [70/100]	lr: 3.550e-03, eta: 0:00:21, time: 0.481, data_time: 0.008, memory: 18705, decode.loss_seg: 1.4967, decode.acc_seg: 56.9015, aux.loss_seg: 0.6800, aux.acc_seg: 52.6936, loss: 2.1768
+2021-05-31 00:01:44,969 - mmseg - INFO - Iter [80/100]	lr: 2.530e-03, eta: 0:00:13, time: 0.481, data_time: 0.008, memory: 18705, decode.loss_seg: 1.1300, decode.acc_seg: 62.1791, aux.loss_seg: 0.5484, aux.acc_seg: 57.5799, loss: 1.6784
+2021-05-31 00:01:49,778 - mmseg - INFO - Iter [90/100]	lr: 1.458e-03, eta: 0:00:06, time: 0.481, data_time: 0.008, memory: 18705, decode.loss_seg: 1.0848, decode.acc_seg: 63.7147, aux.loss_seg: 0.5565, aux.acc_seg: 53.6416, loss: 1.6413
+2021-05-31 00:01:54,572 - mmseg - INFO - Iter [100/100]	lr: 2.569e-04, eta: 0:00:00, time: 0.479, data_time: 0.008, memory: 18705, decode.loss_seg: 1.1845, decode.acc_seg: 61.3697, aux.loss_seg: 0.5691, aux.acc_seg: 55.1311, loss: 1.7536

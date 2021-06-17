@@ -1,0 +1,85 @@
+------------Environment Information-------------
+platform: Linux-4.14.0_1-0-0-32-x86_64-with-debian-stretch-sid
+Python: 3.7.0 (default, May 26 2019, 06:13:42) [GCC 5.4.0 20160609]
+Paddle compiled with cuda: True
+NVCC: Cuda compilation tools, release 10.1, V10.1.105
+cudnn: 7.6
+GPUs used: 8
+CUDA_VISIBLE_DEVICES: None
+GPU: ['GPU 0: Tesla V100-SXM2-32GB', 'GPU 1: Tesla V100-SXM2-32GB', 'GPU 2: Tesla V100-SXM2-32GB', 'GPU 3: Tesla V100-SXM2-32GB', 'GPU 4: Tesla V100-SXM2-32GB', 'GPU 5: Tesla V100-SXM2-32GB', 'GPU 6: Tesla V100-SXM2-32GB', 'GPU 7: Tesla V100-SXM2-32GB']
+GCC: gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+PaddlePaddle: 0.0.0
+OpenCV: 4.4.0
+------------------------------------------------
+2021-05-31 15:45:34 [INFO]	
+---------------Config Information---------------
+batch_size: 8
+iters: 10
+learning_rate:
+  decay:
+    end_lr: 0.0
+    power: 0.9
+    type: poly
+  value: 0.01
+loss:
+  coef:
+  - 1
+  types:
+  - ignore_index: 255
+    type: CrossEntropyLoss
+model:
+  backbone:
+    pretrained: https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+    type: HRNet_W18
+  backbone_indices:
+  - -1
+  bias: false
+  num_classes: 19
+  type: FCN
+optimizer:
+  type: sgd
+  weight_decay: 0.0005
+train_dataset:
+  dataset_root: data/cityscapes
+  mode: train
+  transforms:
+  - max_scale_factor: 2.0
+    min_scale_factor: 0.5
+    scale_step_size: 0.25
+    type: ResizeStepScaling
+  - crop_size:
+    - 1024
+    - 512
+    type: RandomPaddingCrop
+  - type: RandomHorizontalFlip
+  - type: RandomDistort
+  - type: Normalize
+  type: Cityscapes
+val_dataset:
+  dataset_root: data/cityscapes
+  mode: val
+  transforms:
+  - type: Normalize
+  type: Cityscapes
+------------------------------------------------
+W0531 15:45:34.840750  4246 device_context.cc:430] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
+W0531 15:45:34.840787  4246 device_context.cc:448] device: 0, cuDNN Version: 7.6.
+2021-05-31 15:45:39 [INFO]	Loading pretrained model from https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+2021-05-31 15:45:45 [INFO]	There are 1525/1525 variables loaded into HRNet.
+W0531 15:45:45.488332  4246 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:6071 failed 1 times with reason: Connection refused retry after 0.5 seconds
+I0531 15:45:45.989233  4246 nccl_context.cc:74] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+I0531 15:45:47.378399  4246 nccl_context.cc:107] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 10
+2021-05-31 15:45:48,583-INFO: [topology.py:152:__init__] HybridParallelInfo: rank_id: 0, dp_degree: 8, mp_degree: 1, pp_degree: 1, dp_group: [0, 1, 2, 3, 4, 5, 6, 7], mp_group: [0], pp_group: [0], check/clip group: [0]
+/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/cross_entropy_loss.py:60: DeprecationWarning: [93m
+Warning:
+API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
+reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
+  logit, label, ignore_index=self.ignore_index, axis=axis)
+2021-05-31 15:46:00 [INFO]	[TRAIN] epoch: 1, iter: 2/10, loss: 2.9074, lr: 0.009095, batch_cost: 5.5702, reader_cost: 2.43762, ips: 1.4362 samples/sec | ETA 00:00:44
+2021-05-31 15:46:01 [INFO]	[TRAIN] epoch: 1, iter: 4/10, loss: 2.5936, lr: 0.007254, batch_cost: 0.5890, reader_cost: 0.00020, ips: 13.5823 samples/sec | ETA 00:00:03
+2021-05-31 15:46:02 [INFO]	[TRAIN] epoch: 1, iter: 6/10, loss: 2.0241, lr: 0.005359, batch_cost: 0.6173, reader_cost: 0.00020, ips: 12.9598 samples/sec | ETA 00:00:02
+2021-05-31 15:46:03 [INFO]	[TRAIN] epoch: 1, iter: 8/10, loss: 1.8018, lr: 0.003384, batch_cost: 0.6196, reader_cost: 0.00018, ips: 12.9123 samples/sec | ETA 00:00:01
+2021-05-31 15:46:04 [INFO]	[TRAIN] epoch: 1, iter: 10/10, loss: 1.4809, lr: 0.001259, batch_cost: 0.6128, reader_cost: 0.00031, ips: 13.0540 samples/sec | ETA 00:00:00
+<class 'paddle.nn.layer.conv.Conv2D'>'s flops has been counted
+Customize Function has been applied to <class 'paddle.nn.layer.norm.SyncBatchNorm'>
+Total Flops: -1736046592     Total Params: 9675306
