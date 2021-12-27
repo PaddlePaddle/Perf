@@ -25,9 +25,9 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
-  - GPU：Tesla V100-SXM2-16GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 460.32.03
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - Driver Version: 460.27.04
   - 内存：502 GB
 
 
@@ -45,8 +45,8 @@
 - Docker: nvcr.io/nvidia/mxnet:20.12-py3
 - MxNet：1.8.0
 - 模型代码：[NVIDIA/DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5)
-- CUDA：10.1
-- cuDNN：7.6.1
+- CUDA：11.1
+- cuDNN：8.05
 
 
 ## 二、环境搭建
@@ -60,7 +60,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/MxNet/Classification/RN50v1.5
    # 本次测试是在如下版本下完成的：
-   git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
+   git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
    ```
 
 - 制作Docker镜像
@@ -115,8 +115,8 @@
 
 |卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=192)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 370.29  | 1313.60 | 1394.40 |
-|8 | 2666.90   | 7942.80  | 8939.50 |
+|1 | 360.73  | 1277.30 | 1355.00 |
+|8 | 2955.30   | 9449.30  | 10318.00 |
 |32 | - | - | - |
 
 ## 五、日志数据

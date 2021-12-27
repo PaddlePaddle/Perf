@@ -1,9 +1,5 @@
-/usr/local/lib/python3.7/site-packages/pkg_resources/_vendor/pyparsing.py:943: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
-  collections.MutableMapping.register(ParseResults)
-/usr/local/lib/python3.7/site-packages/setuptools/depends.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
-  import imp
-2021-05-19 18:05:06 WARNING: A new filed (print_interval) detected!
-2021-05-19 18:05:06 INFO: 
+A new filed (is_distributed) detected!
+[2021/12/21 17:26:58] root INFO: 
 ===========================================================
 ==        PaddleClas is powered by PaddlePaddle !        ==
 ===========================================================
@@ -13,260 +9,173 @@
 ==       https://github.com/PaddlePaddle/PaddleClas      ==
 ===========================================================
 
-2021-05-19 18:05:06 INFO: AMP : 
-2021-05-19 18:05:06 INFO:     scale_loss : 128.0
-2021-05-19 18:05:06 INFO:     use_dynamic_loss_scaling : True
-2021-05-19 18:05:06 INFO:     use_pure_fp16 : False
-2021-05-19 18:05:06 INFO: ------------------------------------------------------------
-2021-05-19 18:05:06 INFO: ARCHITECTURE : 
-2021-05-19 18:05:06 INFO:     name : ResNet50
-2021-05-19 18:05:06 INFO: ------------------------------------------------------------
-2021-05-19 18:05:06 INFO: LEARNING_RATE : 
-2021-05-19 18:05:06 INFO:     function : Piecewise
-2021-05-19 18:05:06 INFO:     params : 
-2021-05-19 18:05:06 INFO:         decay_epochs : [30, 60, 90]
-2021-05-19 18:05:06 INFO:         gamma : 0.1
-2021-05-19 18:05:06 INFO:         lr : 0.1
-2021-05-19 18:05:06 INFO: ------------------------------------------------------------
-2021-05-19 18:05:06 INFO: OPTIMIZER : 
-2021-05-19 18:05:06 INFO:     function : Momentum
-2021-05-19 18:05:06 INFO:     params : 
-2021-05-19 18:05:06 INFO:         momentum : 0.9
-2021-05-19 18:05:06 INFO:         multi_precision : True
-2021-05-19 18:05:06 INFO:     regularizer : 
-2021-05-19 18:05:06 INFO:         factor : 0.0001
-2021-05-19 18:05:06 INFO:         function : L2
-2021-05-19 18:05:06 INFO: ------------------------------------------------------------
-2021-05-19 18:05:06 INFO: TRAIN : 
-2021-05-19 18:05:06 INFO:     batch_size : 1024
-2021-05-19 18:05:06 INFO:     data_dir : ./data
-2021-05-19 18:05:06 INFO:     file_list : ./data/train_list.txt
-2021-05-19 18:05:06 INFO:     num_workers : 8
-2021-05-19 18:05:06 INFO:     shuffle_seed : 0
-2021-05-19 18:05:06 INFO:     transforms : 
-2021-05-19 18:05:06 INFO:         DecodeImage : 
-2021-05-19 18:05:06 INFO:             channel_first : False
-2021-05-19 18:05:06 INFO:             to_rgb : True
-2021-05-19 18:05:06 INFO:         RandCropImage : 
-2021-05-19 18:05:06 INFO:             size : 224
-2021-05-19 18:05:06 INFO:         RandFlipImage : 
-2021-05-19 18:05:06 INFO:             flip_code : 1
-2021-05-19 18:05:06 INFO:         NormalizeImage : 
-2021-05-19 18:05:06 INFO:             channel_num : 4
-2021-05-19 18:05:06 INFO:             mean : [0.485, 0.456, 0.406]
-2021-05-19 18:05:06 INFO:             order : 
-2021-05-19 18:05:06 INFO:             output_fp16 : True
-2021-05-19 18:05:06 INFO:             scale : 1./255.
-2021-05-19 18:05:06 INFO:             std : [0.229, 0.224, 0.225]
-2021-05-19 18:05:06 INFO:         ToCHWImage : None
-2021-05-19 18:05:06 INFO: ------------------------------------------------------------
-2021-05-19 18:05:06 INFO: VALID : 
-2021-05-19 18:05:06 INFO:     batch_size : 64
-2021-05-19 18:05:06 INFO:     data_dir : ./dataset/ILSVRC2012/
-2021-05-19 18:05:06 INFO:     file_list : ./dataset/ILSVRC2012/val_list.txt
-2021-05-19 18:05:06 INFO:     num_workers : 4
-2021-05-19 18:05:06 INFO:     shuffle_seed : 0
-2021-05-19 18:05:06 INFO:     transforms : 
-2021-05-19 18:05:06 INFO:         DecodeImage : 
-2021-05-19 18:05:06 INFO:             channel_first : False
-2021-05-19 18:05:06 INFO:             to_rgb : True
-2021-05-19 18:05:06 INFO:         ResizeImage : 
-2021-05-19 18:05:06 INFO:             resize_short : 256
-2021-05-19 18:05:06 INFO:         CropImage : 
-2021-05-19 18:05:06 INFO:             size : 224
-2021-05-19 18:05:06 INFO:         NormalizeImage : 
-2021-05-19 18:05:06 INFO:             mean : [0.485, 0.456, 0.406]
-2021-05-19 18:05:06 INFO:             order : 
-2021-05-19 18:05:06 INFO:             scale : 1.0/255.0
-2021-05-19 18:05:06 INFO:             std : [0.229, 0.224, 0.225]
-2021-05-19 18:05:06 INFO:         ToCHWImage : None
-2021-05-19 18:05:06 INFO: ------------------------------------------------------------
-2021-05-19 18:05:06 INFO: classes_num : 1000
-2021-05-19 18:05:06 INFO: data_format : NHWC
-2021-05-19 18:05:06 INFO: epochs : 1
-2021-05-19 18:05:06 INFO: image_channel : 4
-2021-05-19 18:05:06 INFO: image_shape : [4, 224, 224]
-2021-05-19 18:05:06 INFO: is_distributed : True
-2021-05-19 18:05:06 INFO: ls_epsilon : -1
-2021-05-19 18:05:06 INFO: mode : train
-2021-05-19 18:05:06 INFO: model_save_dir : ./output/
-2021-05-19 18:05:06 INFO: pretrained_model : 
-2021-05-19 18:05:06 INFO: print_interval : 10
-2021-05-19 18:05:06 INFO: save_interval : 1
-2021-05-19 18:05:06 INFO: topk : 5
-2021-05-19 18:05:06 INFO: total_images : 1281167
-2021-05-19 18:05:06 INFO: use_dali : True
-2021-05-19 18:05:06 INFO: use_gpu : True
-2021-05-19 18:05:06 INFO: use_mix : False
-2021-05-19 18:05:06 INFO: valid_interval : 1
-2021-05-19 18:05:06 INFO: validate : False
-2021-05-19 18:05:06 WARNING: Input image channel is changed to 4, maybe for better speed-up
-/usr/local/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:696: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+[2021/12/21 17:26:58] root INFO: AMP : 
+[2021/12/21 17:26:58] root INFO:     scale_loss : 128.0
+[2021/12/21 17:26:58] root INFO:     use_dynamic_loss_scaling : True
+[2021/12/21 17:26:58] root INFO:     use_pure_fp16 : False
+[2021/12/21 17:26:58] root INFO: ------------------------------------------------------------
+[2021/12/21 17:26:58] root INFO: Arch : 
+[2021/12/21 17:26:58] root INFO:     class_num : 1000
+[2021/12/21 17:26:58] root INFO:     data_format : NHWC
+[2021/12/21 17:26:58] root INFO:     input_image_channel : 4
+[2021/12/21 17:26:58] root INFO:     name : ResNet50
+[2021/12/21 17:26:58] root INFO: DataLoader : 
+[2021/12/21 17:26:58] root INFO:     Eval : 
+[2021/12/21 17:26:58] root INFO:         dataset : 
+[2021/12/21 17:26:58] root INFO:             cls_label_path : ./dataset/ILSVRC2012/val_list.txt
+[2021/12/21 17:26:58] root INFO:             image_root : ./dataset/ILSVRC2012/
+[2021/12/21 17:26:58] root INFO:             name : ImageNetDataset
+[2021/12/21 17:26:58] root INFO:             transform_ops : 
+[2021/12/21 17:26:58] root INFO:                 DecodeImage : 
+[2021/12/21 17:26:58] root INFO:                     channel_first : False
+[2021/12/21 17:26:58] root INFO:                     to_rgb : True
+[2021/12/21 17:26:58] root INFO:                 ResizeImage : 
+[2021/12/21 17:26:58] root INFO:                     resize_short : 256
+[2021/12/21 17:26:58] root INFO:                 CropImage : 
+[2021/12/21 17:26:58] root INFO:                     size : 224
+[2021/12/21 17:26:58] root INFO:                 NormalizeImage : 
+[2021/12/21 17:26:58] root INFO:                     channel_num : 4
+[2021/12/21 17:26:58] root INFO:                     mean : [0.485, 0.456, 0.406]
+[2021/12/21 17:26:58] root INFO:                     order : 
+[2021/12/21 17:26:58] root INFO:                     output_fp16 : False
+[2021/12/21 17:26:58] root INFO:                     scale : 1.0/255.0
+[2021/12/21 17:26:58] root INFO:                     std : [0.229, 0.224, 0.225]
+[2021/12/21 17:26:58] root INFO:         loader : 
+[2021/12/21 17:26:58] root INFO:             num_workers : 4
+[2021/12/21 17:26:58] root INFO:             use_shared_memory : True
+[2021/12/21 17:26:58] root INFO:         sampler : 
+[2021/12/21 17:26:58] root INFO:             batch_size : 64
+[2021/12/21 17:26:58] root INFO:             drop_last : False
+[2021/12/21 17:26:58] root INFO:             name : DistributedBatchSampler
+[2021/12/21 17:26:58] root INFO:             shuffle : False
+[2021/12/21 17:26:58] root INFO:     Train : 
+[2021/12/21 17:26:58] root INFO:         dataset : 
+[2021/12/21 17:26:58] root INFO:             cls_label_path : ./dataset/imagenet100_data/train_list.txt
+[2021/12/21 17:26:58] root INFO:             image_root : ./dataset/imagenet100_data
+[2021/12/21 17:26:58] root INFO:             name : ImageNetDataset
+[2021/12/21 17:26:58] root INFO:             transform_ops : 
+[2021/12/21 17:26:58] root INFO:                 DecodeImage : 
+[2021/12/21 17:26:58] root INFO:                     channel_first : False
+[2021/12/21 17:26:58] root INFO:                     to_rgb : True
+[2021/12/21 17:26:58] root INFO:                 RandCropImage : 
+[2021/12/21 17:26:58] root INFO:                     size : 224
+[2021/12/21 17:26:58] root INFO:                 RandFlipImage : 
+[2021/12/21 17:26:58] root INFO:                     flip_code : 1
+[2021/12/21 17:26:58] root INFO:                 NormalizeImage : 
+[2021/12/21 17:26:58] root INFO:                     channel_num : 4
+[2021/12/21 17:26:58] root INFO:                     mean : [0.485, 0.456, 0.406]
+[2021/12/21 17:26:58] root INFO:                     order : 
+[2021/12/21 17:26:58] root INFO:                     output_fp16 : False
+[2021/12/21 17:26:58] root INFO:                     scale : 1.0/255.0
+[2021/12/21 17:26:58] root INFO:                     std : [0.229, 0.224, 0.225]
+[2021/12/21 17:26:58] root INFO:         loader : 
+[2021/12/21 17:26:58] root INFO:             num_workers : 8
+[2021/12/21 17:26:58] root INFO:             use_shared_memory : True
+[2021/12/21 17:26:58] root INFO:         sampler : 
+[2021/12/21 17:26:58] root INFO:             batch_size : 128
+[2021/12/21 17:26:58] root INFO:             drop_last : False
+[2021/12/21 17:26:58] root INFO:             name : DistributedBatchSampler
+[2021/12/21 17:26:58] root INFO:             shuffle : True
+[2021/12/21 17:26:58] root INFO: Global : 
+[2021/12/21 17:26:58] root INFO:     checkpoints : None
+[2021/12/21 17:26:58] root INFO:     device : gpu
+[2021/12/21 17:26:58] root INFO:     epochs : 1
+[2021/12/21 17:26:58] root INFO:     eval_during_train : False
+[2021/12/21 17:26:58] root INFO:     eval_interval : 1
+[2021/12/21 17:26:58] root INFO:     image_channel : 4
+[2021/12/21 17:26:58] root INFO:     image_shape : [4, 224, 224]
+[2021/12/21 17:26:58] root INFO:     is_distributed : True
+[2021/12/21 17:26:58] root INFO:     output_dir : ./output/
+[2021/12/21 17:26:58] root INFO:     pretrained_model : None
+[2021/12/21 17:26:58] root INFO:     print_batch_step : 10
+[2021/12/21 17:26:58] root INFO:     save_inference_dir : ./inference
+[2021/12/21 17:26:58] root INFO:     save_interval : 1
+[2021/12/21 17:26:58] root INFO:     to_static : False
+[2021/12/21 17:26:58] root INFO:     use_dali : True
+[2021/12/21 17:26:58] root INFO:     use_visualdl : False
+[2021/12/21 17:26:58] root INFO: Infer : 
+[2021/12/21 17:26:58] root INFO:     PostProcess : 
+[2021/12/21 17:26:58] root INFO:         class_id_map_file : ppcls/utils/imagenet1k_label_list.txt
+[2021/12/21 17:26:58] root INFO:         name : Topk
+[2021/12/21 17:26:58] root INFO:         topk : 5
+[2021/12/21 17:26:58] root INFO:     batch_size : 10
+[2021/12/21 17:26:58] root INFO:     infer_imgs : docs/images/whl/demo.jpg
+[2021/12/21 17:26:58] root INFO:     transforms : 
+[2021/12/21 17:26:58] root INFO:         DecodeImage : 
+[2021/12/21 17:26:58] root INFO:             channel_first : False
+[2021/12/21 17:26:58] root INFO:             to_rgb : True
+[2021/12/21 17:26:58] root INFO:         ResizeImage : 
+[2021/12/21 17:26:58] root INFO:             resize_short : 256
+[2021/12/21 17:26:58] root INFO:         CropImage : 
+[2021/12/21 17:26:58] root INFO:             size : 224
+[2021/12/21 17:26:58] root INFO:         NormalizeImage : 
+[2021/12/21 17:26:58] root INFO:             channel_num : 4
+[2021/12/21 17:26:58] root INFO:             mean : [0.485, 0.456, 0.406]
+[2021/12/21 17:26:58] root INFO:             order : 
+[2021/12/21 17:26:58] root INFO:             output_fp16 : False
+[2021/12/21 17:26:58] root INFO:             scale : 1.0/255.0
+[2021/12/21 17:26:58] root INFO:             std : [0.229, 0.224, 0.225]
+[2021/12/21 17:26:58] root INFO:         ToCHWImage : None
+[2021/12/21 17:26:58] root INFO: Loss : 
+[2021/12/21 17:26:58] root INFO:     Eval : 
+[2021/12/21 17:26:58] root INFO:         CELoss : 
+[2021/12/21 17:26:58] root INFO:             weight : 1.0
+[2021/12/21 17:26:58] root INFO:     Train : 
+[2021/12/21 17:26:58] root INFO:         CELoss : 
+[2021/12/21 17:26:58] root INFO:             weight : 1.0
+[2021/12/21 17:26:58] root INFO: Metric : 
+[2021/12/21 17:26:58] root INFO:     Eval : 
+[2021/12/21 17:26:58] root INFO:         TopkAcc : 
+[2021/12/21 17:26:58] root INFO:             topk : [1, 5]
+[2021/12/21 17:26:58] root INFO:     Train : 
+[2021/12/21 17:26:58] root INFO:         TopkAcc : 
+[2021/12/21 17:26:58] root INFO:             topk : [1, 5]
+[2021/12/21 17:26:58] root INFO: Optimizer : 
+[2021/12/21 17:26:58] root INFO:     lr : 
+[2021/12/21 17:26:58] root INFO:         decay_epochs : [30, 60, 90]
+[2021/12/21 17:26:58] root INFO:         learning_rate : 0.1
+[2021/12/21 17:26:58] root INFO:         name : Piecewise
+[2021/12/21 17:26:58] root INFO:         values : [0.1, 0.01, 0.001, 0.0001]
+[2021/12/21 17:26:58] root INFO:     momentum : 0.9
+[2021/12/21 17:26:58] root INFO:     multi_precision : True
+[2021/12/21 17:26:58] root INFO:     name : Momentum
+[2021/12/21 17:26:58] root INFO:     regularizer : 
+[2021/12/21 17:26:58] root INFO:         coeff : 0.0001
+[2021/12/21 17:26:58] root INFO:         name : L2
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:202: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  self._shards_id = np.array([meta["shard_id"] for meta in readers_meta], dtype=np.int)
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:216: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  self._counter_per_gpu = np.zeros(self._shards_num, dtype=np.long)
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:175: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  shards_beg = np.floor(shard_nums * self._size_no_pad / self._shards_num).astype(np.int)
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:176: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  shards_end = np.floor((shard_nums + 1) * self._size_no_pad / self._shards_num).astype(np.int)
+W1221 17:27:02.422268 28073 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1221 17:27:02.427273 28073 device_context.cc:465] device: 0, cuDNN Version: 8.1.
+/usr/local/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:865: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
   "It is recommended to use DistributedStrategy "
-/usr/local/lib/python3.7/site-packages/paddle/fluid/framework.py:689: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+/usr/local/lib/python3.7/site-packages/paddle/fluid/framework.py:744: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
 Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
   elif dtype == np.bool:
-W0519 18:05:07.454047 11614 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 10.1
-W0519 18:05:07.454094 11614 device_context.cc:422] device: 0, cuDNN Version: 7.6.
-W0519 18:05:10.925273 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 1 times with reason: Connection refused retry after 0.5 seconds
-W0519 18:05:11.425513 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 2 times with reason: Connection refused retry after 1 seconds
-W0519 18:05:12.425737 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 3 times with reason: Connection refused retry after 1.5 seconds
-W0519 18:05:13.925971 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 4 times with reason: Connection refused retry after 2 seconds
-W0519 18:05:15.926187 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 5 times with reason: Connection refused retry after 2.5 seconds
-W0519 18:05:18.426434 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 6 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:21.426677 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 7 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:24.426916 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 8 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:27.427153 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 9 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:30.427400 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 10 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:33.427664 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 11 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:36.427896 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 12 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:39.428125 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 13 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:42.428359 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 14 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:45.428607 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 15 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:48.428843 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 16 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:51.429077 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 17 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:54.429308 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 18 times with reason: Connection refused retry after 3 seconds
-W0519 18:05:57.429503 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 19 times with reason: Connection refused retry after 3 seconds
-W0519 18:06:00.429738 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 20 times with reason: Connection refused retry after 3 seconds
-W0519 18:06:03.429965 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 21 times with reason: Connection refused retry after 3 seconds
-W0519 18:06:06.430189 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 22 times with reason: Connection refused retry after 3 seconds
-W0519 18:06:09.430416 11614 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:22914 failed 23 times with reason: Connection refused retry after 3 seconds
-/home/heya02/self_test/paddle/daily_ben/perf_result/benchmark/PaddleClas/tools/static/dali.py:80: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-  pad_output=pad_output)
-/home/heya02/self_test/paddle/daily_ben/perf_result/benchmark/PaddleClas/tools/static/dali.py:80: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-  pad_output=pad_output)
-/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:124: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-  _iterator_deprecation_warning()
-W0519 18:06:16.621263 11614 build_strategy.cc:109] Currently, fuse_broadcast_ops only works under Reduce mode.
-I0519 18:06:16.669853 11614 graph_pattern_detector.cc:91] ---  detected 33 subgraphs
-I0519 18:06:16.900650 11614 graph_pattern_detector.cc:91] ---  detected 33 subgraphs
-I0519 18:06:16.962083 11614 graph_pattern_detector.cc:91] ---  detected 16 subgraphs
-I0519 18:06:16.997081 11614 graph_pattern_detector.cc:91] ---  detected 16 subgraphs
-W0519 18:06:17.057931 11614 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 161. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 10.
-2021-05-19 18:06:20 INFO: epoch:0   train step:10   top1: 0.0000 top5: 0.0078 loss:  7.5858 lr: 0.100000, batch_cost: 0.12182 s, reader_cost: 0.00101 s, ips: 1050.70134 images/sec.
-2021-05-19 18:06:21 INFO: epoch:0   train step:20   top1: 0.0000 top5: 0.0078 loss:  7.2226 lr: 0.100000, batch_cost: 0.12274 s, reader_cost: 0.00086 s, ips: 1042.81367 images/sec.
-2021-05-19 18:06:22 INFO: epoch:0   train step:30   top1: 0.0000 top5: 0.0078 loss:  7.2589 lr: 0.100000, batch_cost: 0.12191 s, reader_cost: 0.00100 s, ips: 1049.98668 images/sec.
-2021-05-19 18:06:23 INFO: epoch:0   train step:40   top1: 0.0000 top5: 0.0000 loss:  7.0520 lr: 0.100000, batch_cost: 0.12022 s, reader_cost: 0.00102 s, ips: 1064.67505 images/sec.
-2021-05-19 18:06:24 INFO: epoch:0   train step:50   top1: 0.0000 top5: 0.0000 loss:  6.9104 lr: 0.100000, batch_cost: 0.11860 s, reader_cost: 0.00104 s, ips: 1079.30192 images/sec.
-2021-05-19 18:06:26 INFO: epoch:0   train step:60   top1: 0.0000 top5: 0.0078 loss:  7.1126 lr: 0.100000, batch_cost: 0.11752 s, reader_cost: 0.00100 s, ips: 1089.20204 images/sec.
-2021-05-19 18:06:27 INFO: epoch:0   train step:70   top1: 0.0000 top5: 0.0078 loss:  6.9760 lr: 0.100000, batch_cost: 0.11739 s, reader_cost: 0.00098 s, ips: 1090.37463 images/sec.
-2021-05-19 18:06:28 INFO: epoch:0   train step:80   top1: 0.0000 top5: 0.0000 loss:  6.9134 lr: 0.100000, batch_cost: 0.11663 s, reader_cost: 0.00096 s, ips: 1097.52694 images/sec.
-2021-05-19 18:06:29 INFO: epoch:0   train step:90   top1: 0.0078 top5: 0.0078 loss:  6.9388 lr: 0.100000, batch_cost: 0.11632 s, reader_cost: 0.00100 s, ips: 1100.37547 images/sec.
-2021-05-19 18:06:30 INFO: epoch:0   train step:100  top1: 0.0000 top5: 0.0156 loss:  6.9211 lr: 0.100000, batch_cost: 0.11616 s, reader_cost: 0.00097 s, ips: 1101.94020 images/sec.
-2021-05-19 18:06:31 INFO: epoch:0   train step:110  top1: 0.0000 top5: 0.0000 loss:  6.9404 lr: 0.100000, batch_cost: 0.11565 s, reader_cost: 0.00099 s, ips: 1106.80163 images/sec.
-2021-05-19 18:06:32 INFO: epoch:0   train step:120  top1: 0.0000 top5: 0.0078 loss:  7.3931 lr: 0.100000, batch_cost: 0.11527 s, reader_cost: 0.00097 s, ips: 1110.39853 images/sec.
-2021-05-19 18:06:34 INFO: epoch:0   train step:130  top1: 0.0000 top5: 0.0078 loss:  6.8664 lr: 0.100000, batch_cost: 0.11500 s, reader_cost: 0.00096 s, ips: 1113.07289 images/sec.
-2021-05-19 18:06:35 INFO: epoch:0   train step:140  top1: 0.0000 top5: 0.0078 loss:  6.8850 lr: 0.100000, batch_cost: 0.11474 s, reader_cost: 0.00095 s, ips: 1115.57660 images/sec.
-2021-05-19 18:06:36 INFO: epoch:0   train step:150  top1: 0.0000 top5: 0.0000 loss:  6.9146 lr: 0.100000, batch_cost: 0.11463 s, reader_cost: 0.00094 s, ips: 1116.59259 images/sec.
-2021-05-19 18:06:37 INFO: epoch:0   train step:160  top1: 0.0000 top5: 0.0234 loss:  6.8952 lr: 0.100000, batch_cost: 0.11456 s, reader_cost: 0.00094 s, ips: 1117.34510 images/sec.
-2021-05-19 18:06:38 INFO: epoch:0   train step:170  top1: 0.0000 top5: 0.0156 loss:  6.8778 lr: 0.100000, batch_cost: 0.11451 s, reader_cost: 0.00094 s, ips: 1117.81065 images/sec.
-2021-05-19 18:06:39 INFO: epoch:0   train step:180  top1: 0.0000 top5: 0.0156 loss:  6.8807 lr: 0.100000, batch_cost: 0.11449 s, reader_cost: 0.00094 s, ips: 1118.03068 images/sec.
-2021-05-19 18:06:40 INFO: epoch:0   train step:190  top1: 0.0000 top5: 0.0156 loss:  6.8058 lr: 0.100000, batch_cost: 0.11438 s, reader_cost: 0.00093 s, ips: 1119.07367 images/sec.
-2021-05-19 18:06:41 INFO: epoch:0   train step:200  top1: 0.0078 top5: 0.0234 loss:  6.7704 lr: 0.100000, batch_cost: 0.11434 s, reader_cost: 0.00093 s, ips: 1119.48751 images/sec.
-2021-05-19 18:06:43 INFO: epoch:0   train step:210  top1: 0.0078 top5: 0.0547 loss:  6.7676 lr: 0.100000, batch_cost: 0.11425 s, reader_cost: 0.00093 s, ips: 1120.33115 images/sec.
-2021-05-19 18:06:44 INFO: epoch:0   train step:220  top1: 0.0000 top5: 0.0000 loss:  6.8932 lr: 0.100000, batch_cost: 0.11418 s, reader_cost: 0.00093 s, ips: 1121.08312 images/sec.
-2021-05-19 18:06:45 INFO: epoch:0   train step:230  top1: 0.0000 top5: 0.0156 loss:  6.7095 lr: 0.100000, batch_cost: 0.11427 s, reader_cost: 0.00093 s, ips: 1120.17660 images/sec.
-2021-05-19 18:06:46 INFO: epoch:0   train step:240  top1: 0.0078 top5: 0.0312 loss:  6.5699 lr: 0.100000, batch_cost: 0.11425 s, reader_cost: 0.00093 s, ips: 1120.31644 images/sec.
-2021-05-19 18:06:47 INFO: epoch:0   train step:250  top1: 0.0078 top5: 0.0234 loss:  6.6184 lr: 0.100000, batch_cost: 0.11419 s, reader_cost: 0.00093 s, ips: 1120.98624 images/sec.
-2021-05-19 18:06:48 INFO: epoch:0   train step:260  top1: 0.0000 top5: 0.0078 loss:  6.6813 lr: 0.100000, batch_cost: 0.11423 s, reader_cost: 0.00093 s, ips: 1120.59102 images/sec.
-2021-05-19 18:06:49 INFO: epoch:0   train step:270  top1: 0.0000 top5: 0.0156 loss:  6.6870 lr: 0.100000, batch_cost: 0.11431 s, reader_cost: 0.00095 s, ips: 1119.76920 images/sec.
-2021-05-19 18:06:51 INFO: epoch:0   train step:280  top1: 0.0156 top5: 0.0312 loss:  6.5332 lr: 0.100000, batch_cost: 0.11456 s, reader_cost: 0.00095 s, ips: 1117.34017 images/sec.
-2021-05-19 18:06:52 INFO: epoch:0   train step:290  top1: 0.0156 top5: 0.0547 loss:  6.4711 lr: 0.100000, batch_cost: 0.11460 s, reader_cost: 0.00094 s, ips: 1116.90597 images/sec.
-2021-05-19 18:06:53 INFO: epoch:0   train step:300  top1: 0.0078 top5: 0.0312 loss:  6.4996 lr: 0.100000, batch_cost: 0.11477 s, reader_cost: 0.00095 s, ips: 1115.30609 images/sec.
-2021-05-19 18:06:54 INFO: epoch:0   train step:310  top1: 0.0156 top5: 0.0625 loss:  6.4172 lr: 0.100000, batch_cost: 0.11482 s, reader_cost: 0.00095 s, ips: 1114.75872 images/sec.
-2021-05-19 18:06:55 INFO: epoch:0   train step:320  top1: 0.0000 top5: 0.0000 loss:  6.5229 lr: 0.100000, batch_cost: 0.11481 s, reader_cost: 0.00097 s, ips: 1114.86831 images/sec.
-2021-05-19 18:06:57 INFO: epoch:0   train step:330  top1: 0.0156 top5: 0.0469 loss:  6.3491 lr: 0.100000, batch_cost: 0.11488 s, reader_cost: 0.00099 s, ips: 1114.24956 images/sec.
-2021-05-19 18:06:58 INFO: epoch:0   train step:340  top1: 0.0156 top5: 0.0312 loss:  6.3802 lr: 0.100000, batch_cost: 0.11492 s, reader_cost: 0.00099 s, ips: 1113.84130 images/sec.
-2021-05-19 18:06:59 INFO: epoch:0   train step:350  top1: 0.0078 top5: 0.0078 loss:  6.4671 lr: 0.100000, batch_cost: 0.11499 s, reader_cost: 0.00101 s, ips: 1113.15959 images/sec.
-2021-05-19 18:07:00 INFO: epoch:0   train step:360  top1: 0.0078 top5: 0.0469 loss:  6.2258 lr: 0.100000, batch_cost: 0.11519 s, reader_cost: 0.00101 s, ips: 1111.18110 images/sec.
-2021-05-19 18:07:01 INFO: epoch:0   train step:370  top1: 0.0156 top5: 0.0703 loss:  6.2112 lr: 0.100000, batch_cost: 0.11525 s, reader_cost: 0.00103 s, ips: 1110.63419 images/sec.
-2021-05-19 18:07:02 INFO: epoch:0   train step:380  top1: 0.0078 top5: 0.0625 loss:  6.2805 lr: 0.100000, batch_cost: 0.11542 s, reader_cost: 0.00103 s, ips: 1108.98779 images/sec.
-2021-05-19 18:07:04 INFO: epoch:0   train step:390  top1: 0.0078 top5: 0.0547 loss:  6.3753 lr: 0.100000, batch_cost: 0.11545 s, reader_cost: 0.00103 s, ips: 1108.73588 images/sec.
-2021-05-19 18:07:05 INFO: epoch:0   train step:400  top1: 0.0078 top5: 0.0703 loss:  6.2385 lr: 0.100000, batch_cost: 0.11545 s, reader_cost: 0.00104 s, ips: 1108.67682 images/sec.
-2021-05-19 18:07:06 INFO: epoch:0   train step:410  top1: 0.0000 top5: 0.0469 loss:  6.3724 lr: 0.100000, batch_cost: 0.11550 s, reader_cost: 0.00105 s, ips: 1108.18179 images/sec.
-2021-05-19 18:07:07 INFO: epoch:0   train step:420  top1: 0.0234 top5: 0.0625 loss:  6.0913 lr: 0.100000, batch_cost: 0.11554 s, reader_cost: 0.00105 s, ips: 1107.84854 images/sec.
-2021-05-19 18:07:08 INFO: epoch:0   train step:430  top1: 0.0078 top5: 0.0469 loss:  6.1455 lr: 0.100000, batch_cost: 0.11555 s, reader_cost: 0.00105 s, ips: 1107.76956 images/sec.
-2021-05-19 18:07:09 INFO: epoch:0   train step:440  top1: 0.0000 top5: 0.0469 loss:  6.1081 lr: 0.100000, batch_cost: 0.11560 s, reader_cost: 0.00104 s, ips: 1107.26981 images/sec.
-2021-05-19 18:07:11 INFO: epoch:0   train step:450  top1: 0.0234 top5: 0.0781 loss:  6.0773 lr: 0.100000, batch_cost: 0.11572 s, reader_cost: 0.00104 s, ips: 1106.16039 images/sec.
-2021-05-19 18:07:12 INFO: epoch:0   train step:460  top1: 0.0078 top5: 0.0625 loss:  6.0220 lr: 0.100000, batch_cost: 0.11588 s, reader_cost: 0.00110 s, ips: 1104.57458 images/sec.
-2021-05-19 18:07:13 INFO: epoch:0   train step:470  top1: 0.0156 top5: 0.0703 loss:  6.0780 lr: 0.100000, batch_cost: 0.11610 s, reader_cost: 0.00111 s, ips: 1102.52211 images/sec.
-2021-05-19 18:07:14 INFO: epoch:0   train step:480  top1: 0.0234 top5: 0.0859 loss:  6.0302 lr: 0.100000, batch_cost: 0.11616 s, reader_cost: 0.00112 s, ips: 1101.88831 images/sec.
-2021-05-19 18:07:16 INFO: epoch:0   train step:490  top1: 0.0000 top5: 0.0781 loss:  5.9240 lr: 0.100000, batch_cost: 0.11623 s, reader_cost: 0.00111 s, ips: 1101.26832 images/sec.
-2021-05-19 18:07:17 INFO: epoch:0   train step:500  top1: 0.0078 top5: 0.0312 loss:  6.0002 lr: 0.100000, batch_cost: 0.11643 s, reader_cost: 0.00111 s, ips: 1099.34439 images/sec.
-2021-05-19 18:07:18 INFO: epoch:0   train step:510  top1: 0.0156 top5: 0.0625 loss:  5.9410 lr: 0.100000, batch_cost: 0.11640 s, reader_cost: 0.00110 s, ips: 1099.64187 images/sec.
-2021-05-19 18:07:19 INFO: epoch:0   train step:520  top1: 0.0547 top5: 0.0859 loss:  5.8917 lr: 0.100000, batch_cost: 0.11647 s, reader_cost: 0.00111 s, ips: 1099.03698 images/sec.
-2021-05-19 18:07:20 INFO: epoch:0   train step:530  top1: 0.0312 top5: 0.1094 loss:  5.9081 lr: 0.100000, batch_cost: 0.11654 s, reader_cost: 0.00110 s, ips: 1098.35335 images/sec.
-2021-05-19 18:07:22 INFO: epoch:0   train step:540  top1: 0.0156 top5: 0.1094 loss:  5.8184 lr: 0.100000, batch_cost: 0.11664 s, reader_cost: 0.00111 s, ips: 1097.41331 images/sec.
-2021-05-19 18:07:23 INFO: epoch:0   train step:550  top1: 0.0391 top5: 0.0781 loss:  5.8868 lr: 0.100000, batch_cost: 0.11660 s, reader_cost: 0.00111 s, ips: 1097.73186 images/sec.
-2021-05-19 18:07:24 INFO: epoch:0   train step:560  top1: 0.0391 top5: 0.1094 loss:  5.9346 lr: 0.100000, batch_cost: 0.11673 s, reader_cost: 0.00111 s, ips: 1096.52306 images/sec.
-2021-05-19 18:07:25 INFO: epoch:0   train step:570  top1: 0.0469 top5: 0.1406 loss:  5.6357 lr: 0.100000, batch_cost: 0.11680 s, reader_cost: 0.00111 s, ips: 1095.93069 images/sec.
-2021-05-19 18:07:26 INFO: epoch:0   train step:580  top1: 0.0391 top5: 0.1406 loss:  5.8382 lr: 0.100000, batch_cost: 0.11682 s, reader_cost: 0.00110 s, ips: 1095.74962 images/sec.
-2021-05-19 18:07:28 INFO: epoch:0   train step:590  top1: 0.0078 top5: 0.1328 loss:  5.7835 lr: 0.100000, batch_cost: 0.11697 s, reader_cost: 0.00110 s, ips: 1094.28594 images/sec.
-2021-05-19 18:07:29 INFO: epoch:0   train step:600  top1: 0.0625 top5: 0.1328 loss:  5.7514 lr: 0.100000, batch_cost: 0.11700 s, reader_cost: 0.00110 s, ips: 1093.98153 images/sec.
-2021-05-19 18:07:30 INFO: epoch:0   train step:610  top1: 0.0234 top5: 0.0859 loss:  5.8512 lr: 0.100000, batch_cost: 0.11714 s, reader_cost: 0.00111 s, ips: 1092.69423 images/sec.
-2021-05-19 18:07:31 INFO: epoch:0   train step:620  top1: 0.0391 top5: 0.1094 loss:  5.7030 lr: 0.100000, batch_cost: 0.11721 s, reader_cost: 0.00110 s, ips: 1092.10318 images/sec.
-2021-05-19 18:07:33 INFO: epoch:0   train step:630  top1: 0.0156 top5: 0.1250 loss:  5.6947 lr: 0.100000, batch_cost: 0.11725 s, reader_cost: 0.00111 s, ips: 1091.68573 images/sec.
-2021-05-19 18:07:34 INFO: epoch:0   train step:640  top1: 0.0469 top5: 0.1328 loss:  5.5566 lr: 0.100000, batch_cost: 0.11731 s, reader_cost: 0.00112 s, ips: 1091.11913 images/sec.
-2021-05-19 18:07:35 INFO: epoch:0   train step:650  top1: 0.0312 top5: 0.1250 loss:  5.8700 lr: 0.100000, batch_cost: 0.11751 s, reader_cost: 0.00117 s, ips: 1089.28242 images/sec.
-2021-05-19 18:07:36 INFO: epoch:0   train step:660  top1: 0.0703 top5: 0.1484 loss:  5.6998 lr: 0.100000, batch_cost: 0.11762 s, reader_cost: 0.00117 s, ips: 1088.28481 images/sec.
-2021-05-19 18:07:38 INFO: epoch:0   train step:670  top1: 0.0312 top5: 0.1328 loss:  5.8142 lr: 0.100000, batch_cost: 0.11773 s, reader_cost: 0.00118 s, ips: 1087.23443 images/sec.
-2021-05-19 18:07:39 INFO: epoch:0   train step:680  top1: 0.0469 top5: 0.1484 loss:  5.5429 lr: 0.100000, batch_cost: 0.11781 s, reader_cost: 0.00118 s, ips: 1086.52843 images/sec.
-2021-05-19 18:07:40 INFO: epoch:0   train step:690  top1: 0.0234 top5: 0.1250 loss:  5.5018 lr: 0.100000, batch_cost: 0.11790 s, reader_cost: 0.00117 s, ips: 1085.71028 images/sec.
-2021-05-19 18:07:41 INFO: epoch:0   train step:700  top1: 0.0312 top5: 0.1484 loss:  5.7934 lr: 0.100000, batch_cost: 0.11799 s, reader_cost: 0.00117 s, ips: 1084.80867 images/sec.
-2021-05-19 18:07:43 INFO: epoch:0   train step:710  top1: 0.0391 top5: 0.1484 loss:  5.5287 lr: 0.100000, batch_cost: 0.11815 s, reader_cost: 0.00117 s, ips: 1083.40578 images/sec.
-2021-05-19 18:07:44 INFO: epoch:0   train step:720  top1: 0.0703 top5: 0.1797 loss:  5.4919 lr: 0.100000, batch_cost: 0.11833 s, reader_cost: 0.00117 s, ips: 1081.75313 images/sec.
-2021-05-19 18:07:45 INFO: epoch:0   train step:730  top1: 0.0703 top5: 0.1328 loss:  5.5727 lr: 0.100000, batch_cost: 0.11844 s, reader_cost: 0.00116 s, ips: 1080.73145 images/sec.
-2021-05-19 18:07:46 INFO: epoch:0   train step:740  top1: 0.0703 top5: 0.1562 loss:  5.4592 lr: 0.100000, batch_cost: 0.11855 s, reader_cost: 0.00116 s, ips: 1079.72798 images/sec.
-2021-05-19 18:07:48 INFO: epoch:0   train step:750  top1: 0.0625 top5: 0.1641 loss:  5.5958 lr: 0.100000, batch_cost: 0.11859 s, reader_cost: 0.00117 s, ips: 1079.35748 images/sec.
-2021-05-19 18:07:49 INFO: epoch:0   train step:760  top1: 0.0234 top5: 0.1094 loss:  5.6378 lr: 0.100000, batch_cost: 0.11865 s, reader_cost: 0.00118 s, ips: 1078.84405 images/sec.
-2021-05-19 18:07:50 INFO: epoch:0   train step:770  top1: 0.0781 top5: 0.1562 loss:  5.4253 lr: 0.100000, batch_cost: 0.11872 s, reader_cost: 0.00118 s, ips: 1078.18702 images/sec.
-2021-05-19 18:07:51 INFO: epoch:0   train step:780  top1: 0.0781 top5: 0.2266 loss:  5.3524 lr: 0.100000, batch_cost: 0.11885 s, reader_cost: 0.00117 s, ips: 1076.95349 images/sec.
-2021-05-19 18:07:53 INFO: epoch:0   train step:790  top1: 0.0312 top5: 0.1016 loss:  5.3921 lr: 0.100000, batch_cost: 0.11898 s, reader_cost: 0.00117 s, ips: 1075.79241 images/sec.
-2021-05-19 18:07:54 INFO: epoch:0   train step:800  top1: 0.0312 top5: 0.1016 loss:  5.6080 lr: 0.100000, batch_cost: 0.11907 s, reader_cost: 0.00117 s, ips: 1074.96922 images/sec.
-2021-05-19 18:07:55 INFO: epoch:0   train step:810  top1: 0.0469 top5: 0.1250 loss:  5.5747 lr: 0.100000, batch_cost: 0.11919 s, reader_cost: 0.00117 s, ips: 1073.89591 images/sec.
-2021-05-19 18:07:56 INFO: epoch:0   train step:820  top1: 0.0859 top5: 0.1953 loss:  5.2179 lr: 0.100000, batch_cost: 0.11922 s, reader_cost: 0.00117 s, ips: 1073.68110 images/sec.
-2021-05-19 18:07:58 INFO: epoch:0   train step:830  top1: 0.0625 top5: 0.1406 loss:  5.3478 lr: 0.100000, batch_cost: 0.11932 s, reader_cost: 0.00116 s, ips: 1072.75984 images/sec.
-2021-05-19 18:07:59 INFO: epoch:0   train step:840  top1: 0.0703 top5: 0.1953 loss:  5.3429 lr: 0.100000, batch_cost: 0.11943 s, reader_cost: 0.00116 s, ips: 1071.71591 images/sec.
-2021-05-19 18:08:00 INFO: epoch:0   train step:850  top1: 0.0703 top5: 0.1797 loss:  5.2489 lr: 0.100000, batch_cost: 0.11954 s, reader_cost: 0.00116 s, ips: 1070.80002 images/sec.
-2021-05-19 18:08:02 INFO: epoch:0   train step:860  top1: 0.0547 top5: 0.1953 loss:  5.1717 lr: 0.100000, batch_cost: 0.11959 s, reader_cost: 0.00116 s, ips: 1070.29703 images/sec.
-2021-05-19 18:08:03 INFO: epoch:0   train step:870  top1: 0.0234 top5: 0.1484 loss:  5.6467 lr: 0.100000, batch_cost: 0.11966 s, reader_cost: 0.00116 s, ips: 1069.70471 images/sec.
-2021-05-19 18:08:04 INFO: epoch:0   train step:880  top1: 0.0703 top5: 0.1953 loss:  5.2386 lr: 0.100000, batch_cost: 0.11969 s, reader_cost: 0.00116 s, ips: 1069.46478 images/sec.
-2021-05-19 18:08:05 INFO: epoch:0   train step:890  top1: 0.0703 top5: 0.1562 loss:  5.4638 lr: 0.100000, batch_cost: 0.11971 s, reader_cost: 0.00116 s, ips: 1069.24424 images/sec.
-2021-05-19 18:08:07 INFO: epoch:0   train step:900  top1: 0.0625 top5: 0.1953 loss:  5.2876 lr: 0.100000, batch_cost: 0.11982 s, reader_cost: 0.00117 s, ips: 1068.22497 images/sec.
-2021-05-19 18:08:08 INFO: epoch:0   train step:910  top1: 0.0156 top5: 0.1016 loss:  5.7619 lr: 0.100000, batch_cost: 0.11984 s, reader_cost: 0.00116 s, ips: 1068.06312 images/sec.
-2021-05-19 18:08:09 INFO: epoch:0   train step:920  top1: 0.1094 top5: 0.3203 loss:  5.0518 lr: 0.100000, batch_cost: 0.11991 s, reader_cost: 0.00116 s, ips: 1067.46457 images/sec.
-2021-05-19 18:08:10 INFO: epoch:0   train step:930  top1: 0.0781 top5: 0.2188 loss:  5.0940 lr: 0.100000, batch_cost: 0.12002 s, reader_cost: 0.00116 s, ips: 1066.44802 images/sec.
-2021-05-19 18:08:12 INFO: epoch:0   train step:940  top1: 0.0781 top5: 0.2266 loss:  5.1750 lr: 0.100000, batch_cost: 0.12011 s, reader_cost: 0.00116 s, ips: 1065.72183 images/sec.
-2021-05-19 18:08:13 INFO: epoch:0   train step:950  top1: 0.0625 top5: 0.1562 loss:  5.2644 lr: 0.100000, batch_cost: 0.12016 s, reader_cost: 0.00116 s, ips: 1065.25377 images/sec.
-2021-05-19 18:08:14 INFO: epoch:0   train step:960  top1: 0.0703 top5: 0.1328 loss:  5.4063 lr: 0.100000, batch_cost: 0.12017 s, reader_cost: 0.00115 s, ips: 1065.14954 images/sec.
-2021-05-19 18:08:15 INFO: epoch:0   train step:970  top1: 0.0938 top5: 0.2656 loss:  5.0763 lr: 0.100000, batch_cost: 0.12028 s, reader_cost: 0.00116 s, ips: 1064.14653 images/sec.
-2021-05-19 18:08:17 INFO: epoch:0   train step:980  top1: 0.0938 top5: 0.2266 loss:  4.9910 lr: 0.100000, batch_cost: 0.12034 s, reader_cost: 0.00116 s, ips: 1063.65385 images/sec.
-2021-05-19 18:08:18 INFO: epoch:0   train step:990  top1: 0.0625 top5: 0.1797 loss:  5.4522 lr: 0.100000, batch_cost: 0.12040 s, reader_cost: 0.00116 s, ips: 1063.08491 images/sec.
-2021-05-19 18:08:19 INFO: epoch:0   train step:1000 top1: 0.0781 top5: 0.2812 loss:  5.0113 lr: 0.100000, batch_cost: 0.12042 s, reader_cost: 0.00116 s, ips: 1062.97112 images/sec.
-2021-05-19 18:08:20 INFO: epoch:0   train step:1010 top1: 0.0547 top5: 0.1562 loss:  5.1976 lr: 0.100000, batch_cost: 0.12050 s, reader_cost: 0.00117 s, ips: 1062.27390 images/sec.
-2021-05-19 18:08:22 INFO: epoch:0   train step:1020 top1: 0.0547 top5: 0.1797 loss:  4.9580 lr: 0.100000, batch_cost: 0.12056 s, reader_cost: 0.00118 s, ips: 1061.70827 images/sec.
-2021-05-19 18:08:23 INFO: epoch:0   train step:1030 top1: 0.0859 top5: 0.2031 loss:  5.2684 lr: 0.100000, batch_cost: 0.12059 s, reader_cost: 0.00118 s, ips: 1061.49022 images/sec.
-2021-05-19 18:08:24 INFO: epoch:0   train step:1040 top1: 0.0859 top5: 0.2812 loss:  5.0169 lr: 0.100000, batch_cost: 0.12069 s, reader_cost: 0.00117 s, ips: 1060.53362 images/sec.
-2021-05-19 18:08:25 INFO: epoch:0   train step:1050 top1: 0.0938 top5: 0.2188 loss:  5.1778 lr: 0.100000, batch_cost: 0.12073 s, reader_cost: 0.00117 s, ips: 1060.25041 images/sec.
-2021-05-19 18:08:27 INFO: epoch:0   train step:1060 top1: 0.0859 top5: 0.2812 loss:  4.9873 lr: 0.100000, batch_cost: 0.12080 s, reader_cost: 0.00117 s, ips: 1059.58609 images/sec.
-2021-05-19 18:08:28 INFO: epoch:0   train step:1070 top1: 0.1016 top5: 0.1719 loss:  5.1590 lr: 0.100000, batch_cost: 0.12091 s, reader_cost: 0.00117 s, ips: 1058.63679 images/sec.
-2021-05-19 18:08:29 INFO: epoch:0   train step:1080 top1: 0.0625 top5: 0.2109 loss:  4.9828 lr: 0.100000, batch_cost: 0.12091 s, reader_cost: 0.00117 s, ips: 1058.60218 images/sec.
-2021-05-19 18:08:31 INFO: epoch:0   train step:1090 top1: 0.0859 top5: 0.1719 loss:  5.2419 lr: 0.100000, batch_cost: 0.12097 s, reader_cost: 0.00117 s, ips: 1058.09114 images/sec.
-2021-05-19 18:08:32 INFO: epoch:0   train step:1100 top1: 0.0781 top5: 0.2344 loss:  5.3425 lr: 0.100000, batch_cost: 0.12103 s, reader_cost: 0.00117 s, ips: 1057.61946 images/sec.
-2021-05-19 18:08:33 INFO: epoch:0   train step:1110 top1: 0.1094 top5: 0.2344 loss:  5.0240 lr: 0.100000, batch_cost: 0.12114 s, reader_cost: 0.00124 s, ips: 1056.60541 images/sec.
-2021-05-19 18:08:34 INFO: epoch:0   train step:1120 top1: 0.0625 top5: 0.2031 loss:  5.0583 lr: 0.100000, batch_cost: 0.12117 s, reader_cost: 0.00125 s, ips: 1056.35938 images/sec.
-2021-05-19 18:08:36 INFO: epoch:0   train step:1130 top1: 0.0703 top5: 0.1562 loss:  5.3628 lr: 0.100000, batch_cost: 0.12117 s, reader_cost: 0.00125 s, ips: 1056.33710 images/sec.
-2021-05-19 18:08:37 INFO: epoch:0   train step:1140 top1: 0.0625 top5: 0.2031 loss:  5.1410 lr: 0.100000, batch_cost: 0.12124 s, reader_cost: 0.00125 s, ips: 1055.75855 images/sec.
-2021-05-19 18:08:38 INFO: epoch:0   train step:1150 top1: 0.1016 top5: 0.2578 loss:  4.9672 lr: 0.100000, batch_cost: 0.12127 s, reader_cost: 0.00125 s, ips: 1055.51863 images/sec.
-2021-05-19 18:08:39 INFO: epoch:0   train step:1160 top1: 0.1016 top5: 0.2422 loss:  4.9056 lr: 0.100000, batch_cost: 0.12131 s, reader_cost: 0.00124 s, ips: 1055.11438 images/sec.
-2021-05-19 18:08:41 INFO: epoch:0   train step:1170 top1: 0.1094 top5: 0.2344 loss:  4.9892 lr: 0.100000, batch_cost: 0.12137 s, reader_cost: 0.00125 s, ips: 1054.62899 images/sec.
-2021-05-19 18:08:42 INFO: epoch:0   train step:1180 top1: 0.1172 top5: 0.2734 loss:  4.9571 lr: 0.100000, batch_cost: 0.12139 s, reader_cost: 0.00124 s, ips: 1054.41169 images/sec.
-2021-05-19 18:08:43 INFO: epoch:0   train step:1190 top1: 0.1250 top5: 0.2656 loss:  5.0295 lr: 0.100000, batch_cost: 0.12144 s, reader_cost: 0.00125 s, ips: 1053.99939 images/sec.
-2021-05-19 18:08:45 INFO: epoch:0   train step:1200 top1: 0.0938 top5: 0.2500 loss:  4.8850 lr: 0.100000, batch_cost: 0.12145 s, reader_cost: 0.00125 s, ips: 1053.89528 images/sec.
-2021-05-19 18:08:46 INFO: epoch:0   train step:1210 top1: 0.0391 top5: 0.1719 loss:  5.1599 lr: 0.100000, batch_cost: 0.12152 s, reader_cost: 0.00125 s, ips: 1053.31641 images/sec.
-2021-05-19 18:08:47 INFO: epoch:0   train step:1220 top1: 0.0938 top5: 0.2734 loss:  4.7084 lr: 0.100000, batch_cost: 0.12159 s, reader_cost: 0.00127 s, ips: 1052.71113 images/sec.
-2021-05-19 18:08:48 INFO: epoch:0   train step:1230 top1: 0.0547 top5: 0.2109 loss:  5.1171 lr: 0.100000, batch_cost: 0.12162 s, reader_cost: 0.00126 s, ips: 1052.42296 images/sec.
-2021-05-19 18:08:50 INFO: epoch:0   train step:1240 top1: 0.1484 top5: 0.2969 loss:  4.7981 lr: 0.100000, batch_cost: 0.12170 s, reader_cost: 0.00126 s, ips: 1051.74312 images/sec.
-2021-05-19 18:08:51 INFO: epoch:0   train step:1250 top1: 0.0859 top5: 0.2500 loss:  4.8858 lr: 0.100000, batch_cost: 0.12170 s, reader_cost: 0.00127 s, ips: 1051.74679 images/sec.
-2021-05-19 18:08:51 INFO: END epoch:0   train top1: 0.0415 top5: 0.1177 loss:  5.8810  batch_cost: 0.12171 s, reader_cost: 0.00127 s, batch_cost_sum: 151.88872 s, ips: 1051.71732 images/sec.
-2021-05-19 18:08:54 INFO: Already save model in ./output/ResNet50/0
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:37254', '127.0.0.1:52752', '127.0.0.1:43316', '127.0.0.1:53301', '127.0.0.1:46809', '127.0.0.1:43930', '127.0.0.1:36187']
+W1221 17:27:09.603116 28073 build_strategy.cc:110] Currently, fuse_broadcast_ops only works under Reduce mode.
+I1221 17:27:09.653863 28073 fuse_pass_base.cc:57] ---  detected 33 subgraphs
+I1221 17:27:09.771126 28073 fuse_pass_base.cc:57] ---  detected 33 subgraphs
+I1221 17:27:09.808224 28073 fuse_pass_base.cc:57] ---  detected 16 subgraphs
+I1221 17:27:09.834734 28073 fuse_pass_base.cc:57] ---  detected 16 subgraphs
+W1221 17:27:09.881001 28073 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 161. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 10.
+[2021/12/21 17:27:18] root INFO: epoch:0   train step:10   lr: 0.100000, loss:  7.6678 top1:  0.0234 top5:  0.0859 batch_cost: 0.10525 s, reader_cost: 0.00095 s, ips: 1216.16303 images/sec.
+[2021/12/21 17:27:19] root INFO: epoch:0   train step:20   lr: 0.100000, loss:  6.9123 top1:  0.0312 top5:  0.0703 batch_cost: 0.10457 s, reader_cost: 0.00087 s, ips: 1224.11258 images/sec.
+[2021/12/21 17:27:20] root INFO: epoch:0   train step:30   lr: 0.100000, loss:  5.4743 top1:  0.0156 top5:  0.0625 batch_cost: 0.10455 s, reader_cost: 0.00085 s, ips: 1224.34072 images/sec.
+[2021/12/21 17:27:21] root INFO: epoch:0   train step:40   lr: 0.100000, loss:  4.9734 top1:  0.0156 top5:  0.1094 batch_cost: 0.10418 s, reader_cost: 0.00085 s, ips: 1228.65088 images/sec.
+[2021/12/21 17:27:22] root INFO: epoch:0   train step:50   lr: 0.100000, loss:  4.6381 top1:  0.0078 top5:  0.1016 batch_cost: 0.10383 s, reader_cost: 0.00084 s, ips: 1232.82909 images/sec.
+[2021/12/21 17:27:23] root INFO: epoch:0   train step:60   lr: 0.100000, loss:  4.4982 top1:  0.0312 top5:  0.1328 batch_cost: 0.10355 s, reader_cost: 0.00083 s, ips: 1236.15594 images/sec.
+[2021/12/21 17:27:24] root INFO: epoch:0   train step:70   lr: 0.100000, loss:  4.4125 top1:  0.0156 top5:  0.0859 batch_cost: 0.10340 s, reader_cost: 0.00083 s, ips: 1237.95554 images/sec.
+[2021/12/21 17:27:25] root INFO: epoch:0   train step:80   lr: 0.100000, loss:  4.1628 top1:  0.0391 top5:  0.1172 batch_cost: 0.10322 s, reader_cost: 0.00084 s, ips: 1240.08730 images/sec.
+[2021/12/21 17:27:25] root INFO: END epoch:0   train  loss:  5.7283 top1:  0.0192 top5:  0.0927 batch_cost: 0.10316 s, reader_cost: 0.00083 s, batch_cost_sum: 8.25273 s, ips: 1240.80183 images/sec.
+[2021/12/21 17:27:26] root INFO: Already save model in ./output/ResNet50/0
