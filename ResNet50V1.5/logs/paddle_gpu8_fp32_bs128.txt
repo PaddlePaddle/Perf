@@ -1,0 +1,166 @@
+A new filed (fuse_elewise_add_act_ops) detected!
+A new filed (enable_addto) detected!
+A new filed (is_distributed) detected!
+A new filed (use_dali) detected!
+[2021/12/21 17:17:17] root INFO: 
+===========================================================
+==        PaddleClas is powered by PaddlePaddle !        ==
+===========================================================
+==                                                       ==
+==   For more info please go to the following website.   ==
+==                                                       ==
+==       https://github.com/PaddlePaddle/PaddleClas      ==
+===========================================================
+
+[2021/12/21 17:17:17] root INFO: Arch : 
+[2021/12/21 17:17:17] root INFO:     class_num : 1000
+[2021/12/21 17:17:17] root INFO:     name : ResNet50
+[2021/12/21 17:17:17] root INFO: DataLoader : 
+[2021/12/21 17:17:17] root INFO:     Eval : 
+[2021/12/21 17:17:17] root INFO:         dataset : 
+[2021/12/21 17:17:17] root INFO:             cls_label_path : ./dataset/ILSVRC2012/val_list.txt
+[2021/12/21 17:17:17] root INFO:             image_root : ./dataset/ILSVRC2012/
+[2021/12/21 17:17:17] root INFO:             name : ImageNetDataset
+[2021/12/21 17:17:17] root INFO:             transform_ops : 
+[2021/12/21 17:17:17] root INFO:                 DecodeImage : 
+[2021/12/21 17:17:17] root INFO:                     channel_first : False
+[2021/12/21 17:17:17] root INFO:                     to_rgb : True
+[2021/12/21 17:17:17] root INFO:                 ResizeImage : 
+[2021/12/21 17:17:17] root INFO:                     resize_short : 256
+[2021/12/21 17:17:17] root INFO:                 CropImage : 
+[2021/12/21 17:17:17] root INFO:                     size : 224
+[2021/12/21 17:17:17] root INFO:                 NormalizeImage : 
+[2021/12/21 17:17:17] root INFO:                     mean : [0.485, 0.456, 0.406]
+[2021/12/21 17:17:17] root INFO:                     order : 
+[2021/12/21 17:17:17] root INFO:                     scale : 1.0/255.0
+[2021/12/21 17:17:17] root INFO:                     std : [0.229, 0.224, 0.225]
+[2021/12/21 17:17:17] root INFO:         loader : 
+[2021/12/21 17:17:17] root INFO:             num_workers : 4
+[2021/12/21 17:17:17] root INFO:             use_shared_memory : True
+[2021/12/21 17:17:17] root INFO:         sampler : 
+[2021/12/21 17:17:17] root INFO:             batch_size : 64
+[2021/12/21 17:17:17] root INFO:             drop_last : False
+[2021/12/21 17:17:17] root INFO:             name : DistributedBatchSampler
+[2021/12/21 17:17:17] root INFO:             shuffle : False
+[2021/12/21 17:17:17] root INFO:     Train : 
+[2021/12/21 17:17:17] root INFO:         dataset : 
+[2021/12/21 17:17:17] root INFO:             cls_label_path : ./dataset/imagenet100_data/train_list.txt
+[2021/12/21 17:17:17] root INFO:             image_root : ./dataset/imagenet100_data
+[2021/12/21 17:17:17] root INFO:             name : ImageNetDataset
+[2021/12/21 17:17:17] root INFO:             transform_ops : 
+[2021/12/21 17:17:17] root INFO:                 DecodeImage : 
+[2021/12/21 17:17:17] root INFO:                     channel_first : False
+[2021/12/21 17:17:17] root INFO:                     to_rgb : True
+[2021/12/21 17:17:17] root INFO:                 RandCropImage : 
+[2021/12/21 17:17:17] root INFO:                     size : 224
+[2021/12/21 17:17:17] root INFO:                 RandFlipImage : 
+[2021/12/21 17:17:17] root INFO:                     flip_code : 1
+[2021/12/21 17:17:17] root INFO:                 NormalizeImage : 
+[2021/12/21 17:17:17] root INFO:                     mean : [0.485, 0.456, 0.406]
+[2021/12/21 17:17:17] root INFO:                     order : 
+[2021/12/21 17:17:17] root INFO:                     scale : 1.0/255.0
+[2021/12/21 17:17:17] root INFO:                     std : [0.229, 0.224, 0.225]
+[2021/12/21 17:17:17] root INFO:         loader : 
+[2021/12/21 17:17:17] root INFO:             num_workers : 8
+[2021/12/21 17:17:17] root INFO:             use_shared_memory : True
+[2021/12/21 17:17:17] root INFO:         sampler : 
+[2021/12/21 17:17:17] root INFO:             batch_size : 128
+[2021/12/21 17:17:17] root INFO:             drop_last : False
+[2021/12/21 17:17:17] root INFO:             name : DistributedBatchSampler
+[2021/12/21 17:17:17] root INFO:             shuffle : True
+[2021/12/21 17:17:17] root INFO: Global : 
+[2021/12/21 17:17:17] root INFO:     checkpoints : None
+[2021/12/21 17:17:17] root INFO:     device : gpu
+[2021/12/21 17:17:17] root INFO:     epochs : 1
+[2021/12/21 17:17:17] root INFO:     eval_during_train : False
+[2021/12/21 17:17:17] root INFO:     eval_interval : 1
+[2021/12/21 17:17:17] root INFO:     image_shape : [3, 224, 224]
+[2021/12/21 17:17:17] root INFO:     is_distributed : True
+[2021/12/21 17:17:17] root INFO:     output_dir : ./output/
+[2021/12/21 17:17:17] root INFO:     pretrained_model : None
+[2021/12/21 17:17:17] root INFO:     print_batch_step : 10
+[2021/12/21 17:17:17] root INFO:     save_inference_dir : ./inference
+[2021/12/21 17:17:17] root INFO:     save_interval : 1
+[2021/12/21 17:17:17] root INFO:     to_static : False
+[2021/12/21 17:17:17] root INFO:     use_dali : True
+[2021/12/21 17:17:17] root INFO:     use_visualdl : False
+[2021/12/21 17:17:17] root INFO: Infer : 
+[2021/12/21 17:17:17] root INFO:     PostProcess : 
+[2021/12/21 17:17:17] root INFO:         class_id_map_file : ppcls/utils/imagenet1k_label_list.txt
+[2021/12/21 17:17:17] root INFO:         name : Topk
+[2021/12/21 17:17:17] root INFO:         topk : 5
+[2021/12/21 17:17:17] root INFO:     batch_size : 10
+[2021/12/21 17:17:17] root INFO:     infer_imgs : docs/images/whl/demo.jpg
+[2021/12/21 17:17:17] root INFO:     transforms : 
+[2021/12/21 17:17:17] root INFO:         DecodeImage : 
+[2021/12/21 17:17:17] root INFO:             channel_first : False
+[2021/12/21 17:17:17] root INFO:             to_rgb : True
+[2021/12/21 17:17:17] root INFO:         ResizeImage : 
+[2021/12/21 17:17:17] root INFO:             resize_short : 256
+[2021/12/21 17:17:17] root INFO:         CropImage : 
+[2021/12/21 17:17:17] root INFO:             size : 224
+[2021/12/21 17:17:17] root INFO:         NormalizeImage : 
+[2021/12/21 17:17:17] root INFO:             mean : [0.485, 0.456, 0.406]
+[2021/12/21 17:17:17] root INFO:             order : 
+[2021/12/21 17:17:17] root INFO:             scale : 1.0/255.0
+[2021/12/21 17:17:17] root INFO:             std : [0.229, 0.224, 0.225]
+[2021/12/21 17:17:17] root INFO:         ToCHWImage : None
+[2021/12/21 17:17:17] root INFO: Loss : 
+[2021/12/21 17:17:17] root INFO:     Eval : 
+[2021/12/21 17:17:17] root INFO:         CELoss : 
+[2021/12/21 17:17:17] root INFO:             weight : 1.0
+[2021/12/21 17:17:17] root INFO:     Train : 
+[2021/12/21 17:17:17] root INFO:         CELoss : 
+[2021/12/21 17:17:17] root INFO:             weight : 1.0
+[2021/12/21 17:17:17] root INFO: Metric : 
+[2021/12/21 17:17:17] root INFO:     Eval : 
+[2021/12/21 17:17:17] root INFO:         TopkAcc : 
+[2021/12/21 17:17:17] root INFO:             topk : [1, 5]
+[2021/12/21 17:17:17] root INFO:     Train : 
+[2021/12/21 17:17:17] root INFO:         TopkAcc : 
+[2021/12/21 17:17:17] root INFO:             topk : [1, 5]
+[2021/12/21 17:17:17] root INFO: Optimizer : 
+[2021/12/21 17:17:17] root INFO:     lr : 
+[2021/12/21 17:17:17] root INFO:         decay_epochs : [30, 60, 90]
+[2021/12/21 17:17:17] root INFO:         learning_rate : 0.1
+[2021/12/21 17:17:17] root INFO:         name : Piecewise
+[2021/12/21 17:17:17] root INFO:         values : [0.1, 0.01, 0.001, 0.0001]
+[2021/12/21 17:17:17] root INFO:     momentum : 0.9
+[2021/12/21 17:17:17] root INFO:     name : Momentum
+[2021/12/21 17:17:17] root INFO:     regularizer : 
+[2021/12/21 17:17:17] root INFO:         coeff : 0.0001
+[2021/12/21 17:17:17] root INFO:         name : L2
+[2021/12/21 17:17:17] root INFO: enable_addto : True
+[2021/12/21 17:17:17] root INFO: fuse_elewise_add_act_ops : True
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:202: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  self._shards_id = np.array([meta["shard_id"] for meta in readers_meta], dtype=np.int)
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:216: DeprecationWarning: `np.long` is a deprecated alias for `np.compat.long`. To silence this warning, use `np.compat.long` by itself. In the likely event your code does not need to work on Python 2 you can use the builtin `int` for which `np.compat.long` is itself an alias. Doing this will not modify any behaviour and is safe. When replacing `np.long`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  self._counter_per_gpu = np.zeros(self._shards_num, dtype=np.long)
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:175: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  shards_beg = np.floor(shard_nums * self._size_no_pad / self._shards_num).astype(np.int)
+/usr/local/lib/python3.7/site-packages/nvidia/dali/plugin/base_iterator.py:176: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  shards_end = np.floor((shard_nums + 1) * self._size_no_pad / self._shards_num).astype(np.int)
+W1221 17:17:21.415588 26531 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1221 17:17:21.420370 26531 device_context.cc:465] device: 0, cuDNN Version: 8.1.
+/usr/local/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:865: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+  "It is recommended to use DistributedStrategy "
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:52389', '127.0.0.1:43206', '127.0.0.1:37033', '127.0.0.1:48746', '127.0.0.1:59919', '127.0.0.1:46270', '127.0.0.1:32927']
+W1221 17:17:28.288444 26531 build_strategy.cc:110] Currently, fuse_broadcast_ops only works under Reduce mode.
+I1221 17:17:28.297422 26531 fuse_pass_base.cc:57] ---  detected 16 subgraphs
+I1221 17:17:28.306581 26531 fuse_pass_base.cc:57] ---  detected 16 subgraphs
+W1221 17:17:28.339704 26531 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 161. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 7.
+[2021/12/21 17:17:34] root INFO: epoch:0   train step:10   lr: 0.100000, loss: 16.4713 top1:  0.0234 top5:  0.0547 batch_cost: 0.37782 s, reader_cost: 0.00103 s, ips: 338.78519 images/sec.
+[2021/12/21 17:17:37] root INFO: epoch:0   train step:20   lr: 0.100000, loss:  6.4004 top1:  0.0078 top5:  0.0703 batch_cost: 0.37747 s, reader_cost: 0.00093 s, ips: 339.10220 images/sec.
+[2021/12/21 17:17:41] root INFO: epoch:0   train step:30   lr: 0.100000, loss:  5.8269 top1:  0.0078 top5:  0.0234 batch_cost: 0.37763 s, reader_cost: 0.00096 s, ips: 338.95181 images/sec.
+[2021/12/21 17:17:45] root INFO: epoch:0   train step:40   lr: 0.100000, loss:  4.8025 top1:  0.0156 top5:  0.0938 batch_cost: 0.37760 s, reader_cost: 0.00092 s, ips: 338.98170 images/sec.
+[2021/12/21 17:17:49] root INFO: epoch:0   train step:50   lr: 0.100000, loss:  4.5471 top1:  0.0312 top5:  0.1016 batch_cost: 0.37747 s, reader_cost: 0.00089 s, ips: 339.09950 images/sec.
+[2021/12/21 17:17:53] root INFO: epoch:0   train step:60   lr: 0.100000, loss:  4.1094 top1:  0.0312 top5:  0.1250 batch_cost: 0.37757 s, reader_cost: 0.00089 s, ips: 339.01413 images/sec.
+[2021/12/21 17:17:56] root INFO: epoch:0   train step:70   lr: 0.100000, loss:  4.0915 top1:  0.0391 top5:  0.1562 batch_cost: 0.37748 s, reader_cost: 0.00086 s, ips: 339.09255 images/sec.
+[2021/12/21 17:18:00] root INFO: epoch:0   train step:80   lr: 0.100000, loss:  4.0111 top1:  0.0703 top5:  0.1484 batch_cost: 0.37759 s, reader_cost: 0.00085 s, ips: 338.99499 images/sec.
+[2021/12/21 17:18:02] root INFO: END epoch:0   train  loss:  5.8811 top1:  0.0254 top5:  0.1025 batch_cost: 0.37760 s, reader_cost: 0.00085 s, batch_cost_sum: 30.20796 s, ips: 338.98347 images/sec.
+[2021/12/21 17:18:02] root INFO: Already save model in ./output/ResNet50/0

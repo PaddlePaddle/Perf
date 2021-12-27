@@ -25,9 +25,9 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
-  - GPU：Tesla V100-SXM2-16GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 460.32.03
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - Driver Version: 460.27.04
   - 内存：502 GB
 
 - 多机（32卡）
@@ -41,7 +41,7 @@
 
 我们使用 NGC PyTorch 的代码仓库提供的Dockerfile制作镜像：
 
-- Docker: nvcr.io/nvidia/pytorch:20.07-py3
+- Docker: nvcr.io/nvidia/pytorch:21.03-py3
 - PyTorch：1.9.0a0+df837d0
 - 模型代码：[NVIDIA/DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 - CUDA：11
@@ -60,7 +60,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/PyTorch/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
+   git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
    ```
 
 - 制作Docker镜像
@@ -171,8 +171,8 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 
 |卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 369.63  | 807.56  | 815.53(BS=254)  |
-|8 | 2795.87  | 5790.00  | 6215.18 (BS=244) |
+|1 | 358.30  | 752.39  | 763.54(BS=254)  |
+|8 | 2768.51 | 5587.31  | 5687.99 (BS=244) |
 |32 | 10393.2 | 17940.7 | 21697.85 |
 
 > 其中，AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为244; AMP 单卡在BatchSize=256时会OOM，因此下调BatchSize为254

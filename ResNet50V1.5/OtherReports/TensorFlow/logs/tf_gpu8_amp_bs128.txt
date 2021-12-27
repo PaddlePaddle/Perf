@@ -1,96 +1,81 @@
-:::NVLOGv0.2.3 None 1621936399.692161798 (runner.py:123) TF AMP is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936399.693455219 (resnet_v1_5.py:93) Model HParams:
-:::NVLOGv0.2.3 None 1621936399.694007635 (resnet_v1_5.py:94) Name: "resnet50_v1.5"
-:::NVLOGv0.2.3 None 1621936399.694538355 (resnet_v1_5.py:95) Number of classes: 1001
-:::NVLOGv0.2.3 None 1621936399.695034266 (resnet_v1_5.py:96) Compute_format: "NCHW"
-:::NVLOGv0.2.3 None 1621936399.695532084 (resnet_v1_5.py:97) Input_format: "NHWC"
-:::NVLOGv0.2.3 None 1621936399.696033955 (resnet_v1_5.py:98) dtype: "<dtype: 'float32'>"
-:::NVLOGv0.2.3 None 1621936399.696496010 (runner.py:175) Deterministic Run - Seed: 1
-:::NVLOGv0.2.3 None 1621936399.899587393 (runner.py:385) Starting Model Training...
-:::NVLOGv0.2.3 None 1621936399.900233030 (runner.py:386) Training Epochs: 13
-:::NVLOGv0.2.3 None 1621936399.900819063 (runner.py:387) Total Steps: 500.0
-:::NVLOGv0.2.3 None 1621936399.901360035 (runner.py:388) Steps per Epoch: 38.46153846153846
-:::NVLOGv0.2.3 None 1621936399.901916504 (runner.py:389) Decay Steps: 3628.0
-:::NVLOGv0.2.3 None 1621936399.902464151 (runner.py:390) Weight Decay Factor: 0.0001
-:::NVLOGv0.2.3 None 1621936399.903001070 (runner.py:391) Init Learning Rate: 0.1
-:::NVLOGv0.2.3 None 1621936399.903544903 (runner.py:392) Momentum: 0.9
-:::NVLOGv0.2.3 None 1621936399.904081345 (runner.py:393) Num GPUs: 8
-:::NVLOGv0.2.3 None 1621936399.904624224 (runner.py:394) Per-GPU Batch Size: 128
-:::NVLOGv0.2.3 resnet 1621936399.905857325 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.015170336 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.018700361 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.043661356 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.047293425 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.050024748 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.072019100 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936400.074090719 (runner.py:236) XLA is activated - Experimental Feature
-:::NVLOGv0.2.3 None 1621936403.606341839 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 None 1621936403.895548344 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 resnet 1621936403.947248220 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 None 1621936403.955870867 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 None 1621936403.960545063 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 None 1621936403.974112988 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 None 1621936403.982322454 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 None 1621936403.989261150 (learning_rate.py:52) Using step learning rate schedule
-:::NVLOGv0.2.3 resnet 1621936510.750827074 (benchmark_hooks.py:59) iteration: 200
-:::NVLOGv0.2.3 resnet 1621936510.752404928 (benchmark_hooks.py:60) total_ips: 8687.934493081964
-:::NVLOGv0.2.3 resnet 1621936511.931674480 (benchmark_hooks.py:59) iteration: 210
-:::NVLOGv0.2.3 resnet 1621936511.932689428 (benchmark_hooks.py:60) total_ips: 8746.158474674638
-:::NVLOGv0.2.3 resnet 1621936513.115065098 (benchmark_hooks.py:59) iteration: 220
-:::NVLOGv0.2.3 resnet 1621936513.116095543 (benchmark_hooks.py:60) total_ips: 8488.86615159906
-:::NVLOGv0.2.3 resnet 1621936514.281518221 (benchmark_hooks.py:59) iteration: 230
-:::NVLOGv0.2.3 resnet 1621936514.282615662 (benchmark_hooks.py:60) total_ips: 8907.652750297615
-:::NVLOGv0.2.3 resnet 1621936515.440584660 (benchmark_hooks.py:59) iteration: 240
-:::NVLOGv0.2.3 resnet 1621936515.442726135 (benchmark_hooks.py:60) total_ips: 8790.318697017205
-:::NVLOGv0.2.3 resnet 1621936516.640773535 (benchmark_hooks.py:59) iteration: 250
-:::NVLOGv0.2.3 resnet 1621936516.641929388 (benchmark_hooks.py:60) total_ips: 8204.816896511542
-:::NVLOGv0.2.3 resnet 1621936517.811939955 (benchmark_hooks.py:59) iteration: 260
-:::NVLOGv0.2.3 resnet 1621936517.812966824 (benchmark_hooks.py:60) total_ips: 8701.258493161507
-:::NVLOGv0.2.3 resnet 1621936518.985444069 (benchmark_hooks.py:59) iteration: 270
-:::NVLOGv0.2.3 resnet 1621936518.986464262 (benchmark_hooks.py:60) total_ips: 8755.179856613728
-:::NVLOGv0.2.3 resnet 1621936520.152938843 (benchmark_hooks.py:59) iteration: 280
-:::NVLOGv0.2.3 resnet 1621936520.153985500 (benchmark_hooks.py:60) total_ips: 8772.095936211364
-:::NVLOGv0.2.3 resnet 1621936521.360127926 (benchmark_hooks.py:59) iteration: 290
-:::NVLOGv0.2.3 resnet 1621936521.361143112 (benchmark_hooks.py:60) total_ips: 8959.028654508438
-:::NVLOGv0.2.3 resnet 1621936522.576974154 (benchmark_hooks.py:59) iteration: 300
-:::NVLOGv0.2.3 resnet 1621936522.578013659 (benchmark_hooks.py:60) total_ips: 8104.201189505781
-:::NVLOGv0.2.3 resnet 1621936523.777014494 (benchmark_hooks.py:59) iteration: 310
-:::NVLOGv0.2.3 resnet 1621936523.778030157 (benchmark_hooks.py:60) total_ips: 8745.926944990857
-:::NVLOGv0.2.3 resnet 1621936524.949938059 (benchmark_hooks.py:59) iteration: 320
-:::NVLOGv0.2.3 resnet 1621936524.951053381 (benchmark_hooks.py:60) total_ips: 8687.126159472175
-:::NVLOGv0.2.3 resnet 1621936526.128819942 (benchmark_hooks.py:59) iteration: 330
-:::NVLOGv0.2.3 resnet 1621936526.129917383 (benchmark_hooks.py:60) total_ips: 8615.505412063003
-:::NVLOGv0.2.3 resnet 1621936527.315144300 (benchmark_hooks.py:59) iteration: 340
-:::NVLOGv0.2.3 resnet 1621936527.316163301 (benchmark_hooks.py:60) total_ips: 8507.143075588374
-:::NVLOGv0.2.3 resnet 1621936528.508936882 (benchmark_hooks.py:59) iteration: 350
-:::NVLOGv0.2.3 resnet 1621936528.510034084 (benchmark_hooks.py:60) total_ips: 7066.427052364351
-:::NVLOGv0.2.3 resnet 1621936529.692031384 (benchmark_hooks.py:59) iteration: 360
-:::NVLOGv0.2.3 resnet 1621936529.693044424 (benchmark_hooks.py:60) total_ips: 8775.555134198568
-:::NVLOGv0.2.3 resnet 1621936530.866364241 (benchmark_hooks.py:59) iteration: 370
-:::NVLOGv0.2.3 resnet 1621936530.867425203 (benchmark_hooks.py:60) total_ips: 8836.981239532366
-:::NVLOGv0.2.3 resnet 1621936532.029850960 (benchmark_hooks.py:59) iteration: 380
-:::NVLOGv0.2.3 resnet 1621936532.030865431 (benchmark_hooks.py:60) total_ips: 8887.193438118176
-:::NVLOGv0.2.3 resnet 1621936533.236690998 (benchmark_hooks.py:59) iteration: 390
-:::NVLOGv0.2.3 resnet 1621936533.237730980 (benchmark_hooks.py:60) total_ips: 8288.434498676155
-:::NVLOGv0.2.3 resnet 1621936534.412159681 (benchmark_hooks.py:59) iteration: 400
-:::NVLOGv0.2.3 resnet 1621936534.413211584 (benchmark_hooks.py:60) total_ips: 8784.942751190936
-:::NVLOGv0.2.3 resnet 1621936535.606084585 (benchmark_hooks.py:59) iteration: 410
-:::NVLOGv0.2.3 resnet 1621936535.607090473 (benchmark_hooks.py:60) total_ips: 8970.630196269276
-:::NVLOGv0.2.3 resnet 1621936536.817443132 (benchmark_hooks.py:59) iteration: 420
-:::NVLOGv0.2.3 resnet 1621936536.818456173 (benchmark_hooks.py:60) total_ips: 8803.128764416642
-:::NVLOGv0.2.3 resnet 1621936537.990894556 (benchmark_hooks.py:59) iteration: 430
-:::NVLOGv0.2.3 resnet 1621936537.991978168 (benchmark_hooks.py:60) total_ips: 8806.269406233532
-:::NVLOGv0.2.3 resnet 1621936539.153972387 (benchmark_hooks.py:59) iteration: 440
-:::NVLOGv0.2.3 resnet 1621936539.154992342 (benchmark_hooks.py:60) total_ips: 8925.590342416932
-:::NVLOGv0.2.3 resnet 1621936540.319883347 (benchmark_hooks.py:59) iteration: 450
-:::NVLOGv0.2.3 resnet 1621936540.320914268 (benchmark_hooks.py:60) total_ips: 8664.885854642658
-:::NVLOGv0.2.3 resnet 1621936541.499102831 (benchmark_hooks.py:59) iteration: 460
-:::NVLOGv0.2.3 resnet 1621936541.500115395 (benchmark_hooks.py:60) total_ips: 8841.037746063701
-:::NVLOGv0.2.3 resnet 1621936542.661802053 (benchmark_hooks.py:59) iteration: 470
-:::NVLOGv0.2.3 resnet 1621936542.662817478 (benchmark_hooks.py:60) total_ips: 8686.036904309278
-:::NVLOGv0.2.3 resnet 1621936543.843430758 (benchmark_hooks.py:59) iteration: 480
-:::NVLOGv0.2.3 resnet 1621936543.844450474 (benchmark_hooks.py:60) total_ips: 8301.378669449921
-:::NVLOGv0.2.3 resnet 1621936545.031305313 (benchmark_hooks.py:59) iteration: 490
-:::NVLOGv0.2.3 resnet 1621936545.032362461 (benchmark_hooks.py:60) total_ips: 8162.187019078188
-:::NVLOGv0.2.3 resnet 1621936546.954220533 (benchmark_hooks.py:66) Average total_ips: 8701.892811128642
-:::NVLOGv0.2.3 resnet 1621936547.390107393 (runner.py:508) Ending Model Training ...
+DLL 2021-12-20 08:48:39.755971 - PARAMETER arch : resnet50  mode : training_benchmark  export_dir : None  to_predict : None  batch_size : 128  num_iter : 500  run_iter : -1  iter_unit : batch  warmup_steps : 200  model_dir : None  results_dir : /tmp/result/gpu8_amp_bs128  log_filename : log.json  display_every : 10  seed : None  gpu_memory_fraction : 0.7  gpu_id : 0  finetune_checkpoint : None  use_final_conv : False  quant_delay : 0  quantize : False  use_qdq : False  symmetric : False  data_dir : /data/tfrecords/  data_idx_dir : None  dali : False  synthetic_data_size : 224  lr_init : 0.1  lr_warmup_epochs : 5  weight_decay : 0.0001  weight_init : fan_out  momentum : 0.9  label_smoothing : 0.0  mixup : 0.0  cosine_lr : False  xla : True  data_format : NHWC  amp : True  cpu : False  static_loss_scale : 128  use_static_loss_scaling : True 
+filename_pattern is /data/tfrecords/train-*
+filename_pattern is /data/tfrecords/train-*
+filename_pattern is /data/tfrecords/train-*
+Model HParams:
+Name resnet50
+Number of classes 1001
+Compute_format NHWC
+Input_format NHWC
+dtype <dtype: 'float32'>
+filename_pattern is /data/tfrecords/train-*
+num_samples is 132
+num_samples is 132
+num_samples is 132
+filename_pattern is /data/tfrecords/train-*
+filename_pattern is /data/tfrecords/train-*
+filename_pattern is /data/tfrecords/train-*
+num_samples is 132
+num_samples is 132
+num_samples is 132
+num_samples is 132
+filename_pattern is /data/tfrecords/train-*
+num_samples is 132
+Starting Model Training...
+Training Epochs 4
+Total Steps 500.0
+Steps per Epoch 125.0
+Decay Steps 14513.0
+Weight Decay Factor 0.0001
+Init Learning Rate 0.1
+Momentum 0.9
+Num GPUs 8
+Per-GPU Batch Size 128
+Current step: 0
+Current step: 0
+Current step: 0
+Current step: 0
+Current step: 0
+Current step: 0
+Current step: 0
+Current step: 0
+Using step learning rate schedule
+Using step learning rate schedule
+Using step learning rate schedule
+Using step learning rate schedule
+Using step learning rate schedule
+Using step learning rate schedule
+Using step learning rate schedule
+Using step learning rate schedule
+DLL 2021-12-20 08:50:14.546009 - (0, 200) total_ips : 8320.113317125617 
+DLL 2021-12-20 08:50:15.760142 - (0, 210) total_ips : 8402.343862916525 
+DLL 2021-12-20 08:50:16.979084 - (0, 220) total_ips : 8453.545095430327 
+DLL 2021-12-20 08:50:18.195585 - (0, 230) total_ips : 8346.289702990307 
+DLL 2021-12-20 08:50:19.410251 - (0, 240) total_ips : 8443.308103475052 
+DLL 2021-12-20 08:50:20.628269 - (0, 250) total_ips : 8464.307342423746 
+DLL 2021-12-20 08:50:21.835651 - (0, 260) total_ips : 8487.859592540113 
+DLL 2021-12-20 08:50:23.047059 - (0, 270) total_ips : 8448.971944084888 
+DLL 2021-12-20 08:50:24.262312 - (0, 280) total_ips : 8388.018217469084 
+DLL 2021-12-20 08:50:25.496574 - (0, 290) total_ips : 8443.872485741642 
+DLL 2021-12-20 08:50:26.712070 - (0, 300) total_ips : 8307.046432778172 
+DLL 2021-12-20 08:50:27.929882 - (0, 310) total_ips : 8424.692669971186 
+DLL 2021-12-20 08:50:29.146120 - (0, 320) total_ips : 8417.691782741542 
+DLL 2021-12-20 08:50:30.359657 - (0, 330) total_ips : 8374.704681680803 
+DLL 2021-12-20 08:50:31.578876 - (0, 340) total_ips : 8478.761076761502 
+DLL 2021-12-20 08:50:32.791657 - (0, 350) total_ips : 8368.25940048125 
+DLL 2021-12-20 08:50:34.002683 - (0, 360) total_ips : 8466.893692855425 
+DLL 2021-12-20 08:50:35.216884 - (0, 370) total_ips : 8379.93345950481 
+DLL 2021-12-20 08:50:36.424887 - (0, 380) total_ips : 8367.94962436485 
+DLL 2021-12-20 08:50:37.637338 - (0, 390) total_ips : 8433.029642472164 
+DLL 2021-12-20 08:50:38.854127 - (0, 400) total_ips : 8139.2944172922 
+DLL 2021-12-20 08:50:40.086492 - (0, 410) total_ips : 8465.725467934466 
+DLL 2021-12-20 08:50:41.295049 - (0, 420) total_ips : 8443.407694863341 
+DLL 2021-12-20 08:50:42.507246 - (0, 430) total_ips : 8432.615713253543 
+DLL 2021-12-20 08:50:43.720037 - (0, 440) total_ips : 8423.750835516923 
+DLL 2021-12-20 08:50:44.932148 - (0, 450) total_ips : 8353.610938548463 
+DLL 2021-12-20 08:50:46.141160 - (0, 460) total_ips : 8339.742322330098 
+DLL 2021-12-20 08:50:47.354837 - (0, 470) total_ips : 8451.99798488665 
+DLL 2021-12-20 08:50:48.573930 - (0, 480) total_ips : 8335.712046020468 
+DLL 2021-12-20 08:50:49.796062 - (0, 490) total_ips : 8313.655202316615 
+Ending Model Training ...
+DLL 2021-12-20 08:50:52.135155 - () train_throughput : 8434.947678085551 
