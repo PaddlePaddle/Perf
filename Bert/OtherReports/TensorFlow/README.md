@@ -27,9 +27,9 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
-  - GPU：Tesla V100-SXM2-16GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 460.32.03
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - Driver Version: 460.27.04
   - 内存：502 GB
 
 - 多机（32卡）
@@ -60,7 +60,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   git clone https://github.com/NVIDIA/DeepLearningExamples
   cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
   # 本次测试是在如下版本下完成的：
-  git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
+  git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
   ```
 
 - **构建镜像**
@@ -193,8 +193,8 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 
 |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 140.07 | 147.77 | 442.48 | 488.62 |
-|8 | 1067.19 | 1129.25 | 3091.20 | 3564.28 |
+|1 | 145.33 | 153.86 | 466.13 | 504.84 |
+|8 | 1105.46 | 1190.22 | 3351.06 | 3772.37 |
 |32 | 4379.4 | 4723.5 | 14773.4 | 16554.3|
 |32<sup>[W/O AccGrad]</sup> | 2943.8 | 3450.1 | 9993.1 | 12767.2|
 
