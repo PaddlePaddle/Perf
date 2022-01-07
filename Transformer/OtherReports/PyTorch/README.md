@@ -28,9 +28,9 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
-  - GPU：Tesla V100-SXM2-16GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 460.32.03
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 80
+  - Driver Version: 460.27.04
   - 内存：502 GB
  
 - 多机（32卡）
@@ -44,10 +44,10 @@
 
 NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/Translation/Transformer/Dockerfile)，
 
-- **镜像版本**: `nvcr.io/nvidia/pytorch:20.06-py3`
-- **PyTorch 版本**: `1.6.0a0+9907a3e`
-- **CUDA 版本**: `11.0`
-- **cuDnn 版本**: `8.0.1`
+- **镜像版本**: `nvcr.io/nvidia/pytorch:21.05-py3`
+- **PyTorch 版本**: `1.9.0a0+2ecb2c7`
+- **CUDA 版本**: `11.2`
+- **cuDnn 版本**: `8.2.0`
 
 ## 二、环境搭建
 
@@ -61,7 +61,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/Translation/Transformer
     # 本次测试是在如下版本下完成的：
-    git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
+    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
     ```
 
 - **构建镜像**
@@ -111,11 +111,9 @@ total_cards=$((num_trainers*num_gpu))
 if [[ $3 == 'fp32' ]];then
     appends=""
 elif [[ $3 == 'fp16' ]];then
-    appends='--amp --amp-level O2'
-elif [[ $3 == 'amp' ]];then
-    appends='--amp --amp-level O1'
+    appends='--amp'
 else
-    echo "unexpect fp32 fp16 or amp"
+    echo "unexpect fp32 or fp16"
     exit
 fi
 
@@ -149,7 +147,6 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
   --max-epoch 40 \
   --no-epoch-checkpoints \
   --fuse-layer-norm \
-  --online-eval \
   --log-interval 10 \
   --max-update $6 \
   ${envs} \
@@ -206,8 +203,8 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 |卡数 | FP32(BS=2560) | AMP(BS=5120) | FP16(BS=5120) |
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 8265.68  | 31391.10  | —— |
-|8 | 57428.00  | 213125.00  | —— |
+|1 | 8486.92  | 31310.41  | —— |
+|8 | 58073.97  | 196715.091  | —— |
 |32 | 166352.6 | 385625.7 | 590188.7 |
 
 ## 五、日志数据
