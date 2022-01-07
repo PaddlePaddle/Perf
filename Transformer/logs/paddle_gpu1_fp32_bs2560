@@ -1,17 +1,21 @@
-You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not found. Ignore this if TensorRT is not needed.
-/usr/local/lib/python3.7/site-packages/setuptools/depends.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
-  import imp
-{'batch_size': 2560,
- 'beam_size': 5,
+{'alpha': 0.6,
+ 'batch_size': 2560,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
  'beta1': 0.9,
  'beta2': 0.997,
  'bos_idx': 0,
+ 'bos_token': None,
  'bsz_multi': 8,
  'd_inner_hid': 4096,
  'd_model': 1024,
+ 'dev_file': None,
  'device': 'gpu',
+ 'diversity_rate': 0.0,
  'dropout': 0.1,
  'eos_idx': 1,
+ 'eos_token': None,
  'epoch': 30,
  'eps': '1e-9',
  'infer_batch_size': 8,
@@ -19,10 +23,11 @@ You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not
  'init_from_checkpoint': '',
  'init_from_params': './trained_models/step_final/',
  'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
  'is_distributed': False,
  'label_smooth_eps': 0.1,
  'learning_rate': 2.0,
- 'max_iter': 600,
+ 'max_iter': 1500,
  'max_length': 1024,
  'max_out_len': 1024,
  'n_best': 1,
@@ -45,62 +50,32 @@ You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not
  'src_lang': 'en',
  'src_vocab_size': 10000,
  'task_name': 'de-en',
+ 'train_file': None,
  'trg_lang': 'de',
  'trg_vocab_size': 10000,
  'unk_idx': 2,
+ 'unk_token': None,
  'use_amp': False,
  'use_pure_fp16': False,
+ 'use_rel_len': False,
+ 'vocab_file': None,
  'warmup_steps': 4000,
  'weight_sharing': True}
-/usr/local/lib/python3.7/site-packages/paddle/fluid/framework.py:689: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
-Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-  elif dtype == np.bool:
-/usr/local/lib/python3.7/site-packages/paddle/fluid/framework.py:2341: UserWarning: The Attr(force_cpu) of Op(fill_constant) will be deprecated in the future, please use 'device_guard' instead. 'device_guard' has higher priority when they are used at the same time.
-  "used at the same time." % type)
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:671
-The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:674
-The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:678
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:685
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:405
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:572
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:580
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:890
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:902
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:910
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:271: DeprecationWarning: [93m
-Warning:
-API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
-reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
-  soft_label=True if self.label_smooth_eps else False)
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:272
-The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-W0520 12:04:27.765337  9972 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.0
-W0520 12:04:27.769058  9972 device_context.cc:422] device: 0, cuDNN Version: 8.0.
-I0520 12:04:42.617406  9972 parallel_executor.cc:468] Cross op memory reuse strategy is enabled, when build_strategy.memory_optimize = True or garbage collection strategy is disabled, which is not recommended
-2021-05-20 12:04:42,779-INFO: step_idx: 0, epoch: 0, batch: 0, avg loss: 11.189838, normalized loss: 9.822197, ppl: 72391.085938
-2021-05-20 12:05:07,700-INFO: step_idx: 100, epoch: 0, batch: 100, avg loss: 8.377863, normalized loss: 7.010222, ppl: 4349.703125, avg_speed: 4.02 step/s, batch_cost: 0.24899 sec, reader_cost: 0.00014 sec, tokens: 214675, ips: 8621.70228 words/sec
-2021-05-20 12:05:32,836-INFO: step_idx: 200, epoch: 0, batch: 200, avg loss: 8.157395, normalized loss: 6.789754, ppl: 3489.086914, avg_speed: 3.98 step/s, batch_cost: 0.25113 sec, reader_cost: 0.00015 sec, tokens: 216874, ips: 8636.08634 words/sec
-2021-05-20 12:05:57,936-INFO: step_idx: 300, epoch: 0, batch: 300, avg loss: 8.038025, normalized loss: 6.670384, ppl: 3096.490967, avg_speed: 3.99 step/s, batch_cost: 0.25076 sec, reader_cost: 0.00015 sec, tokens: 216773, ips: 8644.56345 words/sec
-2021-05-20 12:06:23,145-INFO: step_idx: 400, epoch: 0, batch: 400, avg loss: 7.509633, normalized loss: 6.141992, ppl: 1825.543579, avg_speed: 3.97 step/s, batch_cost: 0.25187 sec, reader_cost: 0.00014 sec, tokens: 214638, ips: 8521.93262 words/sec
-2021-05-20 12:06:48,388-INFO: step_idx: 500, epoch: 0, batch: 500, avg loss: 7.950153, normalized loss: 6.582512, ppl: 2836.010010, avg_speed: 3.96 step/s, batch_cost: 0.25222 sec, reader_cost: 0.00014 sec, tokens: 223372, ips: 8856.40343 words/sec
+INFO:paddle.utils.download:unique_endpoints {''}
+W1213 08:08:35.761255 77794 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1213 08:08:35.766512 77794 device_context.cc:465] device: 0, cuDNN Version: 8.1.
+INFO:root:step_idx: 0, epoch: 0, batch: 0, avg loss: 11.140550, normalized loss: 9.772909, ppl: 68909.523438
+INFO:root:step_idx: 100, epoch: 0, batch: 100, avg loss: 8.426228, normalized loss: 7.058587, ppl: 4565.245605, avg_speed: 3.90 step/s, batch_cost: 0.25664 sec, reader_cost: 0.00009 sec, tokens: 214675, ips: 8364.71082 words/sec
+INFO:root:step_idx: 200, epoch: 0, batch: 200, avg loss: 8.166417, normalized loss: 6.798776, ppl: 3520.706787, avg_speed: 3.87 step/s, batch_cost: 0.25854 sec, reader_cost: 0.00008 sec, tokens: 216874, ips: 8388.50859 words/sec
+INFO:root:step_idx: 300, epoch: 0, batch: 300, avg loss: 7.972242, normalized loss: 6.604601, ppl: 2899.351318, avg_speed: 3.88 step/s, batch_cost: 0.25772 sec, reader_cost: 0.00008 sec, tokens: 216773, ips: 8411.20436 words/sec
+INFO:root:step_idx: 400, epoch: 0, batch: 400, avg loss: 7.515589, normalized loss: 6.147948, ppl: 1836.448364, avg_speed: 3.87 step/s, batch_cost: 0.25821 sec, reader_cost: 0.00008 sec, tokens: 214638, ips: 8312.42652 words/sec
+INFO:root:step_idx: 500, epoch: 0, batch: 500, avg loss: 7.980488, normalized loss: 6.612847, ppl: 2923.356689, avg_speed: 3.87 step/s, batch_cost: 0.25846 sec, reader_cost: 0.00012 sec, tokens: 223372, ips: 8642.39276 words/sec
+INFO:root:step_idx: 600, epoch: 0, batch: 600, avg loss: 8.008086, normalized loss: 6.640445, ppl: 3005.160400, avg_speed: 3.87 step/s, batch_cost: 0.25821 sec, reader_cost: 0.00009 sec, tokens: 216376, ips: 8380.00236 words/sec
+INFO:root:step_idx: 700, epoch: 0, batch: 700, avg loss: 6.886227, normalized loss: 5.518586, ppl: 978.701477, avg_speed: 3.82 step/s, batch_cost: 0.26156 sec, reader_cost: 0.00009 sec, tokens: 214606, ips: 8204.84615 words/sec
+INFO:root:step_idx: 800, epoch: 0, batch: 800, avg loss: 7.974381, normalized loss: 6.606740, ppl: 2905.558350, avg_speed: 3.78 step/s, batch_cost: 0.26445 sec, reader_cost: 0.00012 sec, tokens: 219715, ips: 8308.40309 words/sec
+INFO:root:step_idx: 900, epoch: 0, batch: 900, avg loss: 7.531091, normalized loss: 6.163450, ppl: 1865.139771, avg_speed: 3.76 step/s, batch_cost: 0.26587 sec, reader_cost: 0.00010 sec, tokens: 220397, ips: 8289.69145 words/sec
+INFO:root:step_idx: 1000, epoch: 0, batch: 1000, avg loss: 7.513448, normalized loss: 6.145807, ppl: 1832.520874, avg_speed: 3.79 step/s, batch_cost: 0.26390 sec, reader_cost: 0.00009 sec, tokens: 216539, ips: 8205.24712 words/sec
+INFO:root:step_idx: 1100, epoch: 0, batch: 1100, avg loss: 7.724042, normalized loss: 6.356401, ppl: 2262.084473, avg_speed: 3.79 step/s, batch_cost: 0.26371 sec, reader_cost: 0.00009 sec, tokens: 216479, ips: 8208.82540 words/sec
+INFO:root:step_idx: 1200, epoch: 0, batch: 1200, avg loss: 7.524654, normalized loss: 6.157013, ppl: 1853.171753, avg_speed: 3.79 step/s, batch_cost: 0.26369 sec, reader_cost: 0.00010 sec, tokens: 216551, ips: 8212.26964 words/sec
+INFO:root:step_idx: 1300, epoch: 0, batch: 1300, avg loss: 7.282670, normalized loss: 5.915029, ppl: 1454.867310, avg_speed: 3.74 step/s, batch_cost: 0.26721 sec, reader_cost: 0.00009 sec, tokens: 222572, ips: 8329.62801 words/sec
+INFO:root:step_idx: 1400, epoch: 0, batch: 1400, avg loss: 7.440581, normalized loss: 6.072940, ppl: 1703.739502, avg_speed: 3.80 step/s, batch_cost: 0.26306 sec, reader_cost: 0.00009 sec, tokens: 218254, ips: 8296.65199 words/sec
