@@ -1,9 +1,9 @@
 #!/bin/bash
 
-export FLAGS_conv_workspace_size_limit=1500 #MB
+export FLAGS_eager_delete_tensor_gb=0.0
+export FLAGS_fraction_of_gpu_memory_to_use=0.98
 export FLAGS_cudnn_exhaustive_search=1
-export FLAGS_cudnn_batchnorm_spatial_persistent=1
-export FLAGS_fraction_of_gpu_memory_to_use=0.8
+export FLAGS_conv_workspace_size_limit=4000
 
 base_batch_size=$1
 num_gpus=$2
@@ -25,7 +25,7 @@ train_cmd="-c ppcls/configs/ImageNet/ResNet//ResNet50_fp16.yaml
            -o AMP.use_pure_fp16=${use_pure_fp16}
            "
 
-if [ ${num_gpus} == 1 ]; then
+if [[ ${num_gpus} == 1 ]]; then
     train_cmd="python -u ppcls/static/train.py "${train_cmd}
 else
      train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 ppcls/static/train.py "${train_cmd}" -o Global.use_dali=True"
