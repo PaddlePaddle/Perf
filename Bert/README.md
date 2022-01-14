@@ -175,20 +175,20 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
    fi
    
    $CMD \
-      --model_type bert \
-      --model_name_or_path bert-base-uncased \
-      --max_predictions_per_seq 20 \
-      --batch_size $batch_size   \
-      --learning_rate 1e-4 \
-      --weight_decay 1e-2 \
-      --adam_epsilon 1e-6 \
-      --warmup_steps 10000 \
-      --input_dir $DATA_DIR \
-      --output_dir ./tmp2/ \
-      --logging_steps $logging_steps \
-      --save_steps 50000 \
-      --max_steps $max_steps \
-      --use_amp $use_amp
+               --max_predictions_per_seq 80
+               --learning_rate 5e-5
+               --weight_decay 0.0
+               --adam_epsilon 1e-8
+               --warmup_steps 0
+               --output_dir ./tmp2/
+               --logging_steps 10
+               --save_steps 20000
+               --input_dir=$DATA_DIR
+               --model_type bert
+               --model_name_or_path bert-base-uncased
+               --batch_size ${batch_size}
+               --use_amp ${use_amp}
+               --gradient_merge_steps $(expr 67584 \/ $batch_size \/ 8)"
    ```
 
 - **单卡启动脚本：**
