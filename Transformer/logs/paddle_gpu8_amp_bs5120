@@ -1,6 +1,13 @@
-You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not found. Ignore this if TensorRT is not needed.
-/usr/local/lib/python3.7/site-packages/setuptools/depends.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
-  import imp
+grep: warning: GREP_OPTIONS is deprecated; please use an alias or script
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W1118 12:51:55.055467 32244 tensorrt.cc:56] You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not found. Ignore this if TensorRT is not needed.
+The TensorRT that Paddle depends on is not configured correctly.
+  Suggestions:
+  1. Check if the TensorRT is installed correctly and its version is matched with paddlepaddle you installed.
+  2. Configure environment variables as follows:
+  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`
+  - Windows: set PATH by `set PATH=XXX;%PATH%`
+  - Mac: set  DYLD_LIBRARY_PATH by `export DYLD_LIBRARY_PATH=...`
 {'batch_size': 5120,
  'beam_size': 5,
  'beta1': 0.9,
@@ -19,7 +26,6 @@ You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not
  'init_from_checkpoint': '',
  'init_from_params': './trained_models/step_final/',
  'init_from_pretrain_model': '',
- 'is_distributed': True,
  'label_smooth_eps': 0.1,
  'learning_rate': 2.0,
  'max_iter': 500,
@@ -32,7 +38,7 @@ You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not
  'pad_factor': 8,
  'pad_seq': 1,
  'pool_size': 200000,
- 'print_step': 20,
+ 'print_step': 100,
  'random_seed': 'None',
  'save_model': 'trained_models',
  'save_step': 10000,
@@ -52,90 +58,679 @@ You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not
  'use_pure_fp16': True,
  'warmup_steps': 4000,
  'weight_sharing': True}
-/usr/local/lib/python3.7/site-packages/paddle/fluid/framework.py:689: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+2021-11-18 12:51:56,722-INFO: unique_endpoints {'127.0.0.1:34458'}
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py:822: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
 Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
   elif dtype == np.bool:
-/usr/local/lib/python3.7/site-packages/paddle/fluid/framework.py:2341: UserWarning: The Attr(force_cpu) of Op(fill_constant) will be deprecated in the future, please use 'device_guard' instead. 'device_guard' has higher priority when they are used at the same time.
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py:2334: UserWarning: The Attr(force_cpu) of Op(fill_constant) will be deprecated in the future, please use 'device_guard' instead. 'device_guard' has higher priority when they are used at the same time.
   "used at the same time." % type)
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:671
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:672
 The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:674
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:675
 The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:678
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:679
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:685
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:686
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:405
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:411
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:572
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:587
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:580
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:595
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:890
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:914
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:902
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:926
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:910
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:934
 The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:271: DeprecationWarning: [93m
-Warning:
-API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
-reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
-  soft_label=True if self.label_smooth_eps else False)
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/transformer/modeling.py:272
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:273
 The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
   op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:696: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+/usr/local/lib/python3.7/dist-packages/paddle/distributed/fleet/base/fleet_base.py:931: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
   "It is recommended to use DistributedStrategy "
-/usr/local/lib/python3.7/site-packages/paddle/fluid/data_feeder.py:128: UserWarning: The data type of 'x' in check_finite_and_unscale only support float16 in GPU now. 
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:128: UserWarning: The data type of 'x' in check_finite_and_unscale only support float16 in GPU now. 
   (input_name, op_name, extra_message))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/data_feeder.py:128: UserWarning: The data type of 'x' in update_loss_scaling only support float16 in GPU now. 
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:128: UserWarning: The data type of 'x' in update_loss_scaling only support float16 in GPU now. 
   (input_name, op_name, extra_message))
-/usr/local/lib/python3.7/site-packages/paddle/optimizer/adam.py:246: UserWarning: Accumulating with FP16 in optimizer can lead to poor accuracy or slow convergence.Consider using multi_precision=True option of the Adam optimizer.
+/usr/local/lib/python3.7/dist-packages/paddle/optimizer/adam.py:294: UserWarning: Accumulating with FP16 in optimizer can lead to poor accuracy or slow convergence.Consider using multi_precision=True option of the Adam optimizer.
   "Accumulating with FP16 in optimizer can lead to poor accuracy or slow convergence."
-W0523 20:42:21.686964 23561 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.0
-W0523 20:42:21.691509 23561 device_context.cc:422] device: 0, cuDNN Version: 8.0.
-W0523 20:42:24.561414 23561 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:13933 failed 1 times with reason: Connection refused retry after 0.5 seconds
-W0523 20:42:25.061620 23561 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:13933 failed 2 times with reason: Connection refused retry after 1 seconds
-W0523 20:42:26.061846 23561 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:13933 failed 3 times with reason: Connection refused retry after 1.5 seconds
-W0523 20:42:27.562065 23561 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:13933 failed 4 times with reason: Connection refused retry after 2 seconds
-W0523 20:42:29.562306 23561 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:13933 failed 5 times with reason: Connection refused retry after 2.5 seconds
-W0523 20:42:32.062916 23561 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:47071 failed 1 times with reason: Connection refused retry after 0.5 seconds
-W0523 20:42:50.213986 23561 build_strategy.cc:109] Currently, fuse_broadcast_ops only works under Reduce mode.
-W0523 20:42:50.424522 23561 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 257. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 44.
-I0523 20:42:51.614567 23561 parallel_executor.cc:468] Cross op memory reuse strategy is enabled, when build_strategy.memory_optimize = True or garbage collection strategy is disabled, which is not recommended
-2021-05-23 20:42:52,054-INFO: step_idx: 0, epoch: 0, batch: 0, avg loss: 11.219389, normalized loss: 9.851748, ppl: 74562.203125
-2021-05-23 20:42:55,252-INFO: step_idx: 20, epoch: 0, batch: 20, avg loss: 10.781106, normalized loss: 9.413465, ppl: 48103.296875, avg_speed: 6.26 step/s, batch_cost: 0.15968 sec, reader_cost: 0.00013 sec, tokens: 92979, ips: 29113.29483 words/sec
-2021-05-23 20:42:58,465-INFO: step_idx: 40, epoch: 0, batch: 40, avg loss: 9.922988, normalized loss: 8.555347, ppl: 20393.835938, avg_speed: 6.23 step/s, batch_cost: 0.16047 sec, reader_cost: 0.00013 sec, tokens: 89445, ips: 27869.20306 words/sec
-2021-05-23 20:43:01,712-INFO: step_idx: 60, epoch: 0, batch: 60, avg loss: 9.410959, normalized loss: 8.043318, ppl: 12221.587891, avg_speed: 6.17 step/s, batch_cost: 0.16219 sec, reader_cost: 0.00013 sec, tokens: 79622, ips: 24546.63241 words/sec
-2021-05-23 20:43:04,943-INFO: step_idx: 80, epoch: 0, batch: 80, avg loss: 8.603003, normalized loss: 7.235362, ppl: 5447.993164, avg_speed: 6.20 step/s, batch_cost: 0.16135 sec, reader_cost: 0.00013 sec, tokens: 84113, ips: 26065.18362 words/sec
-2021-05-23 20:43:08,162-INFO: step_idx: 100, epoch: 0, batch: 100, avg loss: 8.483313, normalized loss: 7.115672, ppl: 4833.434570, avg_speed: 6.22 step/s, batch_cost: 0.16075 sec, reader_cost: 0.00014 sec, tokens: 89177, ips: 27737.72035 words/sec
-2021-05-23 20:43:11,385-INFO: step_idx: 120, epoch: 0, batch: 120, avg loss: 8.791707, normalized loss: 7.424066, ppl: 6579.454102, avg_speed: 6.21 step/s, batch_cost: 0.16095 sec, reader_cost: 0.00012 sec, tokens: 88113, ips: 27372.17143 words/sec
-2021-05-23 20:43:14,563-INFO: step_idx: 140, epoch: 0, batch: 140, avg loss: 8.257777, normalized loss: 6.890136, ppl: 3857.510010, avg_speed: 6.30 step/s, batch_cost: 0.15871 sec, reader_cost: 0.00013 sec, tokens: 96549, ips: 30416.96873 words/sec
-2021-05-23 20:43:17,766-INFO: step_idx: 160, epoch: 0, batch: 160, avg loss: 8.300370, normalized loss: 6.932729, ppl: 4025.362305, avg_speed: 6.25 step/s, batch_cost: 0.15997 sec, reader_cost: 0.00013 sec, tokens: 95662, ips: 29899.68985 words/sec
-2021-05-23 20:43:21,002-INFO: step_idx: 180, epoch: 0, batch: 180, avg loss: 7.578874, normalized loss: 6.211233, ppl: 1956.425171, avg_speed: 6.19 step/s, batch_cost: 0.16162 sec, reader_cost: 0.00013 sec, tokens: 91513, ips: 28311.26274 words/sec
-2021-05-23 20:43:24,335-INFO: step_idx: 200, epoch: 0, batch: 200, avg loss: 8.119894, normalized loss: 6.752253, ppl: 3360.664795, avg_speed: 6.01 step/s, batch_cost: 0.16647 sec, reader_cost: 0.00013 sec, tokens: 90626, ips: 27220.45114 words/sec
-2021-05-23 20:43:27,612-INFO: step_idx: 220, epoch: 0, batch: 220, avg loss: 7.640935, normalized loss: 6.273294, ppl: 2081.689209, avg_speed: 6.11 step/s, batch_cost: 0.16364 sec, reader_cost: 0.00014 sec, tokens: 91370, ips: 27918.24114 words/sec
-2021-05-23 20:43:30,808-INFO: step_idx: 240, epoch: 0, batch: 240, avg loss: 8.576006, normalized loss: 7.208365, ppl: 5302.883301, avg_speed: 6.26 step/s, batch_cost: 0.15962 sec, reader_cost: 0.00015 sec, tokens: 87207, ips: 27316.82498 words/sec
-2021-05-23 20:43:34,068-INFO: step_idx: 260, epoch: 0, batch: 260, avg loss: 7.545318, normalized loss: 6.177677, ppl: 1891.864380, avg_speed: 6.14 step/s, batch_cost: 0.16276 sec, reader_cost: 0.00014 sec, tokens: 90627, ips: 27840.19911 words/sec
-2021-05-23 20:43:37,255-INFO: step_idx: 280, epoch: 0, batch: 280, avg loss: 8.159824, normalized loss: 6.792183, ppl: 3497.572266, avg_speed: 6.28 step/s, batch_cost: 0.15920 sec, reader_cost: 0.00014 sec, tokens: 84748, ips: 26617.54958 words/sec
-2021-05-23 20:43:40,511-INFO: step_idx: 300, epoch: 0, batch: 300, avg loss: 7.998689, normalized loss: 6.631048, ppl: 2977.052979, avg_speed: 6.15 step/s, batch_cost: 0.16252 sec, reader_cost: 0.00037 sec, tokens: 95538, ips: 29392.01042 words/sec
-2021-05-23 20:43:45,590-INFO: step_idx: 320, epoch: 0, batch: 320, avg loss: 7.863576, normalized loss: 6.495935, ppl: 2600.803955, avg_speed: 3.94 step/s, batch_cost: 0.25379 sec, reader_cost: 0.00013 sec, tokens: 90691, ips: 17867.56646 words/sec
-2021-05-23 20:43:48,793-INFO: step_idx: 340, epoch: 0, batch: 340, avg loss: 7.700849, normalized loss: 6.333208, ppl: 2210.222900, avg_speed: 6.25 step/s, batch_cost: 0.16000 sec, reader_cost: 0.00013 sec, tokens: 90767, ips: 28364.58564 words/sec
-2021-05-23 20:43:51,957-INFO: step_idx: 360, epoch: 0, batch: 360, avg loss: 7.012623, normalized loss: 5.644982, ppl: 1110.564087, avg_speed: 6.33 step/s, batch_cost: 0.15800 sec, reader_cost: 0.00013 sec, tokens: 84749, ips: 26819.12703 words/sec
-2021-05-23 20:43:55,230-INFO: step_idx: 380, epoch: 0, batch: 380, avg loss: 6.881880, normalized loss: 5.514239, ppl: 974.456848, avg_speed: 6.12 step/s, batch_cost: 0.16344 sec, reader_cost: 0.00013 sec, tokens: 88187, ips: 26977.92748 words/sec
-2021-05-23 20:43:58,492-INFO: step_idx: 400, epoch: 0, batch: 400, avg loss: 7.341150, normalized loss: 5.973509, ppl: 1542.484497, avg_speed: 6.14 step/s, batch_cost: 0.16291 sec, reader_cost: 0.00014 sec, tokens: 94421, ips: 28979.95019 words/sec
-2021-05-23 20:44:01,728-INFO: step_idx: 420, epoch: 0, batch: 420, avg loss: 6.674975, normalized loss: 5.307334, ppl: 792.327576, avg_speed: 6.19 step/s, batch_cost: 0.16162 sec, reader_cost: 0.00013 sec, tokens: 93360, ips: 28882.18963 words/sec
-2021-05-23 20:44:04,972-INFO: step_idx: 440, epoch: 0, batch: 440, avg loss: 6.427768, normalized loss: 5.060127, ppl: 618.791138, avg_speed: 6.17 step/s, batch_cost: 0.16198 sec, reader_cost: 0.00013 sec, tokens: 95595, ips: 29507.48919 words/sec
-2021-05-23 20:44:08,165-INFO: step_idx: 460, epoch: 0, batch: 460, avg loss: 7.453148, normalized loss: 6.085507, ppl: 1725.286377, avg_speed: 6.27 step/s, batch_cost: 0.15946 sec, reader_cost: 0.00014 sec, tokens: 94815, ips: 29730.58492 words/sec
-2021-05-23 20:44:11,437-INFO: step_idx: 480, epoch: 0, batch: 480, avg loss: 7.370746, normalized loss: 6.003105, ppl: 1588.817993, avg_speed: 6.12 step/s, batch_cost: 0.16341 sec, reader_cost: 0.00037 sec, tokens: 92853, ips: 28410.79564 words/sec
+W1118 12:54:54.595212 32244 device_context.cc:451] Please NOTE: device: 6, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1118 12:54:54.599259 32244 device_context.cc:469] device: 6, cuDNN Version: 8.1.
+Traceback (most recent call last):
+  File "train.py", line 282, in <module>
+    do_train(args)
+  File "train.py", line 161, in do_train
+    exe.run(startup_program)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1270, in run
+    six.reraise(*sys.exc_info())
+  File "/usr/local/lib/python3.7/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1268, in run
+    return_merged=return_merged)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1445, in _run_impl
+    use_program_cache=use_program_cache)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1535, in _run_program
+    [fetch_var_name])
+OSError: In user code:
+
+    File "train.py", line 282, in <module>
+      do_train(args)
+    File "train.py", line 98, in do_train
+      eos_id=args.eos_idx)
+    File "/usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py", line 579, in __init__
+      vocab_size=src_vocab_size, emb_dim=d_model, bos_id=self.bos_id)
+    File "/usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py", line 95, in __init__
+      initializer=nn.initializer.Normal(0., emb_dim**-0.5)))
+    File "/usr/local/lib/python3.7/dist-packages/paddle/nn/layer/common.py", line 1390, in __init__
+      is_bias=False)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/dygraph/layers.py", line 421, in create_parameter
+      default_initializer)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/layer_helper_base.py", line 384, in create_parameter
+      **attr._to_kwargs(with_initializer=True))
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py", line 3218, in create_parameter
+      initializer(param, self)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/initializer.py", line 366, in __call__
+      stop_gradient=True)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py", line 3265, in append_op
+      attrs=kwargs.get("attrs", None))
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py", line 2305, in __init__
+      for frame in traceback.extract_stack():
+
+    ExternalError: CU error(1). 
+      [Hint: Please search for the error code(1) on website (https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html#group__CUDART__TYPES_1g3f51e3575c2178246db0a94a430e0038) to get Nvidia's official solution and advice about CU Error.] (at /paddle/paddle/fluid/memory/allocation/cuda_virtual_mem_allocator.cc:209)
+      [operator < gaussian_random > error]
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+No stack trace in paddle, may be caused by external reasons.
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1637240124 (unix time) try "date -d @1637240124" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x7d88) received by PID 32244 (TID 0x7ffa3ae4c740) from PID 32136 ***]
+
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W1206 04:19:20.307557  2264 tensorrt.cc:56] You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not found. Ignore this if TensorRT is not needed.
+The TensorRT that Paddle depends on is not configured correctly.
+  Suggestions:
+  1. Check if the TensorRT is installed correctly and its version is matched with paddlepaddle you installed.
+  2. Configure environment variables as follows:
+  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`
+  - Windows: set PATH by `set PATH=XXX;%PATH%`
+  - Mac: set  DYLD_LIBRARY_PATH by `export DYLD_LIBRARY_PATH=...`
+{'batch_size': 5120,
+ 'beam_size': 5,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'device': 'gpu',
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 500,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 'None',
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': True,
+ 'shuffle_batch': True,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+2021-12-06 04:19:21,720-INFO: unique_endpoints {'127.0.0.1:34652'}
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py:2334: UserWarning: The Attr(force_cpu) of Op(fill_constant) will be deprecated in the future, please use 'device_guard' instead. 'device_guard' has higher priority when they are used at the same time.
+  "used at the same time." % type)
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:672
+The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:675
+The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:679
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:686
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:411
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:587
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:595
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:914
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:926
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddle/nn/layer/transformer.py:934
+The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/layers/math_op_patch.py:341: UserWarning: /usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py:273
+The behavior of expression A * B has been unified with elementwise_mul(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_mul(X, Y, axis=0) instead of A * B. This transitional warning will be dropped in the future.
+  op_type, op_type, EXPRESSION_MAP[method_name]))
+/usr/local/lib/python3.7/dist-packages/paddle/distributed/fleet/base/fleet_base.py:931: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+  "It is recommended to use DistributedStrategy "
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:128: UserWarning: The data type of 'x' in check_finite_and_unscale only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/data_feeder.py:128: UserWarning: The data type of 'x' in update_loss_scaling only support float16 in GPU now. 
+  (input_name, op_name, extra_message))
+/usr/local/lib/python3.7/dist-packages/paddle/optimizer/adam.py:294: UserWarning: Accumulating with FP16 in optimizer can lead to poor accuracy or slow convergence.Consider using multi_precision=True option of the Adam optimizer.
+  "Accumulating with FP16 in optimizer can lead to poor accuracy or slow convergence."
+W1206 04:22:17.649791  2264 device_context.cc:451] Please NOTE: device: 6, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1206 04:22:17.654254  2264 device_context.cc:469] device: 6, cuDNN Version: 8.1.
+Traceback (most recent call last):
+  File "train.py", line 282, in <module>
+    do_train(args)
+  File "train.py", line 161, in do_train
+    exe.run(startup_program)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1270, in run
+    six.reraise(*sys.exc_info())
+  File "/usr/local/lib/python3.7/dist-packages/six.py", line 703, in reraise
+    raise value
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1268, in run
+    return_merged=return_merged)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1445, in _run_impl
+    use_program_cache=use_program_cache)
+  File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/executor.py", line 1535, in _run_program
+    [fetch_var_name])
+OSError: 
+
+  Compile Traceback (most recent call last):
+    File "train.py", line 282, in <module>
+      do_train(args)
+    File "train.py", line 98, in do_train
+      eos_id=args.eos_idx)
+    File "/usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py", line 579, in __init__
+      vocab_size=src_vocab_size, emb_dim=d_model, bos_id=self.bos_id)
+    File "/usr/local/lib/python3.7/dist-packages/paddlenlp/transformers/transformer/modeling.py", line 95, in __init__
+      initializer=nn.initializer.Normal(0., emb_dim**-0.5)))
+    File "/usr/local/lib/python3.7/dist-packages/paddle/nn/layer/common.py", line 1390, in __init__
+      is_bias=False)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/dygraph/layers.py", line 421, in create_parameter
+      default_initializer)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/layer_helper_base.py", line 384, in create_parameter
+      **attr._to_kwargs(with_initializer=True))
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py", line 3218, in create_parameter
+      initializer(param, self)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/initializer.py", line 366, in __call__
+      stop_gradient=True)
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py", line 3265, in append_op
+      attrs=kwargs.get("attrs", None))
+    File "/usr/local/lib/python3.7/dist-packages/paddle/fluid/framework.py", line 2305, in __init__
+      for frame in traceback.extract_stack():
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   paddle::framework::Executor::Run(paddle::framework::ProgramDesc const&, paddle::framework::Scope*, int, bool, bool, std::vector<std::string, std::allocator<std::string > > const&, bool, bool)
+1   paddle::framework::Executor::RunPreparedContext(paddle::framework::ExecutorPrepareContext*, paddle::framework::Scope*, bool, bool, bool)
+2   paddle::framework::Executor::RunPartialPreparedContext(paddle::framework::ExecutorPrepareContext*, paddle::framework::Scope*, long, long, bool, bool, bool)
+3   paddle::framework::OperatorBase::Run(paddle::framework::Scope const&, paddle::platform::Place const&)
+4   paddle::framework::OperatorWithKernel::RunImpl(paddle::framework::Scope const&, paddle::platform::Place const&) const
+5   paddle::framework::OperatorWithKernel::RunImpl(paddle::framework::Scope const&, paddle::platform::Place const&, paddle::framework::RuntimeContext*) const
+6   std::_Function_handler<void (paddle::framework::ExecutionContext const&), paddle::framework::OpKernelRegistrarFunctor<paddle::platform::CUDAPlace, false, 0ul, paddle::operators::GPUGaussianRandomKernel<float>, paddle::operators::GPUGaussianRandomKernel<double> >::operator()(char const*, char const*, int) const::{lambda(paddle::framework::ExecutionContext const&)#1}>::_M_invoke(std::_Any_data const&, paddle::framework::ExecutionContext const&)
+7   paddle::framework::Tensor::mutable_data(paddle::platform::Place const&, paddle::framework::proto::VarType_Type, unsigned long)
+8   paddle::memory::AllocShared(paddle::platform::Place const&, unsigned long)
+9   paddle::memory::allocation::AllocatorFacade::AllocShared(paddle::platform::Place const&, unsigned long)
+10  paddle::memory::allocation::AllocatorFacade::Alloc(paddle::platform::Place const&, unsigned long)
+11  paddle::memory::allocation::RetryAllocator::AllocateImpl(unsigned long)
+12  paddle::memory::allocation::VirtualMemoryAutoGrowthBestFitAllocator::AllocateImpl(unsigned long)
+13  paddle::memory::allocation::VirtualMemoryAutoGrowthBestFitAllocator::ExtendAndMerge(unsigned long)
+14  paddle::memory::allocation::AlignedAllocator::AllocateImpl(unsigned long)
+15  paddle::memory::allocation::CUDAVirtualMemAllocator::AllocateImpl(unsigned long)
+16  paddle::platform::EnforceNotMet::EnforceNotMet(paddle::platform::ErrorSummary const&, char const*, int)
+17  paddle::platform::GetCurrentTraceBackString[abi:cxx11](bool)
+
+----------------------
+Error Message Summary:
+----------------------
+ExternalError: CU error(1). 
+  [Hint: Please search for the error code(1) on website (https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html#group__CUDART__TYPES_1g3f51e3575c2178246db0a94a430e0038) to get Nvidia's official solution and advice about CU Error.] (at /paddle/paddle/fluid/memory/allocation/cuda_virtual_mem_allocator.cc:209)
+  [operator < gaussian_random > error]
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': None,
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': None,
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': None,
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 500,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 'None',
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': True,
+ 'shuffle_batch': True,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': None,
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': None,
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'use_rel_len': False,
+ 'vocab_file': None,
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+INFO:paddle.utils.download:unique_endpoints {'127.0.0.1:34143'}
+Traceback (most recent call last):
+  File "train.py", line 330, in <module>
+    do_train(args)
+  File "train.py", line 136, in do_train
+    eos_id=args.eos_idx)
+TypeError: __init__() got an unexpected keyword argument 'num_encoder_layers'
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': None,
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': None,
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': None,
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 500,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 'None',
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': True,
+ 'shuffle_batch': True,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': None,
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': None,
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'use_rel_len': False,
+ 'vocab_file': None,
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+INFO:paddle.utils.download:unique_endpoints {'127.0.0.1:33681'}
+Traceback (most recent call last):
+  File "train.py", line 330, in <module>
+    do_train(args)
+  File "train.py", line 136, in do_train
+    eos_id=args.eos_idx)
+TypeError: __init__() got an unexpected keyword argument 'num_encoder_layers'
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+No stack trace in paddle, may be caused by external reasons.
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1639130582 (unix time) try "date -d @1639130582" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x10516) received by PID 66948 (TID 0x7f848abf5740) from PID 66838 ***]
+
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': None,
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': None,
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': None,
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 500,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 'None',
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': True,
+ 'shuffle_batch': True,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': None,
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': None,
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'use_rel_len': False,
+ 'vocab_file': None,
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+INFO:paddle.utils.download:unique_endpoints {'127.0.0.1:33994'}
+Traceback (most recent call last):
+  File "train.py", line 330, in <module>
+    do_train(args)
+  File "train.py", line 136, in do_train
+    eos_id=args.eos_idx)
+TypeError: __init__() got an unexpected keyword argument 'num_encoder_layers'
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+No stack trace in paddle, may be caused by external reasons.
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Termination signal` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1639139901 (unix time) try "date -d @1639139901" if you are using GNU date ***]
+  [SignalInfo: *** SIGTERM (@0x112fe) received by PID 70508 (TID 0x7fb400d5a740) from PID 70398 ***]
+
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': None,
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': None,
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': None,
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 500,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 'None',
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': True,
+ 'shuffle_batch': True,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': None,
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': None,
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'use_rel_len': False,
+ 'vocab_file': None,
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+INFO:paddle.utils.download:unique_endpoints {'127.0.0.1:34424'}
+W1213 02:54:33.706935 76345 device_context.cc:447] Please NOTE: device: 6, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1213 02:54:33.711645 76345 device_context.cc:465] device: 6, cuDNN Version: 8.1.
+I1213 02:54:36.568281 76345 gen_comm_id_helper.cc:190] Server listening on: 127.0.0.1:55133 successful.
+W1213 02:55:05.462901 76345 build_strategy.cc:110] Currently, fuse_broadcast_ops only works under Reduce mode.
+W1213 02:55:05.633514 76345 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 257. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 44.
+INFO:root:step_idx: 0, epoch: 0, batch: 0, avg loss: 11.162047, normalized loss: 9.794406, ppl: 70406.960938
+INFO:root:step_idx: 100, epoch: 0, batch: 100, avg loss: 8.210760, normalized loss: 6.843119, ppl: 3680.338867, avg_speed: 6.27 step/s, batch_cost: 0.15958 sec, reader_cost: 0.00010 sec, tokens: 452619, ips: 28363.49765 words/sec
+INFO:root:step_idx: 200, epoch: 0, batch: 200, avg loss: 7.589578, normalized loss: 6.221937, ppl: 1977.479126, avg_speed: 6.26 step/s, batch_cost: 0.15984 sec, reader_cost: 0.00010 sec, tokens: 441793, ips: 27638.86660 words/sec
+INFO:root:step_idx: 300, epoch: 0, batch: 300, avg loss: 7.286486, normalized loss: 5.918845, ppl: 1460.429077, avg_speed: 6.27 step/s, batch_cost: 0.15942 sec, reader_cost: 0.00009 sec, tokens: 465104, ips: 29174.15437 words/sec
+INFO:root:step_idx: 400, epoch: 0, batch: 400, avg loss: 7.598512, normalized loss: 6.230871, ppl: 1995.225098, avg_speed: 6.27 step/s, batch_cost: 0.15959 sec, reader_cost: 0.00009 sec, tokens: 445210, ips: 27896.45810 words/sec
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': None,
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': None,
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': None,
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 1500,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 'None',
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': True,
+ 'shuffle_batch': True,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': None,
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': None,
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'use_rel_len': False,
+ 'vocab_file': None,
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+INFO:paddle.utils.download:unique_endpoints {'127.0.0.1:39912'}
+W1213 08:39:52.262899 79223 device_context.cc:447] Please NOTE: device: 6, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1213 08:39:52.267803 79223 device_context.cc:465] device: 6, cuDNN Version: 8.1.
+I1213 08:39:55.182286 79223 gen_comm_id_helper.cc:190] Server listening on: 127.0.0.1:44696 successful.
+W1213 08:40:23.549896 79223 build_strategy.cc:110] Currently, fuse_broadcast_ops only works under Reduce mode.
+W1213 08:40:23.704202 79223 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 257. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 44.
+INFO:root:step_idx: 0, epoch: 0, batch: 0, avg loss: 11.047695, normalized loss: 9.680054, ppl: 62799.042969
+INFO:root:step_idx: 100, epoch: 0, batch: 100, avg loss: 8.190865, normalized loss: 6.823224, ppl: 3607.840088, avg_speed: 6.27 step/s, batch_cost: 0.15954 sec, reader_cost: 0.00009 sec, tokens: 452619, ips: 28370.09639 words/sec
+INFO:root:step_idx: 200, epoch: 0, batch: 200, avg loss: 7.610062, normalized loss: 6.242421, ppl: 2018.403320, avg_speed: 6.30 step/s, batch_cost: 0.15869 sec, reader_cost: 0.00008 sec, tokens: 441793, ips: 27840.51666 words/sec
+INFO:root:step_idx: 300, epoch: 0, batch: 300, avg loss: 7.292152, normalized loss: 5.924511, ppl: 1468.727905, avg_speed: 6.28 step/s, batch_cost: 0.15932 sec, reader_cost: 0.00009 sec, tokens: 465104, ips: 29193.42631 words/sec
+INFO:root:step_idx: 400, epoch: 0, batch: 400, avg loss: 7.623764, normalized loss: 6.256123, ppl: 2046.248779, avg_speed: 6.28 step/s, batch_cost: 0.15913 sec, reader_cost: 0.00008 sec, tokens: 445210, ips: 27977.61929 words/sec
+INFO:root:step_idx: 500, epoch: 0, batch: 500, avg loss: 7.174944, normalized loss: 5.807303, ppl: 1306.287354, avg_speed: 6.28 step/s, batch_cost: 0.15913 sec, reader_cost: 0.00008 sec, tokens: 444579, ips: 27938.83830 words/sec
+INFO:root:step_idx: 600, epoch: 0, batch: 600, avg loss: 7.152184, normalized loss: 5.784543, ppl: 1276.891602, avg_speed: 6.28 step/s, batch_cost: 0.15931 sec, reader_cost: 0.00009 sec, tokens: 466851, ips: 29305.00640 words/sec
+INFO:root:step_idx: 700, epoch: 0, batch: 700, avg loss: 5.295299, normalized loss: 3.927658, ppl: 199.397232, avg_speed: 6.31 step/s, batch_cost: 0.15838 sec, reader_cost: 0.00009 sec, tokens: 449938, ips: 28408.39927 words/sec
+INFO:root:step_idx: 800, epoch: 0, batch: 800, avg loss: 6.111163, normalized loss: 4.743522, ppl: 450.862610, avg_speed: 6.29 step/s, batch_cost: 0.15896 sec, reader_cost: 0.00008 sec, tokens: 444695, ips: 27974.77346 words/sec
+INFO:root:step_idx: 900, epoch: 0, batch: 900, avg loss: 6.153848, normalized loss: 4.786207, ppl: 470.524536, avg_speed: 6.27 step/s, batch_cost: 0.15955 sec, reader_cost: 0.00008 sec, tokens: 440137, ips: 27585.52994 words/sec
+INFO:root:step_idx: 1000, epoch: 0, batch: 1000, avg loss: 5.598186, normalized loss: 4.230546, ppl: 269.936432, avg_speed: 6.25 step/s, batch_cost: 0.15996 sec, reader_cost: 0.00008 sec, tokens: 460384, ips: 28781.00302 words/sec
+INFO:root:step_idx: 1100, epoch: 0, batch: 1100, avg loss: 4.859666, normalized loss: 3.492025, ppl: 128.981094, avg_speed: 6.24 step/s, batch_cost: 0.16032 sec, reader_cost: 0.00009 sec, tokens: 442767, ips: 27617.30401 words/sec
+INFO:root:step_idx: 1200, epoch: 0, batch: 1200, avg loss: 4.757360, normalized loss: 3.389720, ppl: 116.438164, avg_speed: 6.15 step/s, batch_cost: 0.16259 sec, reader_cost: 0.00008 sec, tokens: 453621, ips: 27899.96769 words/sec
+INFO:root:step_idx: 1300, epoch: 0, batch: 1300, avg loss: 3.830423, normalized loss: 2.462782, ppl: 46.082043, avg_speed: 6.27 step/s, batch_cost: 0.15946 sec, reader_cost: 0.00008 sec, tokens: 444230, ips: 27858.00330 words/sec
+INFO:root:step_idx: 1400, epoch: 0, batch: 1400, avg loss: 4.661304, normalized loss: 3.293663, ppl: 105.773865, avg_speed: 6.27 step/s, batch_cost: 0.15951 sec, reader_cost: 0.00008 sec, tokens: 452661, ips: 28378.16486 words/sec

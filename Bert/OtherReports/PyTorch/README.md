@@ -28,9 +28,9 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
-  - GPU：Tesla V100-SXM2-16GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 460.32.03
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - Driver Version: 460.27.04
   - 内存：502 GB
  
 - 多机（32卡）
@@ -61,7 +61,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
+    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
     ```
 
 - **构建镜像**
@@ -265,8 +265,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 127.09  | 126.48  | 511.13  | 532.24  |
-|8 | 1018.40  | 1012.80  | 4063.19  | 4207.36 |
+|1 | 129.85  | 129.26  | 590.55  | 623.84  |
+|8 | 1187.01  | 1198.71  | 4245.93  | 4448.77 |
 |32 | 3994.1 | 3974.0 | 15941.1 | 16311.6|
 |32<sup>[W/O AccGrad]</sup> | 2836.7 | 3180.0 | 10391.2 | 12061.6|
 > 关于batch_size 从32增加到48时，8卡和32卡性能并没有提升的问题，我们反复重测了多次。若了解相关原因，欢迎issue我们。

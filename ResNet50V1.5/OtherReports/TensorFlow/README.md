@@ -25,9 +25,9 @@
 
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
-  - GPU：Tesla V100-SXM2-16GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 38
-  - Driver Version: 460.32.03
+  - GPU：Tesla V100-SXM2-32GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
+  - Driver Version: 460.27.04
   - 内存：502 GB
 
 - 多机（32卡）
@@ -41,11 +41,11 @@
 
 我们使用 NGC TensorFlow 的代码仓库提供的Dockerfile制作镜像：
 
-- Docker: nvcr.io/nvidia/tensorflow:20.06-tf1-py3
+- Docker: nvcr.io/nvidia/tensorflow:20.12-tf1-py3
 - TensorFlow：1.15.2+nv
 - 模型代码：[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 - CUDA：11
-- cuDNN：8.0.1
+- cuDNN：8.1.1
 
 ## 二、环境搭建
 
@@ -63,7 +63,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/TensorFlow/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout 8d8c524df634e4dfa0cfbf77a904ce2ede85e2ec
+   git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
    ```
 
 - 制作Docker镜像
@@ -93,7 +93,7 @@
 
 对于1卡、8卡性能测试，本报告严格按NGC公开的测试报告进行复现，对其提供的代码未做改动，并严格按照NGC测试使用的参数配置测试。其公开的测试报告请见：[《ResNet-50 v1.5 for TensorFlow》](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 
-- 修改`/workspace/rn50v15_tf/runtime/runner.py`文件249行
+- 修改`/workspace/rn50v15_tf/runtime/runner.py`文件:
 
 修改前代码：
   ```
@@ -146,8 +146,8 @@ $mpirun  python main.py --mode=training_benchmark \
 
 |卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|:-----:|
-|1 | 410.55  | 1194.14  | 1255.64 (BS=254) |
-|8 | 3089.54  | 8701.89  | 9525.40 (BS=254) |
+|1 | 408.70  | 1100.88  | 1166.72 (BS=254) |
+|8 | 3132.67 | 8434.85  | 9229.42 (BS=254) |
 |32 | 11622.9 | 21826.6 | 23280.9 |
 
 ## 五、日志数据

@@ -1,114 +1,50 @@
-/usr/local/lib/python3.7/site-packages/pkg_resources/_vendor/pyparsing.py:943: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
-  collections.MutableMapping.register(ParseResults)
-/usr/local/lib/python3.7/site-packages/setuptools/depends.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
-  import imp
-WARNING 2021-05-20 10:45:23,139 launch.py:357] Not found distinct arguments and compiled with cuda or xpu. Default use collective mode
-INFO 2021-05-20 10:45:23,141 launch_utils.py:510] Local start 8 processes. First process distributed environment info (Only For Debug): 
-    +=======================================================================================+
-    |                        Distributed Envs                      Value                    |
-    +---------------------------------------------------------------------------------------+
-    |                       PADDLE_TRAINER_ID                        0                      |
-    |                 PADDLE_CURRENT_ENDPOINT                 127.0.0.1:14786               |
-    |                     PADDLE_TRAINERS_NUM                        8                      |
-    |                PADDLE_TRAINER_ENDPOINTS  ... 0.1:40757,127.0.0.1:43893,127.0.0.1:19672|
-    |                     PADDLE_RANK_IN_NODE                        0                      |
-    |                 PADDLE_LOCAL_DEVICE_IDS                        0                      |
-    |                 PADDLE_WORLD_DEVICE_IDS                 0,1,2,3,4,5,6,7               |
-    |                     FLAGS_selected_gpus                        0                      |
-    |             FLAGS_selected_accelerators                        0                      |
-    +=======================================================================================+
-
-INFO 2021-05-20 10:45:23,141 launch_utils.py:514] details abouts PADDLE_TRAINER_ENDPOINTS can be found in ./mylog/endpoints.log, and detail running logs maybe found in ./mylog/workerlog.0
------------  Configuration Arguments -----------
-gpus: 0,1,2,3,4,5,6,7
-heter_worker_num: None
-heter_workers: 
-http_port: None
-ips: 127.0.0.1
-log_dir: ./mylog
-nproc_per_node: None
-run_mode: None
-server_num: None
-servers: 
-training_script: ./run_pretrain.py
-training_script_args: ['--model_type', 'bert', '--model_name_or_path', 'bert-base-uncased', '--max_predictions_per_seq', '20', '--batch_size', '32', '--learning_rate', '1e-4', '--weight_decay', '1e-2', '--adam_epsilon', '1e-6', '--warmup_steps', '10000', '--input_dir', '/home/heya02/self_test/paddle/daily_ben/perf_result/benchmark/PaddleNLP/examples/language_model/bert/static/down_data/bert_data/', '--output_dir', './tmp2/', '--logging_steps', '20', '--save_steps', '50000', '--max_steps', '500', '--use_amp', 'False']
-worker_num: None
-workers: 
-------------------------------------------------
-launch train in GPU mode!
-launch proc_id:20546 idx:0
-launch proc_id:20549 idx:1
-launch proc_id:20552 idx:2
-launch proc_id:20555 idx:3
-launch proc_id:20558 idx:4
-launch proc_id:20561 idx:5
-launch proc_id:20564 idx:6
-launch proc_id:20567 idx:7
-/usr/local/lib/python3.7/site-packages/pkg_resources/_vendor/pyparsing.py:943: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
-  collections.MutableMapping.register(ParseResults)
-/usr/local/lib/python3.7/site-packages/setuptools/depends.py:2: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
-  import imp
-[32m[2021-05-20 10:45:24,808] [    INFO][0m - Found /root/.paddlenlp/models/bert-base-uncased/bert-base-uncased-vocab.txt[0m
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/bert/modeling.py:59
-The behavior of expression A - B has been unified with elementwise_sub(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_sub(X, Y, axis=0) instead of A - B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/bert/modeling.py:68
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:405
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:572
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddle/nn/layer/transformer.py:580
-The behavior of expression A + B has been unified with elementwise_add(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_add(X, Y, axis=0) instead of A + B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddlenlp/transformers/bert/modeling.py:503: DeprecationWarning: [93m
-Warning:
-API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
-reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
-  prediction_scores, masked_lm_labels, ignore_index=-1)
-/usr/local/lib/python3.7/site-packages/paddle/fluid/layers/math_op_patch.py:299: UserWarning: /usr/local/lib/python3.7/site-packages/paddlenlp/transformers/bert/modeling.py:504
-The behavior of expression A / B has been unified with elementwise_div(X, Y, axis=-1) from Paddle 2.0. If your code works well in the older versions but crashes in this version, try to use elementwise_div(X, Y, axis=0) instead of A / B. This transitional warning will be dropped in the future.
-  op_type, op_type, EXPRESSION_MAP[method_name]))
-/usr/local/lib/python3.7/site-packages/paddlenlp/transformers/bert/modeling.py:506: DeprecationWarning: [93m
-Warning:
-API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
-reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
-  seq_relationship_score, next_sentence_labels)
-/usr/local/lib/python3.7/site-packages/paddle/distributed/fleet/base/fleet_base.py:696: UserWarning: It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
-  "It is recommended to use DistributedStrategy "
-W0520 10:45:26.431049 20546 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 10.1
-W0520 10:45:26.437034 20546 device_context.cc:422] device: 0, cuDNN Version: 7.6.
-W0520 10:45:30.095099 20546 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:42345 failed 1 times with reason: Connection refused retry after 0.5 seconds
-W0520 10:45:30.595520 20546 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:17613 failed 1 times with reason: Connection refused retry after 0.5 seconds
-W0520 10:45:31.095746 20546 gen_comm_id_helper.cc:120] connect addr=127.0.0.1:17613 failed 2 times with reason: Connection refused retry after 1 seconds
-W0520 10:45:46.001579 20546 build_strategy.cc:109] Currently, fuse_broadcast_ops only works under Reduce mode.
-W0520 10:45:46.119755 20546 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 206. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 19.
-tobal step: 20, epoch: 0, batch: 19, loss: 11.125923, avg_reader_cost: 0.03453 sec, avg_batch_cost: 0.37857 sec, avg_samples: 32.00000, ips: 84.52785 sequences/sec
-tobal step: 40, epoch: 0, batch: 39, loss: 11.116977, avg_reader_cost: 0.00013 sec, avg_batch_cost: 0.22707 sec, avg_samples: 32.00000, ips: 140.92384 sequences/sec
-tobal step: 60, epoch: 0, batch: 59, loss: 10.875277, avg_reader_cost: 0.00014 sec, avg_batch_cost: 0.22826 sec, avg_samples: 32.00000, ips: 140.19028 sequences/sec
-tobal step: 80, epoch: 0, batch: 79, loss: 10.730980, avg_reader_cost: 0.00013 sec, avg_batch_cost: 0.22819 sec, avg_samples: 32.00000, ips: 140.23123 sequences/sec
-tobal step: 100, epoch: 0, batch: 99, loss: 10.488310, avg_reader_cost: 0.00013 sec, avg_batch_cost: 0.22833 sec, avg_samples: 32.00000, ips: 140.14730 sequences/sec
-tobal step: 120, epoch: 0, batch: 119, loss: 10.149564, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.22901 sec, avg_samples: 32.00000, ips: 139.73077 sequences/sec
-INFO 2021-05-20 10:47:47,526 launch.py:266] Local processes completed.
-tobal step: 140, epoch: 0, batch: 139, loss: 10.315207, avg_reader_cost: 0.00013 sec, avg_batch_cost: 0.22928 sec, avg_samples: 32.00000, ips: 139.56795 sequences/sec
-tobal step: 160, epoch: 0, batch: 159, loss: 10.076440, avg_reader_cost: 0.00013 sec, avg_batch_cost: 0.22974 sec, avg_samples: 32.00000, ips: 139.29087 sequences/sec
-tobal step: 180, epoch: 0, batch: 179, loss: 9.981462, avg_reader_cost: 0.00026 sec, avg_batch_cost: 0.23027 sec, avg_samples: 32.00000, ips: 138.96682 sequences/sec
-tobal step: 200, epoch: 0, batch: 199, loss: 9.834962, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23057 sec, avg_samples: 32.00000, ips: 138.78946 sequences/sec
-tobal step: 220, epoch: 0, batch: 219, loss: 9.802148, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23039 sec, avg_samples: 32.00000, ips: 138.89380 sequences/sec
-tobal step: 240, epoch: 0, batch: 239, loss: 9.850626, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23097 sec, avg_samples: 32.00000, ips: 138.54453 sequences/sec
-tobal step: 260, epoch: 0, batch: 259, loss: 9.569891, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23101 sec, avg_samples: 32.00000, ips: 138.52019 sequences/sec
-tobal step: 280, epoch: 0, batch: 279, loss: 9.537217, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23146 sec, avg_samples: 32.00000, ips: 138.25139 sequences/sec
-tobal step: 300, epoch: 0, batch: 299, loss: 9.651202, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23126 sec, avg_samples: 32.00000, ips: 138.37413 sequences/sec
-tobal step: 320, epoch: 0, batch: 319, loss: 9.718234, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23167 sec, avg_samples: 32.00000, ips: 138.12620 sequences/sec
-tobal step: 340, epoch: 0, batch: 339, loss: 9.331609, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.23204 sec, avg_samples: 32.00000, ips: 137.90609 sequences/sec
-tobal step: 360, epoch: 0, batch: 359, loss: 9.213681, avg_reader_cost: 0.00010 sec, avg_batch_cost: 0.23247 sec, avg_samples: 32.00000, ips: 137.65225 sequences/sec
-tobal step: 380, epoch: 0, batch: 379, loss: 9.465868, avg_reader_cost: 0.00012 sec, avg_batch_cost: 0.23302 sec, avg_samples: 32.00000, ips: 137.33014 sequences/sec
-tobal step: 400, epoch: 0, batch: 399, loss: 9.429642, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.23342 sec, avg_samples: 32.00000, ips: 137.09066 sequences/sec
-tobal step: 420, epoch: 0, batch: 419, loss: 9.415435, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.23361 sec, avg_samples: 32.00000, ips: 136.98084 sequences/sec
-tobal step: 440, epoch: 0, batch: 439, loss: 9.283321, avg_reader_cost: 0.00013 sec, avg_batch_cost: 0.23297 sec, avg_samples: 32.00000, ips: 137.35566 sequences/sec
-tobal step: 460, epoch: 0, batch: 459, loss: 9.227121, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.23324 sec, avg_samples: 32.00000, ips: 137.19746 sequences/sec
-tobal step: 480, epoch: 0, batch: 479, loss: 9.001698, avg_reader_cost: 0.00010 sec, avg_batch_cost: 0.23313 sec, avg_samples: 32.00000, ips: 137.26500 sequences/sec
-tobal step: 500, epoch: 0, batch: 499, loss: 9.272015, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.23333 sec, avg_samples: 32.00000, ips: 137.14236 sequences/sec
+Namespace(adam_epsilon=1e-06, batch_size=32, device='gpu', enable_addto=False, gradient_merge_steps=1, input_dir='./wikicorpus_en_seqlen128', learning_rate=0.0001, logging_steps=10, max_grad_norm=1.0, max_predictions_per_seq=20, max_steps=400, model_name_or_path='bert-base-uncased', model_type='bert', output_dir='./tmp2/', save_steps=20000, scale_loss=32768, seed=42, use_amp=0, use_pure_fp16=False, warmup_steps=10000, weight_decay=0.01)
+[32m[2021-12-27 14:46:38,280] [    INFO][0m - Already cached /root/.paddlenlp/models/bert-base-uncased/bert-base-uncased-vocab.txt[0m
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:56519', '127.0.0.1:48746', '127.0.0.1:41268', '127.0.0.1:53972', '127.0.0.1:47130', '127.0.0.1:49404', '127.0.0.1:41118']
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:56519', '127.0.0.1:48746', '127.0.0.1:41268', '127.0.0.1:53972', '127.0.0.1:47130', '127.0.0.1:49404', '127.0.0.1:41118']
+W1227 14:46:45.817998 33089 device_context.cc:447] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W1227 14:46:45.823014 33089 device_context.cc:465] device: 0, cuDNN Version: 8.1.
+W1227 14:46:57.937512 33089 build_strategy.cc:110] Currently, fuse_broadcast_ops only works under Reduce mode.
+W1227 14:46:58.031052 33089 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 206. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 19.
+tobal step: 10, epoch: 0, batch: 9, loss: 11.212529, avg_reader_cost: 0.07153 sec, avg_batch_cost: 0.50728 sec, avg_samples: 32.00000, ips: 63.08146 sequences/sec
+tobal step: 20, epoch: 0, batch: 19, loss: 11.213636, avg_reader_cost: 0.00009 sec, avg_batch_cost: 0.21368 sec, avg_samples: 32.00000, ips: 149.75821 sequences/sec
+tobal step: 30, epoch: 0, batch: 29, loss: 11.088994, avg_reader_cost: 0.00016 sec, avg_batch_cost: 0.21451 sec, avg_samples: 32.00000, ips: 149.17879 sequences/sec
+tobal step: 40, epoch: 0, batch: 39, loss: 11.043439, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.21393 sec, avg_samples: 32.00000, ips: 149.58183 sequences/sec
+tobal step: 50, epoch: 0, batch: 49, loss: 10.961557, avg_reader_cost: 0.00010 sec, avg_batch_cost: 0.21440 sec, avg_samples: 32.00000, ips: 149.25137 sequences/sec
+tobal step: 60, epoch: 0, batch: 59, loss: 10.941221, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21442 sec, avg_samples: 32.00000, ips: 149.23740 sequences/sec
+tobal step: 70, epoch: 0, batch: 69, loss: 10.837517, avg_reader_cost: 0.00009 sec, avg_batch_cost: 0.21420 sec, avg_samples: 32.00000, ips: 149.39537 sequences/sec
+tobal step: 80, epoch: 0, batch: 79, loss: 10.598081, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21453 sec, avg_samples: 32.00000, ips: 149.16384 sequences/sec
+tobal step: 90, epoch: 0, batch: 89, loss: 10.548759, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21498 sec, avg_samples: 32.00000, ips: 148.84831 sequences/sec
+tobal step: 100, epoch: 0, batch: 99, loss: 10.458643, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.21521 sec, avg_samples: 32.00000, ips: 148.68989 sequences/sec
+tobal step: 110, epoch: 0, batch: 109, loss: 10.432853, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21497 sec, avg_samples: 32.00000, ips: 148.85957 sequences/sec
+tobal step: 120, epoch: 0, batch: 119, loss: 10.359174, avg_reader_cost: 0.00011 sec, avg_batch_cost: 0.21597 sec, avg_samples: 32.00000, ips: 148.16942 sequences/sec
+tobal step: 130, epoch: 0, batch: 129, loss: 10.290360, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21431 sec, avg_samples: 32.00000, ips: 149.31325 sequences/sec
+tobal step: 140, epoch: 0, batch: 139, loss: 10.189514, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.21538 sec, avg_samples: 32.00000, ips: 148.57754 sequences/sec
+tobal step: 150, epoch: 0, batch: 149, loss: 10.101098, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21463 sec, avg_samples: 32.00000, ips: 149.09609 sequences/sec
+tobal step: 160, epoch: 0, batch: 159, loss: 10.087432, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21518 sec, avg_samples: 32.00000, ips: 148.71019 sequences/sec
+tobal step: 170, epoch: 0, batch: 169, loss: 10.167763, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21456 sec, avg_samples: 32.00000, ips: 149.14294 sequences/sec
+tobal step: 180, epoch: 0, batch: 179, loss: 9.936742, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21580 sec, avg_samples: 32.00000, ips: 148.28296 sequences/sec
+tobal step: 190, epoch: 0, batch: 189, loss: 10.094395, avg_reader_cost: 0.00009 sec, avg_batch_cost: 0.21557 sec, avg_samples: 32.00000, ips: 148.44448 sequences/sec
+tobal step: 200, epoch: 0, batch: 199, loss: 9.834146, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21499 sec, avg_samples: 32.00000, ips: 148.84288 sequences/sec
+tobal step: 210, epoch: 0, batch: 209, loss: 9.944005, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21553 sec, avg_samples: 32.00000, ips: 148.47128 sequences/sec
+tobal step: 220, epoch: 0, batch: 219, loss: 9.958980, avg_reader_cost: 0.00009 sec, avg_batch_cost: 0.21655 sec, avg_samples: 32.00000, ips: 147.77418 sequences/sec
+tobal step: 230, epoch: 0, batch: 229, loss: 9.795728, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21577 sec, avg_samples: 32.00000, ips: 148.30455 sequences/sec
+tobal step: 240, epoch: 0, batch: 239, loss: 9.772112, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21514 sec, avg_samples: 32.00000, ips: 148.74098 sequences/sec
+tobal step: 250, epoch: 0, batch: 249, loss: 9.753963, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21553 sec, avg_samples: 32.00000, ips: 148.47306 sequences/sec
+tobal step: 260, epoch: 0, batch: 259, loss: 10.006562, avg_reader_cost: 0.00009 sec, avg_batch_cost: 0.21578 sec, avg_samples: 32.00000, ips: 148.30149 sequences/sec
+tobal step: 270, epoch: 0, batch: 269, loss: 9.732470, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21582 sec, avg_samples: 32.00000, ips: 148.27061 sequences/sec
+tobal step: 280, epoch: 0, batch: 279, loss: 9.514539, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21537 sec, avg_samples: 32.00000, ips: 148.58099 sequences/sec
+tobal step: 290, epoch: 0, batch: 289, loss: 9.739794, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21557 sec, avg_samples: 32.00000, ips: 148.44345 sequences/sec
+tobal step: 300, epoch: 0, batch: 299, loss: 9.830888, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21608 sec, avg_samples: 32.00000, ips: 148.09441 sequences/sec
+tobal step: 310, epoch: 0, batch: 309, loss: 9.506464, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21624 sec, avg_samples: 32.00000, ips: 147.98602 sequences/sec
+tobal step: 320, epoch: 0, batch: 319, loss: 9.364569, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21581 sec, avg_samples: 32.00000, ips: 148.28008 sequences/sec
+tobal step: 330, epoch: 0, batch: 329, loss: 9.691610, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21551 sec, avg_samples: 32.00000, ips: 148.48764 sequences/sec
+tobal step: 340, epoch: 0, batch: 339, loss: 9.392197, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21591 sec, avg_samples: 32.00000, ips: 148.20877 sequences/sec
+tobal step: 350, epoch: 0, batch: 349, loss: 9.313383, avg_reader_cost: 0.00008 sec, avg_batch_cost: 0.21643 sec, avg_samples: 32.00000, ips: 147.85264 sequences/sec
+tobal step: 360, epoch: 0, batch: 359, loss: 9.340073, avg_reader_cost: 0.00009 sec, avg_batch_cost: 0.21667 sec, avg_samples: 32.00000, ips: 147.68822 sequences/sec
+tobal step: 370, epoch: 0, batch: 369, loss: 9.346942, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21722 sec, avg_samples: 32.00000, ips: 147.31551 sequences/sec
+tobal step: 380, epoch: 0, batch: 379, loss: 9.457917, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21569 sec, avg_samples: 32.00000, ips: 148.36218 sequences/sec
+tobal step: 390, epoch: 0, batch: 389, loss: 9.310940, avg_reader_cost: 0.00006 sec, avg_batch_cost: 0.21577 sec, avg_samples: 32.00000, ips: 148.30662 sequences/sec
+tobal step: 400, epoch: 0, batch: 399, loss: 9.368101, avg_reader_cost: 0.00007 sec, avg_batch_cost: 0.21635 sec, avg_samples: 32.00000, ips: 147.90786 sequences/sec
