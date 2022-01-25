@@ -11,13 +11,12 @@
   - [2.Docker 镜像](#2docker-镜像)
 - [二、环境搭建](#二环境搭建)
   - [1. 单机（单卡、8卡）环境搭建](#1-单机单卡8卡环境搭建)
-  - [2. 多机（32卡）环境搭建](#2-多机32卡环境搭建)
 - [三、测试步骤](#三测试步骤)
   - [1. 单机（单卡、8卡）测试](#1-单机单卡8卡测试)
   - [2. 多机（32卡）测试](#2-多机32卡测试)
 - [四、测试结果](#四测试结果)
 - [五、日志数据](#五日志数据)
-  - [1.单机（单卡、8卡）日志](#1单机单卡8卡日志)
+  - [1.日志](#1日志)
 
 
 ## 一、环境介绍
@@ -75,10 +74,12 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
 
 ```bash
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
-    git clone https://github.com/sljlp/mmsegmentation.git
+    git clone https://github.com/sljlp/mmsegmentation.git -b benchmark
     cd mmsegmentation
-    # 本次测试是在如下版本下完成的：
-    git checkout 3e46c1b200bd29008e95626a527032c2c364917a
+    #添加官方库
+    git remote add upstream https://github.com/open-mmlab/mmsegmentation.git
+    git merge upstream/master
+    
 ```
 
 - **启动镜像**
