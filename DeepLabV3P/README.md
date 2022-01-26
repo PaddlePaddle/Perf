@@ -13,8 +13,6 @@
   - [2.Docker 镜像](#2docker-镜像)
 - [三、环境搭建](#三环境搭建)
 - [四、测试步骤](#四测试步骤)
-  - [1.单机（单卡、8卡）测试](#1单机单卡8卡测试)
-  - [2.多机（32卡）测试](#2多机32卡测试)
 - [五、测试结果](#五测试结果)
   - [1.Paddle训练性能](#1paddle训练性能)
   - [2.与业内其它框架对比](#2与业内其它框架对比)
@@ -124,17 +122,13 @@ DeepLabV3P 模型是图像分割领域极具代表性的模型。在测试性能
     # 解压数据集
     tar -xzvf cityscapes.tar
 
-    # checksum
-    md5sum cityscapes.tar
-    输出：cityscapes.tar 37724b19b6e5d41f9f147936d60b3c29
-
     # 放到 data/ 目录下
     mv cityscapes PaddleSeg/data/
 ```
 
 ## 四、测试步骤
 
-DeepLabV3P测试目录位于`/workspace/models/`。详细的测试方法在该目录已写明。
+DeepLabV3P测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tree/benchmark#readme)。
 根据测试的精度，需要调整命令行参数。
 
 | 精度 | batch_size | fp16 |
