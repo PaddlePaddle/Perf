@@ -145,8 +145,8 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tre
 
    |卡数 | FP32(BS=8) | AMP(BS=8) 
    |:-----:|:-----:|:-----:|
-   |1 | 18 | 17.4 |
-   |8 | 104   | 96 |
+   |1 | 17.85 | 16.41 |
+   |8 | 98.75   | 91.00 |
    |32 | 428 | 422 | 
 ### 2.与业内其它框架对比
 
@@ -160,8 +160,8 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tre
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | 18 | 15 |
-  | GPU=8,BS=8 | 104 | 75  |
+  | GPU=1,BS=8 | 17.85 | 14.52 |
+  | GPU=8,BS=8 | 98.75 | 54.34  |
   | GPU=32,BS=8 | 428 | 243 |
 
 
@@ -169,8 +169,8 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tre
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | 17.4 | 14.8  |
-  | GPU=8,BS=8 | 96  | 71  |
+  | GPU=1,BS=8 | 16.41 | 15.00  |
+  | GPU=8,BS=8 | 91.00  | 53.05  |
   | GPU=32,BS=8 | 422 | 246 |
 
 
