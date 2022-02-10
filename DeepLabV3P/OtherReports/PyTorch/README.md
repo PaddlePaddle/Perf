@@ -67,6 +67,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
 
 ```bash
     bash scripts/docker/build.sh   # 构建镜像
+    docker images #找到新建的镜像ID，记为IMGID
+    docker tag $IMGID mmsegmentation:latest
 ```
 在此基础上，我们修改了一部分代码，以达到AI-Rank要求的输出和更方便的配置，并在不影响原始代码性能和精度的前提下修复了原始代码的[bug](https://github.com/open-mmlab/mmsegmentation/pull/522), 最终使用的代码是[sljlp/mmsegmentation](https://github.com/sljlp/mmsegmentation)
 
@@ -78,7 +80,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     cd mmsegmentation
     #添加官方库
     git remote add upstream https://github.com/open-mmlab/mmsegmentation.git
-    git merge upstream/master
+    git fetch upstream
+    git pull upstream master
     
 ```
 
@@ -86,7 +89,9 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
 ```bash
     bash scripts/docker/launch.sh  # 启动容器
 ```
-    我们将 `launch.sh` 脚本中的 `docker` 命令换为了 `nvidia-docker` 启动的支持 GPU 的容器，同时将`BERT`(即`$pwd`)目录替换为`mmsegmentation`目录，其他均保持不变，脚本如下：
+
+    我们将 `launch.sh` 脚本中的 `docker` 命令换为了 `nvidia-docker` 启动的支持 GPU 的容器，同时将`BERT`(即`$pwd`)目录替换为`mmsegmentation`目录，容器名由`test_bert_torch`改为`test_mmseg_torch`其他均保持不变，脚本如下：
+    
 ```bash
     #!/bin/bash
 
@@ -94,7 +99,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     NV_VISIBLE_DEVICES=${2:-"all"}
     DOCKER_BRIDGE=${3:-"host"}
 
-    nvidia-docker run --name test_bert_torch -it  \
+    nvidia-docker run --name test_mmseg_torch -it \
     --net=$DOCKER_BRIDGE \
     --shm-size=1g \
     --ulimit memlock=-1 \
@@ -105,22 +110,46 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     mmsegmentation $CMD
 ```  
 
+- **搭建运行环境**
+  -  安装依赖
+  ``` bash
+  cd mmsegmentation
+  pip install -r requirements.txt
+  ```
+  - 安装pytorch1.6与torchvision0.7.0
+    这一步非必需，因为NGC PyTorch的镜像中自带torch与torchvision
+  ```bash
+  pip install torch==1.6 torchvision==0.7.0
+  ```
+  - 安装 mmcv-full
+    - cuda10环境安装请参考[GET STARTED](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/get_started.md)
+    - cuda11环境安装可以参考[官方安装mmcv方法](https://mmcv.readthedocs.io/en/latest/get_started/build.html),注意选择安装版本
+    安装过程如下
+    ```bash
+    #以安装mmcv-full 1.3.13为例,不同版本安装方法可能有所不同
+    cd $HOME
+    git clone https://github.com/open-mmlab/mmcv.git
+    cd mmcv
+    git tag # 查看对应版本tag
+    git checkout v1.3.13
+    pip install -r requirements.txt
+    MMCV_WITH_OPS=1 pip install -e .
+    ```
+    - 注意 mmcv版本要与mmseg版本匹配,对应关系见[GET START](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/en/get_started.md)
+
 - **准备数据**
 
    DeepLabV3P 模型是基于 [Cityscapes 数据集](https://paddleseg.bj.bcebos.com/dataset/cityscapes.tar) 进行的训练的。
 ```   bash
     # 下载cityscapes  
-    wget https://paddleseg.bj.bcebos.com/dataset/cityscapes.tar  
+    wget https://paddleseg.bj.bcebos.com/dataset/cityscapes.tar
 
     # 解压数据集
     tar -xzvf cityscapes.tar
 
-    # checksum
-    md5sum cityscapes.tar
-    输出：cityscapes.tar 37724b19b6e5d41f9f147936d60b3c29
-
     # 放到 data/ 目录下
-    mv cityscapes PaddleSeg/data/
+    mkdir -p mmsegmentation/data
+    mv cityscapes mmsegmentation/data/
 ```
 
 ## 三、测试步骤
@@ -136,10 +165,11 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
 
 ### 1. 单机（单卡、8卡）测试
 
-为了更方便地测试不同 batch_size、num_gpus、precision组合下的性能，我们修改了tools/train.py的接受参数列表，同时编写了`run_benchmark.sh` 脚本:
+为了更方便地测试不同 batch_size、num_gpus、precision组合下的性能，我们修改了tools/train.py的接受参数列表，同时编写了以下命令(需要自行在`mmsegmentation`目录下新建脚本文件`run_benchmark.sh`，将代码拷贝到文件):
 
 ``` bash
-cd mmsegmentation
+export PYTHONPATH=`pwd`/mmseg:$PYTHONPATH
+export CUDA_VISIBLE_DEVICES=0
 
 if [ $2 = fp16 ]
 then FP16="--fp16"
@@ -175,6 +205,9 @@ CONFIG_FILE=configs/deeplabv3plus/deeplabv3plus_r50-d8_512x1024_80k_cityscapes.p
 total_gpus=$1
 NUM_GPUS=8
 NUM_NODES=$((total_gpus/NUM_GPUS))
+NODE_RANK=${NODE_RANK:-0}
+MASTER_NODE=${MASTER_NODE:-127.0.0.1}
+MASTER_PORT=${MASTER_PORT:-6010}
 python3 -m torch.distributed.launch --nproc_per_node=${NUM_GPUS} \
                --nnodes=${NUM_NODES} --node_rank=$NODE_RANK --master_addr=$MASTER_NODE \
                --master_port=$MASTER_PORT \
@@ -190,6 +223,7 @@ fi
     若测试单机单卡 batch_size=8、FP32 的训练性能，执行如下命令：
 
     ```bash
+    cd mmsegmentation
     bash run_benchmark.sh 1 fp32
     ```
 
@@ -198,17 +232,19 @@ fi
     若测试单机8卡 batch_size=8、FP16 的训练性能，执行如下命令：
 
     ```bash
+    cd mmsegmentation
     bash run_benchmark.sh 8 fp16
     ```
 
 ### 2. 多机（32卡）测试
 基础配置和上文所述的单机配置相同，多机这部分主要侧重于多机和单机的差异部分。
-我们需要配置变量`${MASTER_ADDR}`  `${MASTER_PORT}`, 即可在单机的基础上完成多机的启动。
+我们需要声明适合多机环境的环境变量`${MASTER_ADDR}`  `${MASTER_PORT}`，即可在单机的基础上完成多机的启动。
 
 - **多机启动脚本**
 
 	```bash
 	# 4机 32 卡 fp16
+  cd mmsegmentation
 	bash run_benchmark.sh 32 fp16
 
 	```
