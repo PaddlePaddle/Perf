@@ -1,597 +1,579 @@
-Mon May 31 00:07:24 2021[1,0]<stderr>:2021-05-31 00:07:24,241 - mmseg - INFO - Environment info:
-Mon May 31 00:07:24 2021[1,0]<stderr>:------------------------------------------------------------
-Mon May 31 00:07:24 2021[1,0]<stderr>:sys.platform: linux
-Mon May 31 00:07:24 2021[1,0]<stderr>:Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
-Mon May 31 00:07:24 2021[1,0]<stderr>:CUDA available: True
-Mon May 31 00:07:24 2021[1,0]<stderr>:GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
-Mon May 31 00:07:24 2021[1,0]<stderr>:CUDA_HOME: /usr/local/cuda
-Mon May 31 00:07:24 2021[1,0]<stderr>:NVCC: Build cuda_11.0_bu.TC445_37.28358933_0
-Mon May 31 00:07:24 2021[1,0]<stderr>:GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
-Mon May 31 00:07:24 2021[1,0]<stderr>:PyTorch: 1.6.0a0+9907a3e
-Mon May 31 00:07:24 2021[1,0]<stderr>:PyTorch compiling details: PyTorch built with:
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - GCC 7.5
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - C++ Version: 201402
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - Intel(R) Math Kernel Library Version 2019.0.1 Product Build 20180928 for Intel(R) 64 architecture applications
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - Intel(R) MKL-DNN v1.2.0 (Git Hash N/A)
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - OpenMP 201511 (a.k.a. OpenMP 4.5)
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - NNPACK is enabled
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - CPU capability usage: AVX2
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - CUDA Runtime 11.0
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_80,code=compute_80
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - CuDNN 8.0.1
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - Magma 2.5.2
-Mon May 31 00:07:24 2021[1,0]<stderr>:  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -fvisibility-inlines-hidden -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_INTERNAL_THREADPOOL_IMPL -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, FORCE_FALLBACK_CUDA_MPI=1, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_STATIC_DISPATCH=OFF, 
-Mon May 31 00:07:24 2021[1,0]<stderr>:
-Mon May 31 00:07:24 2021[1,0]<stderr>:TorchVision: 0.7.0a0
-Mon May 31 00:07:24 2021[1,0]<stderr>:OpenCV: 3.4.1
-Mon May 31 00:07:24 2021[1,0]<stderr>:MMCV: 1.2.7
-Mon May 31 00:07:24 2021[1,0]<stderr>:MMCV Compiler: GCC 7.5
-Mon May 31 00:07:24 2021[1,0]<stderr>:MMCV CUDA Compiler: 11.0
-Mon May 31 00:07:24 2021[1,0]<stderr>:MMSegmentation: 0.12.0+3e46c1b
-Mon May 31 00:07:24 2021[1,0]<stderr>:------------------------------------------------------------
-Mon May 31 00:07:24 2021[1,0]<stderr>:
-Mon May 31 00:07:24 2021[1,0]<stderr>:2021-05-31 00:07:24,241 - mmseg - INFO - Distributed training: True
-Mon May 31 00:07:24 2021[1,0]<stderr>:2021-05-31 00:07:24,678 - mmseg - INFO - Config:
-Mon May 31 00:07:24 2021[1,0]<stderr>:norm_cfg = dict(type='SyncBN', requires_grad=True)
-Mon May 31 00:07:24 2021[1,0]<stderr>:model = dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:    type='EncoderDecoder',
-Mon May 31 00:07:24 2021[1,0]<stderr>:    pretrained='open-mmlab://resnet50_v1c',
-Mon May 31 00:07:24 2021[1,0]<stderr>:    backbone=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='ResNetV1c',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        depth=50,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        num_stages=4,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        out_indices=(0, 1, 2, 3),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        dilations=(1, 1, 2, 4),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        strides=(1, 2, 1, 1),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        norm_cfg=dict(type='SyncBN', requires_grad=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        norm_eval=False,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        style='pytorch',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        contract_dilation=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    decode_head=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='DepthwiseSeparableASPPHead',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        in_channels=2048,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        in_index=3,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        channels=512,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        dilations=(1, 12, 24, 36),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        c1_in_channels=256,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        c1_channels=48,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        dropout_ratio=0.1,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        num_classes=19,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        norm_cfg=dict(type='SyncBN', requires_grad=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        align_corners=False,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        loss_decode=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    auxiliary_head=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='FCNHead',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        in_channels=1024,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        in_index=2,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        channels=256,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        num_convs=1,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        concat_input=False,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        dropout_ratio=0.1,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        num_classes=19,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        norm_cfg=dict(type='SyncBN', requires_grad=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        align_corners=False,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        loss_decode=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    train_cfg=dict(),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    test_cfg=dict(mode='whole'))
-Mon May 31 00:07:24 2021[1,0]<stderr>:dataset_type = 'CityscapesDataset'
-Mon May 31 00:07:24 2021[1,0]<stderr>:data_root = 'data/cityscapes/'
-Mon May 31 00:07:24 2021[1,0]<stderr>:img_norm_cfg = dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
-Mon May 31 00:07:24 2021[1,0]<stderr>:crop_size = (512, 1024)
-Mon May 31 00:07:24 2021[1,0]<stderr>:train_pipeline = [
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='LoadImageFromFile'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='LoadAnnotations'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='RandomFlip', prob=0.5),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='PhotoMetricDistortion'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='Normalize',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        mean=[123.675, 116.28, 103.53],
-Mon May 31 00:07:24 2021[1,0]<stderr>:        std=[58.395, 57.12, 57.375],
-Mon May 31 00:07:24 2021[1,0]<stderr>:        to_rgb=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='DefaultFormatBundle'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='Collect', keys=['img', 'gt_semantic_seg'])
-Mon May 31 00:07:24 2021[1,0]<stderr>:]
-Mon May 31 00:07:24 2021[1,0]<stderr>:test_pipeline = [
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(type='LoadImageFromFile'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='MultiScaleFlipAug',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        img_scale=(2048, 1024),
-Mon May 31 00:07:24 2021[1,0]<stderr>:        flip=False,
-Mon May 31 00:07:24 2021[1,0]<stderr>:        transforms=[
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='Resize', keep_ratio=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='RandomFlip'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:                type='Normalize',
-Mon May 31 00:07:24 2021[1,0]<stderr>:                mean=[123.675, 116.28, 103.53],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                std=[58.395, 57.12, 57.375],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                to_rgb=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='ImageToTensor', keys=['img']),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='Collect', keys=['img'])
-Mon May 31 00:07:24 2021[1,0]<stderr>:        ])
-Mon May 31 00:07:24 2021[1,0]<stderr>:]
-Mon May 31 00:07:24 2021[1,0]<stderr>:data = dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:    samples_per_gpu=4,
-Mon May 31 00:07:24 2021[1,0]<stderr>:    workers_per_gpu=8,
-Mon May 31 00:07:24 2021[1,0]<stderr>:    train=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='CityscapesDataset',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        data_root='data/cityscapes/',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        img_dir='leftImg8bit/train',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        ann_dir='gtFine/train',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        pipeline=[
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='LoadImageFromFile'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='LoadAnnotations'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:                type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='RandomFlip', prob=0.5),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='PhotoMetricDistortion'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:                type='Normalize',
-Mon May 31 00:07:24 2021[1,0]<stderr>:                mean=[123.675, 116.28, 103.53],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                std=[58.395, 57.12, 57.375],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                to_rgb=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='DefaultFormatBundle'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='Collect', keys=['img', 'gt_semantic_seg'])
-Mon May 31 00:07:24 2021[1,0]<stderr>:        ]),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    val=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='CityscapesDataset',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        data_root='data/cityscapes/',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        img_dir='leftImg8bit/val',
-Mon May 31 00:07:24 2021[1,0]<stMon May 31 00:07:24 2021[1,0]<stderr>:       transforms=[
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='Resize', keep_ratio=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='RandomFlip'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        type='Normalize',
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        mean=[123.675, 116.28, 103.53],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        std=[58.395, 57.12, 57.375],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        to_rgb=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='ImageToTensor', keys=['img']),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='Collect', keys=['img'])
-Mon May 31 00:07:24 2021[1,0]<stderr>:                ])
-Mon May 31 00:07:24 2021[1,0]<stderr>:        ]),
-Mon May 31 00:07:24 2021[1,0]<stderr>:    test=dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:        type='CityscapesDataset',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        data_root='data/cityscapes/',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        img_dir='leftImg8bit/val',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        ann_dir='gtFine/val',
-Mon May 31 00:07:24 2021[1,0]<stderr>:        pipeline=[
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(type='LoadImageFromFile'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:            dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:                type='MultiScaleFlipAug',
-Mon May 31 00:07:24 2021[1,0]<stderr>:                img_scale=(2048, 1024),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                flip=False,
-Mon May 31 00:07:24 2021[1,0]<stderr>:                transforms=[
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='Resize', keep_ratio=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='RandomFlip'),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        type='Normalize',
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        mean=[123.675, 116.28, 103.53],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        std=[58.395, 57.12, 57.375],
-Mon May 31 00:07:24 2021[1,0]<stderr>:                        to_rgb=True),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='ImageToTensor', keys=['img']),
-Mon May 31 00:07:24 2021[1,0]<stderr>:                    dict(type='Collect', keys=['img'])
-Mon May 31 00:07:24 2021[1,0]<stderr>:                ])
-Mon May 31 00:07:24 2021[1,0]<stderr>:        ]))
-Mon May 31 00:07:24 2021[1,0]<stderr>:log_config = dict(
-Mon May 31 00:07:24 2021[1,0]<stderr>:    interval=1, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
-Mon May 31 00:07:24 2021[1,0]<stderr>:dist_params = dict(backend='nccl')
-Mon May 31 00:07:24 2021[1,0]<stderr>:log_level = 'INFO'
-Mon May 31 00:07:24 2021[1,0]<stderr>:load_from = None
-Mon May 31 00:07:24 2021[1,0]<stderr>:resume_from = None
-Mon May 31 00:07:24 2021[1,0]<stderr>:workflow = [('train', 1)]
-Mon May 31 00:07:24 2021[1,0]<stderr>:cudnn_benchmark = True
-Mon May 31 00:07:24 2021[1,0]<stderr>:optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
-Mon May 31 00:07:24 2021[1,0]<stderr>:optimizer_config = dict(type='Fp16OptimizerHook', loss_scale=512.0)
-Mon May 31 00:07:24 2021[1,0]<stderr>:lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
-Mon May 31 00:07:24 2021[1,0]<stderr>:runner = dict(type='IterBasedRunner', max_iters=20)
-Mon May 31 00:07:24 2021[1,0]<stderr>:checkpoint_config = dict(by_epoch=False, interval=8000)
-Mon May 31 00:07:24 2021[1,0]<stderr>:evaluation = dict(interval=8000, metric='mIoU')
-Mon May 31 00:07:24 2021[1,0]<stderr>:work_dir = './work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes'
-Mon May 31 00:07:24 2021[1,0]<stderr>:gpu_ids = range(0, 1)
-Mon May 31 00:07:24 2021[1,0]<stderr>:
-Mon May 31 00:07:26 2021[1,0]<stderr>:2021-05-31 00:07:26,496 - mmseg - INFO - Use load_from_openmmlab loader
-Mon May 31 00:07:26 2021[1,0]<stderr>:Downloading: "https://download.openmmlab.com/pretrain/third_party/resnet50_v1c-2cccc1ad.pth" to /root/.cache/torch/checkpoints/resnet50_v1c-2cccc1ad.pth
-Mon May 31 00:07:28 2021[1,0]<stderr>:
-  0%|          | 0.00/97.8M [00:00<?, ?B/s]Mon May 31 00:07:28 2021[1,0]<stderr>:
-  0%|          | 16.0k/97.8M [00:00<20:44, 82.4kB/s]Mon May 31 00:07:28 2021[1,0]<stderr>:
-  0%|          | 40.0k/97.8M [00:00<18:56, 90.2kB/s]Mon May 31 00:07:28 2021[1,0]<stderr>:
-  0%|          | 96.0k/97.8M [00:00<15:09, 113kB/s] Mon May 31 00:07:29 2021[1,0]<stderr>:
-  0%|          | 208k/97.8M [00:00<11:32, 148kB/s] Mon May 31 00:07:29 2021[1,0]<stderr>:
-  0%|          | 432k/97.8M [00:01<08:32, 199kB/s]Mon May 31 00:07:29 2021[1,0]<stderr>:
-  1%|          | 872k/97.8M [00:01<06:11, 274kB/s]Mon May 31 00:07:29 2021[1,0]<stderr>:
-  2%|▏         | 1.72M/97.8M [00:01<04:24, 381kB/s]Mon May 31 00:07:29 2021[1,0]<stderr>:
-  4%|▎         | 3.45M/97.8M [00:01<03:05, 534kB/s]Mon May 31 00:07:30 2021[1,0]<stderr>:
-  6%|▌         | 5.96M/97.8M [00:01<02:08, 749kB/s]Mon May 31 00:07:30 2021[1,0]<stderr>:
-  9%|▊         | 8.53M/97.8M [00:02<01:29, 1.04MB/s]Mon May 31 00:07:30 2021[1,0]<stderr>:
- 11%|█         | 10.9M/97.8M [00:02<01:03, 1.43MB/s]Mon May 31 00:07:30 2021[1,0]<stderr>:
- 14%|█▎        | 13.4M/97.8M [00:02<00:45, 1.95MB/s]Mon May 31 00:07:30 2021[1,0]<stderr>:
- 16%|█▋        | 16.0M/97.8M [00:02<00:32, 2.62MB/s]Mon May 31 00:07:31 2021[1,0]<stderr>:
- 19%|█▉        | 18.5M/97.8M [00:02<00:24, 3.43MB/s]Mon May 31 00:07:31 2021[1,0]<stderr>:
- 22%|██▏       | 21.1M/97.8M [00:03<00:18, 4.39MB/s]Mon May 31 00:07:31 2021[1,0]<stderr>:
- 24%|██▍       | 23.7M/97.8M [00:03<00:14, 5.46MB/s]Mon May 31 00:07:31 2021[1,0]<stderr>:
- 27%|██▋       | 26.1M/97.8M [00:03<00:11, 6.53MB/s]Mon May 31 00:07:32 2021[1,0]<stderr>:
- 29%|██▉       | 28.6M/97.8M [00:03<00:09, 7.60MB/s]Mon May 31 00:07:32 2021[1,0]<stderr>:
- 32%|███▏      | 31.2M/97.8M [00:04<00:08, 8.64MB/s]Mon May 31 00:07:32 2021[1,0]<stderr>:
- 35%|███▍      | 33.8M/97.8M [00:04<00:07, 9.55MB/s]Mon May 31 00:07:32 2021[1,0]<stderr>:
- 37%|███▋      | 36.3M/97.8M [00:04<00:06, 10.3MB/s]Mon May 31 00:07:32 2021[1,0]<stderr>:
- 40%|███▉      | 38.9M/97.8M [00:04<00:05, 10.9MB/s]Mon May 31 00:07:33 2021[1,0]<stderr>:
- 42%|████▏     | 41.5M/97.8M [00:04<00:05, 11.4MB/s]Mon May 31 00:07:33 2021[1,0]<stderr>:
- 45%|████▌     | 44.1M/97.8M [00:05<00:04, 11.7MB/s]Mon May 31 00:07:33 2021[1,0]<stderr>:
- 48%|████▊     | 46.6M/97.8M [00:05<00:04, 12.0MB/s]Mon May 31 00:07:33 2021[1,0]<stderr>:
- 50%|█████     | 49.2M/97.8M [00:05<00:04, 12.2MB/s]Mon May 31 00:07:33 2021[1,0]<stderr>:
- 53%|█████▎    | 51.7M/97.8M [00:05<00:03, 12.3MB/s]Mon May 31 00:07:34 2021[1,0]<stderr>:
- 55%|█████▌    | 54.1M/97.8M [00:05<00:03, 12.0MB/s]Mon May 31 00:07:34 2021[1,0]<stderr>:
- 58%|█████▊    | 56.6M/97.8M [00:06<00:03, 12.2MB/s]Mon May 31 00:07:34 2021[1,0]<stderr>:
- 61%|██████    | 59.2M/97.8M [00:06<00:03, 12.3MB/s]Mon May 31 00:07:34 2021[1,0]<stderr>:
- 62%|██████▏   | 61.0M/97.8M [00:06<00:02, 13.8MB/s]Mon May 31 00:07:34 2021[1,0]<stderr>:
- 64%|██████▍   | 62.4M/97.8M [00:06<00:02, 12.5MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 65%|██████▌   | 63.9M/97.8M [00:06<00:03, 10.8MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 67%|██████▋   | 65.7M/97.8M [00:06<00:02, 12.5MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 69%|██████▊   | 67.0M/97.8M [00:07<00:02, 11.6MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 70%|██████▉   | 68.3M/97.8M [00:07<00:02, 11.7MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 71%|███████   | 69.5M/97.8M [00:07<00:02, 11.4MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 72%|███████▏  | 70.6M/97.8M [00:07<00:02, 11.4MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 73%|███████▎  | 71.7M/97.8M [00:07<00:02, 11.2MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 74%|███████▍  | 72.8M/97.8M [00:07<00:02, 11.2MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 76%|███████▌  | 74.0M/97.8M [00:07<00:02, 11.3MB/s]Mon May 31 00:07:35 2021[1,0]<stderr>:
- 77%|███████▋  | 75.1M/97.8M [00:07<00:02, 11.0MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 78%|███████▊  | 76.2M/97.8M [00:07<00:02, 10.5MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 79%|███████▉  | 77.6M/97.8M [00:08<00:01, 11.6MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 81%|████████  | 78.8M/97.8M [00:08<00:01, 10.7MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 82%|████████▏ | 79.8M/97.8M [00:08<00:01, 10.8MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 83%|████████▎ | 80.9M/97.8M [00:08<00:01, 10.5MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 84%|████████▍ | 82.0M/97.8M [00:08<00:01, 10.7MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 85%|████████▌ | 83.2M/97.8M [00:08<00:01, 11.2MB/s]Mon May 31 00:07:36 2021[1,0]<stderr>:
- 86%|████████▋ | 84.4M/97.8M [00:08<00:01, 11.2MB/s]Mon May 31 00:07:37 2021[1,0]<stderr>:
- 87%|████████▋ | 85.5M/97.8M [00:08<00:01, 7.90MB/s]Mon May 31 00:07:37 2021[1,0]<stderr>:
- 88%|████████▊ | 86.5M/97.8M [00:09<00:01, 8.10MB/s]Mon May 31 00:07:37 2021[1,0]<stderr>:
- 90%|████████▉ | 87.7M/97.8M [00:09<00:01, 9.14MB/s]Mon May 31 00:07:37 2021[1,0]<stderr>:
- 91%|█████████ | 88.7M/97.8M [00:09<00:01, 6.58MB/s]Mon May 31 00:07:37 2021[1,0]<stderr>:
- 92%|█████████▏| 90.0M/97.8M [00:09<00:01, 7.18MB/s]Mon May 31 00:07:37 2021[1,0]<stderr>:
- 94%|█████████▍| 91.9M/97.8M [00:09<00:00, 8.88MB/s]Mon May 31 00:07:38 2021[1,0]<stderr>:
- 95%|█████████▌| 93.1M/97.8M [00:09<00:00, 8.46MB/s]Mon May 31 00:07:38 2021[1,0]<stderr>:
- 97%|█████████▋| 95.1M/97.8M [00:09<00:00, 10.1MB/s]Mon May 31 00:07:38 2021[1,0]<stderr>:
- 98%|█████████▊| 96.3M/97.8M [00:10<00:00, 9.82MB/s]Mon May 31 00:07:38 2021[1,0]<stderr>:
-100%|█████████▉| 97.5M/97.8M [00:10<00:00, 8.73MB/s]Mon May 31 00:07:38 2021[1,0]<stderr>:
-100%|██████████| 97.8M/97.8M [00:10<00:00, 9.96MB/s]Mon May 31 00:07:38 2021[1,0]<stderr>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:NCCL version 2.7.5+cuda11.0
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:40 2021[1,0]<stdout>:
-Mon May 31 00:07:42 2021[1,0]<stderr>:2021-05-31 00:07:42,252 - mmseg - WARNING - The model and loaded state dict do not match exactly
-Mon May 31 00:07:42 2021[1,0]<stderr>:
-Mon May 31 00:07:42 2021[1,0]<stderr>:unexpected key in source state_dict: fc.weight, fc.bias
-Mon May 31 00:07:42 2021[1,0]<stderr>:
-Mon May 31 00:07:42 2021[1,0]<stderr>:2021-05-31 00:07:42,259 - mmseg - INFO - EncoderDecoder(
-Mon May 31 00:07:42 2021[1,0]<stderr>:  (backbone): ResNetV1c(
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (stem): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (2): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (4): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (5): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (6): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (7): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (8): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (layer1): ResLayer(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (downsample): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (2): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (layer2): ResLayer(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (downsample): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        Mon May 31 00:07:42 2021[1,0]<stderr>:(bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (2): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (3): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (layer3): ResLayer(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (downsample): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (1): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (2): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (3): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, trackMon May 31 00:07:42 2021[1,0]<stderr>:_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (4): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (5): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (layer4): ResLayer(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (downsample): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (1): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (2): Bottleneck(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (relu): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:  )
-Mon May 31 00:07:42 2021[1,0]<stderr>:  (decode_head): DepthwiseSeparableASPPHead(
-Mon May 31 00:07:42 2021[1,0]<stderr>:    input_transform=None, ignore_index=255, align_corners=False
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (loss_decode): CrossEntropyLoss()
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (conv_seg): Conv2d(512, 19, kernel_size=(1, 1), stride=(1, 1))
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (dropout): Dropout2d(p=0.1, inplace=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (image_pool): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): AdaptiveAvgPool2d(output_size=1)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv): Conv2d(2048, 512, Mon May 31 00:07:42 2021[1,0]<stderr>:kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (aspp_modules): DepthwiseSeparableASPPModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): DepthwiseSeparableConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (depthwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12), groups=2048, bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (pointwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (2): DepthwiseSeparableConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (depthwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(24, 24), dilation=(24, 24), groups=2048, bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (pointwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (3): DepthwiseSeparableConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (depthwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(36, 36), dilation=(36, 36), groups=2048, bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (pointwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (bottleneck): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (conv): Conv2d(2560, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (c1_bottleneck): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (bn): SyncBatchNorm(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (sep_bottleneck): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): DepthwiseSeparableConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (depthwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(560, 560, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=560, bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(560, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (pointwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(560, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (1): DepthwiseSeparableConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (depthwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (pointwise_conv): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (bn): SyncBatchNorm(512, eps=1e-05, Mon May 31 00:07:42 2021[1,0]<stderr>:momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:          (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        )
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:  )
-Mon May 31 00:07:42 2021[1,0]<stderr>:  (auxiliary_head): FCNHead(
-Mon May 31 00:07:42 2021[1,0]<stderr>:    input_transform=None, ignore_index=255, align_corners=False
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (loss_decode): CrossEntropyLoss()
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (conv_seg): Conv2d(256, 19, kernel_size=(1, 1), stride=(1, 1))
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (dropout): Dropout2d(p=0.1, inplace=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:    (convs): Sequential(
-Mon May 31 00:07:42 2021[1,0]<stderr>:      (0): ConvModule(
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (conv): Conv2d(1024, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:        (activate): ReLU(inplace=True)
-Mon May 31 00:07:42 2021[1,0]<stderr>:      )
-Mon May 31 00:07:42 2021[1,0]<stderr>:    )
-Mon May 31 00:07:42 2021[1,0]<stderr>:  )
-Mon May 31 00:07:42 2021[1,0]<stderr>:)
-Mon May 31 00:07:42 2021[1,0]<stderr>:2021-05-31 00:07:42,337 - mmseg - INFO - Loaded 2975 images
-Mon May 31 00:07:42 2021[1,0]<stderr>:2021-05-31 00:07:42,970 - mmseg - INFO - Start running, host: root@localhost, work_dir: /root/paddlejob/workspace/env_run/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
-Mon May 31 00:07:42 2021[1,0]<stderr>:2021-05-31 00:07:42,970 - mmseg - INFO - workflow: [('train', 1)], max: 20 iters
-Mon May 31 00:08:27 2021[1,0]<stderr>:2021-05-31 00:08:27,284 - mmseg - INFO - Iter [1/20]	lr: 1.000e-02, eta: 0:08:03, time: 25.424, data_time: 0.711, memory: 18878, decode.loss_seg: 2.7848, decode.acc_seg: 4.6884, aux.loss_seg: 1.1221, aux.acc_seg: 4.7262, loss: 3.9069
-Mon May 31 00:08:28 2021[1,0]<stderr>:2021-05-31 00:08:28,076 - mmseg - INFO - Iter [2/20]	lr: 9.553e-03, eta: 0:03:55, time: 0.790, data_time: 0.013, memory: 18878, decode.loss_seg: 2.6460, decode.acc_seg: 17.1581, aux.loss_seg: 1.0931, aux.acc_seg: 6.7486, loss: 3.7391
-Mon May 31 00:08:28 2021[1,0]<stderr>:2021-05-31 00:08:28,633 - mmseg - INFO - Iter [3/20]	lr: 9.104e-03, eta: 0:02:31, time: 0.558, data_time: 0.018, memory: 18878, decode.loss_seg: 2.6108, decode.acc_seg: 27.0705, aux.loss_seg: 1.1236, aux.acc_seg: 13.1618, loss: 3.7344
-Mon May 31 00:08:29 2021[1,0]<stderr>:2021-05-31 00:08:29,181 - mmseg - INFO - Iter [4/20]	lr: 8.653e-03, eta: 0:01:49, time: 0.546, data_time: 0.015, memory: 18878, decode.loss_seg: 2.3370, decode.acc_seg: 30.6784, aux.loss_seg: 1.0614, aux.acc_seg: 22.3572, loss: 3.3984
-Mon May 31 00:08:29 2021[1,0]<stderr>:2021-05-31 00:08:29,739 - mmseg - INFO - Iter [5/20]	lr: 8.199e-03, eta: 0:01:23, time: 0.560, data_time: 0.016, memory: 18878, decode.loss_seg: 2.2789, decode.acc_seg: 27.1122, aux.loss_seg: 1.0739, aux.acc_seg: 25.4349, loss: 3.3528
-Mon May 31 00:08:30 2021[1,0]<stderr>:2021-05-31 00:08:30,293 - mmseg - INFO - Iter [6/20]	lr: 7.742e-03, eta: 0:01:06, time: 0.555, data_time: 0.018, memory: 18878, decode.loss_seg: 2.0970, decode.acc_seg: 29.8736, aux.loss_seg: 1.0390, aux.acc_seg: 30.0182, loss: 3.1359
-Mon May 31 00:08:30 2021[1,0]<stderr>:2021-05-31 00:08:30,840 - mmseg - INFO - Iter [7/20]	lr: 7.282e-03, eta: 0:00:53, time: 0.547, data_time: 0.018, memory: 18878, decode.loss_seg: 1.9618, decode.acc_seg: 23.8096, aux.loss_seg: 1.0027, aux.acc_seg: 25.2066, loss: 2.9644
-Mon May 31 00:08:31 2021[1,0]<stderr>:2021-05-31 00:08:31,391 - mmseg - INFO - Iter [8/20]	lr: 6.818e-03, eta: 0:00:44, time: 0.549, data_time: 0.015, memory: 18878, decode.loss_seg: 1.9914, decode.acc_seg: 26.1777, aux.loss_seg: 0.9989, aux.acc_seg: 26.2855, loss: 2.9904
-Mon May 31 00:08:31 2021[1,0]<stderr>:2021-05-31 00:08:31,934 - mmseg - INFO - Iter [9/20]	lr: 6.351e-03, eta: 0:00:36, time: 0.545, data_time: 0.015, memory: 18878, decode.loss_seg: 2.0141, decode.acc_seg: 33.4694, aux.loss_seg: 0.9954, aux.acc_seg: 32.7746, loss: 3.0095
-Mon May 31 00:08:32 2021[1,0]<stderr>:2021-05-31 00:08:32,494 - mmseg - INFO - Iter [10/20]	lr: 5.880e-03, eta: 0:00:30, time: 0.560, data_time: 0.013, memory: 18878, decode.loss_seg: 2.0373, decode.acc_seg: 25.9927, aux.loss_seg: 0.9683, aux.acc_seg: 24.9614, loss: 3.0056
-Mon May 31 00:08:33 2021[1,0]<stderr>:2021-05-31 00:08:33,056 - mmseg - INFO - Iter [11/20]	lr: 5.405e-03, eta: 0:00:25, time: 0.560, data_time: 0.012, memory: 18878, decode.loss_seg: 2.0811, decode.acc_seg: 32.9064, aux.loss_seg: 0.9749, aux.acc_seg: 29.5869, loss: 3.0560
-Mon May 31 00:08:33 2021[1,0]<stderr>:2021-05-31 00:08:33,620 - mmseg - INFO - Iter [12/20]	lr: 4.925e-03, eta: 0:00:21, time: 0.566, data_time: 0.017, memory: 18878, decode.loss_seg: 1.9281, decode.acc_seg: 39.4392, aux.loss_seg: 0.9320, aux.acc_seg: 37.1001, loss: 2.8601
-Mon May 31 00:08:34 2021[1,0]<stderr>:2021-05-31 00:08:34,173 - mmseg - INFO - Iter [13/20]	lr: 4.440e-03, eta: 0:00:17, time: 0.553, data_time: 0.012, memory: 18878, decode.loss_seg: 1.8202, decode.acc_seg: 38.7406, aux.loss_seg: 0.8792, aux.acc_seg: 36.4025, loss: 2.6994
-Mon May 31 00:08:34 2021[1,0]<stderr>:2021-05-31 00:08:34,720 - mmseg - INFO - Iter [14/20]	lr: 3.949e-03, eta: 0:00:14, time: 0.546, data_time: 0.014, memory: 18878, decode.loss_seg: 1.8700, decode.acc_seg: 43.6892, aux.loss_seg: 0.9010, aux.acc_seg: 39.9353, loss: 2.7710
-Mon May 31 00:08:35 2021[1,0]<stderr>:2021-05-31 00:08:35,267 - mmseg - INFO - Iter [15/20]	lr: 3.450e-03, eta: 0:00:11, time: 0.545, data_time: 0.015, memory: 18878, decode.loss_seg: 1.9195, decode.acc_seg: 32.8712, aux.loss_seg: 0.9057, aux.acc_seg: 30.5742, loss: 2.8252
-Mon May 31 00:08:35 2021[1,0]<stderr>:2021-05-31 00:08:35,814 - mmseg - INFO - Iter [16/20]	lr: 2.943e-03, eta: 0:00:08, time: 0.548, data_time: 0.015, memory: 18878, decode.loss_seg: 1.9633, decode.acc_seg: 34.6781, aux.loss_seg: 0.8942, aux.acc_seg: 31.9889, loss: 2.8575
-Mon May 31 00:08:36 2021[1,0]<stderr>:2021-05-31 00:08:36,368 - mmseg - INFO - Iter [17/20]	lr: 2.426e-03, eta: 0:00:06, time: 0.556, data_time: 0.012, memory: 18878, decode.loss_seg: 1.8594, decode.acc_seg: 38.0743, aux.loss_seg: 0.8742, aux.acc_seg: 35.0320, loss: 2.7336
-Mon May 31 00:08:36 2021[1,0]<stderr>:2021-05-31 00:08:36,925 - mmseg - INFO - Iter [18/20]	lr: 1.895e-03, eta: 0:00:03, time: 0.555, data_time: 0.019, memory: 18878, decode.loss_seg: 1.9199, decode.acc_seg: 30.2438, aux.loss_seg: 0.8853, aux.acc_seg: 29.6780, loss: 2.8052
-Mon May 31 00:08:37 2021[1,0]<stderr>:2021-05-31 00:08:37,482 - mmseg - INFO - Iter [19/20]	lr: 1.346e-03, eta: 0:00:01, time: 0.559, data_time: 0.019, memory: 18878, decode.loss_seg: 1.9242, decode.acc_seg: 27.9999, aux.loss_seg: 0.8680, aux.acc_seg: 26.6403, loss: 2.7923
-Mon May 31 00:08:38 2021[1,0]<stderr>:2021-05-31 00:08:38,032 - mmseg - INFO - Iter [20/20]	lr: 7.679e-04, eta: 0:00:00, time: 0.550, data_time: 0.014, memory: 18878, decode.loss_seg: 1.8390, decode.acc_seg: 28.0412, aux.loss_seg: 0.8579, aux.acc_seg: 25.0795, loss: 2.6969
+2022-02-10 04:39:13,981 - mmseg - INFO - Multi-processing start method is `None`
+2022-02-10 04:39:13,981 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
+2022-02-10 04:39:13,981 - mmseg - INFO - OMP num threads is 1
+2022-02-10 04:39:14,022 - mmseg - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
+CUDA available: True
+GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
+CUDA_HOME: /usr/local/cuda
+NVCC: Build cuda_11.0_bu.TC445_37.28358933_0
+GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+PyTorch: 1.6.0a0+9907a3e
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.5
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2019.0.1 Product Build 20180928 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v1.2.0 (Git Hash N/A)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.0
+  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_80,code=compute_80
+  - CuDNN 8.0.1
+  - Magma 2.5.2
+  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -fvisibility-inlines-hidden -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_INTERNAL_THREADPOOL_IMPL -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, FORCE_FALLBACK_CUDA_MPI=1, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_STATIC_DISPATCH=OFF, 
+
+TorchVision: 0.7.0a0
+OpenCV: 3.4.1
+MMCV: 1.3.13
+MMCV Compiler: GCC 7.5
+MMCV CUDA Compiler: 11.0
+MMSegmentation: 0.21.1+29f7969
+------------------------------------------------------------
+
+2022-02-10 04:39:14,023 - mmseg - INFO - Distributed training: True
+2022-02-10 04:39:14,333 - mmseg - INFO - Config:
+norm_cfg = dict(type='SyncBN', requires_grad=True)
+model = dict(
+    type='EncoderDecoder',
+    pretrained='open-mmlab://resnet50_v1c',
+    backbone=dict(
+        type='ResNetV1c',
+        depth=50,
+        num_stages=4,
+        out_indices=(0, 1, 2, 3),
+        dilations=(1, 1, 2, 4),
+        strides=(1, 2, 1, 1),
+        norm_cfg=dict(type='SyncBN', requires_grad=True),
+        norm_eval=False,
+        style='pytorch',
+        contract_dilation=True),
+    decode_head=dict(
+        type='DepthwiseSeparableASPPHead',
+        in_channels=2048,
+        in_index=3,
+        channels=512,
+        dilations=(1, 12, 24, 36),
+        c1_in_channels=256,
+        c1_channels=48,
+        dropout_ratio=0.1,
+        num_classes=19,
+        norm_cfg=dict(type='SyncBN', requires_grad=True),
+        align_corners=False,
+        loss_decode=dict(
+            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=1.0)),
+    auxiliary_head=dict(
+        type='FCNHead',
+        in_channels=1024,
+        in_index=2,
+        channels=256,
+        num_convs=1,
+        concat_input=False,
+        dropout_ratio=0.1,
+        num_classes=19,
+        norm_cfg=dict(type='SyncBN', requires_grad=True),
+        align_corners=False,
+        loss_decode=dict(
+            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.4)),
+    train_cfg=dict(),
+    test_cfg=dict(mode='whole'))
+dataset_type = 'CityscapesDataset'
+data_root = 'data/cityscapes/'
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+crop_size = (512, 1024)
+train_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(type='LoadAnnotations'),
+    dict(type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
+    dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
+    dict(type='RandomFlip', prob=0.5),
+    dict(type='PhotoMetricDistortion'),
+    dict(
+        type='Normalize',
+        mean=[123.675, 116.28, 103.53],
+        std=[58.395, 57.12, 57.375],
+        to_rgb=True),
+    dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile'),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(2048, 1024),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='ImageToTensor', keys=['img']),
+            dict(type='Collect', keys=['img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=8,
+    workers_per_gpu=8,
+    train=dict(
+        type='CityscapesDataset',
+        data_root='data/cityscapes/',
+        img_dir='leftImg8bit/train',
+        ann_dir='gtFine/train',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(type='LoadAnnotations'),
+            dict(
+                type='Resize', img_scale=(2048, 1024), ratio_range=(0.5, 2.0)),
+            dict(type='RandomCrop', crop_size=(512, 1024), cat_max_ratio=0.75),
+            dict(type='RandomFlip', prob=0.5),
+            dict(type='PhotoMetricDistortion'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True),
+            dict(type='Pad', size=(512, 1024), pad_val=0, seg_pad_val=255),
+            dict(type='DefaultFormatBundle'),
+            dict(type='Collect', keys=['img', 'gt_semantic_seg'])
+        ]),
+    val=dict(
+        type='CityscapesDataset',
+        data_root='data/cityscapes/',
+        img_dir='leftImg8bit/val',
+        ann_dir='gtFine/val',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(2048, 1024),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ]),
+    test=dict(
+        type='CityscapesDataset',
+        data_root='data/cityscapes/',
+        img_dir='leftImg8bit/val',
+        ann_dir='gtFine/val',
+        pipeline=[
+            dict(type='LoadImageFromFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(2048, 1024),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ]))
+log_config = dict(
+    interval=2, hooks=[dict(type='TextLoggerHook', by_epoch=False)])
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+cudnn_benchmark = True
+optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
+optimizer_config = dict(type='Fp16OptimizerHook', loss_scale=512.0)
+lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
+runner = dict(type='IterBasedRunner', max_iters=10)
+checkpoint_config = dict(by_epoch=False, interval=8000)
+evaluation = dict(interval=8000, metric='mIoU', pre_eval=True)
+work_dir = './work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes'
+gpu_ids = range(0, 8)
+auto_resume = False
+
+2022-02-10 04:39:17,735 - mmseg - INFO - Set random seed to 1554049405, deterministic: False
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+/workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is a deprecated, '
+2022-02-10 04:39:19,344 - mmseg - INFO - initialize ResNetV1c with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://resnet50_v1c'}
+2022-02-10 04:39:19,344 - mmcv - INFO - load model from: open-mmlab://resnet50_v1c
+2022-02-10 04:39:19,344 - mmcv - INFO - Use load_from_openmmlab loader
+2022-02-10 04:39:19,459 - mmcv - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: fc.weight, fc.bias
+
+2022-02-10 04:39:19,491 - mmseg - INFO - initialize DepthwiseSeparableASPPHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-02-10 04:39:19,633 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-02-10 04:39:19,639 - mmseg - INFO - EncoderDecoder(
+  (backbone): ResNetV1c(
+    (stem): Sequential(
+      (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (1): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU(inplace=True)
+      (3): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (4): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): ReLU(inplace=True)
+      (6): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (7): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (8): ReLU(inplace=True)
+    )
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): ResLayer(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://resnet50_v1c'}
+  (decode_head): DepthwiseSeparableASPPHead(
+    input_transform=None, ignore_index=255, align_corners=False
+    (loss_decode): CrossEntropyLoss()
+    (conv_seg): Conv2d(512, 19, kernel_size=(1, 1), stride=(1, 1))
+    (dropout): Dropout2d(p=0.1, inplace=False)
+    (image_pool): Sequential(
+      (0): AdaptiveAvgPool2d(output_size=1)
+      (1): ConvModule(
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(inplace=True)
+      )
+    )
+    (aspp_modules): DepthwiseSeparableASPPModule(
+      (0): ConvModule(
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(inplace=True)
+      )
+      (1): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(12, 12), dilation=(12, 12), groups=2048, bias=False)
+          (bn): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (2): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(24, 24), dilation=(24, 24), groups=2048, bias=False)
+          (bn): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (3): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(2048, 2048, kernel_size=(3, 3), stride=(1, 1), padding=(36, 36), dilation=(36, 36), groups=2048, bias=False)
+          (bn): SyncBatchNorm(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+    )
+    (bottleneck): ConvModule(
+      (conv): Conv2d(2560, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): ReLU(inplace=True)
+    )
+    (c1_bottleneck): ConvModule(
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): SyncBatchNorm(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): ReLU(inplace=True)
+    )
+    (sep_bottleneck): Sequential(
+      (0): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(560, 560, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=560, bias=False)
+          (bn): SyncBatchNorm(560, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(560, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+      (1): DepthwiseSeparableConvModule(
+        (depthwise_conv): ConvModule(
+          (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512, bias=False)
+          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+        (pointwise_conv): ConvModule(
+          (conv): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (activate): ReLU(inplace=True)
+        )
+      )
+    )
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+  (auxiliary_head): FCNHead(
+    input_transform=None, ignore_index=255, align_corners=False
+    (loss_decode): CrossEntropyLoss()
+    (conv_seg): Conv2d(256, 19, kernel_size=(1, 1), stride=(1, 1))
+    (dropout): Dropout2d(p=0.1, inplace=False)
+    (convs): Sequential(
+      (0): ConvModule(
+        (conv): Conv2d(1024, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(inplace=True)
+      )
+    )
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+)
+2022-02-10 04:39:19,704 - mmseg - INFO - Loaded 2975 images
+2022-02-10 04:39:20,220 - mmseg - INFO - Start running, host: root@instance-3bwob41y-16, work_dir: /workspace/bert/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
+2022-02-10 04:39:20,220 - mmseg - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(ABOVE_NORMAL) Fp16OptimizerHook                  
+(NORMAL      ) CheckpointHook                     
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) Fp16OptimizerHook                  
+(NORMAL      ) CheckpointHook                     
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2022-02-10 04:39:20,221 - mmseg - INFO - workflow: [('train', 1)], max: 10 iters
+2022-02-10 04:40:26,316 - mmseg - INFO - Iter [2/10]	lr: 9.104e-03, eta: 0:02:11, time: 16.387, data_time: 0.805, memory: 20556, decode.loss_ce: 2.7072, decode.acc_seg: 10.7623, aux.loss_ce: 1.1161, aux.acc_seg: 3.6847, loss: 3.8233
+2022-02-10 04:40:28,540 - mmseg - INFO - Iter [4/10]	lr: 7.282e-03, eta: 0:00:52, time: 1.115, data_time: 0.036, memory: 20556, decode.loss_ce: 2.4194, decode.acc_seg: 24.9308, aux.loss_ce: 1.0826, aux.acc_seg: 8.3052, loss: 3.5020
+2022-02-10 04:40:30,812 - mmseg - INFO - Iter [6/10]	lr: 5.405e-03, eta: 0:00:24, time: 1.137, data_time: 0.036, memory: 20556, decode.loss_ce: 2.2316, decode.acc_seg: 28.5984, aux.loss_ce: 1.0660, aux.acc_seg: 19.3744, loss: 3.2976
+2022-02-10 04:40:33,153 - mmseg - INFO - Iter [8/10]	lr: 3.450e-03, eta: 0:00:09, time: 1.169, data_time: 0.038, memory: 20556, decode.loss_ce: 2.1316, decode.acc_seg: 28.0974, aux.loss_ce: 1.0427, aux.acc_seg: 25.2052, loss: 3.1744
+2022-02-10 04:40:35,490 - mmseg - INFO - Saving checkpoint at 10 iterations
+2022-02-10 04:40:36,401 - mmseg - INFO - Iter [10/10]	lr: 1.346e-03, eta: 0:00:00, time: 1.626, data_time: 0.030, memory: 20556, decode.loss_ce: 2.0878, decode.acc_seg: 26.3555, aux.loss_ce: 1.0126, aux.acc_seg: 26.0219, loss: 3.1003
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************

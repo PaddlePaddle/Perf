@@ -83,8 +83,8 @@ DeepLabV3P 模型是图像分割领域极具代表性的模型。在测试性能
 
 - **拉取代码**
   ```bash
-  git clone https://github.com/PaddlePaddle/PaddleSeg.git -b benchmark
-  cd PaddleSeg && git checkout 318dd24cf3c7788f3fe88c7ccb910a09e6f469e5
+  git clone https://github.com/PaddlePaddle/PaddleSeg.git
+  cd PaddleSeg && git checkout 1f49e5cda6f65e8d483d8e42b739f93feb7d4639
   ```
 
 
@@ -145,8 +145,8 @@ DeepLabV3P测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/t
 
    |卡数 | FP32(BS=4) | AMP(BS=4) 
    |:-----:|:-----:|:-----:|
-   |1 | 6.3 | 17.0 |
-   |8 | 46   | 99.2 |
+   |1 | 6.13 | 15.41 |
+   |8 | 44.39   | 96.03 |
    |32 | 176 | 373.76 | 
 ### 2.与业内其它框架对比
 
@@ -160,8 +160,8 @@ DeepLabV3P测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/t
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=4 | 6.3 | 4.3  |
-  | GPU=8,BS=4 | 46  | 16.84  |
+  | GPU=1,BS=4 | 6.13 | 4.67  |
+  | GPU=8,BS=4 | 44.39  | 32.09  |
   | GPU=32,BS=4 | 176 | 60.95 |
 
 
@@ -169,8 +169,8 @@ DeepLabV3P测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/t
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=4 | 17.0  | 8.33 |
-  | GPU=8,BS=4 | 99.2  | 58.18  |
+  | GPU=1,BS=4 | 15.41  | 8.89 |
+  | GPU=8,BS=4 | 96.03  | 48.83  |
   | GPU=32,BS=4 | 373.76 | 203.2 |
 
 
