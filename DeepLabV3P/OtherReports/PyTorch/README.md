@@ -188,7 +188,7 @@ python3 tools/train.py \
     --gpus 1 \
     --max_iters 40 \
     --log_iters 4 \
-    --batch_size 8 \
+    --batch_size 4 \
     --num_workers 8 \
 	$FP16
 
@@ -212,7 +212,7 @@ python3 -m torch.distributed.launch --nproc_per_node=${NUM_GPUS} \
                --nnodes=${NUM_NODES} --node_rank=$NODE_RANK --master_addr=$MASTER_NODE \
                --master_port=$MASTER_PORT \
                tools/train.py ${CONFIG_FILE} --launcher pytorch --no-validate \
-	       --max_iters 10 --log_iters 2 --batch_size 8 --num_workers 8 $FP16
+	       --max_iters 10 --log_iters 2 --batch_size 4 --num_workers 8 $FP16
 fi
 
 ```
@@ -220,7 +220,7 @@ fi
 
 - **单卡启动脚本：**
 
-    若测试单机单卡 batch_size=8、FP32 的训练性能，执行如下命令：
+    若测试单机单卡 batch_size=4、FP32 的训练性能，执行如下命令：
 
     ```bash
     cd mmsegmentation
@@ -229,7 +229,7 @@ fi
 
 - **8卡启动脚本：**
 
-    若测试单机8卡 batch_size=8、FP16 的训练性能，执行如下命令：
+    若测试单机8卡 batch_size=4、FP16 的训练性能，执行如下命令：
 
     ```bash
     cd mmsegmentation
@@ -255,8 +255,8 @@ fi
 
 |卡数 | FP32(BS=8) | AMP(BS=8) |
 |:-----:|:-----:|:-----:|
-|1 | 4.67  | 8.89  | 
-|8 | 32.09  | 48.83  |
+|1 | 4.25  | 15.52  | 
+|8 | 25.65 | 82.62  |
 |32 | 243 | 61.0 | 
 
 ## 五、日志数据

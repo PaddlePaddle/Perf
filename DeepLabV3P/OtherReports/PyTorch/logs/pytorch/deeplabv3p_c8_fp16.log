@@ -1,7 +1,7 @@
-2022-02-10 04:39:13,981 - mmseg - INFO - Multi-processing start method is `None`
-2022-02-10 04:39:13,981 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
-2022-02-10 04:39:13,981 - mmseg - INFO - OMP num threads is 1
-2022-02-10 04:39:14,022 - mmseg - INFO - Environment info:
+2022-02-10 06:22:14,334 - mmseg - INFO - Multi-processing start method is `None`
+2022-02-10 06:22:14,334 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
+2022-02-10 06:22:14,334 - mmseg - INFO - OMP num threads is 1
+2022-02-10 06:22:14,376 - mmseg - INFO - Environment info:
 ------------------------------------------------------------
 sys.platform: linux
 Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
@@ -33,8 +33,8 @@ MMCV CUDA Compiler: 11.0
 MMSegmentation: 0.21.1+29f7969
 ------------------------------------------------------------
 
-2022-02-10 04:39:14,023 - mmseg - INFO - Distributed training: True
-2022-02-10 04:39:14,333 - mmseg - INFO - Config:
+2022-02-10 06:22:14,376 - mmseg - INFO - Distributed training: True
+2022-02-10 06:22:14,712 - mmseg - INFO - Config:
 norm_cfg = dict(type='SyncBN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -119,7 +119,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
+    samples_per_gpu=4,
     workers_per_gpu=8,
     train=dict(
         type='CityscapesDataset',
@@ -207,7 +207,7 @@ work_dir = './work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes'
 gpu_ids = range(0, 8)
 auto_resume = False
 
-2022-02-10 04:39:17,735 - mmseg - INFO - Set random seed to 1554049405, deterministic: False
+2022-02-10 06:22:18,032 - mmseg - INFO - Set random seed to 708942278, deterministic: False
 /workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
   warnings.warn('DeprecationWarning: pretrained is a deprecated, '
 /workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
@@ -224,16 +224,16 @@ auto_resume = False
   warnings.warn('DeprecationWarning: pretrained is a deprecated, '
 /workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
   warnings.warn('DeprecationWarning: pretrained is a deprecated, '
-2022-02-10 04:39:19,344 - mmseg - INFO - initialize ResNetV1c with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://resnet50_v1c'}
-2022-02-10 04:39:19,344 - mmcv - INFO - load model from: open-mmlab://resnet50_v1c
-2022-02-10 04:39:19,344 - mmcv - INFO - Use load_from_openmmlab loader
-2022-02-10 04:39:19,459 - mmcv - WARNING - The model and loaded state dict do not match exactly
+2022-02-10 06:22:19,641 - mmseg - INFO - initialize ResNetV1c with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://resnet50_v1c'}
+2022-02-10 06:22:19,641 - mmcv - INFO - load model from: open-mmlab://resnet50_v1c
+2022-02-10 06:22:19,642 - mmcv - INFO - Use load_from_openmmlab loader
+2022-02-10 06:22:19,917 - mmcv - WARNING - The model and loaded state dict do not match exactly
 
 unexpected key in source state_dict: fc.weight, fc.bias
 
-2022-02-10 04:39:19,491 - mmseg - INFO - initialize DepthwiseSeparableASPPHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
-2022-02-10 04:39:19,633 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
-2022-02-10 04:39:19,639 - mmseg - INFO - EncoderDecoder(
+2022-02-10 06:22:19,947 - mmseg - INFO - initialize DepthwiseSeparableASPPHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-02-10 06:22:20,090 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-02-10 06:22:20,095 - mmseg - INFO - EncoderDecoder(
   (backbone): ResNetV1c(
     (stem): Sequential(
       (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
@@ -526,9 +526,9 @@ unexpected key in source state_dict: fc.weight, fc.bias
   )
   init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 )
-2022-02-10 04:39:19,704 - mmseg - INFO - Loaded 2975 images
-2022-02-10 04:39:20,220 - mmseg - INFO - Start running, host: root@instance-3bwob41y-16, work_dir: /workspace/bert/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
-2022-02-10 04:39:20,220 - mmseg - INFO - Hooks will be executed in the following order:
+2022-02-10 06:22:20,162 - mmseg - INFO - Loaded 2975 images
+2022-02-10 06:22:20,647 - mmseg - INFO - Start running, host: root@instance-3bwob41y-16, work_dir: /workspace/bert/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
+2022-02-10 06:22:20,647 - mmseg - INFO - Hooks will be executed in the following order:
 before_run:
 (VERY_HIGH   ) PolyLrUpdaterHook                  
 (ABOVE_NORMAL) Fp16OptimizerHook                  
@@ -567,13 +567,13 @@ after_val_iter:
 after_val_epoch:
 (VERY_LOW    ) TextLoggerHook                     
  -------------------- 
-2022-02-10 04:39:20,221 - mmseg - INFO - workflow: [('train', 1)], max: 10 iters
-2022-02-10 04:40:26,316 - mmseg - INFO - Iter [2/10]	lr: 9.104e-03, eta: 0:02:11, time: 16.387, data_time: 0.805, memory: 20556, decode.loss_ce: 2.7072, decode.acc_seg: 10.7623, aux.loss_ce: 1.1161, aux.acc_seg: 3.6847, loss: 3.8233
-2022-02-10 04:40:28,540 - mmseg - INFO - Iter [4/10]	lr: 7.282e-03, eta: 0:00:52, time: 1.115, data_time: 0.036, memory: 20556, decode.loss_ce: 2.4194, decode.acc_seg: 24.9308, aux.loss_ce: 1.0826, aux.acc_seg: 8.3052, loss: 3.5020
-2022-02-10 04:40:30,812 - mmseg - INFO - Iter [6/10]	lr: 5.405e-03, eta: 0:00:24, time: 1.137, data_time: 0.036, memory: 20556, decode.loss_ce: 2.2316, decode.acc_seg: 28.5984, aux.loss_ce: 1.0660, aux.acc_seg: 19.3744, loss: 3.2976
-2022-02-10 04:40:33,153 - mmseg - INFO - Iter [8/10]	lr: 3.450e-03, eta: 0:00:09, time: 1.169, data_time: 0.038, memory: 20556, decode.loss_ce: 2.1316, decode.acc_seg: 28.0974, aux.loss_ce: 1.0427, aux.acc_seg: 25.2052, loss: 3.1744
-2022-02-10 04:40:35,490 - mmseg - INFO - Saving checkpoint at 10 iterations
-2022-02-10 04:40:36,401 - mmseg - INFO - Iter [10/10]	lr: 1.346e-03, eta: 0:00:00, time: 1.626, data_time: 0.030, memory: 20556, decode.loss_ce: 2.0878, decode.acc_seg: 26.3555, aux.loss_ce: 1.0126, aux.acc_seg: 26.0219, loss: 3.1003
+2022-02-10 06:22:20,647 - mmseg - INFO - workflow: [('train', 1)], max: 10 iters
+2022-02-10 06:23:22,393 - mmseg - INFO - Iter [2/10]	lr: 9.104e-03, eta: 0:01:44, time: 13.027, data_time: 1.207, memory: 18878, decode.loss_ce: 2.7969, decode.acc_seg: 4.1009, aux.loss_ce: 1.1161, aux.acc_seg: 7.1547, loss: 3.9130
+2022-02-10 06:23:23,602 - mmseg - INFO - Iter [4/10]	lr: 7.282e-03, eta: 0:00:40, time: 0.603, data_time: 0.016, memory: 18878, decode.loss_ce: 2.5442, decode.acc_seg: 27.0886, aux.loss_ce: 1.1014, aux.acc_seg: 20.4615, loss: 3.6456
+2022-02-10 06:23:24,873 - mmseg - INFO - Iter [6/10]	lr: 5.405e-03, eta: 0:00:19, time: 0.637, data_time: 0.017, memory: 18878, decode.loss_ce: 2.1711, decode.acc_seg: 29.5434, aux.loss_ce: 1.0362, aux.acc_seg: 28.6781, loss: 3.2073
+2022-02-10 06:23:26,105 - mmseg - INFO - Iter [8/10]	lr: 3.450e-03, eta: 0:00:07, time: 0.615, data_time: 0.016, memory: 18878, decode.loss_ce: 1.9480, decode.acc_seg: 28.5168, aux.loss_ce: 0.9718, aux.acc_seg: 29.2271, loss: 2.9198
+2022-02-10 06:23:27,386 - mmseg - INFO - Saving checkpoint at 10 iterations
+2022-02-10 06:23:28,248 - mmseg - INFO - Iter [10/10]	lr: 1.346e-03, eta: 0:00:00, time: 1.072, data_time: 0.032, memory: 18878, decode.loss_ce: 2.0839, decode.acc_seg: 30.8501, aux.loss_ce: 1.0139, aux.acc_seg: 31.4861, loss: 3.0979
 *****************************************
 Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
 *****************************************

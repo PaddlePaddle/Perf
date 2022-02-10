@@ -160,8 +160,8 @@ DeepLabV3P测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/t
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=4 | 6.13 | 4.67  |
-  | GPU=8,BS=4 | 44.39  | 32.09  |
+  | GPU=1,BS=4 | 6.13 | 4.25  |
+  | GPU=8,BS=4 | 44.39  | 25.65  |
   | GPU=32,BS=4 | 176 | 60.95 |
 
 
@@ -169,8 +169,8 @@ DeepLabV3P测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/t
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=4 | 15.41  | 8.89 |
-  | GPU=8,BS=4 | 96.03  | 48.83  |
+  | GPU=1,BS=4 | 15.41  | 15.52 |
+  | GPU=8,BS=4 | 96.03  | 82.62  |
   | GPU=32,BS=4 | 373.76 | 203.2 |
 
 

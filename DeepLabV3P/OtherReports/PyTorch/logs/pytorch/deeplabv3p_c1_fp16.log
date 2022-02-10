@@ -1,8 +1,8 @@
 tools/train.py:139: UserWarning: `--gpus` is deprecated because we only support single GPU mode in non-distributed training. Use `gpus=1` now.
   warnings.warn('`--gpus` is deprecated because we only support '
-2022-02-10 04:37:28,244 - mmseg - INFO - Multi-processing start method is `None`
-2022-02-10 04:37:28,244 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
-2022-02-10 04:37:28,279 - mmseg - INFO - Environment info:
+2022-02-10 06:20:55,738 - mmseg - INFO - Multi-processing start method is `None`
+2022-02-10 06:20:55,738 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
+2022-02-10 06:20:55,771 - mmseg - INFO - Environment info:
 ------------------------------------------------------------
 sys.platform: linux
 Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
@@ -34,8 +34,8 @@ MMCV CUDA Compiler: 11.0
 MMSegmentation: 0.21.1+29f7969
 ------------------------------------------------------------
 
-2022-02-10 04:37:28,280 - mmseg - INFO - Distributed training: False
-2022-02-10 04:37:28,588 - mmseg - INFO - Config:
+2022-02-10 06:20:55,772 - mmseg - INFO - Distributed training: False
+2022-02-10 06:20:56,079 - mmseg - INFO - Config:
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -120,7 +120,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
+    samples_per_gpu=4,
     workers_per_gpu=8,
     train=dict(
         type='CityscapesDataset',
@@ -208,21 +208,21 @@ work_dir = './work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes'
 gpu_ids = range(0, 1)
 auto_resume = False
 
-2022-02-10 04:37:28,589 - mmseg - INFO - Set random seed to 1664106544, deterministic: False
+2022-02-10 06:20:56,079 - mmseg - INFO - Set random seed to 1527330871, deterministic: False
 /workspace/bert/mmsegmentation/mmseg/models/backbones/resnet.py:431: UserWarning: DeprecationWarning: pretrained is a deprecated, please use "init_cfg" instead
   warnings.warn('DeprecationWarning: pretrained is a deprecated, '
-2022-02-10 04:37:30,192 - mmseg - INFO - initialize ResNetV1c with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://resnet50_v1c'}
-2022-02-10 04:37:30,193 - mmcv - INFO - load model from: open-mmlab://resnet50_v1c
-2022-02-10 04:37:30,193 - mmcv - INFO - Use load_from_openmmlab loader
-2022-02-10 04:37:30,297 - mmcv - WARNING - The model and loaded state dict do not match exactly
+2022-02-10 06:20:57,777 - mmseg - INFO - initialize ResNetV1c with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://resnet50_v1c'}
+2022-02-10 06:20:57,778 - mmcv - INFO - load model from: open-mmlab://resnet50_v1c
+2022-02-10 06:20:57,778 - mmcv - INFO - Use load_from_openmmlab loader
+2022-02-10 06:20:57,891 - mmcv - WARNING - The model and loaded state dict do not match exactly
 
 unexpected key in source state_dict: fc.weight, fc.bias
 
-2022-02-10 04:37:30,320 - mmseg - INFO - initialize DepthwiseSeparableASPPHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
-2022-02-10 04:37:30,447 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-02-10 06:20:57,914 - mmseg - INFO - initialize DepthwiseSeparableASPPHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-02-10 06:20:58,069 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 tools/train.py:226: UserWarning: SyncBN is only supported with DDP. To be compatible with DP, we convert SyncBN to BN. Please use dist_train.sh which can avoid this error.
   'SyncBN is only supported with DDP. To be compatible with DP, '
-2022-02-10 04:37:30,452 - mmseg - INFO - EncoderDecoder(
+2022-02-10 06:20:58,074 - mmseg - INFO - EncoderDecoder(
   (backbone): ResNetV1c(
     (stem): Sequential(
       (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
@@ -515,9 +515,9 @@ tools/train.py:226: UserWarning: SyncBN is only supported with DDP. To be compat
   )
   init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 )
-2022-02-10 04:37:30,518 - mmseg - INFO - Loaded 2975 images
-2022-02-10 04:37:32,739 - mmseg - INFO - Start running, host: root@instance-3bwob41y-16, work_dir: /workspace/bert/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
-2022-02-10 04:37:32,739 - mmseg - INFO - Hooks will be executed in the following order:
+2022-02-10 06:20:58,148 - mmseg - INFO - Loaded 2975 images
+2022-02-10 06:21:00,287 - mmseg - INFO - Start running, host: root@instance-3bwob41y-16, work_dir: /workspace/bert/mmsegmentation/work_dirs/deeplabv3plus_r50-d8_512x1024_80k_cityscapes
+2022-02-10 06:21:00,288 - mmseg - INFO - Hooks will be executed in the following order:
 before_run:
 (VERY_HIGH   ) PolyLrUpdaterHook                  
 (ABOVE_NORMAL) Fp16OptimizerHook                  
@@ -556,15 +556,15 @@ after_val_iter:
 after_val_epoch:
 (VERY_LOW    ) TextLoggerHook                     
  -------------------- 
-2022-02-10 04:37:32,740 - mmseg - INFO - workflow: [('train', 1)], max: 40 iters
-2022-02-10 04:37:51,856 - mmseg - INFO - Iter [4/40]	lr: 9.329e-03, eta: 0:02:49, time: 4.716, data_time: 0.348, memory: 20386, decode.loss_ce: 2.6906, decode.acc_seg: 16.2054, aux.loss_ce: 1.1228, aux.acc_seg: 7.5195, loss: 3.8134
-2022-02-10 04:37:55,415 - mmseg - INFO - Iter [8/40]	lr: 8.426e-03, eta: 0:01:29, time: 0.890, data_time: 0.016, memory: 20386, decode.loss_ce: 2.2470, decode.acc_seg: 26.8705, aux.loss_ce: 1.0611, aux.acc_seg: 27.7098, loss: 3.3081
-2022-02-10 04:37:58,990 - mmseg - INFO - Iter [12/40]	lr: 7.512e-03, eta: 0:01:00, time: 0.894, data_time: 0.015, memory: 20386, decode.loss_ce: 1.8588, decode.acc_seg: 30.6671, aux.loss_ce: 0.9430, aux.acc_seg: 32.9143, loss: 2.8018
-2022-02-10 04:38:02,602 - mmseg - INFO - Iter [16/40]	lr: 6.585e-03, eta: 0:00:44, time: 0.903, data_time: 0.015, memory: 20386, decode.loss_ce: 1.9361, decode.acc_seg: 37.9927, aux.loss_ce: 0.8606, aux.acc_seg: 34.0767, loss: 2.7967
-2022-02-10 04:38:06,208 - mmseg - INFO - Iter [20/40]	lr: 5.643e-03, eta: 0:00:33, time: 0.902, data_time: 0.015, memory: 20386, decode.loss_ce: 2.0004, decode.acc_seg: 37.2365, aux.loss_ce: 0.8417, aux.acc_seg: 32.0990, loss: 2.8421
-2022-02-10 04:38:09,813 - mmseg - INFO - Iter [24/40]	lr: 4.683e-03, eta: 0:00:24, time: 0.901, data_time: 0.014, memory: 20386, decode.loss_ce: 1.7760, decode.acc_seg: 44.4836, aux.loss_ce: 0.7955, aux.acc_seg: 38.7729, loss: 2.5715
-2022-02-10 04:38:13,420 - mmseg - INFO - Iter [28/40]	lr: 3.700e-03, eta: 0:00:17, time: 0.902, data_time: 0.015, memory: 20386, decode.loss_ce: 1.6243, decode.acc_seg: 47.5501, aux.loss_ce: 0.7303, aux.acc_seg: 43.8801, loss: 2.3546
-2022-02-10 04:38:17,010 - mmseg - INFO - Iter [32/40]	lr: 2.686e-03, eta: 0:00:11, time: 0.898, data_time: 0.015, memory: 20386, decode.loss_ce: 1.6455, decode.acc_seg: 46.4456, aux.loss_ce: 0.7680, aux.acc_seg: 42.7647, loss: 2.4135
-2022-02-10 04:38:20,603 - mmseg - INFO - Iter [36/40]	lr: 1.624e-03, eta: 0:00:05, time: 0.898, data_time: 0.015, memory: 20386, decode.loss_ce: 1.5217, decode.acc_seg: 49.2379, aux.loss_ce: 0.7260, aux.acc_seg: 46.9020, loss: 2.2477
-2022-02-10 04:38:24,186 - mmseg - INFO - Saving checkpoint at 40 iterations
-2022-02-10 04:38:25,045 - mmseg - INFO - Iter [40/40]	lr: 4.579e-04, eta: 0:00:00, time: 1.110, data_time: 0.015, memory: 20386, decode.loss_ce: 1.4981, decode.acc_seg: 44.2788, aux.loss_ce: 0.7215, aux.acc_seg: 40.3928, loss: 2.2196
+2022-02-10 06:21:00,288 - mmseg - INFO - workflow: [('train', 1)], max: 40 iters
+2022-02-10 06:21:15,158 - mmseg - INFO - Iter [4/40]	lr: 9.329e-03, eta: 0:02:11, time: 3.659, data_time: 0.175, memory: 18707, decode.loss_ce: 2.6345, decode.acc_seg: 19.9084, aux.loss_ce: 1.1049, aux.acc_seg: 10.5229, loss: 3.7394
+2022-02-10 06:21:17,088 - mmseg - INFO - Iter [8/40]	lr: 8.426e-03, eta: 0:01:06, time: 0.483, data_time: 0.008, memory: 18707, decode.loss_ce: 1.9157, decode.acc_seg: 40.7659, aux.loss_ce: 0.9802, aux.acc_seg: 39.0852, loss: 2.8959
+2022-02-10 06:21:19,035 - mmseg - INFO - Iter [12/40]	lr: 7.512e-03, eta: 0:00:43, time: 0.487, data_time: 0.008, memory: 18707, decode.loss_ce: 2.2640, decode.acc_seg: 21.6112, aux.loss_ce: 0.9719, aux.acc_seg: 21.9725, loss: 3.2359
+2022-02-10 06:21:20,992 - mmseg - INFO - Iter [16/40]	lr: 6.585e-03, eta: 0:00:30, time: 0.489, data_time: 0.008, memory: 18707, decode.loss_ce: 2.1505, decode.acc_seg: 23.9354, aux.loss_ce: 0.9123, aux.acc_seg: 27.6113, loss: 3.0628
+2022-02-10 06:21:22,934 - mmseg - INFO - Iter [20/40]	lr: 5.643e-03, eta: 0:00:22, time: 0.485, data_time: 0.008, memory: 18707, decode.loss_ce: 2.1540, decode.acc_seg: 21.5929, aux.loss_ce: 0.8011, aux.acc_seg: 33.3935, loss: 2.9551
+2022-02-10 06:21:24,881 - mmseg - INFO - Iter [24/40]	lr: 4.683e-03, eta: 0:00:16, time: 0.487, data_time: 0.008, memory: 18707, decode.loss_ce: 1.6596, decode.acc_seg: 38.2989, aux.loss_ce: 0.7754, aux.acc_seg: 33.3856, loss: 2.4350
+2022-02-10 06:21:26,824 - mmseg - INFO - Iter [28/40]	lr: 3.700e-03, eta: 0:00:11, time: 0.486, data_time: 0.008, memory: 18707, decode.loss_ce: 1.8142, decode.acc_seg: 28.7491, aux.loss_ce: 0.7719, aux.acc_seg: 25.6769, loss: 2.5861
+2022-02-10 06:21:28,783 - mmseg - INFO - Iter [32/40]	lr: 2.686e-03, eta: 0:00:07, time: 0.490, data_time: 0.008, memory: 18707, decode.loss_ce: 1.6397, decode.acc_seg: 39.2161, aux.loss_ce: 0.7527, aux.acc_seg: 25.6853, loss: 2.3924
+2022-02-10 06:21:30,744 - mmseg - INFO - Iter [36/40]	lr: 1.624e-03, eta: 0:00:03, time: 0.490, data_time: 0.008, memory: 18707, decode.loss_ce: 1.6202, decode.acc_seg: 51.0071, aux.loss_ce: 0.8093, aux.acc_seg: 21.0863, loss: 2.4295
+2022-02-10 06:21:32,714 - mmseg - INFO - Saving checkpoint at 40 iterations
+2022-02-10 06:21:33,583 - mmseg - INFO - Iter [40/40]	lr: 4.579e-04, eta: 0:00:00, time: 0.710, data_time: 0.008, memory: 18707, decode.loss_ce: 1.5178, decode.acc_seg: 53.9022, aux.loss_ce: 0.7025, aux.acc_seg: 34.9126, loss: 2.2203
