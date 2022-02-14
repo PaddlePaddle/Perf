@@ -1,60 +1,45 @@
------------  Configuration Arguments -----------
-gpus: 0,1,2,3,4,5,6,7
-heter_worker_num: None
-heter_workers: 
-http_port: None
-ips: 127.0.0.1
-log_dir: log
-nproc_per_node: None
-run_mode: None
-server_num: None
-servers: 
-training_script: train.py
-training_script_args: ['--config', 'benchmark/hrnet.yml', '--iters', '10', '--log_iters', '2', '--batch_size', '8', '--num_workers', '8', '--fp16']
-worker_num: None
-workers: 
-------------------------------------------------
-launch train in GPU mode!
-launch proc_id:4252 idx:0
-launch proc_id:4257 idx:1
-launch proc_id:4262 idx:2
-launch proc_id:4267 idx:3
-launch proc_id:4272 idx:4
-launch proc_id:4277 idx:5
-launch proc_id:4282 idx:6
-launch proc_id:4287 idx:7
-2021-05-31 15:51:01 [INFO]	
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W0205 04:43:07.864363  5007 tensorrt.cc:56] You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not found. Ignore this if TensorRT is not needed.
+The TensorRT that Paddle depends on is not configured correctly.
+  Suggestions:
+  1. Check if the TensorRT is installed correctly and its version is matched with paddlepaddle you installed.
+  2. Configure environment variables as follows:
+  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`
+  - Windows: set PATH by `set PATH=XXX;%PATH%`
+  - Mac: set  DYLD_LIBRARY_PATH by `export DYLD_LIBRARY_PATH=...`
+2022-02-05 04:43:09 [INFO]	
 ------------Environment Information-------------
-platform: Linux-4.14.0_1-0-0-32-x86_64-with-debian-stretch-sid
-Python: 3.7.0 (default, May 26 2019, 06:13:42) [GCC 5.4.0 20160609]
+platform: Linux-3.10.0-1062.18.1.el7.x86_64-x86_64-with-Ubuntu-18.04-bionic
+Python: 3.7.10 (default, Feb 20 2021, 21:17:23) [GCC 7.5.0]
 Paddle compiled with cuda: True
-NVCC: Cuda compilation tools, release 10.1, V10.1.105
-cudnn: 7.6
+NVCC: Build cuda_11.2.r11.2/compiler.29558016_0
+cudnn: 8.1
 GPUs used: 8
-CUDA_VISIBLE_DEVICES: None
+CUDA_VISIBLE_DEVICES: 0,1,2,3,4,5,6,7
 GPU: ['GPU 0: Tesla V100-SXM2-32GB', 'GPU 1: Tesla V100-SXM2-32GB', 'GPU 2: Tesla V100-SXM2-32GB', 'GPU 3: Tesla V100-SXM2-32GB', 'GPU 4: Tesla V100-SXM2-32GB', 'GPU 5: Tesla V100-SXM2-32GB', 'GPU 6: Tesla V100-SXM2-32GB', 'GPU 7: Tesla V100-SXM2-32GB']
-GCC: gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+GCC: gcc (GCC) 8.2.0
+PaddleSeg: develop
 PaddlePaddle: 0.0.0
-OpenCV: 4.4.0
+OpenCV: 4.2.0
 ------------------------------------------------
-2021-05-31 15:51:01 [INFO]	
+2022-02-05 04:43:09 [INFO]	
 ---------------Config Information---------------
 batch_size: 8
-iters: 10
-learning_rate:
-  decay:
-    end_lr: 0.0
-    power: 0.9
-    type: poly
-  value: 0.01
+iters: 200
 loss:
   coef:
   - 1
   types:
   - ignore_index: 255
     type: CrossEntropyLoss
+lr_scheduler:
+  end_lr: 0
+  learning_rate: 0.01
+  power: 0.9
+  type: PolynomialDecay
 model:
   backbone:
+    padding_same: false
     pretrained: https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
     type: HRNet_W18
   backbone_indices:
@@ -65,6 +50,7 @@ model:
 optimizer:
   type: sgd
   weight_decay: 0.0005
+to_static_training: false
 train_dataset:
   dataset_root: data/cityscapes
   mode: train
@@ -88,26 +74,62 @@ val_dataset:
   - type: Normalize
   type: Cityscapes
 ------------------------------------------------
-W0531 15:51:02.029901  4252 device_context.cc:430] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 10.1
-W0531 15:51:02.029956  4252 device_context.cc:448] device: 0, cuDNN Version: 7.6.
-2021-05-31 15:51:06 [INFO]	Loading pretrained model from https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
-2021-05-31 15:51:12 [INFO]	There are 1525/1525 variables loaded into HRNet.
-I0531 15:51:12.537483  4252 nccl_context.cc:74] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
-I0531 15:51:13.905915  4252 nccl_context.cc:107] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 10
-2021-05-31 15:51:14,999-INFO: [topology.py:152:__init__] HybridParallelInfo: rank_id: 0, dp_degree: 8, mp_degree: 1, pp_degree: 1, dp_group: [0, 1, 2, 3, 4, 5, 6, 7], mp_group: [0], pp_group: [0], check/clip group: [0]
-2021-05-31 15:51:15 [INFO]	use amp to train
-/usr/local/python378-gcc540/lib/python3.7/site-packages/paddle/fluid/dygraph/math_op_patch.py:239: UserWarning: The dtype of left and right variables are not the same, left dtype is paddle.float16, but right dtype is paddle.float32, the right dtype will convert to paddle.float16
+W0205 04:43:09.333151  5007 device_context.cc:484] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W0205 04:43:09.333195  5007 device_context.cc:503] device: 0, cuDNN Version: 8.1.
+2022-02-05 04:43:13 [INFO]	Loading pretrained model from https://bj.bcebos.com/paddleseg/dygraph/hrnet_w18_ssld.tar.gz
+2022-02-05 04:43:14 [INFO]	There are 1525/1525 variables loaded into HRNet.
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:39437', '127.0.0.1:60466', '127.0.0.1:59283', '127.0.0.1:48306', '127.0.0.1:44758', '127.0.0.1:58742', '127.0.0.1:55358']
+I0205 04:43:17.903098  5007 nccl_context.cc:82] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+I0205 04:43:18.918525  5007 nccl_context.cc:114] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 10
+2022-02-05 04:43:19,521-INFO: [topology.py:169:__init__] HybridParallelInfo: rank_id: 0, mp_degree: 1, sharding_degree: 1, pp_degree: 1, dp_degree: 8, mp_group: [0],  sharding_group: [0], pp_group: [0], dp_group: [0, 1, 2, 3, 4, 5, 6, 7], check/clip group: [0]
+2022-02-05 04:43:19 [INFO]	use amp to train
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/dygraph/math_op_patch.py:259: UserWarning: The dtype of left and right variables are not the same, left dtype is paddle.float16, but right dtype is paddle.float32, the right dtype will convert to paddle.float16
   format(lhs_dtype, rhs_dtype, lhs_dtype))
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/cross_entropy_loss.py:60: DeprecationWarning: [93m
-Warning:
-API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
-reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
-  logit, label, ignore_index=self.ignore_index, axis=axis)
-2021-05-31 15:51:26 [INFO]	[TRAIN] epoch: 1, iter: 2/10, loss: 2.9130, lr: 0.009095, batch_cost: 5.7468, reader_cost: 2.93844, ips: 1.3921 samples/sec | ETA 00:00:45
-2021-05-31 15:51:28 [INFO]	[TRAIN] epoch: 1, iter: 4/10, loss: 2.6289, lr: 0.007254, batch_cost: 0.6361, reader_cost: 0.00017, ips: 12.5771 samples/sec | ETA 00:00:03
-2021-05-31 15:51:29 [INFO]	[TRAIN] epoch: 1, iter: 6/10, loss: 1.9580, lr: 0.005359, batch_cost: 0.6469, reader_cost: 0.00015, ips: 12.3659 samples/sec | ETA 00:00:02
-2021-05-31 15:51:30 [INFO]	[TRAIN] epoch: 1, iter: 8/10, loss: 1.8813, lr: 0.003384, batch_cost: 0.6646, reader_cost: 0.00019, ips: 12.0380 samples/sec | ETA 00:00:01
-2021-05-31 15:51:32 [INFO]	[TRAIN] epoch: 1, iter: 10/10, loss: 1.3829, lr: 0.001259, batch_cost: 0.6631, reader_cost: 0.00015, ips: 12.0652 samples/sec | ETA 00:00:00
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/dygraph/math_op_patch.py:259: UserWarning: The dtype of left and right variables are not the same, left dtype is paddle.float32, but right dtype is paddle.int64, the right dtype will convert to paddle.float32
+  format(lhs_dtype, rhs_dtype, lhs_dtype))
+2022-02-05 04:43:33 [INFO]	[TRAIN] epoch: 1, iter: 5/200, loss: 2.6445, lr: 0.009820, batch_cost: 2.6918, reader_cost: 1.19366, ips: 2.9720 samples/sec | ETA 00:08:44
+2022-02-05 04:43:36 [INFO]	[TRAIN] epoch: 1, iter: 10/200, loss: 1.5107, lr: 0.009594, batch_cost: 0.6929, reader_cost: 0.00620, ips: 11.5456 samples/sec | ETA 00:02:11
+2022-02-05 04:43:40 [INFO]	[TRAIN] epoch: 1, iter: 15/200, loss: 1.1533, lr: 0.009368, batch_cost: 0.6810, reader_cost: 0.00138, ips: 11.7473 samples/sec | ETA 00:02:05
+2022-02-05 04:43:43 [INFO]	[TRAIN] epoch: 1, iter: 20/200, loss: 0.9074, lr: 0.009141, batch_cost: 0.6940, reader_cost: 0.00520, ips: 11.5273 samples/sec | ETA 00:02:04
+2022-02-05 04:43:46 [INFO]	[TRAIN] epoch: 1, iter: 25/200, loss: 0.8674, lr: 0.008913, batch_cost: 0.6735, reader_cost: 0.00638, ips: 11.8788 samples/sec | ETA 00:01:57
+2022-02-05 04:43:50 [INFO]	[TRAIN] epoch: 1, iter: 30/200, loss: 0.8484, lr: 0.008685, batch_cost: 0.6861, reader_cost: 0.00727, ips: 11.6603 samples/sec | ETA 00:01:56
+2022-02-05 04:43:53 [INFO]	[TRAIN] epoch: 1, iter: 35/200, loss: 0.7268, lr: 0.008456, batch_cost: 0.5934, reader_cost: 0.00249, ips: 13.4827 samples/sec | ETA 00:01:37
+2022-02-05 04:43:56 [INFO]	[TRAIN] epoch: 1, iter: 40/200, loss: 0.7828, lr: 0.008227, batch_cost: 0.5796, reader_cost: 0.00295, ips: 13.8026 samples/sec | ETA 00:01:32
+2022-02-05 04:43:59 [INFO]	[TRAIN] epoch: 1, iter: 45/200, loss: 0.7820, lr: 0.007996, batch_cost: 0.5909, reader_cost: 0.00134, ips: 13.5395 samples/sec | ETA 00:01:31
+2022-02-05 04:44:07 [INFO]	[TRAIN] epoch: 2, iter: 50/200, loss: 0.5571, lr: 0.007765, batch_cost: 1.7432, reader_cost: 0.75260, ips: 4.5892 samples/sec | ETA 00:04:21
+2022-02-05 04:44:11 [INFO]	[TRAIN] epoch: 2, iter: 55/200, loss: 0.6314, lr: 0.007533, batch_cost: 0.7074, reader_cost: 0.00329, ips: 11.3098 samples/sec | ETA 00:01:42
+2022-02-05 04:44:14 [INFO]	[TRAIN] epoch: 2, iter: 60/200, loss: 0.7708, lr: 0.007301, batch_cost: 0.6737, reader_cost: 0.00635, ips: 11.8752 samples/sec | ETA 00:01:34
+2022-02-05 04:44:18 [INFO]	[TRAIN] epoch: 2, iter: 65/200, loss: 0.4809, lr: 0.007067, batch_cost: 0.6789, reader_cost: 0.00836, ips: 11.7840 samples/sec | ETA 00:01:31
+2022-02-05 04:44:21 [INFO]	[TRAIN] epoch: 2, iter: 70/200, loss: 0.5003, lr: 0.006833, batch_cost: 0.6909, reader_cost: 0.00563, ips: 11.5783 samples/sec | ETA 00:01:29
+2022-02-05 04:44:25 [INFO]	[TRAIN] epoch: 2, iter: 75/200, loss: 0.5077, lr: 0.006598, batch_cost: 0.6796, reader_cost: 0.00748, ips: 11.7724 samples/sec | ETA 00:01:24
+2022-02-05 04:44:28 [INFO]	[TRAIN] epoch: 2, iter: 80/200, loss: 0.4147, lr: 0.006362, batch_cost: 0.6185, reader_cost: 0.00239, ips: 12.9339 samples/sec | ETA 00:01:14
+2022-02-05 04:44:31 [INFO]	[TRAIN] epoch: 2, iter: 85/200, loss: 0.4858, lr: 0.006125, batch_cost: 0.5854, reader_cost: 0.00011, ips: 13.6654 samples/sec | ETA 00:01:07
+2022-02-05 04:44:34 [INFO]	[TRAIN] epoch: 2, iter: 90/200, loss: 0.5538, lr: 0.005887, batch_cost: 0.5869, reader_cost: 0.00064, ips: 13.6313 samples/sec | ETA 00:01:04
+2022-02-05 04:44:42 [INFO]	[TRAIN] epoch: 3, iter: 95/200, loss: 0.4787, lr: 0.005647, batch_cost: 1.7396, reader_cost: 0.85767, ips: 4.5987 samples/sec | ETA 00:03:02
+2022-02-05 04:44:46 [INFO]	[TRAIN] epoch: 3, iter: 100/200, loss: 0.4067, lr: 0.005407, batch_cost: 0.7505, reader_cost: 0.00274, ips: 10.6598 samples/sec | ETA 00:01:15
+2022-02-05 04:44:49 [INFO]	[TRAIN] epoch: 3, iter: 105/200, loss: 0.5270, lr: 0.005166, batch_cost: 0.6877, reader_cost: 0.00669, ips: 11.6331 samples/sec | ETA 00:01:05
+2022-02-05 04:44:53 [INFO]	[TRAIN] epoch: 3, iter: 110/200, loss: 0.4768, lr: 0.004923, batch_cost: 0.6865, reader_cost: 0.00446, ips: 11.6535 samples/sec | ETA 00:01:01
+2022-02-05 04:44:56 [INFO]	[TRAIN] epoch: 3, iter: 115/200, loss: 0.5052, lr: 0.004679, batch_cost: 0.6848, reader_cost: 0.00333, ips: 11.6828 samples/sec | ETA 00:00:58
+2022-02-05 04:45:00 [INFO]	[TRAIN] epoch: 3, iter: 120/200, loss: 0.5102, lr: 0.004433, batch_cost: 0.6812, reader_cost: 0.00457, ips: 11.7434 samples/sec | ETA 00:00:54
+2022-02-05 04:45:03 [INFO]	[TRAIN] epoch: 3, iter: 125/200, loss: 0.4354, lr: 0.004186, batch_cost: 0.6352, reader_cost: 0.00496, ips: 12.5942 samples/sec | ETA 00:00:47
+2022-02-05 04:45:06 [INFO]	[TRAIN] epoch: 3, iter: 130/200, loss: 0.4683, lr: 0.003937, batch_cost: 0.5798, reader_cost: 0.00116, ips: 13.7985 samples/sec | ETA 00:00:40
+2022-02-05 04:45:09 [INFO]	[TRAIN] epoch: 3, iter: 135/200, loss: 0.3636, lr: 0.003687, batch_cost: 0.5886, reader_cost: 0.00043, ips: 13.5915 samples/sec | ETA 00:00:38
+2022-02-05 04:45:17 [INFO]	[TRAIN] epoch: 4, iter: 140/200, loss: 0.4268, lr: 0.003435, batch_cost: 1.7052, reader_cost: 0.79416, ips: 4.6915 samples/sec | ETA 00:01:42
+2022-02-05 04:45:21 [INFO]	[TRAIN] epoch: 4, iter: 145/200, loss: 0.4474, lr: 0.003180, batch_cost: 0.7660, reader_cost: 0.00213, ips: 10.4433 samples/sec | ETA 00:00:42
+2022-02-05 04:45:24 [INFO]	[TRAIN] epoch: 4, iter: 150/200, loss: 0.3235, lr: 0.002923, batch_cost: 0.6777, reader_cost: 0.00286, ips: 11.8049 samples/sec | ETA 00:00:33
+2022-02-05 04:45:28 [INFO]	[TRAIN] epoch: 4, iter: 155/200, loss: 0.3924, lr: 0.002664, batch_cost: 0.6783, reader_cost: 0.00701, ips: 11.7944 samples/sec | ETA 00:00:30
+2022-02-05 04:45:31 [INFO]	[TRAIN] epoch: 4, iter: 160/200, loss: 0.3520, lr: 0.002402, batch_cost: 0.6766, reader_cost: 0.00202, ips: 11.8239 samples/sec | ETA 00:00:27
+2022-02-05 04:45:35 [INFO]	[TRAIN] epoch: 4, iter: 165/200, loss: 0.3441, lr: 0.002137, batch_cost: 0.6787, reader_cost: 0.00121, ips: 11.7872 samples/sec | ETA 00:00:23
+2022-02-05 04:45:38 [INFO]	[TRAIN] epoch: 4, iter: 170/200, loss: 0.6877, lr: 0.001868, batch_cost: 0.6561, reader_cost: 0.00205, ips: 12.1935 samples/sec | ETA 00:00:19
+2022-02-05 04:45:41 [INFO]	[TRAIN] epoch: 4, iter: 175/200, loss: 0.4221, lr: 0.001594, batch_cost: 0.5821, reader_cost: 0.00009, ips: 13.7424 samples/sec | ETA 00:00:14
+2022-02-05 04:45:44 [INFO]	[TRAIN] epoch: 4, iter: 180/200, loss: 0.3761, lr: 0.001315, batch_cost: 0.5757, reader_cost: 0.00162, ips: 13.8956 samples/sec | ETA 00:00:11
+2022-02-05 04:45:51 [INFO]	[TRAIN] epoch: 5, iter: 185/200, loss: 0.3739, lr: 0.001030, batch_cost: 1.5041, reader_cost: 0.78235, ips: 5.3189 samples/sec | ETA 00:00:22
+2022-02-05 04:45:55 [INFO]	[TRAIN] epoch: 5, iter: 190/200, loss: 0.4156, lr: 0.000735, batch_cost: 0.8416, reader_cost: 0.00960, ips: 9.5056 samples/sec | ETA 00:00:08
+2022-02-05 04:45:59 [INFO]	[TRAIN] epoch: 5, iter: 195/200, loss: 0.3593, lr: 0.000426, batch_cost: 0.6811, reader_cost: 0.00574, ips: 11.7458 samples/sec | ETA 00:00:03
+2022-02-05 04:46:02 [INFO]	[TRAIN] epoch: 5, iter: 200/200, loss: 0.5345, lr: 0.000085, batch_cost: 0.6777, reader_cost: 0.00442, ips: 11.8045 samples/sec | ETA 00:00:00
 <class 'paddle.nn.layer.conv.Conv2D'>'s flops has been counted
 Customize Function has been applied to <class 'paddle.nn.layer.norm.SyncBatchNorm'>
-Total Flops: -1736046592     Total Params: 9675306
+<class 'paddle.nn.layer.activation.ReLU'>'s flops has been counted
+Cannot find suitable count function for <class 'paddleseg.models.layers.wrap_functions.Add'>. Treat it as zero FLOPs.
+Total Flops: 37159962624     Total Params: 9675306
