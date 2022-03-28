@@ -60,7 +60,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
 ```
 
 - **构建镜像**
@@ -255,8 +255,8 @@ fi
 
 |卡数 | FP32(BS=8) | AMP(BS=8) |
 |:-----:|:-----:|:-----:|
-|1 | 15  | 14.8  | 
-|8 | 75  | 71  |
+|1 | 14.52  | 15.00  | 
+|8 | 54.34  | 53.05  |
 |32 | 243 | 246 | 
 
 ## 五、日志数据

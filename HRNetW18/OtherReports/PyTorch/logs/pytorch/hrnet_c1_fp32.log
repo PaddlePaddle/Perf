@@ -1,4 +1,8 @@
-2021-05-31 00:00:05,737 - mmseg - INFO - Environment info:
+tools/train.py:139: UserWarning: `--gpus` is deprecated because we only support single GPU mode in non-distributed training. Use `gpus=1` now.
+  warnings.warn('`--gpus` is deprecated because we only support '
+2022-02-10 04:20:27,036 - mmseg - INFO - Multi-processing start method is `None`
+2022-02-10 04:20:27,036 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
+2022-02-10 04:20:27,066 - mmseg - INFO - Environment info:
 ------------------------------------------------------------
 sys.platform: linux
 Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
@@ -24,14 +28,14 @@ PyTorch compiling details: PyTorch built with:
 
 TorchVision: 0.7.0a0
 OpenCV: 3.4.1
-MMCV: 1.2.7
+MMCV: 1.3.13
 MMCV Compiler: GCC 7.5
 MMCV CUDA Compiler: 11.0
-MMSegmentation: 0.12.0+3e46c1b
+MMSegmentation: 0.21.1+29f7969
 ------------------------------------------------------------
 
-2021-05-31 00:00:05,738 - mmseg - INFO - Distributed training: False
-2021-05-31 00:00:06,168 - mmseg - INFO - Config:
+2022-02-10 04:20:27,066 - mmseg - INFO - Distributed training: False
+2022-02-10 04:20:27,368 - mmseg - INFO - Config:
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -203,360 +207,27 @@ cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
-runner = dict(type='IterBasedRunner', max_iters=40)
+runner = dict(type='IterBasedRunner', max_iters=120)
 checkpoint_config = dict(by_epoch=False, interval=8000)
-evaluation = dict(interval=8000, metric='mIoU')
+evaluation = dict(interval=8000, metric='mIoU', pre_eval=True)
 work_dir = './work_dirs/fcn_hr18_512x1024_80k_cityscapes'
 gpu_ids = range(0, 1)
+auto_resume = False
 
-2021-05-31 00:00:06,360 - mmseg - INFO - Use load_from_openmmlab loader
-Downloading: "https://download.openmmlab.com/pretrain/third_party/hrnetv2_w18-00eb2006.pth" to /root/.cache/torch/checkpoints/hrnetv2_w18-00eb2006.pth
-
-  0%|          | 0.00/81.8M [00:00<?, ?B/s]
-  0%|          | 16.0k/81.8M [00:00<18:26, 77.5kB/s]
-  0%|          | 40.0k/81.8M [00:00<16:32, 86.3kB/s]
-  0%|          | 96.0k/81.8M [00:00<13:09, 109kB/s] 
-  0%|          | 208k/81.8M [00:00<09:58, 143kB/s] 
-  1%|          | 432k/81.8M [00:01<07:21, 193kB/s]
-  1%|          | 872k/81.8M [00:01<05:19, 266kB/s]
-  2%|▏         | 1.53M/81.8M [00:01<03:45, 373kB/s]
-  2%|▏         | 1.80M/81.8M [00:01<02:59, 468kB/s]
-  2%|▏         | 2.02M/81.8M [00:01<02:30, 557kB/s]
-  3%|▎         | 2.21M/81.8M [00:01<01:58, 707kB/s]
-  3%|▎         | 2.42M/81.8M [00:02<01:34, 884kB/s]
-  3%|▎         | 2.62M/81.8M [00:02<01:18, 1.06MB/s]
-  3%|▎         | 2.84M/81.8M [00:02<01:05, 1.26MB/s]
-  4%|▍         | 3.07M/81.8M [00:02<00:56, 1.46MB/s]
-  4%|▍         | 3.29M/81.8M [00:02<00:50, 1.63MB/s]
-  4%|▍         | 3.52M/81.8M [00:02<00:45, 1.80MB/s]
-  5%|▍         | 3.79M/81.8M [00:02<00:40, 2.01MB/s]
-  5%|▍         | 4.05M/81.8M [00:02<00:37, 2.16MB/s]
-  5%|▌         | 4.30M/81.8M [00:02<00:35, 2.29MB/s]
-  6%|▌         | 4.81M/81.8M [00:02<00:29, 2.76MB/s]
-  7%|▋         | 5.38M/81.8M [00:03<00:24, 3.28MB/s]
-  7%|▋         | 5.82M/81.8M [00:03<00:22, 3.60MB/s]
-  8%|▊         | 6.29M/81.8M [00:03<00:20, 3.90MB/s]
-  8%|▊         | 6.73M/81.8M [00:03<00:19, 4.09MB/s]
-  9%|▉         | 7.18M/81.8M [00:03<00:18, 4.22MB/s]
-  9%|▉         | 7.69M/81.8M [00:03<00:17, 4.50MB/s]
- 10%|▉         | 8.14M/81.8M [00:03<00:17, 4.50MB/s]
- 11%|█         | 8.64M/81.8M [00:03<00:16, 4.66MB/s]
- 11%|█         | 9.10M/81.8M [00:03<00:16, 4.69MB/s]
- 12%|█▏        | 9.60M/81.8M [00:03<00:15, 4.80MB/s]
- 12%|█▏        | 10.1M/81.8M [00:04<00:16, 4.64MB/s]
- 13%|█▎        | 10.5M/81.8M [00:04<00:16, 4.66MB/s]
- 13%|█▎        | 11.0M/81.8M [00:04<00:16, 4.41MB/s]
- 14%|█▍        | 11.4M/81.8M [00:04<00:17, 4.28MB/s]
- 14%|█▍        | 11.8M/81.8M [00:04<00:18, 4.05MB/s]
- 15%|█▍        | 12.2M/81.8M [00:04<00:19, 3.81MB/s]
- 15%|█▌        | 12.6M/81.8M [00:04<00:20, 3.54MB/s]
- 16%|█▌        | 12.9M/81.8M [00:04<00:23, 3.12MB/s]
- 16%|█▌        | 13.3M/81.8M [00:05<00:25, 2.82MB/s]
- 17%|█▋        | 13.5M/81.8M [00:05<00:28, 2.48MB/s]
- 17%|█▋        | 13.8M/81.8M [00:05<00:36, 1.93MB/s]
- 17%|█▋        | 14.0M/81.8M [00:05<00:47, 1.49MB/s]
- 17%|█▋        | 14.2M/81.8M [00:05<01:00, 1.18MB/s]
- 18%|█▊        | 14.4M/81.8M [00:06<01:18, 895kB/s] 
- 18%|█▊        | 14.5M/81.8M [00:06<01:27, 806kB/s]
- 18%|█▊        | 14.6M/81.8M [00:06<01:36, 729kB/s]
- 18%|█▊        | 14.7M/81.8M [00:06<02:00, 585kB/s]
- 18%|█▊        | 14.8M/81.8M [00:06<01:51, 628kB/s]
- 18%|█▊        | 14.8M/81.8M [00:07<01:47, 650kB/s]
- 18%|█▊        | 14.9M/81.8M [00:07<01:40, 697kB/s]
- 18%|█▊        | 15.1M/81.8M [00:07<01:22, 848kB/s]
- 19%|█▊        | 15.3M/81.8M [00:07<01:06, 1.05MB/s]
- 19%|█▉        | 15.6M/81.8M [00:07<00:52, 1.32MB/s]
- 19%|█▉        | 15.9M/81.8M [00:07<00:43, 1.60MB/s]
- 20%|█▉        | 16.3M/81.8M [00:07<00:36, 1.90MB/s]
- 20%|██        | 16.6M/81.8M [00:07<00:31, 2.15MB/s]
- 21%|██        | 16.9M/81.8M [00:07<00:28, 2.42MB/s]
- 21%|██        | 17.2M/81.8M [00:08<00:25, 2.68MB/s]
- 22%|██▏       | 17.6M/81.8M [00:08<00:22, 2.99MB/s]
- 22%|██▏       | 18.0M/81.8M [00:08<00:20, 3.20MB/s]
- 22%|██▏       | 18.4M/81.8M [00:08<00:19, 3.44MB/s]
- 23%|██▎       | 18.8M/81.8M [00:08<00:18, 3.62MB/s]
- 23%|██▎       | 19.2M/81.8M [00:08<00:17, 3.78MB/s]
- 24%|██▍       | 19.6M/81.8M [00:08<00:16, 3.88MB/s]
- 24%|██▍       | 20.0M/81.8M [00:08<00:16, 3.95MB/s]
- 25%|██▍       | 20.4M/81.8M [00:08<00:16, 3.83MB/s]
- 25%|██▌       | 20.8M/81.8M [00:08<00:17, 3.57MB/s]
- 26%|██▌       | 21.1M/81.8M [00:09<00:18, 3.37MB/s]
- 26%|██▌       | 21.5M/81.8M [00:09<00:19, 3.20MB/s]
- 27%|██▋       | 21.8M/81.8M [00:09<00:19, 3.15MB/s]
- 27%|██▋       | 22.1M/81.8M [00:09<00:21, 2.86MB/s]
- 27%|██▋       | 22.4M/81.8M [00:09<00:22, 2.77MB/s]
- 28%|██▊       | 22.7M/81.8M [00:09<00:20, 3.04MB/s]
- 28%|██▊       | 23.1M/81.8M [00:09<00:19, 3.20MB/s]
- 29%|██▊       | 23.5M/81.8M [00:09<00:18, 3.35MB/s]
- 29%|██▉       | 23.8M/81.8M [00:10<00:19, 3.05MB/s]
- 29%|██▉       | 24.1M/81.8M [00:10<00:21, 2.82MB/s]
- 30%|██▉       | 24.4M/81.8M [00:10<00:25, 2.34MB/s]
- 30%|███       | 24.6M/81.8M [00:10<00:33, 1.78MB/s]
- 30%|███       | 24.8M/81.8M [00:10<00:40, 1.49MB/s]
- 31%|███       | 25.0M/81.8M [00:10<00:36, 1.61MB/s]
- 31%|███       | 25.2M/81.8M [00:10<00:33, 1.75MB/s]
- 31%|███       | 25.5M/81.8M [00:11<00:31, 1.89MB/s]
- 31%|███▏      | 25.7M/81.8M [00:11<00:30, 1.90MB/s]
- 32%|███▏      | 25.9M/81.8M [00:11<00:31, 1.88MB/s]
- 32%|███▏      | 26.1M/81.8M [00:11<00:34, 1.71MB/s]
- 32%|███▏      | 26.2M/81.8M [00:11<00:39, 1.47MB/s]
- 32%|███▏      | 26.4M/81.8M [00:11<00:47, 1.22MB/s]
- 32%|███▏      | 26.5M/81.8M [00:11<00:59, 966kB/s] 
- 33%|███▎      | 26.6M/81.8M [00:12<01:11, 804kB/s]
- 33%|███▎      | 26.8M/81.8M [00:12<01:26, 666kB/s]
- 33%|███▎      | 26.8M/81.8M [00:12<01:34, 609kB/s]
- 33%|███▎      | 26.9M/81.8M [00:12<01:41, 567kB/s]
- 33%|███▎      | 27.0M/81.8M [00:12<02:01, 473kB/s]
- 33%|███▎      | 27.0M/81.8M [00:13<02:01, 474kB/s]
- 33%|███▎      | 27.1M/81.8M [00:13<02:03, 466kB/s]
- 33%|███▎      | 27.1M/81.8M [00:13<02:07, 450kB/s]
- 33%|███▎      | 27.2M/81.8M [00:13<02:16, 420kB/s]
- 33%|███▎      | 27.2M/81.8M [00:13<02:25, 392kB/s]
- 33%|███▎      | 27.3M/81.8M [00:13<02:39, 357kB/s]
- 33%|███▎      | 27.3M/81.8M [00:13<02:40, 356kB/s]
- 33%|███▎      | 27.4M/81.8M [00:14<02:45, 345kB/s]
- 34%|███▎      | 27.4M/81.8M [00:14<02:52, 330kB/s]
- 34%|███▎      | 27.4M/81.8M [00:14<03:07, 305kB/s]
- 34%|███▎      | 27.5M/81.8M [00:14<02:58, 319kB/s]
- 34%|███▎      | 27.5M/81.8M [00:14<02:55, 324kB/s]
- 34%|███▎      | 27.6M/81.8M [00:14<02:54, 327kB/s]
- 34%|███▎      | 27.6M/81.8M [00:14<03:03, 310kB/s]
- 34%|███▍      | 27.6M/81.8M [00:14<03:21, 281kB/s]
- 34%|███▍      | 27.7M/81.8M [00:15<03:31, 268kB/s]
- 34%|███▍      | 27.7M/81.8M [00:15<04:01, 235kB/s]
- 34%|███▍      | 27.7M/81.8M [00:15<03:39, 258kB/s]
- 34%|███▍      | 27.8M/81.8M [00:15<03:31, 268kB/s]
- 34%|███▍      | 27.8M/81.8M [00:15<03:39, 258kB/s]
- 34%|███▍      | 27.8M/81.8M [00:15<03:31, 268kB/s]
- 34%|███▍      | 27.9M/81.8M [00:15<03:24, 276kB/s]
- 34%|███▍      | 27.9M/81.8M [00:16<03:12, 293kB/s]
- 34%|███▍      | 27.9M/81.8M [00:16<03:06, 303kB/s]
- 34%|███▍      | 28.0M/81.8M [00:16<02:56, 321kB/s]
- 34%|███▍      | 28.0M/81.8M [00:16<02:45, 341kB/s]
- 34%|███▍      | 28.1M/81.8M [00:16<02:32, 370kB/s]
- 34%|███▍      | 28.1M/81.8M [00:16<02:25, 387kB/s]
- 34%|███▍      | 28.2M/81.8M [00:16<02:20, 400kB/s]
- 34%|███▍      | 28.2M/81.8M [00:16<02:14, 418kB/s]
- 35%|███▍      | 28.2M/81.8M [00:16<02:11, 427kB/s]
- 35%|███▍      | 28.3M/81.8M [00:17<02:09, 434kB/s]
- 35%|███▍      | 28.3M/81.8M [00:17<02:06, 442kB/s]
- 35%|███▍      | 28.4M/81.8M [00:17<02:39, 352kB/s]
- 35%|███▍      | 28.4M/81.8M [00:17<02:54, 320kB/s]
- 35%|███▍      | 28.5M/81.8M [00:17<02:31, 370kB/s]
- 35%|███▍      | 28.6M/81.8M [00:17<02:08, 434kB/s]
- 35%|███▌      | 28.6M/81.8M [00:17<01:54, 486kB/s]
- 35%|███▌      | 28.7M/81.8M [00:17<01:40, 552kB/s]
- 35%|███▌      | 28.8M/81.8M [00:18<01:31, 604kB/s]
- 35%|███▌      | 28.9M/81.8M [00:18<01:20, 691kB/s]
- 35%|███▌      | 29.0M/81.8M [00:18<01:12, 766kB/s]
- 36%|███▌      | 29.1M/81.8M [00:18<01:06, 835kB/s]
- 36%|███▌      | 29.2M/81.8M [00:18<00:59, 933kB/s]
- 36%|███▌      | 29.4M/81.8M [00:18<00:50, 1.08MB/s]
- 36%|███▌      | 29.6M/81.8M [00:18<00:45, 1.21MB/s]
- 36%|███▋      | 29.7M/81.8M [00:18<00:46, 1.19MB/s]
- 37%|███▋      | 29.9M/81.8M [00:18<00:40, 1.35MB/s]
- 37%|███▋      | 30.1M/81.8M [00:19<00:35, 1.51MB/s]
- 37%|███▋      | 30.4M/81.8M [00:19<00:31, 1.72MB/s]
- 37%|███▋      | 30.5M/81.8M [00:19<00:30, 1.78MB/s]
- 38%|███▊      | 30.7M/81.8M [00:19<00:29, 1.83MB/s]
- 38%|███▊      | 30.9M/81.8M [00:19<00:28, 1.89MB/s]
- 38%|███▊      | 31.1M/81.8M [00:19<00:27, 1.93MB/s]
- 38%|███▊      | 31.3M/81.8M [00:19<00:27, 1.93MB/s]
- 39%|███▊      | 31.5M/81.8M [00:19<00:27, 1.91MB/s]
- 39%|███▉      | 31.7M/81.8M [00:19<00:28, 1.86MB/s]
- 39%|███▉      | 31.9M/81.8M [00:19<00:29, 1.79MB/s]
- 39%|███▉      | 32.1M/81.8M [00:20<00:30, 1.70MB/s]
- 39%|███▉      | 32.2M/81.8M [00:20<00:30, 1.72MB/s]
- 40%|███▉      | 32.4M/81.8M [00:20<00:31, 1.66MB/s]
- 40%|███▉      | 32.6M/81.8M [00:20<00:33, 1.55MB/s]
- 40%|████      | 32.7M/81.8M [00:20<00:34, 1.50MB/s]
- 40%|████      | 32.9M/81.8M [00:20<00:34, 1.47MB/s]
- 40%|████      | 33.0M/81.8M [00:20<00:35, 1.44MB/s]
- 41%|████      | 33.2M/81.8M [00:20<00:35, 1.44MB/s]
- 41%|████      | 33.3M/81.8M [00:20<00:35, 1.41MB/s]
- 41%|████      | 33.5M/81.8M [00:21<00:35, 1.43MB/s]
- 41%|████      | 33.6M/81.8M [00:21<00:35, 1.41MB/s]
- 41%|████▏     | 33.7M/81.8M [00:21<00:40, 1.25MB/s]
- 41%|████▏     | 33.9M/81.8M [00:21<00:42, 1.19MB/s]
- 42%|████▏     | 34.0M/81.8M [00:21<00:44, 1.12MB/s]
- 42%|████▏     | 34.1M/81.8M [00:21<00:49, 1.02MB/s]
- 42%|████▏     | 34.2M/81.8M [00:21<00:52, 954kB/s] 
- 42%|████▏     | 34.3M/81.8M [00:22<00:57, 870kB/s]
- 42%|████▏     | 34.4M/81.8M [00:22<01:02, 794kB/s]
- 42%|████▏     | 34.5M/81.8M [00:22<01:09, 710kB/s]
- 42%|████▏     | 34.6M/81.8M [00:22<01:17, 637kB/s]
- 42%|████▏     | 34.6M/81.8M [00:22<01:30, 547kB/s]
- 42%|████▏     | 34.7M/81.8M [00:22<01:46, 463kB/s]
- 42%|████▏     | 34.8M/81.8M [00:23<01:58, 418kB/s]
- 43%|████▎     | 34.8M/81.8M [00:23<02:14, 366kB/s]
- 43%|████▎     | 34.8M/81.8M [00:23<02:30, 328kB/s]
- 43%|████▎     | 34.9M/81.8M [00:23<02:44, 299kB/s]
- 43%|████▎     | 34.9M/81.8M [00:23<02:34, 317kB/s]
- 43%|████▎     | 35.0M/81.8M [00:23<02:27, 334kB/s]
- 43%|████▎     | 35.0M/81.8M [00:23<02:14, 364kB/s]
- 43%|████▎     | 35.0M/81.8M [00:23<02:14, 365kB/s]
- 43%|████▎     | 35.1M/81.8M [00:24<02:05, 391kB/s]
- 43%|████▎     | 35.1M/81.8M [00:24<02:03, 397kB/s]
- 43%|████▎     | 35.2M/81.8M [00:24<02:00, 405kB/s]
- 43%|████▎     | 35.2M/81.8M [00:24<01:56, 421kB/s]
- 43%|████▎     | 35.3M/81.8M [00:24<02:02, 399kB/s]
- 43%|████▎     | 35.3M/81.8M [00:24<02:02, 398kB/s]
- 43%|████▎     | 35.4M/81.8M [00:24<02:02, 397kB/s]
- 43%|████▎     | 35.4M/81.8M [00:24<02:04, 391kB/s]
- 43%|████▎     | 35.4M/81.8M [00:24<02:07, 381kB/s]
- 43%|████▎     | 35.5M/81.8M [00:25<02:09, 375kB/s]
- 43%|████▎     | 35.5M/81.8M [00:25<02:08, 378kB/s]
- 43%|████▎     | 35.6M/81.8M [00:25<02:07, 380kB/s]
- 44%|████▎     | 35.6M/81.8M [00:25<02:09, 374kB/s]
- 44%|████▎     | 35.6M/81.8M [00:25<02:09, 375kB/s]
- 44%|████▎     | 35.7M/81.8M [00:25<02:13, 361kB/s]
- 44%|████▎     | 35.7M/81.8M [00:25<02:16, 355kB/s]
- 44%|████▎     | 35.8M/81.8M [00:25<02:17, 352kB/s]
- 44%|████▍     | 35.8M/81.8M [00:26<02:16, 354kB/s]
- 44%|████▍     | 35.8M/81.8M [00:26<02:23, 337kB/s]
- 44%|████▍     | 35.9M/81.8M [00:26<02:24, 333kB/s]
- 44%|████▍     | 35.9M/81.8M [00:26<02:33, 313kB/s]
- 44%|████▍     | 36.0M/81.8M [00:26<02:25, 331kB/s]
- 44%|████▍     | 36.0M/81.8M [00:26<02:18, 347kB/s]
- 44%|████▍     | 36.0M/81.8M [00:26<02:10, 367kB/s]
- 44%|████▍     | 36.1M/81.8M [00:26<02:01, 393kB/s]
- 44%|████▍     | 36.1M/81.8M [00:26<01:58, 404kB/s]
- 44%|████▍     | 36.2M/81.8M [00:27<01:58, 405kB/s]
- 44%|████▍     | 36.2M/81.8M [00:27<01:52, 424kB/s]
- 44%|████▍     | 36.3M/81.8M [00:27<01:53, 422kB/s]
- 44%|████▍     | 36.3M/81.8M [00:27<01:48, 441kB/s]
- 44%|████▍     | 36.4M/81.8M [00:27<01:49, 435kB/s]
- 45%|████▍     | 36.4M/81.8M [00:27<01:51, 427kB/s]
- 45%|████▍     | 36.5M/81.8M [00:27<01:55, 413kB/s]
- 45%|████▍     | 36.5M/81.8M [00:27<01:58, 401kB/s]
- 45%|████▍     | 36.6M/81.8M [00:28<02:01, 389kB/s]
- 45%|████▍     | 36.6M/81.8M [00:28<02:03, 385kB/s]
- 45%|████▍     | 36.6M/81.8M [00:28<01:58, 398kB/s]
- 45%|████▍     | 36.7M/81.8M [00:28<02:02, 386kB/s]
- 45%|████▍     | 36.7M/81.8M [00:28<01:56, 406kB/s]
- 45%|████▍     | 36.8M/81.8M [00:28<01:56, 406kB/s]
- 45%|████▌     | 36.8M/81.8M [00:28<02:00, 391kB/s]
- 45%|████▌     | 36.9M/81.8M [00:28<02:05, 375kB/s]
- 45%|████▌     | 36.9M/81.8M [00:28<02:04, 378kB/s]
- 45%|████▌     | 36.9M/81.8M [00:29<02:46, 283kB/s]
- 45%|████▌     | 37.0M/81.8M [00:29<03:00, 261kB/s]
- 45%|████▌     | 37.0M/81.8M [00:29<02:33, 305kB/s]
- 45%|████▌     | 37.1M/81.8M [00:29<02:07, 367kB/s]
- 45%|████▌     | 37.2M/81.8M [00:29<01:49, 429kB/s]
- 46%|████▌     | 37.2M/81.8M [00:29<01:35, 490kB/s]
- 46%|████▌     | 37.3M/81.8M [00:29<01:25, 544kB/s]
- 46%|████▌     | 37.4M/81.8M [00:29<01:15, 614kB/s]
- 46%|████▌     | 37.5M/81.8M [00:30<01:07, 689kB/s]
- 46%|████▌     | 37.6M/81.8M [00:30<00:59, 778kB/s]
- 46%|████▌     | 37.7M/81.8M [00:30<00:54, 854kB/s]
- 46%|████▋     | 37.8M/81.8M [00:30<00:49, 931kB/s]
- 46%|████▋     | 37.9M/81.8M [00:30<00:46, 982kB/s]
- 47%|████▋     | 38.1M/81.8M [00:30<00:42, 1.08MB/s]
- 47%|████▋     | 38.2M/81.8M [00:30<00:39, 1.16MB/s]
- 47%|████▋     | 38.4M/81.8M [00:30<00:37, 1.23MB/s]
- 47%|████▋     | 38.5M/81.8M [00:30<00:35, 1.27MB/s]
- 47%|████▋     | 38.7M/81.8M [00:31<00:32, 1.40MB/s]
- 47%|████▋     | 38.8M/81.8M [00:31<00:30, 1.49MB/s]
- 48%|████▊     | 39.0M/81.8M [00:31<00:28, 1.59MB/s]
- 48%|████▊     | 39.2M/81.8M [00:31<00:25, 1.74MB/s]
- 48%|████▊     | 39.5M/81.8M [00:31<00:24, 1.82MB/s]
- 48%|████▊     | 39.7M/81.8M [00:31<00:23, 1.90MB/s]
- 49%|████▊     | 39.9M/81.8M [00:31<00:22, 1.97MB/s]
- 49%|████▉     | 40.1M/81.8M [00:31<00:22, 1.96MB/s]
- 49%|████▉     | 40.3M/81.8M [00:31<00:26, 1.65MB/s]
- 50%|████▉     | 40.6M/81.8M [00:32<00:22, 1.93MB/s]
- 50%|████▉     | 40.8M/81.8M [00:32<00:21, 1.95MB/s]
- 50%|█████     | 41.0M/81.8M [00:32<00:21, 1.96MB/s]
- 50%|█████     | 41.2M/81.8M [00:32<00:21, 2.00MB/s]
- 51%|█████     | 41.4M/81.8M [00:32<00:20, 2.03MB/s]
- 51%|█████     | 41.6M/81.8M [00:32<00:20, 2.10MB/s]
- 51%|█████     | 41.8M/81.8M [00:32<00:19, 2.10MB/s]
- 51%|█████▏    | 42.1M/81.8M [00:32<00:19, 2.15MB/s]
- 52%|█████▏    | 42.3M/81.8M [00:32<00:19, 2.18MB/s]
- 52%|█████▏    | 42.5M/81.8M [00:32<00:18, 2.26MB/s]
- 52%|█████▏    | 42.8M/81.8M [00:33<00:17, 2.32MB/s]
- 53%|█████▎    | 43.0M/81.8M [00:33<00:17, 2.32MB/s]
- 53%|█████▎    | 43.2M/81.8M [00:33<00:16, 2.38MB/s]
- 53%|█████▎    | 43.5M/81.8M [00:33<00:16, 2.39MB/s]
- 53%|█████▎    | 43.7M/81.8M [00:33<00:16, 2.49MB/s]
- 54%|█████▍    | 44.0M/81.8M [00:33<00:15, 2.53MB/s]
- 54%|█████▍    | 44.3M/81.8M [00:33<00:15, 2.56MB/s]
- 54%|█████▍    | 44.5M/81.8M [00:33<00:15, 2.54MB/s]
- 55%|█████▍    | 44.8M/81.8M [00:33<00:15, 2.56MB/s]
- 55%|█████▌    | 45.0M/81.8M [00:34<00:15, 2.49MB/s]
- 55%|█████▌    | 45.3M/81.8M [00:34<00:15, 2.41MB/s]
- 56%|█████▌    | 45.5M/81.8M [00:34<00:15, 2.38MB/s]
- 56%|█████▌    | 45.7M/81.8M [00:34<00:16, 2.23MB/s]
- 56%|█████▌    | 46.0M/81.8M [00:34<00:16, 2.25MB/s]
- 56%|█████▋    | 46.2M/81.8M [00:34<00:16, 2.24MB/s]
- 57%|█████▋    | 46.4M/81.8M [00:34<00:17, 2.11MB/s]
- 57%|█████▋    | 46.6M/81.8M [00:34<00:17, 2.09MB/s]
- 57%|█████▋    | 46.8M/81.8M [00:34<00:21, 1.67MB/s]
- 58%|█████▊    | 47.1M/81.8M [00:35<00:18, 1.95MB/s]
- 58%|█████▊    | 47.3M/81.8M [00:35<00:19, 1.90MB/s]
- 58%|█████▊    | 47.6M/81.8M [00:35<00:17, 2.09MB/s]
- 58%|█████▊    | 47.8M/81.8M [00:35<00:16, 2.17MB/s]
- 59%|█████▊    | 48.0M/81.8M [00:35<00:17, 2.00MB/s]
- 59%|█████▉    | 48.2M/81.8M [00:35<00:17, 2.01MB/s]
- 59%|█████▉    | 48.5M/81.8M [00:35<00:17, 2.00MB/s]
- 60%|█████▉    | 48.7M/81.8M [00:35<00:16, 2.07MB/s]
- 60%|█████▉    | 48.9M/81.8M [00:36<00:24, 1.39MB/s]
- 60%|██████    | 49.5M/81.8M [00:36<00:18, 1.81MB/s]
- 61%|██████    | 49.8M/81.8M [00:36<00:16, 2.02MB/s]
- 61%|██████    | 50.0M/81.8M [00:36<00:16, 2.03MB/s]
- 62%|██████▏   | 50.5M/81.8M [00:36<00:13, 2.48MB/s]
- 62%|██████▏   | 50.8M/81.8M [00:36<00:12, 2.69MB/s]
- 63%|██████▎   | 51.3M/81.8M [00:36<00:10, 3.07MB/s]
- 63%|██████▎   | 51.6M/81.8M [00:36<00:10, 3.15MB/s]
- 64%|██████▎   | 52.0M/81.8M [00:37<00:09, 3.32MB/s]
- 64%|██████▍   | 52.4M/81.8M [00:37<00:10, 2.90MB/s]
- 65%|██████▍   | 52.8M/81.8M [00:37<00:09, 3.29MB/s]
- 65%|██████▌   | 53.2M/81.8M [00:37<00:08, 3.35MB/s]
- 66%|██████▌   | 53.7M/81.8M [00:37<00:08, 3.67MB/s]
- 66%|██████▋   | 54.2M/81.8M [00:37<00:06, 4.15MB/s]
- 67%|██████▋   | 54.8M/81.8M [00:37<00:06, 4.58MB/s]
- 68%|██████▊   | 55.4M/81.8M [00:37<00:05, 5.04MB/s]
- 69%|██████▊   | 56.1M/81.8M [00:37<00:04, 5.44MB/s]
- 69%|██████▉   | 56.6M/81.8M [00:37<00:04, 5.55MB/s]
- 70%|██████▉   | 57.2M/81.8M [00:38<00:04, 5.47MB/s]
- 71%|███████   | 57.8M/81.8M [00:38<00:04, 5.59MB/s]
- 71%|███████▏  | 58.3M/81.8M [00:38<00:04, 5.31MB/s]
- 72%|███████▏  | 58.9M/81.8M [00:38<00:04, 5.20MB/s]
- 73%|███████▎  | 59.4M/81.8M [00:38<00:04, 5.28MB/s]
- 73%|███████▎  | 60.1M/81.8M [00:38<00:03, 5.70MB/s]
- 74%|███████▍  | 60.8M/81.8M [00:38<00:03, 6.15MB/s]
- 75%|███████▌  | 61.6M/81.8M [00:38<00:03, 6.72MB/s]
- 76%|███████▋  | 62.4M/81.8M [00:38<00:02, 7.01MB/s]
- 77%|███████▋  | 63.2M/81.8M [00:39<00:02, 7.55MB/s]
- 78%|███████▊  | 64.0M/81.8M [00:39<00:02, 7.63MB/s]
- 79%|███████▉  | 64.9M/81.8M [00:39<00:02, 8.12MB/s]
- 80%|████████  | 65.7M/81.8M [00:39<00:02, 8.05MB/s]
- 82%|████████▏ | 66.7M/81.8M [00:39<00:01, 8.52MB/s]
- 83%|████████▎ | 67.5M/81.8M [00:39<00:01, 8.36MB/s]
- 84%|████████▎ | 68.5M/81.8M [00:39<00:01, 8.82MB/s]
- 85%|████████▍ | 69.3M/81.8M [00:39<00:01, 8.63MB/s]
- 86%|████████▌ | 70.3M/81.8M [00:39<00:01, 9.06MB/s]
- 87%|████████▋ | 71.2M/81.8M [00:39<00:01, 8.80MB/s]
- 88%|████████▊ | 72.2M/81.8M [00:40<00:01, 9.25MB/s]
- 89%|████████▉ | 73.1M/81.8M [00:40<00:01, 9.00MB/s]
- 90%|█████████ | 74.0M/81.8M [00:40<00:00, 8.80MB/s]
- 92%|█████████▏| 74.9M/81.8M [00:40<00:00, 7.75MB/s]
- 92%|█████████▏| 75.6M/81.8M [00:40<00:00, 7.04MB/s]
- 93%|█████████▎| 76.3M/81.8M [00:40<00:00, 6.85MB/s]
- 94%|█████████▍| 77.0M/81.8M [00:40<00:00, 6.58MB/s]
- 95%|█████████▍| 77.7M/81.8M [00:40<00:00, 6.25MB/s]
- 96%|█████████▌| 78.3M/81.8M [00:41<00:00, 6.24MB/s]
- 96%|█████████▋| 78.9M/81.8M [00:41<00:00, 6.27MB/s]
- 97%|█████████▋| 79.5M/81.8M [00:41<00:00, 5.88MB/s]
- 98%|█████████▊| 80.1M/81.8M [00:41<00:00, 3.91MB/s]
- 99%|█████████▉| 81.0M/81.8M [00:41<00:00, 4.68MB/s]
-100%|█████████▉| 81.6M/81.8M [00:41<00:00, 3.97MB/s]
-100%|██████████| 81.8M/81.8M [00:41<00:00, 2.04MB/s]
-2021-05-31 00:00:52,666 - mmseg - WARNING - The model and loaded state dict do not match exactly
+2022-02-10 04:20:27,368 - mmseg - INFO - Set random seed to 1408348764, deterministic: False
+/workspace/bert/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+2022-02-10 04:20:27,573 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
+2022-02-10 04:20:27,573 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
+2022-02-10 04:20:27,573 - mmcv - INFO - Use load_from_openmmlab loader
+2022-02-10 04:20:27,972 - mmcv - WARNING - The model and loaded state dict do not match exactly
 
 unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modules.0.0.bn1.weight, incre_modules.0.0.bn1.bias, incre_modules.0.0.bn1.running_mean, incre_modules.0.0.bn1.running_var, incre_modules.0.0.bn1.num_batches_tracked, incre_modules.0.0.conv2.weight, incre_modules.0.0.bn2.weight, incre_modules.0.0.bn2.bias, incre_modules.0.0.bn2.running_mean, incre_modules.0.0.bn2.running_var, incre_modules.0.0.bn2.num_batches_tracked, incre_modules.0.0.conv3.weight, incre_modules.0.0.bn3.weight, incre_modules.0.0.bn3.bias, incre_modules.0.0.bn3.running_mean, incre_modules.0.0.bn3.running_var, incre_modules.0.0.bn3.num_batches_tracked, incre_modules.0.0.downsample.0.weight, incre_modules.0.0.downsample.1.weight, incre_modules.0.0.downsample.1.bias, incre_modules.0.0.downsample.1.running_mean, incre_modules.0.0.downsample.1.running_var, incre_modules.0.0.downsample.1.num_batches_tracked, incre_modules.1.0.conv1.weight, incre_modules.1.0.bn1.weight, incre_modules.1.0.bn1.bias, incre_modules.1.0.bn1.running_mean, incre_modules.1.0.bn1.running_var, incre_modules.1.0.bn1.num_batches_tracked, incre_modules.1.0.conv2.weight, incre_modules.1.0.bn2.weight, incre_modules.1.0.bn2.bias, incre_modules.1.0.bn2.running_mean, incre_modules.1.0.bn2.running_var, incre_modules.1.0.bn2.num_batches_tracked, incre_modules.1.0.conv3.weight, incre_modules.1.0.bn3.weight, incre_modules.1.0.bn3.bias, incre_modules.1.0.bn3.running_mean, incre_modules.1.0.bn3.running_var, incre_modules.1.0.bn3.num_batches_tracked, incre_modules.1.0.downsample.0.weight, incre_modules.1.0.downsample.1.weight, incre_modules.1.0.downsample.1.bias, incre_modules.1.0.downsample.1.running_mean, incre_modules.1.0.downsample.1.running_var, incre_modules.1.0.downsample.1.num_batches_tracked, incre_modules.2.0.conv1.weight, incre_modules.2.0.bn1.weight, incre_modules.2.0.bn1.bias, incre_modules.2.0.bn1.running_mean, incre_modules.2.0.bn1.running_var, incre_modules.2.0.bn1.num_batches_tracked, incre_modules.2.0.conv2.weight, incre_modules.2.0.bn2.weight, incre_modules.2.0.bn2.bias, incre_modules.2.0.bn2.running_mean, incre_modules.2.0.bn2.running_var, incre_modules.2.0.bn2.num_batches_tracked, incre_modules.2.0.conv3.weight, incre_modules.2.0.bn3.weight, incre_modules.2.0.bn3.bias, incre_modules.2.0.bn3.running_mean, incre_modules.2.0.bn3.running_var, incre_modules.2.0.bn3.num_batches_tracked, incre_modules.2.0.downsample.0.weight, incre_modules.2.0.downsample.1.weight, incre_modules.2.0.downsample.1.bias, incre_modules.2.0.downsample.1.running_mean, incre_modules.2.0.downsample.1.running_var, incre_modules.2.0.downsample.1.num_batches_tracked, incre_modules.3.0.conv1.weight, incre_modules.3.0.bn1.weight, incre_modules.3.0.bn1.bias, incre_modules.3.0.bn1.running_mean, incre_modules.3.0.bn1.running_var, incre_modules.3.0.bn1.num_batches_tracked, incre_modules.3.0.conv2.weight, incre_modules.3.0.bn2.weight, incre_modules.3.0.bn2.bias, incre_modules.3.0.bn2.running_mean, incre_modules.3.0.bn2.running_var, incre_modules.3.0.bn2.num_batches_tracked, incre_modules.3.0.conv3.weight, incre_modules.3.0.bn3.weight, incre_modules.3.0.bn3.bias, incre_modules.3.0.bn3.running_mean, incre_modules.3.0.bn3.running_var, incre_modules.3.0.bn3.num_batches_tracked, incre_modules.3.0.downsample.0.weight, incre_modules.3.0.downsample.1.weight, incre_modules.3.0.downsample.1.bias, incre_modules.3.0.downsample.1.running_mean, incre_modules.3.0.downsample.1.running_var, incre_modules.3.0.downsample.1.num_batches_tracked, downsamp_modules.0.0.weight, downsamp_modules.0.0.bias, downsamp_modules.0.1.weight, downsamp_modules.0.1.bias, downsamp_modules.0.1.running_mean, downsamp_modules.0.1.running_var, downsamp_modules.0.1.num_batches_tracked, downsamp_modules.1.0.weight, downsamp_modules.1.0.bias, downsamp_modules.1.1.weight, downsamp_modules.1.1.bias, downsamp_modules.1.1.running_mean, downsamp_modules.1.1.running_var, downsamp_modules.1.1.num_batches_tracked, downsamp_modules.2.0.weight, downsamp_modules.2.0.bias, downsamp_modules.2.1.weight, downsamp_modules.2.1.bias, downsamp_modules.2.1.running_mean, downsamp_modules.2.1.running_var, downsamp_modules.2.1.num_batches_tracked, final_layer.0.weight, final_layer.0.bias, final_layer.1.weight, final_layer.1.bias, final_layer.1.running_mean, final_layer.1.running_var, final_layer.1.num_batches_tracked, classifier.weight, classifier.bias
 
-2021-05-31 00:00:52,672 - mmseg - INFO - EncoderDecoder(
+2022-02-10 04:20:28,041 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+tools/train.py:226: UserWarning: SyncBN is only supported with DDP. To be compatible with DP, we convert SyncBN to BN. Please use dist_train.sh which can avoid this error.
+  'SyncBN is only supported with DDP. To be compatible with DP, '
+2022-02-10 04:20:28,055 - mmseg - INFO - EncoderDecoder(
   (backbone): HRNet(
     (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
     (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
@@ -1984,6 +1655,7 @@ unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modul
       )
     )
   )
+  init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
   (decode_head): FCNHead(
     input_transform=resize_concat, ignore_index=255, align_corners=False
     (loss_decode): CrossEntropyLoss()
@@ -1996,17 +1668,77 @@ unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modul
       )
     )
   )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 )
-2021-05-31 00:00:52,760 - mmseg - INFO - Loaded 2975 images
-2021-05-31 00:00:58,168 - mmseg - INFO - Start running, host: root@localhost, work_dir: /root/paddlejob/workspace/env_run/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes
-2021-05-31 00:00:58,168 - mmseg - INFO - workflow: [('train', 1)], max: 40 iters
-2021-05-31 00:01:05,406 - mmseg - INFO - Iter [4/40]	lr: 9.329e-03, eta: 0:01:03, time: 1.754, data_time: 0.360, memory: 13619, decode.loss_seg: 2.5925, decode.acc_seg: 27.0809, loss: 2.5925
-2021-05-31 00:01:07,572 - mmseg - INFO - Iter [8/40]	lr: 8.426e-03, eta: 0:00:36, time: 0.542, data_time: 0.020, memory: 13619, decode.loss_seg: 2.1637, decode.acc_seg: 46.9599, loss: 2.1637
-2021-05-31 00:01:09,739 - mmseg - INFO - Iter [12/40]	lr: 7.512e-03, eta: 0:00:26, time: 0.542, data_time: 0.021, memory: 13619, decode.loss_seg: 1.7868, decode.acc_seg: 49.7237, loss: 1.7868
-2021-05-31 00:01:11,909 - mmseg - INFO - Iter [16/40]	lr: 6.585e-03, eta: 0:00:20, time: 0.543, data_time: 0.020, memory: 13619, decode.loss_seg: 1.6069, decode.acc_seg: 52.5521, loss: 1.6069
-2021-05-31 00:01:14,089 - mmseg - INFO - Iter [20/40]	lr: 5.643e-03, eta: 0:00:15, time: 0.545, data_time: 0.021, memory: 13619, decode.loss_seg: 1.5263, decode.acc_seg: 52.9289, loss: 1.5263
-2021-05-31 00:01:16,264 - mmseg - INFO - Iter [24/40]	lr: 4.683e-03, eta: 0:00:11, time: 0.544, data_time: 0.020, memory: 13619, decode.loss_seg: 1.3463, decode.acc_seg: 60.3964, loss: 1.3463
-2021-05-31 00:01:18,418 - mmseg - INFO - Iter [28/40]	lr: 3.700e-03, eta: 0:00:08, time: 0.539, data_time: 0.020, memory: 13619, decode.loss_seg: 1.2535, decode.acc_seg: 62.1342, loss: 1.2535
-2021-05-31 00:01:20,570 - mmseg - INFO - Iter [32/40]	lr: 2.686e-03, eta: 0:00:05, time: 0.538, data_time: 0.019, memory: 13619, decode.loss_seg: 1.0634, decode.acc_seg: 71.3402, loss: 1.0634
-2021-05-31 00:01:22,713 - mmseg - INFO - Iter [36/40]	lr: 1.624e-03, eta: 0:00:02, time: 0.536, data_time: 0.019, memory: 13619, decode.loss_seg: 1.1742, decode.acc_seg: 65.5153, loss: 1.1742
-2021-05-31 00:01:24,857 - mmseg - INFO - Iter [40/40]	lr: 4.579e-04, eta: 0:00:00, time: 0.536, data_time: 0.019, memory: 13619, decode.loss_seg: 1.0480, decode.acc_seg: 63.7386, loss: 1.0480
+2022-02-10 04:20:28,130 - mmseg - INFO - Loaded 2975 images
+2022-02-10 04:20:30,182 - mmseg - INFO - Start running, host: root@instance-3bwob41y-16, work_dir: /workspace/bert/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes
+2022-02-10 04:20:30,183 - mmseg - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) PolyLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2022-02-10 04:20:30,184 - mmseg - INFO - workflow: [('train', 1)], max: 120 iters
+2022-02-10 04:20:36,481 - mmseg - INFO - Iter [4/120]	lr: 9.777e-03, eta: 0:02:56, time: 1.518, data_time: 0.341, memory: 13619, decode.loss_ce: 2.6534, decode.acc_seg: 23.9079, loss: 2.6534
+2022-02-10 04:20:38,701 - mmseg - INFO - Iter [8/120]	lr: 9.479e-03, eta: 0:01:56, time: 0.555, data_time: 0.021, memory: 13619, decode.loss_ce: 2.1305, decode.acc_seg: 35.4967, loss: 2.1305
+2022-02-10 04:20:40,882 - mmseg - INFO - Iter [12/120]	lr: 9.179e-03, eta: 0:01:34, time: 0.545, data_time: 0.018, memory: 13619, decode.loss_ce: 1.8554, decode.acc_seg: 40.2465, loss: 1.8554
+2022-02-10 04:20:43,092 - mmseg - INFO - Iter [16/120]	lr: 8.879e-03, eta: 0:01:22, time: 0.552, data_time: 0.019, memory: 13619, decode.loss_ce: 1.5423, decode.acc_seg: 60.2351, loss: 1.5423
+2022-02-10 04:20:45,307 - mmseg - INFO - Iter [20/120]	lr: 8.577e-03, eta: 0:01:14, time: 0.554, data_time: 0.019, memory: 13619, decode.loss_ce: 1.3761, decode.acc_seg: 60.3998, loss: 1.3761
+2022-02-10 04:20:47,532 - mmseg - INFO - Iter [24/120]	lr: 8.275e-03, eta: 0:01:08, time: 0.556, data_time: 0.021, memory: 13619, decode.loss_ce: 1.2807, decode.acc_seg: 64.0419, loss: 1.2807
+2022-02-10 04:20:49,728 - mmseg - INFO - Iter [28/120]	lr: 7.971e-03, eta: 0:01:03, time: 0.549, data_time: 0.019, memory: 13619, decode.loss_ce: 1.1701, decode.acc_seg: 65.4593, loss: 1.1701
+2022-02-10 04:20:51,926 - mmseg - INFO - Iter [32/120]	lr: 7.665e-03, eta: 0:00:59, time: 0.549, data_time: 0.019, memory: 13619, decode.loss_ce: 1.3369, decode.acc_seg: 61.1496, loss: 1.3369
+2022-02-10 04:20:54,134 - mmseg - INFO - Iter [36/120]	lr: 7.359e-03, eta: 0:00:55, time: 0.552, data_time: 0.018, memory: 13619, decode.loss_ce: 0.8606, decode.acc_seg: 73.5224, loss: 0.8606
+2022-02-10 04:20:56,360 - mmseg - INFO - Iter [40/120]	lr: 7.050e-03, eta: 0:00:51, time: 0.557, data_time: 0.019, memory: 13619, decode.loss_ce: 0.9016, decode.acc_seg: 72.4236, loss: 0.9016
+2022-02-10 04:20:58,537 - mmseg - INFO - Iter [44/120]	lr: 6.741e-03, eta: 0:00:48, time: 0.544, data_time: 0.017, memory: 13619, decode.loss_ce: 0.8583, decode.acc_seg: 69.6354, loss: 0.8583
+2022-02-10 04:21:00,801 - mmseg - INFO - Iter [48/120]	lr: 6.429e-03, eta: 0:00:45, time: 0.566, data_time: 0.019, memory: 13619, decode.loss_ce: 0.7569, decode.acc_seg: 67.4945, loss: 0.7569
+2022-02-10 04:21:03,012 - mmseg - INFO - Iter [52/120]	lr: 6.116e-03, eta: 0:00:42, time: 0.553, data_time: 0.018, memory: 13619, decode.loss_ce: 0.6793, decode.acc_seg: 75.4919, loss: 0.6793
+2022-02-10 04:21:05,192 - mmseg - INFO - Iter [56/120]	lr: 5.802e-03, eta: 0:00:39, time: 0.545, data_time: 0.019, memory: 13619, decode.loss_ce: 0.9105, decode.acc_seg: 69.4489, loss: 0.9105
+2022-02-10 04:21:07,365 - mmseg - INFO - Iter [60/120]	lr: 5.485e-03, eta: 0:00:36, time: 0.543, data_time: 0.017, memory: 13619, decode.loss_ce: 0.8249, decode.acc_seg: 71.9668, loss: 0.8249
+2022-02-10 04:21:09,558 - mmseg - INFO - Iter [64/120]	lr: 5.166e-03, eta: 0:00:34, time: 0.548, data_time: 0.020, memory: 13619, decode.loss_ce: 0.7012, decode.acc_seg: 77.8394, loss: 0.7012
+2022-02-10 04:21:11,748 - mmseg - INFO - Iter [68/120]	lr: 4.845e-03, eta: 0:00:31, time: 0.547, data_time: 0.019, memory: 13619, decode.loss_ce: 0.8691, decode.acc_seg: 70.1389, loss: 0.8691
+2022-02-10 04:21:13,956 - mmseg - INFO - Iter [72/120]	lr: 4.521e-03, eta: 0:00:29, time: 0.552, data_time: 0.019, memory: 13619, decode.loss_ce: 0.8299, decode.acc_seg: 73.5763, loss: 0.8299
+2022-02-10 04:21:16,217 - mmseg - INFO - Iter [76/120]	lr: 4.195e-03, eta: 0:00:26, time: 0.565, data_time: 0.019, memory: 13619, decode.loss_ce: 0.9274, decode.acc_seg: 66.6203, loss: 0.9274
+2022-02-10 04:21:18,470 - mmseg - INFO - Iter [80/120]	lr: 3.866e-03, eta: 0:00:24, time: 0.563, data_time: 0.018, memory: 13619, decode.loss_ce: 0.7978, decode.acc_seg: 70.6643, loss: 0.7978
+2022-02-10 04:21:20,726 - mmseg - INFO - Iter [84/120]	lr: 3.534e-03, eta: 0:00:21, time: 0.564, data_time: 0.018, memory: 13619, decode.loss_ce: 0.6680, decode.acc_seg: 74.5441, loss: 0.6680
+2022-02-10 04:21:22,965 - mmseg - INFO - Iter [88/120]	lr: 3.198e-03, eta: 0:00:19, time: 0.560, data_time: 0.017, memory: 13619, decode.loss_ce: 0.7495, decode.acc_seg: 73.8720, loss: 0.7495
+2022-02-10 04:21:25,196 - mmseg - INFO - Iter [92/120]	lr: 2.858e-03, eta: 0:00:16, time: 0.558, data_time: 0.018, memory: 13619, decode.loss_ce: 0.6822, decode.acc_seg: 73.1823, loss: 0.6822
+2022-02-10 04:21:27,365 - mmseg - INFO - Iter [96/120]	lr: 2.513e-03, eta: 0:00:14, time: 0.542, data_time: 0.020, memory: 13619, decode.loss_ce: 0.6032, decode.acc_seg: 79.2458, loss: 0.6032
+2022-02-10 04:21:29,537 - mmseg - INFO - Iter [100/120]	lr: 2.162e-03, eta: 0:00:11, time: 0.543, data_time: 0.018, memory: 13619, decode.loss_ce: 0.7454, decode.acc_seg: 72.2531, loss: 0.7454
+2022-02-10 04:21:31,716 - mmseg - INFO - Iter [104/120]	lr: 1.805e-03, eta: 0:00:09, time: 0.544, data_time: 0.019, memory: 13619, decode.loss_ce: 0.6982, decode.acc_seg: 73.8876, loss: 0.6982
+2022-02-10 04:21:33,885 - mmseg - INFO - Iter [108/120]	lr: 1.439e-03, eta: 0:00:07, time: 0.543, data_time: 0.019, memory: 13619, decode.loss_ce: 0.7653, decode.acc_seg: 74.7365, loss: 0.7653
+2022-02-10 04:21:36,062 - mmseg - INFO - Iter [112/120]	lr: 1.062e-03, eta: 0:00:04, time: 0.544, data_time: 0.020, memory: 13619, decode.loss_ce: 0.6154, decode.acc_seg: 77.0127, loss: 0.6154
+2022-02-10 04:21:38,235 - mmseg - INFO - Iter [116/120]	lr: 6.668e-04, eta: 0:00:02, time: 0.543, data_time: 0.018, memory: 13619, decode.loss_ce: 0.8196, decode.acc_seg: 73.3586, loss: 0.8196
+2022-02-10 04:21:40,411 - mmseg - INFO - Saving checkpoint at 120 iterations
+2022-02-10 04:21:40,650 - mmseg - INFO - Iter [120/120]	lr: 2.332e-04, eta: 0:00:00, time: 0.604, data_time: 0.019, memory: 13619, decode.loss_ce: 0.7056, decode.acc_seg: 76.2364, loss: 0.7056
