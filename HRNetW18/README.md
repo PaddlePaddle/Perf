@@ -83,8 +83,8 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
 - **拉取代码**
   ```bash
-  git clone https://github.com/PaddlePaddle/PaddleSeg.git -b benchmark
-  cd PaddleSeg && git checkout 318dd24cf3c7788f3fe88c7ccb910a09e6f469e5
+  git clone https://github.com/PaddlePaddle/PaddleSeg.git
+  cd PaddleSeg && git checkout 1f49e5cda6f65e8d483d8e42b739f93feb7d4639
   ```
 
 

@@ -60,7 +60,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout 99b1c898cead5603c945721162270c2fe077b4a2
+    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
 ```
 
 - **构建镜像**
@@ -188,7 +188,7 @@ python3 tools/train.py \
     --gpus 1 \
     --max_iters 40 \
     --log_iters 4 \
-    --batch_size 8 \
+    --batch_size 4 \
     --num_workers 8 \
 	$FP16
 
@@ -212,7 +212,7 @@ python3 -m torch.distributed.launch --nproc_per_node=${NUM_GPUS} \
                --nnodes=${NUM_NODES} --node_rank=$NODE_RANK --master_addr=$MASTER_NODE \
                --master_port=$MASTER_PORT \
                tools/train.py ${CONFIG_FILE} --launcher pytorch --no-validate \
-	       --max_iters 10 --log_iters 2 --batch_size 8 --num_workers 8 $FP16
+	       --max_iters 10 --log_iters 2 --batch_size 4 --num_workers 8 $FP16
 fi
 
 ```
@@ -220,7 +220,7 @@ fi
 
 - **单卡启动脚本：**
 
-    若测试单机单卡 batch_size=8、FP32 的训练性能，执行如下命令：
+    若测试单机单卡 batch_size=4、FP32 的训练性能，执行如下命令：
 
     ```bash
     cd mmsegmentation
@@ -229,7 +229,7 @@ fi
 
 - **8卡启动脚本：**
 
-    若测试单机8卡 batch_size=8、FP16 的训练性能，执行如下命令：
+    若测试单机8卡 batch_size=4、FP16 的训练性能，执行如下命令：
 
     ```bash
     cd mmsegmentation
@@ -253,10 +253,10 @@ fi
 
 > 单位： samples/sec
 
-|卡数 | FP32(BS=8) | AMP(BS=8) |
+|卡数 | FP32(BS=4) | AMP(BS=4) |
 |:-----:|:-----:|:-----:|
-|1 | 15  | 4.3  | 
-|8 | 75  | 16.8  |
+|1 | 4.25  | 7.76  | 
+|8 | 25.65 | 41.31  |
 |32 | 243 | 61.0 | 
 
 ## 五、日志数据
