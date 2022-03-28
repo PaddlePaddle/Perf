@@ -1,32 +1,44 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+W0205 04:25:37.551187 23767 tensorrt.cc:56] You are using Paddle compiled with TensorRT, but TensorRT dynamic library is not found. Ignore this if TensorRT is not needed.
+The TensorRT that Paddle depends on is not configured correctly.
+  Suggestions:
+  1. Check if the TensorRT is installed correctly and its version is matched with paddlepaddle you installed.
+  2. Configure environment variables as follows:
+  - Linux: set LD_LIBRARY_PATH by `export LD_LIBRARY_PATH=...`
+  - Windows: set PATH by `set PATH=XXX;%PATH%`
+  - Mac: set  DYLD_LIBRARY_PATH by `export DYLD_LIBRARY_PATH=...`
+/home/crim/benchmark/PaddleSeg/paddleseg/models/losses/rmi_loss.py:78: DeprecationWarning: invalid escape sequence \i
+  """
+2022-02-05 04:25:38 [INFO]	
 ------------Environment Information-------------
-platform: Linux-4.14.0_1-0-0-32-x86_64-with-Ubuntu-18.04-bionic
+platform: Linux-3.10.0-1062.18.1.el7.x86_64-x86_64-with-Ubuntu-18.04-bionic
 Python: 3.7.10 (default, Feb 20 2021, 21:17:23) [GCC 7.5.0]
 Paddle compiled with cuda: True
-NVCC: Build cuda_11.0_bu.TC445_37.28845127_0
-cudnn: 8.0
+NVCC: Build cuda_11.2.r11.2/compiler.29558016_0
+cudnn: 8.1
 GPUs used: 1
-CUDA_VISIBLE_DEVICES: 0
-GPU: ['GPU 0: Tesla V100-SXM2-32GB']
+CUDA_VISIBLE_DEVICES: 5
+GPU: ['GPU 0: Tesla V100-SXM2-32GB', 'GPU 1: Tesla V100-SXM2-32GB', 'GPU 2: Tesla V100-SXM2-32GB', 'GPU 3: Tesla V100-SXM2-32GB', 'GPU 4: Tesla V100-SXM2-32GB', 'GPU 5: Tesla V100-SXM2-32GB', 'GPU 6: Tesla V100-SXM2-32GB', 'GPU 7: Tesla V100-SXM2-32GB']
 GCC: gcc (GCC) 8.2.0
+PaddleSeg: develop
 PaddlePaddle: 0.0.0
-OpenCV: 4.0.0
+OpenCV: 4.2.0
 ------------------------------------------------
-2021-05-31 15:37:58 [INFO]	
+2022-02-05 04:25:38 [INFO]	
 ---------------Config Information---------------
 batch_size: 4
-iters: 20
-learning_rate:
-  decay:
-    end_lr: 0.0
-    power: 0.9
-    type: poly
-  value: 0.01
+iters: 200
 loss:
   coef:
   - 1
   types:
   - ignore_index: 255
     type: CrossEntropyLoss
+lr_scheduler:
+  end_lr: 0
+  learning_rate: 0.01
+  power: 0.9
+  type: PolynomialDecay
 model:
   aspp_ratios:
   - 1
@@ -49,6 +61,7 @@ model:
 optimizer:
   type: sgd
   weight_decay: 4.0e-05
+to_static_training: false
 train_dataset:
   dataset_root: data/cityscapes
   mode: train
@@ -72,84 +85,66 @@ val_dataset:
   - type: Normalize
   type: Cityscapes
 ------------------------------------------------
-W0531 15:37:58.285946  4048 device_context.cc:430] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.0, Runtime API Version: 11.0
-W0531 15:37:58.285980  4048 device_context.cc:448] device: 0, cuDNN Version: 8.0.
-2021-05-31 15:38:00 [INFO]	Loading pretrained model from https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
+W0205 04:25:38.975216 23767 device_context.cc:484] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
+W0205 04:25:38.975245 23767 device_context.cc:503] device: 0, cuDNN Version: 8.1.
+2022-02-05 04:25:41 [INFO]	Loading pretrained model from https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
 Connecting to https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
 Downloading resnet50_vd_ssld_v2.tar.gz
-
-[                                                  ] 0.00%
-[                                                  ] 0.55%
-[                                                  ] 1.34%
-[=                                                 ] 2.54%
-[==                                                ] 4.34%
-[===                                               ] 7.04%
-[=====                                             ] 11.15%
-[========                                          ] 17.37%
-[=============                                     ] 27.07%
-[====================                              ] 40.74%
-[===========================                       ] 54.79%
-[==================================                ] 68.43%
-[=========================================         ] 82.50%
-[================================================  ] 96.56%
-[==================================================] 100.00%
+[                                                  ] 0.00%[==                                                ] 4.65%[=======                                           ] 15.87%[==============                                    ] 28.35%[====================                              ] 40.88%[==========================                        ] 53.49%[================================                  ] 65.90%[=====================================             ] 74.95%[==========================================        ] 85.53%[================================================  ] 96.89%[==================================================] 100.00%
 Uncompress resnet50_vd_ssld_v2.tar.gz
-
-[                                                  ] 0.00%
-[=========================                         ] 50.00%
-[==================================================] 100.00%
-2021-05-31 15:38:06 [INFO]	There are 275/275 variables loaded into ResNet_vd.
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/cvlibs/param_init.py:89: DeprecationWarning: invalid escape sequence \s
-  """
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/binary_cross_entropy_loss.py:82: DeprecationWarning: invalid escape sequence \|
-  """
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/lovasz_loss.py:50: DeprecationWarning: invalid escape sequence \i
-  """
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/lovasz_loss.py:77: DeprecationWarning: invalid escape sequence \i
-  """
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/lovasz_loss.py:120: DeprecationWarning: invalid escape sequence \i
-  """
-/usr/local/lib/python3.7/dist-packages/scipy/linalg/__init__.py:212: DeprecationWarning: The module numpy.dual is deprecated.  Instead of using dual, use the functions directly from numpy or scipy.
-  from numpy.dual import register_func
-/usr/local/lib/python3.7/dist-packages/scipy/special/orthogonal.py:81: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
-Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-  from numpy import (exp, inf, pi, sqrt, floor, sin, cos, around, int,
-2021-05-31 15:38:12 [INFO]	[TRAIN] epoch: 1, iter: 1/20, loss: 3.2190, lr: 0.010000, batch_cost: 5.1140, reader_cost: 1.43108, ips: 0.7822 samples/sec | ETA 00:01:37
-2021-05-31 15:38:12 [INFO]	[TRAIN] epoch: 1, iter: 2/20, loss: 3.3329, lr: 0.009549, batch_cost: 0.6309, reader_cost: 0.00128, ips: 6.3397 samples/sec | ETA 00:00:11
-2021-05-31 15:38:13 [INFO]	[TRAIN] epoch: 1, iter: 3/20, loss: 3.0657, lr: 0.009095, batch_cost: 0.6282, reader_cost: 0.00152, ips: 6.3672 samples/sec | ETA 00:00:10
-2021-05-31 15:38:13 [INFO]	[TRAIN] epoch: 1, iter: 4/20, loss: 2.6452, lr: 0.008639, batch_cost: 0.6291, reader_cost: 0.00133, ips: 6.3583 samples/sec | ETA 00:00:10
-2021-05-31 15:38:14 [INFO]	[TRAIN] epoch: 1, iter: 5/20, loss: 2.1962, lr: 0.008181, batch_cost: 0.6353, reader_cost: 0.00160, ips: 6.2967 samples/sec | ETA 00:00:09
-2021-05-31 15:38:15 [INFO]	[TRAIN] epoch: 1, iter: 6/20, loss: 1.8020, lr: 0.007719, batch_cost: 0.6308, reader_cost: 0.00153, ips: 6.3410 samples/sec | ETA 00:00:08
-2021-05-31 15:38:15 [INFO]	[TRAIN] epoch: 1, iter: 7/20, loss: 2.0807, lr: 0.007254, batch_cost: 0.6307, reader_cost: 0.00157, ips: 6.3424 samples/sec | ETA 00:00:08
-2021-05-31 15:38:16 [INFO]	[TRAIN] epoch: 1, iter: 8/20, loss: 1.1934, lr: 0.006786, batch_cost: 0.6343, reader_cost: 0.00138, ips: 6.3061 samples/sec | ETA 00:00:07
-2021-05-31 15:38:17 [INFO]	[TRAIN] epoch: 1, iter: 9/20, loss: 2.4125, lr: 0.006314, batch_cost: 0.6350, reader_cost: 0.00137, ips: 6.2994 samples/sec | ETA 00:00:06
-2021-05-31 15:38:17 [INFO]	[TRAIN] epoch: 1, iter: 10/20, loss: 2.0026, lr: 0.005839, batch_cost: 0.6322, reader_cost: 0.00017, ips: 6.3276 samples/sec | ETA 00:00:06
-2021-05-31 15:38:18 [INFO]	[TRAIN] epoch: 1, iter: 11/20, loss: 1.5808, lr: 0.005359, batch_cost: 0.6290, reader_cost: 0.00015, ips: 6.3592 samples/sec | ETA 00:00:05
-2021-05-31 15:38:18 [INFO]	[TRAIN] epoch: 1, iter: 12/20, loss: 1.7126, lr: 0.004874, batch_cost: 0.6318, reader_cost: 0.00148, ips: 6.3315 samples/sec | ETA 00:00:05
-2021-05-31 15:38:19 [INFO]	[TRAIN] epoch: 1, iter: 13/20, loss: 1.9027, lr: 0.004384, batch_cost: 0.6381, reader_cost: 0.00140, ips: 6.2685 samples/sec | ETA 00:00:04
-2021-05-31 15:38:20 [INFO]	[TRAIN] epoch: 1, iter: 14/20, loss: 1.7622, lr: 0.003887, batch_cost: 0.6318, reader_cost: 0.00146, ips: 6.3313 samples/sec | ETA 00:00:03
-2021-05-31 15:38:20 [INFO]	[TRAIN] epoch: 1, iter: 15/20, loss: 1.6299, lr: 0.003384, batch_cost: 0.6290, reader_cost: 0.00135, ips: 6.3592 samples/sec | ETA 00:00:03
-2021-05-31 15:38:21 [INFO]	[TRAIN] epoch: 1, iter: 16/20, loss: 1.4962, lr: 0.002872, batch_cost: 0.6337, reader_cost: 0.00133, ips: 6.3124 samples/sec | ETA 00:00:02
-2021-05-31 15:38:22 [INFO]	[TRAIN] epoch: 1, iter: 17/20, loss: 1.9170, lr: 0.002349, batch_cost: 0.6337, reader_cost: 0.00135, ips: 6.3116 samples/sec | ETA 00:00:01
-2021-05-31 15:38:22 [INFO]	[TRAIN] epoch: 1, iter: 18/20, loss: 1.6249, lr: 0.001813, batch_cost: 0.6354, reader_cost: 0.00150, ips: 6.2950 samples/sec | ETA 00:00:01
-2021-05-31 15:38:23 [INFO]	[TRAIN] epoch: 1, iter: 19/20, loss: 1.6303, lr: 0.001259, batch_cost: 0.6306, reader_cost: 0.00146, ips: 6.3428 samples/sec | ETA 00:00:00
-2021-05-31 15:38:24 [INFO]	[TRAIN] epoch: 1, iter: 20/20, loss: 1.7657, lr: 0.000675, batch_cost: 0.6338, reader_cost: 0.00145, ips: 6.3116 samples/sec | ETA 00:00:00
-/usr/local/lib/python3.7/dist-packages/paddle/nn/layer/norm.py:641: UserWarning: When training, we now always track global mean and variance.
+[                                                  ] 0.00%[=========================                         ] 50.00%[==================================================] 100.00%
+2022-02-05 04:25:46 [INFO]	There are 275/275 variables loaded into ResNet_vd.
+/usr/local/lib/python3.7/dist-packages/paddle/nn/layer/norm.py:654: UserWarning: When training, we now always track global mean and variance.
   "When training, we now always track global mean and variance.")
-/root/paddlejob/workspace/env_run/PaddleSeg/paddleseg/models/losses/cross_entropy_loss.py:60: DeprecationWarning: [93m
-Warning:
-API "paddle.nn.functional.loss.softmax_with_cross_entropy" is deprecated since 2.0.0, and will be removed in future versions. Please use "paddle.nn.functional.cross_entropy" instead.
-reason: Please notice that behavior of "paddle.nn.functional.softmax_with_cross_entropy" and "paddle.nn.functional.cross_entropy" is different. [0m
-  logit, label, ignore_index=self.ignore_index, axis=axis)
-/usr/local/lib/python3.7/dist-packages/paddle/tensor/creation.py:135: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
-Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-  if data.dtype == np.object:
+/usr/local/lib/python3.7/dist-packages/paddle/fluid/dygraph/math_op_patch.py:259: UserWarning: The dtype of left and right variables are not the same, left dtype is paddle.float32, but right dtype is paddle.int64, the right dtype will convert to paddle.float32
+  format(lhs_dtype, rhs_dtype, lhs_dtype))
+2022-02-05 04:25:54 [INFO]	[TRAIN] epoch: 1, iter: 5/200, loss: 2.2272, lr: 0.009820, batch_cost: 1.5326, reader_cost: 0.36675, ips: 2.6100 samples/sec | ETA 00:04:58
+2022-02-05 04:25:57 [INFO]	[TRAIN] epoch: 1, iter: 10/200, loss: 1.9172, lr: 0.009594, batch_cost: 0.6474, reader_cost: 0.00152, ips: 6.1783 samples/sec | ETA 00:02:03
+2022-02-05 04:26:01 [INFO]	[TRAIN] epoch: 1, iter: 15/200, loss: 1.5051, lr: 0.009368, batch_cost: 0.6493, reader_cost: 0.00150, ips: 6.1601 samples/sec | ETA 00:02:00
+2022-02-05 04:26:04 [INFO]	[TRAIN] epoch: 1, iter: 20/200, loss: 1.3416, lr: 0.009141, batch_cost: 0.6490, reader_cost: 0.00181, ips: 6.1637 samples/sec | ETA 00:01:56
+2022-02-05 04:26:07 [INFO]	[TRAIN] epoch: 1, iter: 25/200, loss: 1.2941, lr: 0.008913, batch_cost: 0.6500, reader_cost: 0.00141, ips: 6.1538 samples/sec | ETA 00:01:53
+2022-02-05 04:26:10 [INFO]	[TRAIN] epoch: 1, iter: 30/200, loss: 1.6582, lr: 0.008685, batch_cost: 0.6495, reader_cost: 0.00221, ips: 6.1586 samples/sec | ETA 00:01:50
+2022-02-05 04:26:14 [INFO]	[TRAIN] epoch: 1, iter: 35/200, loss: 1.4450, lr: 0.008456, batch_cost: 0.6509, reader_cost: 0.00186, ips: 6.1458 samples/sec | ETA 00:01:47
+2022-02-05 04:26:17 [INFO]	[TRAIN] epoch: 1, iter: 40/200, loss: 1.3178, lr: 0.008227, batch_cost: 0.6491, reader_cost: 0.00161, ips: 6.1624 samples/sec | ETA 00:01:43
+2022-02-05 04:26:20 [INFO]	[TRAIN] epoch: 1, iter: 45/200, loss: 1.5263, lr: 0.007996, batch_cost: 0.6493, reader_cost: 0.00064, ips: 6.1608 samples/sec | ETA 00:01:40
+2022-02-05 04:26:23 [INFO]	[TRAIN] epoch: 1, iter: 50/200, loss: 0.8850, lr: 0.007765, batch_cost: 0.6524, reader_cost: 0.00208, ips: 6.1311 samples/sec | ETA 00:01:37
+2022-02-05 04:26:27 [INFO]	[TRAIN] epoch: 1, iter: 55/200, loss: 0.9072, lr: 0.007533, batch_cost: 0.6519, reader_cost: 0.00263, ips: 6.1364 samples/sec | ETA 00:01:34
+2022-02-05 04:26:30 [INFO]	[TRAIN] epoch: 1, iter: 60/200, loss: 1.5256, lr: 0.007301, batch_cost: 0.6527, reader_cost: 0.00235, ips: 6.1288 samples/sec | ETA 00:01:31
+2022-02-05 04:26:33 [INFO]	[TRAIN] epoch: 1, iter: 65/200, loss: 0.9676, lr: 0.007067, batch_cost: 0.6518, reader_cost: 0.00269, ips: 6.1370 samples/sec | ETA 00:01:27
+2022-02-05 04:26:36 [INFO]	[TRAIN] epoch: 1, iter: 70/200, loss: 1.2087, lr: 0.006833, batch_cost: 0.6532, reader_cost: 0.00256, ips: 6.1234 samples/sec | ETA 00:01:24
+2022-02-05 04:26:40 [INFO]	[TRAIN] epoch: 1, iter: 75/200, loss: 0.9867, lr: 0.006598, batch_cost: 0.6520, reader_cost: 0.00237, ips: 6.1350 samples/sec | ETA 00:01:21
+2022-02-05 04:26:43 [INFO]	[TRAIN] epoch: 1, iter: 80/200, loss: 0.9420, lr: 0.006362, batch_cost: 0.6526, reader_cost: 0.00251, ips: 6.1293 samples/sec | ETA 00:01:18
+2022-02-05 04:26:46 [INFO]	[TRAIN] epoch: 1, iter: 85/200, loss: 1.2080, lr: 0.006125, batch_cost: 0.6535, reader_cost: 0.00250, ips: 6.1212 samples/sec | ETA 00:01:15
+2022-02-05 04:26:49 [INFO]	[TRAIN] epoch: 1, iter: 90/200, loss: 0.9289, lr: 0.005887, batch_cost: 0.6521, reader_cost: 0.00249, ips: 6.1339 samples/sec | ETA 00:01:11
+2022-02-05 04:26:53 [INFO]	[TRAIN] epoch: 1, iter: 95/200, loss: 0.7476, lr: 0.005647, batch_cost: 0.6521, reader_cost: 0.00149, ips: 6.1337 samples/sec | ETA 00:01:08
+2022-02-05 04:26:56 [INFO]	[TRAIN] epoch: 1, iter: 100/200, loss: 1.0775, lr: 0.005407, batch_cost: 0.6521, reader_cost: 0.00246, ips: 6.1338 samples/sec | ETA 00:01:05
+2022-02-05 04:26:59 [INFO]	[TRAIN] epoch: 1, iter: 105/200, loss: 0.7555, lr: 0.005166, batch_cost: 0.6515, reader_cost: 0.00198, ips: 6.1394 samples/sec | ETA 00:01:01
+2022-02-05 04:27:02 [INFO]	[TRAIN] epoch: 1, iter: 110/200, loss: 1.1007, lr: 0.004923, batch_cost: 0.6518, reader_cost: 0.00200, ips: 6.1372 samples/sec | ETA 00:00:58
+2022-02-05 04:27:06 [INFO]	[TRAIN] epoch: 1, iter: 115/200, loss: 1.0076, lr: 0.004679, batch_cost: 0.6508, reader_cost: 0.00178, ips: 6.1462 samples/sec | ETA 00:00:55
+2022-02-05 04:27:09 [INFO]	[TRAIN] epoch: 1, iter: 120/200, loss: 0.9074, lr: 0.004433, batch_cost: 0.6530, reader_cost: 0.00136, ips: 6.1258 samples/sec | ETA 00:00:52
+2022-02-05 04:27:12 [INFO]	[TRAIN] epoch: 1, iter: 125/200, loss: 0.9724, lr: 0.004186, batch_cost: 0.6534, reader_cost: 0.00186, ips: 6.1214 samples/sec | ETA 00:00:49
+2022-02-05 04:27:15 [INFO]	[TRAIN] epoch: 1, iter: 130/200, loss: 0.7142, lr: 0.003937, batch_cost: 0.6517, reader_cost: 0.00234, ips: 6.1376 samples/sec | ETA 00:00:45
+2022-02-05 04:27:19 [INFO]	[TRAIN] epoch: 1, iter: 135/200, loss: 0.8439, lr: 0.003687, batch_cost: 0.6519, reader_cost: 0.00111, ips: 6.1357 samples/sec | ETA 00:00:42
+2022-02-05 04:27:22 [INFO]	[TRAIN] epoch: 1, iter: 140/200, loss: 0.8576, lr: 0.003435, batch_cost: 0.6534, reader_cost: 0.00090, ips: 6.1221 samples/sec | ETA 00:00:39
+2022-02-05 04:27:25 [INFO]	[TRAIN] epoch: 1, iter: 145/200, loss: 0.9565, lr: 0.003180, batch_cost: 0.6521, reader_cost: 0.00179, ips: 6.1344 samples/sec | ETA 00:00:35
+2022-02-05 04:27:29 [INFO]	[TRAIN] epoch: 1, iter: 150/200, loss: 0.8245, lr: 0.002923, batch_cost: 0.6524, reader_cost: 0.00246, ips: 6.1311 samples/sec | ETA 00:00:32
+2022-02-05 04:27:32 [INFO]	[TRAIN] epoch: 1, iter: 155/200, loss: 0.7315, lr: 0.002664, batch_cost: 0.6511, reader_cost: 0.00088, ips: 6.1433 samples/sec | ETA 00:00:29
+2022-02-05 04:27:35 [INFO]	[TRAIN] epoch: 1, iter: 160/200, loss: 0.9889, lr: 0.002402, batch_cost: 0.6515, reader_cost: 0.00116, ips: 6.1400 samples/sec | ETA 00:00:26
+2022-02-05 04:27:38 [INFO]	[TRAIN] epoch: 1, iter: 165/200, loss: 0.7616, lr: 0.002137, batch_cost: 0.6510, reader_cost: 0.00052, ips: 6.1448 samples/sec | ETA 00:00:22
+2022-02-05 04:27:42 [INFO]	[TRAIN] epoch: 1, iter: 170/200, loss: 0.7045, lr: 0.001868, batch_cost: 0.6519, reader_cost: 0.00184, ips: 6.1361 samples/sec | ETA 00:00:19
+2022-02-05 04:27:45 [INFO]	[TRAIN] epoch: 1, iter: 175/200, loss: 0.8638, lr: 0.001594, batch_cost: 0.6513, reader_cost: 0.00061, ips: 6.1417 samples/sec | ETA 00:00:16
+2022-02-05 04:27:48 [INFO]	[TRAIN] epoch: 1, iter: 180/200, loss: 0.6456, lr: 0.001315, batch_cost: 0.6535, reader_cost: 0.00187, ips: 6.1207 samples/sec | ETA 00:00:13
+2022-02-05 04:27:51 [INFO]	[TRAIN] epoch: 1, iter: 185/200, loss: 0.8971, lr: 0.001030, batch_cost: 0.6522, reader_cost: 0.00177, ips: 6.1334 samples/sec | ETA 00:00:09
+2022-02-05 04:27:55 [INFO]	[TRAIN] epoch: 1, iter: 190/200, loss: 0.9045, lr: 0.000735, batch_cost: 0.6531, reader_cost: 0.00153, ips: 6.1243 samples/sec | ETA 00:00:06
+2022-02-05 04:27:58 [INFO]	[TRAIN] epoch: 1, iter: 195/200, loss: 0.9522, lr: 0.000426, batch_cost: 0.6512, reader_cost: 0.00108, ips: 6.1421 samples/sec | ETA 00:00:03
+2022-02-05 04:28:01 [INFO]	[TRAIN] epoch: 1, iter: 200/200, loss: 0.7405, lr: 0.000085, batch_cost: 0.6531, reader_cost: 0.00156, ips: 6.1245 samples/sec | ETA 00:00:00
 <class 'paddle.nn.layer.pooling.AvgPool2D'>'s flops has been counted
 <class 'paddle.nn.layer.conv.Conv2D'>'s flops has been counted
 <class 'paddle.nn.layer.norm.BatchNorm2D'>'s flops has been counted
 <class 'paddle.nn.layer.activation.ReLU'>'s flops has been counted
 Cannot find suitable count function for <class 'paddle.nn.layer.pooling.MaxPool2D'>. Treat it as zero FLOPs.
 Cannot find suitable count function for <class 'paddleseg.models.layers.activation.Activation'>. Treat it as zero FLOPs.
+Cannot find suitable count function for <class 'paddleseg.models.layers.wrap_functions.Add'>. Treat it as zero FLOPs.
 <class 'paddle.nn.layer.pooling.AdaptiveAvgPool2D'>'s flops has been counted
 <class 'paddle.nn.layer.common.Dropout'>'s flops has been counted
-Total Flops: 645499392     Total Params: 26794243
+Total Flops: 228440246784     Total Params: 26794243
