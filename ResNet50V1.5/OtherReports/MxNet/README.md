@@ -26,9 +26,9 @@
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
 
 
 - 多机（32卡）
@@ -60,7 +60,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/MxNet/Classification/RN50v1.5
    # 本次测试是在如下版本下完成的：
-   git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+   git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
    ```
 
 - 制作Docker镜像
@@ -92,15 +92,14 @@
 
 - 下载我们编写的测试脚本，并执行该脚本
    ```bash
-   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/OtherReports/MxNet/scripts/mxnet_test_all.sh
+   cd scripts/
    bash mxnet_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：
    ```bash
-   /log/mxnet_gpu1_gpu8_fp32_bs96.txt
-   /log/mxnet_gpu1_gpu8_amp_bs128.txt
-   /log/mxnet_gpu1_gpu8_amp_bs192.txt
+   /log/mxnet_gpu1_gpu8_fp32_bs256.txt
+   /log/mxnet_gpu1_gpu8_amp_bs256.txt
    ```
 
 在NGC报告的[Training performance: NVIDIA DGX-2 (16x V100 32G)](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5#training-performance-nvidia-dgx-2-16x-v100-32g)小节，提供了其测试的参数配置。因此，我们提供的`mxnet_test_all.sh`是参考了其文档中的配置。
@@ -113,13 +112,12 @@
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=96) | AMP(BS=128) | AMP(BS=192)|
-|:-----:|:-----:|:-----:|:-----:|
-|1 | 360.73  | 1277.30 | 1355.00 |
-|8 | 2955.30   | 9449.30  | 10318.00 |
+|卡数 | FP32(BS=96) | AMP(BS=192)|
+|:-----:|:-----:|:-----:|
+|1 | 380.55  |  1359.4 |
+|8 | 3002.8   |  10494 |
 |32 | - | - | - |
 
 ## 五、日志数据
-- [1卡、8卡 FP32 BS=96 日志](./logs/mxnet_gpu1_gpu8_fp32_bs96.txt)
-- [1卡、8卡 AMP BS=128 日志](./logs/mxnet_gpu1_gpu8_amp_bs128.txt)
-- [1卡、8卡 AMP BS=192 日志](./logs/mxnet_gpu1_gpu8_amp_bs192.txt)
+- [1卡、8卡 FP32 BS=256 日志](./logs/mxnet_gpu1_gpu8_fp32_bs256.txt)
+- [1卡、8卡 AMP BS=256 日志](./logs/mxnet_gpu1_gpu8_amp_bs256.txt)

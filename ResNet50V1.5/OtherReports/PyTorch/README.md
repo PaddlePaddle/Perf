@@ -26,9 +26,10 @@
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
+
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -60,7 +61,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/PyTorch/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+   git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
    ```
 
 - 制作Docker镜像
@@ -93,19 +94,17 @@
 - 下载我们编写的测试脚本，并执行该脚本
 
    ```bash
-   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/OtherReports/PyTorch/scripts/pytorch_test_all.sh
+   cd scripts/
    bash pytorch_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：
 
    ```
-   /log/pytorch_gpu1_fp32_bs128.txt
-   /log/pytorch_gpu1_amp_bs128.txt
-   /log/pytorch_gpu1_amp_bs254.txt
-   /log/pytorch_gpu8_fp32_bs128.txt
-   /log/pytorch_gpu8_amp_bs128.txt
-   /log/pytorch_gpu8_amp_bs244.txt
+   /log/pytorch_gpu1_amp_bs256.txt
+   /log/pytorch_gpu1_fp32_bs256.txt
+   /log/pytorch_gpu8_amp_bs256.txt
+   /log/pytorch_gpu8_fp32_bs256.txt
    ```
 
 在NGC报告的[Training performance benchmark](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5#training-performance-benchmark)小节，提供了其测试的参数配置。因此，我们提供的`pytorch_test_all.sh`是参考了其文档中的配置。
@@ -169,21 +168,18 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
-|:-----:|:-----:|:-----:|:-----:|
-|1 | 358.30  | 752.39  | 763.54(BS=254)  |
-|8 | 2768.51 | 5587.31  | 5687.99 (BS=244) |
-|32 | 10393.2 | 17940.7 | 21697.85 |
+|卡数 | FP32(BS=128) | AMP(BS=256) |
+|:-----:|:-----:|:-----:|
+|1 | 363.765 | 773.304  | 
+|8 | 2787.43 | 5811.26  | 
+|32 |——| —— | 
 
-> 其中，AMP 8卡在BatchSize=256时会OOM，因此下调BatchSize为244; AMP 单卡在BatchSize=256时会OOM，因此下调BatchSize为254
 
 ## 五、日志数据
-- [1卡 FP32 BS=128 日志](./logs/pytorch_gpu1_fp32_bs128.txt)
-- [1卡 AMP BS=128 日志](./logs/pytorch_gpu1_amp_bs128.txt)
-- [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs254.txt)
-- [8卡 FP32 BS=128 日志](./logs/pytorch_gpu8_fp32_bs128.txt)
-- [8卡 AMP BS=128 日志](./logs/pytorch_gpu8_amp_bs128.txt)
-- [8卡 AMP BS=248 日志](./logs/pytorch_gpu8_amp_bs244.txt)
+- [1卡 FP32 BS=256 日志](./logs/pytorch_gpu1_fp32_bs256.txt)
+- [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs256.txt)
+- [8卡 FP32 BS=256 日志](./logs/pytorch_gpu8_fp32_bs256.txt)
+- [8卡 AMP BS=256 日志](./logs/pytorch_gpu8_amp_bs256.txt)
 - [32卡 FP32 BS=128 日志](./logs/pytorch_gpu32_fp32_bs128.txt)
 - [32卡 AMP BS=128 日志](./logs/pytorch_gpu32_amp_bs128.txt)
 - [32卡 AMP BS=256 日志](./logs/pytorch_gpu32_amp_bs256.txt)
