@@ -66,9 +66,9 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 80
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -79,8 +79,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.2.1-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.2.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.3.0.post112`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `11.2`
 - **cuDnn 版本:** `8.1.1`
@@ -95,7 +95,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git 
-  cd PaddleNLP && git checkout 5af122b71cb0028882791804183e916912cd02aa
+  cd PaddleNLP && git checkout 64ac2f404b7ec4607ae5ab7015b3a9918195823b
   cp requirements.txt examples/language_model/bert/static && cd examples/language_model/bert/static
   ```
 
@@ -104,7 +104,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:2.2.1-cuda11.2-cudnn8-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
    # 创建并进入容器
    nvidia-docker run --name=test_bert_paddle -it \
@@ -114,7 +114,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/models \
-    paddlepaddle/paddle-benchmark:2.2.1-cuda11.2-cudnn8-runtime-ubuntu16.04
+    paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
     /bin/bash 
    ```
 
@@ -193,18 +193,18 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 - **单卡启动脚本：**
 
-  若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
+  若测试单机单卡 batch_size=96、FP32 的训练性能，执行如下命令：
 
   ```bash
-  bash run_benchmark.sh 32 1 False
+  bash run_benchmark.sh 96 1 False
   ```
 
 - **8卡启动脚本：**
 
-  若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
+  若测试单机8卡 batch_size=96、FP16 的训练性能，执行如下命令：
 
   ```bash
-  bash run_benchmark.sh 64 8 True
+  bash run_benchmark.sh 96 8 True
   ```
 
 
