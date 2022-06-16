@@ -1,0 +1,91 @@
+/usr/local/lib/python3.7/dist-packages/scipy/sparse/sputils.py:23: DeprecationWarning: `np.typeDict` is a deprecated alias for `np.sctypeDict`.
+  supported_dtypes = [np.typeDict[x] for x in supported_dtypes]
+/usr/local/lib/python3.7/dist-packages/scipy/special/orthogonal.py:81: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from numpy import (exp, inf, pi, sqrt, floor, sin, cos, around, int,
+/usr/local/lib/python3.7/dist-packages/scipy/linalg/__init__.py:212: DeprecationWarning: The module numpy.dual is deprecated.  Instead of using dual, use the functions directly from numpy or scipy.
+  from numpy.dual import register_func
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': '<s>',
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': ['../examples/machine_translation/transformer/static//../dev.en',
+              '../examples/machine_translation/transformer/static//../dev.de'],
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': '<e>',
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 1000,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'num_workers': 0,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 128,
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': False,
+ 'shuffle_batch': False,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': ['../examples/machine_translation/transformer/static//../train.en',
+                '../examples/machine_translation/transformer/static//../train.de'],
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': '<unk>',
+ 'use_amp': True,
+ 'use_pure_fp16': True,
+ 'use_rel_len': False,
+ 'vocab_file': '../examples/machine_translation/transformer/static//../vocab_all.bpe.33712',
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:51812', '127.0.0.1:56133', '127.0.0.1:46539', '127.0.0.1:46732', '127.0.0.1:40397', '127.0.0.1:41808', '127.0.0.1:55326']
+server not ready, wait 3 sec to retry...
+not ready endpoints:['127.0.0.1:51812', '127.0.0.1:56133', '127.0.0.1:46539', '127.0.0.1:46732', '127.0.0.1:40397', '127.0.0.1:41808', '127.0.0.1:55326']
+W0608 21:23:29.483659  1569 gpu_context.cc:278] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.4, Runtime API Version: 11.2
+W0608 21:23:29.488335  1569 gpu_context.cc:306] device: 0, cuDNN Version: 8.1.
+W0608 21:23:36.516053  1569 build_strategy.cc:123] Currently, fuse_broadcast_ops only works under Reduce mode.
+W0608 21:23:36.710053  1569 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 257. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 44.
+2022-06-08 21:23:37,544-INFO: step_idx: 0, epoch: 0, batch: 0, avg loss: 11.294496, normalized loss: 9.926855, ppl: 80377.976562
+2022-06-08 21:23:52,545-INFO: step_idx: 100, epoch: 0, batch: 100, avg loss: 8.140300, normalized loss: 6.772659, ppl: 3429.945801, avg_speed: 6.67 step/s, batch_cost: 0.14987 sec, reader_cost: 0.00013 sec, tokens: 454782, ips: 30344.71340 words/sec
+2022-06-08 21:24:08,492-INFO: step_idx: 200, epoch: 1, batch: 24, avg loss: 7.268601, normalized loss: 5.900960, ppl: 1434.541992, avg_speed: 6.28 step/s, batch_cost: 0.15935 sec, reader_cost: 0.00389 sec, tokens: 427091, ips: 26802.06660 words/sec
+2022-06-08 21:24:23,263-INFO: step_idx: 300, epoch: 1, batch: 124, avg loss: 7.208208, normalized loss: 5.840567, ppl: 1350.469482, avg_speed: 6.77 step/s, batch_cost: 0.14760 sec, reader_cost: 0.00013 sec, tokens: 457069, ips: 30966.38730 words/sec
+2022-06-08 21:24:39,119-INFO: step_idx: 400, epoch: 2, batch: 48, avg loss: 6.585710, normalized loss: 5.218069, ppl: 724.665405, avg_speed: 6.31 step/s, batch_cost: 0.15844 sec, reader_cost: 0.00382 sec, tokens: 429577, ips: 27112.21314 words/sec
+2022-06-08 21:24:54,095-INFO: step_idx: 500, epoch: 2, batch: 148, avg loss: 6.550887, normalized loss: 5.183246, ppl: 699.864441, avg_speed: 6.68 step/s, batch_cost: 0.14965 sec, reader_cost: 0.00012 sec, tokens: 451707, ips: 30184.91532 words/sec
+2022-06-08 21:25:09,815-INFO: step_idx: 600, epoch: 3, batch: 72, avg loss: 5.851843, normalized loss: 4.484202, ppl: 347.874878, avg_speed: 6.37 step/s, batch_cost: 0.15709 sec, reader_cost: 0.00385 sec, tokens: 436909, ips: 27812.87616 words/sec
+2022-06-08 21:25:25,090-INFO: step_idx: 700, epoch: 3, batch: 172, avg loss: 5.675324, normalized loss: 4.307683, ppl: 291.582764, avg_speed: 6.55 step/s, batch_cost: 0.15264 sec, reader_cost: 0.00011 sec, tokens: 437784, ips: 28681.65906 words/sec
+2022-06-08 21:25:40,633-INFO: step_idx: 800, epoch: 4, batch: 96, avg loss: 5.112758, normalized loss: 3.745117, ppl: 166.127838, avg_speed: 6.44 step/s, batch_cost: 0.15533 sec, reader_cost: 0.00392 sec, tokens: 448322, ips: 28863.22854 words/sec
+2022-06-08 21:25:56,603-INFO: step_idx: 900, epoch: 5, batch: 20, avg loss: 4.924360, normalized loss: 3.556719, ppl: 137.601227, avg_speed: 6.27 step/s, batch_cost: 0.15958 sec, reader_cost: 0.00392 sec, tokens: 427391, ips: 26782.79838 words/sec

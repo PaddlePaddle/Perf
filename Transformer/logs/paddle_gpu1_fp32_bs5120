@@ -1,0 +1,94 @@
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:10: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _nlv = LooseVersion(_np_version)
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:11: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p16 = _nlv < LooseVersion("1.16")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:12: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p17 = _nlv < LooseVersion("1.17")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:13: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p18 = _nlv < LooseVersion("1.18")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:14: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p19 = _nlv < LooseVersion("1.19")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:15: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p20 = _nlv < LooseVersion("1.20")
+/usr/local/lib/python3.7/site-packages/setuptools/_distutils/version.py:351: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  other = LooseVersion(other)
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/function.py:125: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(_np_version) >= LooseVersion("1.17.0"):
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': '<s>',
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': ['../examples/machine_translation/transformer/static//../dev.en',
+              '../examples/machine_translation/transformer/static//../dev.de'],
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': '<e>',
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': False,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 1000,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'num_workers': 0,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 128,
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': False,
+ 'shuffle_batch': False,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': ['../examples/machine_translation/transformer/static//../train.en',
+                '../examples/machine_translation/transformer/static//../train.de'],
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': '<unk>',
+ 'use_amp': False,
+ 'use_pure_fp16': False,
+ 'use_rel_len': False,
+ 'vocab_file': '../examples/machine_translation/transformer/static//../vocab_all.bpe.33712',
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+W0608 16:14:26.000557  2747 gpu_context.cc:278] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.4, Runtime API Version: 11.2
+W0608 16:14:26.006937  2747 gpu_context.cc:306] device: 0, cuDNN Version: 8.1.
+2022-06-08 16:14:31,820-INFO: step_idx: 0, epoch: 0, batch: 0, avg loss: 11.308301, normalized loss: 9.940660, ppl: 81495.328125
+2022-06-08 16:15:19,571-INFO: step_idx: 100, epoch: 0, batch: 100, avg loss: 8.151463, normalized loss: 6.783822, ppl: 3468.448242, avg_speed: 2.10 step/s, batch_cost: 0.47727 sec, reader_cost: 0.00016 sec, tokens: 416194, ips: 8720.23371 words/sec
+2022-06-08 16:16:09,039-INFO: step_idx: 200, epoch: 0, batch: 200, avg loss: 7.322318, normalized loss: 5.954677, ppl: 1513.708740, avg_speed: 2.02 step/s, batch_cost: 0.49452 sec, reader_cost: 0.00014 sec, tokens: 449709, ips: 9093.91208 words/sec
+2022-06-08 16:16:58,961-INFO: step_idx: 300, epoch: 0, batch: 300, avg loss: 7.141231, normalized loss: 5.773590, ppl: 1262.982300, avg_speed: 2.00 step/s, batch_cost: 0.49905 sec, reader_cost: 0.00014 sec, tokens: 457623, ips: 9169.85606 words/sec
+2022-06-08 16:17:49,301-INFO: step_idx: 400, epoch: 0, batch: 400, avg loss: 6.909469, normalized loss: 5.541828, ppl: 1001.715393, avg_speed: 1.99 step/s, batch_cost: 0.50323 sec, reader_cost: 0.00014 sec, tokens: 458227, ips: 9105.66444 words/sec
+2022-06-08 16:18:40,260-INFO: step_idx: 500, epoch: 0, batch: 500, avg loss: 6.788923, normalized loss: 5.421282, ppl: 887.956543, avg_speed: 1.96 step/s, batch_cost: 0.50941 sec, reader_cost: 0.00014 sec, tokens: 465174, ips: 9131.58166 words/sec
+2022-06-08 16:19:30,688-INFO: step_idx: 600, epoch: 0, batch: 600, avg loss: 6.383385, normalized loss: 5.015744, ppl: 591.928101, avg_speed: 1.98 step/s, batch_cost: 0.50411 sec, reader_cost: 0.00014 sec, tokens: 457366, ips: 9072.66993 words/sec
+2022-06-08 16:20:21,616-INFO: step_idx: 700, epoch: 0, batch: 700, avg loss: 6.155852, normalized loss: 4.788211, ppl: 471.468475, avg_speed: 1.96 step/s, batch_cost: 0.50911 sec, reader_cost: 0.00015 sec, tokens: 459725, ips: 9029.93298 words/sec
+2022-06-08 16:21:12,395-INFO: step_idx: 800, epoch: 0, batch: 800, avg loss: 5.880887, normalized loss: 4.513246, ppl: 358.126801, avg_speed: 1.97 step/s, batch_cost: 0.50763 sec, reader_cost: 0.00016 sec, tokens: 456447, ips: 8991.68694 words/sec
+2022-06-08 16:22:03,388-INFO: step_idx: 900, epoch: 0, batch: 900, avg loss: 5.864487, normalized loss: 4.496846, ppl: 352.301453, avg_speed: 1.96 step/s, batch_cost: 0.50981 sec, reader_cost: 0.00011 sec, tokens: 453358, ips: 8892.72087 words/sec
