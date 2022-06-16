@@ -26,9 +26,9 @@
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -42,7 +42,7 @@
 我们使用 NGC TensorFlow 的代码仓库提供的Dockerfile制作镜像：
 
 - Docker: nvcr.io/nvidia/tensorflow:20.12-tf1-py3
-- TensorFlow：1.15.2+nv
+- TensorFlow：1.15.4+nv
 - 模型代码：[NVIDIA/DeepLearningExamples/TensorFLow](https://github.com/NVIDIA/DeepLearningExamples/tree/master/TensorFlow/Classification/ConvNets/resnet50v1.5)
 - CUDA：11
 - cuDNN：8.1.1
@@ -63,7 +63,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/TensorFlow/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+   git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
    ```
 
 - 制作Docker镜像
@@ -107,19 +107,17 @@
 - 下载我们编写的测试脚本，并执行该脚本
 
    ```bash
-   wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/OtherReports/TensorFlow/scripts/tf_test_all.sh
+   cd scripts/
    bash tf_test_all.sh
    ```
 
 - 执行后将得到如下日志文件：
 
    ```bash
-   /log/tf_gpu1_fp32_bs128.txt
-   /log/tf_gpu1_amp_bs128.txt
-   /log/tf_gpu1_amp_bs254.txt
-   /log/tf_gpu8_fp32_bs128.txt
-   /log/tf_gpu8_amp_bs128.txt
-   /log/tf_gpu8_amp_bs254.txt
+   /log/tf_gpu1_amp_bs256.txt
+   /log/tf_gpu1_fp32_bs256.txt
+   /log/tf_gpu8_amp_bs256.txt
+   /log/tf_gpu8_fp32_bs256.txt
    ```
 
 由于NGC TensorFlow的测试使用的是`training_perf.sh`，因此我们提供的`tf_test_all.sh`是参考了`training_perf.sh`的参数设置方法。
@@ -144,18 +142,16 @@ $mpirun  python main.py --mode=training_benchmark \
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=128) | AMP(BS=128) | AMP(BS=256)|
-|:-----:|:-----:|:-----:|:-----:|
-|1 | 408.70  | 1100.88  | 1166.72 (BS=254) |
-|8 | 3132.67 | 8434.85  | 9229.42 (BS=254) |
-|32 | 11622.9 | 21826.6 | 23280.9 |
+|卡数 | FP32(BS=128) | AMP(BS=256)|
+|:-----:|:-----:|:-----:|
+|1 | 414.733  | 1173.38 |
+|8 | 3275.93 | 9310.31 |
+|32 |—— | —— |
 
 ## 五、日志数据
-- [1卡 FP32 BS=128 日志](./logs/tf_gpu1_fp32_bs128.txt)
-- [1卡 AMP BS=128 日志](./logs/tf_gpu1_amp_bs128.txt)
+- [1卡 FP32 BS=256 日志](./logs/tf_gpu1_fp32_bs256.txt)
 - [1卡 AMP BS=256 日志](./logs/tf_gpu1_amp_bs256.txt)
-- [8卡 FP32 BS=128 日志](./logs/tf_gpu8_fp32_bs128.txt)
-- [8卡 AMP BS=128 日志](./logs/tf_gpu8_amp_bs128.txt)
+- [8卡 FP32 BS=256 日志](./logs/tf_gpu8_fp32_bs256.txt)
 - [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
 - [32卡 FP32 BS=128 日志](./logs/tf_gpu32_fp32_bs128.txt)
 - [32卡 AMP BS=128 日志](./logs/tf_gpu32_amp_bs128.txt)
