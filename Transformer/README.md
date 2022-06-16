@@ -39,7 +39,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 - **训练精度**
 
    FP32/AMP/FP16 是业界框架常用的精度训练模式，也是衡量框架性能的混合精度量化训练的重要维度。
-   本次测试分别对 FP32/AMP/FP16 精度模式进行了测试。
+   本次测试分别对 FP32/FP16 精度模式进行了测试。
 
 
 - **BatchSize**
@@ -47,8 +47,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
    本次测试，结合各框架具体情况，BatchSize(max_tokens)选用如下：
    | 参数 | PaddlePaddle | NGC PyTorch |
    |:-----:|:-----:|:-----:|
-   | FP32 | 2560 | 2560 |
-   | AMP | 5120 | 5120 |
+   | FP32 | 5120 | 5120 |
    | FP16 | 5120 | 5120 |
 
   
@@ -66,9 +65,9 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 80
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -79,8 +78,8 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.2.1-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.2.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.3.0.post112`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `11.2`
 - **cuDnn 版本:** `8.1.1`
@@ -95,7 +94,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git
-  cd PaddleNLP && git checkout 5af122b71cb0028882791804183e916912cd02aa
+  cd PaddleNLP && git checkout 64ac2f404b7ec4607ae5ab7015b3a9918195823b
   cp requirements.txt examples/machine_translation/transformer/ && cd examples/machine_translation/transformer/
   ```
 
@@ -104,7 +103,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:2.2.1-cuda11.2-cudnn8-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
    # 创建并进入容器
    nvidia-docker run --name=test_transformer_paddle -it \
@@ -114,7 +113,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/models \
-    paddlepaddle/paddle-benchmark:2.2.1-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
+    paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
    ```
 
 - **安装依赖**
@@ -132,11 +131,10 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 transformer测试目录位于`/workspace/models/static`。详细的测试方法在该目录已写明。
 根据测试的精度，需要调整/workspace/models/configs/transformer.big.yaml中的参数。
-| 精度 | batch_size | use_amp | use_pure_fp16 |
-|:-----:|:-----:|:-----:|:-----:|
-| FP32 | 2560 | False | False |
-| AMP | 5120 | True | False |
-| FP16 | 5120 | True | False |
+| 精度 | batch_size  | use_pure_fp16 |
+|:-----:|:-----:|:-----:|
+| FP32 | 5120  | True |
+| FP16 | 5120  | True |
 
 
 ## 五、测试结果
@@ -145,53 +143,44 @@ transformer测试目录位于`/workspace/models/static`。详细的测试方法�
 
 - 训练吞吐率(words/sec)如下:
 
-   |卡数 | FP32(BS=2560) | AMP(BS=5120) | FP16(BS=5120) |
-   |:-----:|:-----:|:-----:|:-----:|
-   |1 | 8307.823 | 33075.315 (O2) | —— |
-   |8 | 59054.012   | 223814.465  (O2) | —— |
-   |32 | 194040.4 | 613864.5 | 678315.9 |
+   |卡数 | FP32(BS=5120) | FP16(BS=5120) |
+   |:-----:|:-----:|:-----:|
+   |1 | 8996.75 | 34672.9 (O2) | 
+   |8 | 72040.66   | 224281.12  (O2) | 
+   |32 | 194040.4 | 678315.9 |
 
 ### 2.与业内其它框架对比
 
 - 说明：
   - 同等执行环境下测试
   - 单位：`words/sec`
-  - BatchSize FP32下选择 2560, AMP、FP16下选择 5120
+  - BatchSize FP32、FP16下选择 5120
 
 
 - FP32测试
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=2560 | 8307.823 | 8486.92  |
-  | GPU=8,BS=2560 | 59054.012  | 58073.97  |
-  | GPU=32,BS=2560 | 183830.0 | 166352.6 |
-
-
-- AMP测试
-
-  | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
-  |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 33075.315  | 31310.41  |
-  | GPU=8,BS=5120 | 223814.465  | 196715.091  |
-  | GPU=32,BS=5120 | 645118.1 | 385625.7 |
+  | GPU=1,BS=5120 | 8996.75 | 8965.18  |
+  | GPU=8,BS=5120 | 72040.66  | 64563.8  |
+  | GPU=32,BS=5120 | 183830.0 | 166352.6 |
 
 
 - FP16测试
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | —— | ——  |
-  | GPU=8,BS=5120 | —— | ——  |
+  | GPU=1,BS=5120 | 34672.9 (O2) | 30869.8  |
+  | GPU=8,BS=5120 | 224281.12 (O2) | 202323  |
   | GPU=32,BS=5120 | 682820.5 | 590188.7 |
 
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
-- [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs2560)
-- [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs2560)
-- [单机单卡、AMP](./logs/paddle_gpu1_amp_bs5120)
-- [单机八卡、AMP](./logs/paddle_gpu8_amp_bs5120)
+- [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs5120)
+- [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs5120)
+- [单机单卡、FP16](./logs/paddle_gpu1_pure_fp16_bs5120)
+- [单机八卡、FP16](./logs/paddle_gpu8_pure_fp16_bs5120)
 - [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2560)
 - [4机32卡、FP16](./logs/paddle_gpu32_fp16_bs5120)
 - [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs5120)

@@ -1,0 +1,95 @@
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:10: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _nlv = LooseVersion(_np_version)
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:11: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p16 = _nlv < LooseVersion("1.16")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:12: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p17 = _nlv < LooseVersion("1.17")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:13: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p18 = _nlv < LooseVersion("1.18")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:14: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p19 = _nlv < LooseVersion("1.19")
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/__init__.py:15: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  _np_version_under1p20 = _nlv < LooseVersion("1.20")
+/usr/local/lib/python3.7/site-packages/setuptools/_distutils/version.py:351: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  other = LooseVersion(other)
+/usr/local/lib/python3.7/site-packages/pandas/compat/numpy/function.py:125: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if LooseVersion(_np_version) >= LooseVersion("1.17.0"):
+{'alpha': 0.6,
+ 'batch_size': 5120,
+ 'beam_search_version': 'v1',
+ 'beam_size': 4,
+ 'benchmark': True,
+ 'beta1': 0.9,
+ 'beta2': 0.997,
+ 'bos_idx': 0,
+ 'bos_token': '<s>',
+ 'bsz_multi': 8,
+ 'd_inner_hid': 4096,
+ 'd_model': 1024,
+ 'dev_file': ['../examples/machine_translation/transformer/static//../dev.en',
+              '../examples/machine_translation/transformer/static//../dev.de'],
+ 'device': 'gpu',
+ 'diversity_rate': 0.0,
+ 'dropout': 0.1,
+ 'eos_idx': 1,
+ 'eos_token': '<e>',
+ 'epoch': 30,
+ 'eps': '1e-9',
+ 'infer_batch_size': 8,
+ 'inference_model_dir': 'infer_model',
+ 'init_from_checkpoint': '',
+ 'init_from_params': './trained_models/step_final/',
+ 'init_from_pretrain_model': '',
+ 'input_dtype': 'int64',
+ 'is_distributed': True,
+ 'label_smooth_eps': 0.1,
+ 'learning_rate': 2.0,
+ 'max_iter': 1000,
+ 'max_length': 1024,
+ 'max_out_len': 1024,
+ 'n_best': 1,
+ 'n_head': 16,
+ 'n_layer': 6,
+ 'num_workers': 0,
+ 'output_file': 'predict.txt',
+ 'pad_factor': 8,
+ 'pad_seq': 1,
+ 'pool_size': 200000,
+ 'print_step': 100,
+ 'random_seed': 128,
+ 'save_model': 'trained_models',
+ 'save_step': 10000,
+ 'scale_loss': 128.0,
+ 'shuffle': False,
+ 'shuffle_batch': False,
+ 'shuffle_seed': 128,
+ 'sort_type': 'global',
+ 'special_token': ['<s>', '<e>', '<unk>'],
+ 'src_lang': 'en',
+ 'src_vocab_size': 10000,
+ 'task_name': 'de-en',
+ 'train_file': ['../examples/machine_translation/transformer/static//../train.en',
+                '../examples/machine_translation/transformer/static//../train.de'],
+ 'trg_lang': 'de',
+ 'trg_vocab_size': 10000,
+ 'unk_idx': 2,
+ 'unk_token': '<unk>',
+ 'use_amp': False,
+ 'use_pure_fp16': False,
+ 'use_rel_len': False,
+ 'vocab_file': '../examples/machine_translation/transformer/static//../vocab_all.bpe.33712',
+ 'warmup_steps': 4000,
+ 'weight_sharing': True}
+W0608 16:42:43.329213  3438 gpu_context.cc:278] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.4, Runtime API Version: 11.2
+W0608 16:42:43.333871  3438 gpu_context.cc:306] device: 0, cuDNN Version: 8.1.
+W0608 16:42:48.041471  3438 build_strategy.cc:123] Currently, fuse_broadcast_ops only works under Reduce mode.
+2022-06-08 16:42:48,603-INFO: step_idx: 0, epoch: 0, batch: 0, avg loss: 11.307055, normalized loss: 9.939415, ppl: 81393.890625
+2022-06-08 16:43:36,241-INFO: step_idx: 100, epoch: 0, batch: 100, avg loss: 8.151405, normalized loss: 6.783764, ppl: 3468.249756, avg_speed: 2.10 step/s, batch_cost: 0.47621 sec, reader_cost: 0.00018 sec, tokens: 416194, ips: 8739.63170 words/sec
+2022-06-08 16:44:25,654-INFO: step_idx: 200, epoch: 0, batch: 200, avg loss: 7.322684, normalized loss: 5.955043, ppl: 1514.262451, avg_speed: 2.02 step/s, batch_cost: 0.49398 sec, reader_cost: 0.00014 sec, tokens: 449709, ips: 9103.72073 words/sec
+2022-06-08 16:45:15,531-INFO: step_idx: 300, epoch: 0, batch: 300, avg loss: 7.139831, normalized loss: 5.772190, ppl: 1261.215332, avg_speed: 2.01 step/s, batch_cost: 0.49864 sec, reader_cost: 0.00014 sec, tokens: 457623, ips: 9177.51244 words/sec
+2022-06-08 16:46:05,809-INFO: step_idx: 400, epoch: 0, batch: 400, avg loss: 6.907315, normalized loss: 5.539674, ppl: 999.559692, avg_speed: 1.99 step/s, batch_cost: 0.50264 sec, reader_cost: 0.00014 sec, tokens: 458227, ips: 9116.39138 words/sec
+2022-06-08 16:46:56,755-INFO: step_idx: 500, epoch: 0, batch: 500, avg loss: 6.791243, normalized loss: 5.423602, ppl: 890.018799, avg_speed: 1.96 step/s, batch_cost: 0.50930 sec, reader_cost: 0.00016 sec, tokens: 465174, ips: 9133.64780 words/sec
+2022-06-08 16:47:47,191-INFO: step_idx: 600, epoch: 0, batch: 600, avg loss: 6.383778, normalized loss: 5.016137, ppl: 592.160461, avg_speed: 1.98 step/s, batch_cost: 0.50422 sec, reader_cost: 0.00014 sec, tokens: 457366, ips: 9070.71928 words/sec
+2022-06-08 16:48:38,046-INFO: step_idx: 700, epoch: 0, batch: 700, avg loss: 6.156315, normalized loss: 4.788674, ppl: 471.686829, avg_speed: 1.97 step/s, batch_cost: 0.50840 sec, reader_cost: 0.00014 sec, tokens: 459725, ips: 9042.54172 words/sec
+2022-06-08 16:49:28,778-INFO: step_idx: 800, epoch: 0, batch: 800, avg loss: 5.873528, normalized loss: 4.505887, ppl: 355.500793, avg_speed: 1.97 step/s, batch_cost: 0.50717 sec, reader_cost: 0.00017 sec, tokens: 456447, ips: 8999.81980 words/sec
+2022-06-08 16:50:19,690-INFO: step_idx: 900, epoch: 0, batch: 900, avg loss: 5.862045, normalized loss: 4.494404, ppl: 351.442200, avg_speed: 1.96 step/s, batch_cost: 0.50898 sec, reader_cost: 0.00014 sec, tokens: 453358, ips: 8907.24709 words/sec

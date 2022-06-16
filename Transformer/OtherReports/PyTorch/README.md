@@ -29,9 +29,9 @@
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 80
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
  
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -61,7 +61,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/Translation/Transformer
     # 本次测试是在如下版本下完成的：
-    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+    git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
     ```
 
 - **构建镜像**
@@ -89,7 +89,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
 
 ## 三、测试步骤
 
-为了更准确的测试 NGC PyTorch 在 `NVIDIA DGX-1 (8x V100 16GB)` 上的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
+为了更准确的测试 NGC PyTorch 在 `NVIDIA DGX-1 (8x V100 32GB)` 上的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
 根据官方提供的 [train.py](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/Translation/Transformer/train.py) 脚本中执行计算吞吐。
 
@@ -158,10 +158,10 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 - **单卡启动脚本：**
 
-    若测试单机单卡 batch_size=2560、FP32 的训练性能，执行如下命令：
+    若测试单机单卡 batch_size=5120、FP32 的训练性能，执行如下命令：
 
     ```bash
-    bash scripts/run_benchmark.sh 1 2560 fp32
+    bash scripts/run_benchmark.sh 1 5120 fp32
     ```
 
 - **8卡启动脚本：**
@@ -201,18 +201,18 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 > 单位： words/sec
 
-|卡数 | FP32(BS=2560) | AMP(BS=5120) | FP16(BS=5120) |
-|:-----:|:-----:|:-----:|:-----:|
-|1 | 8486.92  | 31310.41  | —— |
-|8 | 58073.97  | 196715.091  | —— |
-|32 | 166352.6 | 385625.7 | 590188.7 |
+|卡数 | FP32(BS=5120) | FP16(BS=5120) |
+|:-----:|:-----:|:-----:|
+|1 | 8965.18  | 30869.8  | 
+|8 | 64563.8  | 202323 |
+|32 | 166352.6 | 385625.7 | 
 
 ## 五、日志数据
 ### 1.日志
-- [单机单卡、FP32](./logs/pytorch_gpu1_fp32_bs2560)
-- [单机八卡、FP32](./logs/pytorch_gpu8_fp32_bs2560)
-- [单机单卡、AMP](./logs/pytorch_gpu1_amp_bs5120)
-- [单机八卡、AMP](./logs/pytorch_gpu8_amp_bs5120)
+- [单机单卡、FP32](./logs/transformer_pytorch_bs5120_fp32_gpu1)
+- [单机八卡、FP32](./logs/transformer_pytorch_bs5120_fp32_gpu8)
+- [单机单卡、FP16](./logs/transformer_pytorch_bs5120_fp16_gpu1)
+- [单机八卡、FP16](./logs/transformer_pytorch_bs5120_fp16_gpu8)
 - [4机32卡、FP32](./logs/pytorch_gpu32_fp32_bs2560)
 - [4机32卡、FP16](./logs/pytorch_gpu32_fp16_bs5120)
 - [4机32卡、AMP ](./logs/pytorch_gpu32_amp_bs5120)
