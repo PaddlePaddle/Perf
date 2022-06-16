@@ -28,9 +28,10 @@
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
+ 
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -60,7 +61,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   git clone https://github.com/NVIDIA/DeepLearningExamples
   cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
   # 本次测试是在如下版本下完成的：
-  git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+  git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
   ```
 
 - **构建镜像**
@@ -120,7 +121,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 ## 三、测试步骤
 
-为了更准确的测试 NGC TensorFlow 在 `NVIDIA DGX-1 (8x V100 16GB)` 的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
+为了更准确的测试 NGC TensorFlow 在 `NVIDIA DGX-1 (8x V100 32GB)` 的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
 官方提供的 [scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh) 执行脚本中，默认配置的是两阶段训练。我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。因此我们注释掉了[scripts/run_pretraining_lamb.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/TensorFlow/LanguageModeling/BERT/scripts/run_pretraining_lamb.sh#L60)的60行：
 
@@ -164,18 +165,18 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
 
 - **单卡启动脚本：**
 
-  若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
+  若测试单机单卡 batch_size=96、FP32 的训练性能，执行如下命令：
 
   ```bash
-  bash scripts/run_benchmark.sh 32 1 fp32
+  bash scripts/run_benchmark.sh 96 1 fp32
   ```
 
 - **8卡启动脚本：**
 
-  若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
+  若测试单机8卡 batch_size=96、FP16 的训练性能，执行如下命令：
 
   ```bash
-  bash scripts/run_benchmark.sh 64 8 fp16
+  bash scripts/run_benchmark.sh 96 8 fp16
   ```
 
 ### 2. 多机（32卡）测试
@@ -191,23 +192,19 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 
 ## 四、测试结果
 
-|卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 145.33 | 153.86 | 466.13 | 504.84 |
-|8 | 1105.46 | 1190.22 | 3351.06 | 3772.37 |
-|32 | 4379.4 | 4723.5 | 14773.4 | 16554.3|
-|32<sup>[W/O AccGrad]</sup> | 2943.8 | 3450.1 | 9993.1 | 12767.2|
+|卡数 | FP32(BS=32) | AMP(BS=96)|
+|:-----:|:-----:|:-----:|
+|1 | 156.334 | 530.277 |
+|8 | 1231.74 | 4181.32 |
+|32 | 4379.4 | 16554.3|
+|32<sup>[W/O AccGrad]</sup> | 2943.8 | 12767.2|
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu1.log)
-- [单卡 bs=48、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu1.log)
-- [单卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu1.log)
+- [单卡 bs=96、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs96_gpu1.log)
 - [单卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu1.log)
-- [8卡 bs=32、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu8.log)
-- [8卡 bs=48、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu8.log)
-- [8卡 bs=64、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs64_gpu8.log)
+- [8卡 bs=96、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs96_gpu8.log)
 - [8卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu8.log)
 - [32卡 bs=32、FP32、GradAcc](./logs/tf_bert_pretraining_lamb_base_fp32_bs32_gpu32.log)
 - [32卡 bs=48、FP32、GradAcc](./logs/tf_bert_pretraining_lamb_base_fp32_bs48_gpu32.log)
