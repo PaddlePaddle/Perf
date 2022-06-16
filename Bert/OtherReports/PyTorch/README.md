@@ -29,9 +29,9 @@
 - 单机（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 40
-  - Driver Version: 460.27.04
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB
  
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -45,7 +45,7 @@
 NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT/scripts/docker/build.sh)，
 
 - **镜像版本**: `nvcr.io/nvidia/pytorch:20.06-py3`
-- **PyTorch 版本**: `1.6.0a0+9907a3e`
+- **PyTorch 版本**: `1.11.0a0+b6df043`
 - **CUDA 版本**: `11.0.167`
 - **cuDnn 版本**: `8.0.1`
 
@@ -61,7 +61,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+    git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
     ```
 
 - **构建镜像**
@@ -124,7 +124,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 ## 三、测试步骤
 
-为了更准确的测试 NGC PyTorch 在 `NVIDIA DGX-1 (8x V100 16GB)` 上的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
+为了更准确的测试 NGC PyTorch 在 `NVIDIA DGX-1 (8x V100 32GB)` 上的性能数据，我们严格按照官方提供的模型代码配置、启动脚本，进行了的性能测试。
 
 官方提供的 [scripts/run_pretraining.sh](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh) 执行脚本中，默认配置的是两阶段训练。我们此处统一仅执行 **第一阶段训练**，并根据日志中的输出的数据计算吞吐。
 
@@ -213,18 +213,18 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 - **单卡启动脚本：**
 
-    若测试单机单卡 batch_size=32、FP32 的训练性能，执行如下命令：
+    若测试单机单卡 batch_size=96、FP32 的训练性能，执行如下命令：
 
     ```bash
-    bash scripts/run_benchmark.sh 32 1 fp32
+    bash scripts/run_benchmark.sh 96 1 fp32
     ```
 
 - **8卡启动脚本：**
 
-    若测试单机8卡 batch_size=64、FP16 的训练性能，执行如下命令：
+    若测试单机8卡 batch_size=96、FP16 的训练性能，执行如下命令：
 
     ```bash
-    bash scripts/run_benchmark.sh 64 8 fp16
+    bash scripts/run_benchmark.sh 96 8 fp16
     ```
 
 
@@ -263,24 +263,20 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 > 单位： sequences/sec
 
-|卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96)|
-|:-----:|:-----:|:-----:|:-----:|:-----:|
-|1 | 129.85  | 129.26  | 590.55  | 623.84  |
-|8 | 1187.01  | 1198.71  | 4245.93  | 4448.77 |
-|32 | 3994.1 | 3974.0 | 15941.1 | 16311.6|
-|32<sup>[W/O AccGrad]</sup> | 2836.7 | 3180.0 | 10391.2 | 12061.6|
-> 关于batch_size 从32增加到48时，8卡和32卡性能并没有提升的问题，我们反复重测了多次。若了解相关原因，欢迎issue我们。
+|卡数 | FP32(BS=96) | AMP(BS=96)|
+|:-----:|:-----:|:-----:|
+|1 | 153.56  | 630.61  |
+|8 | 1228.24  | 5044.04 |
+|32 | 3994.1 |  16311.6|
+|32<sup>[W/O AccGrad]</sup> | 2836.7 | 12061.6|
+
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu1.log)
-- [单卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu1.log)
-- [单卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu1.log)
+- [单卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu1.log)
 - [单卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
-- [8卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu8.log)
-- [8卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu8.log)
-- [8卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu8.log)
+- [8卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu8.log)
 - [8卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
 - [32卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu32.log)
 - [32卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu32.log)

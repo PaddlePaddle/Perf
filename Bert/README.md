@@ -267,11 +267,11 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 - 训练吞吐率(sequences/sec)如下:
 
-   |卡数 | FP32(BS=32) | FP32(BS=48) | AMP(BS=64) | AMP(BS=96) |
-   |:-----:|:-----:|:-----:|:-----:|:-----:|
-   |1 |147.14 | 152.19  | 584.22  | 622.30  |
-   |8 | 1105.19  | 1149.4 | 3942.72  | 4188.46  |
-   |32 | 4862.5 | 4948.4 | 18432.2 | 18480.0 |
+   |卡数 | FP32(BS=96) | AMP(BS=96) |
+   |:-----:|:-----:|:-----:|
+   |1 |161.145 | 653.97  | 
+   |8 | 1288.501  | 5234.167 | 
+   |32 | —— | —— | 
 
 ### 2.与业内其它框架对比
 
@@ -279,17 +279,15 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   - 同等执行环境下测试
   - 单位：`sequences/sec`
   - max_seq_len: 128
-  - BatchSize FP32下统一选择 32 和 48、AMP下统一选择 64、96
+  - BatchSize FP32、AMP下统一选择 96
 
 
 - FP32测试
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=32 | 157.328 | 145.33  | 129.85  |
-  | GPU=1,BS=48 | 157.05  | 153.86  | 129.26 |
-  | GPU=8,BS=32 | 1187.01  | 1105.46 | 1015.43 |
-  | GPU=8,BS=48 | 1198.71   | 1190.22 | 1006.66 |
+  | GPU=1,BS=96 | 161.145  | 156.334  | 153.56 |
+  | GPU=8,BS=96 | 1288.501  | 1231.74 | 1228.24 |
   | GPU=32,BS=32 | 4862.5 | 4379.4 | 3994.1 |
   | GPU=32,BS=48 | 4948.4 | 4723.5 | 3974.0 |
 
@@ -299,10 +297,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=64 | 590.55 | 466.13  | 517.23 |
-  | GPU=1,BS=96 | 623.84 | 504.84  | 536.89 |
-  | GPU=8,BS=64 | 4245.93  | 3351.06 | 4037.21 |
-  | GPU=8,BS=96 | 4448.77  | 3772.37 | 4196.88 |
+  | GPU=1,BS=96 | 653.97 | 530.277  | 630.61 |
+  | GPU=8,BS=96 | 5234.167  | 4181.32 | 5044.04 |
   | GPU=32,BS=64 | 18432.2 | 14773.4 | 15941.1 |
   | GPU=32,BS=96 | 18480.0 | 16554.3 | 16311.6 |
 
@@ -311,13 +307,9 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=32、FP32](./logs/base_bs32_fp32_gpu1.log)
-- [单卡 bs=48、FP32](./logs/base_bs48_fp32_gpu1.log)
-- [单卡 bs=64、AMP](./logs/base_bs64_fp16_gpu1.log)
+- [单卡 bs=96、FP32](./logs/base_bs96_fp32_gpu1.log)
 - [单卡 bs=96、AMP](./logs/base_bs96_fp16_gpu1.log)
-- [8卡 bs=32、FP32](./logs/base_bs32_fp32_gpu8.log)
-- [8卡 bs=48、FP32](./logs/base_bs48_fp32_gpu8.log)
-- [8卡 bs=64、AMP](./logs/base_bs64_fp16_gpu8.log)
+- [8卡 bs=96、FP32](./logs/base_bs96_fp32_gpu8.log)
 - [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
 - [32卡 bs=32、FP32 on GradAcc](./logs/base_bs32_fp32_gpu32_gradacc.log)
 - [32卡 bs=48、FP32 on GradAcc](./logs/base_bs48_fp32_gpu32_gradacc.log)
