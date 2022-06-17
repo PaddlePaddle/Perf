@@ -26,11 +26,11 @@
 我们使用了同一个物理机环境，对 [NGC PyTorch](https://github.com/open-mmlab/mmsegmentation) 的 HRNetW18 模型进行了测试，详细物理机配置，见[Paddle Transformer 性能测试](../../README.md#1.物理机环境)。
 
 - 单机（单卡、8卡）
-  - 系统：CentOS release 6.3 (Final)
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
-  - Driver Version: 450.80.02
-  - 内存：502 GB
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB 
  
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -44,9 +44,9 @@
 NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/Translation/Transformer/Dockerfile)，
 
 - **镜像版本**: `nvcr.io/nvidia/pytorch:20.06-py3`
-- **PyTorch 版本**: `1.6.0a0+9907a3e`
-- **CUDA 版本**: `11.0`
-- **cuDnn 版本**: `8.0.1`
+- **PyTorch 版本**: `1.11.0a0+b6df043`
+- **CUDA 版本**: `11.5`
+- **cuDnn 版本**: `8.3`
 
 ## 二、环境搭建
 
@@ -60,7 +60,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout fd9fecd2b22e6b9e25e75de8b0a90a711cf91477
+    git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
 ```
 
 - **构建镜像**
@@ -186,7 +186,7 @@ python3 tools/train.py \
     configs/hrnet/fcn_hr18_512x1024_80k_cityscapes.py \
     --no-validate \
     --gpus 1 \
-    --max_iters 40 \
+    --max_iters 180 \
     --log_iters 4 \
     --batch_size 8 \
     --num_workers 8 \
@@ -212,7 +212,7 @@ python3 -m torch.distributed.launch --nproc_per_node=${NUM_GPUS} \
                --nnodes=${NUM_NODES} --node_rank=$NODE_RANK --master_addr=$MASTER_NODE \
                --master_port=$MASTER_PORT \
                tools/train.py ${CONFIG_FILE} --launcher pytorch --no-validate \
-               --max_iters 10 --log_iters 2 --batch_size 8 --num_workers 8 $FP16
+               --max_iters 180 --log_iters 4 --batch_size 8 --num_workers 8 $FP16
 fi
 
 ```
@@ -255,15 +255,15 @@ fi
 
 |卡数 | FP32(BS=8) | AMP(BS=8) |
 |:-----:|:-----:|:-----:|
-|1 | 14.52  | 15.00  | 
-|8 | 54.34  | 53.05  |
+|1 | 15.15  | 17.37  | 
+|8 | 65.19  | 65.74  |
 |32 | 243 | 246 | 
 
 ## 五、日志数据
 ### 1.日志
 - [单机单卡、FP32](./logs/pytorch/hrnet_c1_fp32.log)
 - [单机八卡、FP32](./logs/pytorch/hrnet_c8_fp32.log)
-- [单机单卡、AMP](./logs/pytorch/hrnet_c1_fp16.log)
-- [单机八卡、AMP](./logs/pytorch/hrnet_c8_fp16.log)
+- [单机单卡、FP16](./logs/pytorch/hrnet_c1_fp16.log)
+- [单机八卡、FP16](./logs/pytorch/hrnet_c8_fp16.log)
 - [4机32卡、FP32](./logs/pytorch/hrnet_c32_fp32.log)
 - [4机32卡、AMP ](./logs/pytorch/hrnet_c32_fp16.log)

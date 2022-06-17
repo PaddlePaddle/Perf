@@ -1,41 +1,42 @@
-tools/train.py:139: UserWarning: `--gpus` is deprecated because we only support single GPU mode in non-distributed training. Use `gpus=1` now.
+tools/train.py:145: UserWarning: `--gpus` is deprecated because we only support single GPU mode in non-distributed training. Use `gpus=1` now.
   warnings.warn('`--gpus` is deprecated because we only support '
-2022-02-10 04:20:27,036 - mmseg - INFO - Multi-processing start method is `None`
-2022-02-10 04:20:27,036 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
-2022-02-10 04:20:27,066 - mmseg - INFO - Environment info:
+2022-06-07 03:42:21,886 - mmseg - INFO - Multi-processing start method is `None`
+2022-06-07 03:42:21,886 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
+2022-06-07 03:42:21,931 - mmseg - INFO - Environment info:
 ------------------------------------------------------------
 sys.platform: linux
-Python: 3.6.10 |Anaconda, Inc.| (default, Mar 23 2020, 23:13:11) [GCC 7.3.0]
+Python: 3.8.12 | packaged by conda-forge | (default, Oct 12 2021, 21:59:51) [GCC 9.4.0]
 CUDA available: True
 GPU 0: Tesla V100-SXM2-32GB
 CUDA_HOME: /usr/local/cuda
-NVCC: Build cuda_11.0_bu.TC445_37.28358933_0
-GCC: gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
-PyTorch: 1.6.0a0+9907a3e
+NVCC: Cuda compilation tools, release 11.5, V11.5.50
+GCC: gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
+PyTorch: 1.11.0a0+b6df043
 PyTorch compiling details: PyTorch built with:
-  - GCC 7.5
+  - GCC 9.3
   - C++ Version: 201402
-  - Intel(R) Math Kernel Library Version 2019.0.1 Product Build 20180928 for Intel(R) 64 architecture applications
-  - Intel(R) MKL-DNN v1.2.0 (Git Hash N/A)
+  - Intel(R) Math Kernel Library Version 2019.0.5 Product Build 20190808 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash N/A)
   - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
   - NNPACK is enabled
-  - CPU capability usage: AVX2
-  - CUDA Runtime 11.0
-  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_80,code=compute_80
-  - CuDNN 8.0.1
+  - CPU capability usage: AVX512
+  - CUDA Runtime 11.5
+  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_86,code=compute_86
+  - CuDNN 8.3
   - Magma 2.5.2
-  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -fvisibility-inlines-hidden -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_INTERNAL_THREADPOOL_IMPL -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, FORCE_FALLBACK_CUDA_MPI=1, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_STATIC_DISPATCH=OFF, 
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.5, CUDNN_VERSION=8.3.0, CXX_COMPILER=/usr/bin/c++, CXX_FLAGS=-fno-gnu-unique -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.11.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
 
-TorchVision: 0.7.0a0
-OpenCV: 3.4.1
-MMCV: 1.3.13
-MMCV Compiler: GCC 7.5
-MMCV CUDA Compiler: 11.0
-MMSegmentation: 0.21.1+29f7969
+TorchVision: 0.11.0a0
+OpenCV: 3.4.11
+MMCV: 1.5.2
+MMCV Compiler: GCC 9.3
+MMCV CUDA Compiler: 11.5
+MMSegmentation: 0.25.0+948b59a
 ------------------------------------------------------------
 
-2022-02-10 04:20:27,066 - mmseg - INFO - Distributed training: False
-2022-02-10 04:20:27,368 - mmseg - INFO - Config:
+2022-06-07 03:42:21,932 - mmseg - INFO - Distributed training: False
+2022-06-07 03:42:22,220 - mmseg - INFO - Config:
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -207,27 +208,29 @@ cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
 optimizer_config = dict()
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
-runner = dict(type='IterBasedRunner', max_iters=120)
+runner = dict(type='IterBasedRunner', max_iters=180)
 checkpoint_config = dict(by_epoch=False, interval=8000)
 evaluation = dict(interval=8000, metric='mIoU', pre_eval=True)
 work_dir = './work_dirs/fcn_hr18_512x1024_80k_cityscapes'
 gpu_ids = range(0, 1)
 auto_resume = False
 
-2022-02-10 04:20:27,368 - mmseg - INFO - Set random seed to 1408348764, deterministic: False
-/workspace/bert/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+2022-06-07 03:42:22,221 - mmseg - INFO - Set random seed to 1671613922, deterministic: False
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
   warnings.warn('DeprecationWarning: pretrained is deprecated, '
-2022-02-10 04:20:27,573 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
-2022-02-10 04:20:27,573 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
-2022-02-10 04:20:27,573 - mmcv - INFO - Use load_from_openmmlab loader
-2022-02-10 04:20:27,972 - mmcv - WARNING - The model and loaded state dict do not match exactly
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+2022-06-07 03:42:22,440 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
+2022-06-07 03:42:22,441 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
+2022-06-07 03:42:22,441 - mmcv - INFO - load checkpoint from openmmlab path: open-mmlab://msra/hrnetv2_w18
+2022-06-07 03:42:23,223 - mmcv - WARNING - The model and loaded state dict do not match exactly
 
 unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modules.0.0.bn1.weight, incre_modules.0.0.bn1.bias, incre_modules.0.0.bn1.running_mean, incre_modules.0.0.bn1.running_var, incre_modules.0.0.bn1.num_batches_tracked, incre_modules.0.0.conv2.weight, incre_modules.0.0.bn2.weight, incre_modules.0.0.bn2.bias, incre_modules.0.0.bn2.running_mean, incre_modules.0.0.bn2.running_var, incre_modules.0.0.bn2.num_batches_tracked, incre_modules.0.0.conv3.weight, incre_modules.0.0.bn3.weight, incre_modules.0.0.bn3.bias, incre_modules.0.0.bn3.running_mean, incre_modules.0.0.bn3.running_var, incre_modules.0.0.bn3.num_batches_tracked, incre_modules.0.0.downsample.0.weight, incre_modules.0.0.downsample.1.weight, incre_modules.0.0.downsample.1.bias, incre_modules.0.0.downsample.1.running_mean, incre_modules.0.0.downsample.1.running_var, incre_modules.0.0.downsample.1.num_batches_tracked, incre_modules.1.0.conv1.weight, incre_modules.1.0.bn1.weight, incre_modules.1.0.bn1.bias, incre_modules.1.0.bn1.running_mean, incre_modules.1.0.bn1.running_var, incre_modules.1.0.bn1.num_batches_tracked, incre_modules.1.0.conv2.weight, incre_modules.1.0.bn2.weight, incre_modules.1.0.bn2.bias, incre_modules.1.0.bn2.running_mean, incre_modules.1.0.bn2.running_var, incre_modules.1.0.bn2.num_batches_tracked, incre_modules.1.0.conv3.weight, incre_modules.1.0.bn3.weight, incre_modules.1.0.bn3.bias, incre_modules.1.0.bn3.running_mean, incre_modules.1.0.bn3.running_var, incre_modules.1.0.bn3.num_batches_tracked, incre_modules.1.0.downsample.0.weight, incre_modules.1.0.downsample.1.weight, incre_modules.1.0.downsample.1.bias, incre_modules.1.0.downsample.1.running_mean, incre_modules.1.0.downsample.1.running_var, incre_modules.1.0.downsample.1.num_batches_tracked, incre_modules.2.0.conv1.weight, incre_modules.2.0.bn1.weight, incre_modules.2.0.bn1.bias, incre_modules.2.0.bn1.running_mean, incre_modules.2.0.bn1.running_var, incre_modules.2.0.bn1.num_batches_tracked, incre_modules.2.0.conv2.weight, incre_modules.2.0.bn2.weight, incre_modules.2.0.bn2.bias, incre_modules.2.0.bn2.running_mean, incre_modules.2.0.bn2.running_var, incre_modules.2.0.bn2.num_batches_tracked, incre_modules.2.0.conv3.weight, incre_modules.2.0.bn3.weight, incre_modules.2.0.bn3.bias, incre_modules.2.0.bn3.running_mean, incre_modules.2.0.bn3.running_var, incre_modules.2.0.bn3.num_batches_tracked, incre_modules.2.0.downsample.0.weight, incre_modules.2.0.downsample.1.weight, incre_modules.2.0.downsample.1.bias, incre_modules.2.0.downsample.1.running_mean, incre_modules.2.0.downsample.1.running_var, incre_modules.2.0.downsample.1.num_batches_tracked, incre_modules.3.0.conv1.weight, incre_modules.3.0.bn1.weight, incre_modules.3.0.bn1.bias, incre_modules.3.0.bn1.running_mean, incre_modules.3.0.bn1.running_var, incre_modules.3.0.bn1.num_batches_tracked, incre_modules.3.0.conv2.weight, incre_modules.3.0.bn2.weight, incre_modules.3.0.bn2.bias, incre_modules.3.0.bn2.running_mean, incre_modules.3.0.bn2.running_var, incre_modules.3.0.bn2.num_batches_tracked, incre_modules.3.0.conv3.weight, incre_modules.3.0.bn3.weight, incre_modules.3.0.bn3.bias, incre_modules.3.0.bn3.running_mean, incre_modules.3.0.bn3.running_var, incre_modules.3.0.bn3.num_batches_tracked, incre_modules.3.0.downsample.0.weight, incre_modules.3.0.downsample.1.weight, incre_modules.3.0.downsample.1.bias, incre_modules.3.0.downsample.1.running_mean, incre_modules.3.0.downsample.1.running_var, incre_modules.3.0.downsample.1.num_batches_tracked, downsamp_modules.0.0.weight, downsamp_modules.0.0.bias, downsamp_modules.0.1.weight, downsamp_modules.0.1.bias, downsamp_modules.0.1.running_mean, downsamp_modules.0.1.running_var, downsamp_modules.0.1.num_batches_tracked, downsamp_modules.1.0.weight, downsamp_modules.1.0.bias, downsamp_modules.1.1.weight, downsamp_modules.1.1.bias, downsamp_modules.1.1.running_mean, downsamp_modules.1.1.running_var, downsamp_modules.1.1.num_batches_tracked, downsamp_modules.2.0.weight, downsamp_modules.2.0.bias, downsamp_modules.2.1.weight, downsamp_modules.2.1.bias, downsamp_modules.2.1.running_mean, downsamp_modules.2.1.running_var, downsamp_modules.2.1.num_batches_tracked, final_layer.0.weight, final_layer.0.bias, final_layer.1.weight, final_layer.1.bias, final_layer.1.running_mean, final_layer.1.running_var, final_layer.1.num_batches_tracked, classifier.weight, classifier.bias
 
-2022-02-10 04:20:28,041 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
-tools/train.py:226: UserWarning: SyncBN is only supported with DDP. To be compatible with DP, we convert SyncBN to BN. Please use dist_train.sh which can avoid this error.
-  'SyncBN is only supported with DDP. To be compatible with DP, '
-2022-02-10 04:20:28,055 - mmseg - INFO - EncoderDecoder(
+2022-06-07 03:42:23,332 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+tools/train.py:233: UserWarning: SyncBN is only supported with DDP. To be compatible with DP, we convert SyncBN to BN. Please use dist_train.sh which can avoid this error.
+  warnings.warn(
+2022-06-07 03:42:23,352 - mmseg - INFO - EncoderDecoder(
   (backbone): HRNet(
     (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
     (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
@@ -1658,7 +1661,7 @@ tools/train.py:226: UserWarning: SyncBN is only supported with DDP. To be compat
   init_cfg={'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
   (decode_head): FCNHead(
     input_transform=resize_concat, ignore_index=255, align_corners=False
-    (loss_decode): CrossEntropyLoss()
+    (loss_decode): CrossEntropyLoss(avg_non_ignore=False)
     (conv_seg): Conv2d(270, 19, kernel_size=(1, 1), stride=(1, 1))
     (convs): Sequential(
       (0): ConvModule(
@@ -1670,9 +1673,8 @@ tools/train.py:226: UserWarning: SyncBN is only supported with DDP. To be compat
   )
   init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 )
-2022-02-10 04:20:28,130 - mmseg - INFO - Loaded 2975 images
-2022-02-10 04:20:30,182 - mmseg - INFO - Start running, host: , work_dir: /workspace/bert/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes
-2022-02-10 04:20:30,183 - mmseg - INFO - Hooks will be executed in the following order:
+2022-06-07 03:42:23,419 - mmseg - INFO - Loaded 2975 images
+2022-06-07 03:42:26,158 - mmseg - INFO - Hooks will be executed in the following order:
 before_run:
 (VERY_HIGH   ) PolyLrUpdaterHook                  
 (NORMAL      ) CheckpointHook                     
@@ -1710,35 +1712,54 @@ after_val_iter:
 after_val_epoch:
 (VERY_LOW    ) TextLoggerHook                     
  -------------------- 
-2022-02-10 04:20:30,184 - mmseg - INFO - workflow: [('train', 1)], max: 120 iters
-2022-02-10 04:20:36,481 - mmseg - INFO - Iter [4/120]	lr: 9.777e-03, eta: 0:02:56, time: 1.518, data_time: 0.341, memory: 13619, decode.loss_ce: 2.6534, decode.acc_seg: 23.9079, loss: 2.6534
-2022-02-10 04:20:38,701 - mmseg - INFO - Iter [8/120]	lr: 9.479e-03, eta: 0:01:56, time: 0.555, data_time: 0.021, memory: 13619, decode.loss_ce: 2.1305, decode.acc_seg: 35.4967, loss: 2.1305
-2022-02-10 04:20:40,882 - mmseg - INFO - Iter [12/120]	lr: 9.179e-03, eta: 0:01:34, time: 0.545, data_time: 0.018, memory: 13619, decode.loss_ce: 1.8554, decode.acc_seg: 40.2465, loss: 1.8554
-2022-02-10 04:20:43,092 - mmseg - INFO - Iter [16/120]	lr: 8.879e-03, eta: 0:01:22, time: 0.552, data_time: 0.019, memory: 13619, decode.loss_ce: 1.5423, decode.acc_seg: 60.2351, loss: 1.5423
-2022-02-10 04:20:45,307 - mmseg - INFO - Iter [20/120]	lr: 8.577e-03, eta: 0:01:14, time: 0.554, data_time: 0.019, memory: 13619, decode.loss_ce: 1.3761, decode.acc_seg: 60.3998, loss: 1.3761
-2022-02-10 04:20:47,532 - mmseg - INFO - Iter [24/120]	lr: 8.275e-03, eta: 0:01:08, time: 0.556, data_time: 0.021, memory: 13619, decode.loss_ce: 1.2807, decode.acc_seg: 64.0419, loss: 1.2807
-2022-02-10 04:20:49,728 - mmseg - INFO - Iter [28/120]	lr: 7.971e-03, eta: 0:01:03, time: 0.549, data_time: 0.019, memory: 13619, decode.loss_ce: 1.1701, decode.acc_seg: 65.4593, loss: 1.1701
-2022-02-10 04:20:51,926 - mmseg - INFO - Iter [32/120]	lr: 7.665e-03, eta: 0:00:59, time: 0.549, data_time: 0.019, memory: 13619, decode.loss_ce: 1.3369, decode.acc_seg: 61.1496, loss: 1.3369
-2022-02-10 04:20:54,134 - mmseg - INFO - Iter [36/120]	lr: 7.359e-03, eta: 0:00:55, time: 0.552, data_time: 0.018, memory: 13619, decode.loss_ce: 0.8606, decode.acc_seg: 73.5224, loss: 0.8606
-2022-02-10 04:20:56,360 - mmseg - INFO - Iter [40/120]	lr: 7.050e-03, eta: 0:00:51, time: 0.557, data_time: 0.019, memory: 13619, decode.loss_ce: 0.9016, decode.acc_seg: 72.4236, loss: 0.9016
-2022-02-10 04:20:58,537 - mmseg - INFO - Iter [44/120]	lr: 6.741e-03, eta: 0:00:48, time: 0.544, data_time: 0.017, memory: 13619, decode.loss_ce: 0.8583, decode.acc_seg: 69.6354, loss: 0.8583
-2022-02-10 04:21:00,801 - mmseg - INFO - Iter [48/120]	lr: 6.429e-03, eta: 0:00:45, time: 0.566, data_time: 0.019, memory: 13619, decode.loss_ce: 0.7569, decode.acc_seg: 67.4945, loss: 0.7569
-2022-02-10 04:21:03,012 - mmseg - INFO - Iter [52/120]	lr: 6.116e-03, eta: 0:00:42, time: 0.553, data_time: 0.018, memory: 13619, decode.loss_ce: 0.6793, decode.acc_seg: 75.4919, loss: 0.6793
-2022-02-10 04:21:05,192 - mmseg - INFO - Iter [56/120]	lr: 5.802e-03, eta: 0:00:39, time: 0.545, data_time: 0.019, memory: 13619, decode.loss_ce: 0.9105, decode.acc_seg: 69.4489, loss: 0.9105
-2022-02-10 04:21:07,365 - mmseg - INFO - Iter [60/120]	lr: 5.485e-03, eta: 0:00:36, time: 0.543, data_time: 0.017, memory: 13619, decode.loss_ce: 0.8249, decode.acc_seg: 71.9668, loss: 0.8249
-2022-02-10 04:21:09,558 - mmseg - INFO - Iter [64/120]	lr: 5.166e-03, eta: 0:00:34, time: 0.548, data_time: 0.020, memory: 13619, decode.loss_ce: 0.7012, decode.acc_seg: 77.8394, loss: 0.7012
-2022-02-10 04:21:11,748 - mmseg - INFO - Iter [68/120]	lr: 4.845e-03, eta: 0:00:31, time: 0.547, data_time: 0.019, memory: 13619, decode.loss_ce: 0.8691, decode.acc_seg: 70.1389, loss: 0.8691
-2022-02-10 04:21:13,956 - mmseg - INFO - Iter [72/120]	lr: 4.521e-03, eta: 0:00:29, time: 0.552, data_time: 0.019, memory: 13619, decode.loss_ce: 0.8299, decode.acc_seg: 73.5763, loss: 0.8299
-2022-02-10 04:21:16,217 - mmseg - INFO - Iter [76/120]	lr: 4.195e-03, eta: 0:00:26, time: 0.565, data_time: 0.019, memory: 13619, decode.loss_ce: 0.9274, decode.acc_seg: 66.6203, loss: 0.9274
-2022-02-10 04:21:18,470 - mmseg - INFO - Iter [80/120]	lr: 3.866e-03, eta: 0:00:24, time: 0.563, data_time: 0.018, memory: 13619, decode.loss_ce: 0.7978, decode.acc_seg: 70.6643, loss: 0.7978
-2022-02-10 04:21:20,726 - mmseg - INFO - Iter [84/120]	lr: 3.534e-03, eta: 0:00:21, time: 0.564, data_time: 0.018, memory: 13619, decode.loss_ce: 0.6680, decode.acc_seg: 74.5441, loss: 0.6680
-2022-02-10 04:21:22,965 - mmseg - INFO - Iter [88/120]	lr: 3.198e-03, eta: 0:00:19, time: 0.560, data_time: 0.017, memory: 13619, decode.loss_ce: 0.7495, decode.acc_seg: 73.8720, loss: 0.7495
-2022-02-10 04:21:25,196 - mmseg - INFO - Iter [92/120]	lr: 2.858e-03, eta: 0:00:16, time: 0.558, data_time: 0.018, memory: 13619, decode.loss_ce: 0.6822, decode.acc_seg: 73.1823, loss: 0.6822
-2022-02-10 04:21:27,365 - mmseg - INFO - Iter [96/120]	lr: 2.513e-03, eta: 0:00:14, time: 0.542, data_time: 0.020, memory: 13619, decode.loss_ce: 0.6032, decode.acc_seg: 79.2458, loss: 0.6032
-2022-02-10 04:21:29,537 - mmseg - INFO - Iter [100/120]	lr: 2.162e-03, eta: 0:00:11, time: 0.543, data_time: 0.018, memory: 13619, decode.loss_ce: 0.7454, decode.acc_seg: 72.2531, loss: 0.7454
-2022-02-10 04:21:31,716 - mmseg - INFO - Iter [104/120]	lr: 1.805e-03, eta: 0:00:09, time: 0.544, data_time: 0.019, memory: 13619, decode.loss_ce: 0.6982, decode.acc_seg: 73.8876, loss: 0.6982
-2022-02-10 04:21:33,885 - mmseg - INFO - Iter [108/120]	lr: 1.439e-03, eta: 0:00:07, time: 0.543, data_time: 0.019, memory: 13619, decode.loss_ce: 0.7653, decode.acc_seg: 74.7365, loss: 0.7653
-2022-02-10 04:21:36,062 - mmseg - INFO - Iter [112/120]	lr: 1.062e-03, eta: 0:00:04, time: 0.544, data_time: 0.020, memory: 13619, decode.loss_ce: 0.6154, decode.acc_seg: 77.0127, loss: 0.6154
-2022-02-10 04:21:38,235 - mmseg - INFO - Iter [116/120]	lr: 6.668e-04, eta: 0:00:02, time: 0.543, data_time: 0.018, memory: 13619, decode.loss_ce: 0.8196, decode.acc_seg: 73.3586, loss: 0.8196
-2022-02-10 04:21:40,411 - mmseg - INFO - Saving checkpoint at 120 iterations
-2022-02-10 04:21:40,650 - mmseg - INFO - Iter [120/120]	lr: 2.332e-04, eta: 0:00:00, time: 0.604, data_time: 0.019, memory: 13619, decode.loss_ce: 0.7056, decode.acc_seg: 76.2364, loss: 0.7056
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2022-06-07 03:42:26,159 - mmseg - INFO - workflow: [('train', 1)], max: 180 iters
+2022-06-07 03:42:26,159 - mmseg - INFO - Checkpoints will be saved to /workspace/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes by HardDiskBackend.
+2022-06-07 03:42:34,462 - mmseg - INFO - Iter [4/180]	lr: 9.851e-03, eta: 0:05:44, time: 1.956, data_time: 0.426, memory: 13441, decode.loss_ce: 2.7001, decode.acc_seg: 23.1393, loss: 2.7001
+2022-06-07 03:42:36,545 - mmseg - INFO - Iter [8/180]	lr: 9.653e-03, eta: 0:03:32, time: 0.521, data_time: 0.022, memory: 13441, decode.loss_ce: 2.1617, decode.acc_seg: 49.7254, loss: 2.1617
+2022-06-07 03:42:38,633 - mmseg - INFO - Iter [12/180]	lr: 9.454e-03, eta: 0:02:47, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 1.7807, decode.acc_seg: 45.1416, loss: 1.7807
+2022-06-07 03:42:40,724 - mmseg - INFO - Iter [16/180]	lr: 9.254e-03, eta: 0:02:24, time: 0.523, data_time: 0.023, memory: 13441, decode.loss_ce: 1.5335, decode.acc_seg: 54.0778, loss: 1.5335
+2022-06-07 03:42:42,811 - mmseg - INFO - Iter [20/180]	lr: 9.054e-03, eta: 0:02:09, time: 0.522, data_time: 0.021, memory: 13441, decode.loss_ce: 1.5454, decode.acc_seg: 62.6383, loss: 1.5454
+2022-06-07 03:42:44,955 - mmseg - INFO - Iter [24/180]	lr: 8.854e-03, eta: 0:01:59, time: 0.536, data_time: 0.023, memory: 13441, decode.loss_ce: 1.1871, decode.acc_seg: 72.3128, loss: 1.1871
+2022-06-07 03:42:47,122 - mmseg - INFO - Iter [28/180]	lr: 8.653e-03, eta: 0:01:51, time: 0.542, data_time: 0.024, memory: 13441, decode.loss_ce: 1.1040, decode.acc_seg: 70.1345, loss: 1.1040
+2022-06-07 03:42:49,217 - mmseg - INFO - Iter [32/180]	lr: 8.451e-03, eta: 0:01:44, time: 0.524, data_time: 0.023, memory: 13441, decode.loss_ce: 1.0658, decode.acc_seg: 72.3823, loss: 1.0658
+2022-06-07 03:42:51,311 - mmseg - INFO - Iter [36/180]	lr: 8.249e-03, eta: 0:01:38, time: 0.523, data_time: 0.024, memory: 13441, decode.loss_ce: 0.9266, decode.acc_seg: 74.2281, loss: 0.9266
+2022-06-07 03:42:53,422 - mmseg - INFO - Iter [40/180]	lr: 8.047e-03, eta: 0:01:33, time: 0.528, data_time: 0.025, memory: 13441, decode.loss_ce: 0.9981, decode.acc_seg: 72.0174, loss: 0.9981
+2022-06-07 03:42:55,517 - mmseg - INFO - Iter [44/180]	lr: 7.844e-03, eta: 0:01:29, time: 0.524, data_time: 0.024, memory: 13441, decode.loss_ce: 0.9070, decode.acc_seg: 72.3471, loss: 0.9070
+2022-06-07 03:42:57,602 - mmseg - INFO - Iter [48/180]	lr: 7.640e-03, eta: 0:01:25, time: 0.521, data_time: 0.022, memory: 13441, decode.loss_ce: 0.9573, decode.acc_seg: 72.4289, loss: 0.9573
+2022-06-07 03:42:59,683 - mmseg - INFO - Iter [52/180]	lr: 7.435e-03, eta: 0:01:21, time: 0.520, data_time: 0.024, memory: 13441, decode.loss_ce: 0.8011, decode.acc_seg: 78.7795, loss: 0.8011
+2022-06-07 03:43:01,772 - mmseg - INFO - Iter [56/180]	lr: 7.230e-03, eta: 0:01:17, time: 0.522, data_time: 0.020, memory: 13441, decode.loss_ce: 0.9197, decode.acc_seg: 73.2296, loss: 0.9197
+2022-06-07 03:43:03,873 - mmseg - INFO - Iter [60/180]	lr: 7.025e-03, eta: 0:01:14, time: 0.525, data_time: 0.025, memory: 13441, decode.loss_ce: 0.8676, decode.acc_seg: 75.0322, loss: 0.8676
+2022-06-07 03:43:05,976 - mmseg - INFO - Iter [64/180]	lr: 6.818e-03, eta: 0:01:11, time: 0.526, data_time: 0.025, memory: 13441, decode.loss_ce: 0.7470, decode.acc_seg: 77.7541, loss: 0.7470
+2022-06-07 03:43:08,123 - mmseg - INFO - Iter [68/180]	lr: 6.611e-03, eta: 0:01:08, time: 0.537, data_time: 0.024, memory: 13441, decode.loss_ce: 0.7011, decode.acc_seg: 78.3970, loss: 0.7011
+2022-06-07 03:43:10,211 - mmseg - INFO - Iter [72/180]	lr: 6.403e-03, eta: 0:01:05, time: 0.522, data_time: 0.021, memory: 13441, decode.loss_ce: 0.8339, decode.acc_seg: 75.5878, loss: 0.8339
+2022-06-07 03:43:12,300 - mmseg - INFO - Iter [76/180]	lr: 6.195e-03, eta: 0:01:02, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6538, decode.acc_seg: 81.8171, loss: 0.6538
+2022-06-07 03:43:14,450 - mmseg - INFO - Iter [80/180]	lr: 5.985e-03, eta: 0:00:59, time: 0.538, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6370, decode.acc_seg: 81.5473, loss: 0.6370
+2022-06-07 03:43:16,539 - mmseg - INFO - Iter [84/180]	lr: 5.775e-03, eta: 0:00:57, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6211, decode.acc_seg: 80.1346, loss: 0.6211
+2022-06-07 03:43:18,617 - mmseg - INFO - Iter [88/180]	lr: 5.564e-03, eta: 0:00:54, time: 0.519, data_time: 0.021, memory: 13441, decode.loss_ce: 0.6856, decode.acc_seg: 79.8500, loss: 0.6856
+2022-06-07 03:43:20,710 - mmseg - INFO - Iter [92/180]	lr: 5.352e-03, eta: 0:00:51, time: 0.523, data_time: 0.025, memory: 13441, decode.loss_ce: 0.6812, decode.acc_seg: 81.1467, loss: 0.6812
+2022-06-07 03:43:22,788 - mmseg - INFO - Iter [96/180]	lr: 5.139e-03, eta: 0:00:49, time: 0.519, data_time: 0.022, memory: 13441, decode.loss_ce: 0.5970, decode.acc_seg: 81.8274, loss: 0.5970
+2022-06-07 03:43:24,877 - mmseg - INFO - Iter [100/180]	lr: 4.925e-03, eta: 0:00:46, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.8228, decode.acc_seg: 74.5117, loss: 0.8228
+2022-06-07 03:43:26,952 - mmseg - INFO - Iter [104/180]	lr: 4.710e-03, eta: 0:00:44, time: 0.519, data_time: 0.021, memory: 13441, decode.loss_ce: 0.7251, decode.acc_seg: 80.5688, loss: 0.7251
+2022-06-07 03:43:29,041 - mmseg - INFO - Iter [108/180]	lr: 4.494e-03, eta: 0:00:41, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.7588, decode.acc_seg: 79.1876, loss: 0.7588
+2022-06-07 03:43:31,118 - mmseg - INFO - Iter [112/180]	lr: 4.277e-03, eta: 0:00:39, time: 0.520, data_time: 0.022, memory: 13441, decode.loss_ce: 0.7343, decode.acc_seg: 80.3069, loss: 0.7343
+2022-06-07 03:43:33,193 - mmseg - INFO - Iter [116/180]	lr: 4.058e-03, eta: 0:00:36, time: 0.519, data_time: 0.022, memory: 13441, decode.loss_ce: 0.5781, decode.acc_seg: 84.0073, loss: 0.5781
+2022-06-07 03:43:35,271 - mmseg - INFO - Iter [120/180]	lr: 3.838e-03, eta: 0:00:34, time: 0.519, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6181, decode.acc_seg: 83.1480, loss: 0.6181
+2022-06-07 03:43:37,358 - mmseg - INFO - Iter [124/180]	lr: 3.617e-03, eta: 0:00:31, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.7474, decode.acc_seg: 77.6005, loss: 0.7474
+2022-06-07 03:43:39,444 - mmseg - INFO - Iter [128/180]	lr: 3.394e-03, eta: 0:00:29, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6933, decode.acc_seg: 77.2880, loss: 0.6933
+2022-06-07 03:43:41,546 - mmseg - INFO - Iter [132/180]	lr: 3.169e-03, eta: 0:00:27, time: 0.525, data_time: 0.024, memory: 13441, decode.loss_ce: 0.6279, decode.acc_seg: 80.8043, loss: 0.6279
+2022-06-07 03:43:43,630 - mmseg - INFO - Iter [136/180]	lr: 2.943e-03, eta: 0:00:24, time: 0.521, data_time: 0.023, memory: 13441, decode.loss_ce: 0.5256, decode.acc_seg: 85.1832, loss: 0.5256
+2022-06-07 03:43:45,723 - mmseg - INFO - Iter [140/180]	lr: 2.715e-03, eta: 0:00:22, time: 0.523, data_time: 0.023, memory: 13441, decode.loss_ce: 0.5813, decode.acc_seg: 84.0435, loss: 0.5813
+2022-06-07 03:43:47,810 - mmseg - INFO - Iter [144/180]	lr: 2.484e-03, eta: 0:00:20, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6763, decode.acc_seg: 80.2576, loss: 0.6763
+2022-06-07 03:43:49,904 - mmseg - INFO - Iter [148/180]	lr: 2.251e-03, eta: 0:00:18, time: 0.523, data_time: 0.022, memory: 13441, decode.loss_ce: 0.5444, decode.acc_seg: 83.0323, loss: 0.5444
+2022-06-07 03:43:51,987 - mmseg - INFO - Iter [152/180]	lr: 2.014e-03, eta: 0:00:15, time: 0.521, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6508, decode.acc_seg: 81.3749, loss: 0.6508
+2022-06-07 03:43:54,077 - mmseg - INFO - Iter [156/180]	lr: 1.775e-03, eta: 0:00:13, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6667, decode.acc_seg: 81.4431, loss: 0.6667
+2022-06-07 03:43:56,174 - mmseg - INFO - Iter [160/180]	lr: 1.532e-03, eta: 0:00:11, time: 0.524, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6691, decode.acc_seg: 80.8901, loss: 0.6691
+2022-06-07 03:43:58,261 - mmseg - INFO - Iter [164/180]	lr: 1.284e-03, eta: 0:00:08, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6473, decode.acc_seg: 81.6780, loss: 0.6473
+2022-06-07 03:44:00,352 - mmseg - INFO - Iter [168/180]	lr: 1.030e-03, eta: 0:00:06, time: 0.523, data_time: 0.025, memory: 13441, decode.loss_ce: 0.5306, decode.acc_seg: 85.2125, loss: 0.5306
+2022-06-07 03:44:02,428 - mmseg - INFO - Iter [172/180]	lr: 7.679e-04, eta: 0:00:04, time: 0.519, data_time: 0.023, memory: 13441, decode.loss_ce: 0.5181, decode.acc_seg: 83.3144, loss: 0.5181
+2022-06-07 03:44:04,497 - mmseg - INFO - Iter [176/180]	lr: 4.935e-04, eta: 0:00:02, time: 0.517, data_time: 0.021, memory: 13441, decode.loss_ce: 0.6035, decode.acc_seg: 80.7779, loss: 0.6035
+2022-06-07 03:44:06,639 - mmseg - INFO - Saving checkpoint at 180 iterations
+2022-06-07 03:44:07,287 - mmseg - INFO - Iter [180/180]	lr: 1.924e-04, eta: 0:00:00, time: 0.697, data_time: 0.023, memory: 13441, decode.loss_ce: 0.4724, decode.acc_seg: 85.4293, loss: 0.4724

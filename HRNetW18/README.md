@@ -47,17 +47,17 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
    | 参数 | PaddlePaddle | NGC PyTorch |
    |:-----:|:-----:|:-----:|
    | FP32 | 8 | 8 |
-   | AMP | 8 | 8 |
+   | FP16 | 8 | 8 |
 
 ## 二、环境介绍
 ### 1.物理机环境
 
 - 单机（单卡、8卡）
-  - 系统：CentOS release 6.3 (Final)
+  - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
-  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 48
-  - Driver Version: 450.80.02
-  - 内存：502 GB  
+  - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
+  - Driver Version: 470.83.01
+  - 内存：630 GB 
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -68,11 +68,11 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle-public/paddle_ubuntu1604:mlperf_cuda10.1_cudnn7.6.5_nccl2.4.7_dali0.24.0_py37`
-- **Paddle 版本**: `develop`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.3.0.post112`
 - **模型代码**：[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg/tree/benchmark)
-- **CUDA 版本**: `10.1`
-- **cuDnn 版本:** `7.6`
+- **CUDA 版本**: `11.2`
+- **cuDnn 版本:** `8.1.1`
 
 
 ## 三、环境搭建
@@ -84,7 +84,7 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleSeg.git
-  cd PaddleSeg && git checkout 1f49e5cda6f65e8d483d8e42b739f93feb7d4639
+  cd PaddleSeg && git checkout 6ef938925e4432526183fcb20ea8f3cec184b3c8
   ```
 
 
@@ -92,7 +92,8 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle-public/paddle_ubuntu1604:mlperf_cuda10.1_cudnn7.6.5_nccl2.4.7_dali0.24.0_py37
+    docker pull paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+
 
    # 创建并进入容器
    nvidia-docker run --name=test_transformer_paddle -it \
@@ -102,14 +103,13 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/models \
-    paddlepaddle/paddle-benchmark:cuda11.0-cudnn8-runtime-ubuntu16.04-gcc82 /bin/bash
+    paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
    ```
 
 - **安装依赖**
    ```bash
    # 安装 PaddleSeg 中依赖库
    pip install -r requirements.txt
-   pip install paddleseg
    ```
 
 - **准备数据**
@@ -134,7 +134,7 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tre
 | 精度 | batch_size | fp16 |
 |:-----:|:-----:|:-----:|
 | FP32 | 8 | NO 	     |
-| AMP | 8 | YES 		 |
+| FP16 | 8 | YES 		 |
 
 
 ## 五、测试结果
@@ -145,23 +145,23 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tre
 
    |卡数 | FP32(BS=8) | AMP(BS=8) 
    |:-----:|:-----:|:-----:|
-   |1 | 17.85 | 16.41 |
-   |8 | 98.75   | 91.00 |
+   |1 | 17.33 | 16.02 |
+   |8 | 96.79 | 88.27 |
    |32 | 428 | 422 | 
 ### 2.与业内其它框架对比
 
 - 说明：
   - 同等执行环境下测试
   - 单位：`samples/sec`
-  - BatchSize FP32、AMP下均选择8
+  - BatchSize FP32、FP16下均选择8
 
 
 - FP32测试
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | 17.85 | 14.52 |
-  | GPU=8,BS=8 | 98.75 | 54.34  |
+  | GPU=1,BS=8 | 17.33 | 15.15 |
+  | GPU=8,BS=8 | 96.79 | 65.19 |
   | GPU=32,BS=8 | 428 | 243 |
 
 
@@ -169,16 +169,16 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/tre
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | 16.41 | 15.00  |
-  | GPU=8,BS=8 | 91.00  | 53.05  |
+  | GPU=1,BS=8 | 16.02 | 17.37  |
+  | GPU=8,BS=8 | 88.27 | 65.74  |
   | GPU=32,BS=8 | 422 | 246 |
 
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
 - [单机单卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N1.log)
-- [单机八卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N8.log)
-- [4机32卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N32.log)
-- [单机单卡、AMP](./logs/paddle/Hrnet_FP16_BS8-N1.log)
-- [单机八卡、AMP](./logs/paddle/Hrnet_FP16_BS8-N8.log)
+- [单机单卡、FP16](./logs/paddle/Hrnet_FP32_BS8-N8.log)
+- [单机八卡、FP32](./logs/paddle/Hrnet_FP16_BS8-N1.log)
+- [单机八卡、FP16](./logs/paddle/Hrnet_FP16_BS8-N8.log)
 - [4机32卡、AMP ](./logs/paddle/Hrnet_FP16_BS8-N32.log)
+- [4机32卡、FP32](./logs/paddle/Hrnet_FP32_BS8-N32.log)
