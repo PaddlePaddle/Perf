@@ -174,6 +174,8 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 |8 | 2787.43 | 5811.26  | 
 |32 |——| —— | 
 
+> 关于torch数据，按照官方文档反复重测了多次未达到官方的标准。若了解相关原因，欢迎issue我们。 <br>
+
 
 ## 五、日志数据
 - [1卡 FP32 BS=256 日志](./logs/pytorch_gpu1_fp32_bs256.txt)
