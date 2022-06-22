@@ -248,16 +248,14 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 	```
 	# fp32
-	echo "begin run bs:32 fp32 on 8 gpus"
-	$mpirun bash ./run_benchmark.sh  32 8 fp32
+	echo "begin run bs:96 fp32 on 32 gpus"
+	$mpirun bash ./run_benchmark.sh  96 32 fp32
 
-	echo "begin run bs:48 fp32 on 8 gpus"
-	$mpirun bash ./run_benchmark.sh  48 8 fp32
+ 	# fp16
+	echo "begin run bs:96 fp16 on 32 gpus"
+	$mpirun bash ./run_benchmark.sh  96 32 fp16
 
-	# add more test
 	```
-
-另：多机测试时，是否使用`gradient accumulation`对 性能影响很大。为了方便区分，我们同时测试了打开（默认打开）和关闭（W/O AccGrad）两种情况。关闭的测试方法为：设置[`accumulate_gradients`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L26)为"false",同时设置[`allreduce_post_accumulation`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L30) [`allreduce_post_accumulation_fp16`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L31) 为 "false"。
 
 ## 四、测试结果
 
@@ -267,9 +265,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 |:-----:|:-----:|:-----:|
 |1 | 153.56  | 630.61  |
 |8 | 1228.24  | 5044.04 |
-|32 | 3994.1 |  16311.6|
-|32<sup>[W/O AccGrad]</sup> | 2836.7 | 12061.6|
-
+|32 | 3496.94 |  16610.6|
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
@@ -278,11 +274,5 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 - [单卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
 - [8卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu8.log)
 - [8卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
-- [32卡 bs=32、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs32_gpu32.log)
-- [32卡 bs=48、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs48_gpu32.log)
-- [32卡 bs=64、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs64_gpu32.log)
+- [32卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu32.log)
 - [32卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
-- [32卡 bs=32、FP32 no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp32_bs32_gpu32.log)
-- [32卡 bs=48、FP32 no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp32_bs48_gpu32.log)
-- [32卡 bs=64、AMP  no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp16_bs64_gpu32.log)
-- [32卡 bs=96、AMP  no GradAcc](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_without_gradacc_fp16_bs96_gpu32.log)

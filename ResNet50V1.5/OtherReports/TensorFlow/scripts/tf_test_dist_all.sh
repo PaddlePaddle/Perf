@@ -26,16 +26,6 @@ mpirun="/usr/local/openmpi-3.1.0/bin/orterun --allow-run-as-root -tag-output \
    -x NCCL_SOCKET_IFNAME \
    -x IBV_DRIVERS"
 
-echo "runing fp32 128"
-$mpirun  python main.py --mode=training_benchmark \
-	--use_xla \
-	--warmup_steps 200 \
-	--num_iter 500 \
-	--iter_unit batch \
-	--batch_size 128 \
-	--data_dir=./data/tfrecords/ \
-	--results_dir=/tmp/result/gpu8_fp32_bs128
-
 echo "runing fp32 256"
 $mpirun  python main.py --mode=training_benchmark \
 	--use_xla \
@@ -46,19 +36,6 @@ $mpirun  python main.py --mode=training_benchmark \
 	--data_dir=./data/tfrecords/ \
 	--results_dir=/tmp/result/gpu8_fp32_bs256
 
-echo "runing fp16 128"
-$mpirun  python main.py --mode=training_benchmark \
-	--use_xla \
-	--warmup_steps 200 \
-	--num_iter 500 \
-	--iter_unit batch \
-	--batch_size 128 \
-	--data_dir=./data/tfrecords/ \
-	--results_dir=/tmp/result/gpu8_amp_bs128 \
-	--use_tf_amp \
-	--use_static_loss_scaling \
-	--loss_scale=128
-
 echo "runing fp16 256"
 $mpirun  python main.py --mode=training_benchmark \
 	--use_xla \
@@ -67,6 +44,8 @@ $mpirun  python main.py --mode=training_benchmark \
 	--iter_unit batch \
 	--batch_size 256 \
 	--data_dir=./data/tfrecords/ \
-	--results_dir=/tmp/result/gpu8_amp_bs208 \
+	--results_dir=/tmp/result/gpu8_amp_bs256 \
 	--use_tf_amp \
+	--use_static_loss_scaling \
+    --lr_init=0.01 \
 	--loss_scale=128

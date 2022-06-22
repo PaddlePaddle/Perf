@@ -147,17 +147,11 @@ python ./multiproc.py \
 
 ```
 # fp32
-echo "begin run 128 fp32 on 8 gpus"
-$mpirun bash ./run_benchmark.sh  128 8 ""
-
-echo "begin run 256 fp32 on 8 gpus"
-$mpirun bash ./run_benchmark.sh  256 8 ""
+echo "begin run 256 fp32 on 32 gpus"
+$mpirun bash ./run_benchmark.sh  256 32 ""
 
 # fp16
-echo "begin run 128 fp16 on 8 gpus"
-$mpirun bash ./run_benchmark.sh  128 8 "--amp"
-
-echo "begin run 256 fp16 on 8 gpus"
+echo "begin run 256 fp16 on 32 gpus"
 $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 ```
 
@@ -168,11 +162,11 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=128) | AMP(BS=256) |
+|卡数 | FP32(BS=256) | AMP(BS=256) |
 |:-----:|:-----:|:-----:|
 |1 | 363.77 | 773.30  | 
 |8 | 2787.43 | 5811.26  | 
-|32 |——| —— | 
+|32 |10523.32| 21259.81 | 
 
 > 关于torch数据，按照官方文档反复重测了多次未达到官方的标准。若了解相关原因，欢迎issue我们。 <br>
 
@@ -182,6 +176,5 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 - [1卡 AMP BS=256 日志](./logs/pytorch_gpu1_amp_bs256.txt)
 - [8卡 FP32 BS=256 日志](./logs/pytorch_gpu8_fp32_bs256.txt)
 - [8卡 AMP BS=256 日志](./logs/pytorch_gpu8_amp_bs256.txt)
-- [32卡 FP32 BS=128 日志](./logs/pytorch_gpu32_fp32_bs128.txt)
-- [32卡 AMP BS=128 日志](./logs/pytorch_gpu32_amp_bs128.txt)
+- [32卡 FP32 BS=256 日志](./logs/pytorch_gpu32_fp32_bs256.txt)
 - [32卡 AMP BS=256 日志](./logs/pytorch_gpu32_amp_bs256.txt)
