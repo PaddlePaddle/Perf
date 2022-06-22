@@ -2,6 +2,7 @@
 
 base_batch_size=$1
 num_gpus=$2
+TRANER_IPS=$3
 
 export FLAGS_eager_delete_tensor_gb=0.0
 export FLAGS_fraction_of_gpu_memory_to_use=0.8
@@ -23,8 +24,10 @@ train_cmd="-c ppcls/configs/ImageNet/ResNet/ResNet50.yaml
 
 if [[ ${num_gpus} == 1 ]]; then
     train_cmd="python -u ppcls/static/train.py "${train_cmd}
+elif [[ ${num_gpus} == 8 ]]; then 
+    train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 ppcls/static/train.py "${train_cmd}
 else
-     train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 ppcls/static/train.py "${train_cmd}
+     train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 --ips="${TRANER_IPS}" ppcls/static/train.py "${train_cmd}" -o Global.use_dali=True"
 fi
 echo ${train_cmd}
 ${train_cmd}

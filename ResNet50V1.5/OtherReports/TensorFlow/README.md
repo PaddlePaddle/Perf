@@ -127,32 +127,31 @@
 使用[`$mpirun`](../../../utils/mpi.md#通信框架可以从MPI中获取信息) 命令启动多机训练进程，例如:
 
 ```
-echo "runing fp32 128"
+echo "runing fp32 256"
 $mpirun  python main.py --mode=training_benchmark \
 	--use_xla \
 	--warmup_steps 200 \
 	--num_iter 500 \
 	--iter_unit batch \
-	--batch_size 128 \
+	--batch_size 256 \
 	--data_dir=./data/tfrecords/ \
-	--results_dir=./results/gpu32_fp32_bs128
+	--results_dir=./results/gpu32_fp32_bs256
 ```
 
 ## 四、测试结果
 
 - 训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=128) | AMP(BS=256)|
+|卡数 | FP32(BS=256) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|
 |1 | 414.73  | 1173.38 |
 |8 | 3275.93 | 9310.31 |
-|32 |—— | —— |
+|32 |12671.9 | 33317.67 |
 
 ## 五、日志数据
 - [1卡 FP32 BS=256 日志](./logs/tf_gpu1_fp32_bs256.txt)
 - [1卡 AMP BS=256 日志](./logs/tf_gpu1_amp_bs256.txt)
 - [8卡 FP32 BS=256 日志](./logs/tf_gpu8_fp32_bs256.txt)
 - [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
-- [32卡 FP32 BS=128 日志](./logs/tf_gpu32_fp32_bs128.txt)
-- [32卡 AMP BS=128 日志](./logs/tf_gpu32_amp_bs128.txt)
+- [32卡 FP32 BS=256 日志](./logs/tf_gpu32_fp32_bs256.txt)
 - [32卡 AMP BS=256 日志](./logs/tf_gpu32_amp_bs256.txt)

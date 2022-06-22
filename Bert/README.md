@@ -230,35 +230,34 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
    CMD="python3.7 -m paddle.distributed.launch --gpus 0,1,2,3,4,5,6,7 --ips $TRAINER_IPS ./run_pretrain.py"
 
    $CMD \
-      --model_type bert \
-      --model_name_or_path bert-base-uncased \
-      --max_predictions_per_seq 20 \
-      --batch_size $batch_size   \
-      --learning_rate 1e-4 \
-      --weight_decay 1e-2 \
-      --adam_epsilon 1e-6 \
-      --warmup_steps 10000 \
-      --input_dir $DATA_DIR \
-      --output_dir ./tmp2/ \
-      --logging_steps $logging_steps \
-      --save_steps 50000 \
-      --max_steps $max_steps \
-      --use_amp $use_amp\
-      --enable_addto True
+         --max_predictions_per_seq 80
+         --learning_rate 5e-5
+         --weight_decay 0.0
+         --adam_epsilon 1e-8
+         --warmup_steps 0
+         --output_dir ./tmp2/
+         --logging_steps 10
+         --save_steps 20000
+         --input_dir=$DATA_DIR
+         --model_type bert
+         --model_name_or_path bert-base-uncased
+         --batch_size ${batch_size}
+         --use_amp ${use_amp}
+         --gradient_merge_steps $(expr 67584 \/ $batch_size \/ 8)"
    ````
 
 - **启动脚本：**
 
-  若测试 batch_size=32、FP32 的训练性能，执行如下命令：
+  若测试 batch_size=96、FP32 的训练性能，执行如下命令：
 
   ```bash
-  bash run_multi_node_benchmark.sh 32 False
+  bash run_multi_node_benchmark.sh 96 False
   ```
 
-  若测试 batch_size=64、FP16 的训练性能，执行如下命令：
+  若测试 batch_size=96、FP16 的训练性能，执行如下命令：
 
   ```bash
-  bash run_multi_node_benchmark.sh 64 True
+  bash run_multi_node_benchmark.sh 96 True
   ```
 
 ## 五、测试结果
@@ -271,7 +270,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
    |:-----:|:-----:|:-----:|
    |1 |161.15 | 653.97  | 
    |8 | 1288.50  | 5234.17 | 
-   |32 | —— | —— | 
+   |32 | 4829.904 | 20054.43 | 
 
 ### 2.与业内其它框架对比
 
@@ -288,8 +287,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   |:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=96 | 161.15  | 156.33  | 153.56 |
   | GPU=8,BS=96 | 1288.50  | 1231.74 | 1228.24 |
-  | GPU=32,BS=32 | 4862.5 | 4379.4 | 3994.1 |
-  | GPU=32,BS=48 | 4948.4 | 4723.5 | 3974.0 |
+  | GPU=32,BS=96 | 4829.904 | 4238.53 | 3496.94 |
 
 
 
@@ -299,8 +297,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   |:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=96 | 653.97 | 530.28  | 630.61 |
   | GPU=8,BS=96 | 5234.17  | 4181.32 | 5044.04 |
-  | GPU=32,BS=64 | 18432.2 | 14773.4 | 15941.1 |
-  | GPU=32,BS=96 | 18480.0 | 16554.3 | 16311.6 |
+  | GPU=32,BS=96 | 20054.43 | 16142.92 | 16610.6 |
 
 
 
@@ -311,11 +308,5 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - [单卡 bs=96、AMP](./logs/base_bs96_fp16_gpu1.log)
 - [8卡 bs=96、FP32](./logs/base_bs96_fp32_gpu8.log)
 - [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
-- [32卡 bs=32、FP32 on GradAcc](./logs/base_bs32_fp32_gpu32_gradacc.log)
-- [32卡 bs=48、FP32 on GradAcc](./logs/base_bs48_fp32_gpu32_gradacc.log)
-- [32卡 bs=64、AMP on GradAcc](./logs/base_bs64_fp16_gpu32_gradacc.log)
-- [32卡 bs=96、AMP on GradAcc](./logs/base_bs96_fp16_gpu32_gradacc.log)
-- [32卡 bs=32、FP32 no GradAcc](./logs/base_bs32_fp32_gpu32.log)
-- [32卡 bs=48、FP32 no GradAcc](./logs/base_bs48_fp32_gpu32.log)
-- [32卡 bs=64、AMP no GradAcc](./logs/base_bs64_fp16_gpu32.log)
-- [32卡 bs=96、AMP no GradAcc](./logs/base_bs96_fp16_gpu32.log)
+- [32卡 bs=96、FP32](./logs/base_bs96_fp32_gpu32.log)
+- [32卡 bs=96、AMP](./logs/base_bs96_fp16_gpu32.log)

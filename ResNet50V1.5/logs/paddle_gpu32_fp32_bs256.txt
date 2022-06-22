@@ -1,0 +1,264 @@
+LAUNCH INFO 2022-06-02 16:16:52,155 args reset by env PADDLE_TRAINER_ENDPOINTS
+['10.10.0.1:60001', '10.10.0.2:60001', '10.10.0.3:60001', '10.10.0.4:60001']
+LAUNCH WARNING 2022-06-02 16:16:52,156 Host ip reset to 10.10.0.1
+LAUNCH INFO 2022-06-02 16:16:52,156 -----------  Configuration  ----------------------
+LAUNCH INFO 2022-06-02 16:16:52,156 devices: None
+LAUNCH INFO 2022-06-02 16:16:52,156 elastic_level: -1
+LAUNCH INFO 2022-06-02 16:16:52,156 elastic_timeout: 30
+LAUNCH INFO 2022-06-02 16:16:52,156 gloo_port: 6767
+LAUNCH INFO 2022-06-02 16:16:52,156 host: 10.10.0.1
+LAUNCH INFO 2022-06-02 16:16:52,156 job_id: job-0bb6298324c990a3
+LAUNCH INFO 2022-06-02 16:16:52,156 legacy: False
+LAUNCH INFO 2022-06-02 16:16:52,156 log_dir: log
+LAUNCH INFO 2022-06-02 16:16:52,156 log_level: INFO
+LAUNCH INFO 2022-06-02 16:16:52,156 master: 10.10.0.1:60001
+LAUNCH INFO 2022-06-02 16:16:52,156 max_restart: 3
+LAUNCH INFO 2022-06-02 16:16:52,156 nnodes: 4
+LAUNCH INFO 2022-06-02 16:16:52,156 nproc_per_node: None
+LAUNCH INFO 2022-06-02 16:16:52,156 rank: -1
+LAUNCH INFO 2022-06-02 16:16:52,156 run_mode: collective
+LAUNCH INFO 2022-06-02 16:16:52,156 server_num: None
+LAUNCH INFO 2022-06-02 16:16:52,156 servers: 
+LAUNCH INFO 2022-06-02 16:16:52,156 trainer_num: None
+LAUNCH INFO 2022-06-02 16:16:52,156 trainers: 
+LAUNCH INFO 2022-06-02 16:16:52,156 training_script: 0,1,2,3,4,5,6,7
+LAUNCH INFO 2022-06-02 16:16:52,156 training_script_args: ['ppcls/static/train.py', '-c', 'ppcls/configs/ImageNet/ResNet/ResNet50.yaml', '-o', 'DataLoader.Train.sampler.batch_size=256', '-o', 'Global.epochs=32', '-o', 'DataLoader.Train.loader.num_workers=8', '-o', 'Global.eval_during_train=False', '-o', 'fuse_elewise_add_act_ops=True', '-o', 'enable_addto=True']
+LAUNCH INFO 2022-06-02 16:16:52,156 with_gloo: 0
+LAUNCH INFO 2022-06-02 16:16:52,156 --------------------------------------------------
+LAUNCH WARNING 2022-06-02 16:16:52,156 Compatible mode enable with args ['--gpus']
+WARNING 2022-06-02 16:16:52,158 launch.py:519] Not found distinct arguments and compiled with cuda or xpu or npu or mlu. Default use collective mode
+WARNING 2022-06-02 16:16:52,158 launch.py:519] Not found distinct arguments and compiled with cuda or xpu or npu or mlu. Default use collective mode
+INFO 2022-06-02 16:16:52,158 launch_utils.py:679] Change selected_gpus into reletive values. --ips:0,1,2,3,4,5,6,7 will change into relative_ips:[0, 1, 2, 3, 4, 5, 6, 7] according to your CUDA_VISIBLE_DEVICES:['0', '1', '2', '3', '4', '5', '6', '7']
+INFO 2022-06-02 16:16:52,158 launch_utils.py:679] Change selected_gpus into reletive values. --ips:0,1,2,3,4,5,6,7 will change into relative_ips:[0, 1, 2, 3, 4, 5, 6, 7] according to your CUDA_VISIBLE_DEVICES:['0', '1', '2', '3', '4', '5', '6', '7']
+INFO 2022-06-02 16:16:52,159 launch_utils.py:561] Local start 8 processes. First process distributed environment info (Only For Debug): 
+    +=======================================================================================+
+    |                        Distributed Envs                      Value                    |
+    +---------------------------------------------------------------------------------------+
+    |                       PADDLE_TRAINER_ID                        0                      |
+    |                 PADDLE_CURRENT_ENDPOINT               10.10.0.1:60001             |
+    |                     PADDLE_TRAINERS_NUM                       32                      |
+    |                PADDLE_TRAINER_ENDPOINTS  ... 6,10.10.0.4:60007,10.10.0.4:60008|
+    |                     PADDLE_RANK_IN_NODE                        0                      |
+    |                 PADDLE_LOCAL_DEVICE_IDS                        0                      |
+    |                 PADDLE_WORLD_DEVICE_IDS  ... 3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7|
+    |                     FLAGS_selected_gpus                        0                      |
+    |             FLAGS_selected_accelerators                        0                      |
+    +=======================================================================================+
+
+INFO 2022-06-02 16:16:52,159 launch_utils.py:561] Local start 8 processes. First process distributed environment info (Only For Debug): 
+    +=======================================================================================+
+    |                        Distributed Envs                      Value                    |
+    +---------------------------------------------------------------------------------------+
+    |                       PADDLE_TRAINER_ID                        0                      |
+    |                 PADDLE_CURRENT_ENDPOINT               10.10.0.1:60001             |
+    |                     PADDLE_TRAINERS_NUM                       32                      |
+    |                PADDLE_TRAINER_ENDPOINTS  ... 6,10.10.0.4:60007,10.10.0.4:60008|
+    |                     PADDLE_RANK_IN_NODE                        0                      |
+    |                 PADDLE_LOCAL_DEVICE_IDS                        0                      |
+    |                 PADDLE_WORLD_DEVICE_IDS  ... 3,4,5,6,7,0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7|
+    |                     FLAGS_selected_gpus                        0                      |
+    |             FLAGS_selected_accelerators                        0                      |
+    +=======================================================================================+
+
+INFO 2022-06-02 16:16:52,159 launch_utils.py:566] details about PADDLE_TRAINER_ENDPOINTS can be found in log/endpoints.log, and detail running logs maybe found in log/workerlog.0
+INFO 2022-06-02 16:16:52,159 launch_utils.py:566] details about PADDLE_TRAINER_ENDPOINTS can be found in log/endpoints.log, and detail running logs maybe found in log/workerlog.0
+-----------  Configuration Arguments -----------
+backend: auto
+cluster_topo_path: None
+elastic_pre_hook: None
+elastic_server: None
+enable_auto_mapping: False
+force: False
+gpus: 0,1,2,3,4,5,6,7
+heter_devices: 
+heter_worker_num: None
+heter_workers: 
+host: None
+http_port: None
+ips: 127.0.0.1
+job_id: None
+log_dir: log
+np: None
+nproc_per_node: None
+rank_mapping_path: None
+run_mode: None
+scale: 0
+server_num: None
+servers: 
+training_script: ppcls/static/train.py
+training_script_args: ['-c', 'ppcls/configs/ImageNet/ResNet/ResNet50.yaml', '-o', 'DataLoader.Train.sampler.batch_size=256', '-o', 'Global.epochs=32', '-o', 'DataLoader.Train.loader.num_workers=8', '-o', 'Global.eval_during_train=False', '-o', 'fuse_elewise_add_act_ops=True', '-o', 'enable_addto=True']
+worker_num: None
+workers: 
+------------------------------------------------
+launch train in GPU mode!
+launch proc_id:2674 idx:0
+launch proc_id:2677 idx:1
+launch proc_id:2760 idx:2
+launch proc_id:2764 idx:3
+launch proc_id:2767 idx:4
+launch proc_id:2772 idx:5
+launch proc_id:2778 idx:6
+launch proc_id:2785 idx:7
+/usr/local/lib/python3.7/dist-packages/scipy/sparse/sputils.py:23: DeprecationWarning: `np.typeDict` is a deprecated alias for `np.sctypeDict`.
+  supported_dtypes = [np.typeDict[x] for x in supported_dtypes]
+/usr/local/lib/python3.7/dist-packages/scipy/special/orthogonal.py:81: DeprecationWarning: `np.int` is a deprecated alias for the builtin `int`. To silence this warning, use `int` by itself. Doing this will not modify any behavior and is safe. When replacing `np.int`, you may wish to use e.g. `np.int64` or `np.int32` to specify the precision. If you wish to review your current use, check the release note link for additional information.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  from numpy import (exp, inf, pi, sqrt, floor, sin, cos, around, int,
+/usr/local/lib/python3.7/dist-packages/scipy/linalg/__init__.py:212: DeprecationWarning: The module numpy.dual is deprecated.  Instead of using dual, use the functions directly from numpy or scipy.
+  from numpy.dual import register_func
+A new field (fuse_elewise_add_act_ops) detected!
+A new field (enable_addto) detected!
+[2022/06/02 16:16:55] ppcls INFO: 
+===========================================================
+==        PaddleClas is powered by PaddlePaddle !        ==
+===========================================================
+==                                                       ==
+==   For more info please go to the following website.   ==
+==                                                       ==
+==       https://github.com/PaddlePaddle/PaddleClas      ==
+===========================================================
+
+[2022/06/02 16:16:55] ppcls INFO: Arch : 
+[2022/06/02 16:16:55] ppcls INFO:     class_num : 1000
+[2022/06/02 16:16:55] ppcls INFO:     name : ResNet50
+[2022/06/02 16:16:55] ppcls INFO: DataLoader : 
+[2022/06/02 16:16:55] ppcls INFO:     Eval : 
+[2022/06/02 16:16:55] ppcls INFO:         dataset : 
+[2022/06/02 16:16:55] ppcls INFO:             cls_label_path : ./dataset/ILSVRC2012/val_list.txt
+[2022/06/02 16:16:55] ppcls INFO:             image_root : ./dataset/ILSVRC2012/
+[2022/06/02 16:16:55] ppcls INFO:             name : ImageNetDataset
+[2022/06/02 16:16:55] ppcls INFO:             transform_ops : 
+[2022/06/02 16:16:55] ppcls INFO:                 DecodeImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     channel_first : False
+[2022/06/02 16:16:55] ppcls INFO:                     to_rgb : True
+[2022/06/02 16:16:55] ppcls INFO:                 ResizeImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     resize_short : 256
+[2022/06/02 16:16:55] ppcls INFO:                 CropImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     size : 224
+[2022/06/02 16:16:55] ppcls INFO:                 NormalizeImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     mean : [0.485, 0.456, 0.406]
+[2022/06/02 16:16:55] ppcls INFO:                     order : 
+[2022/06/02 16:16:55] ppcls INFO:                     scale : 1.0/255.0
+[2022/06/02 16:16:55] ppcls INFO:                     std : [0.229, 0.224, 0.225]
+[2022/06/02 16:16:55] ppcls INFO:         loader : 
+[2022/06/02 16:16:55] ppcls INFO:             num_workers : 4
+[2022/06/02 16:16:55] ppcls INFO:             use_shared_memory : True
+[2022/06/02 16:16:55] ppcls INFO:         sampler : 
+[2022/06/02 16:16:55] ppcls INFO:             batch_size : 64
+[2022/06/02 16:16:55] ppcls INFO:             drop_last : False
+[2022/06/02 16:16:55] ppcls INFO:             name : DistributedBatchSampler
+[2022/06/02 16:16:55] ppcls INFO:             shuffle : False
+[2022/06/02 16:16:55] ppcls INFO:     Train : 
+[2022/06/02 16:16:55] ppcls INFO:         dataset : 
+[2022/06/02 16:16:55] ppcls INFO:             cls_label_path : ./dataset/ILSVRC2012/train_list.txt
+[2022/06/02 16:16:55] ppcls INFO:             image_root : ./dataset/ILSVRC2012/
+[2022/06/02 16:16:55] ppcls INFO:             name : ImageNetDataset
+[2022/06/02 16:16:55] ppcls INFO:             transform_ops : 
+[2022/06/02 16:16:55] ppcls INFO:                 DecodeImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     channel_first : False
+[2022/06/02 16:16:55] ppcls INFO:                     to_rgb : True
+[2022/06/02 16:16:55] ppcls INFO:                 RandCropImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     size : 224
+[2022/06/02 16:16:55] ppcls INFO:                 RandFlipImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     flip_code : 1
+[2022/06/02 16:16:55] ppcls INFO:                 NormalizeImage : 
+[2022/06/02 16:16:55] ppcls INFO:                     mean : [0.485, 0.456, 0.406]
+[2022/06/02 16:16:55] ppcls INFO:                     order : 
+[2022/06/02 16:16:55] ppcls INFO:                     scale : 1.0/255.0
+[2022/06/02 16:16:55] ppcls INFO:                     std : [0.229, 0.224, 0.225]
+[2022/06/02 16:16:55] ppcls INFO:         loader : 
+[2022/06/02 16:16:55] ppcls INFO:             num_workers : 8
+[2022/06/02 16:16:55] ppcls INFO:             use_shared_memory : True
+[2022/06/02 16:16:55] ppcls INFO:         sampler : 
+[2022/06/02 16:16:55] ppcls INFO:             batch_size : 256
+[2022/06/02 16:16:55] ppcls INFO:             drop_last : False
+[2022/06/02 16:16:55] ppcls INFO:             name : DistributedBatchSampler
+[2022/06/02 16:16:55] ppcls INFO:             shuffle : True
+[2022/06/02 16:16:55] ppcls INFO: Global : 
+[2022/06/02 16:16:55] ppcls INFO:     checkpoints : None
+[2022/06/02 16:16:55] ppcls INFO:     device : gpu
+[2022/06/02 16:16:55] ppcls INFO:     epochs : 32
+[2022/06/02 16:16:55] ppcls INFO:     eval_during_train : False
+[2022/06/02 16:16:55] ppcls INFO:     eval_interval : 1
+[2022/06/02 16:16:55] ppcls INFO:     image_shape : [3, 224, 224]
+[2022/06/02 16:16:55] ppcls INFO:     output_dir : ./output/
+[2022/06/02 16:16:55] ppcls INFO:     pretrained_model : None
+[2022/06/02 16:16:55] ppcls INFO:     print_batch_step : 10
+[2022/06/02 16:16:55] ppcls INFO:     save_inference_dir : ./inference
+[2022/06/02 16:16:55] ppcls INFO:     save_interval : 1
+[2022/06/02 16:16:55] ppcls INFO:     to_static : False
+[2022/06/02 16:16:55] ppcls INFO:     use_visualdl : False
+[2022/06/02 16:16:55] ppcls INFO: Infer : 
+[2022/06/02 16:16:55] ppcls INFO:     PostProcess : 
+[2022/06/02 16:16:55] ppcls INFO:         class_id_map_file : ppcls/utils/imagenet1k_label_list.txt
+[2022/06/02 16:16:55] ppcls INFO:         name : Topk
+[2022/06/02 16:16:55] ppcls INFO:         topk : 5
+[2022/06/02 16:16:55] ppcls INFO:     batch_size : 10
+[2022/06/02 16:16:55] ppcls INFO:     infer_imgs : docs/images/inference_deployment/whl_demo.jpg
+[2022/06/02 16:16:55] ppcls INFO:     transforms : 
+[2022/06/02 16:16:55] ppcls INFO:         DecodeImage : 
+[2022/06/02 16:16:55] ppcls INFO:             channel_first : False
+[2022/06/02 16:16:55] ppcls INFO:             to_rgb : True
+[2022/06/02 16:16:55] ppcls INFO:         ResizeImage : 
+[2022/06/02 16:16:55] ppcls INFO:             resize_short : 256
+[2022/06/02 16:16:55] ppcls INFO:         CropImage : 
+[2022/06/02 16:16:55] ppcls INFO:             size : 224
+[2022/06/02 16:16:55] ppcls INFO:         NormalizeImage : 
+[2022/06/02 16:16:55] ppcls INFO:             mean : [0.485, 0.456, 0.406]
+[2022/06/02 16:16:55] ppcls INFO:             order : 
+[2022/06/02 16:16:55] ppcls INFO:             scale : 1.0/255.0
+[2022/06/02 16:16:55] ppcls INFO:             std : [0.229, 0.224, 0.225]
+[2022/06/02 16:16:55] ppcls INFO:         ToCHWImage : None
+[2022/06/02 16:16:55] ppcls INFO: Loss : 
+[2022/06/02 16:16:55] ppcls INFO:     Eval : 
+[2022/06/02 16:16:55] ppcls INFO:         CELoss : 
+[2022/06/02 16:16:55] ppcls INFO:             weight : 1.0
+[2022/06/02 16:16:55] ppcls INFO:     Train : 
+[2022/06/02 16:16:55] ppcls INFO:         CELoss : 
+[2022/06/02 16:16:55] ppcls INFO:             weight : 1.0
+[2022/06/02 16:16:55] ppcls INFO: Metric : 
+[2022/06/02 16:16:55] ppcls INFO:     Eval : 
+[2022/06/02 16:16:55] ppcls INFO:         TopkAcc : 
+[2022/06/02 16:16:55] ppcls INFO:             topk : [1, 5]
+[2022/06/02 16:16:55] ppcls INFO:     Train : 
+[2022/06/02 16:16:55] ppcls INFO:         TopkAcc : 
+[2022/06/02 16:16:55] ppcls INFO:             topk : [1, 5]
+[2022/06/02 16:16:55] ppcls INFO: Optimizer : 
+[2022/06/02 16:16:55] ppcls INFO:     lr : 
+[2022/06/02 16:16:55] ppcls INFO:         decay_epochs : [30, 60, 90]
+[2022/06/02 16:16:55] ppcls INFO:         learning_rate : 0.1
+[2022/06/02 16:16:55] ppcls INFO:         name : Piecewise
+[2022/06/02 16:16:55] ppcls INFO:         values : [0.1, 0.01, 0.001, 0.0001]
+[2022/06/02 16:16:55] ppcls INFO:     momentum : 0.9
+[2022/06/02 16:16:55] ppcls INFO:     name : Momentum
+[2022/06/02 16:16:55] ppcls INFO:     regularizer : 
+[2022/06/02 16:16:55] ppcls INFO:         coeff : 0.0001
+[2022/06/02 16:16:55] ppcls INFO:         name : L2
+[2022/06/02 16:16:55] ppcls INFO: enable_addto : True
+[2022/06/02 16:16:55] ppcls INFO: fuse_elewise_add_act_ops : True
+server not ready, wait 3 sec to retry...
+not ready endpoints:['10.10.0.1:60002', '10.10.0.1:60003', '10.10.0.1:60004', '10.10.0.1:60005', '10.10.0.1:60006', '10.10.0.1:60007', '10.10.0.1:60008']
+server not ready, wait 3 sec to retry...
+not ready endpoints:['10.10.0.1:60002', '10.10.0.1:60003', '10.10.0.1:60004', '10.10.0.1:60005', '10.10.0.1:60006', '10.10.0.1:60007', '10.10.0.1:60008']
+W0602 16:17:05.160576  2674 gpu_context.cc:278] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.4, Runtime API Version: 11.2
+W0602 16:17:05.160634  2674 gpu_context.cc:306] device: 0, cuDNN Version: 8.1.
+W0602 16:17:19.108105  2674 build_strategy.cc:123] Currently, fuse_broadcast_ops only works under Reduce mode.
+I0602 16:17:19.119482  2674 fuse_pass_base.cc:57] ---  detected 16 subgraphs
+I0602 16:17:19.128733  2674 fuse_pass_base.cc:57] ---  detected 16 subgraphs
+W0602 16:17:19.169394  2674 fuse_all_reduce_op_pass.cc:76] Find all_reduce operators: 161. To make the speed faster, some all_reduce ops are fused during training, after fusion, the number of all_reduce ops is 7.
+[2022/06/02 16:17:31] ppcls INFO: epoch:0   train step:10   lr: 0.100000, loss:  6.9950 top1:  0.0039 top5:  0.0078 batch_cost: 0.75584 s, reader_cost: 0.03820 s, ips: 338.69825 samples/sec.
+[2022/06/02 16:17:38] ppcls INFO: epoch:0   train step:20   lr: 0.100000, loss:  7.3543 top1:  0.0000 top5:  0.0039 batch_cost: 0.74480 s, reader_cost: 0.03469 s, ips: 343.71512 samples/sec.
+[2022/06/02 16:17:46] ppcls INFO: epoch:0   train step:30   lr: 0.100000, loss:  6.9066 top1:  0.0000 top5:  0.0156 batch_cost: 0.74744 s, reader_cost: 0.03665 s, ips: 342.50265 samples/sec.
+[2022/06/02 16:17:53] ppcls INFO: epoch:0   train step:40   lr: 0.100000, loss:  6.8764 top1:  0.0000 top5:  0.0039 batch_cost: 0.74668 s, reader_cost: 0.03691 s, ips: 342.84956 samples/sec.
+[2022/06/02 16:18:01] ppcls INFO: epoch:0   train step:50   lr: 0.100000, loss:  6.7827 top1:  0.0000 top5:  0.0078 batch_cost: 0.74797 s, reader_cost: 0.03717 s, ips: 342.26014 samples/sec.
+[2022/06/02 16:18:08] ppcls INFO: epoch:0   train step:60   lr: 0.100000, loss:  6.7157 top1:  0.0000 top5:  0.0234 batch_cost: 0.74555 s, reader_cost: 0.03376 s, ips: 343.37038 samples/sec.
+[2022/06/02 16:18:14] ppcls INFO: END epoch:0   train  loss:  6.9075 top1:  0.0035 top5:  0.0155 batch_cost: 0.74132 s, reader_cost: 0.02981 s, batch_cost_sum: 47.44463 s,
+[2022/06/02 16:18:15] ppcls INFO: Already save model in ./output/ResNet50/0
+[2022/06/02 16:18:29] ppcls INFO: epoch:1   train step:10   lr: 0.100000, loss:  6.4942 top1:  0.0078 top5:  0.0547 batch_cost: 0.74094 s, reader_cost: 0.00683 s, ips: 345.50596 samples/sec.
+[2022/06/02 16:18:37] ppcls INFO: epoch:1   train step:20   lr: 0.100000, loss:  6.3635 top1:  0.0273 top5:  0.0742 batch_cost: 0.74157 s, reader_cost: 0.01736 s, ips: 345.21256 samples/sec.
+[2022/06/02 16:18:44] ppcls INFO: epoch:1   train step:30   lr: 0.100000, loss:  6.1600 top1:  0.0312 top5:  0.0547 batch_cost: 0.74260 s, reader_cost: 0.02298 s, ips: 344.73516 samples/sec.
+[2022/06/02 16:18:52] ppcls INFO: epoch:1   train step:40   lr: 0.100000, loss:  6.1902 top1:  0.0273 top5:  0.0742 batch_cost: 0.74392 s, reader_cost: 0.02547 s, ips: 344.12213 samples/sec.
+[2022/06/02 16:18:59] ppcls INFO: epoch:1   train step:50   lr: 0.100000, loss:  6.0761 top1:  0.0195 top5:  0.0547 batch_cost: 0.74589 s, reader_cost: 0.02751 s, ips: 343.21251 samples/sec.
+[2022/06/02 16:19:07] ppcls INFO: epoch:1   train step:60   lr: 0.100000, loss:  6.0196 top1:  0.0195 top5:  0.0742 batch_cost: 0.74567 s, reader_cost: 0.02646 s, ips: 343.31473 samples/sec.
+[2022/06/02 16:19:12] ppcls INFO: END epoch:1   train  loss:  6.2716 top1:  0.0182 top5:  0.0626 batch_cost: 0.73378 s, reader_cost: 0.02326 s, batch_cost_sum: 46.96211 s,
+[2022/06/02 16:19:13] ppcls INFO: Already save model in ./output/ResNet50/1

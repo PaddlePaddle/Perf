@@ -9,6 +9,7 @@ export FLAGS_max_inplace_grad_add=8
 
 base_batch_size=$1
 num_gpus=$2
+TRANER_IPS=$3
 
 
 use_pure_fp16=False
@@ -29,8 +30,10 @@ train_cmd="-c ppcls/configs/ImageNet/ResNet/ResNet50_amp_O2_ultra.yaml
 
 if [[ ${num_gpus} == 1 ]]; then
     train_cmd="python -u ppcls/static/train.py "${train_cmd}
-else
+elif [[ ${num_gpus} == 8 ]]; then
      train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 ppcls/static/train.py "${train_cmd}" -o Global.use_dali=True"
+else
+     train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 --ips="${TRANER_IPS}" ppcls/static/train.py "${train_cmd}" -o Global.use_dali=True"
 fi
 echo ${train_cmd}
 ${train_cmd}

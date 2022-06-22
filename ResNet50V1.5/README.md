@@ -178,19 +178,14 @@ Paddle Docker的基本信息如下：
 ### 2.多机（32卡）测试
 - 下载我们编写的测试脚本，并执行该脚本(每台机器均需要执行)
   ```bash
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/paddle_test_multi_node_all.sh
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_32gpu_fp32_bs96.yaml
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs128.yaml
-  wget https://raw.githubusercontent.com/PaddlePaddle/Perf/master/ResNet50V1.5/scripts/ResNet50_32gpu_amp_bs208.yaml
+  cd scripts/
   bash paddle_test_multi_node_all.sh
   ```
 
 - 执行后将得到如下日志文件：
    ```bash
-   ./paddle_gpu32_fp32_bs128.txt
-   ./paddle_gpu32_amp_bs128.txt
    ./paddle_gpu32_fp32_bs256.txt
-   ./paddle_gpu32_amp_bs256.txt
+   ./paddle_gpu32_pure_fp16_bs256.txt
    ```
 
 ## 五、测试结果
@@ -204,7 +199,7 @@ Paddle Docker的基本信息如下：
 |:-----:|:-----:|:-----:|
 |1 | 389.12 | 1444.94  |
 |8 | 2946.29 | 10649.90  | 
-|32 | —— | —— |
+|32 | 10984.436 | 39972.131 |
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
 
@@ -221,8 +216,8 @@ Paddle Docker的基本信息如下：
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=256 | 389.12 | 414.73  |  363.77 | 380.55 |
-  | GPU=8,BS=256 | 2946.29 ] | 3275.93 |   2787.43 | 3002.8 |
-  | GPU=32,BS=256 | —— | —— | —— | - |
+  | GPU=8,BS=256 | 2946.29| 3275.93 |   2787.43 | 3002.8 |
+  | GPU=32,BS=256 | 10984.436 | 12671.9 | 10523.32 | —— |
 
 - AMP测试
 
@@ -230,7 +225,7 @@ Paddle Docker的基本信息如下：
   |:-----:|:-----:|:-----:|:-----:|:-----:|
   | GPU=1,BS=256 | 1444.94(O2) | 1173.38 | 773.30| 1359.4 |
   | GPU=8,BS=256 | 10649.90(O2) | 9310.31 | 5811.26 | 10494 |
-  | GPU=32,BS=256 | —— | —— | —— | - |
+  | GPU=32,BS=256 | 39972.131 | 33317.67 | 21259.81 | —— |
 
 
 ## 六、日志数据
@@ -238,7 +233,6 @@ Paddle Docker的基本信息如下：
 - [1卡 FP16 BS=256 日志](./logs/paddle_gpu1_pure_fp16_bs256.txt)
 - [8卡 FP32 BS=256 日志](./logs/paddle_gpu8_fp32_bs256.txt)
 - [8卡 FP16 BS=256 日志](./logs/paddle_gpu8_pure_fp16_bs256.txt)
-- [32卡 FP32 BS=96 日志](./logs/paddle_gpu32_fp32_bs96.txt)
-- [32卡 AMP BS=128 日志](./logs/paddle_gpu32_amp_bs128.txt)
-- [32卡 AMP BS=208 日志](./logs/paddle_gpu32_amp_bs208.txt)
+- [32卡 FP32 BS=256 日志](./logs/paddle_gpu32_fp32_bs256.txt)
+- [32卡 FP16 BS=256 日志](./logs/paddle_gpu32_pure_fp16_bs256.txt)
 
