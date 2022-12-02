@@ -7,11 +7,11 @@
 + bert_model=base
 + bash scripts/run_pretraining_lamb.sh 96 64 8 7.5e-4 5e-4 fp32 true 1 2000 200 200 200 704 512 base
 Container nvidia build =  13409399
-Saving checkpoints to /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412
-Logs written to /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768.220603120412.log
+Saving checkpoints to /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038
+Logs written to /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768.221125121038.log
 Container nvidia build =  13409399
 XLA activated
-2022-06-03 12:04:12.845153: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2022-11-25 12:10:38.685629: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
 WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
 WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py3.6-linux-x86_64.egg/horovod/tensorflow/__init__.py:152: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.
 
@@ -25,7 +25,7 @@ For more information, please see:
   * https://github.com/tensorflow/io (for I/O related ops)
 If you depend on functionality not listed there, please file an issue.
 
-W0603 12:04:14.325941 139843159394112 lazy_loader.py:50] 
+W1125 12:10:40.133808 140048561555264 lazy_loader.py:50] 
 The TensorFlow contrib module will not be included in TensorFlow 2.0.
 For more information, please see:
   * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
@@ -33,7 +33,7 @@ For more information, please see:
   * https://github.com/tensorflow/io (for I/O related ops)
 If you depend on functionality not listed there, please file an issue.
 
-INFO:tensorflow:Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
+INFO:tensorflow:Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
   optimizer_options {
     global_jit_level: ON_1
   }
@@ -41,8 +41,8 @@ INFO:tensorflow:Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_
     memory_optimization: NO_MEM_OPT
   }
 }
-, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f2d5da48208>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
-I0603 12:04:14.959050 139843159394112 estimator.py:212] Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f5d3090c240>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+I1125 12:10:40.712922 140048561555264 estimator.py:212] Using config: {'_model_dir': '/results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1', '_tf_random_seed': None, '_save_summary_steps': 200, '_save_checkpoints_steps': 200, '_save_checkpoints_secs': None, '_session_config': graph_options {
   optimizer_options {
     global_jit_level: ON_1
   }
@@ -50,372 +50,612 @@ I0603 12:04:14.959050 139843159394112 estimator.py:212] Using config: {'_model_d
     memory_optimization: NO_MEM_OPT
   }
 }
-, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f2d5da48208>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
-WARNING:tensorflow:Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f2d5daa81e0>) includes params argument, but params are not passed to Estimator.
-W0603 12:04:14.959738 139843159394112 model_fn.py:630] Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f2d5daa81e0>) includes params argument, but params are not passed to Estimator.
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 10000, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7f5d3090c240>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+WARNING:tensorflow:Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f5d30970268>) includes params argument, but params are not passed to Estimator.
+W1125 12:10:40.713588 140048561555264 model_fn.py:630] Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7f5d30970268>) includes params argument, but params are not passed to Estimator.
 INFO:tensorflow:***** Running training *****
-I0603 12:04:14.960153 139843159394112 run_pretraining.py:625] ***** Running training *****
+I1125 12:10:40.713989 140048561555264 run_pretraining.py:628] ***** Running training *****
 INFO:tensorflow:  Batch size = 96
-I0603 12:04:14.960216 139843159394112 run_pretraining.py:626]   Batch size = 96
+I1125 12:10:40.714055 140048561555264 run_pretraining.py:629]   Batch size = 96
 WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
 
-W0603 12:04:15.055441 139843159394112 module_wrapper.py:139] From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
+W1125 12:10:40.805844 140048561555264 module_wrapper.py:139] From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/autograph/converters/directives.py:119: The name tf.parse_single_example is deprecated. Please use tf.io.parse_single_example instead.
 
 INFO:tensorflow:Calling model_fn.
-I0603 12:04:15.158719 139843159394112 estimator.py:1148] Calling model_fn.
+I1125 12:10:40.907346 140048561555264 estimator.py:1148] Calling model_fn.
 INFO:tensorflow:*** Features ***
-I0603 12:04:15.158914 139843159394112 run_pretraining.py:258] *** Features ***
+I1125 12:10:40.907493 140048561555264 run_pretraining.py:260] *** Features ***
 INFO:tensorflow:  name = input_ids, shape = (96, 128)
-I0603 12:04:15.159014 139843159394112 run_pretraining.py:260]   name = input_ids, shape = (96, 128)
+I1125 12:10:40.907586 140048561555264 run_pretraining.py:262]   name = input_ids, shape = (96, 128)
 INFO:tensorflow:  name = input_mask, shape = (96, 128)
-I0603 12:04:15.159084 139843159394112 run_pretraining.py:260]   name = input_mask, shape = (96, 128)
+I1125 12:10:40.907661 140048561555264 run_pretraining.py:262]   name = input_mask, shape = (96, 128)
 INFO:tensorflow:  name = masked_lm_ids, shape = (96, 20)
-I0603 12:04:15.159150 139843159394112 run_pretraining.py:260]   name = masked_lm_ids, shape = (96, 20)
+I1125 12:10:40.907726 140048561555264 run_pretraining.py:262]   name = masked_lm_ids, shape = (96, 20)
 INFO:tensorflow:  name = masked_lm_positions, shape = (96, 20)
-I0603 12:04:15.159212 139843159394112 run_pretraining.py:260]   name = masked_lm_positions, shape = (96, 20)
+I1125 12:10:40.907788 140048561555264 run_pretraining.py:262]   name = masked_lm_positions, shape = (96, 20)
 INFO:tensorflow:  name = masked_lm_weights, shape = (96, 20)
-I0603 12:04:15.159273 139843159394112 run_pretraining.py:260]   name = masked_lm_weights, shape = (96, 20)
+I1125 12:10:40.907849 140048561555264 run_pretraining.py:262]   name = masked_lm_weights, shape = (96, 20)
 INFO:tensorflow:  name = next_sentence_labels, shape = (96, 1)
-I0603 12:04:15.159335 139843159394112 run_pretraining.py:260]   name = next_sentence_labels, shape = (96, 1)
+I1125 12:10:40.907910 140048561555264 run_pretraining.py:262]   name = next_sentence_labels, shape = (96, 1)
 INFO:tensorflow:  name = segment_ids, shape = (96, 128)
-I0603 12:04:15.159395 139843159394112 run_pretraining.py:260]   name = segment_ids, shape = (96, 128)
+I1125 12:10:40.907969 140048561555264 run_pretraining.py:262]   name = segment_ids, shape = (96, 128)
 WARNING:tensorflow:From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
 
-W0603 12:04:15.159606 139843159394112 module_wrapper.py:139] From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+W1125 12:10:40.908149 140048561555264 module_wrapper.py:139] From /workspace/bert/modeling.py:176: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
 
 WARNING:tensorflow:From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
 
-W0603 12:04:15.160686 139843159394112 module_wrapper.py:139] From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+W1125 12:10:40.909126 140048561555264 module_wrapper.py:139] From /workspace/bert/modeling.py:427: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
 
-WARNING:tensorflow:From /workspace/bert/run_pretraining.py:296: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:298: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
 
-W0603 12:04:16.615041 139843159394112 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:296: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+W1125 12:10:42.396210 140048561555264 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:298: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
 
 WARNING:tensorflow:From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
 
-W0603 12:04:19.480074 139843159394112 module_wrapper.py:139] From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
+W1125 12:10:45.270935 140048561555264 module_wrapper.py:139] From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
 
 INFO:tensorflow:Done calling model_fn.
-I0603 12:04:26.689263 139843159394112 estimator.py:1150] Done calling model_fn.
+I1125 12:10:52.414674 140048561555264 estimator.py:1150] Done calling model_fn.
 INFO:tensorflow:Create CheckpointSaverHook.
-I0603 12:04:26.690411 139843159394112 basic_session_run_hooks.py:541] Create CheckpointSaverHook.
+I1125 12:10:52.415922 140048561555264 basic_session_run_hooks.py:541] Create CheckpointSaverHook.
 INFO:tensorflow:Graph was finalized.
-I0603 12:04:30.466881 139843159394112 monitored_session.py:240] Graph was finalized.
-2022-06-03 12:04:30.478157: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2599995000 Hz
-2022-06-03 12:04:30.484110: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x639f7d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2022-06-03 12:04:30.484133: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2022-06-03 12:04:30.487038: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
-2022-06-03 12:04:32.019760: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x61f3760 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2022-06-03 12:04:32.019791: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019797: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019805: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019810: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019816: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (4): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019820: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (5): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019825: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (6): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.019830: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (7): Tesla V100-SXM2-32GB, Compute Capability 7.0
-2022-06-03 12:04:32.032267: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties: 
+I1125 12:10:56.209379 140048561555264 monitored_session.py:240] Graph was finalized.
+2022-11-25 12:10:56.224234: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2599995000 Hz
+2022-11-25 12:10:56.229191: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x10617ec0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-11-25 12:10:56.229226: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2022-11-25 12:10:56.232465: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2022-11-25 12:10:57.576482: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.577485: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.616203: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.642328: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.671977: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.707659: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.750113: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.803787: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.808532: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x106e25f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2022-11-25 12:10:57.808561: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808569: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808576: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808585: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808591: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (4): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808604: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (5): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808610: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (6): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.808617: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (7): Tesla V100-SXM2-32GB, Compute Capability 7.0
+2022-11-25 12:10:57.834796: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.838465: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:41:00.0
-2022-06-03 12:04:32.034256: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 1 with properties: 
+pciBusID: 0000:03:00.0
+2022-11-25 12:10:57.838580: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.842874: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 1 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:42:00.0
-2022-06-03 12:04:32.036227: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 2 with properties: 
+pciBusID: 0000:04:00.0
+2022-11-25 12:10:57.842976: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.847293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 2 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:43:00.0
-2022-06-03 12:04:32.038198: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 3 with properties: 
+pciBusID: 0000:05:00.0
+2022-11-25 12:10:57.847410: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.851609: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 3 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:44:00.0
-2022-06-03 12:04:32.040167: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 4 with properties: 
+pciBusID: 0000:06:00.0
+2022-11-25 12:10:57.851703: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.855679: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 4 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:61:00.0
-2022-06-03 12:04:32.042145: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 5 with properties: 
+pciBusID: 0000:07:00.0
+2022-11-25 12:10:57.855773: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.859252: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 5 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:62:00.0
-2022-06-03 12:04:32.044094: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 6 with properties: 
+pciBusID: 0000:08:00.0
+2022-11-25 12:10:57.859348: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.863235: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 6 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:63:00.0
-2022-06-03 12:04:32.046063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 7 with properties: 
+pciBusID: 0000:09:00.0
+2022-11-25 12:10:57.863338: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.866362: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 7 with properties: 
 name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
-pciBusID: 0000:64:00.0
-2022-06-03 12:04:32.046103: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
-2022-06-03 12:04:32.049432: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
-2022-06-03 12:04:32.050872: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
-2022-06-03 12:04:32.051215: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
-2022-06-03 12:04:32.054093: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
-2022-06-03 12:04:32.054661: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
-2022-06-03 12:04:32.054854: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
-2022-06-03 12:04:32.085802: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0, 1, 2, 3, 4, 5, 6, 7
-2022-06-03 12:04:32.085841: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
-2022-06-03 12:04:34.552838: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
-2022-06-03 12:04:34.552888: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0 1 2 3 4 5 6 7 
-2022-06-03 12:04:34.552919: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N Y Y Y N N N Y 
-2022-06-03 12:04:34.552926: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 1:   Y N Y Y N N Y N 
-2022-06-03 12:04:34.552931: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 2:   Y Y N Y N Y N N 
-2022-06-03 12:04:34.552936: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 3:   Y Y Y N Y N N N 
-2022-06-03 12:04:34.552941: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 4:   N N N Y N Y Y Y 
-2022-06-03 12:04:34.552947: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 5:   N N Y N Y N Y Y 
-2022-06-03 12:04:34.552952: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 6:   N Y N N Y Y N Y 
-2022-06-03 12:04:34.552957: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 7:   Y N N N Y Y Y N 
-2022-06-03 12:04:34.571374: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30168 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:41:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.573770: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 30168 MB memory) -> physical GPU (device: 1, name: Tesla V100-SXM2-32GB, pci bus id: 0000:42:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.576067: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 30168 MB memory) -> physical GPU (device: 2, name: Tesla V100-SXM2-32GB, pci bus id: 0000:43:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.578312: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 30168 MB memory) -> physical GPU (device: 3, name: Tesla V100-SXM2-32GB, pci bus id: 0000:44:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.580535: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:4 with 30168 MB memory) -> physical GPU (device: 4, name: Tesla V100-SXM2-32GB, pci bus id: 0000:61:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.582761: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:5 with 30168 MB memory) -> physical GPU (device: 5, name: Tesla V100-SXM2-32GB, pci bus id: 0000:62:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.585024: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:6 with 30168 MB memory) -> physical GPU (device: 6, name: Tesla V100-SXM2-32GB, pci bus id: 0000:63:00.0, compute capability: 7.0)
-2022-06-03 12:04:34.587243: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:7 with 30168 MB memory) -> physical GPU (device: 7, name: Tesla V100-SXM2-32GB, pci bus id: 0000:64:00.0, compute capability: 7.0)
-2022-06-03 12:04:40.381393: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+pciBusID: 0000:0a:00.0
+2022-11-25 12:10:57.866430: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2022-11-25 12:10:57.870345: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2022-11-25 12:10:57.872036: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2022-11-25 12:10:57.872457: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2022-11-25 12:10:57.875805: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2022-11-25 12:10:57.876602: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2022-11-25 12:10:57.876842: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2022-11-25 12:10:57.876943: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.880060: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.883166: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.886271: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.889375: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.892467: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.895597: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.898555: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.901516: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.903537: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.905527: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.908076: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.911114: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.914235: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.917310: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.920442: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:10:57.923494: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0, 1, 2, 3, 4, 5, 6, 7
+2022-11-25 12:10:57.923541: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2022-11-25 12:11:00.404895: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-11-25 12:11:00.404948: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0 1 2 3 4 5 6 7 
+2022-11-25 12:11:00.404961: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N Y Y Y N N N Y 
+2022-11-25 12:11:00.404967: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 1:   Y N Y Y N N Y N 
+2022-11-25 12:11:00.404972: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 2:   Y Y N Y N Y N N 
+2022-11-25 12:11:00.404977: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 3:   Y Y Y N Y N N N 
+2022-11-25 12:11:00.404983: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 4:   N N N Y N Y Y Y 
+2022-11-25 12:11:00.404988: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 5:   N N Y N Y N Y Y 
+2022-11-25 12:11:00.404992: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 6:   N Y N N Y Y N Y 
+2022-11-25 12:11:00.404999: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 7:   Y N N N Y Y Y N 
+2022-11-25 12:11:00.405569: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.407672: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.409747: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.411778: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.413803: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.415824: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.417843: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.419849: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.421896: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.423940: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30166 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:03:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.424407: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.426423: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 30166 MB memory) -> physical GPU (device: 1, name: Tesla V100-SXM2-32GB, pci bus id: 0000:04:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.426750: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.428753: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 30166 MB memory) -> physical GPU (device: 2, name: Tesla V100-SXM2-32GB, pci bus id: 0000:05:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.429057: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.431066: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 30166 MB memory) -> physical GPU (device: 3, name: Tesla V100-SXM2-32GB, pci bus id: 0000:06:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.431381: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.433377: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:4 with 30166 MB memory) -> physical GPU (device: 4, name: Tesla V100-SXM2-32GB, pci bus id: 0000:07:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.433674: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.435667: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:5 with 30166 MB memory) -> physical GPU (device: 5, name: Tesla V100-SXM2-32GB, pci bus id: 0000:08:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.436037: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.438053: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:6 with 30166 MB memory) -> physical GPU (device: 6, name: Tesla V100-SXM2-32GB, pci bus id: 0000:09:00.0, compute capability: 7.0)
+2022-11-25 12:11:00.438361: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-25 12:11:00.440356: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:7 with 30166 MB memory) -> physical GPU (device: 7, name: Tesla V100-SXM2-32GB, pci bus id: 0000:0a:00.0, compute capability: 7.0)
+2022-11-25 12:11:05.671921: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
 INFO:tensorflow:Running local_init_op.
-I0603 12:04:45.245858 139843159394112 session_manager.py:500] Running local_init_op.
+I1125 12:11:10.156625 140048561555264 session_manager.py:500] Running local_init_op.
 INFO:tensorflow:Done running local_init_op.
-I0603 12:04:45.775300 139843159394112 session_manager.py:502] Done running local_init_op.
-INFO:tensorflow:Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/phase_1/model.ckpt.
-I0603 12:04:55.793490 139843159394112 basic_session_run_hooks.py:606] Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/phase_1/model.ckpt.
+I1125 12:11:10.634463 140048561555264 session_manager.py:502] Done running local_init_op.
+INFO:tensorflow:Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt.
+I1125 12:11:20.850143 140048561555264 basic_session_run_hooks.py:606] Saving checkpoints for 0 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt.
 WARNING:tensorflow:From /workspace/bert/run_pretraining.py:147: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
 
-W0603 12:05:03.015258 139843159394112 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:147: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
+W1125 12:11:27.684937 140048561555264 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:147: The name tf.train.get_global_step is deprecated. Please use tf.compat.v1.train.get_global_step instead.
 
-2022-06-03 12:05:27.250545: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
-2022-06-03 12:05:27.819983: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
-2022-06-03 12:05:57.281383: I tensorflow/compiler/jit/xla_compilation_cache.cc:243] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-INFO:tensorflow:loss = 11.1657505, step = 0
-I0603 12:06:02.830299 139843159394112 basic_session_run_hooks.py:262] loss = 11.1657505, step = 0
+2022-11-25 12:11:49.734538: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2022-11-25 12:11:50.289090: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2022-11-25 12:12:20.703449: I tensorflow/compiler/jit/xla_compilation_cache.cc:243] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+INFO:tensorflow:loss = 11.105524, step = 0
+I1125 12:12:26.157667 140048561555264 basic_session_run_hooks.py:262] loss = 11.105524, step = 0
 WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
-W0603 12:06:53.908894 139843159394112 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1125 12:13:15.098664 140048561555264 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
 WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
-W0603 12:06:54.514611 139843159394112 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1125 12:13:15.695566 140048561555264 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
 WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
-W0603 12:06:55.116109 139843159394112 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1125 12:13:16.285210 140048561555264 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
 WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
-W0603 12:06:55.723736 139843159394112 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+W1125 12:13:16.872921 140048561555264 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
 WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
-W0603 12:06:56.330155 139843159394112 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
-INFO:tensorflow:loss = 11.183017, step = 14 (6255.211 sec)
-I0603 13:50:18.040928 139843159394112 basic_session_run_hooks.py:260] loss = 11.183017, step = 14 (6255.211 sec)
-INFO:tensorflow:loss = 11.113723, step = 28 (6138.785 sec)
-I0603 15:32:36.825649 139843159394112 basic_session_run_hooks.py:260] loss = 11.113723, step = 28 (6138.785 sec)
+W1125 12:13:17.468081 140048561555264 basic_session_run_hooks.py:724] It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 0 vs previous value: 0. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+INFO:tensorflow:loss = 11.107928, step = 14 (6093.039 sec)
+I1125 13:53:59.196737 140048561555264 basic_session_run_hooks.py:260] loss = 11.107928, step = 14 (6093.039 sec)
+INFO:tensorflow:loss = 11.015606, step = 28 (5970.450 sec)
+I1125 15:33:29.646743 140048561555264 basic_session_run_hooks.py:260] loss = 11.015606, step = 28 (5970.450 sec)
 decayed_learning_rate_at_crossover_point = 7.500000e-04, adjusted_init_lr = 7.500000e-04
 Initializing LAMB Optimizer
 Skipping time record for  1  due to checkpoint-saving/warmup overhead
-DLL 2022-06-03 12:14:28.206271 - Iteration: 2  throughput_train : 119.741 seq/s mlm_loss : 10.4611  nsp_loss : 0.7195  total_loss : 11.1806  avg_loss_step : 11.1740  learning_rate : 0.0 
+DLL 2022-11-25 12:20:39.656927 - Iteration: 2  throughput_train : 122.624 sequences/s mlm_loss : 10.4137  nsp_loss : 0.7204  total_loss : 11.1340  avg_loss_step : 11.1208  learning_rate : 0.0 
 Skipping time record for  2  due to checkpoint-saving/warmup overhead
-DLL 2022-06-03 12:21:39.325193 - Iteration: 3  throughput_train : 156.794 seq/s mlm_loss : 10.4714  nsp_loss : 0.7155  total_loss : 11.1869  avg_loss_step : 11.1743  learning_rate : 3.75e-07 
+DLL 2022-11-25 12:27:40.261572 - Iteration: 3  throughput_train : 160.722 sequences/s mlm_loss : 10.3998  nsp_loss : 0.7031  total_loss : 11.1030  avg_loss_step : 11.1216  learning_rate : 3.75e-07 
 Skipping time record for  3  due to checkpoint-saving/warmup overhead
-DLL 2022-06-03 12:28:51.340701 - Iteration: 4  throughput_train : 156.475 seq/s mlm_loss : 10.4570  nsp_loss : 0.7092  total_loss : 11.1662  avg_loss_step : 11.1736  learning_rate : 7.5e-07 
+DLL 2022-11-25 12:34:41.646526 - Iteration: 4  throughput_train : 160.426 sequences/s mlm_loss : 10.4079  nsp_loss : 0.7082  total_loss : 11.1160  avg_loss_step : 11.1220  learning_rate : 7.5e-07 
 Skipping time record for  4  due to checkpoint-saving/warmup overhead
-DLL 2022-06-03 12:36:03.459535 - Iteration: 5  throughput_train : 156.438 seq/s mlm_loss : 10.4523  nsp_loss : 0.7187  total_loss : 11.1710  avg_loss_step : 11.1724  learning_rate : 1.125e-06 
+DLL 2022-11-25 12:41:42.947714 - Iteration: 5  throughput_train : 160.456 sequences/s mlm_loss : 10.4123  nsp_loss : 0.7363  total_loss : 11.1486  avg_loss_step : 11.1206  learning_rate : 1.125e-06 
 Skipping time record for  5  due to checkpoint-saving/warmup overhead
-DLL 2022-06-03 12:43:15.480543 - Iteration: 6  throughput_train : 156.473 seq/s mlm_loss : 10.4599  nsp_loss : 0.7244  total_loss : 11.1843  avg_loss_step : 11.1724  learning_rate : 1.5e-06 
-DLL 2022-06-03 12:50:27.511751 - Iteration: 7  throughput_train : 156.470 seq/s mlm_loss : 10.4512  nsp_loss : 0.7113  total_loss : 11.1625  avg_loss_step : 11.1721  learning_rate : 1.8750001e-06 
-DLL 2022-06-03 12:57:39.738032 - Iteration: 8  throughput_train : 156.399 seq/s mlm_loss : 10.4490  nsp_loss : 0.7171  total_loss : 11.1661  avg_loss_step : 11.1713  learning_rate : 2.25e-06 
-DLL 2022-06-03 13:04:51.855102 - Iteration: 9  throughput_train : 156.439 seq/s mlm_loss : 10.4684  nsp_loss : 0.7171  total_loss : 11.1856  avg_loss_step : 11.1709  learning_rate : 2.625e-06 
-DLL 2022-06-03 13:12:04.035931 - Iteration: 10  throughput_train : 156.416 seq/s mlm_loss : 10.4568  nsp_loss : 0.6892  total_loss : 11.1460  avg_loss_step : 11.1691  learning_rate : 3e-06 
-DLL 2022-06-03 13:19:16.178967 - Iteration: 11  throughput_train : 156.429 seq/s mlm_loss : 10.4549  nsp_loss : 0.6823  total_loss : 11.1372  avg_loss_step : 11.1677  learning_rate : 3.3750002e-06 
-DLL 2022-06-03 13:26:28.410705 - Iteration: 12  throughput_train : 156.397 seq/s mlm_loss : 10.4612  nsp_loss : 0.6898  total_loss : 11.1510  avg_loss_step : 11.1662  learning_rate : 3.7500001e-06 
-DLL 2022-06-03 13:33:40.595115 - Iteration: 13  throughput_train : 156.414 seq/s mlm_loss : 10.4516  nsp_loss : 0.7213  total_loss : 11.1729  avg_loss_step : 11.1640  learning_rate : 4.125e-06 
-DLL 2022-06-03 13:40:52.696155 - Iteration: 14  throughput_train : 156.444 seq/s mlm_loss : 10.4370  nsp_loss : 0.7120  total_loss : 11.1490  avg_loss_step : 11.1644  learning_rate : 4.5e-06 
-DLL 2022-06-03 13:48:04.814364 - Iteration: 15  throughput_train : 156.438 seq/s mlm_loss : 10.4493  nsp_loss : 0.7191  total_loss : 11.1684  avg_loss_step : 11.1615  learning_rate : 4.8750003e-06 
-DLL 2022-06-03 13:56:00.248609 - Iteration: 16  throughput_train : 142.183 seq/s mlm_loss : 10.4388  nsp_loss : 0.6990  total_loss : 11.1377  avg_loss_step : 11.1581  learning_rate : 5.25e-06 
-DLL 2022-06-03 14:03:12.534751 - Iteration: 17  throughput_train : 156.378 seq/s mlm_loss : 10.4492  nsp_loss : 0.7049  total_loss : 11.1541  avg_loss_step : 11.1547  learning_rate : 5.625e-06 
-DLL 2022-06-03 14:10:24.891682 - Iteration: 18  throughput_train : 156.353 seq/s mlm_loss : 10.4620  nsp_loss : 0.7006  total_loss : 11.1626  avg_loss_step : 11.1542  learning_rate : 6e-06 
-DLL 2022-06-03 14:17:37.082647 - Iteration: 19  throughput_train : 156.412 seq/s mlm_loss : 10.4374  nsp_loss : 0.7090  total_loss : 11.1464  avg_loss_step : 11.1518  learning_rate : 6.3750003e-06 
-DLL 2022-06-03 14:24:49.321823 - Iteration: 20  throughput_train : 156.395 seq/s mlm_loss : 10.4562  nsp_loss : 0.7094  total_loss : 11.1656  avg_loss_step : 11.1490  learning_rate : 6.7500005e-06 
-DLL 2022-06-03 14:32:01.595023 - Iteration: 21  throughput_train : 156.383 seq/s mlm_loss : 10.4633  nsp_loss : 0.6951  total_loss : 11.1583  avg_loss_step : 11.1463  learning_rate : 7.125e-06 
-DLL 2022-06-03 14:39:13.844024 - Iteration: 22  throughput_train : 156.391 seq/s mlm_loss : 10.4405  nsp_loss : 0.7067  total_loss : 11.1472  avg_loss_step : 11.1435  learning_rate : 7.5000003e-06 
-DLL 2022-06-03 14:46:26.065140 - Iteration: 23  throughput_train : 156.400 seq/s mlm_loss : 10.4085  nsp_loss : 0.7198  total_loss : 11.1283  avg_loss_step : 11.1396  learning_rate : 7.875e-06 
-DLL 2022-06-03 14:53:38.253468 - Iteration: 24  throughput_train : 156.413 seq/s mlm_loss : 10.4092  nsp_loss : 0.6960  total_loss : 11.1051  avg_loss_step : 11.1373  learning_rate : 8.25e-06 
-DLL 2022-06-03 15:00:50.484423 - Iteration: 25  throughput_train : 156.397 seq/s mlm_loss : 10.4519  nsp_loss : 0.6967  total_loss : 11.1485  avg_loss_step : 11.1349  learning_rate : 8.625e-06 
-DLL 2022-06-03 15:08:02.756609 - Iteration: 26  throughput_train : 156.382 seq/s mlm_loss : 10.4509  nsp_loss : 0.7057  total_loss : 11.1565  avg_loss_step : 11.1318  learning_rate : 9e-06 
-DLL 2022-06-03 15:15:14.929031 - Iteration: 27  throughput_train : 156.418 seq/s mlm_loss : 10.4267  nsp_loss : 0.6890  total_loss : 11.1157  avg_loss_step : 11.1273  learning_rate : 9.375e-06 
-DLL 2022-06-03 15:22:27.145983 - Iteration: 28  throughput_train : 156.402 seq/s mlm_loss : 10.4066  nsp_loss : 0.6962  total_loss : 11.1028  avg_loss_step : 11.1240  learning_rate : 9.750001e-06 
-DLL 2022-06-03 15:29:39.425579 - Iteration: 29  throughput_train : 156.379 seq/s mlm_loss : 10.4333  nsp_loss : 0.7008  total_loss : 11.1342  avg_loss_step : 11.1199  learning_rate : 1.0125001e-05 
-DLL 2022-06-03 15:36:51.697349 - Iteration: 30  throughput_train : 156.383 seq/s mlm_loss : 10.4063  nsp_loss : 0.6951  total_loss : 11.1014  avg_loss_step : 11.1157  learning_rate : 1.05e-05 
-DLL 2022-06-03 15:44:03.832346 - Iteration: 31  throughput_train : 156.432 seq/s mlm_loss : 10.4266  nsp_loss : 0.6934  total_loss : 11.1200  avg_loss_step : 11.1127  learning_rate : 1.0875e-05 
-DLL 2022-06-03 15:51:16.043496 - Iteration: 32  throughput_train : 156.404 seq/s mlm_loss : 10.4346  nsp_loss : 0.6978  total_loss : 11.1324  avg_loss_step : 11.1085  learning_rate : 1.125e-05 
-DLL 2022-06-03 15:58:28.225810 - Iteration: 33  throughput_train : 156.415 seq/s mlm_loss : 10.4010  nsp_loss : 0.6962  total_loss : 11.0972  avg_loss_step : 11.1045  learning_rate : 1.1625e-05 
-DLL 2022-06-03 16:05:40.465443 - Iteration: 34  throughput_train : 156.394 seq/s mlm_loss : 10.4365  nsp_loss : 0.6785  total_loss : 11.1150  avg_loss_step : 11.1003  learning_rate : 1.2e-05 
-DLL 2022-06-03 16:12:52.656355 - Iteration: 35  throughput_train : 156.412 seq/s mlm_loss : 10.4041  nsp_loss : 0.6890  total_loss : 11.0931  avg_loss_step : 11.0957  learning_rate : 1.2375001e-05 
-DLL 2022-06-03 16:20:04.853207 - Iteration: 36  throughput_train : 156.410 seq/s mlm_loss : 10.4124  nsp_loss : 0.6878  total_loss : 11.1001  avg_loss_step : 11.0914  learning_rate : 1.2750001e-05 
-DLL 2022-06-03 16:27:17.086677 - Iteration: 37  throughput_train : 156.396 seq/s mlm_loss : 10.3922  nsp_loss : 0.6940  total_loss : 11.0863  avg_loss_step : 11.0866  learning_rate : 1.3125001e-05 
-DLL 2022-06-03 16:34:29.239691 - Iteration: 38  throughput_train : 156.425 seq/s mlm_loss : 10.4030  nsp_loss : 0.6880  total_loss : 11.0910  avg_loss_step : 11.0829  learning_rate : 1.3500001e-05 
-DLL 2022-06-03 16:41:41.427886 - Iteration: 39  throughput_train : 156.413 seq/s mlm_loss : 10.3966  nsp_loss : 0.6855  total_loss : 11.0821  avg_loss_step : 11.0784  learning_rate : 1.3875e-05 
-DLL 2022-06-03 16:48:53.541206 - Iteration: 40  throughput_train : 156.440 seq/s mlm_loss : 10.3981  nsp_loss : 0.6837  total_loss : 11.0817  avg_loss_step : 11.0758  learning_rate : 1.425e-05 
-DLL 2022-06-03 16:56:05.771176 - Iteration: 41  throughput_train : 156.398 seq/s mlm_loss : 10.3901  nsp_loss : 0.6940  total_loss : 11.0841  avg_loss_step : 11.0704  learning_rate : 1.4625e-05 INFO:tensorflow:loss = 11.053335, step = 42 (6139.087 sec)
-I0603 17:14:55.912538 139843159394112 basic_session_run_hooks.py:260] loss = 11.053335, step = 42 (6139.087 sec)
-INFO:tensorflow:loss = 11.003342, step = 56 (6138.998 sec)
-I0603 18:57:14.910705 139843159394112 basic_session_run_hooks.py:260] loss = 11.003342, step = 56 (6138.998 sec)
-INFO:tensorflow:loss = 10.860098, step = 71 (6139.278 sec)
-I0603 20:39:34.188345 139843159394112 basic_session_run_hooks.py:260] loss = 10.860098, step = 71 (6139.278 sec)
+DLL 2022-11-25 12:48:44.033920 - Iteration: 6  throughput_train : 160.532 sequences/s mlm_loss : 10.4069  nsp_loss : 0.7069  total_loss : 11.1137  avg_loss_step : 11.1190  learning_rate : 1.5e-06 
+DLL 2022-11-25 12:55:45.261145 - Iteration: 7  throughput_train : 160.477 sequences/s mlm_loss : 10.4081  nsp_loss : 0.7082  total_loss : 11.1163  avg_loss_step : 11.1199  learning_rate : 1.8750001e-06 
+DLL 2022-11-25 13:02:46.653504 - Iteration: 8  throughput_train : 160.414 sequences/s mlm_loss : 10.4120  nsp_loss : 0.7303  total_loss : 11.1423  avg_loss_step : 11.1188  learning_rate : 2.25e-06 
+DLL 2022-11-25 13:09:47.392084 - Iteration: 9  throughput_train : 160.664 sequences/s mlm_loss : 10.4206  nsp_loss : 0.7361  total_loss : 11.1567  avg_loss_step : 11.1169  learning_rate : 2.625e-06 
+DLL 2022-11-25 13:16:48.170680 - Iteration: 10  throughput_train : 160.645 sequences/s mlm_loss : 10.3866  nsp_loss : 0.7002  total_loss : 11.0869  avg_loss_step : 11.1167  learning_rate : 3e-06 
+DLL 2022-11-25 13:23:48.793010 - Iteration: 11  throughput_train : 160.702 sequences/s mlm_loss : 10.4010  nsp_loss : 0.7088  total_loss : 11.1098  avg_loss_step : 11.1155  learning_rate : 3.3750002e-06 
+DLL 2022-11-25 13:30:49.434325 - Iteration: 12  throughput_train : 160.696 sequences/s mlm_loss : 10.3839  nsp_loss : 0.7199  total_loss : 11.1038  avg_loss_step : 11.1132  learning_rate : 3.7500001e-06 
+DLL 2022-11-25 13:37:50.455554 - Iteration: 13  throughput_train : 160.555 sequences/s mlm_loss : 10.3839  nsp_loss : 0.7105  total_loss : 11.0945  avg_loss_step : 11.1113  learning_rate : 4.125e-06 
+DLL 2022-11-25 13:44:51.121234 - Iteration: 14  throughput_train : 160.691 sequences/s mlm_loss : 10.3902  nsp_loss : 0.7137  total_loss : 11.1039  avg_loss_step : 11.1092  learning_rate : 4.5e-06 
+DLL 2022-11-25 13:51:51.614407 - Iteration: 15  throughput_train : 160.757 sequences/s mlm_loss : 10.4015  nsp_loss : 0.7273  total_loss : 11.1288  avg_loss_step : 11.1087  learning_rate : 4.8750003e-06 
+DLL 2022-11-25 13:59:32.656342 - Iteration: 16  throughput_train : 146.616 sequences/s mlm_loss : 10.3923  nsp_loss : 0.6870  total_loss : 11.0793  avg_loss_step : 11.1064  learning_rate : 5.25e-06 
+DLL 2022-11-25 14:06:32.538140 - Iteration: 17  throughput_train : 160.991 sequences/s mlm_loss : 10.3825  nsp_loss : 0.6992  total_loss : 11.0818  avg_loss_step : 11.1050  learning_rate : 5.625e-06 
+DLL 2022-11-25 14:13:32.338456 - Iteration: 18  throughput_train : 161.022 sequences/s mlm_loss : 10.3984  nsp_loss : 0.7206  total_loss : 11.1191  avg_loss_step : 11.1015  learning_rate : 6e-06 
+DLL 2022-11-25 14:20:33.357804 - Iteration: 19  throughput_train : 160.556 sequences/s mlm_loss : 10.3866  nsp_loss : 0.7193  total_loss : 11.1059  avg_loss_step : 11.0989  learning_rate : 6.3750003e-06 
+DLL 2022-11-25 14:27:34.384368 - Iteration: 20  throughput_train : 160.552 sequences/s mlm_loss : 10.3748  nsp_loss : 0.7010  total_loss : 11.0758  avg_loss_step : 11.0963  learning_rate : 6.7500005e-06 
+DLL 2022-11-25 14:34:34.733513 - Iteration: 21  throughput_train : 160.807 sequences/s mlm_loss : 10.3772  nsp_loss : 0.7107  total_loss : 11.0879  avg_loss_step : 11.0938  learning_rate : 7.125e-06 
+DLL 2022-11-25 14:41:35.080311 - Iteration: 22  throughput_train : 160.811 sequences/s mlm_loss : 10.3819  nsp_loss : 0.7086  total_loss : 11.0905  avg_loss_step : 11.0902  learning_rate : 7.5000003e-06 
+DLL 2022-11-25 14:48:35.305522 - Iteration: 23  throughput_train : 160.853 sequences/s mlm_loss : 10.3905  nsp_loss : 0.7131  total_loss : 11.1036  avg_loss_step : 11.0883  learning_rate : 7.875e-06 
+DLL 2022-11-25 14:55:35.615581 - Iteration: 24  throughput_train : 160.822 sequences/s mlm_loss : 10.3826  nsp_loss : 0.6910  total_loss : 11.0736  avg_loss_step : 11.0839  learning_rate : 8.25e-06 
+DLL 2022-11-25 15:02:35.806352 - Iteration: 25  throughput_train : 160.871 sequences/s mlm_loss : 10.3713  nsp_loss : 0.7157  total_loss : 11.0871  avg_loss_step : 11.0823  learning_rate : 8.625e-06 
+DLL 2022-11-25 15:09:36.332942 - Iteration: 26  throughput_train : 160.741 sequences/s mlm_loss : 10.3981  nsp_loss : 0.7102  total_loss : 11.1083  avg_loss_step : 11.0781  learning_rate : 9e-06 
+DLL 2022-11-25 15:16:36.520345 - Iteration: 27  throughput_train : 160.869 sequences/s mlm_loss : 10.3852  nsp_loss : 0.6898  total_loss : 11.0750  avg_loss_step : 11.0749  learning_rate : 9.375e-06 
+DLL 2022-11-25 15:23:36.866764 - Iteration: 28  throughput_train : 160.813 sequences/s mlm_loss : 10.3615  nsp_loss : 0.7002  total_loss : 11.0617  avg_loss_step : 11.0716  learning_rate : 9.750001e-06 
+DLL 2022-11-25 15:30:37.176818 - Iteration: 29  throughput_train : 160.825 sequences/s mlm_loss : 10.3533  nsp_loss : 0.7010  total_loss : 11.0543  avg_loss_step : 11.0674  learning_rate : 1.0125001e-05 
+DLL 2022-11-25 15:37:37.254375 - Iteration: 30  throughput_train : 160.924 sequences/s mlm_loss : 10.3670  nsp_loss : 0.6866  total_loss : 11.0536  avg_loss_step : 11.0650  learning_rate : 1.05e-05 
+DLL 2022-11-25 15:44:37.325157 - Iteration: 31  throughput_train : 160.925 sequences/s mlm_loss : 10.3836  nsp_loss : 0.6857  total_loss : 11.0694  avg_loss_step : 11.0593  learning_rate : 1.0875e-05 
+DLL 2022-11-25 15:51:37.455062 - Iteration: 32  throughput_train : 160.903 sequences/s mlm_loss : 10.3723  nsp_loss : 0.6965  total_loss : 11.0688  avg_loss_step : 11.0565  learning_rate : 1.125e-05 
+DLL 2022-11-25 15:58:37.507372 - Iteration: 33  throughput_train : 160.932 sequences/s mlm_loss : 10.3273  nsp_loss : 0.6983  total_loss : 11.0256  avg_loss_step : 11.0520  learning_rate : 1.1625e-05 
+DLL 2022-11-25 16:05:37.759091 - Iteration: 34  throughput_train : 160.857 sequences/s mlm_loss : 10.3515  nsp_loss : 0.6899  total_loss : 11.0414  avg_loss_step : 11.0487  learning_rate : 1.2e-05 
+DLL 2022-11-25 16:12:37.954976 - Iteration: 35  throughput_train : 160.877 sequences/s mlm_loss : 10.3334  nsp_loss : 0.6811  total_loss : 11.0145  avg_loss_step : 11.0427  learning_rate : 1.2375001e-05 
+DLL 2022-11-25 16:19:38.085003 - Iteration: 36  throughput_train : 160.903 sequences/s mlm_loss : 10.3227  nsp_loss : 0.6930  total_loss : 11.0157  avg_loss_step : 11.0402  learning_rate : 1.2750001e-05 
+DLL 2022-11-25 16:26:38.278932 - Iteration: 37  throughput_train : 160.878 sequences/s mlm_loss : 10.3463  nsp_loss : 0.6764  total_loss : 11.0227  avg_loss_step : 11.0349  learning_rate : 1.3125001e-05 
+DLL 2022-11-25 16:33:38.429938 - Iteration: 38  throughput_train : 160.894 sequences/s mlm_loss : 10.3344  nsp_loss : 0.6849  total_loss : 11.0193  avg_loss_step : 11.0293  learning_rate : 1.3500001e-05 
+DLL 2022-11-25 16:40:38.613593 - Iteration: 39  throughput_train : 160.882 sequences/s mlm_loss : 10.3521  nsp_loss : 0.6910  total_loss : 11.0432  avg_loss_step : 11.0261  learning_rate : 1.3875e-05 
+DLL 2022-11-25 16:47:38.799004 - Iteration: 40  throughput_train : 160.881 sequences/s mlm_loss : 10.3311  nsp_loss : 0.6787  total_loss : 11.0098  avg_loss_step : 11.0216  learning_rate : 1.425e-05 INFO:tensorflow:loss = 10.9780245, step = 42 (5969.437 sec)
+I1125 17:12:59.083500 140048561555264 basic_session_run_hooks.py:260] loss = 10.9780245, step = 42 (5969.437 sec)
+INFO:tensorflow:loss = 10.921258, step = 56 (5971.884 sec)
+I1125 18:52:30.967642 140048561555264 basic_session_run_hooks.py:260] loss = 10.921258, step = 56 (5971.884 sec)
+INFO:tensorflow:loss = 10.821556, step = 71 (5971.727 sec)
+I1125 20:32:02.694710 140048561555264 basic_session_run_hooks.py:260] loss = 10.821556, step = 71 (5971.727 sec)
 
-DLL 2022-06-03 17:03:17.971349 - Iteration: 42  throughput_train : 156.409 seq/s mlm_loss : 10.3862  nsp_loss : 0.7029  total_loss : 11.0892  avg_loss_step : 11.0659  learning_rate : 1.50000005e-05 
-DLL 2022-06-03 17:10:30.102338 - Iteration: 43  throughput_train : 156.433 seq/s mlm_loss : 10.3882  nsp_loss : 0.6812  total_loss : 11.0694  avg_loss_step : 11.0607  learning_rate : 1.5375e-05 
-DLL 2022-06-03 17:17:42.272582 - Iteration: 44  throughput_train : 156.419 seq/s mlm_loss : 10.3821  nsp_loss : 0.7103  total_loss : 11.0924  avg_loss_step : 11.0553  learning_rate : 1.575e-05 
-DLL 2022-06-03 17:24:54.479218 - Iteration: 45  throughput_train : 156.407 seq/s mlm_loss : 10.3670  nsp_loss : 0.7078  total_loss : 11.0748  avg_loss_step : 11.0506  learning_rate : 1.6125001e-05 
-DLL 2022-06-03 17:32:06.633087 - Iteration: 46  throughput_train : 156.425 seq/s mlm_loss : 10.3535  nsp_loss : 0.7055  total_loss : 11.0590  avg_loss_step : 11.0468  learning_rate : 1.65e-05 
-DLL 2022-06-03 17:39:18.764659 - Iteration: 47  throughput_train : 156.433 seq/s mlm_loss : 10.3613  nsp_loss : 0.6987  total_loss : 11.0599  avg_loss_step : 11.0414  learning_rate : 1.6875001e-05 
-DLL 2022-06-03 17:46:30.895131 - Iteration: 48  throughput_train : 156.433 seq/s mlm_loss : 10.3321  nsp_loss : 0.6816  total_loss : 11.0137  avg_loss_step : 11.0360  learning_rate : 1.725e-05 
-DLL 2022-06-03 17:53:43.074376 - Iteration: 49  throughput_train : 156.416 seq/s mlm_loss : 10.3473  nsp_loss : 0.6902  total_loss : 11.0375  avg_loss_step : 11.0316  learning_rate : 1.7625001e-05 
-DLL 2022-06-03 18:00:55.256958 - Iteration: 50  throughput_train : 156.415 seq/s mlm_loss : 10.3329  nsp_loss : 0.6575  total_loss : 10.9904  avg_loss_step : 11.0243  learning_rate : 1.8e-05 
-DLL 2022-06-03 18:08:07.543738 - Iteration: 51  throughput_train : 156.377 seq/s mlm_loss : 10.3332  nsp_loss : 0.7240  total_loss : 11.0572  avg_loss_step : 11.0193  learning_rate : 1.8375e-05 
-DLL 2022-06-03 18:15:19.650788 - Iteration: 52  throughput_train : 156.442 seq/s mlm_loss : 10.3366  nsp_loss : 0.6425  total_loss : 10.9792  avg_loss_step : 11.0136  learning_rate : 1.875e-05 
-DLL 2022-06-03 18:22:31.833689 - Iteration: 53  throughput_train : 156.414 seq/s mlm_loss : 10.3226  nsp_loss : 0.7148  total_loss : 11.0373  avg_loss_step : 11.0086  learning_rate : 1.9125e-05 
-DLL 2022-06-03 18:29:44.042114 - Iteration: 54  throughput_train : 156.405 seq/s mlm_loss : 10.3038  nsp_loss : 0.7010  total_loss : 11.0048  avg_loss_step : 11.0019  learning_rate : 1.9500001e-05 
-DLL 2022-06-03 18:36:56.262993 - Iteration: 55  throughput_train : 156.401 seq/s mlm_loss : 10.3139  nsp_loss : 0.6786  total_loss : 10.9925  avg_loss_step : 10.9963  learning_rate : 1.9875e-05 
-DLL 2022-06-03 18:44:08.444951 - Iteration: 56  throughput_train : 156.415 seq/s mlm_loss : 10.2829  nsp_loss : 0.7055  total_loss : 10.9883  avg_loss_step : 10.9886  learning_rate : 2.0250001e-05 
-DLL 2022-06-03 18:51:20.670605 - Iteration: 57  throughput_train : 156.399 seq/s mlm_loss : 10.2999  nsp_loss : 0.6698  total_loss : 10.9698  avg_loss_step : 10.9826  learning_rate : 2.0625e-05 
-DLL 2022-06-03 18:58:32.898767 - Iteration: 58  throughput_train : 156.398 seq/s mlm_loss : 10.2975  nsp_loss : 0.6727  total_loss : 10.9703  avg_loss_step : 10.9760  learning_rate : 2.1e-05 
-DLL 2022-06-03 19:05:45.125182 - Iteration: 59  throughput_train : 156.399 seq/s mlm_loss : 10.2931  nsp_loss : 0.6974  total_loss : 10.9905  avg_loss_step : 10.9677  learning_rate : 2.1375e-05 
-DLL 2022-06-03 19:12:57.302202 - Iteration: 60  throughput_train : 156.417 seq/s mlm_loss : 10.2865  nsp_loss : 0.6915  total_loss : 10.9780  avg_loss_step : 10.9642  learning_rate : 2.175e-05 
-DLL 2022-06-03 19:20:09.530730 - Iteration: 61  throughput_train : 156.398 seq/s mlm_loss : 10.2698  nsp_loss : 0.6872  total_loss : 10.9570  avg_loss_step : 10.9581  learning_rate : 2.2125001e-05 
-DLL 2022-06-03 19:27:21.665404 - Iteration: 62  throughput_train : 156.432 seq/s mlm_loss : 10.2435  nsp_loss : 0.7008  total_loss : 10.9443  avg_loss_step : 10.9504  learning_rate : 2.25e-05 
-DLL 2022-06-03 19:34:33.769329 - Iteration: 63  throughput_train : 156.443 seq/s mlm_loss : 10.2746  nsp_loss : 0.6918  total_loss : 10.9665  avg_loss_step : 10.9434  learning_rate : 2.2875001e-05 
-DLL 2022-06-03 19:41:46.007734 - Iteration: 64  throughput_train : 156.394 seq/s mlm_loss : 10.2568  nsp_loss : 0.6909  total_loss : 10.9477  avg_loss_step : 10.9377  learning_rate : 2.325e-05 
-DLL 2022-06-03 19:48:58.163733 - Iteration: 65  throughput_train : 156.424 seq/s mlm_loss : 10.2490  nsp_loss : 0.7037  total_loss : 10.9527  avg_loss_step : 10.9308  learning_rate : 2.3625002e-05 
-DLL 2022-06-03 19:56:10.422899 - Iteration: 66  throughput_train : 156.387 seq/s mlm_loss : 10.2354  nsp_loss : 0.7006  total_loss : 10.9360  avg_loss_step : 10.9237  learning_rate : 2.4e-05 
-DLL 2022-06-03 20:03:22.735097 - Iteration: 67  throughput_train : 156.368 seq/s mlm_loss : 10.2390  nsp_loss : 0.7069  total_loss : 10.9459  avg_loss_step : 10.9165  learning_rate : 2.4375e-05 
-DLL 2022-06-03 20:10:35.016683 - Iteration: 68  throughput_train : 156.379 seq/s mlm_loss : 10.2071  nsp_loss : 0.6832  total_loss : 10.8903  avg_loss_step : 10.9095  learning_rate : 2.4750001e-05 
-DLL 2022-06-03 20:17:47.181956 - Iteration: 69  throughput_train : 156.421 seq/s mlm_loss : 10.2253  nsp_loss : 0.6854  total_loss : 10.9107  avg_loss_step : 10.9044  learning_rate : 2.5125e-05 
-DLL 2022-06-03 20:24:59.410244 - Iteration: 70  throughput_train : 156.398 seq/s mlm_loss : 10.2144  nsp_loss : 0.6977  total_loss : 10.9121  avg_loss_step : 10.8939  learning_rate : 2.5500001e-05 
-DLL 2022-06-03 20:32:11.538935 - Iteration: 71  throughput_train : 156.435 seq/s mlm_loss : 10.2104  nsp_loss : 0.6872  total_loss : 10.8976  avg_loss_step : 10.8875  learning_rate : 2.5875e-05 
-DLL 2022-06-03 20:39:23.748461 - Iteration: 72  throughput_train : 156.405 seq/s mlm_loss : 10.1842  nsp_loss : 0.6936  total_loss : 10.8778  avg_loss_step : 10.8818  learning_rate : 2.6250002e-05 
-DLL 2022-06-03 20:46:35.924985 - Iteration: 73  throughput_train : 156.417 seq/s mlm_loss : 10.1689  nsp_loss : 0.6768  total_loss : 10.8457  avg_loss_step : 10.8732  learning_rate : 2.6625e-05 
-DLL 2022-06-03 20:53:48.224443 - Iteration: 74  throughput_train : 156.372 seq/s mlm_loss : 10.1735  nsp_loss : 0.6746  total_loss : 10.8481  avg_loss_step : 10.8644  learning_rate : 2.7000002e-05 
-DLL 2022-06-03 21:01:00.517280 - Iteration: 75  throughput_train : 156.375 seq/s mlm_loss : 10.1655  nsp_loss : 0.6952  total_loss : 10.8607  avg_loss_step : 10.8589  learning_rate : 2.7375001e-05 
-DLL 2022-06-03 21:08:12.789419 - Iteration: 76  throughput_train : 156.382 seq/s mlm_loss : 10.1692  nsp_loss : 0.6848  total_loss : 10.8540  avg_loss_step : 10.8480  learning_rate : 2.775e-05 
-DLL 2022-06-03 21:15:25.006818 - Iteration: 77  throughput_train : 156.402 seq/s mlm_loss : 10.1279  nsp_loss : 0.6835  total_loss : 10.8114  avg_loss_step : 10.8434  learning_rate : 2.8125001e-05 
-DLL 2022-06-03 21:22:37.285883 - Iteration: 78  throughput_train : 156.380 seq/s mlm_loss : 10.1188  nsp_loss : 0.6728  total_loss : 10.7916  avg_loss_step : 10.8333  learning_rate : 2.85e-05 
-DLL 2022-06-03 21:29:49.483422 - Iteration: 79  throughput_train : 156.409 seq/s mlm_loss : 10.1311  nsp_loss : 0.6680  total_loss : 10.7991  avg_loss_step : 10.8253  learning_rate : 2.8875002e-05 
-DLL 2022-06-03 21:37:01.733010 - Iteration: 80  throughput_train : 156.390 seq/s mlm_loss : 10.1201  nsp_loss : 0.7116  total_loss : 10.8316  avg_loss_step : 10.8188  learning_rate : 2.925e-05 
-DLL 2022-06-03 21:44:13.951538 - Iteration: 81  throughput_train : 156.402 seq/s mlm_loss : 10.1538  nsp_loss : 0.6916  total_loss : 10.8454  avg_loss_step : 10.8086  learning_rate : 2.9625002e-05 
-DLL 2022-06-03 21:51:26.134184 - Iteration: 82  throughput_train : 156.414 seq/s mlm_loss : 10.1465  nsp_loss : 0.6941  total_loss : 10.8405  avg_loss_step : 10.8011  learning_rate : 3.0000001e-05 
-DLL 2022-06-03 21:58:38.337153 - Iteration: 83  throughput_train : 156.407 seq/s mlm_loss : 10.1393  nsp_loss : 0.6827  total_loss : 10.8220  avg_loss_step : 10.7926  learning_rate : 3.0375e-05 INFO:tensorflow:loss = 10.726696, step = 85 (6139.512 sec)
-I0603 22:21:53.699967 139843159394112 basic_session_run_hooks.py:260] loss = 10.726696, step = 85 (6139.512 sec)
-INFO:tensorflow:loss = 10.642609, step = 99 (6138.631 sec)
-I0604 00:04:12.331218 139843159394112 basic_session_run_hooks.py:260] loss = 10.642609, step = 99 (6138.631 sec)
-INFO:tensorflow:loss = 10.538149, step = 113 (6138.302 sec)
-I0604 01:46:30.632957 139843159394112 basic_session_run_hooks.py:260] loss = 10.538149, step = 113 (6138.302 sec)
+DLL 2022-11-25 16:54:39.398580 - Iteration: 41  throughput_train : 160.724 sequences/s mlm_loss : 10.3217  nsp_loss : 0.6858  total_loss : 11.0075  avg_loss_step : 11.0189  learning_rate : 1.4625e-05 
+DLL 2022-11-25 17:01:39.832569 - Iteration: 42  throughput_train : 160.775 sequences/s mlm_loss : 10.3381  nsp_loss : 0.6849  total_loss : 11.0230  avg_loss_step : 11.0125  learning_rate : 1.50000005e-05 
+DLL 2022-11-25 17:08:40.345021 - Iteration: 43  throughput_train : 160.747 sequences/s mlm_loss : 10.3280  nsp_loss : 0.6774  total_loss : 11.0054  avg_loss_step : 11.0085  learning_rate : 1.5375e-05 
+DLL 2022-11-25 17:15:41.092134 - Iteration: 44  throughput_train : 160.656 sequences/s mlm_loss : 10.3104  nsp_loss : 0.6883  total_loss : 10.9987  avg_loss_step : 11.0024  learning_rate : 1.575e-05 
+DLL 2022-11-25 17:22:41.879739 - Iteration: 45  throughput_train : 160.639 sequences/s mlm_loss : 10.2997  nsp_loss : 0.6994  total_loss : 10.9991  avg_loss_step : 10.9973  learning_rate : 1.6125001e-05 
+DLL 2022-11-25 17:29:42.783203 - Iteration: 46  throughput_train : 160.604 sequences/s mlm_loss : 10.3013  nsp_loss : 0.6654  total_loss : 10.9666  avg_loss_step : 10.9929  learning_rate : 1.65e-05 
+DLL 2022-11-25 17:36:43.061872 - Iteration: 47  throughput_train : 160.846 sequences/s mlm_loss : 10.3267  nsp_loss : 0.6827  total_loss : 11.0094  avg_loss_step : 10.9880  learning_rate : 1.6875001e-05 
+DLL 2022-11-25 17:43:43.295174 - Iteration: 48  throughput_train : 160.863 sequences/s mlm_loss : 10.2998  nsp_loss : 0.6951  total_loss : 10.9950  avg_loss_step : 10.9843  learning_rate : 1.725e-05 
+DLL 2022-11-25 17:50:43.468034 - Iteration: 49  throughput_train : 160.886 sequences/s mlm_loss : 10.2711  nsp_loss : 0.6932  total_loss : 10.9644  avg_loss_step : 10.9781  learning_rate : 1.7625001e-05 
+DLL 2022-11-25 17:57:43.834057 - Iteration: 50  throughput_train : 160.813 sequences/s mlm_loss : 10.2845  nsp_loss : 0.6848  total_loss : 10.9693  avg_loss_step : 10.9711  learning_rate : 1.8e-05 
+DLL 2022-11-25 18:04:44.299185 - Iteration: 51  throughput_train : 160.775 sequences/s mlm_loss : 10.2536  nsp_loss : 0.7179  total_loss : 10.9714  avg_loss_step : 10.9670  learning_rate : 1.8375e-05 
+DLL 2022-11-25 18:11:44.848118 - Iteration: 52  throughput_train : 160.743 sequences/s mlm_loss : 10.2739  nsp_loss : 0.6866  total_loss : 10.9605  avg_loss_step : 10.9599  learning_rate : 1.875e-05 
+DLL 2022-11-25 18:18:45.220341 - Iteration: 53  throughput_train : 160.810 sequences/s mlm_loss : 10.2863  nsp_loss : 0.7033  total_loss : 10.9896  avg_loss_step : 10.9567  learning_rate : 1.9125e-05 
+DLL 2022-11-25 18:25:45.463213 - Iteration: 54  throughput_train : 160.859 sequences/s mlm_loss : 10.2683  nsp_loss : 0.6944  total_loss : 10.9627  avg_loss_step : 10.9514  learning_rate : 1.9500001e-05 
+DLL 2022-11-25 18:32:45.647546 - Iteration: 55  throughput_train : 160.882 sequences/s mlm_loss : 10.2694  nsp_loss : 0.6773  total_loss : 10.9466  avg_loss_step : 10.9442  learning_rate : 1.9875e-05 
+DLL 2022-11-25 18:39:46.017539 - Iteration: 56  throughput_train : 160.811 sequences/s mlm_loss : 10.2306  nsp_loss : 0.6844  total_loss : 10.9149  avg_loss_step : 10.9378  learning_rate : 2.0250001e-05 
+DLL 2022-11-25 18:46:46.666024 - Iteration: 57  throughput_train : 160.705 sequences/s mlm_loss : 10.2597  nsp_loss : 0.6824  total_loss : 10.9421  avg_loss_step : 10.9327  learning_rate : 2.0625e-05 
+DLL 2022-11-25 18:53:46.793836 - Iteration: 58  throughput_train : 160.903 sequences/s mlm_loss : 10.2279  nsp_loss : 0.7067  total_loss : 10.9346  avg_loss_step : 10.9264  learning_rate : 2.1e-05 
+DLL 2022-11-25 19:00:46.963373 - Iteration: 59  throughput_train : 160.887 sequences/s mlm_loss : 10.2162  nsp_loss : 0.6874  total_loss : 10.9036  avg_loss_step : 10.9199  learning_rate : 2.1375e-05 
+DLL 2022-11-25 19:07:47.226203 - Iteration: 60  throughput_train : 160.852 sequences/s mlm_loss : 10.2131  nsp_loss : 0.6664  total_loss : 10.8795  avg_loss_step : 10.9140  learning_rate : 2.175e-05 
+DLL 2022-11-25 19:14:47.637574 - Iteration: 61  throughput_train : 160.795 sequences/s mlm_loss : 10.2652  nsp_loss : 0.6653  total_loss : 10.9305  avg_loss_step : 10.9086  learning_rate : 2.2125001e-05 
+DLL 2022-11-25 19:21:47.874465 - Iteration: 62  throughput_train : 160.861 sequences/s mlm_loss : 10.2106  nsp_loss : 0.6721  total_loss : 10.8827  avg_loss_step : 10.9026  learning_rate : 2.25e-05 
+DLL 2022-11-25 19:28:48.247212 - Iteration: 63  throughput_train : 160.810 sequences/s mlm_loss : 10.1953  nsp_loss : 0.6834  total_loss : 10.8787  avg_loss_step : 10.8961  learning_rate : 2.2875001e-05 
+DLL 2022-11-25 19:35:49.075654 - Iteration: 64  throughput_train : 160.639 sequences/s mlm_loss : 10.2486  nsp_loss : 0.6950  total_loss : 10.9436  avg_loss_step : 10.8895  learning_rate : 2.325e-05 
+DLL 2022-11-25 19:42:50.115762 - Iteration: 65  throughput_train : 160.558 sequences/s mlm_loss : 10.2219  nsp_loss : 0.6980  total_loss : 10.9199  avg_loss_step : 10.8840  learning_rate : 2.3625002e-05 
+DLL 2022-11-25 19:49:50.727063 - Iteration: 66  throughput_train : 160.720 sequences/s mlm_loss : 10.1869  nsp_loss : 0.6794  total_loss : 10.8663  avg_loss_step : 10.8773  learning_rate : 2.4e-05 
+DLL 2022-11-25 19:56:50.958500 - Iteration: 67  throughput_train : 160.864 sequences/s mlm_loss : 10.1881  nsp_loss : 0.6676  total_loss : 10.8557  avg_loss_step : 10.8716  learning_rate : 2.4375e-05 
+DLL 2022-11-25 20:03:51.363231 - Iteration: 68  throughput_train : 160.798 sequences/s mlm_loss : 10.1832  nsp_loss : 0.6869  total_loss : 10.8701  avg_loss_step : 10.8627  learning_rate : 2.4750001e-05 
+DLL 2022-11-25 20:10:51.627252 - Iteration: 69  throughput_train : 160.852 sequences/s mlm_loss : 10.1501  nsp_loss : 0.7023  total_loss : 10.8524  avg_loss_step : 10.8588  learning_rate : 2.5125e-05 
+DLL 2022-11-25 20:17:52.051840 - Iteration: 70  throughput_train : 160.791 sequences/s mlm_loss : 10.1912  nsp_loss : 0.6943  total_loss : 10.8856  avg_loss_step : 10.8492  learning_rate : 2.5500001e-05 
+DLL 2022-11-25 20:24:52.230638 - Iteration: 71  throughput_train : 160.884 sequences/s mlm_loss : 10.1577  nsp_loss : 0.6787  total_loss : 10.8364  avg_loss_step : 10.8427  learning_rate : 2.5875e-05 
+DLL 2022-11-25 20:31:52.550883 - Iteration: 72  throughput_train : 160.830 sequences/s mlm_loss : 10.1461  nsp_loss : 0.6897  total_loss : 10.8357  avg_loss_step : 10.8339  learning_rate : 2.6250002e-05 
+DLL 2022-11-25 20:38:52.682260 - Iteration: 73  throughput_train : 160.903 sequences/s mlm_loss : 10.1609  nsp_loss : 0.7007  total_loss : 10.8616  avg_loss_step : 10.8274  learning_rate : 2.6625e-05 
+DLL 2022-11-25 20:45:53.204838 - Iteration: 74  throughput_train : 160.754 sequences/s mlm_loss : 10.1349  nsp_loss : 0.6777  total_loss : 10.8125  avg_loss_step : 10.8226  learning_rate : 2.7000002e-05 
+DLL 2022-11-25 20:52:53.883110 - Iteration: 75  throughput_train : 160.695 sequences/s mlm_loss : 10.1494  nsp_loss : 0.6812  total_loss : 10.8307  avg_loss_step : 10.8150  learning_rate : 2.7375001e-05 
+DLL 2022-11-25 20:59:54.129220 - Iteration: 76  throughput_train : 160.859 sequences/s mlm_loss : 10.1329  nsp_loss : 0.6900  total_loss : 10.8230  avg_loss_step : 10.8054  learning_rate : 2.775e-05 
+DLL 2022-11-25 21:06:54.277339 - Iteration: 77  throughput_train : 160.896 sequences/s mlm_loss : 10.0870  nsp_loss : 0.6930  total_loss : 10.7800  avg_loss_step : 10.8004  learning_rate : 2.8125001e-05 
+DLL 2022-11-25 21:13:54.370525 - Iteration: 78  throughput_train : 160.917 sequences/s mlm_loss : 10.1243  nsp_loss : 0.6846  total_loss : 10.8089  avg_loss_step : 10.7910  learning_rate : 2.85e-05 
+DLL 2022-11-25 21:20:54.742302 - Iteration: 79  throughput_train : 160.811 sequences/s mlm_loss : 10.1156  nsp_loss : 0.6825  total_loss : 10.7981  avg_loss_step : 10.7847  learning_rate : 2.8875002e-05 
+DLL 2022-11-25 21:27:54.808851 - Iteration: 80  throughput_train : 160.927 sequences/s mlm_loss : 10.1004  nsp_loss : 0.6851  total_loss : 10.7855  avg_loss_step : 10.7782  learning_rate : 2.925e-05 
+DLL 2022-11-25 21:34:54.954934 - Iteration: 81  throughput_train : 160.896 sequences/s mlm_loss : 10.0981  nsp_loss : 0.6708  total_loss : 10.7689  avg_loss_step : 10.7694  learning_rate : 2.9625002e-05 INFO:tensorflow:loss = 10.72515, step = 85 (5969.496 sec)
+I1125 22:11:32.190593 140048561555264 basic_session_run_hooks.py:260] loss = 10.72515, step = 85 (5969.496 sec)
+INFO:tensorflow:loss = 10.623426, step = 99 (5969.579 sec)
+I1125 23:51:01.769765 140048561555264 basic_session_run_hooks.py:260] loss = 10.623426, step = 99 (5969.579 sec)
+INFO:tensorflow:loss = 10.466028, step = 113 (5967.524 sec)
+I1126 01:30:29.293983 140048561555264 basic_session_run_hooks.py:260] loss = 10.466028, step = 113 (5967.524 sec)
 
-DLL 2022-06-03 22:05:50.552439 - Iteration: 84  throughput_train : 156.403 seq/s mlm_loss : 10.1069  nsp_loss : 0.7093  total_loss : 10.8162  avg_loss_step : 10.7852  learning_rate : 3.075e-05 
-DLL 2022-06-03 22:13:02.752844 - Iteration: 85  throughput_train : 156.408 seq/s mlm_loss : 10.1051  nsp_loss : 0.6862  total_loss : 10.7914  avg_loss_step : 10.7738  learning_rate : 3.1125e-05 
-DLL 2022-06-03 22:20:14.863061 - Iteration: 86  throughput_train : 156.441 seq/s mlm_loss : 10.0724  nsp_loss : 0.6942  total_loss : 10.7667  avg_loss_step : 10.7688  learning_rate : 3.15e-05 
-DLL 2022-06-03 22:27:27.102809 - Iteration: 87  throughput_train : 156.394 seq/s mlm_loss : 10.0627  nsp_loss : 0.6438  total_loss : 10.7064  avg_loss_step : 10.7612  learning_rate : 3.1875003e-05 
-DLL 2022-06-03 22:34:39.298838 - Iteration: 88  throughput_train : 156.410 seq/s mlm_loss : 10.0793  nsp_loss : 0.6670  total_loss : 10.7463  avg_loss_step : 10.7534  learning_rate : 3.2250002e-05 
-DLL 2022-06-03 22:41:51.493822 - Iteration: 89  throughput_train : 156.410 seq/s mlm_loss : 10.0566  nsp_loss : 0.7099  total_loss : 10.7665  avg_loss_step : 10.7426  learning_rate : 3.2625e-05 
-DLL 2022-06-03 22:49:03.679551 - Iteration: 90  throughput_train : 156.414 seq/s mlm_loss : 10.0421  nsp_loss : 0.6730  total_loss : 10.7151  avg_loss_step : 10.7369  learning_rate : 3.3e-05 
-DLL 2022-06-03 22:56:15.797541 - Iteration: 91  throughput_train : 156.438 seq/s mlm_loss : 10.0131  nsp_loss : 0.6714  total_loss : 10.6845  avg_loss_step : 10.7280  learning_rate : 3.3375e-05 
-DLL 2022-06-03 23:03:27.968965 - Iteration: 92  throughput_train : 156.419 seq/s mlm_loss : 10.0363  nsp_loss : 0.6935  total_loss : 10.7297  avg_loss_step : 10.7189  learning_rate : 3.3750002e-05 
-DLL 2022-06-03 23:10:40.209147 - Iteration: 93  throughput_train : 156.394 seq/s mlm_loss : 10.0405  nsp_loss : 0.6544  total_loss : 10.6950  avg_loss_step : 10.7093  learning_rate : 3.4125e-05 
-DLL 2022-06-03 23:17:52.336558 - Iteration: 94  throughput_train : 156.434 seq/s mlm_loss : 10.0303  nsp_loss : 0.6929  total_loss : 10.7232  avg_loss_step : 10.7033  learning_rate : 3.45e-05 
-DLL 2022-06-03 23:25:04.467125 - Iteration: 95  throughput_train : 156.433 seq/s mlm_loss : 9.9995  nsp_loss : 0.6775  total_loss : 10.6770  avg_loss_step : 10.6948  learning_rate : 3.4875e-05 
-DLL 2022-06-03 23:32:16.515795 - Iteration: 96  throughput_train : 156.463 seq/s mlm_loss : 9.9993  nsp_loss : 0.7271  total_loss : 10.7264  avg_loss_step : 10.6834  learning_rate : 3.5250003e-05 
-DLL 2022-06-03 23:39:28.742709 - Iteration: 97  throughput_train : 156.399 seq/s mlm_loss : 9.9934  nsp_loss : 0.6786  total_loss : 10.6719  avg_loss_step : 10.6751  learning_rate : 3.5625002e-05 
-DLL 2022-06-03 23:46:40.886780 - Iteration: 98  throughput_train : 156.428 seq/s mlm_loss : 10.0384  nsp_loss : 0.6848  total_loss : 10.7232  avg_loss_step : 10.6669  learning_rate : 3.6e-05 
-DLL 2022-06-03 23:53:52.979695 - Iteration: 99  throughput_train : 156.447 seq/s mlm_loss : 9.9848  nsp_loss : 0.6886  total_loss : 10.6734  avg_loss_step : 10.6598  learning_rate : 3.6375e-05 
-DLL 2022-06-04 00:01:05.121341 - Iteration: 100  throughput_train : 156.429 seq/s mlm_loss : 9.9748  nsp_loss : 0.6792  total_loss : 10.6539  avg_loss_step : 10.6503  learning_rate : 3.675e-05 
-DLL 2022-06-04 00:08:17.292777 - Iteration: 101  throughput_train : 156.419 seq/s mlm_loss : 9.9490  nsp_loss : 0.6930  total_loss : 10.6419  avg_loss_step : 10.6424  learning_rate : 3.7125003e-05 
-DLL 2022-06-04 00:15:29.420097 - Iteration: 102  throughput_train : 156.434 seq/s mlm_loss : 9.9818  nsp_loss : 0.6635  total_loss : 10.6453  avg_loss_step : 10.6337  learning_rate : 3.75e-05 
-DLL 2022-06-04 00:22:41.563434 - Iteration: 103  throughput_train : 156.429 seq/s mlm_loss : 9.9279  nsp_loss : 0.7085  total_loss : 10.6364  avg_loss_step : 10.6238  learning_rate : 3.7875e-05 
-DLL 2022-06-04 00:29:53.689669 - Iteration: 104  throughput_train : 156.435 seq/s mlm_loss : 9.9334  nsp_loss : 0.6985  total_loss : 10.6319  avg_loss_step : 10.6157  learning_rate : 3.825e-05 
-DLL 2022-06-04 00:37:05.767018 - Iteration: 105  throughput_train : 156.453 seq/s mlm_loss : 9.9249  nsp_loss : 0.6667  total_loss : 10.5916  avg_loss_step : 10.6071  learning_rate : 3.8625003e-05 
-DLL 2022-06-04 00:44:17.932128 - Iteration: 106  throughput_train : 156.421 seq/s mlm_loss : 9.9307  nsp_loss : 0.6739  total_loss : 10.6046  avg_loss_step : 10.5987  learning_rate : 3.9000002e-05 
-DLL 2022-06-04 00:51:30.071739 - Iteration: 107  throughput_train : 156.431 seq/s mlm_loss : 9.9485  nsp_loss : 0.6605  total_loss : 10.6090  avg_loss_step : 10.5928  learning_rate : 3.9375e-05 
-DLL 2022-06-04 00:58:42.200972 - Iteration: 108  throughput_train : 156.434 seq/s mlm_loss : 9.8789  nsp_loss : 0.7168  total_loss : 10.5957  avg_loss_step : 10.5829  learning_rate : 3.975e-05 
-DLL 2022-06-04 01:05:54.344103 - Iteration: 109  throughput_train : 156.429 seq/s mlm_loss : 9.8316  nsp_loss : 0.6890  total_loss : 10.5206  avg_loss_step : 10.5733  learning_rate : 4.0125e-05 
-DLL 2022-06-04 01:13:06.423311 - Iteration: 110  throughput_train : 156.452 seq/s mlm_loss : 9.8783  nsp_loss : 0.6680  total_loss : 10.5463  avg_loss_step : 10.5670  learning_rate : 4.0500003e-05 
-DLL 2022-06-04 01:20:18.573246 - Iteration: 111  throughput_train : 156.426 seq/s mlm_loss : 9.8797  nsp_loss : 0.6942  total_loss : 10.5739  avg_loss_step : 10.5584  learning_rate : 4.0875002e-05 
-DLL 2022-06-04 01:27:30.641405 - Iteration: 112  throughput_train : 156.456 seq/s mlm_loss : 9.8613  nsp_loss : 0.6809  total_loss : 10.5421  avg_loss_step : 10.5474  learning_rate : 4.125e-05 
-DLL 2022-06-04 01:34:42.861145 - Iteration: 113  throughput_train : 156.401 seq/s mlm_loss : 9.8401  nsp_loss : 0.6938  total_loss : 10.5340  avg_loss_step : 10.5436  learning_rate : 4.1625e-05 
-DLL 2022-06-04 01:41:55.031624 - Iteration: 114  throughput_train : 156.419 seq/s mlm_loss : 9.8223  nsp_loss : 0.6835  total_loss : 10.5059  avg_loss_step : 10.5283  learning_rate : 4.2e-05 
-DLL 2022-06-04 01:49:07.133336 - Iteration: 115  throughput_train : 156.444 seq/s mlm_loss : 9.8405  nsp_loss : 0.6773  total_loss : 10.5178  avg_loss_step : 10.5195  learning_rate : 4.2375003e-05 
-DLL 2022-06-04 01:56:19.300224 - Iteration: 116  throughput_train : 156.420 seq/s mlm_loss : 9.8588  nsp_loss : 0.6634  total_loss : 10.5223  avg_loss_step : 10.5136  learning_rate : 4.275e-05 
-DLL 2022-06-04 02:03:31.530203 - Iteration: 117  throughput_train : 156.397 seq/s mlm_loss : 9.7832  nsp_loss : 0.6838  total_loss : 10.4670  avg_loss_step : 10.5044  learning_rate : 4.3125e-05 
-DLL 2022-06-04 02:10:43.859010 - Iteration: 118  throughput_train : 156.362 seq/s mlm_loss : 9.8518  nsp_loss : 0.6922  total_loss : 10.5440  avg_loss_step : 10.4945  learning_rate : 4.35e-05 
-DLL 2022-06-04 02:17:56.007406 - Iteration: 119  throughput_train : 156.427 seq/s mlm_loss : 9.8279  nsp_loss : 0.6923  total_loss : 10.5201  avg_loss_step : 10.4858  learning_rate : 4.3875003e-05 
-DLL 2022-06-04 02:25:08.205480 - Iteration: 120  throughput_train : 156.409 seq/s mlm_loss : 9.7526  nsp_loss : 0.6787  total_loss : 10.4313  avg_loss_step : 10.4787  learning_rate : 4.4250002e-05 
-DLL 2022-06-04 02:32:20.427829 - Iteration: 121  throughput_train : 156.400 seq/s mlm_loss : 9.7907  nsp_loss : 0.6657  total_loss : 10.4564  avg_loss_step : 10.4694  learning_rate : 4.4625e-05 
-DLL 2022-06-04 02:39:32.666597 - Iteration: 122  throughput_train : 156.394 seq/s mlm_loss : 9.8250  nsp_loss : 0.6632  total_loss : 10.4882  avg_loss_step : 10.4610  learning_rate : 4.5e-05 
-DLL 2022-06-04 02:46:44.799482 - Iteration: 123  throughput_train : 156.432 seq/s mlm_loss : 9.7825  nsp_loss : 0.7043  total_loss : 10.4869  avg_loss_step : 10.4543  learning_rate : 4.5375e-05 
-DLL 2022-06-04 02:53:56.881493 - Iteration: 124  throughput_train : 156.451 seq/s mlm_loss : 9.7718  nsp_loss : 0.6906  total_loss : 10.4624  avg_loss_step : 10.4458  learning_rate : 4.5750003e-05 
-DLL 2022-06-04 03:01:08.958292 - Iteration: 125  throughput_train : 156.453 seq/s mlm_loss : 9.7847  nsp_loss : 0.6941  total_loss : 10.4788  avg_loss_step : 10.4365  learning_rate : 4.6125002e-05 INFO:tensorflow:loss = 10.399933, step = 127 (6139.023 sec)
-I0604 03:28:49.655483 139843159394112 basic_session_run_hooks.py:260] loss = 10.399933, step = 127 (6139.023 sec)
-INFO:tensorflow:loss = 10.265294, step = 142 (6139.059 sec)
-I0604 05:11:08.714310 139843159394112 basic_session_run_hooks.py:260] loss = 10.265294, step = 142 (6139.059 sec)
-INFO:tensorflow:loss = 10.138031, step = 156 (6139.129 sec)
-I0604 06:53:27.843745 139843159394112 basic_session_run_hooks.py:260] loss = 10.138031, step = 156 (6139.129 sec)
+DLL 2022-11-25 21:41:55.213425 - Iteration: 82  throughput_train : 160.854 sequences/s mlm_loss : 10.1293  nsp_loss : 0.6853  total_loss : 10.8146  avg_loss_step : 10.7630  learning_rate : 3.0000001e-05 
+DLL 2022-11-25 21:48:55.197118 - Iteration: 83  throughput_train : 160.959 sequences/s mlm_loss : 10.0973  nsp_loss : 0.6556  total_loss : 10.7529  avg_loss_step : 10.7532  learning_rate : 3.0375e-05 
+DLL 2022-11-25 21:55:55.406116 - Iteration: 84  throughput_train : 160.873 sequences/s mlm_loss : 10.0172  nsp_loss : 0.6966  total_loss : 10.7137  avg_loss_step : 10.7466  learning_rate : 3.075e-05 
+DLL 2022-11-25 22:02:55.798200 - Iteration: 85  throughput_train : 160.804 sequences/s mlm_loss : 10.0377  nsp_loss : 0.6881  total_loss : 10.7258  avg_loss_step : 10.7376  learning_rate : 3.1125e-05 
+DLL 2022-11-25 22:09:56.064261 - Iteration: 86  throughput_train : 160.852 sequences/s mlm_loss : 10.0524  nsp_loss : 0.7031  total_loss : 10.7555  avg_loss_step : 10.7308  learning_rate : 3.15e-05 
+DLL 2022-11-25 22:16:56.707104 - Iteration: 87  throughput_train : 160.708 sequences/s mlm_loss : 10.0375  nsp_loss : 0.6902  total_loss : 10.7278  avg_loss_step : 10.7261  learning_rate : 3.1875003e-05 
+DLL 2022-11-25 22:23:56.879047 - Iteration: 88  throughput_train : 160.887 sequences/s mlm_loss : 10.0607  nsp_loss : 0.6609  total_loss : 10.7217  avg_loss_step : 10.7165  learning_rate : 3.2250002e-05 
+DLL 2022-11-25 22:30:56.936780 - Iteration: 89  throughput_train : 160.930 sequences/s mlm_loss : 10.0264  nsp_loss : 0.7035  total_loss : 10.7299  avg_loss_step : 10.7069  learning_rate : 3.2625e-05 
+DLL 2022-11-25 22:37:57.323594 - Iteration: 90  throughput_train : 160.805 sequences/s mlm_loss : 10.0119  nsp_loss : 0.6834  total_loss : 10.6953  avg_loss_step : 10.6996  learning_rate : 3.3e-05 
+DLL 2022-11-25 22:44:57.626523 - Iteration: 91  throughput_train : 160.836 sequences/s mlm_loss : 10.0061  nsp_loss : 0.6971  total_loss : 10.7031  avg_loss_step : 10.6913  learning_rate : 3.3375e-05 
+DLL 2022-11-25 22:51:57.881550 - Iteration: 92  throughput_train : 160.854 sequences/s mlm_loss : 10.0040  nsp_loss : 0.6842  total_loss : 10.6882  avg_loss_step : 10.6833  learning_rate : 3.3750002e-05 
+DLL 2022-11-25 22:58:58.107811 - Iteration: 93  throughput_train : 160.867 sequences/s mlm_loss : 10.0105  nsp_loss : 0.7154  total_loss : 10.7260  avg_loss_step : 10.6772  learning_rate : 3.4125e-05 
+DLL 2022-11-25 23:05:58.299368 - Iteration: 94  throughput_train : 160.879 sequences/s mlm_loss : 9.9722  nsp_loss : 0.6677  total_loss : 10.6399  avg_loss_step : 10.6683  learning_rate : 3.45e-05 
+DLL 2022-11-25 23:12:58.468576 - Iteration: 95  throughput_train : 160.888 sequences/s mlm_loss : 9.9420  nsp_loss : 0.6509  total_loss : 10.5928  avg_loss_step : 10.6610  learning_rate : 3.4875e-05 
+DLL 2022-11-25 23:19:58.774092 - Iteration: 96  throughput_train : 160.837 sequences/s mlm_loss : 9.9474  nsp_loss : 0.6685  total_loss : 10.6160  avg_loss_step : 10.6523  learning_rate : 3.5250003e-05 
+DLL 2022-11-25 23:26:59.359670 - Iteration: 97  throughput_train : 160.731 sequences/s mlm_loss : 9.9942  nsp_loss : 0.6976  total_loss : 10.6918  avg_loss_step : 10.6453  learning_rate : 3.5625002e-05 
+DLL 2022-11-25 23:33:59.569759 - Iteration: 98  throughput_train : 160.872 sequences/s mlm_loss : 9.9740  nsp_loss : 0.6439  total_loss : 10.6179  avg_loss_step : 10.6337  learning_rate : 3.6e-05 
+DLL 2022-11-25 23:40:59.678868 - Iteration: 99  throughput_train : 160.911 sequences/s mlm_loss : 9.9634  nsp_loss : 0.6834  total_loss : 10.6468  avg_loss_step : 10.6267  learning_rate : 3.6375e-05 
+DLL 2022-11-25 23:47:59.708569 - Iteration: 100  throughput_train : 160.942 sequences/s mlm_loss : 9.9434  nsp_loss : 0.6672  total_loss : 10.6106  avg_loss_step : 10.6193  learning_rate : 3.675e-05 
+DLL 2022-11-25 23:54:59.926989 - Iteration: 101  throughput_train : 160.870 sequences/s mlm_loss : 9.9207  nsp_loss : 0.6498  total_loss : 10.5705  avg_loss_step : 10.6122  learning_rate : 3.7125003e-05 
+DLL 2022-11-26 00:02:00.013196 - Iteration: 102  throughput_train : 160.919 sequences/s mlm_loss : 9.8802  nsp_loss : 0.6998  total_loss : 10.5800  avg_loss_step : 10.6028  learning_rate : 3.75e-05 
+DLL 2022-11-26 00:09:00.160859 - Iteration: 103  throughput_train : 160.896 sequences/s mlm_loss : 9.9063  nsp_loss : 0.6946  total_loss : 10.6009  avg_loss_step : 10.5932  learning_rate : 3.7875e-05 
+DLL 2022-11-26 00:16:00.186441 - Iteration: 104  throughput_train : 160.943 sequences/s mlm_loss : 9.8866  nsp_loss : 0.6746  total_loss : 10.5613  avg_loss_step : 10.5850  learning_rate : 3.825e-05 
+DLL 2022-11-26 00:23:00.260306 - Iteration: 105  throughput_train : 160.924 sequences/s mlm_loss : 9.9112  nsp_loss : 0.6806  total_loss : 10.5918  avg_loss_step : 10.5778  learning_rate : 3.8625003e-05 
+DLL 2022-11-26 00:30:00.368803 - Iteration: 106  throughput_train : 160.911 sequences/s mlm_loss : 9.8679  nsp_loss : 0.6865  total_loss : 10.5543  avg_loss_step : 10.5699  learning_rate : 3.9000002e-05 
+DLL 2022-11-26 00:37:00.329049 - Iteration: 107  throughput_train : 160.967 sequences/s mlm_loss : 9.8650  nsp_loss : 0.6630  total_loss : 10.5281  avg_loss_step : 10.5606  learning_rate : 3.9375e-05 
+DLL 2022-11-26 00:44:00.333463 - Iteration: 108  throughput_train : 160.951 sequences/s mlm_loss : 9.8846  nsp_loss : 0.6572  total_loss : 10.5418  avg_loss_step : 10.5522  learning_rate : 3.975e-05 
+DLL 2022-11-26 00:51:00.444576 - Iteration: 109  throughput_train : 160.910 sequences/s mlm_loss : 9.8812  nsp_loss : 0.6836  total_loss : 10.5648  avg_loss_step : 10.5445  learning_rate : 4.0125e-05 
+DLL 2022-11-26 00:58:00.500087 - Iteration: 110  throughput_train : 160.932 sequences/s mlm_loss : 9.8842  nsp_loss : 0.6737  total_loss : 10.5579  avg_loss_step : 10.5339  learning_rate : 4.0500003e-05 
+DLL 2022-11-26 01:05:00.725980 - Iteration: 111  throughput_train : 160.866 sequences/s mlm_loss : 9.8854  nsp_loss : 0.6769  total_loss : 10.5623  avg_loss_step : 10.5275  learning_rate : 4.0875002e-05 
+DLL 2022-11-26 01:12:00.869378 - Iteration: 112  throughput_train : 160.897 sequences/s mlm_loss : 9.8726  nsp_loss : 0.6643  total_loss : 10.5370  avg_loss_step : 10.5192  learning_rate : 4.125e-05 
+DLL 2022-11-26 01:19:00.993377 - Iteration: 113  throughput_train : 160.905 sequences/s mlm_loss : 9.8140  nsp_loss : 0.6478  total_loss : 10.4618  avg_loss_step : 10.5169  learning_rate : 4.1625e-05 
+DLL 2022-11-26 01:26:01.420110 - Iteration: 114  throughput_train : 160.791 sequences/s mlm_loss : 9.7867  nsp_loss : 0.6810  total_loss : 10.4676  avg_loss_step : 10.5035  learning_rate : 4.2e-05 
+DLL 2022-11-26 01:33:01.567667 - Iteration: 115  throughput_train : 160.896 sequences/s mlm_loss : 9.8874  nsp_loss : 0.7132  total_loss : 10.6006  avg_loss_step : 10.4952  learning_rate : 4.2375003e-05 
+DLL 2022-11-26 01:40:01.770092 - Iteration: 116  throughput_train : 160.875 sequences/s mlm_loss : 9.8088  nsp_loss : 0.6722  total_loss : 10.4810  avg_loss_step : 10.4881  learning_rate : 4.275e-05 
+DLL 2022-11-26 01:47:01.730895 - Iteration: 117  throughput_train : 160.967 sequences/s mlm_loss : 9.7777  nsp_loss : 0.6802  total_loss : 10.4579  avg_loss_step : 10.4788  learning_rate : 4.3125e-05 
+DLL 2022-11-26 01:54:01.840451 - Iteration: 118  throughput_train : 160.911 sequences/s mlm_loss : 9.7884  nsp_loss : 0.6687  total_loss : 10.4571  avg_loss_step : 10.4722  learning_rate : 4.35e-05 
+DLL 2022-11-26 02:01:01.806865 - Iteration: 119  throughput_train : 160.965 sequences/s mlm_loss : 9.7162  nsp_loss : 0.6953  total_loss : 10.4115  avg_loss_step : 10.4630  learning_rate : 4.3875003e-05 
+DLL 2022-11-26 02:08:01.961322 - Iteration: 120  throughput_train : 160.895 sequences/s mlm_loss : 9.8109  nsp_loss : 0.6822  total_loss : 10.4932  avg_loss_step : 10.4569  learning_rate : 4.4250002e-05 
+DLL 2022-11-26 02:15:02.282013 - Iteration: 121  throughput_train : 160.831 sequences/s mlm_loss : 9.7531  nsp_loss : 0.6807  total_loss : 10.4338  avg_loss_step : 10.4503  learning_rate : 4.4625e-05 
+DLL 2022-11-26 02:22:02.921032 - Iteration: 122  throughput_train : 160.710 sequences/s mlm_loss : 9.7291  nsp_loss : 0.6916  total_loss : 10.4208  avg_loss_step : 10.4398  learning_rate : 4.5e-05 INFO:tensorflow:loss = 10.430323, step = 127 (5968.970 sec)
+I1126 03:09:58.263875 140048561555264 basic_session_run_hooks.py:260] loss = 10.430323, step = 127 (5968.970 sec)
+INFO:tensorflow:loss = 10.200851, step = 142 (5968.062 sec)
+I1126 04:49:26.326144 140048561555264 basic_session_run_hooks.py:260] loss = 10.200851, step = 142 (5968.062 sec)
+INFO:tensorflow:loss = 10.228661, step = 156 (5966.687 sec)
+I1126 06:28:53.013553 140048561555264 basic_session_run_hooks.py:260] loss = 10.228661, step = 156 (5966.687 sec)
 
-DLL 2022-06-04 03:08:21.237789 - Iteration: 126  throughput_train : 156.380 seq/s mlm_loss : 9.7857  nsp_loss : 0.6665  total_loss : 10.4522  avg_loss_step : 10.4314  learning_rate : 4.65e-05 
-DLL 2022-06-04 03:15:33.472285 - Iteration: 127  throughput_train : 156.396 seq/s mlm_loss : 9.8136  nsp_loss : 0.6849  total_loss : 10.4985  avg_loss_step : 10.4222  learning_rate : 4.6875e-05 
-DLL 2022-06-04 03:22:45.644399 - Iteration: 128  throughput_train : 156.418 seq/s mlm_loss : 9.7618  nsp_loss : 0.6617  total_loss : 10.4234  avg_loss_step : 10.4142  learning_rate : 4.7250003e-05 
-DLL 2022-06-04 03:29:57.827206 - Iteration: 129  throughput_train : 156.415 seq/s mlm_loss : 9.6928  nsp_loss : 0.6634  total_loss : 10.3562  avg_loss_step : 10.4043  learning_rate : 4.7625002e-05 
-DLL 2022-06-04 03:37:09.944802 - Iteration: 130  throughput_train : 156.438 seq/s mlm_loss : 9.7100  nsp_loss : 0.6639  total_loss : 10.3738  avg_loss_step : 10.3973  learning_rate : 4.8e-05 
-DLL 2022-06-04 03:44:22.142550 - Iteration: 131  throughput_train : 156.409 seq/s mlm_loss : 9.7409  nsp_loss : 0.6647  total_loss : 10.4056  avg_loss_step : 10.3875  learning_rate : 4.8375e-05 
-DLL 2022-06-04 03:51:34.405924 - Iteration: 132  throughput_train : 156.386 seq/s mlm_loss : 9.7032  nsp_loss : 0.6949  total_loss : 10.3982  avg_loss_step : 10.3797  learning_rate : 4.875e-05 
-DLL 2022-06-04 03:58:46.509262 - Iteration: 133  throughput_train : 156.444 seq/s mlm_loss : 9.7237  nsp_loss : 0.7035  total_loss : 10.4273  avg_loss_step : 10.3762  learning_rate : 4.9125003e-05 
-DLL 2022-06-04 04:05:58.636106 - Iteration: 134  throughput_train : 156.435 seq/s mlm_loss : 9.6730  nsp_loss : 0.6609  total_loss : 10.3339  avg_loss_step : 10.3693  learning_rate : 4.9500002e-05 
-DLL 2022-06-04 04:13:10.808276 - Iteration: 135  throughput_train : 156.418 seq/s mlm_loss : 9.7242  nsp_loss : 0.7120  total_loss : 10.4363  avg_loss_step : 10.3564  learning_rate : 4.9875e-05 
-DLL 2022-06-04 04:20:23.071046 - Iteration: 136  throughput_train : 156.386 seq/s mlm_loss : 9.6587  nsp_loss : 0.6818  total_loss : 10.3405  avg_loss_step : 10.3504  learning_rate : 5.025e-05 
-DLL 2022-06-04 04:27:35.188452 - Iteration: 137  throughput_train : 156.438 seq/s mlm_loss : 9.6897  nsp_loss : 0.6753  total_loss : 10.3650  avg_loss_step : 10.3426  learning_rate : 5.0625003e-05 
-DLL 2022-06-04 04:34:47.238612 - Iteration: 138  throughput_train : 156.462 seq/s mlm_loss : 9.6916  nsp_loss : 0.6974  total_loss : 10.3890  avg_loss_step : 10.3350  learning_rate : 5.1000003e-05 
-DLL 2022-06-04 04:41:59.431644 - Iteration: 139  throughput_train : 156.411 seq/s mlm_loss : 9.5825  nsp_loss : 0.6951  total_loss : 10.2776  avg_loss_step : 10.3270  learning_rate : 5.1375002e-05 
-DLL 2022-06-04 04:49:11.713818 - Iteration: 140  throughput_train : 156.379 seq/s mlm_loss : 9.6426  nsp_loss : 0.6981  total_loss : 10.3407  avg_loss_step : 10.3179  learning_rate : 5.175e-05 
-DLL 2022-06-04 04:56:23.956671 - Iteration: 141  throughput_train : 156.393 seq/s mlm_loss : 9.6352  nsp_loss : 0.6830  total_loss : 10.3182  avg_loss_step : 10.3102  learning_rate : 5.2125e-05 
-DLL 2022-06-04 05:03:36.173897 - Iteration: 142  throughput_train : 156.402 seq/s mlm_loss : 9.6355  nsp_loss : 0.6650  total_loss : 10.3005  avg_loss_step : 10.3007  learning_rate : 5.2500003e-05 
-DLL 2022-06-04 05:10:48.450481 - Iteration: 143  throughput_train : 156.381 seq/s mlm_loss : 9.5977  nsp_loss : 0.6575  total_loss : 10.2552  avg_loss_step : 10.2956  learning_rate : 5.2875002e-05 
-DLL 2022-06-04 05:18:00.758361 - Iteration: 144  throughput_train : 156.370 seq/s mlm_loss : 9.6083  nsp_loss : 0.6790  total_loss : 10.2874  avg_loss_step : 10.2856  learning_rate : 5.325e-05 
-DLL 2022-06-04 05:25:12.997184 - Iteration: 145  throughput_train : 156.394 seq/s mlm_loss : 9.6442  nsp_loss : 0.6784  total_loss : 10.3226  avg_loss_step : 10.2785  learning_rate : 5.3625e-05 
-DLL 2022-06-04 05:32:25.125806 - Iteration: 146  throughput_train : 156.434 seq/s mlm_loss : 9.5881  nsp_loss : 0.6649  total_loss : 10.2530  avg_loss_step : 10.2771  learning_rate : 5.4000004e-05 
-DLL 2022-06-04 05:39:37.392927 - Iteration: 147  throughput_train : 156.385 seq/s mlm_loss : 9.6198  nsp_loss : 0.6689  total_loss : 10.2887  avg_loss_step : 10.2698  learning_rate : 5.4375003e-05 
-DLL 2022-06-04 05:46:49.519425 - Iteration: 148  throughput_train : 156.435 seq/s mlm_loss : 9.5316  nsp_loss : 0.6791  total_loss : 10.2107  avg_loss_step : 10.2576  learning_rate : 5.4750002e-05 
-DLL 2022-06-04 05:54:01.760506 - Iteration: 149  throughput_train : 156.394 seq/s mlm_loss : 9.5181  nsp_loss : 0.6946  total_loss : 10.2127  avg_loss_step : 10.2545  learning_rate : 5.5125e-05 
-DLL 2022-06-04 06:01:13.984255 - Iteration: 150  throughput_train : 156.399 seq/s mlm_loss : 9.5243  nsp_loss : 0.6926  total_loss : 10.2170  avg_loss_step : 10.2455  learning_rate : 5.55e-05 
-DLL 2022-06-04 06:08:26.243169 - Iteration: 151  throughput_train : 156.387 seq/s mlm_loss : 9.5403  nsp_loss : 0.6771  total_loss : 10.2175  avg_loss_step : 10.2391  learning_rate : 5.5875003e-05 
-DLL 2022-06-04 06:15:38.334524 - Iteration: 152  throughput_train : 156.448 seq/s mlm_loss : 9.6871  nsp_loss : 0.6805  total_loss : 10.3675  avg_loss_step : 10.2340  learning_rate : 5.6250003e-05 
-DLL 2022-06-04 06:22:50.633945 - Iteration: 153  throughput_train : 156.373 seq/s mlm_loss : 9.5213  nsp_loss : 0.6917  total_loss : 10.2130  avg_loss_step : 10.2252  learning_rate : 5.6625002e-05 
-DLL 2022-06-04 06:30:02.765058 - Iteration: 154  throughput_train : 156.433 seq/s mlm_loss : 9.5677  nsp_loss : 0.7013  total_loss : 10.2690  avg_loss_step : 10.2196  learning_rate : 5.7e-05 
-DLL 2022-06-04 06:37:14.939018 - Iteration: 155  throughput_train : 156.418 seq/s mlm_loss : 9.5022  nsp_loss : 0.6496  total_loss : 10.1518  avg_loss_step : 10.2121  learning_rate : 5.7375e-05 
-DLL 2022-06-04 06:44:27.066872 - Iteration: 156  throughput_train : 156.436 seq/s mlm_loss : 9.5426  nsp_loss : 0.6703  total_loss : 10.2129  avg_loss_step : 10.2022  learning_rate : 5.7750003e-05 
-DLL 2022-06-04 06:51:39.183990 - Iteration: 157  throughput_train : 156.438 seq/s mlm_loss : 9.5528  nsp_loss : 0.6537  total_loss : 10.2064  avg_loss_step : 10.1995  learning_rate : 5.8125002e-05 
-DLL 2022-06-04 06:58:51.317061 - Iteration: 158  throughput_train : 156.433 seq/s mlm_loss : 9.5268  nsp_loss : 0.6795  total_loss : 10.2063  avg_loss_step : 10.1903  learning_rate : 5.85e-05 
-DLL 2022-06-04 07:06:03.492012 - Iteration: 159  throughput_train : 156.417 seq/s mlm_loss : 9.5250  nsp_loss : 0.6622  total_loss : 10.1873  avg_loss_step : 10.1869  learning_rate : 5.8875e-05 
-DLL 2022-06-04 07:13:15.744397 - Iteration: 160  throughput_train : 156.389 seq/s mlm_loss : 9.4934  nsp_loss : 0.6892  total_loss : 10.1826  avg_loss_step : 10.1799  learning_rate : 5.9250004e-05 
-DLL 2022-06-04 07:20:27.911415 - Iteration: 161  throughput_train : 156.420 seq/s mlm_loss : 9.5163  nsp_loss : 0.6883  total_loss : 10.2046  avg_loss_step : 10.1712  learning_rate : 5.9625003e-05 
-DLL 2022-06-04 07:27:40.103601 - Iteration: 162  throughput_train : 156.411 seq/s mlm_loss : 9.4557  nsp_loss : 0.6848  total_loss : 10.1405  avg_loss_step : 10.1679  learning_rate : 6.0000002e-05 
-DLL 2022-06-04 07:34:52.318988 - Iteration: 163  throughput_train : 156.403 seq/s mlm_loss : 9.4992  nsp_loss : 0.6833  total_loss : 10.1826  avg_loss_step : 10.1598  learning_rate : 6.0375e-05 
-DLL 2022-06-04 07:42:04.471802 - Iteration: 164  throughput_train : 156.425 seq/s mlm_loss : 9.5039  nsp_loss : 0.6951  total_loss : 10.1990  avg_loss_step : 10.1528  learning_rate : 6.075e-05 
-DLL 2022-06-04 07:49:16.645494 - Iteration: 165  throughput_train : 156.418 seq/s mlm_loss : 9.4133  nsp_loss : 0.6765  total_loss : 10.0898  avg_loss_step : 10.1485  learning_rate : 6.1125e-05 
-DLL 2022-06-04 07:56:28.718524 - Iteration: 166  throughput_train : 156.454 seq/s mlm_loss : 9.4061  nsp_loss : 0.6857  total_loss : 10.0918  avg_loss_step : 10.1412  learning_rate : 6.15e-05 
-DLL 2022-06-04 08:03:40.856194 - Iteration: 167  throughput_train : 156.431 seq/s mlm_loss : 9.4649  nsp_loss : 0.6816  total_loss : 10.1466  avg_loss_step : 10.1331  learning_rate : 6.1875005e-05 INFO:tensorflow:loss = 10.117759, step = 170 (6138.602 sec)
-I0604 08:35:46.445946 139843159394112 basic_session_run_hooks.py:260] loss = 10.117759, step = 170 (6138.602 sec)
-INFO:tensorflow:Saving checkpoints for 180 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/phase_1/model.ckpt.
-I0604 09:44:30.888324 139843159394112 basic_session_run_hooks.py:606] Saving checkpoints for 180 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_220603120412/phase_1/model.ckpt.
-INFO:tensorflow:Loss for final step: 10.085902.
-I0604 09:44:35.445491 139843159394112 estimator.py:371] Loss for final step: 10.085902.
+DLL 2022-11-26 02:29:03.364156 - Iteration: 123  throughput_train : 160.784 sequences/s mlm_loss : 9.7664  nsp_loss : 0.6976  total_loss : 10.4640  avg_loss_step : 10.4322  learning_rate : 4.5375e-05 
+DLL 2022-11-26 02:36:03.466934 - Iteration: 124  throughput_train : 160.913 sequences/s mlm_loss : 9.8070  nsp_loss : 0.6678  total_loss : 10.4748  avg_loss_step : 10.4223  learning_rate : 4.5750003e-05 
+DLL 2022-11-26 02:43:03.606760 - Iteration: 125  throughput_train : 160.899 sequences/s mlm_loss : 9.7473  nsp_loss : 0.6874  total_loss : 10.4347  avg_loss_step : 10.4163  learning_rate : 4.6125002e-05 
+DLL 2022-11-26 02:50:03.753423 - Iteration: 126  throughput_train : 160.896 sequences/s mlm_loss : 9.7155  nsp_loss : 0.6880  total_loss : 10.4034  avg_loss_step : 10.4147  learning_rate : 4.65e-05 
+DLL 2022-11-26 02:57:04.154838 - Iteration: 127  throughput_train : 160.799 sequences/s mlm_loss : 9.7375  nsp_loss : 0.6660  total_loss : 10.4036  avg_loss_step : 10.4001  learning_rate : 4.6875e-05 
+DLL 2022-11-26 03:04:04.277216 - Iteration: 128  throughput_train : 160.905 sequences/s mlm_loss : 9.7053  nsp_loss : 0.6520  total_loss : 10.3573  avg_loss_step : 10.3951  learning_rate : 4.7250003e-05 
+DLL 2022-11-26 03:11:04.548450 - Iteration: 129  throughput_train : 160.849 sequences/s mlm_loss : 9.7974  nsp_loss : 0.6918  total_loss : 10.4892  avg_loss_step : 10.3858  learning_rate : 4.7625002e-05 
+DLL 2022-11-26 03:18:04.676208 - Iteration: 130  throughput_train : 160.904 sequences/s mlm_loss : 9.6070  nsp_loss : 0.6755  total_loss : 10.2824  avg_loss_step : 10.3782  learning_rate : 4.8e-05 
+DLL 2022-11-26 03:25:04.807427 - Iteration: 131  throughput_train : 160.902 sequences/s mlm_loss : 9.7180  nsp_loss : 0.6848  total_loss : 10.4027  avg_loss_step : 10.3721  learning_rate : 4.8375e-05 
+DLL 2022-11-26 03:32:04.985226 - Iteration: 132  throughput_train : 160.884 sequences/s mlm_loss : 9.6940  nsp_loss : 0.6728  total_loss : 10.3667  avg_loss_step : 10.3641  learning_rate : 4.875e-05 
+DLL 2022-11-26 03:39:05.204007 - Iteration: 133  throughput_train : 160.869 sequences/s mlm_loss : 9.6837  nsp_loss : 0.6910  total_loss : 10.3747  avg_loss_step : 10.3575  learning_rate : 4.9125003e-05 
+DLL 2022-11-26 03:46:05.276368 - Iteration: 134  throughput_train : 160.924 sequences/s mlm_loss : 9.6828  nsp_loss : 0.6985  total_loss : 10.3814  avg_loss_step : 10.3511  learning_rate : 4.9500002e-05 
+DLL 2022-11-26 03:53:05.489978 - Iteration: 135  throughput_train : 160.870 sequences/s mlm_loss : 9.6603  nsp_loss : 0.6606  total_loss : 10.3209  avg_loss_step : 10.3378  learning_rate : 4.9875e-05 
+DLL 2022-11-26 04:00:05.617095 - Iteration: 136  throughput_train : 160.904 sequences/s mlm_loss : 9.5478  nsp_loss : 0.6896  total_loss : 10.2373  avg_loss_step : 10.3363  learning_rate : 5.025e-05 
+DLL 2022-11-26 04:07:05.751497 - Iteration: 137  throughput_train : 160.901 sequences/s mlm_loss : 9.6883  nsp_loss : 0.6925  total_loss : 10.3808  avg_loss_step : 10.3238  learning_rate : 5.0625003e-05 
+DLL 2022-11-26 04:14:05.850807 - Iteration: 138  throughput_train : 160.914 sequences/s mlm_loss : 9.6078  nsp_loss : 0.6961  total_loss : 10.3039  avg_loss_step : 10.3195  learning_rate : 5.1000003e-05 
+DLL 2022-11-26 04:21:05.960439 - Iteration: 139  throughput_train : 160.910 sequences/s mlm_loss : 9.6547  nsp_loss : 0.6685  total_loss : 10.3232  avg_loss_step : 10.3134  learning_rate : 5.1375002e-05 
+DLL 2022-11-26 04:28:06.180647 - Iteration: 140  throughput_train : 160.868 sequences/s mlm_loss : 9.5637  nsp_loss : 0.7053  total_loss : 10.2690  avg_loss_step : 10.3056  learning_rate : 5.175e-05 
+DLL 2022-11-26 04:35:06.405357 - Iteration: 141  throughput_train : 160.866 sequences/s mlm_loss : 9.5806  nsp_loss : 0.6728  total_loss : 10.2535  avg_loss_step : 10.3008  learning_rate : 5.2125e-05 
+DLL 2022-11-26 04:42:06.519705 - Iteration: 142  throughput_train : 160.908 sequences/s mlm_loss : 9.6264  nsp_loss : 0.6455  total_loss : 10.2719  avg_loss_step : 10.2896  learning_rate : 5.2500003e-05 
+DLL 2022-11-26 04:49:06.635638 - Iteration: 143  throughput_train : 160.908 sequences/s mlm_loss : 9.5938  nsp_loss : 0.6491  total_loss : 10.2430  avg_loss_step : 10.2850  learning_rate : 5.2875002e-05 
+DLL 2022-11-26 04:56:06.789168 - Iteration: 144  throughput_train : 160.893 sequences/s mlm_loss : 9.6041  nsp_loss : 0.6702  total_loss : 10.2743  avg_loss_step : 10.2763  learning_rate : 5.325e-05 
+DLL 2022-11-26 05:03:06.838295 - Iteration: 145  throughput_train : 160.933 sequences/s mlm_loss : 9.5588  nsp_loss : 0.6878  total_loss : 10.2466  avg_loss_step : 10.2735  learning_rate : 5.3625e-05 
+DLL 2022-11-26 05:10:06.933045 - Iteration: 146  throughput_train : 160.916 sequences/s mlm_loss : 9.5891  nsp_loss : 0.6636  total_loss : 10.2527  avg_loss_step : 10.2668  learning_rate : 5.4000004e-05 
+DLL 2022-11-26 05:17:06.933346 - Iteration: 147  throughput_train : 160.952 sequences/s mlm_loss : 9.5787  nsp_loss : 0.6649  total_loss : 10.2436  avg_loss_step : 10.2578  learning_rate : 5.4375003e-05 
+DLL 2022-11-26 05:24:06.840709 - Iteration: 148  throughput_train : 160.987 sequences/s mlm_loss : 9.5683  nsp_loss : 0.6767  total_loss : 10.2449  avg_loss_step : 10.2522  learning_rate : 5.4750002e-05 
+DLL 2022-11-26 05:31:06.771843 - Iteration: 149  throughput_train : 160.978 sequences/s mlm_loss : 9.4574  nsp_loss : 0.6437  total_loss : 10.1011  avg_loss_step : 10.2457  learning_rate : 5.5125e-05 
+DLL 2022-11-26 05:38:06.827419 - Iteration: 150  throughput_train : 160.931 sequences/s mlm_loss : 9.5654  nsp_loss : 0.6470  total_loss : 10.2124  avg_loss_step : 10.2386  learning_rate : 5.55e-05 
+DLL 2022-11-26 05:45:06.906318 - Iteration: 151  throughput_train : 160.921 sequences/s mlm_loss : 9.5964  nsp_loss : 0.6509  total_loss : 10.2473  avg_loss_step : 10.2302  learning_rate : 5.5875003e-05 
+DLL 2022-11-26 05:52:07.095875 - Iteration: 152  throughput_train : 160.880 sequences/s mlm_loss : 9.5917  nsp_loss : 0.7115  total_loss : 10.3033  avg_loss_step : 10.2276  learning_rate : 5.6250003e-05 
+DLL 2022-11-26 05:59:07.065033 - Iteration: 153  throughput_train : 160.964 sequences/s mlm_loss : 9.5704  nsp_loss : 0.6928  total_loss : 10.2633  avg_loss_step : 10.2239  learning_rate : 5.6625002e-05 
+DLL 2022-11-26 06:06:07.154319 - Iteration: 154  throughput_train : 160.918 sequences/s mlm_loss : 9.5293  nsp_loss : 0.6742  total_loss : 10.2035  avg_loss_step : 10.2167  learning_rate : 5.7e-05 
+DLL 2022-11-26 06:13:07.248156 - Iteration: 155  throughput_train : 160.916 sequences/s mlm_loss : 9.4991  nsp_loss : 0.6643  total_loss : 10.1634  avg_loss_step : 10.2065  learning_rate : 5.7375e-05 
+DLL 2022-11-26 06:20:07.404497 - Iteration: 156  throughput_train : 160.893 sequences/s mlm_loss : 9.4888  nsp_loss : 0.6937  total_loss : 10.1825  avg_loss_step : 10.2030  learning_rate : 5.7750003e-05 
+DLL 2022-11-26 06:27:07.446421 - Iteration: 157  throughput_train : 160.936 sequences/s mlm_loss : 9.5029  nsp_loss : 0.7050  total_loss : 10.2079  avg_loss_step : 10.1916  learning_rate : 5.8125002e-05 
+DLL 2022-11-26 06:34:07.423257 - Iteration: 158  throughput_train : 160.961 sequences/s mlm_loss : 9.4762  nsp_loss : 0.6932  total_loss : 10.1694  avg_loss_step : 10.1905  learning_rate : 5.85e-05 
+DLL 2022-11-26 06:41:07.460708 - Iteration: 159  throughput_train : 160.938 sequences/s mlm_loss : 9.4774  nsp_loss : 0.6919  total_loss : 10.1692  avg_loss_step : 10.1842  learning_rate : 5.8875e-05 
+DLL 2022-11-26 06:48:07.607480 - Iteration: 160  throughput_train : 160.896 sequences/s mlm_loss : 9.5198  nsp_loss : 0.6947  total_loss : 10.2145  avg_loss_step : 10.1768  learning_rate : 5.9250004e-05 
+DLL 2022-11-26 06:55:07.757929 - Iteration: 161  throughput_train : 160.895 sequences/s mlm_loss : 9.4757  nsp_loss : 0.6978  total_loss : 10.1736  avg_loss_step : 10.1720  learning_rate : 5.9625003e-05 
+DLL 2022-11-26 07:02:07.792109 - Iteration: 162  throughput_train : 160.939 sequences/s mlm_loss : 9.4480  nsp_loss : 0.7025  total_loss : 10.1505  avg_loss_step : 10.1683  learning_rate : 6.0000002e-05 
+DLL 2022-11-26 07:09:07.952717 - Iteration: 163  throughput_train : 160.893 sequences/s mlm_loss : 9.4139  nsp_loss : 0.6950  total_loss : 10.1089  avg_loss_step : 10.1593  learning_rate : 6.0375e-05 INFO:tensorflow:loss = 10.06305, step = 170 (5967.166 sec)
+I1126 08:08:20.179883 140048561555264 basic_session_run_hooks.py:260] loss = 10.06305, step = 170 (5967.166 sec)
+INFO:tensorflow:Saving checkpoints for 180 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt.
+I1126 09:15:08.888228 140048561555264 basic_session_run_hooks.py:606] Saving checkpoints for 180 into /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt.
+INFO:tensorflow:Loss for final step: 10.050489.
+I1126 09:15:13.504616 140048561555264 estimator.py:371] Loss for final step: 10.050489.
 INFO:tensorflow:-----------------------------
-I0604 09:44:35.447690 139843159394112 run_pretraining.py:644] -----------------------------
-INFO:tensorflow:Total Training Time = 78020.49 for Sentences = 12165120
-I0604 09:44:35.447780 139843159394112 run_pretraining.py:646] Total Training Time = 78020.49 for Sentences = 12165120
-INFO:tensorflow:Total Training Time W/O Overhead = 75657.50 for Sentences = 11827200
-I0604 09:44:35.447852 139843159394112 run_pretraining.py:648] Total Training Time W/O Overhead = 75657.50 for Sentences = 11827200
-INFO:tensorflow:Throughput Average (sentences/sec) with overhead = 155.92
-I0604 09:44:35.447918 139843159394112 run_pretraining.py:649] Throughput Average (sentences/sec) with overhead = 155.92
-INFO:tensorflow:Throughput Average (sentences/sec) = 156.33
-I0604 09:44:35.447993 139843159394112 run_pretraining.py:650] Throughput Average (sentences/sec) = 156.33
+I1126 09:15:13.507472 140048561555264 run_pretraining.py:647] -----------------------------
+INFO:tensorflow:Total Training Time = 75872.79 for Sentences = 12165120
+I1126 09:15:13.507559 140048561555264 run_pretraining.py:649] Total Training Time = 75872.79 for Sentences = 12165120
+INFO:tensorflow:Total Training Time W/O Overhead = 73567.65 for Sentences = 11827200
+I1126 09:15:13.507629 140048561555264 run_pretraining.py:651] Total Training Time W/O Overhead = 73567.65 for Sentences = 11827200
+INFO:tensorflow:Throughput Average (sentences/sec) with overhead = 160.34
+I1126 09:15:13.507689 140048561555264 run_pretraining.py:652] Throughput Average (sentences/sec) with overhead = 160.34
+INFO:tensorflow:Throughput Average (sentences/sec) = 160.77
+I1126 09:15:13.507749 140048561555264 run_pretraining.py:653] Throughput Average (sentences/sec) = 160.77
 INFO:tensorflow:-----------------------------
-I0604 09:44:35.448153 139843159394112 run_pretraining.py:652] -----------------------------
+I1126 09:15:13.507974 140048561555264 run_pretraining.py:657] -----------------------------
+INFO:tensorflow:***** Running evaluation *****
+I1126 09:15:13.508059 140048561555264 run_pretraining.py:660] ***** Running evaluation *****
+INFO:tensorflow:  Batch size = 8
+I1126 09:15:13.508117 140048561555264 run_pretraining.py:661]   Batch size = 8
+INFO:tensorflow:Calling model_fn.
+I1126 09:15:13.545030 140048561555264 estimator.py:1148] Calling model_fn.
+INFO:tensorflow:*** Features ***
+I1126 09:15:13.545191 140048561555264 run_pretraining.py:260] *** Features ***
+INFO:tensorflow:  name = input_ids, shape = (?, 128)
+I1126 09:15:13.545287 140048561555264 run_pretraining.py:262]   name = input_ids, shape = (?, 128)
+INFO:tensorflow:  name = input_mask, shape = (?, 128)
+I1126 09:15:13.545359 140048561555264 run_pretraining.py:262]   name = input_mask, shape = (?, 128)
+INFO:tensorflow:  name = masked_lm_ids, shape = (?, 20)
+I1126 09:15:13.545439 140048561555264 run_pretraining.py:262]   name = masked_lm_ids, shape = (?, 20)
+INFO:tensorflow:  name = masked_lm_positions, shape = (?, 20)
+I1126 09:15:13.545502 140048561555264 run_pretraining.py:262]   name = masked_lm_positions, shape = (?, 20)
+INFO:tensorflow:  name = masked_lm_weights, shape = (?, 20)
+I1126 09:15:13.545564 140048561555264 run_pretraining.py:262]   name = masked_lm_weights, shape = (?, 20)
+INFO:tensorflow:  name = next_sentence_labels, shape = (?, 1)
+I1126 09:15:13.545624 140048561555264 run_pretraining.py:262]   name = next_sentence_labels, shape = (?, 1)
+INFO:tensorflow:  name = segment_ids, shape = (?, 128)
+I1126 09:15:13.545691 140048561555264 run_pretraining.py:262]   name = segment_ids, shape = (?, 128)
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:340: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
 
-DLL 2022-06-04 08:10:52.939652 - Iteration: 168  throughput_train : 156.451 seq/s mlm_loss : 9.4388  nsp_loss : 0.6791  total_loss : 10.1179  avg_loss_step : 10.1294  learning_rate : 6.225e-05 
-DLL 2022-06-04 08:18:05.066551 - Iteration: 169  throughput_train : 156.435 seq/s mlm_loss : 9.4579  nsp_loss : 0.6863  total_loss : 10.1442  avg_loss_step : 10.1225  learning_rate : 6.2625004e-05 
-DLL 2022-06-04 08:25:17.240287 - Iteration: 170  throughput_train : 156.418 seq/s mlm_loss : 9.5053  nsp_loss : 0.6886  total_loss : 10.1940  avg_loss_step : 10.1176  learning_rate : 6.3e-05 
-DLL 2022-06-04 08:32:29.323550 - Iteration: 171  throughput_train : 156.451 seq/s mlm_loss : 9.4694  nsp_loss : 0.6544  total_loss : 10.1238  avg_loss_step : 10.1101  learning_rate : 6.3375e-05 
-DLL 2022-06-04 08:39:41.549253 - Iteration: 172  throughput_train : 156.399 seq/s mlm_loss : 9.3742  nsp_loss : 0.6700  total_loss : 10.0442  avg_loss_step : 10.1047  learning_rate : 6.3750005e-05 
-DLL 2022-06-04 08:46:53.555701 - Iteration: 173  throughput_train : 156.478 seq/s mlm_loss : 9.4462  nsp_loss : 0.6700  total_loss : 10.1162  avg_loss_step : 10.0973  learning_rate : 6.4125e-05 
-DLL 2022-06-04 08:54:05.639054 - Iteration: 174  throughput_train : 156.451 seq/s mlm_loss : 9.3870  nsp_loss : 0.6806  total_loss : 10.0676  avg_loss_step : 10.0903  learning_rate : 6.4500004e-05 
-DLL 2022-06-04 09:01:17.814562 - Iteration: 175  throughput_train : 156.417 seq/s mlm_loss : 9.4124  nsp_loss : 0.6897  total_loss : 10.1020  avg_loss_step : 10.0866  learning_rate : 6.4875e-05 
-DLL 2022-06-04 09:08:29.973942 - Iteration: 176  throughput_train : 156.426 seq/s mlm_loss : 9.4657  nsp_loss : 0.6772  total_loss : 10.1428  avg_loss_step : 10.0786  learning_rate : 6.525e-05 
-DLL 2022-06-04 09:15:42.012808 - Iteration: 177  throughput_train : 156.467 seq/s mlm_loss : 9.3070  nsp_loss : 0.6790  total_loss : 9.9860  avg_loss_step : 10.0706  learning_rate : 6.5625005e-05 
-DLL 2022-06-04 09:22:54.280563 - Iteration: 178  throughput_train : 156.384 seq/s mlm_loss : 9.3700  nsp_loss : 0.6747  total_loss : 10.0447  avg_loss_step : 10.0713  learning_rate : 6.6e-05 
-DLL 2022-06-04 09:30:06.459943 - Iteration: 179  throughput_train : 156.416 seq/s mlm_loss : 9.3464  nsp_loss : 0.6895  total_loss : 10.0359  avg_loss_step : 10.0657  learning_rate : 6.6375e-05 
-DLL 2022-06-04 09:37:18.579678 - Iteration: 180  throughput_train : 156.437 seq/s mlm_loss : 9.3613  nsp_loss : 0.6869  total_loss : 10.0482  avg_loss_step : 10.0594  learning_rate : 6.675e-05 
-DLL 2022-06-04 09:44:30.886992 - Iteration: 181  throughput_train : 156.483 seq/s mlm_loss : 9.4022  nsp_loss : 0.6837  total_loss : 10.0859  avg_loss_step : 10.0501  learning_rate : 6.7125e-05 
-DLL 2022-06-04 09:44:35.448048 -  throughput_train : 156.326 seq/s
+W1126 09:15:14.831114 140048561555264 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:340: The name tf.metrics.accuracy is deprecated. Please use tf.compat.v1.metrics.accuracy instead.
+
+WARNING:tensorflow:From /workspace/bert/run_pretraining.py:344: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+W1126 09:15:14.867250 140048561555264 module_wrapper.py:139] From /workspace/bert/run_pretraining.py:344: The name tf.metrics.mean is deprecated. Please use tf.compat.v1.metrics.mean instead.
+
+INFO:tensorflow:Done calling model_fn.
+I1126 09:15:14.921482 140048561555264 estimator.py:1150] Done calling model_fn.
+INFO:tensorflow:Starting evaluation at 2022-11-26T09:15:14Z
+I1126 09:15:14.933824 140048561555264 evaluation.py:255] Starting evaluation at 2022-11-26T09:15:14Z
+INFO:tensorflow:Graph was finalized.
+I1126 09:15:15.262720 140048561555264 monitored_session.py:240] Graph was finalized.
+2022-11-26 09:15:15.265495: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.266388: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 0 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:03:00.0
+2022-11-26 09:15:15.266511: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.268465: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 1 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:04:00.0
+2022-11-26 09:15:15.268552: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.270575: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 2 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:05:00.0
+2022-11-26 09:15:15.270657: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.272608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 3 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:06:00.0
+2022-11-26 09:15:15.272683: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.274631: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 4 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:07:00.0
+2022-11-26 09:15:15.274703: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.276654: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 5 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:08:00.0
+2022-11-26 09:15:15.276727: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.278688: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 6 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:09:00.0
+2022-11-26 09:15:15.278758: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.280703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1639] Found device 7 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:0a:00.0
+2022-11-26 09:15:15.280773: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2022-11-26 09:15:15.280868: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2022-11-26 09:15:15.280898: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2022-11-26 09:15:15.280922: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2022-11-26 09:15:15.280947: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2022-11-26 09:15:15.280972: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2022-11-26 09:15:15.280999: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2022-11-26 09:15:15.281063: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.281916: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.283900: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.286062: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.288040: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.290014: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.291999: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.293971: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.295931: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.296750: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.298730: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.300689: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.302659: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.304611: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.306564: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.308518: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.310443: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1767] Adding visible gpu devices: 0, 1, 2, 3, 4, 5, 6, 7
+2022-11-26 09:15:15.310709: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1180] Device interconnect StreamExecutor with strength 1 edge matrix:
+2022-11-26 09:15:15.310726: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1186]      0 1 2 3 4 5 6 7 
+2022-11-26 09:15:15.310732: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 0:   N Y Y Y N N N Y 
+2022-11-26 09:15:15.310737: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 1:   Y N Y Y N N Y N 
+2022-11-26 09:15:15.310743: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 2:   Y Y N Y N Y N N 
+2022-11-26 09:15:15.310748: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 3:   Y Y Y N Y N N N 
+2022-11-26 09:15:15.310752: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 4:   N N N Y N Y Y Y 
+2022-11-26 09:15:15.310757: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 5:   N N Y N Y N Y Y 
+2022-11-26 09:15:15.310763: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 6:   N Y N N Y Y N Y 
+2022-11-26 09:15:15.310773: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1199] 7:   Y N N N Y Y Y N 
+2022-11-26 09:15:15.311205: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.312044: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.314020: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.315987: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.317950: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.319918: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.321881: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.323849: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.325829: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.326610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30166 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:03:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.326686: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.328619: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 30166 MB memory) -> physical GPU (device: 1, name: Tesla V100-SXM2-32GB, pci bus id: 0000:04:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.328687: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.330628: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 30166 MB memory) -> physical GPU (device: 2, name: Tesla V100-SXM2-32GB, pci bus id: 0000:05:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.330697: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.332634: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 30166 MB memory) -> physical GPU (device: 3, name: Tesla V100-SXM2-32GB, pci bus id: 0000:06:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.332699: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.334633: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:4 with 30166 MB memory) -> physical GPU (device: 4, name: Tesla V100-SXM2-32GB, pci bus id: 0000:07:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.334703: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.336638: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:5 with 30166 MB memory) -> physical GPU (device: 5, name: Tesla V100-SXM2-32GB, pci bus id: 0000:08:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.336704: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.338656: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:6 with 30166 MB memory) -> physical GPU (device: 6, name: Tesla V100-SXM2-32GB, pci bus id: 0000:09:00.0, compute capability: 7.0)
+2022-11-26 09:15:15.338744: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:983] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-26 09:15:15.340680: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1325] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:7 with 30166 MB memory) -> physical GPU (device: 7, name: Tesla V100-SXM2-32GB, pci bus id: 0000:0a:00.0, compute capability: 7.0)
+INFO:tensorflow:Restoring parameters from /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt-180
+I1126 09:15:15.341782 140048561555264 saver.py:1284] Restoring parameters from /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt-180
+INFO:tensorflow:Running local_init_op.
+I1126 09:15:16.211675 140048561555264 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I1126 09:15:16.279640 140048561555264 session_manager.py:502] Done running local_init_op.
+INFO:tensorflow:Evaluation [10/100]
+I1126 09:15:22.297598 140048561555264 evaluation.py:167] Evaluation [10/100]
+INFO:tensorflow:Evaluation [20/100]
+I1126 09:15:22.522642 140048561555264 evaluation.py:167] Evaluation [20/100]
+INFO:tensorflow:Evaluation [30/100]
+I1126 09:15:22.745522 140048561555264 evaluation.py:167] Evaluation [30/100]
+INFO:tensorflow:Evaluation [40/100]
+I1126 09:15:22.969590 140048561555264 evaluation.py:167] Evaluation [40/100]
+INFO:tensorflow:Evaluation [50/100]
+I1126 09:15:23.190954 140048561555264 evaluation.py:167] Evaluation [50/100]
+INFO:tensorflow:Evaluation [60/100]
+I1126 09:15:23.414481 140048561555264 evaluation.py:167] Evaluation [60/100]
+INFO:tensorflow:Evaluation [70/100]
+I1126 09:15:23.637306 140048561555264 evaluation.py:167] Evaluation [70/100]
+INFO:tensorflow:Evaluation [80/100]
+I1126 09:15:23.859498 140048561555264 evaluation.py:167] Evaluation [80/100]
+INFO:tensorflow:Evaluation [90/100]
+I1126 09:15:24.082238 140048561555264 evaluation.py:167] Evaluation [90/100]
+INFO:tensorflow:Evaluation [100/100]
+I1126 09:15:24.304891 140048561555264 evaluation.py:167] Evaluation [100/100]
+INFO:tensorflow:Finished evaluation at 2022-11-26-09:15:24
+I1126 09:15:24.718542 140048561555264 evaluation.py:275] Finished evaluation at 2022-11-26-09:15:24
+INFO:tensorflow:Saving dict for global step 180: global_step = 180, loss = 10.036589, masked_lm_accuracy = 0.048812095, masked_lm_loss = 9.349852, next_sentence_accuracy = 0.55, next_sentence_loss = 0.68720144
+I1126 09:15:24.719110 140048561555264 estimator.py:2049] Saving dict for global step 180: global_step = 180, loss = 10.036589, masked_lm_accuracy = 0.048812095, masked_lm_loss = 9.349852, next_sentence_accuracy = 0.55, next_sentence_loss = 0.68720144
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 180: /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt-180
+I1126 09:15:25.064800 140048561555264 estimator.py:2109] Saving 'checkpoint_path' summary for global step 180: /results/tf_bert_pretraining_lamb_base_fp32_gbs167584_gbs232768_221125121038/phase_1/model.ckpt-180
+INFO:tensorflow:-----------------------------
+I1126 09:15:25.065913 140048561555264 run_pretraining.py:689] -----------------------------
+INFO:tensorflow:Total Inference Time = 11.56 for Sentences = 800
+I1126 09:15:25.066070 140048561555264 run_pretraining.py:691] Total Inference Time = 11.56 for Sentences = 800
+INFO:tensorflow:Total Inference Time W/O Overhead = 2.21 for Sentences = 792
+I1126 09:15:25.066142 140048561555264 run_pretraining.py:693] Total Inference Time W/O Overhead = 2.21 for Sentences = 792
+INFO:tensorflow:Summary Inference Statistics on EVAL set
+I1126 09:15:25.066199 140048561555264 run_pretraining.py:694] Summary Inference Statistics on EVAL set
+INFO:tensorflow:Batch size = 8
+I1126 09:15:25.066249 140048561555264 run_pretraining.py:695] Batch size = 8
+INFO:tensorflow:Sequence Length = 128
+I1126 09:15:25.066340 140048561555264 run_pretraining.py:696] Sequence Length = 128
+INFO:tensorflow:Precision = fp32
+I1126 09:15:25.066410 140048561555264 run_pretraining.py:697] Precision = fp32
+INFO:tensorflow:Throughput Average (sentences/sec) = 358.42
+I1126 09:15:25.066465 140048561555264 run_pretraining.py:698] Throughput Average (sentences/sec) = 358.42
+INFO:tensorflow:-----------------------------
+I1126 09:15:25.066667 140048561555264 run_pretraining.py:700] -----------------------------
+INFO:tensorflow:***** Eval results *****
+I1126 09:15:25.066785 140048561555264 run_pretraining.py:704] ***** Eval results *****
+INFO:tensorflow:  global_step = 180
+I1126 09:15:25.066851 140048561555264 run_pretraining.py:706]   global_step = 180
+INFO:tensorflow:  loss = 10.036589
+I1126 09:15:25.067026 140048561555264 run_pretraining.py:706]   loss = 10.036589
+INFO:tensorflow:  masked_lm_accuracy = 0.048812095
+I1126 09:15:25.067098 140048561555264 run_pretraining.py:706]   masked_lm_accuracy = 0.048812095
+INFO:tensorflow:  masked_lm_loss = 9.349852
+I1126 09:15:25.067152 140048561555264 run_pretraining.py:706]   masked_lm_loss = 9.349852
+INFO:tensorflow:  next_sentence_accuracy = 0.55
+I1126 09:15:25.067205 140048561555264 run_pretraining.py:706]   next_sentence_accuracy = 0.55
+INFO:tensorflow:  next_sentence_loss = 0.68720144
+I1126 09:15:25.067257 140048561555264 run_pretraining.py:706]   next_sentence_loss = 0.68720144
+
+DLL 2022-11-26 07:16:07.978974 - Iteration: 164  throughput_train : 160.942 sequences/s mlm_loss : 9.4851  nsp_loss : 0.6730  total_loss : 10.1581  avg_loss_step : 10.1553  learning_rate : 6.075e-05 
+DLL 2022-11-26 07:23:08.037075 - Iteration: 165  throughput_train : 160.929 sequences/s mlm_loss : 9.4951  nsp_loss : 0.6645  total_loss : 10.1597  avg_loss_step : 10.1506  learning_rate : 6.1125e-05 
+DLL 2022-11-26 07:30:08.366631 - Iteration: 166  throughput_train : 160.827 sequences/s mlm_loss : 9.4621  nsp_loss : 0.6776  total_loss : 10.1397  avg_loss_step : 10.1443  learning_rate : 6.15e-05 
+DLL 2022-11-26 07:37:08.385463 - Iteration: 167  throughput_train : 160.945 sequences/s mlm_loss : 9.4421  nsp_loss : 0.6938  total_loss : 10.1359  avg_loss_step : 10.1379  learning_rate : 6.1875005e-05 
+DLL 2022-11-26 07:44:08.498029 - Iteration: 168  throughput_train : 160.909 sequences/s mlm_loss : 9.4413  nsp_loss : 0.6846  total_loss : 10.1259  avg_loss_step : 10.1295  learning_rate : 6.225e-05 
+DLL 2022-11-26 07:51:08.576491 - Iteration: 169  throughput_train : 160.922 sequences/s mlm_loss : 9.5012  nsp_loss : 0.6905  total_loss : 10.1917  avg_loss_step : 10.1271  learning_rate : 6.2625004e-05 
+DLL 2022-11-26 07:58:08.575058 - Iteration: 170  throughput_train : 160.953 sequences/s mlm_loss : 9.4709  nsp_loss : 0.6731  total_loss : 10.1440  avg_loss_step : 10.1188  learning_rate : 6.3e-05 
+DLL 2022-11-26 08:05:08.605839 - Iteration: 171  throughput_train : 160.940 sequences/s mlm_loss : 9.4368  nsp_loss : 0.6881  total_loss : 10.1249  avg_loss_step : 10.1177  learning_rate : 6.3375e-05 
+DLL 2022-11-26 08:12:08.702515 - Iteration: 172  throughput_train : 160.915 sequences/s mlm_loss : 9.4068  nsp_loss : 0.6899  total_loss : 10.0967  avg_loss_step : 10.1104  learning_rate : 6.3750005e-05 
+DLL 2022-11-26 08:19:08.706431 - Iteration: 173  throughput_train : 160.951 sequences/s mlm_loss : 9.4884  nsp_loss : 0.6870  total_loss : 10.1754  avg_loss_step : 10.1049  learning_rate : 6.4125e-05 
+DLL 2022-11-26 08:26:08.551227 - Iteration: 174  throughput_train : 161.011 sequences/s mlm_loss : 9.4612  nsp_loss : 0.6882  total_loss : 10.1494  avg_loss_step : 10.1004  learning_rate : 6.4500004e-05 
+DLL 2022-11-26 08:33:08.552946 - Iteration: 175  throughput_train : 160.951 sequences/s mlm_loss : 9.4262  nsp_loss : 0.6800  total_loss : 10.1062  avg_loss_step : 10.0952  learning_rate : 6.4875e-05 
+DLL 2022-11-26 08:40:08.588478 - Iteration: 176  throughput_train : 160.938 sequences/s mlm_loss : 9.4133  nsp_loss : 0.6666  total_loss : 10.0799  avg_loss_step : 10.0880  learning_rate : 6.525e-05 
+DLL 2022-11-26 08:47:08.685604 - Iteration: 177  throughput_train : 160.915 sequences/s mlm_loss : 9.3796  nsp_loss : 0.7025  total_loss : 10.0821  avg_loss_step : 10.0843  learning_rate : 6.5625005e-05 
+DLL 2022-11-26 08:54:08.753687 - Iteration: 178  throughput_train : 160.926 sequences/s mlm_loss : 9.3437  nsp_loss : 0.6760  total_loss : 10.0197  avg_loss_step : 10.0787  learning_rate : 6.6e-05 
+DLL 2022-11-26 09:01:08.747562 - Iteration: 179  throughput_train : 160.955 sequences/s mlm_loss : 9.3579  nsp_loss : 0.7076  total_loss : 10.0655  avg_loss_step : 10.0745  learning_rate : 6.6375e-05 
+DLL 2022-11-26 09:08:08.675356 - Iteration: 180  throughput_train : 160.980 sequences/s mlm_loss : 9.3931  nsp_loss : 0.6932  total_loss : 10.0864  avg_loss_step : 10.0688  learning_rate : 6.675e-05 
+DLL 2022-11-26 09:15:08.886720 - Iteration: 181  throughput_train : 160.995 sequences/s mlm_loss : 9.3614  nsp_loss : 0.6891  total_loss : 10.0505  avg_loss_step : 10.0622  learning_rate : 6.7125e-05 
+DLL 2022-11-26 09:15:13.507799 -  throughput_train : 160.766 sequences/s
+DLL 2022-11-26 09:15:13.507919 -  total_loss : 10.0622 
+DLL 2022-11-26 09:15:25.066528 -  throughput_val : 358.41747323188906 
