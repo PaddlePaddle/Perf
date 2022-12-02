@@ -148,22 +148,50 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ### 1.单机（单卡、8卡）测试
 
-为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 `run_benchmark.sh` ,放在 `PaddleNLP/tests/test_tipc/static/dp/bert/benchmark_common/`目录下。
-使用时请下载日志解析脚本
+为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 `run_benchmark.sh` ，需放在 `PaddleNLP/examples/language_model/bert/static`目录下。
    ```bash
-   wget https://paddle-qa.bj.bcebos.com/benchmark/tools.tar.gz && tar xvf tools.tar.gz 
-   export BENCHMARK_ROOT=$PWD/tools
+  #!/bin/bash   
+   export PYTHONPATH=/workspace/models/
+   export DATA_DIR=/workspace/models/bert_data/
+   
+   export CUDA_VISIBLE_DEVICES=0
+   
+   batch_size=${1:-32}
+   num_gpus=${2:-1}
+   use_amp=${3:-"True"}
+   max_steps=${4:-500}
+   logging_steps=${5:-20}
+   
+   if [ $num_gpus = 1 ]; then
+      CMD="python ./run_pretrain.py"
+   else
+      unset CUDA_VISIBLE_DEVICES
+      CMD="python -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 ./run_pretrain.py"
+   fi
+   
+   $CMD \
+               --max_predictions_per_seq 80
+               --learning_rate 5e-5
+               --weight_decay 0.0
+               --adam_epsilon 1e-8
+               --warmup_steps 0
+               --output_dir ./tmp2/
+               --logging_steps 10
+               --save_steps 20000
+               --input_dir=$DATA_DIR
+               --model_type bert
+               --model_name_or_path bert-base-uncased
+               --batch_size ${batch_size}
+               --use_amp ${use_amp}
+               --gradient_merge_steps $(expr 67584 \/ $batch_size \/ 8)"
    ```
 
 - **单卡启动脚本：**
 
-  若测试单机单卡 batch_size=96 的训练性能，执行如下命令：
+  若测试单机单卡 batch_size=96 \FP32 的训练性能，执行如下命令：
 
   ```bash
-  cd PaddleNLP/tests/
-  export CUDA_VISIBLE_DEVICES=0
-  bash  test_tipc/static/dp/bert/N1C1/bert_base_seqlen128_bs96_fp32_DP.sh
-  bash  test_tipc/static/dp/bert/N1C1/bert_base_seqlen128_bs96_fp16_DP.sh
+    bash run_benchmark.sh 96 1 False
   ```
 
 - **8卡启动脚本：**
@@ -171,10 +199,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   若测试单机8卡 batch_size=96 的训练性能，执行如下命令：
 
   ```bash
-  cd PaddleNLP/tests/
-  export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-  bash  test_tipc/static/dp/bert/N1C8/bert_base_seqlen128_bs96_fp32_DP.sh
-  bash  test_tipc/static/dp/bert/N1C8/bert_base_seqlen128_bs96_fp16_DP.sh
+  bash run_benchmark.sh 96 8 True
   ```
 
 
