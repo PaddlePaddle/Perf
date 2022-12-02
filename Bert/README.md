@@ -67,7 +67,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
 
 - 多机（32卡）
@@ -79,11 +79,11 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.3.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.4.0.post112`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `11.2`
-- **cuDnn 版本:** `8.1.1`
+- **cuDnn 版本:** `8.2`
 
 
 ## 三、环境搭建
@@ -95,8 +95,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git 
-  cd PaddleNLP && git checkout 64ac2f404b7ec4607ae5ab7015b3a9918195823b
-  cp requirements.txt examples/language_model/bert/static && cd examples/language_model/bert/static
+  cd PaddleNLP && git checkout b429aa8a936709f4a831a7aa855daba4b1fd6666
   ```
 
 
@@ -104,7 +103,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
    # 创建并进入容器
    nvidia-docker run --name=test_bert_paddle -it \
@@ -113,8 +112,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
     --ulimit memlock=-1 \
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
-    -v $PWD:/workspace/models \
-    paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+    -v $PWD:/workspace/ \
+    paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
     /bin/bash 
    ```
 
@@ -127,13 +126,12 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 - **准备数据**
 
-   Bert 模型的 Pre-Training 任务是基于 [wikipedia](https://dumps.wikimedia.org/) 和 [BookCorpus](http://yknzhu.wixsite.com/mbweb) 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bert-data.bj.bcebos.com/benchmark_sample%2Fbert_data.tar.gz)，大小 338M， 可以下载并解压到`models/`目录下。
+   Bert 模型的 Pre-Training 任务是基于 [wikipedia](https://dumps.wikimedia.org/) 和 [BookCorpus](http://yknzhu.wixsite.com/mbweb) 数据集进行的训练的，原始数据集比较大。我们提供了一份小的、且已处理好的[样本数据集](https://bj.bcebos.com/paddlenlp/datasets/benchmark_wikicorpus_en_seqlen128.tar)，大小 958M， 可以下载并解压到`PaddleNLP/tests/data/`目录下。
 
    ```bash
-   # 解压数据集
-   tar -xzvf benchmark_sample_bert_data.tar.gz
-   # 放到 models/ 目录
-   mv benchmark_sample_bert_data.tar.gz models/bert_data
+    cd PaddleNLP/tests
+    bash test_tipc/static/dp/bert/benchmark_common/prepare.sh
+    # 运行后数据放在PaddleNLP/tests/data/wikicorpus_en_seqlen128
    ```
 
 ## 四、测试步骤
@@ -152,12 +150,10 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 ### 1.单机（单卡、8卡）测试
 
 为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 `run_benchmark.sh` ，需放在 `PaddleNLP/examples/language_model/bert/static`目录下。
-
-- **脚本内容如下：**
    ```bash
-   #!/bin/bash   
-   export PYTHONPATH=/workspace/models/
-   export DATA_DIR=/workspace/models/bert_data/
+  #!/bin/bash   
+   export PYTHONPATH=/workspace/
+   export DATA_DIR=/workspace/tests/data/wikicorpus_en_seqlen128
    
    export CUDA_VISIBLE_DEVICES=0
    
@@ -193,15 +189,15 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 - **单卡启动脚本：**
 
-  若测试单机单卡 batch_size=96、FP32 的训练性能，执行如下命令：
+  若测试单机单卡 batch_size=96 \FP32 的训练性能，执行如下命令：
 
   ```bash
-  bash run_benchmark.sh 96 1 False
+    bash run_benchmark.sh 96 1 False
   ```
 
 - **8卡启动脚本：**
 
-  若测试单机8卡 batch_size=96、FP16 的训练性能，执行如下命令：
+  若测试单机8卡 batch_size=96 的训练性能，执行如下命令：
 
   ```bash
   bash run_benchmark.sh 96 8 True
@@ -268,8 +264,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    |卡数 | FP32(BS=96) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|
-   |1 |161.15 | 653.97  | 
-   |8 | 1288.50  | 5234.17 | 
+   |1 |166.407 | 693.763  | 
+   |8 | 1329.233  | 5567.137 | 
    |32 | 4829.904 | 20054.43 | 
 
 ### 2.与业内其它框架对比
@@ -285,8 +281,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=96 | 161.15  | 156.33  | 153.56 |
-  | GPU=8,BS=96 | 1288.50  | 1231.74 | 1228.24 |
+  | GPU=1,BS=96 | 166.407  | 160.557  | 158.642 |
+  | GPU=8,BS=96 | 1329.233  | 1242.14 | 1233.15 |
   | GPU=32,BS=96 | 4829.904 | 4238.53 | 3496.94 |
 
 
@@ -295,8 +291,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=96 | 653.97 | 530.28  | 630.61 |
-  | GPU=8,BS=96 | 5234.17  | 4181.32 | 5044.04 |
+  | GPU=1,BS=96 | 693.763 | 537.655  | 641.511 |
+  | GPU=8,BS=96 | 5567.137  | 4086.07 | 5072 |
   | GPU=32,BS=96 | 20054.43 | 16142.92 | 16610.6 |
 
 
@@ -304,9 +300,9 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=96、FP32](./logs/base_bs96_fp32_gpu1.log)
-- [单卡 bs=96、AMP](./logs/base_bs96_fp16_gpu1.log)
-- [8卡 bs=96、FP32](./logs/base_bs96_fp32_gpu8.log)
-- [8卡 bs=96、AMP](./logs/base_bs96_fp16_gpu8.log)
+- [单卡 bs=96、FP32](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C1_log)
+- [单卡 bs=96、AMP](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C1_log)
+- [8卡 bs=96、FP32](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C8_log)
+- [8卡 bs=96、AMP](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C8_log)
 - [32卡 bs=96、FP32](./logs/base_bs96_fp32_gpu32.log)
 - [32卡 bs=96、AMP](./logs/base_bs96_fp16_gpu32.log)

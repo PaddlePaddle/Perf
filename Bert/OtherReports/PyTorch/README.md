@@ -30,7 +30,7 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
  
 - 多机（32卡）
@@ -44,10 +44,10 @@
 
 NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚本](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT/scripts/docker/build.sh)，
 
-- **镜像版本**: `nvcr.io/nvidia/pytorch:20.06-py3`
+- **镜像版本**: `nvcr.io/nvidia/pytorch:21.11-py3`
 - **PyTorch 版本**: `1.11.0a0+b6df043`
 - **CUDA 版本**: `11.0.167`
-- **cuDnn 版本**: `8.0.1`
+- **cuDnn 版本**: `8.3.0.96`
 
 ## 二、环境搭建
 
@@ -61,7 +61,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
+    git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
     ```
 
 - **构建镜像**
@@ -216,7 +216,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     若测试单机单卡 batch_size=96、FP32 的训练性能，执行如下命令：
 
     ```bash
-    bash scripts/run_benchmark.sh 96 1 fp32
+    bash scripts/run_benchmark.sh 96 1 fp32 20
     ```
 
 - **8卡启动脚本：**
@@ -224,7 +224,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     若测试单机8卡 batch_size=96、FP16 的训练性能，执行如下命令：
 
     ```bash
-    bash scripts/run_benchmark.sh 96 8 fp16
+    bash scripts/run_benchmark.sh 96 8 fp16 20
     ```
 
 
@@ -235,7 +235,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 	NGC Pytorch是使用Pytorch的自带的[`torch.distributed.launch`](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/LanguageModeling/BERT/scripts/run_pretraining.sh#L128)来启动单机多卡的。为了支持多机多卡，需要把多机的参数传递给launch脚本，修改为:
 
-	```
+	```bash
 	python3 -m torch.distributed.launch --nproc_per_node=$num_gpus --nnodes ${NUM_NODES} \
 	    --node_rank=${NODE_RANK} --master_addr=${MASTER_NODE}  --master_port=${MASTER_PORT} $CMD
 	```
@@ -246,7 +246,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 	`$mpirun`命令请参考[这里](../../../utils/mpi.md#需要把集群节点环境传给通信框架)
 
-	```
+	```bash
 	# fp32
 	echo "begin run bs:96 fp32 on 32 gpus"
 	$mpirun bash ./run_benchmark.sh  96 32 fp32
@@ -263,8 +263,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 |卡数 | FP32(BS=96) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|
-|1 | 153.56  | 630.61  |
-|8 | 1228.24  | 5044.04 |
+|1 | 158.642  | 641.511  |
+|8 | 1233.15  | 5072 |
 |32 | 3496.94 |  16610.6|
 
 ## 五、日志数据

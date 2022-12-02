@@ -14,77 +14,78 @@ python: can't open file 'get_mpi_rank.py': [Errno 2] No such file or directory
 + bash scripts/run_pretraining.sh 67584 6e-3 fp16 1 0.2843 20 200 false true true 704
 Container nvidia build =  29224839
 /workspace/bert/data/pretrain/phase1/unbinned/parquet/
-Logs written to /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.220608050750.log
-+ '[' -z /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.220608050750.log ']'
-+ tee /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.220608050750.log
+Logs written to /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.221125102908.log
++ '[' -z /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.221125102908.log ']'
++ tee /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.221125102908.log
 + python3 -m torch.distributed.launch --nproc_per_node=1 /workspace/bert/run_pretraining.py --input_dir=/workspace/bert/data/pretrain/phase1/unbinned/parquet/ --output_dir=/workspace/bert/results/checkpoints --config_file=bert_config_base.json --vocab_file=vocab/vocab --train_batch_size=67584 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=20 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=704 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary /workspace/bert/results/dllogger.json --disable_progress_bar --num_workers=4
 device: cuda:0 n_gpu: 1, distributed training: True, 16-bits training: True
-DLL 2022-06-08 05:07:53.440958 - PARAMETER Config : ["Namespace(allreduce_post_accumulation=True, allreduce_post_accumulation_fp16=True, amp=False, checkpoint_activations=False, config_file='bert_config_base.json', cuda_graphs=False, disable_jit_fusions=False, disable_progress_bar=True, do_train=True, fp16=True, gradient_accumulation_steps=704, init_checkpoint=None, init_loss_scale=1048576, input_dir='/workspace/bert/data/pretrain/phase1/unbinned/parquet/', json_summary='/workspace/bert/results/dllogger.json', learning_rate=0.006, local_rank=0, log_freq=1.0, loss_scale=0.0, max_predictions_per_seq=20, max_seq_length=128, max_steps=20.0, n_gpu=1, no_dense_sequence_output=False, num_steps_per_checkpoint=200, num_train_epochs=3.0, num_workers=4, output_dir='/workspace/bert/results/checkpoints', phase1_end_step=7038, phase2=False, profile=False, profile_start=0, resume_from_checkpoint=False, resume_step=-1, seed=12439, skip_checkpoint=False, steps_this_run=20.0, train_batch_size=96, use_env=False, vocab_file='vocab/vocab', warmup_proportion=0.2843)"] 
+DLL 2022-11-25 10:29:11.029052 - PARAMETER Config : ["Namespace(allreduce_post_accumulation=True, allreduce_post_accumulation_fp16=True, amp=False, checkpoint_activations=False, config_file='bert_config_base.json', cuda_graphs=False, disable_jit_fusions=False, disable_progress_bar=True, do_train=True, fp16=True, gradient_accumulation_steps=704, init_checkpoint=None, init_loss_scale=1048576, input_dir='/workspace/bert/data/pretrain/phase1/unbinned/parquet/', json_summary='/workspace/bert/results/dllogger.json', learning_rate=0.006, local_rank=0, log_freq=1.0, loss_scale=0.0, max_predictions_per_seq=20, max_seq_length=128, max_steps=20.0, n_gpu=1, no_dense_sequence_output=False, num_steps_per_checkpoint=200, num_train_epochs=3.0, num_workers=4, output_dir='/workspace/bert/results/checkpoints', phase1_end_step=7038, phase2=False, profile=False, profile_start=0, resume_from_checkpoint=False, resume_phase2=False, resume_step=-1, seed=12439, skip_checkpoint=False, steps_this_run=20.0, train_batch_size=96, use_env=False, vocab_file='vocab/vocab', warmup_proportion=0.2843)"] 
 /opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
   warnings.warn("'{}' was found in ScriptModule constants, "
-LDDL - 2022-06-08 05:07:59,213 - datasets.py:128:__init__ - node-0 - WARNING : lost 39/4172583=0.0009346728393419616% samples in total
-get_bert_pretrain_data_loader took 0.12264911644160748 s!
-DLL 2022-06-08 05:07:59.213727 - PARAMETER SEED : 12439 
-DLL 2022-06-08 05:07:59.213821 - PARAMETER train_start : True 
-DLL 2022-06-08 05:07:59.213856 - PARAMETER batch_size_per_gpu : 96 
-DLL 2022-06-08 05:07:59.213883 - PARAMETER learning_rate : 0.006 
-LDDL - 2022-06-08 05:07:59,472 - datasets.py:243:__iter__ - node-0 - WARNING : epoch = 0
-DLL 2022-06-08 05:09:59.894092 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.182217684659092  learning_rate : 0.0010552234016358852  skipped_steps : 1 
-DLL 2022-06-08 05:09:59.894454 - PARAMETER loss_scale : 524288.0 
-DLL 2022-06-08 05:11:44.299353 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.182217684659092  learning_rate : 0.0010552234016358852  skipped_steps : 1 
-DLL 2022-06-08 05:11:44.301924 - PARAMETER loss_scale : 262144.0 
-DLL 2022-06-08 05:13:28.913542 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.181374289772727  learning_rate : 0.0010552234016358852  skipped_steps : 2 
-DLL 2022-06-08 05:13:28.916156 - PARAMETER loss_scale : 131072.0 
-DLL 2022-06-08 05:15:13.639546 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.1807861328125  learning_rate : 0.0010552234016358852  skipped_steps : 3 
-DLL 2022-06-08 05:15:13.642277 - PARAMETER loss_scale : 65536.0 
-DLL 2022-06-08 05:16:58.279609 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.180797230113637  learning_rate : 0.0010552234016358852  skipped_steps : 4 
-DLL 2022-06-08 05:16:58.282075 - PARAMETER loss_scale : 32768.0 
-DLL 2022-06-08 05:18:45.980168 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181218927556818  learning_rate : 0.0010552234016358852  skipped_steps : 6 
-DLL 2022-06-08 05:18:45.980449 - PARAMETER loss_scale : 16384.0 
-DLL 2022-06-08 05:18:45.980892 - PARAMETER checkpoint_step : 0 
-DLL 2022-06-08 05:20:35.825771 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181884765625  learning_rate : 0.0010552234016358852  skipped_steps : 7 
-DLL 2022-06-08 05:20:35.826005 - PARAMETER loss_scale : 8192.0 
-DLL 2022-06-08 05:20:35.826223 - PARAMETER checkpoint_step : 0 
-DLL 2022-06-08 05:22:28.276626 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.180897105823863  learning_rate : 0.0010552234016358852  skipped_steps : 8 
-DLL 2022-06-08 05:22:28.276866 - PARAMETER loss_scale : 4096.0 
-DLL 2022-06-08 05:22:28.277093 - PARAMETER checkpoint_step : 0 
-DLL 2022-06-08 05:24:20.816665 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181596235795455  learning_rate : 0.0010552234016358852  skipped_steps : 9 
-DLL 2022-06-08 05:24:20.816882 - PARAMETER loss_scale : 2048.0 
-DLL 2022-06-08 05:24:20.817110 - PARAMETER checkpoint_step : 0 
-DLL 2022-06-08 05:26:13.253618 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.182750355113637  learning_rate : 0.0010552234016358852  skipped_steps : 10 
-DLL 2022-06-08 05:26:13.253832 - PARAMETER loss_scale : 1024.0 
-DLL 2022-06-08 05:26:13.254056 - PARAMETER checkpoint_step : 0 
-DLL 2022-06-08 05:28:05.380255 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181685014204545  learning_rate : 0.0010552234016358852  skipped_steps : 11 
-DLL 2022-06-08 05:28:05.380495 - PARAMETER loss_scale : 512.0 
-DLL 2022-06-08 05:28:05.380708 - PARAMETER checkpoint_step : 0 
-DLL 2022-06-08 05:29:57.746562 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.181685014204545  learning_rate : 0.0010552234016358852  skipped_steps : 11 
-DLL 2022-06-08 05:29:57.751568 - PARAMETER loss_scale : 512.0 
-DLL 2022-06-08 05:31:44.889412 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.1824951171875  learning_rate : 0.0021104468032717705  skipped_steps : 12 
-DLL 2022-06-08 05:31:44.889738 - PARAMETER loss_scale : 256.0 
-DLL 2022-06-08 05:33:32.060012 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.178022904829545  learning_rate : 0.0021104468032717705  skipped_steps : 13 
-DLL 2022-06-08 05:33:32.060238 - PARAMETER loss_scale : 128.0 
-DLL 2022-06-08 05:35:19.417870 - Training Epoch: 0 Training Iteration: 2  average_loss : 11.178022904829545  learning_rate : 0.0021104468032717705  skipped_steps : 13 
-DLL 2022-06-08 05:35:19.422737 - PARAMETER loss_scale : 128.0 
-DLL 2022-06-08 05:37:06.615320 - Training Epoch: 0 Training Iteration: 3  average_loss : 11.181829279119318  learning_rate : 0.0021104468032717705  skipped_steps : 13 
-DLL 2022-06-08 05:38:53.622805 - Training Epoch: 0 Training Iteration: 4  average_loss : 10.640192205255682  learning_rate : 0.0031656702049076557  skipped_steps : 13 
-DLL 2022-06-08 05:40:40.442181 - Training Epoch: 0 Training Iteration: 5  average_loss : 10.293856534090908  learning_rate : 0.004220893606543541  skipped_steps : 13 
-DLL 2022-06-08 05:42:27.160854 - Training Epoch: 0 Training Iteration: 6  average_loss : 10.018954190340908  learning_rate : 0.005276117008179426  skipped_steps : 13 
-DLL 2022-06-08 05:44:13.844379 - Training Epoch: 0 Training Iteration: 7  average_loss : 9.609097567471592  learning_rate : 0.004837354179471731  skipped_steps : 13 
-DLL 2022-06-08 05:46:00.376856 - Training Epoch: 0 Training Iteration: 8  average_loss : 9.461936257102273  learning_rate : 0.004647579975426197  skipped_steps : 13 
-DLL 2022-06-08 05:47:46.612356 - Training Epoch: 0 Training Iteration: 9  average_loss : 9.349165482954545  learning_rate : 0.004449719097465277  skipped_steps : 13 
-DLL 2022-06-08 05:49:32.966135 - Training Epoch: 0 Training Iteration: 10  average_loss : 9.231068004261363  learning_rate : 0.0042426404543221  skipped_steps : 13 
-DLL 2022-06-08 05:51:19.139311 - Training Epoch: 0 Training Iteration: 11  average_loss : 9.111783114346592  learning_rate : 0.004024922382086515  skipped_steps : 13 
-DLL 2022-06-08 05:53:05.187252 - Training Epoch: 0 Training Iteration: 12  average_loss : 9.014437588778408  learning_rate : 0.0037947327364236116  skipped_steps : 13 
-DLL 2022-06-08 05:54:51.225431 - Training Epoch: 0 Training Iteration: 13  average_loss : 8.946122602982955  learning_rate : 0.003549647983163595  skipped_steps : 13 
-DLL 2022-06-08 05:56:37.125112 - Training Epoch: 0 Training Iteration: 14  average_loss : 8.860174005681818  learning_rate : 0.0032863353844732046  skipped_steps : 13 
-DLL 2022-06-08 05:58:23.025470 - Training Epoch: 0 Training Iteration: 15  average_loss : 8.783669211647727  learning_rate : 0.003000000026077032  skipped_steps : 13 
-DLL 2022-06-08 06:00:08.855263 - Training Epoch: 0 Training Iteration: 16  average_loss : 8.7288818359375  learning_rate : 0.0026832816656678915  skipped_steps : 13 
-DLL 2022-06-08 06:01:54.666139 - Training Epoch: 0 Training Iteration: 17  average_loss : 8.675459428267045  learning_rate : 0.0023237899877130985  skipped_steps : 13 
-DLL 2022-06-08 06:03:40.459696 - Training Epoch: 0 Training Iteration: 18  average_loss : 8.622081409801137  learning_rate : 0.0018973668338730931  skipped_steps : 13 
-DLL 2022-06-08 06:05:26.430038 - Training Epoch: 0 Training Iteration: 19  average_loss : 8.587446732954545  learning_rate : 0.0013416408328339458  skipped_steps : 13 
-DLL 2022-06-08 06:07:12.233299 - Training Epoch: 0 Training Iteration: 20  final_loss : 8.55712890625 
-DLL 2022-06-08 06:07:12.233530 - PARAMETER checkpoint_step : 20 
-DLL 2022-06-08 06:07:14.364005 -  e2e_train_time : 3560.937376499176  training_sequences_per_second : 630.6134613928513  final_loss : 8.55712890625  raw_train_time : 3536.0615282058716 
+LDDL - 2022-11-25 10:29:16,653 - datasets.py:152:__init__ - node-0 - WARNING : lost 39/4172583=0.0009346728393419616% samples in total
+get_bert_pretrain_data_loader took 0.10543350130319595 s!
+DLL 2022-11-25 10:29:16.653930 - PARAMETER SEED : 12439 
+DLL 2022-11-25 10:29:16.654076 - PARAMETER train_start : True 
+DLL 2022-11-25 10:29:16.654111 - PARAMETER batch_size_per_gpu : 96 
+DLL 2022-11-25 10:29:16.654150 - PARAMETER learning_rate : 0.006 
+LDDL - 2022-11-25 10:29:16,823 - datasets.py:267:__iter__ - node-0 - WARNING : epoch = 0
+DLL 2022-11-25 10:31:15.882207 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.182217684659092  learning_rate : 0.0010552234016358852  skipped_steps : 1 
+DLL 2022-11-25 10:31:15.882532 - PARAMETER loss_scale : 524288.0 
+DLL 2022-11-25 10:31:15.883058 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:33:00.554711 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.182217684659092  learning_rate : 0.0010552234016358852  skipped_steps : 1 
+DLL 2022-11-25 10:33:00.556854 - PARAMETER loss_scale : 262144.0 
+DLL 2022-11-25 10:34:43.493269 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.181374289772727  learning_rate : 0.0010552234016358852  skipped_steps : 2 
+DLL 2022-11-25 10:34:43.495307 - PARAMETER loss_scale : 131072.0 
+DLL 2022-11-25 10:36:26.355368 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.1807861328125  learning_rate : 0.0010552234016358852  skipped_steps : 3 
+DLL 2022-11-25 10:36:26.357916 - PARAMETER loss_scale : 65536.0 
+DLL 2022-11-25 10:38:09.118990 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.180797230113637  learning_rate : 0.0010552234016358852  skipped_steps : 4 
+DLL 2022-11-25 10:38:09.120109 - PARAMETER loss_scale : 32768.0 
+DLL 2022-11-25 10:39:54.620068 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181218927556818  learning_rate : 0.0010552234016358852  skipped_steps : 6 
+DLL 2022-11-25 10:39:54.620307 - PARAMETER loss_scale : 16384.0 
+DLL 2022-11-25 10:39:54.620636 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:41:45.102350 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181884765625  learning_rate : 0.0010552234016358852  skipped_steps : 7 
+DLL 2022-11-25 10:41:45.102585 - PARAMETER loss_scale : 8192.0 
+DLL 2022-11-25 10:41:45.103047 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:43:35.502245 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.180897105823863  learning_rate : 0.0010552234016358852  skipped_steps : 8 
+DLL 2022-11-25 10:43:35.502600 - PARAMETER loss_scale : 4096.0 
+DLL 2022-11-25 10:43:35.502935 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:45:25.813320 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181596235795455  learning_rate : 0.0010552234016358852  skipped_steps : 9 
+DLL 2022-11-25 10:45:25.813554 - PARAMETER loss_scale : 2048.0 
+DLL 2022-11-25 10:45:25.813767 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:47:16.161529 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.182750355113637  learning_rate : 0.0010552234016358852  skipped_steps : 10 
+DLL 2022-11-25 10:47:16.161793 - PARAMETER loss_scale : 1024.0 
+DLL 2022-11-25 10:47:16.162017 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:49:06.445572 - Training Epoch: 0 Training Iteration: 0  average_loss : 11.181685014204545  learning_rate : 0.0010552234016358852  skipped_steps : 11 
+DLL 2022-11-25 10:49:06.445909 - PARAMETER loss_scale : 512.0 
+DLL 2022-11-25 10:49:06.446126 - PARAMETER checkpoint_step : 0 
+DLL 2022-11-25 10:50:56.727204 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.181685014204545  learning_rate : 0.0010552234016358852  skipped_steps : 11 
+DLL 2022-11-25 10:50:56.732025 - PARAMETER loss_scale : 512.0 
+DLL 2022-11-25 10:52:42.046487 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.1824951171875  learning_rate : 0.0021104468032717705  skipped_steps : 12 
+DLL 2022-11-25 10:52:42.046755 - PARAMETER loss_scale : 256.0 
+DLL 2022-11-25 10:54:27.298192 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.178022904829545  learning_rate : 0.0021104468032717705  skipped_steps : 13 
+DLL 2022-11-25 10:54:27.298435 - PARAMETER loss_scale : 128.0 
+DLL 2022-11-25 10:56:12.376959 - Training Epoch: 0 Training Iteration: 2  average_loss : 11.178022904829545  learning_rate : 0.0021104468032717705  skipped_steps : 13 
+DLL 2022-11-25 10:56:12.381601 - PARAMETER loss_scale : 128.0 
+DLL 2022-11-25 10:57:57.438871 - Training Epoch: 0 Training Iteration: 3  average_loss : 11.181829279119318  learning_rate : 0.0021104468032717705  skipped_steps : 13 
+DLL 2022-11-25 10:59:42.390534 - Training Epoch: 0 Training Iteration: 4  average_loss : 10.640192205255682  learning_rate : 0.0031656702049076557  skipped_steps : 13 
+DLL 2022-11-25 11:01:27.186168 - Training Epoch: 0 Training Iteration: 5  average_loss : 10.293856534090908  learning_rate : 0.004220893606543541  skipped_steps : 13 
+DLL 2022-11-25 11:03:11.884457 - Training Epoch: 0 Training Iteration: 6  average_loss : 10.018954190340908  learning_rate : 0.005276117008179426  skipped_steps : 13 
+DLL 2022-11-25 11:04:56.486987 - Training Epoch: 0 Training Iteration: 7  average_loss : 9.609097567471592  learning_rate : 0.004837354179471731  skipped_steps : 13 
+DLL 2022-11-25 11:06:40.985489 - Training Epoch: 0 Training Iteration: 8  average_loss : 9.461936257102273  learning_rate : 0.004647579975426197  skipped_steps : 13 
+DLL 2022-11-25 11:08:25.474260 - Training Epoch: 0 Training Iteration: 9  average_loss : 9.349165482954545  learning_rate : 0.004449719097465277  skipped_steps : 13 
+DLL 2022-11-25 11:10:09.855736 - Training Epoch: 0 Training Iteration: 10  average_loss : 9.231068004261363  learning_rate : 0.0042426404543221  skipped_steps : 13 
+DLL 2022-11-25 11:11:54.036089 - Training Epoch: 0 Training Iteration: 11  average_loss : 9.111783114346592  learning_rate : 0.004024922382086515  skipped_steps : 13 
+DLL 2022-11-25 11:13:38.152452 - Training Epoch: 0 Training Iteration: 12  average_loss : 9.014437588778408  learning_rate : 0.0037947327364236116  skipped_steps : 13 
+DLL 2022-11-25 11:15:22.202200 - Training Epoch: 0 Training Iteration: 13  average_loss : 8.946122602982955  learning_rate : 0.003549647983163595  skipped_steps : 13 
+DLL 2022-11-25 11:17:06.187973 - Training Epoch: 0 Training Iteration: 14  average_loss : 8.860174005681818  learning_rate : 0.0032863353844732046  skipped_steps : 13 
+DLL 2022-11-25 11:18:50.260381 - Training Epoch: 0 Training Iteration: 15  average_loss : 8.783669211647727  learning_rate : 0.003000000026077032  skipped_steps : 13 
+DLL 2022-11-25 11:20:34.255681 - Training Epoch: 0 Training Iteration: 16  average_loss : 8.7288818359375  learning_rate : 0.0026832816656678915  skipped_steps : 13 
+DLL 2022-11-25 11:22:18.162613 - Training Epoch: 0 Training Iteration: 17  average_loss : 8.675459428267045  learning_rate : 0.0023237899877130985  skipped_steps : 13 
+DLL 2022-11-25 11:24:02.050329 - Training Epoch: 0 Training Iteration: 18  average_loss : 8.622081409801137  learning_rate : 0.0018973668338730931  skipped_steps : 13 
+DLL 2022-11-25 11:25:45.865456 - Training Epoch: 0 Training Iteration: 19  average_loss : 8.587446732954545  learning_rate : 0.0013416408328339458  skipped_steps : 13 
+DLL 2022-11-25 11:27:29.566268 - Training Epoch: 0 Training Iteration: 20  final_loss : 8.55712890625 None
+DLL 2022-11-25 11:27:29.566560 - PARAMETER checkpoint_step : 20 
+DLL 2022-11-25 11:27:31.598625 -  e2e_train_time : 3500.5844264030457 s training_sequences_per_second : 641.5114948095962 sequences/s final_loss : 8.55712890625 None raw_train_time : 3475.990715742111 s
 /opt/conda/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
 and will be removed in future. Use torchrun.
 Note that --use_env is set by default in torchrun.
