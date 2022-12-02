@@ -131,6 +131,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
    ```bash
     cd PaddleNLP/tests
     bash test_tipc/static/dp/bert/benchmark_common/prepare.sh
+    # 运行后数据放在PaddleNLP/tests/data/wikicorpus_en_seqlen128
    ```
 
 ## 四、测试步骤
@@ -151,8 +152,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 `run_benchmark.sh` ，需放在 `PaddleNLP/examples/language_model/bert/static`目录下。
    ```bash
   #!/bin/bash   
-   export PYTHONPATH=/workspace/models/
-   export DATA_DIR=/workspace/models/bert_data/
+   export PYTHONPATH=/workspace/
+   export DATA_DIR=/workspace/tests/data/wikicorpus_en_seqlen128
    
    export CUDA_VISIBLE_DEVICES=0
    
