@@ -67,7 +67,7 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
 
 
@@ -82,24 +82,24 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
-- Docker: `paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- Paddle：2.3.0.post112
+- Docker: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- Paddle：2.4.0.post112
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：11.2
-- cuDNN：8.1.1
+- cuDNN：8.2
 
 ## 三、环境搭建
 
 - 拉取docker
   ```bash
-  paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+  paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
   ```
 
 - 启动docker
   ```bash
   # 假设imagenet数据放在<path to data>目录下
   nvidia-docker run --shm-size=64g -it -v <path to data>:/data 
-  paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
+  paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
   ```
 
 - 拉取PaddleClas
@@ -107,7 +107,7 @@ Paddle Docker的基本信息如下：
   git clone https://github.com/PaddlePaddle/PaddleClas.git
   cd PaddleClas
   # 本次测试是在如下版本下完成的：
-  git checkout 4003cdb7ad62679394d2c3534ceef709faa434fc
+  git checkout 5b0a47bcdfd29231f4b7a3581766eee86d8ca68a
   ```
 
 - 多机网络部署
@@ -197,8 +197,8 @@ Paddle Docker的基本信息如下：
 
 |卡数 | FP32(BS=256) | FP16(BS=256) |
 |:-----:|:-----:|:-----:|
-|1 | 389.12 | 1444.94  |
-|8 | 2946.29 | 10649.90  | 
+|1 | 388.521 | 1439.861  |
+|8 | 2974.085 | 10814.675  | 
 |32 | 10984.436 | 39972.131 |
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
@@ -215,16 +215,16 @@ Paddle Docker的基本信息如下：
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=256 | 389.12 | 414.73  |  363.77 | 380.55 |
-  | GPU=8,BS=256 | 2946.29| 3275.93 |   2787.43 | 3002.8 |
+  | GPU=1,BS=256 | 388.521 | 415.786  |  369.376 | 382.806 |
+  | GPU=8,BS=256 | 2974.085| 3273.03 |   2824.18 | 2978.38 |
   | GPU=32,BS=256 | 10984.436 | 12671.9 | 10523.32 | —— |
 
 - AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=256 | 1444.94(O2) | 1173.38 | 773.30| 1359.4 |
-  | GPU=8,BS=256 | 10649.90(O2) | 9310.31 | 5811.26 | 10494 |
+  | GPU=1,BS=256 | 1439.861(O2) | 1218.82 | 777.358| 1362.92 |
+  | GPU=8,BS=256 | 10814.675(O2) | 9405.36 | 5841.2 | 10553.3 |
   | GPU=32,BS=256 | 39972.131 | 33317.67 | 21259.81 | —— |
 
 

@@ -27,7 +27,7 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
 
 
@@ -61,7 +61,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/PyTorch/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
+   git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
    ```
 
 - 制作Docker镜像
@@ -164,8 +164,8 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 
 |卡数 | FP32(BS=256) | AMP(BS=256) |
 |:-----:|:-----:|:-----:|
-|1 | 363.77 | 773.30  | 
-|8 | 2787.43 | 5811.26  | 
+|1 | 369.376 | 777.358  | 
+|8 | 2824.18 | 5841.2  | 
 |32 |10523.32| 21259.81 | 
 
 > 关于torch数据，按照官方文档反复重测了多次未达到官方的标准。若了解相关原因，欢迎issue我们。 <br>
