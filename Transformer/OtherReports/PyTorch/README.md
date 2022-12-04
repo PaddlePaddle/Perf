@@ -30,7 +30,7 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
  
 - 多机（32卡）
@@ -44,10 +44,10 @@
 
 NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](https://github.com/NVIDIA/DeepLearningExamples/blob/master/PyTorch/Translation/Transformer/Dockerfile)，
 
-- **镜像版本**: `nvcr.io/nvidia/pytorch:21.05-py3`
-- **PyTorch 版本**: `1.9.0a0+2ecb2c7`
-- **CUDA 版本**: `11.2`
-- **cuDnn 版本**: `8.2.0`
+- **镜像版本**: `nvcr.io/nvidia/pytorch:22.06-py3`
+- **PyTorch 版本**: `1.13.0a0+340c412`
+- **CUDA 版本**: `11.4`
+- **cuDnn 版本**: `8.4`
 
 ## 二、环境搭建
 
@@ -61,7 +61,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/Translation/Transformer
     # 本次测试是在如下版本下完成的：
-    git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
+    git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
     ```
 
 - **构建镜像**
@@ -130,7 +130,7 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
   --arch transformer_wmt_en_de_big_t2t \
   --share-all-embeddings \
   --optimizer adam \
-  --adam-betas '(0.9, 0.997)' \
+  --adam-betas 0.9, 0.997 \
   --adam-eps "1e-9" \
   --clip-norm 0.0 \
   --lr-scheduler inverse_sqrt \
@@ -203,8 +203,8 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 |卡数 | FP32(BS=5120) | FP16(BS=5120) |
 |:-----:|:-----:|:-----:|
-|1 | 8965.18  | 30869.8  | 
-|8 | 64563.8  | 202323 |
+|1 | 9037.34  | 32406.5  | 
+|8 | 65075  | 209138 |
 |32 | 166352.6 | 385625.7 | 
 
 ## 五、日志数据
