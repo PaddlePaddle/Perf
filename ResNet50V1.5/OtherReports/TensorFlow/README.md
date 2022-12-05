@@ -27,7 +27,7 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
 
 - 多机（32卡）
@@ -63,7 +63,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/TensorFlow/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
+   git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
    ```
 
 - 制作Docker镜像
@@ -134,7 +134,7 @@ $mpirun  python main.py --mode=training_benchmark \
 	--num_iter 500 \
 	--iter_unit batch \
 	--batch_size 256 \
-	--data_dir=./data/tfrecords/ \
+	--data_dir=./data/tfrecords/train \
 	--results_dir=./results/gpu32_fp32_bs256
 ```
 
@@ -144,8 +144,8 @@ $mpirun  python main.py --mode=training_benchmark \
 
 |卡数 | FP32(BS=256) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|
-|1 | 414.73  | 1173.38 |
-|8 | 3275.93 | 9310.31 |
+|1 | 415.786  | 1218.82 |
+|8 | 3273.03 | 9405.36 |
 |32 |12671.9 | 33317.67 |
 
 ## 五、日志数据

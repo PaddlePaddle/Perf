@@ -27,7 +27,7 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
 
 
@@ -60,7 +60,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/MxNet/Classification/RN50v1.5
    # 本次测试是在如下版本下完成的：
-   git checkout 4a15e9146a6516941ba3ae146621a5c94e4bc431
+   git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
    ```
 
 - 制作Docker镜像
@@ -114,10 +114,12 @@
 
 |卡数 | FP32(BS=96) | AMP(BS=192)|
 |:-----:|:-----:|:-----:|
-|1 | 380.55  |  1359.4 |
-|8 | 3002.8   |  10494 |
+|1 | 382.806  |  1362.92 |
+|8 | 2978.38  |  10553.3 |
 |32 | - | - | - |
 
 ## 五、日志数据
-- [1卡、8卡 FP32 BS=256 日志](./logs/mxnet_gpu1_gpu8_fp32_bs256.txt)
-- [1卡、8卡 AMP BS=256 日志](./logs/mxnet_gpu1_gpu8_amp_bs256.txt)
+- [1卡FP32 BS=256 日志](./logs/mxnet_gpu1_fp32_bs256.txt)
+- [8卡 FP32 BS=256 日志](./logs/mxnet_gpu8_fp32_bs256.txt)
+- [1卡 AMP BS=256 日志](./logs/mxnet_gpu1_amp_bs256.txt)
+- [8卡 AMP BS=256 日志](./logs/mxnet_gpu8_amp_bs256.txt)
