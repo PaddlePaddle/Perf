@@ -166,7 +166,6 @@ Paddle Docker的基本信息如下：
   bash paddle_test_all.sh
   ```
 
-
 - 执行后将得到如下日志文件：
    ```bash
    ./paddle_gpu1_fp32_bs256.txt
