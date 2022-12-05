@@ -1,13 +1,57 @@
-tools/train.py:145: UserWarning: `--gpus` is deprecated because we only support single GPU mode in non-distributed training. Use `gpus=1` now.
-  warnings.warn('`--gpus` is deprecated because we only support '
-2022-06-07 03:42:21,886 - mmseg - INFO - Multi-processing start method is `None`
-2022-06-07 03:42:21,886 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
-2022-06-07 03:42:21,931 - mmseg - INFO - Environment info:
+/opt/conda/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+2022-11-24 11:26:49,752 - mmseg - INFO - Multi-processing start method is `None`
+2022-11-24 11:26:49,752 - mmseg - INFO - OpenCV num_threads is `80
+2022-11-24 11:26:49,752 - mmseg - INFO - OMP num threads is 1
+2022-11-24 11:26:49,816 - mmseg - INFO - Environment info:
 ------------------------------------------------------------
 sys.platform: linux
 Python: 3.8.12 | packaged by conda-forge | (default, Oct 12 2021, 21:59:51) [GCC 9.4.0]
 CUDA available: True
-GPU 0: Tesla V100-SXM2-32GB
+GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
 CUDA_HOME: /usr/local/cuda
 NVCC: Cuda compilation tools, release 11.5, V11.5.50
 GCC: gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
@@ -28,15 +72,15 @@ PyTorch compiling details: PyTorch built with:
   - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.5, CUDNN_VERSION=8.3.0, CXX_COMPILER=/usr/bin/c++, CXX_FLAGS=-fno-gnu-unique -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.11.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
 
 TorchVision: 0.11.0a0
-OpenCV: 3.4.11
-MMCV: 1.5.2
+OpenCV: 4.2.0
+MMCV: 1.7.0
 MMCV Compiler: GCC 9.3
 MMCV CUDA Compiler: 11.5
-MMSegmentation: 0.25.0+948b59a
+MMSegmentation: 0.29.1+7be1aad
 ------------------------------------------------------------
 
-2022-06-07 03:42:21,932 - mmseg - INFO - Distributed training: False
-2022-06-07 03:42:22,220 - mmseg - INFO - Config:
+2022-11-24 11:26:49,816 - mmseg - INFO - Distributed training: True
+2022-11-24 11:26:50,083 - mmseg - INFO - Config:
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -212,25 +256,51 @@ runner = dict(type='IterBasedRunner', max_iters=180)
 checkpoint_config = dict(by_epoch=False, interval=8000)
 evaluation = dict(interval=8000, metric='mIoU', pre_eval=True)
 work_dir = './work_dirs/fcn_hr18_512x1024_80k_cityscapes'
-gpu_ids = range(0, 1)
+gpu_ids = range(0, 8)
 auto_resume = False
 
-2022-06-07 03:42:22,221 - mmseg - INFO - Set random seed to 1671613922, deterministic: False
+2022-11-24 11:26:54,541 - mmseg - INFO - Set random seed to 657638307, deterministic: False
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
+  warnings.warn('DeprecationWarning: pretrained is deprecated, '
 /workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
   warnings.warn('DeprecationWarning: pretrained is deprecated, '
 /workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
   warnings.warn(
-2022-06-07 03:42:22,440 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
-2022-06-07 03:42:22,441 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
-2022-06-07 03:42:22,441 - mmcv - INFO - load checkpoint from openmmlab path: open-mmlab://msra/hrnetv2_w18
-2022-06-07 03:42:23,223 - mmcv - WARNING - The model and loaded state dict do not match exactly
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+2022-11-24 11:26:54,740 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
+2022-11-24 11:26:54,740 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
+2022-11-24 11:26:54,741 - mmcv - INFO - load checkpoint from openmmlab path: open-mmlab://msra/hrnetv2_w18
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
+  warnings.warn(
+2022-11-24 11:26:55,154 - mmcv - WARNING - The model and loaded state dict do not match exactly
 
 unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modules.0.0.bn1.weight, incre_modules.0.0.bn1.bias, incre_modules.0.0.bn1.running_mean, incre_modules.0.0.bn1.running_var, incre_modules.0.0.bn1.num_batches_tracked, incre_modules.0.0.conv2.weight, incre_modules.0.0.bn2.weight, incre_modules.0.0.bn2.bias, incre_modules.0.0.bn2.running_mean, incre_modules.0.0.bn2.running_var, incre_modules.0.0.bn2.num_batches_tracked, incre_modules.0.0.conv3.weight, incre_modules.0.0.bn3.weight, incre_modules.0.0.bn3.bias, incre_modules.0.0.bn3.running_mean, incre_modules.0.0.bn3.running_var, incre_modules.0.0.bn3.num_batches_tracked, incre_modules.0.0.downsample.0.weight, incre_modules.0.0.downsample.1.weight, incre_modules.0.0.downsample.1.bias, incre_modules.0.0.downsample.1.running_mean, incre_modules.0.0.downsample.1.running_var, incre_modules.0.0.downsample.1.num_batches_tracked, incre_modules.1.0.conv1.weight, incre_modules.1.0.bn1.weight, incre_modules.1.0.bn1.bias, incre_modules.1.0.bn1.running_mean, incre_modules.1.0.bn1.running_var, incre_modules.1.0.bn1.num_batches_tracked, incre_modules.1.0.conv2.weight, incre_modules.1.0.bn2.weight, incre_modules.1.0.bn2.bias, incre_modules.1.0.bn2.running_mean, incre_modules.1.0.bn2.running_var, incre_modules.1.0.bn2.num_batches_tracked, incre_modules.1.0.conv3.weight, incre_modules.1.0.bn3.weight, incre_modules.1.0.bn3.bias, incre_modules.1.0.bn3.running_mean, incre_modules.1.0.bn3.running_var, incre_modules.1.0.bn3.num_batches_tracked, incre_modules.1.0.downsample.0.weight, incre_modules.1.0.downsample.1.weight, incre_modules.1.0.downsample.1.bias, incre_modules.1.0.downsample.1.running_mean, incre_modules.1.0.downsample.1.running_var, incre_modules.1.0.downsample.1.num_batches_tracked, incre_modules.2.0.conv1.weight, incre_modules.2.0.bn1.weight, incre_modules.2.0.bn1.bias, incre_modules.2.0.bn1.running_mean, incre_modules.2.0.bn1.running_var, incre_modules.2.0.bn1.num_batches_tracked, incre_modules.2.0.conv2.weight, incre_modules.2.0.bn2.weight, incre_modules.2.0.bn2.bias, incre_modules.2.0.bn2.running_mean, incre_modules.2.0.bn2.running_var, incre_modules.2.0.bn2.num_batches_tracked, incre_modules.2.0.conv3.weight, incre_modules.2.0.bn3.weight, incre_modules.2.0.bn3.bias, incre_modules.2.0.bn3.running_mean, incre_modules.2.0.bn3.running_var, incre_modules.2.0.bn3.num_batches_tracked, incre_modules.2.0.downsample.0.weight, incre_modules.2.0.downsample.1.weight, incre_modules.2.0.downsample.1.bias, incre_modules.2.0.downsample.1.running_mean, incre_modules.2.0.downsample.1.running_var, incre_modules.2.0.downsample.1.num_batches_tracked, incre_modules.3.0.conv1.weight, incre_modules.3.0.bn1.weight, incre_modules.3.0.bn1.bias, incre_modules.3.0.bn1.running_mean, incre_modules.3.0.bn1.running_var, incre_modules.3.0.bn1.num_batches_tracked, incre_modules.3.0.conv2.weight, incre_modules.3.0.bn2.weight, incre_modules.3.0.bn2.bias, incre_modules.3.0.bn2.running_mean, incre_modules.3.0.bn2.running_var, incre_modules.3.0.bn2.num_batches_tracked, incre_modules.3.0.conv3.weight, incre_modules.3.0.bn3.weight, incre_modules.3.0.bn3.bias, incre_modules.3.0.bn3.running_mean, incre_modules.3.0.bn3.running_var, incre_modules.3.0.bn3.num_batches_tracked, incre_modules.3.0.downsample.0.weight, incre_modules.3.0.downsample.1.weight, incre_modules.3.0.downsample.1.bias, incre_modules.3.0.downsample.1.running_mean, incre_modules.3.0.downsample.1.running_var, incre_modules.3.0.downsample.1.num_batches_tracked, downsamp_modules.0.0.weight, downsamp_modules.0.0.bias, downsamp_modules.0.1.weight, downsamp_modules.0.1.bias, downsamp_modules.0.1.running_mean, downsamp_modules.0.1.running_var, downsamp_modules.0.1.num_batches_tracked, downsamp_modules.1.0.weight, downsamp_modules.1.0.bias, downsamp_modules.1.1.weight, downsamp_modules.1.1.bias, downsamp_modules.1.1.running_mean, downsamp_modules.1.1.running_var, downsamp_modules.1.1.num_batches_tracked, downsamp_modules.2.0.weight, downsamp_modules.2.0.bias, downsamp_modules.2.1.weight, downsamp_modules.2.1.bias, downsamp_modules.2.1.running_mean, downsamp_modules.2.1.running_var, downsamp_modules.2.1.num_batches_tracked, final_layer.0.weight, final_layer.0.bias, final_layer.1.weight, final_layer.1.bias, final_layer.1.running_mean, final_layer.1.running_var, final_layer.1.num_batches_tracked, classifier.weight, classifier.bias
 
-2022-06-07 03:42:23,332 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
-tools/train.py:233: UserWarning: SyncBN is only supported with DDP. To be compatible with DP, we convert SyncBN to BN. Please use dist_train.sh which can avoid this error.
-  warnings.warn(
-2022-06-07 03:42:23,352 - mmseg - INFO - EncoderDecoder(
+2022-11-24 11:26:55,199 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+2022-11-24 11:26:55,207 - mmseg - INFO - EncoderDecoder(
   (backbone): HRNet(
     (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
     (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
@@ -1673,8 +1743,8 @@ tools/train.py:233: UserWarning: SyncBN is only supported with DDP. To be compat
   )
   init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 )
-2022-06-07 03:42:23,419 - mmseg - INFO - Loaded 2975 images
-2022-06-07 03:42:26,158 - mmseg - INFO - Hooks will be executed in the following order:
+2022-11-24 11:26:55,366 - mmseg - INFO - Loaded 2975 images
+2022-11-24 11:26:55,747 - mmseg - INFO - Hooks will be executed in the following order:
 before_run:
 (VERY_HIGH   ) PolyLrUpdaterHook                  
 (NORMAL      ) CheckpointHook                     
@@ -1715,51 +1785,308 @@ after_val_epoch:
 after_run:
 (VERY_LOW    ) TextLoggerHook                     
  -------------------- 
-2022-06-07 03:42:26,159 - mmseg - INFO - workflow: [('train', 1)], max: 180 iters
-2022-06-07 03:42:26,159 - mmseg - INFO - Checkpoints will be saved to /workspace/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes by HardDiskBackend.
-2022-06-07 03:42:34,462 - mmseg - INFO - Iter [4/180]	lr: 9.851e-03, eta: 0:05:44, time: 1.956, data_time: 0.426, memory: 13441, decode.loss_ce: 2.7001, decode.acc_seg: 23.1393, loss: 2.7001
-2022-06-07 03:42:36,545 - mmseg - INFO - Iter [8/180]	lr: 9.653e-03, eta: 0:03:32, time: 0.521, data_time: 0.022, memory: 13441, decode.loss_ce: 2.1617, decode.acc_seg: 49.7254, loss: 2.1617
-2022-06-07 03:42:38,633 - mmseg - INFO - Iter [12/180]	lr: 9.454e-03, eta: 0:02:47, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 1.7807, decode.acc_seg: 45.1416, loss: 1.7807
-2022-06-07 03:42:40,724 - mmseg - INFO - Iter [16/180]	lr: 9.254e-03, eta: 0:02:24, time: 0.523, data_time: 0.023, memory: 13441, decode.loss_ce: 1.5335, decode.acc_seg: 54.0778, loss: 1.5335
-2022-06-07 03:42:42,811 - mmseg - INFO - Iter [20/180]	lr: 9.054e-03, eta: 0:02:09, time: 0.522, data_time: 0.021, memory: 13441, decode.loss_ce: 1.5454, decode.acc_seg: 62.6383, loss: 1.5454
-2022-06-07 03:42:44,955 - mmseg - INFO - Iter [24/180]	lr: 8.854e-03, eta: 0:01:59, time: 0.536, data_time: 0.023, memory: 13441, decode.loss_ce: 1.1871, decode.acc_seg: 72.3128, loss: 1.1871
-2022-06-07 03:42:47,122 - mmseg - INFO - Iter [28/180]	lr: 8.653e-03, eta: 0:01:51, time: 0.542, data_time: 0.024, memory: 13441, decode.loss_ce: 1.1040, decode.acc_seg: 70.1345, loss: 1.1040
-2022-06-07 03:42:49,217 - mmseg - INFO - Iter [32/180]	lr: 8.451e-03, eta: 0:01:44, time: 0.524, data_time: 0.023, memory: 13441, decode.loss_ce: 1.0658, decode.acc_seg: 72.3823, loss: 1.0658
-2022-06-07 03:42:51,311 - mmseg - INFO - Iter [36/180]	lr: 8.249e-03, eta: 0:01:38, time: 0.523, data_time: 0.024, memory: 13441, decode.loss_ce: 0.9266, decode.acc_seg: 74.2281, loss: 0.9266
-2022-06-07 03:42:53,422 - mmseg - INFO - Iter [40/180]	lr: 8.047e-03, eta: 0:01:33, time: 0.528, data_time: 0.025, memory: 13441, decode.loss_ce: 0.9981, decode.acc_seg: 72.0174, loss: 0.9981
-2022-06-07 03:42:55,517 - mmseg - INFO - Iter [44/180]	lr: 7.844e-03, eta: 0:01:29, time: 0.524, data_time: 0.024, memory: 13441, decode.loss_ce: 0.9070, decode.acc_seg: 72.3471, loss: 0.9070
-2022-06-07 03:42:57,602 - mmseg - INFO - Iter [48/180]	lr: 7.640e-03, eta: 0:01:25, time: 0.521, data_time: 0.022, memory: 13441, decode.loss_ce: 0.9573, decode.acc_seg: 72.4289, loss: 0.9573
-2022-06-07 03:42:59,683 - mmseg - INFO - Iter [52/180]	lr: 7.435e-03, eta: 0:01:21, time: 0.520, data_time: 0.024, memory: 13441, decode.loss_ce: 0.8011, decode.acc_seg: 78.7795, loss: 0.8011
-2022-06-07 03:43:01,772 - mmseg - INFO - Iter [56/180]	lr: 7.230e-03, eta: 0:01:17, time: 0.522, data_time: 0.020, memory: 13441, decode.loss_ce: 0.9197, decode.acc_seg: 73.2296, loss: 0.9197
-2022-06-07 03:43:03,873 - mmseg - INFO - Iter [60/180]	lr: 7.025e-03, eta: 0:01:14, time: 0.525, data_time: 0.025, memory: 13441, decode.loss_ce: 0.8676, decode.acc_seg: 75.0322, loss: 0.8676
-2022-06-07 03:43:05,976 - mmseg - INFO - Iter [64/180]	lr: 6.818e-03, eta: 0:01:11, time: 0.526, data_time: 0.025, memory: 13441, decode.loss_ce: 0.7470, decode.acc_seg: 77.7541, loss: 0.7470
-2022-06-07 03:43:08,123 - mmseg - INFO - Iter [68/180]	lr: 6.611e-03, eta: 0:01:08, time: 0.537, data_time: 0.024, memory: 13441, decode.loss_ce: 0.7011, decode.acc_seg: 78.3970, loss: 0.7011
-2022-06-07 03:43:10,211 - mmseg - INFO - Iter [72/180]	lr: 6.403e-03, eta: 0:01:05, time: 0.522, data_time: 0.021, memory: 13441, decode.loss_ce: 0.8339, decode.acc_seg: 75.5878, loss: 0.8339
-2022-06-07 03:43:12,300 - mmseg - INFO - Iter [76/180]	lr: 6.195e-03, eta: 0:01:02, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6538, decode.acc_seg: 81.8171, loss: 0.6538
-2022-06-07 03:43:14,450 - mmseg - INFO - Iter [80/180]	lr: 5.985e-03, eta: 0:00:59, time: 0.538, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6370, decode.acc_seg: 81.5473, loss: 0.6370
-2022-06-07 03:43:16,539 - mmseg - INFO - Iter [84/180]	lr: 5.775e-03, eta: 0:00:57, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6211, decode.acc_seg: 80.1346, loss: 0.6211
-2022-06-07 03:43:18,617 - mmseg - INFO - Iter [88/180]	lr: 5.564e-03, eta: 0:00:54, time: 0.519, data_time: 0.021, memory: 13441, decode.loss_ce: 0.6856, decode.acc_seg: 79.8500, loss: 0.6856
-2022-06-07 03:43:20,710 - mmseg - INFO - Iter [92/180]	lr: 5.352e-03, eta: 0:00:51, time: 0.523, data_time: 0.025, memory: 13441, decode.loss_ce: 0.6812, decode.acc_seg: 81.1467, loss: 0.6812
-2022-06-07 03:43:22,788 - mmseg - INFO - Iter [96/180]	lr: 5.139e-03, eta: 0:00:49, time: 0.519, data_time: 0.022, memory: 13441, decode.loss_ce: 0.5970, decode.acc_seg: 81.8274, loss: 0.5970
-2022-06-07 03:43:24,877 - mmseg - INFO - Iter [100/180]	lr: 4.925e-03, eta: 0:00:46, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.8228, decode.acc_seg: 74.5117, loss: 0.8228
-2022-06-07 03:43:26,952 - mmseg - INFO - Iter [104/180]	lr: 4.710e-03, eta: 0:00:44, time: 0.519, data_time: 0.021, memory: 13441, decode.loss_ce: 0.7251, decode.acc_seg: 80.5688, loss: 0.7251
-2022-06-07 03:43:29,041 - mmseg - INFO - Iter [108/180]	lr: 4.494e-03, eta: 0:00:41, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.7588, decode.acc_seg: 79.1876, loss: 0.7588
-2022-06-07 03:43:31,118 - mmseg - INFO - Iter [112/180]	lr: 4.277e-03, eta: 0:00:39, time: 0.520, data_time: 0.022, memory: 13441, decode.loss_ce: 0.7343, decode.acc_seg: 80.3069, loss: 0.7343
-2022-06-07 03:43:33,193 - mmseg - INFO - Iter [116/180]	lr: 4.058e-03, eta: 0:00:36, time: 0.519, data_time: 0.022, memory: 13441, decode.loss_ce: 0.5781, decode.acc_seg: 84.0073, loss: 0.5781
-2022-06-07 03:43:35,271 - mmseg - INFO - Iter [120/180]	lr: 3.838e-03, eta: 0:00:34, time: 0.519, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6181, decode.acc_seg: 83.1480, loss: 0.6181
-2022-06-07 03:43:37,358 - mmseg - INFO - Iter [124/180]	lr: 3.617e-03, eta: 0:00:31, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.7474, decode.acc_seg: 77.6005, loss: 0.7474
-2022-06-07 03:43:39,444 - mmseg - INFO - Iter [128/180]	lr: 3.394e-03, eta: 0:00:29, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6933, decode.acc_seg: 77.2880, loss: 0.6933
-2022-06-07 03:43:41,546 - mmseg - INFO - Iter [132/180]	lr: 3.169e-03, eta: 0:00:27, time: 0.525, data_time: 0.024, memory: 13441, decode.loss_ce: 0.6279, decode.acc_seg: 80.8043, loss: 0.6279
-2022-06-07 03:43:43,630 - mmseg - INFO - Iter [136/180]	lr: 2.943e-03, eta: 0:00:24, time: 0.521, data_time: 0.023, memory: 13441, decode.loss_ce: 0.5256, decode.acc_seg: 85.1832, loss: 0.5256
-2022-06-07 03:43:45,723 - mmseg - INFO - Iter [140/180]	lr: 2.715e-03, eta: 0:00:22, time: 0.523, data_time: 0.023, memory: 13441, decode.loss_ce: 0.5813, decode.acc_seg: 84.0435, loss: 0.5813
-2022-06-07 03:43:47,810 - mmseg - INFO - Iter [144/180]	lr: 2.484e-03, eta: 0:00:20, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6763, decode.acc_seg: 80.2576, loss: 0.6763
-2022-06-07 03:43:49,904 - mmseg - INFO - Iter [148/180]	lr: 2.251e-03, eta: 0:00:18, time: 0.523, data_time: 0.022, memory: 13441, decode.loss_ce: 0.5444, decode.acc_seg: 83.0323, loss: 0.5444
-2022-06-07 03:43:51,987 - mmseg - INFO - Iter [152/180]	lr: 2.014e-03, eta: 0:00:15, time: 0.521, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6508, decode.acc_seg: 81.3749, loss: 0.6508
-2022-06-07 03:43:54,077 - mmseg - INFO - Iter [156/180]	lr: 1.775e-03, eta: 0:00:13, time: 0.522, data_time: 0.022, memory: 13441, decode.loss_ce: 0.6667, decode.acc_seg: 81.4431, loss: 0.6667
-2022-06-07 03:43:56,174 - mmseg - INFO - Iter [160/180]	lr: 1.532e-03, eta: 0:00:11, time: 0.524, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6691, decode.acc_seg: 80.8901, loss: 0.6691
-2022-06-07 03:43:58,261 - mmseg - INFO - Iter [164/180]	lr: 1.284e-03, eta: 0:00:08, time: 0.522, data_time: 0.023, memory: 13441, decode.loss_ce: 0.6473, decode.acc_seg: 81.6780, loss: 0.6473
-2022-06-07 03:44:00,352 - mmseg - INFO - Iter [168/180]	lr: 1.030e-03, eta: 0:00:06, time: 0.523, data_time: 0.025, memory: 13441, decode.loss_ce: 0.5306, decode.acc_seg: 85.2125, loss: 0.5306
-2022-06-07 03:44:02,428 - mmseg - INFO - Iter [172/180]	lr: 7.679e-04, eta: 0:00:04, time: 0.519, data_time: 0.023, memory: 13441, decode.loss_ce: 0.5181, decode.acc_seg: 83.3144, loss: 0.5181
-2022-06-07 03:44:04,497 - mmseg - INFO - Iter [176/180]	lr: 4.935e-04, eta: 0:00:02, time: 0.517, data_time: 0.021, memory: 13441, decode.loss_ce: 0.6035, decode.acc_seg: 80.7779, loss: 0.6035
-2022-06-07 03:44:06,639 - mmseg - INFO - Saving checkpoint at 180 iterations
-2022-06-07 03:44:07,287 - mmseg - INFO - Iter [180/180]	lr: 1.924e-04, eta: 0:00:00, time: 0.697, data_time: 0.023, memory: 13441, decode.loss_ce: 0.4724, decode.acc_seg: 85.4293, loss: 0.4724
+2022-11-24 11:26:55,748 - mmseg - INFO - workflow: [('train', 1)], max: 180 iters
+2022-11-24 11:26:55,748 - mmseg - INFO - Checkpoints will be saved to /workspace/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes by HardDiskBackend.
+2022-11-24 11:27:24,083 - mmcv - INFO - Reducer buckets have been rebuilt in this iteration.
+2022-11-24 11:27:26,622 - mmseg - INFO - Iter [4/180]	lr: 9.851e-03, eta: 0:08:32, time: 2.909, data_time: 0.439, memory: 13478, decode.loss_ce: 2.6763, decode.acc_seg: 17.4849, loss: 2.6763
+2022-11-24 11:27:28,840 - mmseg - INFO - Iter [8/180]	lr: 9.653e-03, eta: 0:04:57, time: 0.555, data_time: 0.030, memory: 13478, decode.loss_ce: 2.2060, decode.acc_seg: 29.9241, loss: 2.2060
+2022-11-24 11:27:31,129 - mmseg - INFO - Iter [12/180]	lr: 9.454e-03, eta: 0:03:45, time: 0.571, data_time: 0.045, memory: 13478, decode.loss_ce: 1.8399, decode.acc_seg: 40.5401, loss: 1.8399
+2022-11-24 11:27:33,465 - mmseg - INFO - Iter [16/180]	lr: 9.254e-03, eta: 0:03:09, time: 0.580, data_time: 0.042, memory: 13478, decode.loss_ce: 1.5512, decode.acc_seg: 54.9902, loss: 1.5512
+2022-11-24 11:27:35,785 - mmseg - INFO - Iter [20/180]	lr: 9.054e-03, eta: 0:02:46, time: 0.578, data_time: 0.037, memory: 13478, decode.loss_ce: 1.3843, decode.acc_seg: 65.4495, loss: 1.3843
+2022-11-24 11:27:38,027 - mmseg - INFO - Iter [24/180]	lr: 8.854e-03, eta: 0:02:29, time: 0.567, data_time: 0.033, memory: 13478, decode.loss_ce: 1.2214, decode.acc_seg: 69.8029, loss: 1.2214
+2022-11-24 11:27:40,326 - mmseg - INFO - Iter [28/180]	lr: 8.653e-03, eta: 0:02:17, time: 0.572, data_time: 0.041, memory: 13478, decode.loss_ce: 1.0411, decode.acc_seg: 74.3330, loss: 1.0411
+2022-11-24 11:27:42,567 - mmseg - INFO - Iter [32/180]	lr: 8.451e-03, eta: 0:02:07, time: 0.562, data_time: 0.043, memory: 13478, decode.loss_ce: 1.0328, decode.acc_seg: 72.3045, loss: 1.0328
+2022-11-24 11:27:44,768 - mmseg - INFO - Iter [36/180]	lr: 8.249e-03, eta: 0:01:59, time: 0.548, data_time: 0.037, memory: 13478, decode.loss_ce: 0.9004, decode.acc_seg: 75.0905, loss: 0.9004
+2022-11-24 11:27:46,924 - mmseg - INFO - Iter [40/180]	lr: 8.047e-03, eta: 0:01:51, time: 0.539, data_time: 0.028, memory: 13478, decode.loss_ce: 0.9365, decode.acc_seg: 73.0194, loss: 0.9365
+2022-11-24 11:27:49,114 - mmseg - INFO - Iter [44/180]	lr: 7.844e-03, eta: 0:01:45, time: 0.547, data_time: 0.040, memory: 13478, decode.loss_ce: 0.8802, decode.acc_seg: 74.9556, loss: 0.8802
+2022-11-24 11:27:57,127 - mmseg - INFO - Iter [48/180]	lr: 7.640e-03, eta: 0:01:55, time: 2.002, data_time: 1.201, memory: 13478, decode.loss_ce: 0.8243, decode.acc_seg: 76.8079, loss: 0.8243
+2022-11-24 11:27:59,396 - mmseg - INFO - Iter [52/180]	lr: 7.435e-03, eta: 0:01:49, time: 0.572, data_time: 0.038, memory: 13478, decode.loss_ce: 0.8450, decode.acc_seg: 77.0279, loss: 0.8450
+2022-11-24 11:28:01,640 - mmseg - INFO - Iter [56/180]	lr: 7.230e-03, eta: 0:01:43, time: 0.558, data_time: 0.033, memory: 13478, decode.loss_ce: 0.7300, decode.acc_seg: 79.7761, loss: 0.7300
+2022-11-24 11:28:03,937 - mmseg - INFO - Iter [60/180]	lr: 7.025e-03, eta: 0:01:37, time: 0.578, data_time: 0.045, memory: 13478, decode.loss_ce: 0.7069, decode.acc_seg: 79.6952, loss: 0.7069
+2022-11-24 11:28:06,205 - mmseg - INFO - Iter [64/180]	lr: 6.818e-03, eta: 0:01:32, time: 0.566, data_time: 0.040, memory: 13478, decode.loss_ce: 0.7708, decode.acc_seg: 77.4137, loss: 0.7708
+2022-11-24 11:28:08,446 - mmseg - INFO - Iter [68/180]	lr: 6.611e-03, eta: 0:01:28, time: 0.559, data_time: 0.034, memory: 13478, decode.loss_ce: 0.7290, decode.acc_seg: 79.3692, loss: 0.7290
+2022-11-24 11:28:10,680 - mmseg - INFO - Iter [72/180]	lr: 6.403e-03, eta: 0:01:23, time: 0.558, data_time: 0.031, memory: 13478, decode.loss_ce: 0.6994, decode.acc_seg: 79.5506, loss: 0.6994
+2022-11-24 11:28:12,951 - mmseg - INFO - Iter [76/180]	lr: 6.195e-03, eta: 0:01:19, time: 0.571, data_time: 0.045, memory: 13478, decode.loss_ce: 0.6874, decode.acc_seg: 80.3314, loss: 0.6874
+2022-11-24 11:28:15,131 - mmseg - INFO - Iter [80/180]	lr: 5.985e-03, eta: 0:01:15, time: 0.545, data_time: 0.038, memory: 13478, decode.loss_ce: 0.7042, decode.acc_seg: 79.8872, loss: 0.7042
+2022-11-24 11:28:17,276 - mmseg - INFO - Iter [84/180]	lr: 5.775e-03, eta: 0:01:11, time: 0.537, data_time: 0.028, memory: 13478, decode.loss_ce: 0.6525, decode.acc_seg: 81.6769, loss: 0.6525
+2022-11-24 11:28:19,447 - mmseg - INFO - Iter [88/180]	lr: 5.564e-03, eta: 0:01:07, time: 0.543, data_time: 0.035, memory: 13478, decode.loss_ce: 0.6889, decode.acc_seg: 80.6905, loss: 0.6889
+2022-11-24 11:28:21,641 - mmseg - INFO - Iter [92/180]	lr: 5.352e-03, eta: 0:01:03, time: 0.548, data_time: 0.043, memory: 13478, decode.loss_ce: 0.6601, decode.acc_seg: 81.4600, loss: 0.6601
+2022-11-24 11:28:30,013 - mmseg - INFO - Iter [96/180]	lr: 5.139e-03, eta: 0:01:05, time: 2.090, data_time: 1.212, memory: 13478, decode.loss_ce: 0.6437, decode.acc_seg: 81.8175, loss: 0.6437
+2022-11-24 11:28:32,286 - mmseg - INFO - Iter [100/180]	lr: 4.925e-03, eta: 0:01:01, time: 0.571, data_time: 0.028, memory: 13478, decode.loss_ce: 0.6288, decode.acc_seg: 82.3656, loss: 0.6288
+2022-11-24 11:28:34,539 - mmseg - INFO - Iter [104/180]	lr: 4.710e-03, eta: 0:00:58, time: 0.561, data_time: 0.038, memory: 13478, decode.loss_ce: 0.6382, decode.acc_seg: 81.6310, loss: 0.6382
+2022-11-24 11:28:36,815 - mmseg - INFO - Iter [108/180]	lr: 4.494e-03, eta: 0:00:54, time: 0.572, data_time: 0.045, memory: 13478, decode.loss_ce: 0.6666, decode.acc_seg: 80.8878, loss: 0.6666
+2022-11-24 11:28:39,073 - mmseg - INFO - Iter [112/180]	lr: 4.277e-03, eta: 0:00:51, time: 0.565, data_time: 0.042, memory: 13478, decode.loss_ce: 0.6457, decode.acc_seg: 81.7662, loss: 0.6457
+2022-11-24 11:28:41,316 - mmseg - INFO - Iter [116/180]	lr: 4.058e-03, eta: 0:00:47, time: 0.555, data_time: 0.028, memory: 13478, decode.loss_ce: 0.6066, decode.acc_seg: 82.3229, loss: 0.6066
+2022-11-24 11:28:43,558 - mmseg - INFO - Iter [120/180]	lr: 3.838e-03, eta: 0:00:44, time: 0.564, data_time: 0.043, memory: 13478, decode.loss_ce: 0.6463, decode.acc_seg: 81.2881, loss: 0.6463
+2022-11-24 11:28:45,836 - mmseg - INFO - Iter [124/180]	lr: 3.617e-03, eta: 0:00:41, time: 0.568, data_time: 0.045, memory: 13478, decode.loss_ce: 0.6116, decode.acc_seg: 82.2136, loss: 0.6116
+2022-11-24 11:28:47,999 - mmseg - INFO - Iter [128/180]	lr: 3.394e-03, eta: 0:00:37, time: 0.545, data_time: 0.035, memory: 13478, decode.loss_ce: 0.6092, decode.acc_seg: 82.3224, loss: 0.6092
+2022-11-24 11:28:50,161 - mmseg - INFO - Iter [132/180]	lr: 3.169e-03, eta: 0:00:34, time: 0.540, data_time: 0.035, memory: 13478, decode.loss_ce: 0.5665, decode.acc_seg: 83.4565, loss: 0.5665
+2022-11-24 11:28:52,344 - mmseg - INFO - Iter [136/180]	lr: 2.943e-03, eta: 0:00:31, time: 0.546, data_time: 0.040, memory: 13478, decode.loss_ce: 0.5885, decode.acc_seg: 83.6310, loss: 0.5885
+2022-11-24 11:29:00,430 - mmseg - INFO - Iter [140/180]	lr: 2.715e-03, eta: 0:00:30, time: 2.020, data_time: 1.125, memory: 13478, decode.loss_ce: 0.5734, decode.acc_seg: 83.2574, loss: 0.5734
+2022-11-24 11:29:02,729 - mmseg - INFO - Iter [144/180]	lr: 2.484e-03, eta: 0:00:26, time: 0.575, data_time: 0.038, memory: 13478, decode.loss_ce: 0.6035, decode.acc_seg: 82.5659, loss: 0.6035
+2022-11-24 11:29:04,968 - mmseg - INFO - Iter [148/180]	lr: 2.251e-03, eta: 0:00:23, time: 0.557, data_time: 0.036, memory: 13478, decode.loss_ce: 0.5760, decode.acc_seg: 83.4560, loss: 0.5760
+2022-11-24 11:29:07,303 - mmseg - INFO - Iter [152/180]	lr: 2.014e-03, eta: 0:00:20, time: 0.581, data_time: 0.044, memory: 13478, decode.loss_ce: 0.6072, decode.acc_seg: 82.0914, loss: 0.6072
+2022-11-24 11:29:09,561 - mmseg - INFO - Iter [156/180]	lr: 1.775e-03, eta: 0:00:17, time: 0.568, data_time: 0.047, memory: 13478, decode.loss_ce: 0.5330, decode.acc_seg: 84.8393, loss: 0.5330
+2022-11-24 11:29:11,805 - mmseg - INFO - Iter [160/180]	lr: 1.532e-03, eta: 0:00:14, time: 0.564, data_time: 0.036, memory: 13478, decode.loss_ce: 0.6329, decode.acc_seg: 81.2092, loss: 0.6329
+2022-11-24 11:29:14,066 - mmseg - INFO - Iter [164/180]	lr: 1.284e-03, eta: 0:00:11, time: 0.563, data_time: 0.035, memory: 13478, decode.loss_ce: 0.5731, decode.acc_seg: 83.5447, loss: 0.5731
+2022-11-24 11:29:16,294 - mmseg - INFO - Iter [168/180]	lr: 1.030e-03, eta: 0:00:08, time: 0.558, data_time: 0.044, memory: 13478, decode.loss_ce: 0.6157, decode.acc_seg: 82.1858, loss: 0.6157
+2022-11-24 11:29:18,510 - mmseg - INFO - Iter [172/180]	lr: 7.679e-04, eta: 0:00:05, time: 0.552, data_time: 0.042, memory: 13478, decode.loss_ce: 0.5390, decode.acc_seg: 84.3471, loss: 0.5390
+2022-11-24 11:29:20,687 - mmseg - INFO - Iter [176/180]	lr: 4.935e-04, eta: 0:00:02, time: 0.544, data_time: 0.036, memory: 13478, decode.loss_ce: 0.5997, decode.acc_seg: 82.4396, loss: 0.5997
+2022-11-24 11:29:22,837 - mmseg - INFO - Saving checkpoint at 180 iterations
+2022-11-24 11:29:23,349 - mmseg - INFO - Iter [180/180]	lr: 1.924e-04, eta: 0:00:00, time: 0.670, data_time: 0.035, memory: 13478, decode.loss_ce: 0.5470, decode.acc_seg: 83.7717, loss: 0.5470
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
+  warnings.warn(
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "

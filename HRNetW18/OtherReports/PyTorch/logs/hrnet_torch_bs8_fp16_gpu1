@@ -1,25 +1,17 @@
-/opt/conda/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
-and will be removed in future. Use torchrun.
-Note that --use_env is set by default in torchrun.
-If your script expects `--local_rank` argument to be set, please
-change it to read from `os.environ['LOCAL_RANK']` instead. See 
-https://pytorch.org/docs/stable/distributed.html#launch-utility for 
-further instructions
-
+/opt/conda/lib/python3.8/site-packages/mmcv/__init__.py:20: UserWarning: On January 1, 2023, MMCV will release v2.0.0, in which it will remove components related to the training process and add a data transformation module. In addition, it will rename the package names mmcv to mmcv-lite and mmcv-full to mmcv. See https://github.com/open-mmlab/mmcv/blob/master/docs/en/compatibility.md for more details.
   warnings.warn(
-WARNING:torch.distributed.run:
-*****************************************
-Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-*****************************************
-2022-06-07 03:44:14,346 - mmseg - INFO - Multi-processing start method is `None`
-2022-06-07 03:44:14,346 - mmseg - INFO - OpenCV num_threads is `<built-in function getNumThreads>
-2022-06-07 03:44:14,346 - mmseg - INFO - OMP num threads is 1
-2022-06-07 03:44:14,394 - mmseg - INFO - Environment info:
+/opt/conda/lib/python3.8/site-packages/scipy/__init__.py:138: UserWarning: A NumPy version >=1.16.5 and <1.23.0 is required for this version of SciPy (detected version 1.23.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion} is required for this version of "
+tools/train.py:145: UserWarning: `--gpus` is deprecated because we only support single GPU mode in non-distributed training. Use `gpus=1` now.
+  warnings.warn('`--gpus` is deprecated because we only support '
+2022-11-24 11:29:34,482 - mmseg - INFO - Multi-processing start method is `None`
+2022-11-24 11:29:34,482 - mmseg - INFO - OpenCV num_threads is `80
+2022-11-24 11:29:34,556 - mmseg - INFO - Environment info:
 ------------------------------------------------------------
 sys.platform: linux
 Python: 3.8.12 | packaged by conda-forge | (default, Oct 12 2021, 21:59:51) [GCC 9.4.0]
 CUDA available: True
-GPU 0,1,2,3,4,5,6,7: Tesla V100-SXM2-32GB
+GPU 0: Tesla V100-SXM2-32GB
 CUDA_HOME: /usr/local/cuda
 NVCC: Cuda compilation tools, release 11.5, V11.5.50
 GCC: gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
@@ -40,15 +32,15 @@ PyTorch compiling details: PyTorch built with:
   - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.5, CUDNN_VERSION=8.3.0, CXX_COMPILER=/usr/bin/c++, CXX_FLAGS=-fno-gnu-unique -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Werror=cast-function-type -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.11.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=ON, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, 
 
 TorchVision: 0.11.0a0
-OpenCV: 3.4.11
-MMCV: 1.5.2
+OpenCV: 4.2.0
+MMCV: 1.7.0
 MMCV Compiler: GCC 9.3
 MMCV CUDA Compiler: 11.5
-MMSegmentation: 0.25.0+948b59a
+MMSegmentation: 0.29.1+7be1aad
 ------------------------------------------------------------
 
-2022-06-07 03:44:14,395 - mmseg - INFO - Distributed training: True
-2022-06-07 03:44:14,687 - mmseg - INFO - Config:
+2022-11-24 11:29:34,556 - mmseg - INFO - Distributed training: False
+2022-11-24 11:29:34,832 - mmseg - INFO - Config:
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
@@ -218,57 +210,31 @@ resume_from = None
 workflow = [('train', 1)]
 cudnn_benchmark = True
 optimizer = dict(type='SGD', lr=0.01, momentum=0.9, weight_decay=0.0005)
-optimizer_config = dict()
+optimizer_config = dict(type='Fp16OptimizerHook', loss_scale=512.0)
 lr_config = dict(policy='poly', power=0.9, min_lr=0.0001, by_epoch=False)
 runner = dict(type='IterBasedRunner', max_iters=180)
 checkpoint_config = dict(by_epoch=False, interval=8000)
 evaluation = dict(interval=8000, metric='mIoU', pre_eval=True)
 work_dir = './work_dirs/fcn_hr18_512x1024_80k_cityscapes'
-gpu_ids = range(0, 8)
+gpu_ids = range(0, 1)
 auto_resume = False
 
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
-2022-06-07 03:44:19,133 - mmseg - INFO - Set random seed to 978430804, deterministic: False
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
-/workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
-  warnings.warn('DeprecationWarning: pretrained is deprecated, '
+2022-11-24 11:29:34,832 - mmseg - INFO - Set random seed to 1772722424, deterministic: False
 /workspace/mmsegmentation/mmseg/models/backbones/hrnet.py:318: UserWarning: DeprecationWarning: pretrained is deprecated, please use "init_cfg" instead
   warnings.warn('DeprecationWarning: pretrained is deprecated, '
 /workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
   warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-/workspace/mmsegmentation/mmseg/models/losses/cross_entropy_loss.py:235: UserWarning: Default ``avg_non_ignore`` is False, if you would like to ignore the certain label and average loss over non-ignore labels, which is the same with PyTorch official cross_entropy, set ``avg_non_ignore=True``.
-  warnings.warn(
-2022-06-07 03:44:19,344 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
-2022-06-07 03:44:19,345 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
-2022-06-07 03:44:19,346 - mmcv - INFO - load checkpoint from openmmlab path: open-mmlab://msra/hrnetv2_w18
-2022-06-07 03:44:19,768 - mmcv - WARNING - The model and loaded state dict do not match exactly
+2022-11-24 11:29:35,031 - mmseg - INFO - initialize HRNet with init_cfg {'type': 'Pretrained', 'checkpoint': 'open-mmlab://msra/hrnetv2_w18'}
+2022-11-24 11:29:35,032 - mmcv - INFO - load model from: open-mmlab://msra/hrnetv2_w18
+2022-11-24 11:29:35,032 - mmcv - INFO - load checkpoint from openmmlab path: open-mmlab://msra/hrnetv2_w18
+2022-11-24 11:29:35,455 - mmcv - WARNING - The model and loaded state dict do not match exactly
 
 unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modules.0.0.bn1.weight, incre_modules.0.0.bn1.bias, incre_modules.0.0.bn1.running_mean, incre_modules.0.0.bn1.running_var, incre_modules.0.0.bn1.num_batches_tracked, incre_modules.0.0.conv2.weight, incre_modules.0.0.bn2.weight, incre_modules.0.0.bn2.bias, incre_modules.0.0.bn2.running_mean, incre_modules.0.0.bn2.running_var, incre_modules.0.0.bn2.num_batches_tracked, incre_modules.0.0.conv3.weight, incre_modules.0.0.bn3.weight, incre_modules.0.0.bn3.bias, incre_modules.0.0.bn3.running_mean, incre_modules.0.0.bn3.running_var, incre_modules.0.0.bn3.num_batches_tracked, incre_modules.0.0.downsample.0.weight, incre_modules.0.0.downsample.1.weight, incre_modules.0.0.downsample.1.bias, incre_modules.0.0.downsample.1.running_mean, incre_modules.0.0.downsample.1.running_var, incre_modules.0.0.downsample.1.num_batches_tracked, incre_modules.1.0.conv1.weight, incre_modules.1.0.bn1.weight, incre_modules.1.0.bn1.bias, incre_modules.1.0.bn1.running_mean, incre_modules.1.0.bn1.running_var, incre_modules.1.0.bn1.num_batches_tracked, incre_modules.1.0.conv2.weight, incre_modules.1.0.bn2.weight, incre_modules.1.0.bn2.bias, incre_modules.1.0.bn2.running_mean, incre_modules.1.0.bn2.running_var, incre_modules.1.0.bn2.num_batches_tracked, incre_modules.1.0.conv3.weight, incre_modules.1.0.bn3.weight, incre_modules.1.0.bn3.bias, incre_modules.1.0.bn3.running_mean, incre_modules.1.0.bn3.running_var, incre_modules.1.0.bn3.num_batches_tracked, incre_modules.1.0.downsample.0.weight, incre_modules.1.0.downsample.1.weight, incre_modules.1.0.downsample.1.bias, incre_modules.1.0.downsample.1.running_mean, incre_modules.1.0.downsample.1.running_var, incre_modules.1.0.downsample.1.num_batches_tracked, incre_modules.2.0.conv1.weight, incre_modules.2.0.bn1.weight, incre_modules.2.0.bn1.bias, incre_modules.2.0.bn1.running_mean, incre_modules.2.0.bn1.running_var, incre_modules.2.0.bn1.num_batches_tracked, incre_modules.2.0.conv2.weight, incre_modules.2.0.bn2.weight, incre_modules.2.0.bn2.bias, incre_modules.2.0.bn2.running_mean, incre_modules.2.0.bn2.running_var, incre_modules.2.0.bn2.num_batches_tracked, incre_modules.2.0.conv3.weight, incre_modules.2.0.bn3.weight, incre_modules.2.0.bn3.bias, incre_modules.2.0.bn3.running_mean, incre_modules.2.0.bn3.running_var, incre_modules.2.0.bn3.num_batches_tracked, incre_modules.2.0.downsample.0.weight, incre_modules.2.0.downsample.1.weight, incre_modules.2.0.downsample.1.bias, incre_modules.2.0.downsample.1.running_mean, incre_modules.2.0.downsample.1.running_var, incre_modules.2.0.downsample.1.num_batches_tracked, incre_modules.3.0.conv1.weight, incre_modules.3.0.bn1.weight, incre_modules.3.0.bn1.bias, incre_modules.3.0.bn1.running_mean, incre_modules.3.0.bn1.running_var, incre_modules.3.0.bn1.num_batches_tracked, incre_modules.3.0.conv2.weight, incre_modules.3.0.bn2.weight, incre_modules.3.0.bn2.bias, incre_modules.3.0.bn2.running_mean, incre_modules.3.0.bn2.running_var, incre_modules.3.0.bn2.num_batches_tracked, incre_modules.3.0.conv3.weight, incre_modules.3.0.bn3.weight, incre_modules.3.0.bn3.bias, incre_modules.3.0.bn3.running_mean, incre_modules.3.0.bn3.running_var, incre_modules.3.0.bn3.num_batches_tracked, incre_modules.3.0.downsample.0.weight, incre_modules.3.0.downsample.1.weight, incre_modules.3.0.downsample.1.bias, incre_modules.3.0.downsample.1.running_mean, incre_modules.3.0.downsample.1.running_var, incre_modules.3.0.downsample.1.num_batches_tracked, downsamp_modules.0.0.weight, downsamp_modules.0.0.bias, downsamp_modules.0.1.weight, downsamp_modules.0.1.bias, downsamp_modules.0.1.running_mean, downsamp_modules.0.1.running_var, downsamp_modules.0.1.num_batches_tracked, downsamp_modules.1.0.weight, downsamp_modules.1.0.bias, downsamp_modules.1.1.weight, downsamp_modules.1.1.bias, downsamp_modules.1.1.running_mean, downsamp_modules.1.1.running_var, downsamp_modules.1.1.num_batches_tracked, downsamp_modules.2.0.weight, downsamp_modules.2.0.bias, downsamp_modules.2.1.weight, downsamp_modules.2.1.bias, downsamp_modules.2.1.running_mean, downsamp_modules.2.1.running_var, downsamp_modules.2.1.num_batches_tracked, final_layer.0.weight, final_layer.0.bias, final_layer.1.weight, final_layer.1.bias, final_layer.1.running_mean, final_layer.1.running_var, final_layer.1.num_batches_tracked, classifier.weight, classifier.bias
 
-2022-06-07 03:44:19,813 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
-2022-06-07 03:44:19,821 - mmseg - INFO - EncoderDecoder(
+2022-11-24 11:29:35,502 - mmseg - INFO - initialize FCNHead with init_cfg {'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+tools/train.py:233: UserWarning: SyncBN is only supported with DDP. To be compatible with DP, we convert SyncBN to BN. Please use dist_train.sh which can avoid this error.
+  warnings.warn(
+2022-11-24 11:29:35,514 - mmseg - INFO - EncoderDecoder(
   (backbone): HRNet(
     (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
     (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
@@ -1711,10 +1677,11 @@ unexpected key in source state_dict: incre_modules.0.0.conv1.weight, incre_modul
   )
   init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
 )
-2022-06-07 03:44:19,885 - mmseg - INFO - Loaded 2975 images
-2022-06-07 03:44:20,438 - mmseg - INFO - Hooks will be executed in the following order:
+2022-11-24 11:29:35,655 - mmseg - INFO - Loaded 2975 images
+2022-11-24 11:29:37,954 - mmseg - INFO - Hooks will be executed in the following order:
 before_run:
 (VERY_HIGH   ) PolyLrUpdaterHook                  
+(ABOVE_NORMAL) Fp16OptimizerHook                  
 (NORMAL      ) CheckpointHook                     
 (VERY_LOW    ) TextLoggerHook                     
  -------------------- 
@@ -1728,7 +1695,7 @@ before_train_iter:
 (LOW         ) IterTimerHook                      
  -------------------- 
 after_train_iter:
-(ABOVE_NORMAL) OptimizerHook                      
+(ABOVE_NORMAL) Fp16OptimizerHook                  
 (NORMAL      ) CheckpointHook                     
 (LOW         ) IterTimerHook                      
 (VERY_LOW    ) TextLoggerHook                     
@@ -1753,52 +1720,51 @@ after_val_epoch:
 after_run:
 (VERY_LOW    ) TextLoggerHook                     
  -------------------- 
-2022-06-07 03:44:20,438 - mmseg - INFO - workflow: [('train', 1)], max: 180 iters
-2022-06-07 03:44:20,438 - mmseg - INFO - Checkpoints will be saved to /workspace/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes by HardDiskBackend.
-2022-06-07 03:44:56,422 - mmcv - INFO - Reducer buckets have been rebuilt in this iteration.
-2022-06-07 03:44:59,373 - mmseg - INFO - Iter [4/180]	lr: 9.851e-03, eta: 0:15:14, time: 5.198, data_time: 0.453, memory: 13479, decode.loss_ce: 2.6529, decode.acc_seg: 21.6928, loss: 2.6529
-2022-06-07 03:45:02,673 - mmseg - INFO - Iter [8/180]	lr: 9.653e-03, eta: 0:08:38, time: 0.833, data_time: 0.056, memory: 13479, decode.loss_ce: 2.1480, decode.acc_seg: 44.9928, loss: 2.1480
-2022-06-07 03:45:06,227 - mmseg - INFO - Iter [12/180]	lr: 9.454e-03, eta: 0:06:27, time: 0.881, data_time: 0.048, memory: 13479, decode.loss_ce: 1.7910, decode.acc_seg: 49.2345, loss: 1.7910
-2022-06-07 03:45:09,562 - mmseg - INFO - Iter [16/180]	lr: 9.254e-03, eta: 0:05:17, time: 0.839, data_time: 0.045, memory: 13479, decode.loss_ce: 1.5950, decode.acc_seg: 57.7184, loss: 1.5950
-2022-06-07 03:45:13,083 - mmseg - INFO - Iter [20/180]	lr: 9.054e-03, eta: 0:04:36, time: 0.882, data_time: 0.048, memory: 13479, decode.loss_ce: 1.3564, decode.acc_seg: 65.8362, loss: 1.3564
-2022-06-07 03:45:16,626 - mmseg - INFO - Iter [24/180]	lr: 8.854e-03, eta: 0:04:07, time: 0.881, data_time: 0.045, memory: 13479, decode.loss_ce: 1.2499, decode.acc_seg: 69.8169, loss: 1.2499
-2022-06-07 03:45:20,011 - mmseg - INFO - Iter [28/180]	lr: 8.653e-03, eta: 0:03:44, time: 0.838, data_time: 0.046, memory: 13479, decode.loss_ce: 1.0693, decode.acc_seg: 73.0078, loss: 1.0693
-2022-06-07 03:45:22,951 - mmseg - INFO - Iter [32/180]	lr: 8.451e-03, eta: 0:03:25, time: 0.753, data_time: 0.052, memory: 13479, decode.loss_ce: 1.0453, decode.acc_seg: 71.9619, loss: 1.0453
-2022-06-07 03:45:25,152 - mmseg - INFO - Iter [36/180]	lr: 8.249e-03, eta: 0:03:06, time: 0.550, data_time: 0.035, memory: 13479, decode.loss_ce: 1.0008, decode.acc_seg: 71.8063, loss: 1.0008
-2022-06-07 03:45:27,312 - mmseg - INFO - Iter [40/180]	lr: 8.047e-03, eta: 0:02:50, time: 0.535, data_time: 0.026, memory: 13479, decode.loss_ce: 0.8378, decode.acc_seg: 76.0238, loss: 0.8378
-2022-06-07 03:45:29,484 - mmseg - INFO - Iter [44/180]	lr: 7.844e-03, eta: 0:02:37, time: 0.547, data_time: 0.031, memory: 13479, decode.loss_ce: 0.8603, decode.acc_seg: 75.3866, loss: 0.8603
-2022-06-07 03:45:43,960 - mmseg - INFO - Iter [48/180]	lr: 7.640e-03, eta: 0:02:59, time: 3.619, data_time: 1.901, memory: 13479, decode.loss_ce: 0.8512, decode.acc_seg: 75.6409, loss: 0.8512
-2022-06-07 03:45:47,691 - mmseg - INFO - Iter [52/180]	lr: 7.435e-03, eta: 0:02:50, time: 0.930, data_time: 0.054, memory: 13479, decode.loss_ce: 0.7737, decode.acc_seg: 77.7272, loss: 0.7737
-2022-06-07 03:45:51,065 - mmseg - INFO - Iter [56/180]	lr: 7.230e-03, eta: 0:02:40, time: 0.844, data_time: 0.045, memory: 13479, decode.loss_ce: 0.7847, decode.acc_seg: 76.6173, loss: 0.7847
-2022-06-07 03:45:54,546 - mmseg - INFO - Iter [60/180]	lr: 7.025e-03, eta: 0:02:31, time: 0.861, data_time: 0.057, memory: 13479, decode.loss_ce: 0.7221, decode.acc_seg: 79.8865, loss: 0.7221
-2022-06-07 03:45:58,240 - mmseg - INFO - Iter [64/180]	lr: 6.818e-03, eta: 0:02:24, time: 0.935, data_time: 0.051, memory: 13479, decode.loss_ce: 0.7344, decode.acc_seg: 78.9384, loss: 0.7344
-2022-06-07 03:46:01,566 - mmseg - INFO - Iter [68/180]	lr: 6.611e-03, eta: 0:02:16, time: 0.829, data_time: 0.042, memory: 13479, decode.loss_ce: 0.7107, decode.acc_seg: 78.4136, loss: 0.7107
-2022-06-07 03:46:05,064 - mmseg - INFO - Iter [72/180]	lr: 6.403e-03, eta: 0:02:09, time: 0.878, data_time: 0.050, memory: 13479, decode.loss_ce: 0.6982, decode.acc_seg: 79.6859, loss: 0.6982
-2022-06-07 03:46:08,727 - mmseg - INFO - Iter [76/180]	lr: 6.195e-03, eta: 0:02:03, time: 0.909, data_time: 0.055, memory: 13479, decode.loss_ce: 0.7183, decode.acc_seg: 79.1398, loss: 0.7183
-2022-06-07 03:46:11,046 - mmseg - INFO - Iter [80/180]	lr: 5.985e-03, eta: 0:01:55, time: 0.587, data_time: 0.042, memory: 13479, decode.loss_ce: 0.7215, decode.acc_seg: 79.9234, loss: 0.7215
-2022-06-07 03:46:13,187 - mmseg - INFO - Iter [84/180]	lr: 5.775e-03, eta: 0:01:48, time: 0.535, data_time: 0.028, memory: 13479, decode.loss_ce: 0.6867, decode.acc_seg: 80.5902, loss: 0.6867
-2022-06-07 03:46:15,343 - mmseg - INFO - Iter [88/180]	lr: 5.564e-03, eta: 0:01:41, time: 0.539, data_time: 0.033, memory: 13479, decode.loss_ce: 0.6509, decode.acc_seg: 80.9241, loss: 0.6509
-2022-06-07 03:46:17,500 - mmseg - INFO - Iter [92/180]	lr: 5.352e-03, eta: 0:01:34, time: 0.539, data_time: 0.026, memory: 13479, decode.loss_ce: 0.6557, decode.acc_seg: 80.7417, loss: 0.6557
-2022-06-07 03:46:32,579 - mmseg - INFO - Iter [96/180]	lr: 5.139e-03, eta: 0:01:39, time: 3.768, data_time: 2.061, memory: 13479, decode.loss_ce: 0.6480, decode.acc_seg: 80.7234, loss: 0.6480
-2022-06-07 03:46:36,307 - mmseg - INFO - Iter [100/180]	lr: 4.925e-03, eta: 0:01:34, time: 0.931, data_time: 0.052, memory: 13479, decode.loss_ce: 0.6473, decode.acc_seg: 81.3408, loss: 0.6473
-2022-06-07 03:46:39,911 - mmseg - INFO - Iter [104/180]	lr: 4.710e-03, eta: 0:01:28, time: 0.904, data_time: 0.047, memory: 13479, decode.loss_ce: 0.6613, decode.acc_seg: 80.7892, loss: 0.6613
-2022-06-07 03:46:43,301 - mmseg - INFO - Iter [108/180]	lr: 4.494e-03, eta: 0:01:23, time: 0.846, data_time: 0.035, memory: 13479, decode.loss_ce: 0.5940, decode.acc_seg: 82.6975, loss: 0.5940
-2022-06-07 03:46:46,649 - mmseg - INFO - Iter [112/180]	lr: 4.277e-03, eta: 0:01:17, time: 0.822, data_time: 0.050, memory: 13479, decode.loss_ce: 0.6526, decode.acc_seg: 81.7160, loss: 0.6526
-2022-06-07 03:46:50,190 - mmseg - INFO - Iter [116/180]	lr: 4.058e-03, eta: 0:01:12, time: 0.893, data_time: 0.059, memory: 13479, decode.loss_ce: 0.6280, decode.acc_seg: 81.7984, loss: 0.6280
-2022-06-07 03:46:53,844 - mmseg - INFO - Iter [120/180]	lr: 3.838e-03, eta: 0:01:07, time: 0.923, data_time: 0.052, memory: 13479, decode.loss_ce: 0.5892, decode.acc_seg: 83.3643, loss: 0.5892
-2022-06-07 03:46:56,827 - mmseg - INFO - Iter [124/180]	lr: 3.617e-03, eta: 0:01:02, time: 0.745, data_time: 0.047, memory: 13479, decode.loss_ce: 0.6525, decode.acc_seg: 81.1047, loss: 0.6525
-2022-06-07 03:46:58,952 - mmseg - INFO - Iter [128/180]	lr: 3.394e-03, eta: 0:00:57, time: 0.531, data_time: 0.025, memory: 13479, decode.loss_ce: 0.6297, decode.acc_seg: 81.9756, loss: 0.6297
-2022-06-07 03:47:01,091 - mmseg - INFO - Iter [132/180]	lr: 3.169e-03, eta: 0:00:51, time: 0.535, data_time: 0.027, memory: 13479, decode.loss_ce: 0.5551, decode.acc_seg: 84.3356, loss: 0.5551
-2022-06-07 03:47:03,243 - mmseg - INFO - Iter [136/180]	lr: 2.943e-03, eta: 0:00:46, time: 0.539, data_time: 0.035, memory: 13479, decode.loss_ce: 0.5598, decode.acc_seg: 84.1434, loss: 0.5598
-2022-06-07 03:47:17,722 - mmseg - INFO - Iter [140/180]	lr: 2.715e-03, eta: 0:00:45, time: 3.607, data_time: 2.227, memory: 13479, decode.loss_ce: 0.5777, decode.acc_seg: 83.5481, loss: 0.5777
-2022-06-07 03:47:21,626 - mmseg - INFO - Iter [144/180]	lr: 2.484e-03, eta: 0:00:40, time: 0.982, data_time: 0.059, memory: 13479, decode.loss_ce: 0.5595, decode.acc_seg: 83.9958, loss: 0.5595
-2022-06-07 03:47:25,008 - mmseg - INFO - Iter [148/180]	lr: 2.251e-03, eta: 0:00:35, time: 0.850, data_time: 0.040, memory: 13479, decode.loss_ce: 0.6131, decode.acc_seg: 82.1364, loss: 0.6131
-2022-06-07 03:47:28,769 - mmseg - INFO - Iter [152/180]	lr: 2.014e-03, eta: 0:00:31, time: 0.936, data_time: 0.045, memory: 13479, decode.loss_ce: 0.5727, decode.acc_seg: 83.1587, loss: 0.5727
-2022-06-07 03:47:32,179 - mmseg - INFO - Iter [156/180]	lr: 1.775e-03, eta: 0:00:26, time: 0.856, data_time: 0.057, memory: 13479, decode.loss_ce: 0.5903, decode.acc_seg: 82.9147, loss: 0.5903
-2022-06-07 03:47:35,861 - mmseg - INFO - Iter [160/180]	lr: 1.532e-03, eta: 0:00:22, time: 0.921, data_time: 0.048, memory: 13479, decode.loss_ce: 0.5779, decode.acc_seg: 82.9697, loss: 0.5779
-2022-06-07 03:47:39,456 - mmseg - INFO - Iter [164/180]	lr: 1.284e-03, eta: 0:00:17, time: 0.889, data_time: 0.046, memory: 13479, decode.loss_ce: 0.5802, decode.acc_seg: 83.5409, loss: 0.5802
-2022-06-07 03:47:42,895 - mmseg - INFO - Iter [168/180]	lr: 1.030e-03, eta: 0:00:13, time: 0.865, data_time: 0.074, memory: 13479, decode.loss_ce: 0.5789, decode.acc_seg: 83.4481, loss: 0.5789
-2022-06-07 03:47:45,251 - mmseg - INFO - Iter [172/180]	lr: 7.679e-04, eta: 0:00:08, time: 0.592, data_time: 0.037, memory: 13479, decode.loss_ce: 0.5777, decode.acc_seg: 83.4832, loss: 0.5777
-2022-06-07 03:47:47,407 - mmseg - INFO - Iter [176/180]	lr: 4.935e-04, eta: 0:00:04, time: 0.542, data_time: 0.032, memory: 13479, decode.loss_ce: 0.5654, decode.acc_seg: 83.8324, loss: 0.5654
-2022-06-07 03:47:49,547 - mmseg - INFO - Saving checkpoint at 180 iterations
-2022-06-07 03:47:50,145 - mmseg - INFO - Iter [180/180]	lr: 1.924e-04, eta: 0:00:00, time: 0.685, data_time: 0.032, memory: 13479, decode.loss_ce: 0.6234, decode.acc_seg: 81.5893, loss: 0.6234
+2022-11-24 11:29:37,955 - mmseg - INFO - workflow: [('train', 1)], max: 180 iters
+2022-11-24 11:29:37,958 - mmseg - INFO - Checkpoints will be saved to /workspace/mmsegmentation/work_dirs/fcn_hr18_512x1024_80k_cityscapes by HardDiskBackend.
+2022-11-24 11:29:44,267 - mmseg - INFO - Iter [4/180]	lr: 9.851e-03, eta: 0:04:22, time: 1.490, data_time: 0.242, memory: 11402, decode.loss_ce: 2.5317, decode.acc_seg: 25.0271, loss: 2.5317
+2022-11-24 11:29:46,028 - mmseg - INFO - Iter [8/180]	lr: 9.653e-03, eta: 0:02:45, time: 0.440, data_time: 0.016, memory: 11402, decode.loss_ce: 2.0471, decode.acc_seg: 34.2707, loss: 2.0471
+2022-11-24 11:29:47,795 - mmseg - INFO - Iter [12/180]	lr: 9.454e-03, eta: 0:02:12, time: 0.442, data_time: 0.017, memory: 11402, decode.loss_ce: 1.8229, decode.acc_seg: 36.2377, loss: 1.8229
+2022-11-24 11:29:49,595 - mmseg - INFO - Iter [16/180]	lr: 9.254e-03, eta: 0:01:55, time: 0.450, data_time: 0.016, memory: 11402, decode.loss_ce: 1.6952, decode.acc_seg: 48.6255, loss: 1.6952
+2022-11-24 11:29:51,384 - mmseg - INFO - Iter [20/180]	lr: 9.054e-03, eta: 0:01:44, time: 0.447, data_time: 0.016, memory: 11402, decode.loss_ce: 1.3711, decode.acc_seg: 63.0303, loss: 1.3711
+2022-11-24 11:29:53,161 - mmseg - INFO - Iter [24/180]	lr: 8.854e-03, eta: 0:01:36, time: 0.444, data_time: 0.016, memory: 11402, decode.loss_ce: 1.1660, decode.acc_seg: 72.1428, loss: 1.1660
+2022-11-24 11:29:54,946 - mmseg - INFO - Iter [28/180]	lr: 8.653e-03, eta: 0:01:30, time: 0.446, data_time: 0.016, memory: 11402, decode.loss_ce: 1.2895, decode.acc_seg: 63.9520, loss: 1.2895
+2022-11-24 11:29:56,764 - mmseg - INFO - Iter [32/180]	lr: 8.451e-03, eta: 0:01:25, time: 0.455, data_time: 0.016, memory: 11402, decode.loss_ce: 1.0022, decode.acc_seg: 72.1992, loss: 1.0022
+2022-11-24 11:29:58,568 - mmseg - INFO - Iter [36/180]	lr: 8.249e-03, eta: 0:01:21, time: 0.451, data_time: 0.017, memory: 11402, decode.loss_ce: 0.8625, decode.acc_seg: 77.0472, loss: 0.8625
+2022-11-24 11:30:00,374 - mmseg - INFO - Iter [40/180]	lr: 8.047e-03, eta: 0:01:17, time: 0.452, data_time: 0.016, memory: 11402, decode.loss_ce: 0.8422, decode.acc_seg: 78.0870, loss: 0.8422
+2022-11-24 11:30:02,170 - mmseg - INFO - Iter [44/180]	lr: 7.844e-03, eta: 0:01:13, time: 0.449, data_time: 0.016, memory: 11402, decode.loss_ce: 0.8657, decode.acc_seg: 73.2350, loss: 0.8657
+2022-11-24 11:30:03,953 - mmseg - INFO - Iter [48/180]	lr: 7.640e-03, eta: 0:01:10, time: 0.446, data_time: 0.016, memory: 11402, decode.loss_ce: 0.8719, decode.acc_seg: 74.2363, loss: 0.8719
+2022-11-24 11:30:05,720 - mmseg - INFO - Iter [52/180]	lr: 7.435e-03, eta: 0:01:07, time: 0.442, data_time: 0.015, memory: 11402, decode.loss_ce: 0.7742, decode.acc_seg: 79.3740, loss: 0.7742
+2022-11-24 11:30:07,518 - mmseg - INFO - Iter [56/180]	lr: 7.230e-03, eta: 0:01:04, time: 0.450, data_time: 0.017, memory: 11402, decode.loss_ce: 0.7554, decode.acc_seg: 78.5449, loss: 0.7554
+2022-11-24 11:30:09,310 - mmseg - INFO - Iter [60/180]	lr: 7.025e-03, eta: 0:01:02, time: 0.448, data_time: 0.016, memory: 11402, decode.loss_ce: 0.8869, decode.acc_seg: 75.5610, loss: 0.8869
+2022-11-24 11:30:11,096 - mmseg - INFO - Iter [64/180]	lr: 6.818e-03, eta: 0:00:59, time: 0.446, data_time: 0.016, memory: 11402, decode.loss_ce: 0.7749, decode.acc_seg: 78.1893, loss: 0.7749
+2022-11-24 11:30:12,871 - mmseg - INFO - Iter [68/180]	lr: 6.611e-03, eta: 0:00:56, time: 0.444, data_time: 0.016, memory: 11402, decode.loss_ce: 0.8818, decode.acc_seg: 74.8345, loss: 0.8818
+2022-11-24 11:30:14,657 - mmseg - INFO - Iter [72/180]	lr: 6.403e-03, eta: 0:00:54, time: 0.447, data_time: 0.017, memory: 11402, decode.loss_ce: 0.9899, decode.acc_seg: 68.2286, loss: 0.9899
+2022-11-24 11:30:16,424 - mmseg - INFO - Iter [76/180]	lr: 6.195e-03, eta: 0:00:52, time: 0.442, data_time: 0.015, memory: 11402, decode.loss_ce: 0.8711, decode.acc_seg: 76.8842, loss: 0.8711
+2022-11-24 11:30:18,250 - mmseg - INFO - Iter [80/180]	lr: 5.985e-03, eta: 0:00:49, time: 0.456, data_time: 0.016, memory: 11402, decode.loss_ce: 0.8091, decode.acc_seg: 77.6814, loss: 0.8091
+2022-11-24 11:30:20,039 - mmseg - INFO - Iter [84/180]	lr: 5.775e-03, eta: 0:00:47, time: 0.448, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6128, decode.acc_seg: 81.5866, loss: 0.6128
+2022-11-24 11:30:21,821 - mmseg - INFO - Iter [88/180]	lr: 5.564e-03, eta: 0:00:45, time: 0.445, data_time: 0.016, memory: 11402, decode.loss_ce: 0.5995, decode.acc_seg: 83.5682, loss: 0.5995
+2022-11-24 11:30:23,608 - mmseg - INFO - Iter [92/180]	lr: 5.352e-03, eta: 0:00:43, time: 0.447, data_time: 0.016, memory: 11402, decode.loss_ce: 0.7328, decode.acc_seg: 79.2983, loss: 0.7328
+2022-11-24 11:30:25,389 - mmseg - INFO - Iter [96/180]	lr: 5.139e-03, eta: 0:00:41, time: 0.445, data_time: 0.016, memory: 11402, decode.loss_ce: 0.5706, decode.acc_seg: 83.8842, loss: 0.5706
+2022-11-24 11:30:27,246 - mmseg - INFO - Iter [100/180]	lr: 4.925e-03, eta: 0:00:39, time: 0.464, data_time: 0.016, memory: 11402, decode.loss_ce: 0.7531, decode.acc_seg: 78.5548, loss: 0.7531
+2022-11-24 11:30:29,090 - mmseg - INFO - Iter [104/180]	lr: 4.710e-03, eta: 0:00:37, time: 0.461, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6159, decode.acc_seg: 82.3617, loss: 0.6159
+2022-11-24 11:30:30,938 - mmseg - INFO - Iter [108/180]	lr: 4.494e-03, eta: 0:00:35, time: 0.462, data_time: 0.017, memory: 11402, decode.loss_ce: 0.7564, decode.acc_seg: 78.4636, loss: 0.7564
+2022-11-24 11:30:32,720 - mmseg - INFO - Iter [112/180]	lr: 4.277e-03, eta: 0:00:33, time: 0.445, data_time: 0.016, memory: 11402, decode.loss_ce: 0.5488, decode.acc_seg: 83.9609, loss: 0.5488
+2022-11-24 11:30:34,511 - mmseg - INFO - Iter [116/180]	lr: 4.058e-03, eta: 0:00:31, time: 0.448, data_time: 0.017, memory: 11402, decode.loss_ce: 0.5654, decode.acc_seg: 84.0723, loss: 0.5654
+2022-11-24 11:30:36,294 - mmseg - INFO - Iter [120/180]	lr: 3.838e-03, eta: 0:00:28, time: 0.446, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6881, decode.acc_seg: 79.3650, loss: 0.6881
+2022-11-24 11:30:38,071 - mmseg - INFO - Iter [124/180]	lr: 3.617e-03, eta: 0:00:26, time: 0.444, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6125, decode.acc_seg: 82.4963, loss: 0.6125
+2022-11-24 11:30:39,883 - mmseg - INFO - Iter [128/180]	lr: 3.394e-03, eta: 0:00:25, time: 0.453, data_time: 0.017, memory: 11402, decode.loss_ce: 0.5591, decode.acc_seg: 83.4113, loss: 0.5591
+2022-11-24 11:30:41,658 - mmseg - INFO - Iter [132/180]	lr: 3.169e-03, eta: 0:00:23, time: 0.444, data_time: 0.017, memory: 11402, decode.loss_ce: 0.5619, decode.acc_seg: 84.1534, loss: 0.5619
+2022-11-24 11:30:43,429 - mmseg - INFO - Iter [136/180]	lr: 2.943e-03, eta: 0:00:21, time: 0.443, data_time: 0.015, memory: 11402, decode.loss_ce: 0.6662, decode.acc_seg: 82.6629, loss: 0.6662
+2022-11-24 11:30:45,205 - mmseg - INFO - Iter [140/180]	lr: 2.715e-03, eta: 0:00:19, time: 0.444, data_time: 0.016, memory: 11402, decode.loss_ce: 0.7892, decode.acc_seg: 78.2866, loss: 0.7892
+2022-11-24 11:30:46,985 - mmseg - INFO - Iter [144/180]	lr: 2.484e-03, eta: 0:00:17, time: 0.445, data_time: 0.016, memory: 11402, decode.loss_ce: 0.5960, decode.acc_seg: 82.3377, loss: 0.5960
+2022-11-24 11:30:48,758 - mmseg - INFO - Iter [148/180]	lr: 2.251e-03, eta: 0:00:15, time: 0.443, data_time: 0.015, memory: 11402, decode.loss_ce: 0.6504, decode.acc_seg: 80.8114, loss: 0.6504
+2022-11-24 11:30:50,544 - mmseg - INFO - Iter [152/180]	lr: 2.014e-03, eta: 0:00:13, time: 0.447, data_time: 0.017, memory: 11402, decode.loss_ce: 0.7642, decode.acc_seg: 76.9634, loss: 0.7642
+2022-11-24 11:30:52,320 - mmseg - INFO - Iter [156/180]	lr: 1.775e-03, eta: 0:00:11, time: 0.444, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6836, decode.acc_seg: 79.5550, loss: 0.6836
+2022-11-24 11:30:54,095 - mmseg - INFO - Iter [160/180]	lr: 1.532e-03, eta: 0:00:09, time: 0.444, data_time: 0.016, memory: 11402, decode.loss_ce: 0.5810, decode.acc_seg: 82.4386, loss: 0.5810
+2022-11-24 11:30:55,880 - mmseg - INFO - Iter [164/180]	lr: 1.284e-03, eta: 0:00:07, time: 0.446, data_time: 0.016, memory: 11402, decode.loss_ce: 0.5367, decode.acc_seg: 84.2424, loss: 0.5367
+2022-11-24 11:30:57,706 - mmseg - INFO - Iter [168/180]	lr: 1.030e-03, eta: 0:00:05, time: 0.457, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6084, decode.acc_seg: 82.1783, loss: 0.6084
+2022-11-24 11:30:59,516 - mmseg - INFO - Iter [172/180]	lr: 7.679e-04, eta: 0:00:03, time: 0.452, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6885, decode.acc_seg: 79.1080, loss: 0.6885
+2022-11-24 11:31:01,299 - mmseg - INFO - Iter [176/180]	lr: 4.935e-04, eta: 0:00:01, time: 0.446, data_time: 0.017, memory: 11402, decode.loss_ce: 0.7000, decode.acc_seg: 80.4796, loss: 0.7000
+2022-11-24 11:31:03,077 - mmseg - INFO - Saving checkpoint at 180 iterations
+2022-11-24 11:31:03,602 - mmseg - INFO - Iter [180/180]	lr: 1.924e-04, eta: 0:00:00, time: 0.576, data_time: 0.016, memory: 11402, decode.loss_ce: 0.6210, decode.acc_seg: 82.6785, loss: 0.6210
