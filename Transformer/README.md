@@ -66,7 +66,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 470.83.01
+  - Driver Version: 515.57
   - 内存：630 GB
 
 - 多机（32卡）
@@ -78,11 +78,11 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.3.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.4.0.post112`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `11.2`
-- **cuDnn 版本:** `8.1.1`
+- **cuDnn 版本:** `8.2`
 
 
 ## 三、环境搭建
@@ -94,8 +94,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git
-  cd PaddleNLP && git checkout 64ac2f404b7ec4607ae5ab7015b3a9918195823b
-  cp requirements.txt examples/machine_translation/transformer/ && cd examples/machine_translation/transformer/
+  cd PaddleNLP && git checkout b429aa8a936709f4a831a7aa855daba4b1fd6666
   ```
 
 
@@ -103,17 +102,17 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
    # 创建并进入容器
    nvidia-docker run --name=test_transformer_paddle -it \
     --net=host \
-    --shm-size=1g \
+    --shm-size=30g \
     --ulimit memlock=-1 \
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
-    -v $PWD:/workspace/models \
-    paddlepaddle/paddle-benchmark:2.3.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
+    -v $PWD:/workspace/ \
+    paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
    ```
 
 - **安装依赖**
@@ -129,13 +128,66 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ## 四、测试步骤
 
-transformer测试目录位于`/workspace/models/static`。详细的测试方法在该目录已写明。
-根据测试的精度，需要调整/workspace/models/configs/transformer.big.yaml中的参数。
+transformer测试目录位于`/PaddleNLP/tests`。
+根据测试的精度，需要调整/workspace/configs/transformer.big.yaml中的参数。
 | 精度 | batch_size  | use_pure_fp16 |
 |:-----:|:-----:|:-----:|
-| FP32 | 5120  | True |
+| FP32 | 5120  | False |
 | FP16 | 5120  | True |
+### 1.单机（单卡、8卡）测试
+为了更方便地复现我们的测试结果，我们提供了一键测试 benchmark 数据的脚本 run_benchmark.sh ，需放在/PaddleNLP/tests目录下。
+- **测试脚本**
+   ```bash
+   #!/bin/bash   
+    base_batch_size=${1:-"2"}       
+    fp_item=${2:-"fp32"}            # (必选) fp32|pure_fp16
+    device_num=${3:-"N1C1"}         # (必选) 使用的卡数量，N1C1|N1C8|N4C32 （4机32卡）
+    max_iter=${4:-500}              
+    batch_size=${base_batch_size}   
+    static_scripts="../examples/machine_translation/transformer/static/"
+    config_file="transformer.big.yaml"
 
+    if [ ${fp_item} == "pure_fp16" ]; then
+        sed -i "s/^use_amp.*/use_amp: True/g" ${static_scripts}/../configs/${config_file}
+        sed -i "s/^use_pure_fp16.*/use_pure_fp16: True/g" ${static_scripts}/../configs/${config_file}
+    elif [ ${fp_item} == "fp32" ]; then
+        sed -i "s/^use_amp.*/use_amp: False/g" ${static_scripts}/../configs/${config_file}
+        sed -i "s/^use_pure_fp16.*/use_pure_fp16: False/g" ${static_scripts}/../configs/${config_file}
+    else
+        echo " The fp_item should be fp32 pure_fp16 "
+    fi
+    sed -i "s/^max_iter.*/max_iter: ${max_iter}/g" ${static_scripts}/../configs/${config_file}
+    sed -i "s/^batch_size:.*/batch_size: ${base_batch_size}/g" ${static_scripts}/../configs/${config_file}
+
+    train_cmd="--config ${static_scripts}/../configs/${config_file} --train_file ${static_scripts}/../train.en ${static_scripts}/../train.de --dev_file ${static_scripts}/../dev.en ${static_scripts}/../dev.de --vocab_file ${static_scripts}/../vocab_all.bpe.33712 --unk_token <unk> --bos_token <s> --eos_token <e> --benchmark"
+    if [[ ${device_num} = "N1C1" ]];then
+        export CUDA_VISIBLE_DEVICES=0;
+        sed -i "s/^is_distributed.*/is_distributed: False/g" ${static_scripts}/../configs/${config_file}
+        train_cmd="python -u ${static_scripts}/train.py ${train_cmd}" 
+    else
+        sed -i "s/^is_distributed.*/is_distributed: True/g" ${static_scripts}/../configs/${config_file}
+        rm -rf ./mylog
+        export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7;
+        train_cmd="python -m paddle.distributed.launch --log_dir=./mylog --gpus=$CUDA_VISIBLE_DEVICES \
+                  ${static_scripts}/train.py --distributed ${train_cmd}" 
+    fi
+    echo "train_cmd: ${train_cmd} "
+    timeout 25m ${train_cmd} 
+
+   ```
+- **单卡启动脚本**  
+
+  若测试单机单卡 batch_size=5120 FP32 的训练性能，执行如下命令：  
+
+    ```bash
+        bash  run_benchmark.sh 5120 fp32 N1C1
+    ```
+- **8卡启动脚本**  
+
+  若测试单机8卡 batch_size=5120 FP16 的训练性能，执行如下命令：  
+    ```bash
+        bash  run_benchmark.sh 5120 pure_fp16 N1C8
+    ```
 
 ## 五、测试结果
 
@@ -145,8 +197,8 @@ transformer测试目录位于`/workspace/models/static`。详细的测试方法�
 
    |卡数 | FP32(BS=5120) | FP16(BS=5120) |
    |:-----:|:-----:|:-----:|
-   |1 | 8996.75 | 34672.9 (O2) | 
-   |8 | 63668.84   | 224281.12  (O2) | 
+   |1 | 8852.222 | 33168.183 (O2) | 
+   |8 | 63176.869   | 225409.915  (O2) | 
    |32 | 194040.4 | 678315.9 |
 
 ### 2.与业内其它框架对比
@@ -161,8 +213,8 @@ transformer测试目录位于`/workspace/models/static`。详细的测试方法�
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 8996.75 | 8965.18  |
-  | GPU=8,BS=5120 | 63668.84  | 64563.8  |
+  | GPU=1,BS=5120 | 8852.222 | 9037.34  |
+  | GPU=8,BS=5120 | 63176.869  | 65075  |
   | GPU=32,BS=5120 | 183830.0 | 166352.6 |
 
 
@@ -170,17 +222,17 @@ transformer测试目录位于`/workspace/models/static`。详细的测试方法�
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 34672.9 (O2) | 30869.8  |
-  | GPU=8,BS=5120 | 224281.12 (O2) | 202323  |
+  | GPU=1,BS=5120 | 33168.183 (O2) | 32406.5  |
+  | GPU=8,BS=5120 | 225409.915 (O2) | 209138  |
   | GPU=32,BS=5120 | 682820.5 | 590188.7 |
 
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
-- [单机单卡、FP32](./logs/paddle_gpu1_fp32_bs5120)
-- [单机八卡、FP32](./logs/paddle_gpu8_fp32_bs5120)
-- [单机单卡、FP16](./logs/paddle_gpu1_pure_fp16_bs5120)
-- [单机八卡、FP16](./logs/paddle_gpu8_pure_fp16_bs5120)
+- [单机单卡、FP32](./logs/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C1_log)
+- [单机八卡、FP32](./logs/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C8_log)
+- [单机单卡、FP16](./logs/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C1_log)
+- [单机八卡、FP16](./logs/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C8_log)
 - [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2560)
 - [4机32卡、FP16](./logs/paddle_gpu32_fp16_bs5120)
 - [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs5120)
