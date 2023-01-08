@@ -26,13 +26,18 @@
 
 我们使用了同一个物理机环境，对 [NGC PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Translation/Transformer) 的 Transformer 模型进行了测试，详细物理机配置，见[Paddle Transformer 性能测试](../../README.md#1.物理机环境)。
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
- 
+- 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
@@ -130,8 +135,8 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
   --arch transformer_wmt_en_de_big_t2t \
   --share-all-embeddings \
   --optimizer adam \
-  --adam-betas 0.9, 0.997 \
-  --adam-eps "1e-9" \
+  --adam-betas 0.9 0.997 \
+  --adam-eps 1e-9 \
   --clip-norm 0.0 \
   --lr-scheduler inverse_sqrt \
   --warmup-init-lr 0.0 \
@@ -148,7 +153,6 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
   --no-epoch-checkpoints \
   --fuse-layer-norm \
   --log-interval 10 \
-  --max-update $6 \
   ${envs} \
   --save-dir /workspace/checkpoint \
   ${appends} 
@@ -199,7 +203,7 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 ## 四、测试结果
 
-> 单位： words/sec
+### V100 (单位： tokens/s)
 
 |卡数 | FP32(BS=5120) | FP16(BS=5120) |
 |:-----:|:-----:|:-----:|
@@ -207,12 +211,23 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 |8 | 65075  | 209138 |
 |32 | 166352.6 | 385625.7 | 
 
+### A100 (单位： |tokens/s)
+
+|卡数 | FP32(BS=5120) | FP16(BS=5120) |
+|:-----:|:-----:|:-----:|
+|1 | 38604.2  | 44544  | 
+|8 | 257124  | 286728 |
+
 ## 五、日志数据
 ### 1.日志
-- [单机单卡、FP32](./logs/transformer_pytorch_bs5120_fp32_gpu1)
-- [单机八卡、FP32](./logs/transformer_pytorch_bs5120_fp32_gpu8)
-- [单机单卡、FP16](./logs/transformer_pytorch_bs5120_fp16_gpu1)
-- [单机八卡、FP16](./logs/transformer_pytorch_bs5120_fp16_gpu8)
-- [4机32卡、FP32](./logs/pytorch_gpu32_fp32_bs2560)
-- [4机32卡、FP16](./logs/pytorch_gpu32_fp16_bs5120)
-- [4机32卡、AMP ](./logs/pytorch_gpu32_amp_bs5120)
+- [V100-单机单卡、FP32](./logs/V100_LOG/transformer_pytorch_bs5120_fp32_gpu1)
+- [V100-单机八卡、FP32](./logs/V100_LOG/transformer_pytorch_bs5120_fp32_gpu8)
+- [V100-单机单卡、FP16](./logs/V100_LOG/transformer_pytorch_bs5120_fp16_gpu1)
+- [V100-单机八卡、FP16](./logs/V100_LOG/transformer_pytorch_bs5120_fp16_gpu8)
+- [V100-4机32卡、FP32](./logs/V100_LOG/pytorch_gpu32_fp32_bs2560)
+- [V100-4机32卡、FP16](./logs/V100_LOG/pytorch_gpu32_fp16_bs5120)
+- [V100-4机32卡、AMP ](./logs/V100_LOG/pytorch_gpu32_amp_bs5120)
+- [A100-单机单卡、FP32](./logs/A100_LOG/transformer_pytorch_bs5120_fp32_gpu1)
+- [A100-单机八卡、FP32](./logs/A100_LOG/transformer_pytorch_bs5120_fp32_gpu8)
+- [A100-单机单卡、FP16](./logs/A100_LOG/transformer_pytorch_bs5120_fp16_gpu1)
+- [A100-单机八卡、FP16](./logs/A100_LOG/transformer_pytorch_bs5120_fp16_gpu8)

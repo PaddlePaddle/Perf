@@ -62,13 +62,18 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
-
+- 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
@@ -193,13 +198,20 @@ transformer测试目录位于`/PaddleNLP/tests`。
 
 ### 1.Paddle训练性能
 
-- 训练吞吐率(words/sec)如下:
+- V100 上训练吞吐率(words/sec)如下:
 
    |卡数 | FP32(BS=5120) | FP16(BS=5120) |
    |:-----:|:-----:|:-----:|
    |1 | 8852.222 | 33168.183 (O2) | 
    |8 | 63176.869   | 225409.915  (O2) | 
    |32 | 194040.4 | 678315.9 |
+
+- A100 上训练吞吐率(words/sec)如下:
+
+   |卡数 | FP32(BS=5120) | FP16(BS=5120) |
+   |:-----:|:-----:|:-----:|
+   |1 | 40174.674 | 64282.689 (O2) | 
+   |8 | 272676.83 | 400412.255 (O2) | 
 
 ### 2.与业内其它框架对比
 
@@ -209,7 +221,7 @@ transformer测试目录位于`/PaddleNLP/tests`。
   - BatchSize FP32、FP16下选择 5120
 
 
-- FP32测试
+- V100 FP32测试
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
@@ -218,7 +230,7 @@ transformer测试目录位于`/PaddleNLP/tests`。
   | GPU=32,BS=5120 | 183830.0 | 166352.6 |
 
 
-- FP16测试
+- V100 FP16测试
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
@@ -226,13 +238,32 @@ transformer测试目录位于`/PaddleNLP/tests`。
   | GPU=8,BS=5120 | 225409.915 (O2) | 209138  |
   | GPU=32,BS=5120 | 682820.5 | 590188.7 |
 
+- A100 FP32测试
+
+  | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|
+  | GPU=1,BS=5120 | 40174.674 | 38604.2  |
+  | GPU=8,BS=5120 | 272676.83 | 257124   |
+
+
+- A100 FP16测试
+
+  | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|
+  | GPU=1,BS=5120 | 64282.689 (O2) | 44544  |
+  | GPU=8,BS=5120 | 225409.915 (O2)| 286728 |
+
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
-- [单机单卡、FP32](./logs/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C1_log)
-- [单机八卡、FP32](./logs/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C8_log)
-- [单机单卡、FP16](./logs/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C1_log)
-- [单机八卡、FP16](./logs/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C8_log)
-- [4机32卡、FP32](./logs/paddle_gpu32_fp32_bs2560)
-- [4机32卡、FP16](./logs/paddle_gpu32_fp16_bs5120)
-- [4机32卡、AMP ](./logs/paddle_gpu32_amp_bs5120)
+- [V100-单机单卡、FP32](./logs/V100_LOG/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C1_log)
+- [V100-单机八卡、FP32](./logs/V100_LOG/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C8_log)
+- [V100-单机单卡、FP16](./logs/V100_LOG/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C1_log)
+- [V100-单机八卡、FP16](./logs/V100_LOG/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C8_log)
+- [V100-4机32卡、FP32](./logs/V100_LOG/paddle_gpu32_fp32_bs2560)
+- [V100-4机32卡、FP16](./logs/V100_LOG/paddle_gpu32_fp16_bs5120)
+- [V100-4机32卡、AMP ](./logs/V100_LOG/paddle_gpu32_amp_bs5120)
+- [A100-单机单卡、FP32](./logs/A100_LOG/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C1_log)
+- [A100-单机八卡、FP32](./logs/A100_LOG/PaddleNLP_transformer_big_bs5120_fp32_DP_N1C8_log)
+- [A100-单机单卡、FP16](./logs/A100_LOG/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C1_log)
+- [A100-单机八卡、FP16](./logs/A100_LOG/PaddleNLP_transformer_big_bs5120_pure_fp16_DP_N1C8_log)
