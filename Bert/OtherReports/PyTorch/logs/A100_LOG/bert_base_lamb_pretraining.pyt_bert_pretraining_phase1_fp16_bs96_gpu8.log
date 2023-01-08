@@ -1,0 +1,109 @@
++ batch_size=96
++ num_gpus=8
++ precision=fp16
+++ expr 67584 / 96 / 8
++ gradient_accumulation_steps=88
+++ expr 67584 / 8
++ train_batch_size=8448
++ train_steps=20
+++ python get_mpi_rank.py
+python: can't open file 'get_mpi_rank.py': [Errno 2] No such file or directory
++ export NODE_RANK=
++ NODE_RANK=
++ rm -rf results/checkpoints
++ bash scripts/run_pretraining.sh 8448 6e-3 fp16 8 0.2843 20 200 false true true 88
+Container nvidia build =  29224839
+/workspace/bert/data/pretrain/phase1/unbinned/parquet/
+Logs written to /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.221231044527.log
++ '[' -z /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.221231044527.log ']'
++ tee /workspace/bert/results/bert_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_gbs67584.221231044527.log
++ python3 -m torch.distributed.launch --nproc_per_node=8 /workspace/bert/run_pretraining.py --input_dir=/workspace/bert/data/pretrain/phase1/unbinned/parquet/ --output_dir=/workspace/bert/results/checkpoints --config_file=bert_config_base.json --vocab_file=vocab/vocab --train_batch_size=8448 --max_seq_length=128 --max_predictions_per_seq=20 --max_steps=20 --warmup_proportion=0.2843 --num_steps_per_checkpoint=200 --learning_rate=6e-3 --seed=12439 --fp16 --gradient_accumulation_steps=88 --allreduce_post_accumulation --allreduce_post_accumulation_fp16 --do_train --json-summary /workspace/bert/results/dllogger.json --disable_progress_bar --num_workers=4
+/opt/conda/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+device: cuda:2 n_gpu: 1, distributed training: True, 16-bits training: True
+device: cuda:7 n_gpu: 1, distributed training: True, 16-bits training: Truedevice: cuda:1 n_gpu: 1, distributed training: True, 16-bits training: True
+
+device: cuda:5 n_gpu: 1, distributed training: True, 16-bits training: True
+device: cuda:3 n_gpu: 1, distributed training: True, 16-bits training: True
+device: cuda:0 n_gpu: 1, distributed training: True, 16-bits training: True
+DLL 2022-12-31 04:45:35.038039 - PARAMETER Config : ["Namespace(allreduce_post_accumulation=True, allreduce_post_accumulation_fp16=True, amp=False, checkpoint_activations=False, config_file='bert_config_base.json', cuda_graphs=False, disable_jit_fusions=False, disable_progress_bar=True, do_train=True, fp16=True, gradient_accumulation_steps=88, init_checkpoint=None, init_loss_scale=1048576, input_dir='/workspace/bert/data/pretrain/phase1/unbinned/parquet/', json_summary='/workspace/bert/results/dllogger.json', learning_rate=0.006, local_rank=0, log_freq=1.0, loss_scale=0.0, max_predictions_per_seq=20, max_seq_length=128, max_steps=20.0, n_gpu=1, no_dense_sequence_output=False, num_steps_per_checkpoint=200, num_train_epochs=3.0, num_workers=4, output_dir='/workspace/bert/results/checkpoints', phase1_end_step=7038, phase2=False, profile=False, profile_start=0, resume_from_checkpoint=False, resume_phase2=False, resume_step=-1, seed=12439, skip_checkpoint=False, steps_this_run=20.0, train_batch_size=96, use_env=False, vocab_file='vocab/vocab', warmup_proportion=0.2843)"] 
+device: cuda:4 n_gpu: 1, distributed training: True, 16-bits training: True
+device: cuda:6 n_gpu: 1, distributed training: True, 16-bits training: True
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+/opt/conda/lib/python3.8/site-packages/torch/jit/_recursive.py:234: UserWarning: 'bias' was found in ScriptModule constants,  but it is a non-constant parameter. Consider removing it.
+  warnings.warn("'{}' was found in ScriptModule constants, "
+LDDL - 2022-12-31 04:45:46,321 - datasets.py:152:__init__ - node-0 - WARNING : lost 39/4172583=0.0009346728393419616% samples in total
+get_bert_pretrain_data_loader took 0.1512882448732853 s!
+DLL 2022-12-31 04:45:46.322097 - PARAMETER SEED : 12439 
+DLL 2022-12-31 04:45:46.322174 - PARAMETER train_start : True 
+DLL 2022-12-31 04:45:46.322206 - PARAMETER batch_size_per_gpu : 96 
+DLL 2022-12-31 04:45:46.322232 - PARAMETER learning_rate : 0.006 
+LDDL - 2022-12-31 04:45:47,104 - datasets.py:267:__iter__ - node-0 - WARNING : epoch = 0
+DLL 2022-12-31 04:46:10.171737 - Training Epoch: 0 Training Iteration: 1  average_loss : 0.0  learning_rate : 0.0  skipped_steps : 0 
+DLL 2022-12-31 04:46:16.080591 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.184925426136363  learning_rate : 0.0010552234016358852  skipped_steps : 1 
+DLL 2022-12-31 04:46:16.187161 - PARAMETER loss_scale : 262144.0 
+DLL 2022-12-31 04:46:21.891159 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.181995738636363  learning_rate : 0.0010552234016358852  skipped_steps : 2 
+DLL 2022-12-31 04:46:21.979015 - PARAMETER loss_scale : 131072.0 
+DLL 2022-12-31 04:46:27.737407 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.182084517045455  learning_rate : 0.0010552234016358852  skipped_steps : 3 
+DLL 2022-12-31 04:46:27.742053 - PARAMETER loss_scale : 65536.0 
+DLL 2022-12-31 04:46:33.486018 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.183149857954545  learning_rate : 0.0010552234016358852  skipped_steps : 4 
+DLL 2022-12-31 04:46:33.496765 - PARAMETER loss_scale : 32768.0 
+DLL 2022-12-31 04:46:39.254391 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.180930397727273  learning_rate : 0.0010552234016358852  skipped_steps : 5 
+DLL 2022-12-31 04:46:39.358932 - PARAMETER loss_scale : 16384.0 
+DLL 2022-12-31 04:46:45.103531 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.178444602272727  learning_rate : 0.0010552234016358852  skipped_steps : 6 
+DLL 2022-12-31 04:46:45.191068 - PARAMETER loss_scale : 8192.0 
+DLL 2022-12-31 04:46:50.937685 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.181463068181818  learning_rate : 0.0010552234016358852  skipped_steps : 7 
+DLL 2022-12-31 04:46:51.034455 - PARAMETER loss_scale : 4096.0 
+DLL 2022-12-31 04:46:56.820544 - Training Epoch: 0 Training Iteration: 1  average_loss : 11.180042613636363  learning_rate : 0.0010552234016358852  skipped_steps : 8 
+DLL 2022-12-31 04:46:56.843728 - PARAMETER loss_scale : 4096.0 
+DLL 2022-12-31 04:47:02.567946 - Training Epoch: 0 Training Iteration: 2  average_loss : 11.182705965909092  learning_rate : 0.0010552234016358852  skipped_steps : 8 
+DLL 2022-12-31 04:47:08.451950 - Training Epoch: 0 Training Iteration: 2  average_loss : 11.158913352272727  learning_rate : 0.0021104468032717705  skipped_steps : 9 
+DLL 2022-12-31 04:47:08.514866 - PARAMETER loss_scale : 1024.0 
+DLL 2022-12-31 04:47:14.247995 - Training Epoch: 0 Training Iteration: 2  average_loss : 11.187322443181818  learning_rate : 0.0021104468032717705  skipped_steps : 10 
+DLL 2022-12-31 04:47:14.360707 - PARAMETER loss_scale : 1024.0 
+DLL 2022-12-31 04:47:20.286574 - Training Epoch: 0 Training Iteration: 3  average_loss : 11.139825994318182  learning_rate : 0.0021104468032717705  skipped_steps : 10 
+DLL 2022-12-31 04:47:26.009137 - Training Epoch: 0 Training Iteration: 4  average_loss : 10.670987215909092  learning_rate : 0.0031656702049076557  skipped_steps : 10 
+DLL 2022-12-31 04:47:31.860267 - Training Epoch: 0 Training Iteration: 5  average_loss : 10.285600142045455  learning_rate : 0.004220893606543541  skipped_steps : 10 
+DLL 2022-12-31 04:47:37.647906 - Training Epoch: 0 Training Iteration: 6  average_loss : 10.026455965909092  learning_rate : 0.005276117008179426  skipped_steps : 10 
+DLL 2022-12-31 04:47:43.486380 - Training Epoch: 0 Training Iteration: 7  average_loss : 9.846590909090908  learning_rate : 0.00501995999366045  skipped_steps : 10 
+DLL 2022-12-31 04:47:49.231289 - Training Epoch: 0 Training Iteration: 8  average_loss : 9.619406960227273  learning_rate : 0.004837354179471731  skipped_steps : 10 
+DLL 2022-12-31 04:47:55.042569 - Training Epoch: 0 Training Iteration: 9  average_loss : 9.465909090909092  learning_rate : 0.004647579975426197  skipped_steps : 10 
+DLL 2022-12-31 04:48:00.875407 - Training Epoch: 0 Training Iteration: 10  average_loss : 9.236328125  learning_rate : 0.0042426404543221  skipped_steps : 10 
+DLL 2022-12-31 04:48:06.669486 - Training Epoch: 0 Training Iteration: 11  average_loss : 9.112571022727273  learning_rate : 0.004024922382086515  skipped_steps : 10 
+DLL 2022-12-31 04:48:12.435389 - Training Epoch: 0 Training Iteration: 12  average_loss : 9.032581676136363  learning_rate : 0.0037947327364236116  skipped_steps : 10 
+DLL 2022-12-31 04:48:18.184505 - Training Epoch: 0 Training Iteration: 13  average_loss : 8.937588778409092  learning_rate : 0.003549647983163595  skipped_steps : 10 
+DLL 2022-12-31 04:48:23.943353 - Training Epoch: 0 Training Iteration: 14  average_loss : 8.852095170454545  learning_rate : 0.0032863353844732046  skipped_steps : 10 
+DLL 2022-12-31 04:48:29.709507 - Training Epoch: 0 Training Iteration: 15  average_loss : 8.776189630681818  learning_rate : 0.003000000026077032  skipped_steps : 10 
+DLL 2022-12-31 04:48:35.517562 - Training Epoch: 0 Training Iteration: 16  average_loss : 8.716352982954545  learning_rate : 0.0026832816656678915  skipped_steps : 10 
+DLL 2022-12-31 04:48:41.312209 - Training Epoch: 0 Training Iteration: 17  average_loss : 8.667436079545455  learning_rate : 0.0023237899877130985  skipped_steps : 10 
+DLL 2022-12-31 04:48:47.096630 - Training Epoch: 0 Training Iteration: 18  average_loss : 8.633345170454545  learning_rate : 0.0018973668338730931  skipped_steps : 10 
+DLL 2022-12-31 04:48:52.858184 - Training Epoch: 0 Training Iteration: 19  average_loss : 8.595259232954545  learning_rate : 0.0013416408328339458  skipped_steps : 10 
+DLL 2022-12-31 04:48:58.637181 - Training Epoch: 0 Training Iteration: 20  final_loss : 8.566451072692871 None
+DLL 2022-12-31 04:48:58.637420 - PARAMETER checkpoint_step : 20 
+DLL 2022-12-31 04:49:00.523669 -  e2e_train_time : 205.5778841972351 s training_sequences_per_second : 11639.255452344958 sequences/s final_loss : 8.566451072692871 None raw_train_time : 173.93277502059937 s
++ set +x
+finished pretraining

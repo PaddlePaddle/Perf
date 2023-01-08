@@ -63,12 +63,19 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
+
+- 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -260,13 +267,20 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ### 1.Paddle训练性能
 
-- 训练吞吐率(sequences/sec)如下:
+- V100上训练吞吐率(sequences/sec)如下:
 
    |卡数 | FP32(BS=96) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|
    |1 |166.407 | 693.763  | 
    |8 | 1329.233  | 5567.137 | 
    |32 | 4829.904 | 20054.43 | 
+
+- A100上训练吞吐率(sequences/sec)如下:
+
+   |卡数 | FP32(BS=96) | AMP(BS=96) |
+   |:-----:|:-----:|:-----:|
+   |1 |885.95 | 1486.609  | 
+   |8 | 7082.895  | 11918.097 | 
 
 ### 2.与业内其它框架对比
 
@@ -277,7 +291,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   - BatchSize FP32、AMP下统一选择 96
 
 
-- FP32测试
+- V100-FP32测试
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
@@ -287,7 +301,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 
 
-- AMP测试
+- V100-AMP测试
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
@@ -296,13 +310,32 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   | GPU=32,BS=96 | 20054.43 | 16142.92 | 16610.6 |
 
 
+- A100-FP32测试
+
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | GPU=1,BS=96 | 885.95  |  690.506 | 866.745 |
+  | GPU=8,BS=96 | 7082.895  | 5196.14 | 6790.04 |
+
+
+- A100-AMP测试
+
+  | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
+  |:-----:|:-----:|:-----:|:-----:|
+  | GPU=1,BS=96 | 1486.609 | 915.142 | 1492.289 |
+  | GPU=8,BS=96 |  11918.097 | 7031.14 | 11639.255 |
+
 
 ## 六、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=96、FP32](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C1_log)
-- [单卡 bs=96、AMP](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C1_log)
-- [8卡 bs=96、FP32](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C8_log)
-- [8卡 bs=96、AMP](./logs/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C8_log)
-- [32卡 bs=96、FP32](./logs/base_bs96_fp32_gpu32.log)
-- [32卡 bs=96、AMP](./logs/base_bs96_fp16_gpu32.log)
+- [V100-单卡 bs=96、FP32](./logs/V100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C1_log)
+- [V100-单卡 bs=96、AMP](./logs/V100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C1_log)
+- [V100-8卡 bs=96、FP32](./logs/V100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C8_log)
+- [V100-8卡 bs=96、AMP](./logs/V100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C8_log)
+- [V100-32卡 bs=96、FP32](./logs/V100_LOG/base_bs96_fp32_gpu32.log)
+- [V100-32卡 bs=96、AMP](./logs/V100_LOG/base_bs96_fp16_gpu32.log)
+- [A100-单卡 bs=96、FP32](./logs/A100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C1_log)
+- [A100-单卡 bs=96、AMP](./logs/A100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C1_log)
+- [A100-8卡 bs=96、FP32](./logs/A100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp32_DP_N1C8_log)
+- [A100-8卡 bs=96、AMP](./logs/A100_LOG/PaddleNLP_bert_base_seqlen128_bs96_fp16_DP_N1C8_log)
