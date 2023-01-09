@@ -32,7 +32,14 @@
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
- 
+
+ - 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
+
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
@@ -250,16 +257,15 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 	# fp32
 	echo "begin run bs:96 fp32 on 32 gpus"
 	$mpirun bash ./run_benchmark.sh  96 32 fp32
-
- 	# fp16
+  
+  # fp16
 	echo "begin run bs:96 fp16 on 32 gpus"
 	$mpirun bash ./run_benchmark.sh  96 32 fp16
-
 	```
 
 ## 四、测试结果
 
-> 单位： sequences/sec
+### V100 (单位： sequences/sec)
 
 |卡数 | FP32(BS=96) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|
@@ -267,12 +273,24 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 |8 | 1233.15  | 5072 |
 |32 | 3496.94 |  16610.6|
 
+### A100 (单位： sequences/sec)
+
+|卡数 | FP32(BS=96) | AMP(BS=96)|
+|:-----:|:-----:|:-----:|
+|1 | 866.745 | 1492.289  |
+|8 | 6790.04 | 11639.255 |
+
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
 
-- [单卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu1.log)
-- [单卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
-- [8卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu8.log)
-- [8卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
-- [32卡 bs=96、FP32](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu32.log)
-- [32卡 bs=96、AMP](./logs/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
+- [V100-单卡 bs=96、FP32](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu1.log)
+- [V100-单卡 bs=96、AMP](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
+- [V100-8卡 bs=96、FP32](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu8.log)
+- [V100-8卡 bs=96、AMP](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
+- [V100-32卡 bs=96、FP32](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu32.log)
+- [V100-32卡 bs=96、AMP](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
+- [A100-单卡 bs=96、FP32](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu1.log)
+- [A100-单卡 bs=96、AMP](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
+- [A100-8卡 bs=96、FP32](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu8.log)
+- [A100-8卡 bs=96、AMP](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
+
