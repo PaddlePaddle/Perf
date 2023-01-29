@@ -1,0 +1,51 @@
+DLL 2022-12-12 06:16:37.818306 - PARAMETER arch : resnet50  mode : training_benchmark  export_dir : None  to_predict : None  batch_size : 256  num_iter : 500  run_iter : -1  iter_unit : batch  warmup_steps : 200  model_dir : None  results_dir : /tmp/result/gpu1_amp_bs256  log_filename : log.json  display_every : 10  seed : None  gpu_memory_fraction : 0.7  gpu_id : 0  finetune_checkpoint : None  use_final_conv : False  quant_delay : 0  quantize : False  use_qdq : False  symmetric : False  data_dir : ./data/tfrecords/  data_idx_dir : None  dali : False  synthetic_data_size : 224  lr_init : 0.1  lr_warmup_epochs : 5  weight_decay : 0.0001  weight_init : fan_out  momentum : 0.9  label_smoothing : 0.0  mixup : 0.0  cosine_lr : False  xla : True  data_format : NHWC  amp : True  cpu : False  static_loss_scale : 128  use_static_loss_scaling : True 
+Model HParams:
+Name resnet50
+Number of classes 1001
+Compute_format NHWC
+Input_format NHWC
+dtype <dtype: 'float32'>
+Starting Model Training...
+Training Epochs 1
+Total Steps 500.0
+Steps per Epoch 500.0
+Decay Steps 170644.0
+Weight Decay Factor 0.0001
+Init Learning Rate 0.1
+Momentum 0.9
+Num GPUs 1
+Per-GPU Batch Size 256
+Current step: 0
+Using step learning rate schedule
+DLL 2022-12-12 06:17:57.956854 - (0, 200) total_ips : 1611.4990604832658 
+DLL 2022-12-12 06:17:59.210798 - (0, 210) total_ips : 1795.197651303503 
+DLL 2022-12-12 06:18:00.501045 - (0, 220) total_ips : 2291.2748953314185 
+DLL 2022-12-12 06:18:01.692952 - (0, 230) total_ips : 2311.0605109661865 
+DLL 2022-12-12 06:18:02.912504 - (0, 240) total_ips : 2283.7407564955506 
+DLL 2022-12-12 06:18:04.043169 - (0, 250) total_ips : 2306.8946844874517 
+DLL 2022-12-12 06:18:05.319389 - (0, 260) total_ips : 2297.3833145048097 
+DLL 2022-12-12 06:18:06.612616 - (0, 270) total_ips : 1794.3336625407123 
+DLL 2022-12-12 06:18:07.823270 - (0, 280) total_ips : 1903.888703891853 
+DLL 2022-12-12 06:18:09.058066 - (0, 290) total_ips : 2292.1748961442067 
+DLL 2022-12-12 06:18:10.287673 - (0, 300) total_ips : 2208.2230306819374 
+DLL 2022-12-12 06:18:11.429196 - (0, 310) total_ips : 2290.996234096258 
+DLL 2022-12-12 06:18:12.694585 - (0, 320) total_ips : 1987.6230975132078 
+DLL 2022-12-12 06:18:13.959297 - (0, 330) total_ips : 2273.990274977551 
+DLL 2022-12-12 06:18:15.191943 - (0, 340) total_ips : 2111.441344253591 
+DLL 2022-12-12 06:18:16.540329 - (0, 350) total_ips : 1539.7061866905278 
+DLL 2022-12-12 06:18:17.905937 - (0, 360) total_ips : 1970.4324138829604 
+DLL 2022-12-12 06:18:19.284501 - (0, 370) total_ips : 2059.3990325785503 
+DLL 2022-12-12 06:18:20.705626 - (0, 380) total_ips : 1822.140467523652 
+DLL 2022-12-12 06:18:21.962224 - (0, 390) total_ips : 1961.745576789564 
+DLL 2022-12-12 06:18:23.266538 - (0, 400) total_ips : 2240.0421913464347 
+DLL 2022-12-12 06:18:24.553804 - (0, 410) total_ips : 2278.93247304525 
+DLL 2022-12-12 06:18:25.883616 - (0, 420) total_ips : 2298.6030038875856 
+DLL 2022-12-12 06:18:27.093324 - (0, 430) total_ips : 1952.0697532783204 
+DLL 2022-12-12 06:18:28.470281 - (0, 440) total_ips : 2303.094533232379 
+DLL 2022-12-12 06:18:29.736007 - (0, 450) total_ips : 2307.063210253215 
+DLL 2022-12-12 06:18:31.031270 - (0, 460) total_ips : 2019.8227696660283 
+DLL 2022-12-12 06:18:32.262688 - (0, 470) total_ips : 1803.5774918533948 
+DLL 2022-12-12 06:18:33.503856 - (0, 480) total_ips : 1808.8124565165756 
+DLL 2022-12-12 06:18:34.837842 - (0, 490) total_ips : 1787.695605773281 
+Ending Model Training ...
+DLL 2022-12-12 06:18:36.981066 - () train_throughput : 2060.466126789988 images/s

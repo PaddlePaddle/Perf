@@ -63,14 +63,18 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 ## 二、环境介绍
 ### 1.物理机环境
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
-
-
+- 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
@@ -192,13 +196,20 @@ Paddle Docker的基本信息如下：
 ### 1.Paddle训练性能
 
 
-- 训练吞吐率(images/sec)如下:
+- V100上训练吞吐率(images/sec)如下:
 
 |卡数 | FP32(BS=256) | FP16(BS=256) |
 |:-----:|:-----:|:-----:|
 |1 | 388.521 | 1439.861  |
 |8 | 2974.085 | 10814.675  | 
 |32 | 10984.436 | 39972.131 |
+
+- A100上训练吞吐率(images/sec)如下:
+
+|卡数 | FP32(BS=256) | FP16(BS=256) |
+|:-----:|:-----:|:-----:|
+|1 | 902.817 | 2582.705  |
+|8 | 5543.689| 17752.728  | 
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
 
@@ -210,7 +221,7 @@ Paddle Docker的基本信息如下：
 - 对于支持 `DALI/XLA` 的框架，以下测试为开启 `DALI/XLA` 的数据
 
 结果：
-- FP32测试
+- V100-FP32测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -218,7 +229,7 @@ Paddle Docker的基本信息如下：
   | GPU=8,BS=256 | 2974.085| 3273.03 |   2824.18 | 2978.38 |
   | GPU=32,BS=256 | 10984.436 | 12671.9 | 10523.32 | —— |
 
-- AMP测试
+- V100-AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -226,12 +237,32 @@ Paddle Docker的基本信息如下：
   | GPU=8,BS=256 | 10814.675(O2) | 9405.36 | 5841.2 | 10553.3 |
   | GPU=32,BS=256 | 39972.131 | 33317.67 | 21259.81 | —— |
 
+- A100-FP32测试
+
+  | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+  |:-----:|:-----:|:-----:|:-----:|:-----:|
+  | GPU=1,BS=256 | 902.817 | 975.374  |  822.521 | 907.194 |
+  | GPU=8,BS=256 | 5543.689| - |  6292.51  | 7129.73 |
+
+- A100-AMP测试
+
+  | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
+  |:-----:|:-----:|:-----:|:-----:|:-----:|
+  | GPU=1,BS=256 | 2582.705(O2) | 2064.8 | 1264.03| 2695.3 |
+  | GPU=8,BS=256 | 17752.728(O2) | - | 9553.21 | 19304.1 |
+
 
 ## 六、日志数据
-- [1卡 FP32 BS=256 日志](./logs/paddle_gpu1_fp32_bs256.txt)
-- [1卡 FP16 BS=256 日志](./logs/paddle_gpu1_pure_fp16_bs256.txt)
-- [8卡 FP32 BS=256 日志](./logs/paddle_gpu8_fp32_bs256.txt)
-- [8卡 FP16 BS=256 日志](./logs/paddle_gpu8_pure_fp16_bs256.txt)
-- [32卡 FP32 BS=256 日志](./logs/paddle_gpu32_fp32_bs256.txt)
-- [32卡 FP16 BS=256 日志](./logs/paddle_gpu32_pure_fp16_bs256.txt)
+### V100
+- [V100-1卡 FP32 BS=256 日志](./logs/V100-LOG/PaddleClas_ResNet50_bs256_fp32_DP_N1C1_log)
+- [V100-1卡 FP16 BS=256 日志](./logs/V100-LOG/PaddleClas_ResNet50_bs256_pure_fp16_DP_N1C1_log)
+- [V100-8卡 FP32 BS=256 日志](./logs/V100-LOG/PaddleClas_ResNet50_bs256_fp32_DP_N1C8_log)
+- [V100-8卡 FP16 BS=256 日志](./logs/V100-LOG/PaddleClas_ResNet50_bs256_pure_fp16_DP_N1C8_log)
+- [V100-32卡 FP32 BS=256 日志](./logs/V100-LOG/paddle_gpu32_fp32_bs256.txt)
+- [V100-32卡 FP16 BS=256 日志](./logs/V100-LOG/paddle_gpu32_pure_fp16_bs256.txt)
+### A100
+- [A100-1卡 FP32 BS=256 日志](./logs/A100-LOG/PaddleClas_ResNet50_bs256_fp32_DP_N1C1_log)
+- [A100-1卡 FP16 BS=256 日志](./logs/A100-LOG/PaddleClas_ResNet50_bs256_pure_fp16_DP_N1C1_log)
+- [A100-8卡 FP32 BS=256 日志](./logs/A100-LOG/PaddleClas_ResNet50_bs256_fp32_DP_N1C8_log)
+- [A100-8卡 FP16 BS=256 日志](./logs/A100-LOG/PaddleClas_ResNet50_bs256_pure_fp16_DP_N1C8_log)
 

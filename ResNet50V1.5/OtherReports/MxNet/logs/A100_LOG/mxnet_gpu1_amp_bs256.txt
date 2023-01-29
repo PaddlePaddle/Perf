@@ -1,0 +1,113 @@
+[1,0]<stdout>:DLL 2023-01-06 05:23:50.385413 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 1  fuse_bn_add_relu : 1  mode : train  seed : None  gpus : [0]  kv_store : horovod  dtype : float16  amp : False  batch_size : 256  num_epochs : 3  run_epochs : -1  lr : 0.256  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp16.json-1,256  workspace : ./  logdir : None  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [4, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NHWC  batchnorm_layout : NHWC  pooling_layout : NHWC  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 4  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  dali_nvjpeg_width_hint : 5980  dali_nvjpeg_height_hint : 6430  dali_dont_use_mmap : False  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
+[1,0]<stderr>:[05:23:56] ../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
+[1,0]<stderr>:[[1,0]<stderr>:05:23:56] ../src/storage/storage.cc:[1,0]<stderr>:199: Using Pooled (Naive) StorageManager for CPU[1,0]<stderr>:
+[1,0]<stderr>:2023-01-06 05:23:56,195:INFO: starting epoch 0
+[1,0]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,0]<stderr>:  _iterator_deprecation_warning()
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
+[1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
+[1,0]<stderr>:2023-01-06 05:23:58,981:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
+[1,0]<stderr>:2023-01-06 05:23:58,981:INFO: Starting epoch 0
+[1,0]<stderr>:[05:23:59] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
+[1,0]<stdout>:DLL 2023-01-06 05:24:12.594125 - Epoch: 0 Iteration: 19  train.loss : 7.105631303787232  train.ips : 376.1200446310333 images/s train.lr : 0.0077824 
+[1,0]<stdout>:DLL 2023-01-06 05:24:14.514262 - Epoch: 0 Iteration: 39  train.loss : 7.000272679328918  train.ips : 2666.962961159906 images/s train.lr : 0.0159744 
+[1,0]<stdout>:DLL 2023-01-06 05:24:16.368914 - Epoch: 0 Iteration: 59  train.loss : 6.922151660919189  train.ips : 2761.235999076795 images/s train.lr : 0.024166399999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:24:18.264940 - Epoch: 0 Iteration: 79  train.loss : 6.871423435211182  train.ips : 2700.9423977356937 images/s train.lr : 0.032358399999999995 
+[1,0]<stdout>:DLL 2023-01-06 05:24:20.218485 - Epoch: 0 Iteration: 99  train.loss : 6.849499988555908  train.ips : 2621.294088122048 images/s train.lr : 0.0405504 
+[1,0]<stdout>:DLL 2023-01-06 05:24:22.097326 - Epoch: 0 Iteration: 119  train.loss : 6.812825083732605  train.ips : 2725.473437060756 images/s train.lr : 0.0487424 
+[1,0]<stdout>:DLL 2023-01-06 05:24:23.965545 - Epoch: 0 Iteration: 139  train.loss : 6.7839435815811155  train.ips : 2740.8944152207782 images/s train.lr : 0.05693440000000001 
+[1,0]<stdout>:DLL 2023-01-06 05:24:25.881071 - Epoch: 0 Iteration: 159  train.loss : 6.770512557029724  train.ips : 2673.236901879695 images/s train.lr : 0.0651264 
+[1,0]<stdout>:DLL 2023-01-06 05:24:27.773943 - Epoch: 0 Iteration: 179  train.loss : 6.7576862335205075  train.ips : 2705.182095097921 images/s train.lr : 0.07331839999999999 
+[1,0]<stdout>:DLL 2023-01-06 05:24:29.679977 - Epoch: 0 Iteration: 199  train.loss : 6.710534286499024  train.ips : 2686.5924915454575 images/s train.lr : 0.08151040000000001 
+[1,0]<stdout>:DLL 2023-01-06 05:24:31.608028 - Epoch: 0 Iteration: 219  train.loss : 6.688770341873169  train.ips : 2655.8476868719986 images/s train.lr : 0.0897024 
+[1,0]<stdout>:DLL 2023-01-06 05:24:33.509241 - Epoch: 0 Iteration: 239  train.loss : 6.687773966789246  train.ips : 2693.330082499931 images/s train.lr : 0.09789439999999999 
+[1,0]<stdout>:DLL 2023-01-06 05:24:35.431285 - Epoch: 0 Iteration: 259  train.loss : 6.676827549934387  train.ips : 2664.2124478412084 images/s train.lr : 0.1060864 
+[1,0]<stdout>:DLL 2023-01-06 05:24:37.346994 - Epoch: 0 Iteration: 279  train.loss : 6.639882659912109  train.ips : 2673.0069771303374 images/s train.lr : 0.1142784 
+[1,0]<stdout>:DLL 2023-01-06 05:24:39.216813 - Epoch: 0 Iteration: 299  train.loss : 6.611531019210815  train.ips : 2738.575269437688 images/s train.lr : 0.12247040000000001 
+[1,0]<stdout>:DLL 2023-01-06 05:24:41.132515 - Epoch: 0 Iteration: 319  train.loss : 6.596559858322143  train.ips : 2673.121768189845 images/s train.lr : 0.1306624 
+[1,0]<stdout>:DLL 2023-01-06 05:24:43.046249 - Epoch: 0 Iteration: 339  train.loss : 6.552631425857544  train.ips : 2675.9330641554698 images/s train.lr : 0.13885440000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:24:44.962067 - Epoch: 0 Iteration: 359  train.loss : 6.5679179430007935  train.ips : 2672.877890557419 images/s train.lr : 0.1470464 
+[1,0]<stdout>:DLL 2023-01-06 05:24:46.959945 - Epoch: 0 Iteration: 379  train.loss : 6.536883163452148  train.ips : 2563.0694718258337 images/s train.lr : 0.1552384 
+[1,0]<stdout>:DLL 2023-01-06 05:24:48.924468 - Epoch: 0 Iteration: 399  train.loss : 6.52508807182312  train.ips : 2606.869913833644 images/s train.lr : 0.16343040000000003 
+[1,0]<stdout>:DLL 2023-01-06 05:24:50.842343 - Epoch: 0 Iteration: 419  train.loss : 6.4899242401123045  train.ips : 2670.205474963851 images/s train.lr : 0.1716224 
+[1,0]<stdout>:DLL 2023-01-06 05:24:52.700094 - Epoch: 0 Iteration: 439  train.loss : 6.4792616128921505  train.ips : 2756.692585550867 images/s train.lr : 0.17981439999999999 
+[1,0]<stdout>:DLL 2023-01-06 05:24:54.624603 - Epoch: 0 Iteration: 459  train.loss : 6.445750522613525  train.ips : 2660.7665320971423 images/s train.lr : 0.18800640000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:24:56.510681 - Epoch: 0 Iteration: 479  train.loss : 6.449296998977661  train.ips : 2714.949323931383 images/s train.lr : 0.1961984 
+[1,0]<stdout>:DLL 2023-01-06 05:24:58.401821 - Epoch: 0 Iteration: 499  train.loss : 6.440837955474853  train.ips : 2707.739273299029 images/s train.lr : 0.2043904 
+[1,0]<stdout>:DLL 2023-01-06 05:24:58.405928 - Epoch: 0  train.loss : 6.678936725616455  train.ips : 2682.1398872935074 images/s
+[1,0]<stderr>:2023-01-06 05:24:58,408:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2023-01-06 05:25:00.276606 - Epoch: 1 Iteration: 19  train.loss : 6.3930871963500975  train.ips : 2737.4431640010544 images/s train.lr : 0.058982400000000004 
+[1,0]<stdout>:DLL 2023-01-06 05:25:02.186258 - Epoch: 1 Iteration: 39  train.loss : 6.304861903190613  train.ips : 2681.4987638165353 images/s train.lr : 0.0671744 
+[1,0]<stdout>:DLL 2023-01-06 05:25:04.036761 - Epoch: 1 Iteration: 59  train.loss : 6.277644371986389  train.ips : 2767.28133382043 images/s train.lr : 0.0753664 
+[1,0]<stdout>:DLL 2023-01-06 05:25:05.931859 - Epoch: 1 Iteration: 79  train.loss : 6.2745346307754515  train.ips : 2702.2763948350957 images/s train.lr : 0.0835584 
+[1,0]<stdout>:DLL 2023-01-06 05:25:07.865149 - Epoch: 1 Iteration: 99  train.loss : 6.274407911300659  train.ips : 2649.091509507628 images/s train.lr : 0.0917504 
+[1,0]<stdout>:DLL 2023-01-06 05:25:09.775102 - Epoch: 1 Iteration: 119  train.loss : 6.243782019615173  train.ips : 2681.0183677686077 images/s train.lr : 0.0999424 
+[1,0]<stdout>:DLL 2023-01-06 05:25:11.658453 - Epoch: 1 Iteration: 139  train.loss : 6.240772533416748  train.ips : 2718.9274214939337 images/s train.lr : 0.1081344 
+[1,0]<stdout>:DLL 2023-01-06 05:25:13.547071 - Epoch: 1 Iteration: 159  train.loss : 6.241191434860229  train.ips : 2711.319992990285 images/s train.lr : 0.11632640000000001 
+[1,0]<stdout>:DLL 2023-01-06 05:25:15.441337 - Epoch: 1 Iteration: 179  train.loss : 6.212970876693726  train.ips : 2703.2989410666273 images/s train.lr : 0.1245184 
+[1,0]<stdout>:DLL 2023-01-06 05:25:17.366004 - Epoch: 1 Iteration: 199  train.loss : 6.211735725402832  train.ips : 2660.699939772941 images/s train.lr : 0.1327104 
+[1,0]<stdout>:DLL 2023-01-06 05:25:19.281186 - Epoch: 1 Iteration: 219  train.loss : 6.252311944961548  train.ips : 2673.952883284025 images/s train.lr : 0.14090239999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:25:21.191716 - Epoch: 1 Iteration: 239  train.loss : 6.232069277763367  train.ips : 2680.309972251872 images/s train.lr : 0.14909440000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:25:23.078605 - Epoch: 1 Iteration: 259  train.loss : 6.241984009742737  train.ips : 2713.855869460959 images/s train.lr : 0.1572864 
+[1,0]<stdout>:DLL 2023-01-06 05:25:24.942710 - Epoch: 1 Iteration: 279  train.loss : 6.212595391273498  train.ips : 2747.0005953265713 images/s train.lr : 0.1654784 
+[1,0]<stdout>:DLL 2023-01-06 05:25:26.806510 - Epoch: 1 Iteration: 299  train.loss : 6.196436882019043  train.ips : 2747.529888491018 images/s train.lr : 0.1736704 
+[1,0]<stdout>:DLL 2023-01-06 05:25:28.667748 - Epoch: 1 Iteration: 319  train.loss : 6.2035706520080565  train.ips : 2751.4186704556882 images/s train.lr : 0.1818624 
+[1,0]<stdout>:DLL 2023-01-06 05:25:30.601194 - Epoch: 1 Iteration: 339  train.loss : 6.1979655742645265  train.ips : 2648.506037591436 images/s train.lr : 0.1900544 
+[1,0]<stdout>:DLL 2023-01-06 05:25:32.513705 - Epoch: 1 Iteration: 359  train.loss : 6.205499386787414  train.ips : 2677.422378783532 images/s train.lr : 0.1982464 
+[1,0]<stdout>:DLL 2023-01-06 05:25:34.400276 - Epoch: 1 Iteration: 379  train.loss : 6.175666618347168  train.ips : 2714.349822001758 images/s train.lr : 0.2064384 
+[1,0]<stdout>:DLL 2023-01-06 05:25:36.272164 - Epoch: 1 Iteration: 399  train.loss : 6.1871860980987545  train.ips : 2735.694309215685 images/s train.lr : 0.21463040000000003 
+[1,0]<stdout>:DLL 2023-01-06 05:25:38.191063 - Epoch: 1 Iteration: 419  train.loss : 6.13428566455841  train.ips : 2668.5941763686387 images/s train.lr : 0.22282240000000003 
+[1,0]<stdout>:DLL 2023-01-06 05:25:40.078651 - Epoch: 1 Iteration: 439  train.loss : 6.155027103424072  train.ips : 2712.820524870027 images/s train.lr : 0.2310144 
+[1,0]<stdout>:DLL 2023-01-06 05:25:41.983932 - Epoch: 1 Iteration: 459  train.loss : 6.133503985404968  train.ips : 2687.6778736908186 images/s train.lr : 0.23920640000000004 
+[1,0]<stdout>:DLL 2023-01-06 05:25:43.855969 - Epoch: 1 Iteration: 479  train.loss : 6.083852076530457  train.ips : 2735.563278741817 images/s train.lr : 0.24739840000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:25:45.765886 - Epoch: 1 Iteration: 499  train.loss : 6.105499362945556  train.ips : 2681.139873291923 images/s train.lr : 0.2555904 
+[1,0]<stdout>:DLL 2023-01-06 05:25:45.768891 - Epoch: 1  train.loss : 6.21569770526886  train.ips : 2692.4340112574127 images/s
+[1,0]<stderr>:2023-01-06 05:25:45,769:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2023-01-06 05:25:47.683239 - Epoch: 2 Iteration: 19  train.loss : 6.01873025894165  train.ips : 2674.930778866055 images/s train.lr : 0.11018240000000001 
+[1,0]<stdout>:DLL 2023-01-06 05:25:49.591106 - Epoch: 2 Iteration: 39  train.loss : 5.975112628936768  train.ips : 2684.23477602312 images/s train.lr : 0.11837439999999999 
+[1,0]<stdout>:DLL 2023-01-06 05:25:51.475862 - Epoch: 2 Iteration: 59  train.loss : 5.999848175048828  train.ips : 2717.0711533918857 images/s train.lr : 0.12656640000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:25:53.352759 - Epoch: 2 Iteration: 79  train.loss : 5.9672523021698  train.ips : 2728.250403841304 images/s train.lr : 0.1347584 
+[1,0]<stdout>:DLL 2023-01-06 05:25:55.255977 - Epoch: 2 Iteration: 99  train.loss : 5.927616810798645  train.ips : 2690.485840920728 images/s train.lr : 0.14295039999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:25:57.080999 - Epoch: 2 Iteration: 119  train.loss : 5.971984124183654  train.ips : 2805.8660987384937 images/s train.lr : 0.1511424 
+[1,0]<stdout>:DLL 2023-01-06 05:25:58.902973 - Epoch: 2 Iteration: 139  train.loss : 5.9355226278305055  train.ips : 2810.6714028530987 images/s train.lr : 0.15933440000000001 
+[1,0]<stdout>:DLL 2023-01-06 05:26:00.843375 - Epoch: 2 Iteration: 159  train.loss : 5.9733093023300174  train.ips : 2639.181991141867 images/s train.lr : 0.16752640000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:26:02.752994 - Epoch: 2 Iteration: 179  train.loss : 5.945811986923218  train.ips : 2681.5037862872036 images/s train.lr : 0.1757184 
+[1,0]<stdout>:DLL 2023-01-06 05:26:04.663181 - Epoch: 2 Iteration: 199  train.loss : 5.9710174083709715  train.ips : 2680.7459408703457 images/s train.lr : 0.1839104 
+[1,0]<stdout>:DLL 2023-01-06 05:26:06.516507 - Epoch: 2 Iteration: 219  train.loss : 5.9386714220047  train.ips : 2763.0809532914172 images/s train.lr : 0.19210239999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:26:08.447758 - Epoch: 2 Iteration: 239  train.loss : 5.945904159545899  train.ips : 2651.59444211695 images/s train.lr : 0.20029439999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:26:10.424860 - Epoch: 2 Iteration: 259  train.loss : 5.915005016326904  train.ips : 2590.0704902549287 images/s train.lr : 0.20848640000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:26:12.334511 - Epoch: 2 Iteration: 279  train.loss : 5.947298502922058  train.ips : 2681.5074694443174 images/s train.lr : 0.21667840000000002 
+[1,0]<stdout>:DLL 2023-01-06 05:26:14.235145 - Epoch: 2 Iteration: 299  train.loss : 5.937344741821289  train.ips : 2694.2982043102825 images/s train.lr : 0.22487039999999997 
+[1,0]<stdout>:DLL 2023-01-06 05:26:16.174214 - Epoch: 2 Iteration: 319  train.loss : 5.915512156486511  train.ips : 2640.9735975647027 images/s train.lr : 0.23306239999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:26:18.062382 - Epoch: 2 Iteration: 339  train.loss : 5.914144444465637  train.ips : 2712.0578923632543 images/s train.lr : 0.2412544 
+[1,0]<stdout>:DLL 2023-01-06 05:26:20.012852 - Epoch: 2 Iteration: 359  train.loss : 5.868280601501465  train.ips : 2625.339231253254 images/s train.lr : 0.24944639999999998 
+[1,0]<stdout>:DLL 2023-01-06 05:26:21.944476 - Epoch: 2 Iteration: 379  train.loss : 5.923578453063965  train.ips : 2651.0062271653733 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:23.803655 - Epoch: 2 Iteration: 399  train.loss : 5.908891367912292  train.ips : 2754.506680451063 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:25.691413 - Epoch: 2 Iteration: 419  train.loss : 5.928652691841125  train.ips : 2712.6275993107156 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:27.652614 - Epoch: 2 Iteration: 439  train.loss : 5.951276636123657  train.ips : 2611.0496669807244 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:29.572675 - Epoch: 2 Iteration: 459  train.loss : 5.905735373497009  train.ips : 2667.125926685832 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:31.434086 - Epoch: 2 Iteration: 479  train.loss : 5.912014269828797  train.ips : 2750.97315759936 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:33.338948 - Epoch: 2 Iteration: 499  train.loss : 5.904472494125367  train.ips : 2688.220220677334 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-01-06 05:26:33.350139 - Epoch: 2  train.loss : 5.94011951828003  train.ips : 2691.848290282816 images/s
+[1,0]<stdout>:DLL 2023-01-06 05:26:33.397067 - Summary: train.loss : 5.94011951828003  train.ips : 2688.807396277912 images/s
+Traceback (most recent call last):
+  File "benchmark.py", line 84, in <module>
+    epochs_report = list(filter(lambda x: len(x['step']) == 1, log_data))
+  File "benchmark.py", line 84, in <lambda>
+    epochs_report = list(filter(lambda x: len(x['step']) == 1, log_data))
+KeyError: 'step'
+train.ips
+           |    256    |
+------------------------
+     1     |    nan    |
+

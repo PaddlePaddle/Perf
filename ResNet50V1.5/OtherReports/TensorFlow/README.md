@@ -23,12 +23,19 @@
 
 我们使用了与Paddle测试完全相同的物理机环境：
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
+
+- 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -140,7 +147,7 @@ $mpirun  python main.py --mode=training_benchmark \
 
 ## 四、测试结果
 
-- 训练吞吐率(images/sec)如下:
+- V100上训练吞吐率(images/sec)如下:
 
 |卡数 | FP32(BS=256) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|
@@ -148,10 +155,21 @@ $mpirun  python main.py --mode=training_benchmark \
 |8 | 3273.03 | 9405.36 |
 |32 |12671.9 | 33317.67 |
 
+- A100上训练吞吐率(images/sec)如下:
+
+|卡数 | FP32(BS=256) | AMP(BS=256)|
+|:-----:|:-----:|:-----:|
+|1 | 975.374 | 2064.8|
+|8 | - | - |
+
 ## 五、日志数据
-- [1卡 FP32 BS=256 日志](./logs/tf_gpu1_fp32_bs256.txt)
-- [1卡 AMP BS=256 日志](./logs/tf_gpu1_amp_bs256.txt)
-- [8卡 FP32 BS=256 日志](./logs/tf_gpu8_fp32_bs256.txt)
-- [8卡 AMP BS=256 日志](./logs/tf_gpu8_amp_bs256.txt)
-- [32卡 FP32 BS=256 日志](./logs/tf_gpu32_fp32_bs256.txt)
-- [32卡 AMP BS=256 日志](./logs/tf_gpu32_amp_bs256.txt)
+### V100
+- [V100-1卡 FP32 BS=256 日志](./logs/V100_LOG/tf_gpu1_fp32_bs256.txt)
+- [V100-1卡 AMP BS=256 日志](./logs/V100_LOG/tf_gpu1_amp_bs256.txt)
+- [V100-8卡 FP32 BS=256 日志](./logs/V100_LOG/tf_gpu8_fp32_bs256.txt)
+- [V100-8卡 AMP BS=256 日志](./logs/V100_LOG/tf_gpu8_amp_bs256.txt)
+- [32卡 FP32 BS=256 日志](./logs/V100_LOG/tf_gpu32_fp32_bs256.txt)
+- [32卡 AMP BS=256 日志](./logs/V100_LOG/tf_gpu32_amp_bs256.txt)
+### A100
+- [A100-1卡 FP32 BS=256 日志](./logs/A100_LOG/tf_gpu1_fp32_bs256.txt)
+- [A100-1卡 AMP BS=256 日志](./logs/A100_LOG/tf_gpu1_amp_bs256.txt)
