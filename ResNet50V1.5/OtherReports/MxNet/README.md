@@ -23,13 +23,19 @@
 
 我们使用了与Paddle测试完全相同的物理机环境：
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
   - Driver Version: 515.57
   - 内存：630 GB
 
+- 单机A100（单卡、8卡）
+  - 系统：CentOS release 7.5 (Final)
+  - GPU：NVIDIA A100-SXM4-40GB * 8
+  - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
+  - Driver Version: 515.48.07
+  - 内存：1510 GB
 
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -110,7 +116,7 @@
 
 ## 四、测试结果
 
-- 训练吞吐率(images/sec)如下:
+- V100上训练吞吐率(images/sec)如下:
 
 |卡数 | FP32(BS=96) | AMP(BS=192)|
 |:-----:|:-----:|:-----:|
@@ -118,8 +124,21 @@
 |8 | 2978.38  |  10553.3 |
 |32 | - | - | - |
 
+- A100上训练吞吐率(images/sec)如下:
+
+|卡数 | FP32(BS=96) | AMP(BS=192)|
+|:-----:|:-----:|:-----:|
+|1 | 907.194  |  2695.3 |
+|8 | 7129.73  |  19304.1 |
+
 ## 五、日志数据
-- [1卡FP32 BS=256 日志](./logs/mxnet_gpu1_fp32_bs256.txt)
-- [8卡 FP32 BS=256 日志](./logs/mxnet_gpu8_fp32_bs256.txt)
-- [1卡 AMP BS=256 日志](./logs/mxnet_gpu1_amp_bs256.txt)
-- [8卡 AMP BS=256 日志](./logs/mxnet_gpu8_amp_bs256.txt)
+### V100 
+- [V100-1卡FP32 BS=256 日志](./logs/V100_LOG/mxnet_gpu1_fp32_bs256.txt)
+- [V100-8卡 FP32 BS=256 日志](./logs/V100_LOG/mxnet_gpu8_fp32_bs256.txt)
+- [V100-1卡 AMP BS=256 日志](./logs/V100_LOG/mxnet_gpu1_amp_bs256.txt)
+- [V100-8卡 AMP BS=256 日志](./logs/V100_LOG/mxnet_gpu8_amp_bs256.txt)
+### A100 
+- [A100-1卡FP32 BS=256 日志](./logs/A100_LOG/mxnet_gpu1_fp32_bs256.txt)
+- [A100-8卡 FP32 BS=256 日志](./logs/A100_LOG/mxnet_gpu8_fp32_bs256.txt)
+- [A100-1卡 AMP BS=256 日志](./logs/A100_LOG/mxnet_gpu1_amp_bs256.txt)
+- [A100-8卡 AMP BS=256 日志](./logs/A100_LOG/mxnet_gpu8_amp_bs256.txt)
