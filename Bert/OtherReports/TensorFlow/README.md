@@ -29,13 +29,13 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13
   - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -65,7 +65,7 @@ NGC TensorFlow 的代码仓库提供了自动构建 Docker 镜像的的 [shell �
   git clone https://github.com/NVIDIA/DeepLearningExamples
   cd DeepLearningExamples/TensorFlow/LanguageModeling/BERT
   # 本次测试是在如下版本下完成的：
-  git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
+  git checkout fc9c09b08d6d39fb13c79c8a7e08f85b03dbf3d1
   ```
 
 - **构建镜像**
@@ -196,15 +196,15 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 ### V100 上训练吞吐率(sequences/s)如下:
 |卡数 | FP32(BS=96) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|
-|1 | 160.557 | 537.655 |
-|8 | 1242.14 | 4086.07 |
+|1 | 155.077 | 527.024 |
+|8 | 1218.31 | 4042.83 |
 |32 | 4238.53 | 16142.9|
 
 ### A100 上训练吞吐率(sequences/s)如下:
-|卡数 | FP32(BS=96) | AMP(BS=96)|
+|卡数 | FP32(BS=128) | AMP(BS=128)|
 |:-----:|:-----:|:-----:|
-|1 | 690.506 | 915.142 |
-|8 | 5196.14 | 7031.14 |
+|1 | 698.768 | 981.301 |
+|8 | 5341.18 | 7488.94 |
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
@@ -215,7 +215,7 @@ NGC TensorFlow BERT使用MPI管理作业进程，内部使用Horovod作为分布
 - [V100-8卡 bs=96、AMP](./logs/V100_LOG/tf_bert_pretraining_lamb_base_fp16_bs96_gpu8.log)
 - [V100-32卡 bs=96、FP32](./logs/tf_bert_pretraining_lamb_base_fp32_bs96_gpu32.log)
 - [V100-32卡 bs=96、AMP](./logs/tf_bert_pretraining_lamb_base_fp16_bs96_gpu32.log)
-- [A100-单卡 bs=96、FP32](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp32_bs96_gpu1.log)
-- [A100-单卡 bs=96、AMP](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp16_bs96_gpu1.log)
-- [A100-8卡 bs=96、FP32](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp32_bs96_gpu8.log)
-- [A100-8卡 bs=96、AMP](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp16_bs96_gpu8.log)
+- [A100-单卡 bs=128、FP32](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp32_bs128_gpu1.log)
+- [A100-单卡 bs=128、AMP](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp16_bs128_gpu1.log)
+- [A100-8卡 bs=128、FP32](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp32_bs128_gpu8.log)
+- [A100-8卡 bs=128、AMP](./logs/A100_LOG/tf_bert_pretraining_lamb_base_fp16_bs128_gpu8.log)
