@@ -67,14 +67,14 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13 
   - 内存：1510 GB
 
 - 多机（32卡）
@@ -86,8 +86,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.4.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.5.0.post112`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `11.2`
 - **cuDnn 版本:** `8.2`
@@ -102,7 +102,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git 
-  cd PaddleNLP && git checkout b429aa8a936709f4a831a7aa855daba4b1fd6666
+  cd PaddleNLP && git checkout 537665a0af2e8a8ef3e539d2d0fae810c3a12ce1
   ```
 
 
@@ -110,7 +110,7 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
    # 创建并进入容器
    nvidia-docker run --name=test_bert_paddle -it \
@@ -271,16 +271,16 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
    |卡数 | FP32(BS=96) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|
-   |1 |166.407 | 693.763  | 
-   |8 | 1329.233  | 5567.137 | 
+   |1 |164.866 | 665.655  | 
+   |8 | 1320.939  | 5355.659 | 
    |32 | 4829.904 | 20054.43 | 
 
 - A100上训练吞吐率(sequences/sec)如下:
 
    |卡数 | FP32(BS=96) | AMP(BS=96) |
    |:-----:|:-----:|:-----:|
-   |1 |885.95 | 1486.609  | 
-   |8 | 7082.895  | 11918.097 | 
+   |1 |874.936 | 1462.928  | 
+   |8 | 7004.399  | 11714.331 | 
 
 ### 2.与业内其它框架对比
 
@@ -295,8 +295,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=96 | 166.407  | 160.557  | 158.642 |
-  | GPU=8,BS=96 | 1329.233  | 1242.14 | 1233.15 |
+  | GPU=1,BS=96 | 164.866  | 155.077 |  158.6111|
+  | GPU=8,BS=96 | 1320.939  | 1218.31 | 1232.11 |
   | GPU=32,BS=96 | 4829.904 | 4238.53 | 3496.94 |
 
 
@@ -305,8 +305,8 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=96 | 693.763 | 537.655  | 641.511 |
-  | GPU=8,BS=96 | 5567.137  | 4086.07 | 5072 |
+  | GPU=1,BS=96 | 665.655 | 527.024 | 639.16 |
+  | GPU=8,BS=96 | 5355.659  | 4042.83 | 5055.56 |
   | GPU=32,BS=96 | 20054.43 | 16142.92 | 16610.6 |
 
 
@@ -314,16 +314,16 @@ Bert Base 模型是自然语言处理领域极具代表性的模型，包括 Pre
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=96 | 885.95  |  690.506 | 866.745 |
-  | GPU=8,BS=96 | 7082.895  | 5196.14 | 6790.04 |
+  | GPU=1,BS=96 | 874.936  |  698.768 | 873.714 |
+  | GPU=8,BS=96 | 7004.399  | 5341.18 | 6846.0356 |
 
 
 - A100-AMP测试
 
   | 参数 | [PaddlePaddle](./Bert) | [NGC TensorFlow 1.15](./Bert/OtherReports/TensorFlow) | [NGC PyTorch](./Bert/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=96 | 1486.609 | 915.142 | 1492.289 |
-  | GPU=8,BS=96 |  11918.097 | 7031.14 | 11639.255 |
+  | GPU=1,BS=96 | 1462.928 | 981.301 | 1542.296 |
+  | GPU=8,BS=96 | 11714.331 | 7488.94 | 12075.6292 |
 
 
 ## 六、日志数据

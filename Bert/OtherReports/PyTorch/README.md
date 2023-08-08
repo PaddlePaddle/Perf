@@ -26,18 +26,18 @@
 
 我们使用了同一个物理机环境，对 [NGC PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/LanguageModeling/BERT) 的 Bert 模型进行了测试，详细物理机配置，见[Paddle Bert Base 性能测试](../../README.md#1.物理机环境)。
 
-- 单机（单卡、8卡）
+- 单机V100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 
  - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13
   - 内存：1510 GB
 
 - 多机（32卡）
@@ -68,7 +68,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
+    git checkout fc9c09b08d6d39fb13c79c8a7e08f85b03dbf3d1
     ```
 
 - **构建镜像**
@@ -269,16 +269,16 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 
 |卡数 | FP32(BS=96) | AMP(BS=96)|
 |:-----:|:-----:|:-----:|
-|1 | 158.642  | 641.511  |
-|8 | 1233.15  | 5072 |
+|1 | 158.611  | 639.16  |
+|8 | 1232.11  | 5055.56 |
 |32 | 3496.94 |  16610.6|
 
 ### A100 (单位： sequences/sec)
 
-|卡数 | FP32(BS=96) | AMP(BS=96)|
+|卡数 | FP32(BS=128) | AMP(BS=128)|
 |:-----:|:-----:|:-----:|
-|1 | 866.745 | 1492.289  |
-|8 | 6790.04 | 11639.255 |
+|1 | 873.714 | 1542.296  |
+|8 | 6846.0356 | 12075.6292 |
 
 ## 五、日志数据
 ### 1.单机（单卡、8卡）日志
@@ -289,8 +289,8 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的的 [shell 脚�
 - [V100-8卡 bs=96、AMP](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
 - [V100-32卡 bs=96、FP32](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu32.log)
 - [V100-32卡 bs=96、AMP](./logs/V100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu32.log)
-- [A100-单卡 bs=96、FP32](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu1.log)
-- [A100-单卡 bs=96、AMP](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu1.log)
-- [A100-8卡 bs=96、FP32](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs96_gpu8.log)
-- [A100-8卡 bs=96、AMP](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs96_gpu8.log)
+- [A100-单卡 bs=128、FP32](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs128_gpu1.log)
+- [A100-单卡 bs=128、AMP](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu1.log)
+- [A100-8卡 bs=128、FP32](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp32_bs128_gpu8.log)
+- [A100-8卡 bs=128、AMP](./logs/A100_LOG/bert_base_lamb_pretraining.pyt_bert_pretraining_phase1_fp16_bs128_gpu8.log)
 
