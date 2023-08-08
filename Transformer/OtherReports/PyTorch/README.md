@@ -30,13 +30,13 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13
   - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -66,7 +66,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/Translation/Transformer
     # 本次测试是在如下版本下完成的：
-    git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
+    git checkout fc9c09b08d6d39fb13c79c8a7e08f85b03dbf3d1
     ```
 
 - **构建镜像**
@@ -130,7 +130,7 @@ distribute="--nnodes ${num_trainers} --node_rank ${RANK}  \
 envs='--distributed-init-method env://'
 
 
-python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} train.py \
+python  -m torch.distributed.launch --nproc_per_node=${num_gpu} train.py \
   /data/wmt14_en_de_joined_dict \
   --arch transformer_wmt_en_de_big_t2t \
   --share-all-embeddings \
@@ -153,7 +153,6 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
   --no-epoch-checkpoints \
   --fuse-layer-norm \
   --log-interval 10 \
-  ${envs} \
   --save-dir /workspace/checkpoint \
   ${appends} 
 
@@ -187,8 +186,8 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 	```
 	# fp32
-	echo "begin run bs:2560 fp32 on 8 gpus"
-	$mpirun bash ./run_benchmark.sh 8 2560 fp32
+	echo "begin run bs:5120 fp32 on 8 gpus"
+	$mpirun bash ./run_benchmark.sh 8 5120 fp32
 
     # amp
 	echo "begin run bs:5120 amp on 8 gpus"
@@ -207,16 +206,16 @@ python  -m torch.distributed.launch --nproc_per_node=${num_gpu}  ${distribute} t
 
 |卡数 | FP32(BS=5120) | FP16(BS=5120) |
 |:-----:|:-----:|:-----:|
-|1 | 9037.34  | 32406.5  | 
-|8 | 65075  | 209138 |
+|1 | 9040.48 | 32525.6  | 
+|8 | 65010.7 | 208959 |
 |32 | 166352.6 | 385625.7 | 
 
 ### A100 (单位： |tokens/s)
 
 |卡数 | FP32(BS=5120) | FP16(BS=5120) |
 |:-----:|:-----:|:-----:|
-|1 | 38604.2  | 44544  | 
-|8 | 257124  | 286728 |
+|1 | 37458.4 | 43989.5  | 
+|8 | 255375 | 286005 |
 
 ## 五、日志数据
 ### 1.日志

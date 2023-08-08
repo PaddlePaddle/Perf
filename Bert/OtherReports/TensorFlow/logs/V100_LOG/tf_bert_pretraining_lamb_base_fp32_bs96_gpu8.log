@@ -16,7 +16,6 @@ WARNING: Open MPI tried to bind a process but failed.  This is a
 warning only; your job will continue, though performance may
 be degraded.
 
-  Local host:        instance-3bwob41y-16
   Application name:  /usr/bin/python
   Error message:     failed to bind memory
   Location:          rtc_hwloc.c:445
@@ -75,7 +74,6 @@ WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/horovod-0.19.1-py
 was unable to find any relevant network interfaces:
 
 Module: OpenFabrics (openib)
-  Host: instance-3bwob41y-16
 
 Another transport will be used instead, although this may result in
 lower performance.
@@ -849,9 +847,6 @@ W0801 03:08:22.892570 140156153931584 module_wrapper.py:139] From /workspace/ber
 
 decayed_learning_rate_at_crossover_point = 6.000000e-03, adjusted_init_lr = 6.000000e-03
 Initializing LAMB Optimizer
-[instance-3bwob41y-16:01535] 7 more processes have sent help message help-orte-odls-default.txt / memory not bound
-[instance-3bwob41y-16:01535] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
-[instance-3bwob41y-16:01535] 7 more processes have sent help message help-mpi-btl-base.txt / btl:no-nics
 WARNING:tensorflow:From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.
 
 W0801 03:08:25.406959 139756658722624 module_wrapper.py:139] From /workspace/bert/optimization.py:142: The name tf.global_norm is deprecated. Please use tf.linalg.global_norm instead.

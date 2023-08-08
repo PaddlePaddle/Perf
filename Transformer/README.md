@@ -66,13 +66,13 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13
   - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -83,8 +83,8 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.4.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.5.0.post112`
 - **模型代码**：[PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP)
 - **CUDA 版本**: `11.2`
 - **cuDnn 版本:** `8.2`
@@ -99,7 +99,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleNLP.git
-  cd PaddleNLP && git checkout b429aa8a936709f4a831a7aa855daba4b1fd6666
+  cd PaddleNLP && git checkout 537665a0af2e8a8ef3e539d2d0fae810c3a12ce1
   ```
 
 
@@ -107,7 +107,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
 
    ```bash
    # 拉取镜像
-   docker pull paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+   docker pull paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
    # 创建并进入容器
    nvidia-docker run --name=test_transformer_paddle -it \
@@ -117,7 +117,7 @@ Transformer 模型是机器翻译领域极具代表性的模型。在测试性�
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/ \
-    paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
+    paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
    ```
 
 - **安装依赖**
@@ -202,16 +202,16 @@ transformer测试目录位于`/PaddleNLP/tests`。
 
    |卡数 | FP32(BS=5120) | FP16(BS=5120) |
    |:-----:|:-----:|:-----:|
-   |1 | 8852.222 | 33168.183 (O2) | 
-   |8 | 63176.869   | 225409.915  (O2) | 
+   |1 | 8809.798 | 33082.12 (O2) | 
+   |8 | 63436.463   | 225027.075 (O2) | 
    |32 | 194040.4 | 678315.9 |
 
 - A100 上训练吞吐率(words/sec)如下:
 
    |卡数 | FP32(BS=5120) | FP16(BS=5120) |
    |:-----:|:-----:|:-----:|
-   |1 | 40174.674 | 64282.689 (O2) | 
-   |8 | 272676.83 | 400412.255 (O2) | 
+   |1 | 40723.75 | 71401.051 (O2) | 
+   |8 | 279494.693 | 437351.427 (O2) | 
 
 ### 2.与业内其它框架对比
 
@@ -225,8 +225,8 @@ transformer测试目录位于`/PaddleNLP/tests`。
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 8852.222 | 9037.34  |
-  | GPU=8,BS=5120 | 63176.869  | 65075  |
+  | GPU=1,BS=5120 | 8809.798 | 9040.48  |
+  | GPU=8,BS=5120 | 63436.463  | 65010.7  |
   | GPU=32,BS=5120 | 183830.0 | 166352.6 |
 
 
@@ -234,24 +234,24 @@ transformer测试目录位于`/PaddleNLP/tests`。
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 33168.183 (O2) | 32406.5  |
-  | GPU=8,BS=5120 | 225409.915 (O2) | 209138  |
+  | GPU=1,BS=5120 | 33082.12 (O2) | 32525.6  |
+  | GPU=8,BS=5120 | 225027.075 (O2) | 208959  |
   | GPU=32,BS=5120 | 682820.5 | 590188.7 |
 
 - A100 FP32测试
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 40174.674 | 38604.2  |
-  | GPU=8,BS=5120 | 272676.83 | 257124   |
+  | GPU=1,BS=5120 | 40723.75 | 37458.4  |
+  | GPU=8,BS=5120 | 279494.693 | 255375   |
 
 
 - A100 FP16测试
 
   | 参数 | [PaddlePaddle](./Transformer) | [NGC PyTorch](./Transformer/OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=5120 | 64282.689 (O2) | 44544  |
-  | GPU=8,BS=5120 | 225409.915 (O2)| 286728 |
+  | GPU=1,BS=5120 | 71401.051 (O2) | 43989.5 |
+  | GPU=8,BS=5120 | 437351.427 (O2)| 286005 |
 
 
 ## 六、日志数据

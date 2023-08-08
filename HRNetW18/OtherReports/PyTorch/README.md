@@ -29,7 +29,7 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB 
  
 - 多机（32卡）
@@ -60,7 +60,7 @@ NGC PyTorch 的代码仓库提供了自动构建 Docker 镜像的 [Dockerfile](h
     git clone https://github.com/NVIDIA/DeepLearningExamples
     cd DeepLearningExamples/PyTorch/LanguageModeling/BERT
     # 本次测试是在如下版本下完成的：
-    git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
+    git checkout fc9c09b08d6d39fb13c79c8a7e08f85b03dbf3d1
 ```
 
 - **构建镜像**
@@ -255,8 +255,8 @@ fi
 
 |卡数 | FP32(BS=8) | AMP(BS=8) |
 |:-----:|:-----:|:-----:|
-|1 | 15.634  | 17.721  | 
-|8 | 95.163  | 98.336  |
+|1 | 15.49  | 17.448  | 
+|8 | 60.299 | 59.709  |
 |32 | 243 | 246 | 
 
 ## 五、日志数据
