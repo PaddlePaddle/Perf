@@ -27,14 +27,14 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13 
   - 内存：1510 GB
 
 - 多机（32卡）
@@ -49,7 +49,7 @@
 我们使用 NGC PyTorch 的代码仓库提供的Dockerfile制作镜像：
 
 - Docker: nvcr.io/nvidia/pytorch:21.03-py3
-- PyTorch：1.9.0a0+df837d0
+- PyTorch：2.0.1
 - 模型代码：[NVIDIA/DeepLearningExamples/PyTorch](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5)
 - CUDA：11
 - cuDNN：8.0.1
@@ -67,7 +67,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/PyTorch/Classification/ConvNets
    # 本次测试是在如下版本下完成的：
-   git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
+   git checkout fc9c09b08d6d39fb13c79c8a7e08f85b03dbf3d1
    ```
 
 - 制作Docker镜像
@@ -170,16 +170,16 @@ $mpirun bash ./run_benchmark.sh  256 8 "--amp"
 
 |卡数 | FP32(BS=256) | AMP(BS=256) |
 |:-----:|:-----:|:-----:|
-|1 | 369.376 | 777.358  | 
-|8 | 2824.18 | 5841.2  | 
+|1 | 370.194 | 790.033  | 
+|8 | 2791.98 | 5889.05  | 
 |32 |10523.32| 21259.81 | 
 
 - A100上训练吞吐率(images/sec)如下:
 
 |卡数 | FP32(BS=256) | AMP(BS=256) |
 |:-----:|:-----:|:-----:|
-|1 | 822.521 | 1264.03  | 
-|8 | 6292.51 | 9553.21  | 
+|1 | 924.989 | 1449.65  | 
+|8 | 7020.9  | 10744.6  | 
 
 > 关于torch数据，按照官方文档反复重测了多次未达到官方的标准。若了解相关原因，欢迎issue我们。 <br>
 

@@ -67,13 +67,13 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13 
   - 内存：1510 GB
 - 多机（32卡）
   - 系统：CentOS release 6.3 (Final)
@@ -86,8 +86,8 @@ Resnet50V1.5 作为计算机视觉领域极具代表性的模型。在测试性�
 
 Paddle Docker的基本信息如下：
 
-- Docker: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- Paddle：2.4.0.post112
+- Docker: `paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- Paddle：2.5.0.post112
 - 模型代码：[PaddleClas](https://github.com/PaddlePaddle/PaddleClas)
 - CUDA：11.2
 - cuDNN：8.2
@@ -96,14 +96,14 @@ Paddle Docker的基本信息如下：
 
 - 拉取docker
   ```bash
-  paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+  paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04
   ```
 
 - 启动docker
   ```bash
   # 假设imagenet数据放在<path to data>目录下
   nvidia-docker run --shm-size=64g -it -v <path to data>:/data 
-  paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
+  paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
   ```
 
 - 拉取PaddleClas
@@ -111,7 +111,7 @@ Paddle Docker的基本信息如下：
   git clone https://github.com/PaddlePaddle/PaddleClas.git
   cd PaddleClas
   # 本次测试是在如下版本下完成的：
-  git checkout 5b0a47bcdfd29231f4b7a3581766eee86d8ca68a
+  git checkout 5bb2e8c339cad16136e310d5c5a0285f20383470
   ```
 
 - 多机网络部署
@@ -200,16 +200,16 @@ Paddle Docker的基本信息如下：
 
 |卡数 | FP32(BS=256) | FP16(BS=256) |
 |:-----:|:-----:|:-----:|
-|1 | 388.521 | 1439.861  |
-|8 | 2974.085 | 10814.675  | 
+|1 | 393.561 | 1438.518  |
+|8 | 3019.361 | 10936.815  | 
 |32 | 10984.436 | 39972.131 |
 
 - A100上训练吞吐率(images/sec)如下:
 
 |卡数 | FP32(BS=256) | FP16(BS=256) |
 |:-----:|:-----:|:-----:|
-|1 | 902.817 | 2582.705  |
-|8 | 5543.689| 17752.728  | 
+|1 | 908.244 | 2602.629  |
+|8 | 5333.558| 17587.654  | 
 
 以上数据是根据PaddleClas日志数据，去掉warmup step后，求平均得出。
 
@@ -225,31 +225,31 @@ Paddle Docker的基本信息如下：
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=256 | 388.521 | 415.786  |  369.376 | 382.806 |
-  | GPU=8,BS=256 | 2974.085| 3273.03 |   2824.18 | 2978.38 |
+  | GPU=1,BS=256 | 393.561 | 415.786  |  370.194 | 389.54 |
+  | GPU=8,BS=256 | 3019.361| 3273.03 |   2791.98 | 2957.8 |
   | GPU=32,BS=256 | 10984.436 | 12671.9 | 10523.32 | —— |
 
 - V100-AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=256 | 1439.861(O2) | 1218.82 | 777.358| 1362.92 |
-  | GPU=8,BS=256 | 10814.675(O2) | 9405.36 | 5841.2 | 10553.3 |
+  | GPU=1,BS=256 | 1438.518(O2) | 1218.82 | 790.033| 1471.9 |
+  | GPU=8,BS=256 | 10936.815(O2) | 9405.36 | 5889.05 | 10336 |
   | GPU=32,BS=256 | 39972.131 | 33317.67 | 21259.81 | —— |
 
 - A100-FP32测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=256 | 902.817 | 975.374  |  822.521 | 907.194 |
-  | GPU=8,BS=256 | 5543.689| - |  6292.51  | 7129.73 |
+  | GPU=1,BS=256 | 908.244 | 975.374  |  924.989 | 1015.8 |
+  | GPU=8,BS=256 | 5333.558| - |  7020.9  | 7848.2 |
 
 - A100-AMP测试
 
   | 参数 | PaddlePaddle | NGC TensorFlow 1.15 | NGC PyTorch | NGC MXNet |
   |:-----:|:-----:|:-----:|:-----:|:-----:|
-  | GPU=1,BS=256 | 2582.705(O2) | 2064.8 | 1264.03| 2695.3 |
-  | GPU=8,BS=256 | 17752.728(O2) | - | 9553.21 | 19304.1 |
+  | GPU=1,BS=256 | 2602.629(O2) | 2064.8 | 1449.65| 3046.4 |
+  | GPU=8,BS=256 | 17587.654(O2) | - | 10744.6 | 22690 |
 
 
 ## 六、日志数据

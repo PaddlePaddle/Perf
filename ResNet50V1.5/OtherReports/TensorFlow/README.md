@@ -27,14 +27,14 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13
   - 内存：1510 GB
 
 - 多机（32卡）
@@ -146,6 +146,7 @@ $mpirun  python main.py --mode=training_benchmark \
 ```
 
 ## 四、测试结果
+### [NVIDIA 声明不再维护TensorFlow1 ConvNets数据, 因此此处暂停更新该模型数据](https://github.com/NVIDIA/DeepLearningExamples/commit/9de48bc9ca8ce635960620478a39dd332ed74ff6#diff-73f9011de29b49d00f0a435915c2d5bb509bc6f54c4016e69731639715cda53c)
 
 - V100上训练吞吐率(images/sec)如下:
 
