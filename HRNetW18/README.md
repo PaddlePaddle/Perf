@@ -56,7 +56,7 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB 
 
 - 多机（32卡）
@@ -68,8 +68,8 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
 ### 2.Docker 镜像
 
-- **镜像版本**: `paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
-- **Paddle 版本**: `2.4.0.post112`
+- **镜像版本**: `paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04`
+- **Paddle 版本**: `2.5.0.post112`
 - **模型代码**：[PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg/)
 - **CUDA 版本**: `11.2`
 - **cuDnn 版本:** `8.2`
@@ -84,7 +84,7 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 - **拉取代码**
   ```bash
   git clone https://github.com/PaddlePaddle/PaddleSeg.git
-  cd PaddleSeg && git checkout 08318286cffd1c0a8d61de8d556d9c4406c01e33
+  cd PaddleSeg && git checkout f3cec7982aa68c517c524fa70253a9856b823876
   ```
 
 
@@ -92,7 +92,7 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
 
    ```bash
    # 拉取镜像
-    docker pull paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04
+    docker pull paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04
 
 
    # 创建并进入容器
@@ -103,7 +103,7 @@ HRNetW18 模型是图像分割领域极具代表性的模型。在测试性能�
     --ulimit stack=67108864 \
     -e NVIDIA_VISIBLE_DEVICES=all \
     -v $PWD:/workspace/models \
-    paddlepaddle/paddle-benchmark:2.4.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
+    paddlepaddle/paddle-benchmark:2.5.0-cuda11.2-cudnn8-runtime-ubuntu16.04 /bin/bash
    ```
 
 - **安装依赖**
@@ -145,8 +145,8 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/)�
 
    |卡数 | FP32(BS=8) | AMP(BS=8) 
    |:-----:|:-----:|:-----:|
-   |1 | 19.284 | 20.627 |
-   |8 | 96.964 | 95.581 |
+   |1 | 19.428 | 22.115 |
+   |8 | 117.205 | 115.468 |
    |32 | 428 | 422 | 
 ### 2.与业内其它框架对比
 
@@ -160,8 +160,8 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/)�
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | 19.284 | 15.634 |
-  | GPU=8,BS=8 | 96.964 | 95.163 |
+  | GPU=1,BS=8 | 19.428 | 15.49 |
+  | GPU=8,BS=8 | 117.205| 60.299 |
   | GPU=32,BS=8 | 428 | 243 |
 
 
@@ -169,8 +169,8 @@ HRNetW18测试参考[测试方法](https://github.com/PaddlePaddle/PaddleSeg/)�
 
   | 参数 | [PaddlePaddle](./PaddleSeg) | [NGC PyTorch](./OtherReports/PyTorch) |
   |:-----:|:-----:|:-----:|
-  | GPU=1,BS=8 | 20.627 | 17.721  |
-  | GPU=8,BS=8 | 95.581 | 98.336  |
+  | GPU=1,BS=8 | 22.115 | 17.448  |
+  | GPU=8,BS=8 | 115.468 | 59.709  |
   | GPU=32,BS=8 | 422 | 246 |
 
 
