@@ -1,6 +1,8 @@
+grep: warning: GREP_OPTIONS is deprecated; please use an alias or script
+A new field (seed) detected!
 A new field (fuse_elewise_add_act_ops) detected!
 A new field (enable_addto) detected!
-[2022/11/30 20:14:02] ppcls INFO: 
+[2023/07/28 06:53:36] ppcls INFO: 
 ===========================================================
 ==        PaddleClas is powered by PaddlePaddle !        ==
 ===========================================================
@@ -10,316 +12,484 @@ A new field (enable_addto) detected!
 ==       https://github.com/PaddlePaddle/PaddleClas      ==
 ===========================================================
 
-[2022/11/30 20:14:02] ppcls INFO: Global : 
-[2022/11/30 20:14:02] ppcls INFO:     checkpoints : None
-[2022/11/30 20:14:02] ppcls INFO:     pretrained_model : None
-[2022/11/30 20:14:02] ppcls INFO:     output_dir : ./output/
-[2022/11/30 20:14:02] ppcls INFO:     device : gpu
-[2022/11/30 20:14:02] ppcls INFO:     save_interval : 1
-[2022/11/30 20:14:02] ppcls INFO:     eval_during_train : False
-[2022/11/30 20:14:02] ppcls INFO:     eval_interval : 1
-[2022/11/30 20:14:02] ppcls INFO:     epochs : 1
-[2022/11/30 20:14:02] ppcls INFO:     print_batch_step : 10
-[2022/11/30 20:14:02] ppcls INFO:     use_visualdl : False
-[2022/11/30 20:14:02] ppcls INFO:     image_channel : 4
-[2022/11/30 20:14:02] ppcls INFO:     image_shape : [4, 224, 224]
-[2022/11/30 20:14:02] ppcls INFO:     save_inference_dir : ./inference
-[2022/11/30 20:14:02] ppcls INFO:     to_static : False
-[2022/11/30 20:14:02] ppcls INFO:     use_dali : True
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: AMP : 
-[2022/11/30 20:14:02] ppcls INFO:     scale_loss : 128.0
-[2022/11/30 20:14:02] ppcls INFO:     use_dynamic_loss_scaling : True
-[2022/11/30 20:14:02] ppcls INFO:     level : O2
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: Arch : 
-[2022/11/30 20:14:02] ppcls INFO:     name : ResNet50
-[2022/11/30 20:14:02] ppcls INFO:     class_num : 1000
-[2022/11/30 20:14:02] ppcls INFO:     input_image_channel : 4
-[2022/11/30 20:14:02] ppcls INFO:     data_format : NHWC
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: Loss : 
-[2022/11/30 20:14:02] ppcls INFO:     Train : 
-[2022/11/30 20:14:02] ppcls INFO:         CELoss : 
-[2022/11/30 20:14:02] ppcls INFO:             weight : 1.0
-[2022/11/30 20:14:02] ppcls INFO:     Eval : 
-[2022/11/30 20:14:02] ppcls INFO:         CELoss : 
-[2022/11/30 20:14:02] ppcls INFO:             weight : 1.0
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: Optimizer : 
-[2022/11/30 20:14:02] ppcls INFO:     name : Momentum
-[2022/11/30 20:14:02] ppcls INFO:     momentum : 0.9
-[2022/11/30 20:14:02] ppcls INFO:     multi_precision : True
-[2022/11/30 20:14:02] ppcls INFO:     lr : 
-[2022/11/30 20:14:02] ppcls INFO:         name : Piecewise
-[2022/11/30 20:14:02] ppcls INFO:         learning_rate : 0.1
-[2022/11/30 20:14:02] ppcls INFO:         decay_epochs : [30, 60, 90]
-[2022/11/30 20:14:02] ppcls INFO:         values : [0.1, 0.01, 0.001, 0.0001]
-[2022/11/30 20:14:02] ppcls INFO:     regularizer : 
-[2022/11/30 20:14:02] ppcls INFO:         name : L2
-[2022/11/30 20:14:02] ppcls INFO:         coeff : 0.0001
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: DataLoader : 
-[2022/11/30 20:14:02] ppcls INFO:     Train : 
-[2022/11/30 20:14:02] ppcls INFO:         dataset : 
-[2022/11/30 20:14:02] ppcls INFO:             name : ImageNetDataset
-[2022/11/30 20:14:02] ppcls INFO:             image_root : ./dataset/ILSVRC2012/
-[2022/11/30 20:14:02] ppcls INFO:             cls_label_path : ./dataset/ILSVRC2012/train_list.txt
-[2022/11/30 20:14:02] ppcls INFO:             transform_ops : 
-[2022/11/30 20:14:02] ppcls INFO:                 DecodeImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     to_rgb : True
-[2022/11/30 20:14:02] ppcls INFO:                     channel_first : False
-[2022/11/30 20:14:02] ppcls INFO:                 RandCropImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     size : 224
-[2022/11/30 20:14:02] ppcls INFO:                 RandFlipImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     flip_code : 1
-[2022/11/30 20:14:02] ppcls INFO:                 NormalizeImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     scale : 1.0/255.0
-[2022/11/30 20:14:02] ppcls INFO:                     mean : [0.485, 0.456, 0.406]
-[2022/11/30 20:14:02] ppcls INFO:                     std : [0.229, 0.224, 0.225]
-[2022/11/30 20:14:02] ppcls INFO:                     order : 
-[2022/11/30 20:14:02] ppcls INFO:                     output_fp16 : True
-[2022/11/30 20:14:02] ppcls INFO:                     channel_num : 4
-[2022/11/30 20:14:02] ppcls INFO:         sampler : 
-[2022/11/30 20:14:02] ppcls INFO:             name : DistributedBatchSampler
-[2022/11/30 20:14:02] ppcls INFO:             batch_size : 256
-[2022/11/30 20:14:02] ppcls INFO:             drop_last : False
-[2022/11/30 20:14:02] ppcls INFO:             shuffle : True
-[2022/11/30 20:14:02] ppcls INFO:         loader : 
-[2022/11/30 20:14:02] ppcls INFO:             num_workers : 4
-[2022/11/30 20:14:02] ppcls INFO:             use_shared_memory : True
-[2022/11/30 20:14:02] ppcls INFO:     Eval : 
-[2022/11/30 20:14:02] ppcls INFO:         dataset : 
-[2022/11/30 20:14:02] ppcls INFO:             name : ImageNetDataset
-[2022/11/30 20:14:02] ppcls INFO:             image_root : ./dataset/ILSVRC2012/
-[2022/11/30 20:14:02] ppcls INFO:             cls_label_path : ./dataset/ILSVRC2012/val_list.txt
-[2022/11/30 20:14:02] ppcls INFO:             transform_ops : 
-[2022/11/30 20:14:02] ppcls INFO:                 DecodeImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     to_rgb : True
-[2022/11/30 20:14:02] ppcls INFO:                     channel_first : False
-[2022/11/30 20:14:02] ppcls INFO:                 ResizeImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     resize_short : 256
-[2022/11/30 20:14:02] ppcls INFO:                 CropImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     size : 224
-[2022/11/30 20:14:02] ppcls INFO:                 NormalizeImage : 
-[2022/11/30 20:14:02] ppcls INFO:                     scale : 1.0/255.0
-[2022/11/30 20:14:02] ppcls INFO:                     mean : [0.485, 0.456, 0.406]
-[2022/11/30 20:14:02] ppcls INFO:                     std : [0.229, 0.224, 0.225]
-[2022/11/30 20:14:02] ppcls INFO:                     order : 
-[2022/11/30 20:14:02] ppcls INFO:                     channel_num : 4
-[2022/11/30 20:14:02] ppcls INFO:         sampler : 
-[2022/11/30 20:14:02] ppcls INFO:             name : DistributedBatchSampler
-[2022/11/30 20:14:02] ppcls INFO:             batch_size : 64
-[2022/11/30 20:14:02] ppcls INFO:             drop_last : False
-[2022/11/30 20:14:02] ppcls INFO:             shuffle : False
-[2022/11/30 20:14:02] ppcls INFO:         loader : 
-[2022/11/30 20:14:02] ppcls INFO:             num_workers : 4
-[2022/11/30 20:14:02] ppcls INFO:             use_shared_memory : True
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: Infer : 
-[2022/11/30 20:14:02] ppcls INFO:     infer_imgs : docs/images/inference_deployment/whl_demo.jpg
-[2022/11/30 20:14:02] ppcls INFO:     batch_size : 10
-[2022/11/30 20:14:02] ppcls INFO:     transforms : 
-[2022/11/30 20:14:02] ppcls INFO:         DecodeImage : 
-[2022/11/30 20:14:02] ppcls INFO:             to_rgb : True
-[2022/11/30 20:14:02] ppcls INFO:             channel_first : False
-[2022/11/30 20:14:02] ppcls INFO:         ResizeImage : 
-[2022/11/30 20:14:02] ppcls INFO:             resize_short : 256
-[2022/11/30 20:14:02] ppcls INFO:         CropImage : 
-[2022/11/30 20:14:02] ppcls INFO:             size : 224
-[2022/11/30 20:14:02] ppcls INFO:         NormalizeImage : 
-[2022/11/30 20:14:02] ppcls INFO:             scale : 1.0/255.0
-[2022/11/30 20:14:02] ppcls INFO:             mean : [0.485, 0.456, 0.406]
-[2022/11/30 20:14:02] ppcls INFO:             std : [0.229, 0.224, 0.225]
-[2022/11/30 20:14:02] ppcls INFO:             order : 
-[2022/11/30 20:14:02] ppcls INFO:             channel_num : 4
-[2022/11/30 20:14:02] ppcls INFO:         ToCHWImage : None
-[2022/11/30 20:14:02] ppcls INFO:     PostProcess : 
-[2022/11/30 20:14:02] ppcls INFO:         name : Topk
-[2022/11/30 20:14:02] ppcls INFO:         topk : 5
-[2022/11/30 20:14:02] ppcls INFO:         class_id_map_file : ppcls/utils/imagenet1k_label_list.txt
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: Metric : 
-[2022/11/30 20:14:02] ppcls INFO:     Train : 
-[2022/11/30 20:14:02] ppcls INFO:         TopkAcc : 
-[2022/11/30 20:14:02] ppcls INFO:             topk : [1, 5]
-[2022/11/30 20:14:02] ppcls INFO:     Eval : 
-[2022/11/30 20:14:02] ppcls INFO:         TopkAcc : 
-[2022/11/30 20:14:02] ppcls INFO:             topk : [1, 5]
-[2022/11/30 20:14:02] ppcls INFO: ------------------------------------------------------------
-[2022/11/30 20:14:02] ppcls INFO: fuse_elewise_add_act_ops : True
-[2022/11/30 20:14:02] ppcls INFO: enable_addto : True
-[/opt/dali/dali/operators/image/resize/resampling_attr.cc:103] The default behavior for LINEAR interpolation type has been changed to apply an antialiasing filter. If you didn't mean to apply an antialiasing filter, please use `antialias=False`
-W1130 20:14:06.066362 16830 gpu_resources.cc:61] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 11.2, Runtime API Version: 11.2
-W1130 20:14:06.071233 16830 gpu_resources.cc:91] device: 0, cuDNN Version: 8.1.
-[2022/11/30 20:14:06] ppcls WARNING: "init_res" will be deprecated, please use "init_net" instead.
-/paddle/perf/pa240_perf/PaddleClas/ppcls/data/preprocess/ops/timm_autoaugment.py:39: DeprecationWarning: BILINEAR is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BILINEAR instead.
-  _RANDOM_INTERPOLATION = (Image.BILINEAR, Image.BICUBIC)
-/paddle/perf/pa240_perf/PaddleClas/ppcls/data/preprocess/ops/timm_autoaugment.py:39: DeprecationWarning: BICUBIC is deprecated and will be removed in Pillow 10 (2023-07-01). Use Resampling.BICUBIC instead.
-  _RANDOM_INTERPOLATION = (Image.BILINEAR, Image.BICUBIC)
-[2022-11-30 20:14:06,525] [ WARNING] fleet.py:1073 - It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
-[2022/11/30 20:14:07] ppcls WARNING: Only support FP16 evaluation when AMP O2 is enabled.
-W1130 20:14:07.294531 16830 build_strategy.cc:124] Currently, fuse_broadcast_ops only works under Reduce mode.
-I1130 20:14:07.363317 16830 fuse_pass_base.cc:59] ---  detected 33 subgraphs
-I1130 20:14:07.502619 16830 fuse_pass_base.cc:59] ---  detected 33 subgraphs
-I1130 20:14:07.550598 16830 fuse_pass_base.cc:59] ---  detected 16 subgraphs
-I1130 20:14:07.592337 16830 fuse_pass_base.cc:59] ---  detected 16 subgraphs
-W1130 20:14:07.964767 16929 gpu_resources.cc:217] WARNING: device:  . The installed Paddle is compiled with CUDNN 8.2, but CUDNN version in your machine is 8.1, which may cause serious incompatible bug. Please recompile or reinstall Paddle with compatible CUDNN version.
-[2022/11/30 20:14:22] ppcls INFO: epoch:0   train step:10   lr: 0.100000, loss:  9.6160 top1:  0.0039 top5:  0.0078 batch_cost: 0.17793 s, reader_cost: 0.00062 s, ips: 1438.77193 samples/sec.
-[2022/11/30 20:14:24] ppcls INFO: epoch:0   train step:20   lr: 0.100000, loss:  7.8344 top1:  0.0039 top5:  0.0078 batch_cost: 0.18488 s, reader_cost: 0.00228 s, ips: 1384.70749 samples/sec.
-[2022/11/30 20:14:25] ppcls INFO: epoch:0   train step:30   lr: 0.100000, loss:  7.7324 top1:  0.0000 top5:  0.0117 batch_cost: 0.18205 s, reader_cost: 0.00165 s, ips: 1406.21382 samples/sec.
-[2022/11/30 20:14:27] ppcls INFO: epoch:0   train step:40   lr: 0.100000, loss:  6.9634 top1:  0.0000 top5:  0.0117 batch_cost: 0.18081 s, reader_cost: 0.00137 s, ips: 1415.85197 samples/sec.
-[2022/11/30 20:14:29] ppcls INFO: epoch:0   train step:50   lr: 0.100000, loss:  7.0452 top1:  0.0000 top5:  0.0039 batch_cost: 0.18013 s, reader_cost: 0.00119 s, ips: 1421.15675 samples/sec.
-[2022/11/30 20:14:31] ppcls INFO: epoch:0   train step:60   lr: 0.100000, loss:  6.9960 top1:  0.0000 top5:  0.0000 batch_cost: 0.17963 s, reader_cost: 0.00110 s, ips: 1425.11848 samples/sec.
-[2022/11/30 20:14:33] ppcls INFO: epoch:0   train step:70   lr: 0.100000, loss:  6.9465 top1:  0.0039 top5:  0.0078 batch_cost: 0.17927 s, reader_cost: 0.00113 s, ips: 1427.99669 samples/sec.
-[2022/11/30 20:14:34] ppcls INFO: epoch:0   train step:80   lr: 0.100000, loss:  6.9335 top1:  0.0000 top5:  0.0039 batch_cost: 0.17898 s, reader_cost: 0.00104 s, ips: 1430.29944 samples/sec.
-[2022/11/30 20:14:36] ppcls INFO: epoch:0   train step:90   lr: 0.100000, loss:  6.9563 top1:  0.0000 top5:  0.0039 batch_cost: 0.17880 s, reader_cost: 0.00098 s, ips: 1431.78081 samples/sec.
-[2022/11/30 20:14:38] ppcls INFO: epoch:0   train step:100  lr: 0.100000, loss:  6.9427 top1:  0.0039 top5:  0.0117 batch_cost: 0.17862 s, reader_cost: 0.00093 s, ips: 1433.22808 samples/sec.
-[2022/11/30 20:14:40] ppcls INFO: epoch:0   train step:110  lr: 0.100000, loss:  6.9078 top1:  0.0039 top5:  0.0039 batch_cost: 0.17849 s, reader_cost: 0.00090 s, ips: 1434.25903 samples/sec.
-[2022/11/30 20:14:41] ppcls INFO: epoch:0   train step:120  lr: 0.100000, loss:  6.9120 top1:  0.0000 top5:  0.0078 batch_cost: 0.17839 s, reader_cost: 0.00087 s, ips: 1435.06442 samples/sec.
-[2022/11/30 20:14:43] ppcls INFO: epoch:0   train step:130  lr: 0.100000, loss:  6.9407 top1:  0.0039 top5:  0.0078 batch_cost: 0.17830 s, reader_cost: 0.00085 s, ips: 1435.81855 samples/sec.
-[2022/11/30 20:14:45] ppcls INFO: epoch:0   train step:140  lr: 0.100000, loss:  6.9122 top1:  0.0039 top5:  0.0039 batch_cost: 0.17823 s, reader_cost: 0.00082 s, ips: 1436.32048 samples/sec.
-[2022/11/30 20:14:47] ppcls INFO: epoch:0   train step:150  lr: 0.100000, loss:  6.9085 top1:  0.0039 top5:  0.0117 batch_cost: 0.17817 s, reader_cost: 0.00080 s, ips: 1436.83336 samples/sec.
-[2022/11/30 20:14:49] ppcls INFO: epoch:0   train step:160  lr: 0.100000, loss:  6.9162 top1:  0.0000 top5:  0.0156 batch_cost: 0.17812 s, reader_cost: 0.00078 s, ips: 1437.21986 samples/sec.
-[2022/11/30 20:14:50] ppcls INFO: epoch:0   train step:170  lr: 0.100000, loss:  6.8929 top1:  0.0000 top5:  0.0078 batch_cost: 0.17807 s, reader_cost: 0.00076 s, ips: 1437.61176 samples/sec.
-[2022/11/30 20:14:52] ppcls INFO: epoch:0   train step:180  lr: 0.100000, loss:  6.9120 top1:  0.0000 top5:  0.0078 batch_cost: 0.17803 s, reader_cost: 0.00075 s, ips: 1437.94956 samples/sec.
-[2022/11/30 20:14:54] ppcls INFO: epoch:0   train step:190  lr: 0.100000, loss:  6.8969 top1:  0.0078 top5:  0.0117 batch_cost: 0.17798 s, reader_cost: 0.00074 s, ips: 1438.36212 samples/sec.
-[2022/11/30 20:14:56] ppcls INFO: epoch:0   train step:200  lr: 0.100000, loss:  6.9076 top1:  0.0000 top5:  0.0039 batch_cost: 0.17793 s, reader_cost: 0.00073 s, ips: 1438.74971 samples/sec.
-[2022/11/30 20:14:57] ppcls INFO: epoch:0   train step:210  lr: 0.100000, loss:  6.9053 top1:  0.0000 top5:  0.0117 batch_cost: 0.17788 s, reader_cost: 0.00072 s, ips: 1439.15438 samples/sec.
-[2022/11/30 20:14:59] ppcls INFO: epoch:0   train step:220  lr: 0.100000, loss:  6.9046 top1:  0.0039 top5:  0.0078 batch_cost: 0.17785 s, reader_cost: 0.00071 s, ips: 1439.38376 samples/sec.
-[2022/11/30 20:15:01] ppcls INFO: epoch:0   train step:230  lr: 0.100000, loss:  6.8975 top1:  0.0000 top5:  0.0039 batch_cost: 0.17784 s, reader_cost: 0.00070 s, ips: 1439.49434 samples/sec.
-[2022/11/30 20:15:03] ppcls INFO: epoch:0   train step:240  lr: 0.100000, loss:  6.9156 top1:  0.0000 top5:  0.0000 batch_cost: 0.17781 s, reader_cost: 0.00069 s, ips: 1439.69861 samples/sec.
-[2022/11/30 20:15:04] ppcls INFO: epoch:0   train step:250  lr: 0.100000, loss:  6.9095 top1:  0.0078 top5:  0.0078 batch_cost: 0.17780 s, reader_cost: 0.00069 s, ips: 1439.84783 samples/sec.
-[2022/11/30 20:15:06] ppcls INFO: epoch:0   train step:260  lr: 0.100000, loss:  6.9047 top1:  0.0000 top5:  0.0117 batch_cost: 0.17779 s, reader_cost: 0.00068 s, ips: 1439.90758 samples/sec.
-[2022/11/30 20:15:08] ppcls INFO: epoch:0   train step:270  lr: 0.100000, loss:  6.9049 top1:  0.0000 top5:  0.0000 batch_cost: 0.17778 s, reader_cost: 0.00067 s, ips: 1439.99566 samples/sec.
-[2022/11/30 20:15:10] ppcls INFO: epoch:0   train step:280  lr: 0.100000, loss:  6.8963 top1:  0.0000 top5:  0.0078 batch_cost: 0.17777 s, reader_cost: 0.00067 s, ips: 1440.05657 samples/sec.
-[2022/11/30 20:15:12] ppcls INFO: epoch:0   train step:290  lr: 0.100000, loss:  6.8986 top1:  0.0000 top5:  0.0156 batch_cost: 0.17775 s, reader_cost: 0.00066 s, ips: 1440.20719 samples/sec.
-[2022/11/30 20:15:13] ppcls INFO: epoch:0   train step:300  lr: 0.100000, loss:  6.9045 top1:  0.0000 top5:  0.0000 batch_cost: 0.17773 s, reader_cost: 0.00066 s, ips: 1440.38865 samples/sec.
-[2022/11/30 20:15:15] ppcls INFO: epoch:0   train step:310  lr: 0.100000, loss:  6.9067 top1:  0.0000 top5:  0.0039 batch_cost: 0.17772 s, reader_cost: 0.00065 s, ips: 1440.48710 samples/sec.
-[2022/11/30 20:15:17] ppcls INFO: epoch:0   train step:320  lr: 0.100000, loss:  6.8931 top1:  0.0000 top5:  0.0078 batch_cost: 0.17770 s, reader_cost: 0.00065 s, ips: 1440.59324 samples/sec.
-[2022/11/30 20:15:19] ppcls INFO: epoch:0   train step:330  lr: 0.100000, loss:  6.8907 top1:  0.0000 top5:  0.0117 batch_cost: 0.17769 s, reader_cost: 0.00065 s, ips: 1440.69234 samples/sec.
-[2022/11/30 20:15:20] ppcls INFO: epoch:0   train step:340  lr: 0.100000, loss:  6.9020 top1:  0.0000 top5:  0.0039 batch_cost: 0.17769 s, reader_cost: 0.00065 s, ips: 1440.72101 samples/sec.
-[2022/11/30 20:15:22] ppcls INFO: epoch:0   train step:350  lr: 0.100000, loss:  6.8800 top1:  0.0000 top5:  0.0078 batch_cost: 0.17769 s, reader_cost: 0.00064 s, ips: 1440.71741 samples/sec.
-[2022/11/30 20:15:24] ppcls INFO: epoch:0   train step:360  lr: 0.100000, loss:  6.8940 top1:  0.0078 top5:  0.0156 batch_cost: 0.17769 s, reader_cost: 0.00064 s, ips: 1440.71669 samples/sec.
-[2022/11/30 20:15:26] ppcls INFO: epoch:0   train step:370  lr: 0.100000, loss:  6.8519 top1:  0.0039 top5:  0.0156 batch_cost: 0.17768 s, reader_cost: 0.00063 s, ips: 1440.76258 samples/sec.
-[2022/11/30 20:15:28] ppcls INFO: epoch:0   train step:380  lr: 0.100000, loss:  6.8740 top1:  0.0000 top5:  0.0156 batch_cost: 0.17767 s, reader_cost: 0.00063 s, ips: 1440.83437 samples/sec.
-[2022/11/30 20:15:29] ppcls INFO: epoch:0   train step:390  lr: 0.100000, loss:  6.8495 top1:  0.0000 top5:  0.0039 batch_cost: 0.17767 s, reader_cost: 0.00063 s, ips: 1440.84568 samples/sec.
-[2022/11/30 20:15:31] ppcls INFO: epoch:0   train step:400  lr: 0.100000, loss:  6.8711 top1:  0.0039 top5:  0.0078 batch_cost: 0.17766 s, reader_cost: 0.00063 s, ips: 1440.91549 samples/sec.
-[2022/11/30 20:15:33] ppcls INFO: epoch:0   train step:410  lr: 0.100000, loss:  6.8652 top1:  0.0000 top5:  0.0078 batch_cost: 0.17766 s, reader_cost: 0.00063 s, ips: 1440.92127 samples/sec.
-[2022/11/30 20:15:35] ppcls INFO: epoch:0   train step:420  lr: 0.100000, loss:  6.8557 top1:  0.0000 top5:  0.0039 batch_cost: 0.17767 s, reader_cost: 0.00063 s, ips: 1440.87623 samples/sec.
-[2022/11/30 20:15:36] ppcls INFO: epoch:0   train step:430  lr: 0.100000, loss:  6.8308 top1:  0.0000 top5:  0.0156 batch_cost: 0.17767 s, reader_cost: 0.00062 s, ips: 1440.88400 samples/sec.
-[2022/11/30 20:15:38] ppcls INFO: epoch:0   train step:440  lr: 0.100000, loss:  6.8217 top1:  0.0039 top5:  0.0195 batch_cost: 0.17766 s, reader_cost: 0.00062 s, ips: 1440.93151 samples/sec.
-[2022/11/30 20:15:40] ppcls INFO: epoch:0   train step:450  lr: 0.100000, loss:  6.8339 top1:  0.0078 top5:  0.0117 batch_cost: 0.17766 s, reader_cost: 0.00062 s, ips: 1440.94626 samples/sec.
-[2022/11/30 20:15:42] ppcls INFO: epoch:0   train step:460  lr: 0.100000, loss:  6.8583 top1:  0.0000 top5:  0.0000 batch_cost: 0.17767 s, reader_cost: 0.00062 s, ips: 1440.90858 samples/sec.
-[2022/11/30 20:15:44] ppcls INFO: epoch:0   train step:470  lr: 0.100000, loss:  6.8483 top1:  0.0000 top5:  0.0039 batch_cost: 0.17767 s, reader_cost: 0.00062 s, ips: 1440.90808 samples/sec.
-[2022/11/30 20:15:45] ppcls INFO: epoch:0   train step:480  lr: 0.100000, loss:  6.8576 top1:  0.0000 top5:  0.0117 batch_cost: 0.17765 s, reader_cost: 0.00062 s, ips: 1441.00017 samples/sec.
-[2022/11/30 20:15:47] ppcls INFO: epoch:0   train step:490  lr: 0.100000, loss:  6.8468 top1:  0.0039 top5:  0.0117 batch_cost: 0.17765 s, reader_cost: 0.00061 s, ips: 1441.04131 samples/sec.
-[2022/11/30 20:15:49] ppcls INFO: epoch:0   train step:500  lr: 0.100000, loss:  6.8069 top1:  0.0039 top5:  0.0156 batch_cost: 0.17766 s, reader_cost: 0.00061 s, ips: 1440.99511 samples/sec.
-[2022/11/30 20:15:51] ppcls INFO: epoch:0   train step:510  lr: 0.100000, loss:  6.8493 top1:  0.0000 top5:  0.0117 batch_cost: 0.17765 s, reader_cost: 0.00061 s, ips: 1441.00841 samples/sec.
-[2022/11/30 20:15:52] ppcls INFO: epoch:0   train step:520  lr: 0.100000, loss:  6.8395 top1:  0.0039 top5:  0.0117 batch_cost: 0.17766 s, reader_cost: 0.00061 s, ips: 1440.96842 samples/sec.
-[2022/11/30 20:15:54] ppcls INFO: epoch:0   train step:530  lr: 0.100000, loss:  6.8488 top1:  0.0039 top5:  0.0078 batch_cost: 0.17766 s, reader_cost: 0.00060 s, ips: 1440.98371 samples/sec.
-[2022/11/30 20:15:56] ppcls INFO: epoch:0   train step:540  lr: 0.100000, loss:  6.8036 top1:  0.0078 top5:  0.0273 batch_cost: 0.17766 s, reader_cost: 0.00060 s, ips: 1440.97636 samples/sec.
-[2022/11/30 20:15:58] ppcls INFO: epoch:0   train step:550  lr: 0.100000, loss:  6.8135 top1:  0.0039 top5:  0.0117 batch_cost: 0.17766 s, reader_cost: 0.00060 s, ips: 1440.99229 samples/sec.
-[2022/11/30 20:16:00] ppcls INFO: epoch:0   train step:560  lr: 0.100000, loss:  6.7985 top1:  0.0000 top5:  0.0039 batch_cost: 0.17766 s, reader_cost: 0.00060 s, ips: 1440.95972 samples/sec.
-[2022/11/30 20:16:01] ppcls INFO: epoch:0   train step:570  lr: 0.100000, loss:  6.8120 top1:  0.0078 top5:  0.0156 batch_cost: 0.17766 s, reader_cost: 0.00059 s, ips: 1440.96390 samples/sec.
-[2022/11/30 20:16:03] ppcls INFO: epoch:0   train step:580  lr: 0.100000, loss:  6.8118 top1:  0.0039 top5:  0.0156 batch_cost: 0.17766 s, reader_cost: 0.00059 s, ips: 1440.94032 samples/sec.
-[2022/11/30 20:16:05] ppcls INFO: epoch:0   train step:590  lr: 0.100000, loss:  6.8041 top1:  0.0039 top5:  0.0156 batch_cost: 0.17767 s, reader_cost: 0.00059 s, ips: 1440.91253 samples/sec.
-[2022/11/30 20:16:07] ppcls INFO: epoch:0   train step:600  lr: 0.100000, loss:  6.7953 top1:  0.0078 top5:  0.0078 batch_cost: 0.17767 s, reader_cost: 0.00059 s, ips: 1440.84356 samples/sec.
-[2022/11/30 20:16:08] ppcls INFO: epoch:0   train step:610  lr: 0.100000, loss:  6.7170 top1:  0.0000 top5:  0.0156 batch_cost: 0.17768 s, reader_cost: 0.00058 s, ips: 1440.81730 samples/sec.
-[2022/11/30 20:16:10] ppcls INFO: epoch:0   train step:620  lr: 0.100000, loss:  6.7670 top1:  0.0078 top5:  0.0117 batch_cost: 0.17768 s, reader_cost: 0.00058 s, ips: 1440.80903 samples/sec.
-[2022/11/30 20:16:12] ppcls INFO: epoch:0   train step:630  lr: 0.100000, loss:  6.7538 top1:  0.0078 top5:  0.0078 batch_cost: 0.17768 s, reader_cost: 0.00058 s, ips: 1440.78532 samples/sec.
-[2022/11/30 20:16:14] ppcls INFO: epoch:0   train step:640  lr: 0.100000, loss:  6.7584 top1:  0.0000 top5:  0.0078 batch_cost: 0.17769 s, reader_cost: 0.00058 s, ips: 1440.74864 samples/sec.
-[2022/11/30 20:16:16] ppcls INFO: epoch:0   train step:650  lr: 0.100000, loss:  6.7049 top1:  0.0039 top5:  0.0195 batch_cost: 0.17769 s, reader_cost: 0.00058 s, ips: 1440.71107 samples/sec.
-[2022/11/30 20:16:17] ppcls INFO: epoch:0   train step:660  lr: 0.100000, loss:  6.7318 top1:  0.0039 top5:  0.0195 batch_cost: 0.17770 s, reader_cost: 0.00058 s, ips: 1440.65814 samples/sec.
-[2022/11/30 20:16:19] ppcls INFO: epoch:0   train step:670  lr: 0.100000, loss:  6.7834 top1:  0.0000 top5:  0.0039 batch_cost: 0.17770 s, reader_cost: 0.00058 s, ips: 1440.64634 samples/sec.
-[2022/11/30 20:16:21] ppcls INFO: epoch:0   train step:680  lr: 0.100000, loss:  6.7643 top1:  0.0000 top5:  0.0117 batch_cost: 0.17770 s, reader_cost: 0.00058 s, ips: 1440.59229 samples/sec.
-[2022/11/30 20:16:23] ppcls INFO: epoch:0   train step:690  lr: 0.100000, loss:  6.7392 top1:  0.0039 top5:  0.0078 batch_cost: 0.17771 s, reader_cost: 0.00058 s, ips: 1440.58832 samples/sec.
-[2022/11/30 20:16:24] ppcls INFO: epoch:0   train step:700  lr: 0.100000, loss:  6.7482 top1:  0.0000 top5:  0.0195 batch_cost: 0.17771 s, reader_cost: 0.00058 s, ips: 1440.57267 samples/sec.
-[2022/11/30 20:16:26] ppcls INFO: epoch:0   train step:710  lr: 0.100000, loss:  6.6903 top1:  0.0039 top5:  0.0156 batch_cost: 0.17771 s, reader_cost: 0.00058 s, ips: 1440.55772 samples/sec.
-[2022/11/30 20:16:28] ppcls INFO: epoch:0   train step:720  lr: 0.100000, loss:  6.7630 top1:  0.0039 top5:  0.0078 batch_cost: 0.17771 s, reader_cost: 0.00058 s, ips: 1440.52271 samples/sec.
-[2022/11/30 20:16:30] ppcls INFO: epoch:0   train step:730  lr: 0.100000, loss:  6.7471 top1:  0.0000 top5:  0.0000 batch_cost: 0.17771 s, reader_cost: 0.00058 s, ips: 1440.51291 samples/sec.
-[2022/11/30 20:16:32] ppcls INFO: epoch:0   train step:740  lr: 0.100000, loss:  6.8024 top1:  0.0117 top5:  0.0234 batch_cost: 0.17772 s, reader_cost: 0.00058 s, ips: 1440.48781 samples/sec.
-[2022/11/30 20:16:33] ppcls INFO: epoch:0   train step:750  lr: 0.100000, loss:  6.6621 top1:  0.0000 top5:  0.0117 batch_cost: 0.17772 s, reader_cost: 0.00058 s, ips: 1440.47446 samples/sec.
-[2022/11/30 20:16:35] ppcls INFO: epoch:0   train step:760  lr: 0.100000, loss:  6.6608 top1:  0.0039 top5:  0.0156 batch_cost: 0.17772 s, reader_cost: 0.00058 s, ips: 1440.46334 samples/sec.
-[2022/11/30 20:16:37] ppcls INFO: epoch:0   train step:770  lr: 0.100000, loss:  6.6978 top1:  0.0039 top5:  0.0156 batch_cost: 0.17772 s, reader_cost: 0.00058 s, ips: 1440.43790 samples/sec.
-[2022/11/30 20:16:39] ppcls INFO: epoch:0   train step:780  lr: 0.100000, loss:  6.6931 top1:  0.0000 top5:  0.0273 batch_cost: 0.17773 s, reader_cost: 0.00058 s, ips: 1440.42083 samples/sec.
-[2022/11/30 20:16:40] ppcls INFO: epoch:0   train step:790  lr: 0.100000, loss:  6.6662 top1:  0.0117 top5:  0.0195 batch_cost: 0.17773 s, reader_cost: 0.00058 s, ips: 1440.41745 samples/sec.
-[2022/11/30 20:16:42] ppcls INFO: epoch:0   train step:800  lr: 0.100000, loss:  6.6344 top1:  0.0039 top5:  0.0195 batch_cost: 0.17773 s, reader_cost: 0.00057 s, ips: 1440.38494 samples/sec.
-[2022/11/30 20:16:44] ppcls INFO: epoch:0   train step:810  lr: 0.100000, loss:  6.6027 top1:  0.0000 top5:  0.0078 batch_cost: 0.17773 s, reader_cost: 0.00057 s, ips: 1440.35230 samples/sec.
-[2022/11/30 20:16:46] ppcls INFO: epoch:0   train step:820  lr: 0.100000, loss:  6.6426 top1:  0.0078 top5:  0.0195 batch_cost: 0.17774 s, reader_cost: 0.00057 s, ips: 1440.30870 samples/sec.
-[2022/11/30 20:16:48] ppcls INFO: epoch:0   train step:830  lr: 0.100000, loss:  6.5757 top1:  0.0117 top5:  0.0273 batch_cost: 0.17774 s, reader_cost: 0.00057 s, ips: 1440.29416 samples/sec.
-[2022/11/30 20:16:49] ppcls INFO: epoch:0   train step:840  lr: 0.100000, loss:  6.6210 top1:  0.0039 top5:  0.0195 batch_cost: 0.17774 s, reader_cost: 0.00057 s, ips: 1440.27412 samples/sec.
-[2022/11/30 20:16:51] ppcls INFO: epoch:0   train step:850  lr: 0.100000, loss:  6.5379 top1:  0.0000 top5:  0.0078 batch_cost: 0.17775 s, reader_cost: 0.00057 s, ips: 1440.25899 samples/sec.
-[2022/11/30 20:16:53] ppcls INFO: epoch:0   train step:860  lr: 0.100000, loss:  6.6237 top1:  0.0117 top5:  0.0352 batch_cost: 0.17775 s, reader_cost: 0.00057 s, ips: 1440.25005 samples/sec.
-[2022/11/30 20:16:55] ppcls INFO: epoch:0   train step:870  lr: 0.100000, loss:  6.5596 top1:  0.0000 top5:  0.0195 batch_cost: 0.17775 s, reader_cost: 0.00057 s, ips: 1440.24284 samples/sec.
-[2022/11/30 20:16:57] ppcls INFO: epoch:0   train step:880  lr: 0.100000, loss:  6.5338 top1:  0.0039 top5:  0.0156 batch_cost: 0.17775 s, reader_cost: 0.00057 s, ips: 1440.23577 samples/sec.
-[2022/11/30 20:16:58] ppcls INFO: epoch:0   train step:890  lr: 0.100000, loss:  6.5418 top1:  0.0039 top5:  0.0391 batch_cost: 0.17775 s, reader_cost: 0.00057 s, ips: 1440.21261 samples/sec.
-[2022/11/30 20:17:00] ppcls INFO: epoch:0   train step:900  lr: 0.100000, loss:  6.5209 top1:  0.0000 top5:  0.0234 batch_cost: 0.17776 s, reader_cost: 0.00057 s, ips: 1440.17347 samples/sec.
-[2022/11/30 20:17:02] ppcls INFO: epoch:0   train step:910  lr: 0.100000, loss:  6.5551 top1:  0.0000 top5:  0.0117 batch_cost: 0.17776 s, reader_cost: 0.00057 s, ips: 1440.17662 samples/sec.
-[2022/11/30 20:17:04] ppcls INFO: epoch:0   train step:920  lr: 0.100000, loss:  6.5598 top1:  0.0078 top5:  0.0312 batch_cost: 0.17776 s, reader_cost: 0.00057 s, ips: 1440.14193 samples/sec.
-[2022/11/30 20:17:05] ppcls INFO: epoch:0   train step:930  lr: 0.100000, loss:  6.5375 top1:  0.0039 top5:  0.0312 batch_cost: 0.17776 s, reader_cost: 0.00057 s, ips: 1440.11079 samples/sec.
-[2022/11/30 20:17:07] ppcls INFO: epoch:0   train step:940  lr: 0.100000, loss:  6.5038 top1:  0.0039 top5:  0.0078 batch_cost: 0.17777 s, reader_cost: 0.00057 s, ips: 1440.07484 samples/sec.
-[2022/11/30 20:17:09] ppcls INFO: epoch:0   train step:950  lr: 0.100000, loss:  6.4883 top1:  0.0039 top5:  0.0273 batch_cost: 0.17777 s, reader_cost: 0.00057 s, ips: 1440.03891 samples/sec.
-[2022/11/30 20:17:11] ppcls INFO: epoch:0   train step:960  lr: 0.100000, loss:  6.4915 top1:  0.0078 top5:  0.0469 batch_cost: 0.17778 s, reader_cost: 0.00057 s, ips: 1440.01142 samples/sec.
-[2022/11/30 20:17:13] ppcls INFO: epoch:0   train step:970  lr: 0.100000, loss:  6.5179 top1:  0.0078 top5:  0.0312 batch_cost: 0.17778 s, reader_cost: 0.00057 s, ips: 1439.99363 samples/sec.
-[2022/11/30 20:17:14] ppcls INFO: epoch:0   train step:980  lr: 0.100000, loss:  6.4916 top1:  0.0039 top5:  0.0312 batch_cost: 0.17778 s, reader_cost: 0.00057 s, ips: 1439.97855 samples/sec.
-[2022/11/30 20:17:16] ppcls INFO: epoch:0   train step:990  lr: 0.100000, loss:  6.5035 top1:  0.0078 top5:  0.0273 batch_cost: 0.17778 s, reader_cost: 0.00057 s, ips: 1439.94601 samples/sec.
-[2022/11/30 20:17:18] ppcls INFO: epoch:0   train step:1000 lr: 0.100000, loss:  6.4325 top1:  0.0117 top5:  0.0508 batch_cost: 0.17778 s, reader_cost: 0.00057 s, ips: 1439.94460 samples/sec.
-[2022/11/30 20:17:20] ppcls INFO: epoch:0   train step:1010 lr: 0.100000, loss:  6.4241 top1:  0.0039 top5:  0.0508 batch_cost: 0.17778 s, reader_cost: 0.00057 s, ips: 1439.94195 samples/sec.
-[2022/11/30 20:17:21] ppcls INFO: epoch:0   train step:1020 lr: 0.100000, loss:  6.5366 top1:  0.0039 top5:  0.0273 batch_cost: 0.17779 s, reader_cost: 0.00057 s, ips: 1439.92480 samples/sec.
-[2022/11/30 20:17:23] ppcls INFO: epoch:0   train step:1030 lr: 0.100000, loss:  6.4878 top1:  0.0078 top5:  0.0469 batch_cost: 0.17779 s, reader_cost: 0.00057 s, ips: 1439.88616 samples/sec.
-[2022/11/30 20:17:25] ppcls INFO: epoch:0   train step:1040 lr: 0.100000, loss:  6.4135 top1:  0.0156 top5:  0.0547 batch_cost: 0.17780 s, reader_cost: 0.00057 s, ips: 1439.85823 samples/sec.
-[2022/11/30 20:17:27] ppcls INFO: epoch:0   train step:1050 lr: 0.100000, loss:  6.5768 top1:  0.0078 top5:  0.0352 batch_cost: 0.17780 s, reader_cost: 0.00057 s, ips: 1439.83550 samples/sec.
-[2022/11/30 20:17:29] ppcls INFO: epoch:0   train step:1060 lr: 0.100000, loss:  6.4459 top1:  0.0156 top5:  0.0547 batch_cost: 0.17780 s, reader_cost: 0.00057 s, ips: 1439.80326 samples/sec.
-[2022/11/30 20:17:30] ppcls INFO: epoch:0   train step:1070 lr: 0.100000, loss:  6.4288 top1:  0.0078 top5:  0.0156 batch_cost: 0.17781 s, reader_cost: 0.00057 s, ips: 1439.77527 samples/sec.
-[2022/11/30 20:17:32] ppcls INFO: epoch:0   train step:1080 lr: 0.100000, loss:  6.4182 top1:  0.0039 top5:  0.0352 batch_cost: 0.17781 s, reader_cost: 0.00057 s, ips: 1439.74117 samples/sec.
-[2022/11/30 20:17:34] ppcls INFO: epoch:0   train step:1090 lr: 0.100000, loss:  6.4339 top1:  0.0039 top5:  0.0312 batch_cost: 0.17781 s, reader_cost: 0.00057 s, ips: 1439.70637 samples/sec.
-[2022/11/30 20:17:36] ppcls INFO: epoch:0   train step:1100 lr: 0.100000, loss:  6.3602 top1:  0.0117 top5:  0.0430 batch_cost: 0.17782 s, reader_cost: 0.00056 s, ips: 1439.66969 samples/sec.
-[2022/11/30 20:17:37] ppcls INFO: epoch:0   train step:1110 lr: 0.100000, loss:  6.4945 top1:  0.0078 top5:  0.0273 batch_cost: 0.17782 s, reader_cost: 0.00056 s, ips: 1439.65209 samples/sec.
-[2022/11/30 20:17:39] ppcls INFO: epoch:0   train step:1120 lr: 0.100000, loss:  6.3560 top1:  0.0117 top5:  0.0547 batch_cost: 0.17783 s, reader_cost: 0.00057 s, ips: 1439.60616 samples/sec.
-[2022/11/30 20:17:41] ppcls INFO: epoch:0   train step:1130 lr: 0.100000, loss:  6.3955 top1:  0.0000 top5:  0.0312 batch_cost: 0.17783 s, reader_cost: 0.00057 s, ips: 1439.57512 samples/sec.
-[2022/11/30 20:17:43] ppcls INFO: epoch:0   train step:1140 lr: 0.100000, loss:  6.3992 top1:  0.0078 top5:  0.0352 batch_cost: 0.17784 s, reader_cost: 0.00057 s, ips: 1439.52298 samples/sec.
-[2022/11/30 20:17:45] ppcls INFO: epoch:0   train step:1150 lr: 0.100000, loss:  6.2660 top1:  0.0156 top5:  0.0625 batch_cost: 0.17784 s, reader_cost: 0.00057 s, ips: 1439.50093 samples/sec.
-[2022/11/30 20:17:46] ppcls INFO: epoch:0   train step:1160 lr: 0.100000, loss:  6.4155 top1:  0.0078 top5:  0.0273 batch_cost: 0.17784 s, reader_cost: 0.00057 s, ips: 1439.48008 samples/sec.
-[2022/11/30 20:17:48] ppcls INFO: epoch:0   train step:1170 lr: 0.100000, loss:  6.3603 top1:  0.0117 top5:  0.0508 batch_cost: 0.17785 s, reader_cost: 0.00057 s, ips: 1439.45515 samples/sec.
-[2022/11/30 20:17:50] ppcls INFO: epoch:0   train step:1180 lr: 0.100000, loss:  6.4241 top1:  0.0078 top5:  0.0508 batch_cost: 0.17785 s, reader_cost: 0.00057 s, ips: 1439.42802 samples/sec.
-[2022/11/30 20:17:52] ppcls INFO: epoch:0   train step:1190 lr: 0.100000, loss:  6.2769 top1:  0.0195 top5:  0.0391 batch_cost: 0.17785 s, reader_cost: 0.00057 s, ips: 1439.39915 samples/sec.
-[2022/11/30 20:17:54] ppcls INFO: epoch:0   train step:1200 lr: 0.100000, loss:  6.3005 top1:  0.0117 top5:  0.0508 batch_cost: 0.17785 s, reader_cost: 0.00057 s, ips: 1439.37766 samples/sec.
-[2022/11/30 20:17:55] ppcls INFO: epoch:0   train step:1210 lr: 0.100000, loss:  6.3426 top1:  0.0078 top5:  0.0508 batch_cost: 0.17786 s, reader_cost: 0.00057 s, ips: 1439.36446 samples/sec.
-[2022/11/30 20:17:57] ppcls INFO: epoch:0   train step:1220 lr: 0.100000, loss:  6.3092 top1:  0.0156 top5:  0.0664 batch_cost: 0.17786 s, reader_cost: 0.00057 s, ips: 1439.33733 samples/sec.
-[2022/11/30 20:17:59] ppcls INFO: epoch:0   train step:1230 lr: 0.100000, loss:  6.3718 top1:  0.0156 top5:  0.0391 batch_cost: 0.17787 s, reader_cost: 0.00057 s, ips: 1439.29326 samples/sec.
-[2022/11/30 20:18:01] ppcls INFO: epoch:0   train step:1240 lr: 0.100000, loss:  6.3325 top1:  0.0156 top5:  0.0508 batch_cost: 0.17787 s, reader_cost: 0.00057 s, ips: 1439.26900 samples/sec.
-[2022/11/30 20:18:02] ppcls INFO: epoch:0   train step:1250 lr: 0.100000, loss:  6.2088 top1:  0.0039 top5:  0.0625 batch_cost: 0.17787 s, reader_cost: 0.00057 s, ips: 1439.24273 samples/sec.
-[2022/11/30 20:18:04] ppcls INFO: epoch:0   train step:1260 lr: 0.100000, loss:  6.2629 top1:  0.0156 top5:  0.0391 batch_cost: 0.17787 s, reader_cost: 0.00057 s, ips: 1439.21587 samples/sec.
-[2022/11/30 20:18:06] ppcls INFO: epoch:0   train step:1270 lr: 0.100000, loss:  6.2518 top1:  0.0039 top5:  0.0352 batch_cost: 0.17788 s, reader_cost: 0.00057 s, ips: 1439.19174 samples/sec.
-[2022/11/30 20:18:08] ppcls INFO: epoch:0   train step:1280 lr: 0.100000, loss:  6.3320 top1:  0.0078 top5:  0.0391 batch_cost: 0.17788 s, reader_cost: 0.00057 s, ips: 1439.16790 samples/sec.
-[2022/11/30 20:18:10] ppcls INFO: epoch:0   train step:1290 lr: 0.100000, loss:  6.2187 top1:  0.0039 top5:  0.0391 batch_cost: 0.17788 s, reader_cost: 0.00057 s, ips: 1439.15149 samples/sec.
-[2022/11/30 20:18:11] ppcls INFO: epoch:0   train step:1300 lr: 0.100000, loss:  6.3211 top1:  0.0078 top5:  0.0547 batch_cost: 0.17788 s, reader_cost: 0.00057 s, ips: 1439.13206 samples/sec.
-[2022/11/30 20:18:13] ppcls INFO: epoch:0   train step:1310 lr: 0.100000, loss:  6.0959 top1:  0.0391 top5:  0.0703 batch_cost: 0.17789 s, reader_cost: 0.00057 s, ips: 1439.10039 samples/sec.
-[2022/11/30 20:18:15] ppcls INFO: epoch:0   train step:1320 lr: 0.100000, loss:  6.1769 top1:  0.0078 top5:  0.0234 batch_cost: 0.17789 s, reader_cost: 0.00057 s, ips: 1439.09107 samples/sec.
-[2022/11/30 20:18:17] ppcls INFO: epoch:0   train step:1330 lr: 0.100000, loss:  6.2723 top1:  0.0078 top5:  0.0625 batch_cost: 0.17789 s, reader_cost: 0.00057 s, ips: 1439.06493 samples/sec.
-[2022/11/30 20:18:19] ppcls INFO: epoch:0   train step:1340 lr: 0.100000, loss:  6.1846 top1:  0.0078 top5:  0.0352 batch_cost: 0.17790 s, reader_cost: 0.00057 s, ips: 1439.03737 samples/sec.
-[2022/11/30 20:18:20] ppcls INFO: epoch:0   train step:1350 lr: 0.100000, loss:  6.3088 top1:  0.0078 top5:  0.0430 batch_cost: 0.17790 s, reader_cost: 0.00057 s, ips: 1439.00936 samples/sec.
-[2022/11/30 20:18:22] ppcls INFO: epoch:0   train step:1360 lr: 0.100000, loss:  6.1659 top1:  0.0195 top5:  0.0547 batch_cost: 0.17790 s, reader_cost: 0.00057 s, ips: 1438.97954 samples/sec.
-[2022/11/30 20:18:24] ppcls INFO: epoch:0   train step:1370 lr: 0.100000, loss:  6.3362 top1:  0.0117 top5:  0.0508 batch_cost: 0.17791 s, reader_cost: 0.00057 s, ips: 1438.94035 samples/sec.
-[2022/11/30 20:18:26] ppcls INFO: epoch:0   train step:1380 lr: 0.100000, loss:  6.0265 top1:  0.0273 top5:  0.0859 batch_cost: 0.17791 s, reader_cost: 0.00057 s, ips: 1438.91949 samples/sec.
-[2022/11/30 20:18:27] ppcls INFO: epoch:0   train step:1390 lr: 0.100000, loss:  6.1845 top1:  0.0117 top5:  0.0547 batch_cost: 0.17791 s, reader_cost: 0.00057 s, ips: 1438.89889 samples/sec.
-[2022/11/30 20:18:29] ppcls INFO: epoch:0   train step:1400 lr: 0.100000, loss:  6.2522 top1:  0.0195 top5:  0.0664 batch_cost: 0.17792 s, reader_cost: 0.00057 s, ips: 1438.87156 samples/sec.
-[2022/11/30 20:18:31] ppcls INFO: epoch:0   train step:1410 lr: 0.100000, loss:  6.1401 top1:  0.0039 top5:  0.0703 batch_cost: 0.17792 s, reader_cost: 0.00057 s, ips: 1438.84026 samples/sec.
-[2022/11/30 20:18:33] ppcls INFO: epoch:0   train step:1420 lr: 0.100000, loss:  6.1839 top1:  0.0078 top5:  0.0469 batch_cost: 0.17792 s, reader_cost: 0.00057 s, ips: 1438.82110 samples/sec.
-[2022/11/30 20:18:35] ppcls INFO: epoch:0   train step:1430 lr: 0.100000, loss:  6.2050 top1:  0.0195 top5:  0.0586 batch_cost: 0.17792 s, reader_cost: 0.00057 s, ips: 1438.81059 samples/sec.
-[2022/11/30 20:18:36] ppcls INFO: epoch:0   train step:1440 lr: 0.100000, loss:  6.3038 top1:  0.0000 top5:  0.0391 batch_cost: 0.17793 s, reader_cost: 0.00057 s, ips: 1438.78785 samples/sec.
-[2022/11/30 20:18:38] ppcls INFO: epoch:0   train step:1450 lr: 0.100000, loss:  6.2017 top1:  0.0117 top5:  0.0547 batch_cost: 0.17793 s, reader_cost: 0.00057 s, ips: 1438.76184 samples/sec.
-[2022/11/30 20:18:40] ppcls INFO: epoch:0   train step:1460 lr: 0.100000, loss:  6.2327 top1:  0.0195 top5:  0.0469 batch_cost: 0.17793 s, reader_cost: 0.00057 s, ips: 1438.72943 samples/sec.
-[2022/11/30 20:18:42] ppcls INFO: epoch:0   train step:1470 lr: 0.100000, loss:  6.1161 top1:  0.0195 top5:  0.0820 batch_cost: 0.17794 s, reader_cost: 0.00057 s, ips: 1438.70440 samples/sec.
-[2022/11/30 20:18:44] ppcls INFO: epoch:0   train step:1480 lr: 0.100000, loss:  6.2370 top1:  0.0312 top5:  0.0781 batch_cost: 0.17794 s, reader_cost: 0.00057 s, ips: 1438.68996 samples/sec.
-[2022/11/30 20:18:45] ppcls INFO: epoch:0   train step:1490 lr: 0.100000, loss:  6.2429 top1:  0.0117 top5:  0.0547 batch_cost: 0.17794 s, reader_cost: 0.00057 s, ips: 1438.67324 samples/sec.
-[2022/11/30 20:18:47] ppcls INFO: epoch:0   train step:1500 lr: 0.100000, loss:  6.1817 top1:  0.0117 top5:  0.0508 batch_cost: 0.17794 s, reader_cost: 0.00057 s, ips: 1438.66423 samples/sec.
-[2022/11/30 20:18:49] ppcls INFO: epoch:0   train step:1510 lr: 0.100000, loss:  6.0666 top1:  0.0234 top5:  0.0820 batch_cost: 0.17795 s, reader_cost: 0.00057 s, ips: 1438.64572 samples/sec.
-[2022/11/30 20:18:51] ppcls INFO: epoch:0   train step:1520 lr: 0.100000, loss:  6.1240 top1:  0.0195 top5:  0.0781 batch_cost: 0.17795 s, reader_cost: 0.00057 s, ips: 1438.63748 samples/sec.
-[2022/11/30 20:18:52] ppcls INFO: epoch:0   train step:1530 lr: 0.100000, loss:  6.0257 top1:  0.0117 top5:  0.0547 batch_cost: 0.17795 s, reader_cost: 0.00057 s, ips: 1438.62601 samples/sec.
-[2022/11/30 20:18:54] ppcls INFO: epoch:0   train step:1540 lr: 0.100000, loss:  6.0425 top1:  0.0117 top5:  0.0859 batch_cost: 0.17795 s, reader_cost: 0.00057 s, ips: 1438.60246 samples/sec.
-[2022/11/30 20:18:56] ppcls INFO: epoch:0   train step:1550 lr: 0.100000, loss:  6.0949 top1:  0.0273 top5:  0.0938 batch_cost: 0.17795 s, reader_cost: 0.00057 s, ips: 1438.59202 samples/sec.
-[2022/11/30 20:18:58] ppcls INFO: epoch:0   train step:1560 lr: 0.100000, loss:  6.0151 top1:  0.0078 top5:  0.0703 batch_cost: 0.17795 s, reader_cost: 0.00057 s, ips: 1438.57486 samples/sec.
-[2022/11/30 20:18:58] ppcls INFO: END epoch:0   train  loss:  6.6305 top1:  0.0065 top5:  0.0265 batch_cost: 0.17795 s, reader_cost: 0.00057 s, batch_cost_sum: 277.43070 s,
-[2022/11/30 20:18:59] ppcls INFO: Already save model in ./output/ResNet50/0
+[2023/07/28 06:53:36] ppcls INFO: Global : 
+[2023/07/28 06:53:36] ppcls INFO:     checkpoints : None
+[2023/07/28 06:53:36] ppcls INFO:     pretrained_model : None
+[2023/07/28 06:53:36] ppcls INFO:     output_dir : ./output/
+[2023/07/28 06:53:36] ppcls INFO:     device : gpu
+[2023/07/28 06:53:36] ppcls INFO:     save_interval : 1
+[2023/07/28 06:53:36] ppcls INFO:     eval_during_train : False
+[2023/07/28 06:53:36] ppcls INFO:     eval_interval : 1
+[2023/07/28 06:53:36] ppcls INFO:     epochs : 1
+[2023/07/28 06:53:36] ppcls INFO:     print_batch_step : 10
+[2023/07/28 06:53:36] ppcls INFO:     use_visualdl : False
+[2023/07/28 06:53:36] ppcls INFO:     image_channel : 4
+[2023/07/28 06:53:36] ppcls INFO:     image_shape : [4, 224, 224]
+[2023/07/28 06:53:36] ppcls INFO:     save_inference_dir : ./inference
+[2023/07/28 06:53:36] ppcls INFO:     to_static : False
+[2023/07/28 06:53:36] ppcls INFO:     use_dali : True
+[2023/07/28 06:53:36] ppcls INFO:     seed : 1234
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: AMP : 
+[2023/07/28 06:53:36] ppcls INFO:     scale_loss : 128.0
+[2023/07/28 06:53:36] ppcls INFO:     use_dynamic_loss_scaling : True
+[2023/07/28 06:53:36] ppcls INFO:     level : O2
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: Arch : 
+[2023/07/28 06:53:36] ppcls INFO:     name : ResNet50
+[2023/07/28 06:53:36] ppcls INFO:     class_num : 1000
+[2023/07/28 06:53:36] ppcls INFO:     input_image_channel : 4
+[2023/07/28 06:53:36] ppcls INFO:     data_format : NHWC
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: Loss : 
+[2023/07/28 06:53:36] ppcls INFO:     Train : 
+[2023/07/28 06:53:36] ppcls INFO:         CELoss : 
+[2023/07/28 06:53:36] ppcls INFO:             weight : 1.0
+[2023/07/28 06:53:36] ppcls INFO:     Eval : 
+[2023/07/28 06:53:36] ppcls INFO:         CELoss : 
+[2023/07/28 06:53:36] ppcls INFO:             weight : 1.0
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: Optimizer : 
+[2023/07/28 06:53:36] ppcls INFO:     name : Momentum
+[2023/07/28 06:53:36] ppcls INFO:     momentum : 0.9
+[2023/07/28 06:53:36] ppcls INFO:     multi_precision : True
+[2023/07/28 06:53:36] ppcls INFO:     lr : 
+[2023/07/28 06:53:36] ppcls INFO:         name : Piecewise
+[2023/07/28 06:53:36] ppcls INFO:         learning_rate : 0.1
+[2023/07/28 06:53:36] ppcls INFO:         decay_epochs : [30, 60, 90]
+[2023/07/28 06:53:36] ppcls INFO:         values : [0.1, 0.01, 0.001, 0.0001]
+[2023/07/28 06:53:36] ppcls INFO:     regularizer : 
+[2023/07/28 06:53:36] ppcls INFO:         name : L2
+[2023/07/28 06:53:36] ppcls INFO:         coeff : 0.0001
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: DataLoader : 
+[2023/07/28 06:53:36] ppcls INFO:     Train : 
+[2023/07/28 06:53:36] ppcls INFO:         dataset : 
+[2023/07/28 06:53:36] ppcls INFO:             name : ImageNetDataset
+[2023/07/28 06:53:36] ppcls INFO:             image_root : ./dataset/ILSVRC2012/
+[2023/07/28 06:53:36] ppcls INFO:             cls_label_path : ./dataset/ILSVRC2012/train_list.txt
+[2023/07/28 06:53:36] ppcls INFO:             transform_ops : 
+[2023/07/28 06:53:36] ppcls INFO:                 DecodeImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     to_rgb : True
+[2023/07/28 06:53:36] ppcls INFO:                     channel_first : False
+[2023/07/28 06:53:36] ppcls INFO:                 RandCropImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     size : 224
+[2023/07/28 06:53:36] ppcls INFO:                 RandFlipImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     flip_code : 1
+[2023/07/28 06:53:36] ppcls INFO:                 NormalizeImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     scale : 1.0/255.0
+[2023/07/28 06:53:36] ppcls INFO:                     mean : [0.485, 0.456, 0.406]
+[2023/07/28 06:53:36] ppcls INFO:                     std : [0.229, 0.224, 0.225]
+[2023/07/28 06:53:36] ppcls INFO:                     order : 
+[2023/07/28 06:53:36] ppcls INFO:                     output_fp16 : True
+[2023/07/28 06:53:36] ppcls INFO:                     channel_num : 4
+[2023/07/28 06:53:36] ppcls INFO:         sampler : 
+[2023/07/28 06:53:36] ppcls INFO:             name : DistributedBatchSampler
+[2023/07/28 06:53:36] ppcls INFO:             batch_size : 256
+[2023/07/28 06:53:36] ppcls INFO:             drop_last : False
+[2023/07/28 06:53:36] ppcls INFO:             shuffle : True
+[2023/07/28 06:53:36] ppcls INFO:         loader : 
+[2023/07/28 06:53:36] ppcls INFO:             num_workers : 4
+[2023/07/28 06:53:36] ppcls INFO:             use_shared_memory : True
+[2023/07/28 06:53:36] ppcls INFO:     Eval : 
+[2023/07/28 06:53:36] ppcls INFO:         dataset : 
+[2023/07/28 06:53:36] ppcls INFO:             name : ImageNetDataset
+[2023/07/28 06:53:36] ppcls INFO:             image_root : ./dataset/ILSVRC2012/
+[2023/07/28 06:53:36] ppcls INFO:             cls_label_path : ./dataset/ILSVRC2012/val_list.txt
+[2023/07/28 06:53:36] ppcls INFO:             transform_ops : 
+[2023/07/28 06:53:36] ppcls INFO:                 DecodeImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     to_rgb : True
+[2023/07/28 06:53:36] ppcls INFO:                     channel_first : False
+[2023/07/28 06:53:36] ppcls INFO:                 ResizeImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     resize_short : 256
+[2023/07/28 06:53:36] ppcls INFO:                 CropImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     size : 224
+[2023/07/28 06:53:36] ppcls INFO:                 NormalizeImage : 
+[2023/07/28 06:53:36] ppcls INFO:                     scale : 1.0/255.0
+[2023/07/28 06:53:36] ppcls INFO:                     mean : [0.485, 0.456, 0.406]
+[2023/07/28 06:53:36] ppcls INFO:                     std : [0.229, 0.224, 0.225]
+[2023/07/28 06:53:36] ppcls INFO:                     order : 
+[2023/07/28 06:53:36] ppcls INFO:                     channel_num : 4
+[2023/07/28 06:53:36] ppcls INFO:         sampler : 
+[2023/07/28 06:53:36] ppcls INFO:             name : DistributedBatchSampler
+[2023/07/28 06:53:36] ppcls INFO:             batch_size : 64
+[2023/07/28 06:53:36] ppcls INFO:             drop_last : False
+[2023/07/28 06:53:36] ppcls INFO:             shuffle : False
+[2023/07/28 06:53:36] ppcls INFO:         loader : 
+[2023/07/28 06:53:36] ppcls INFO:             num_workers : 4
+[2023/07/28 06:53:36] ppcls INFO:             use_shared_memory : True
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: Infer : 
+[2023/07/28 06:53:36] ppcls INFO:     infer_imgs : docs/images/inference_deployment/whl_demo.jpg
+[2023/07/28 06:53:36] ppcls INFO:     batch_size : 10
+[2023/07/28 06:53:36] ppcls INFO:     transforms : 
+[2023/07/28 06:53:36] ppcls INFO:         DecodeImage : 
+[2023/07/28 06:53:36] ppcls INFO:             to_rgb : True
+[2023/07/28 06:53:36] ppcls INFO:             channel_first : False
+[2023/07/28 06:53:36] ppcls INFO:         ResizeImage : 
+[2023/07/28 06:53:36] ppcls INFO:             resize_short : 256
+[2023/07/28 06:53:36] ppcls INFO:         CropImage : 
+[2023/07/28 06:53:36] ppcls INFO:             size : 224
+[2023/07/28 06:53:36] ppcls INFO:         NormalizeImage : 
+[2023/07/28 06:53:36] ppcls INFO:             scale : 1.0/255.0
+[2023/07/28 06:53:36] ppcls INFO:             mean : [0.485, 0.456, 0.406]
+[2023/07/28 06:53:36] ppcls INFO:             std : [0.229, 0.224, 0.225]
+[2023/07/28 06:53:36] ppcls INFO:             order : 
+[2023/07/28 06:53:36] ppcls INFO:             channel_num : 4
+[2023/07/28 06:53:36] ppcls INFO:         ToCHWImage : None
+[2023/07/28 06:53:36] ppcls INFO:     PostProcess : 
+[2023/07/28 06:53:36] ppcls INFO:         name : Topk
+[2023/07/28 06:53:36] ppcls INFO:         topk : 5
+[2023/07/28 06:53:36] ppcls INFO:         class_id_map_file : ppcls/utils/imagenet1k_label_list.txt
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: Metric : 
+[2023/07/28 06:53:36] ppcls INFO:     Train : 
+[2023/07/28 06:53:36] ppcls INFO:         TopkAcc : 
+[2023/07/28 06:53:36] ppcls INFO:             topk : [1, 5]
+[2023/07/28 06:53:36] ppcls INFO:     Eval : 
+[2023/07/28 06:53:36] ppcls INFO:         TopkAcc : 
+[2023/07/28 06:53:36] ppcls INFO:             topk : [1, 5]
+[2023/07/28 06:53:36] ppcls INFO: ------------------------------------------------------------
+[2023/07/28 06:53:36] ppcls INFO: fuse_elewise_add_act_ops : True
+[2023/07/28 06:53:36] ppcls INFO: enable_addto : True
+[2023-07-28 06:53:36,737] [    INFO] distributed_strategy.py:160 - distributed strategy initialized
+[2023/07/28 06:53:36] ppcls INFO: DALI fused Operator conversion(Train): [DecodeImage, RandCropImage] -> DecodeRandomResizedCrop: {'device': 'mixed', 'output_type': <DALIImageType.RGB: 0>, 'device_memory_padding': 211025920, 'host_memory_padding': 140544512, 'random_area': [0.08, 1.0], 'random_aspect_ratio': [0.75, 1.3333333333333333], 'num_attempts': 100, 'resize_x': 224, 'resize_y': 224}
+[2023/07/28 06:53:36] ppcls INFO: DALI fused Operator conversion(Train): [RandCropImage, RandFlipImage, NormalizeImage] -> CropMirrorNormalize: {'dtype': <DALIDataType.FLOAT16: 8>, 'output_layout': 'CHW', 'crop': (224, 224), 'mean': [123.675, 116.28, 103.53000000000002], 'std': [58.395, 57.120000000000005, 57.375], 'pad_output': True, 'prob': 0.5, 'device': 'gpu'}
+[2023/07/28 06:53:36] ppcls INFO: Building DALI Train pipeline with num_shards: 1, num_gpus: 1
+[/opt/dali/dali/operators/image/resize/resampling_attr.cc:100] The default behavior for LINEAR interpolation type has been changed to apply an antialiasing filter. If you didn't mean to apply an antialiasing filter, please use `antialias=False`
+W0728 06:53:41.247933 18105 gpu_resources.cc:119] Please NOTE: device: 0, GPU Compute Capability: 7.0, Driver API Version: 12.0, Runtime API Version: 11.2
+W0728 06:53:41.252360 18105 gpu_resources.cc:149] device: 0, cuDNN Version: 8.2.
+[2023/07/28 06:53:41] ppcls WARNING: "init_res" will be deprecated, please use "init_net" instead.
+[2023-07-28 06:53:41,667] [    INFO] distributed_strategy.py:160 - distributed strategy initialized
+[2023-07-28 06:53:41,668] [ WARNING] fleet.py:1092 - It is recommended to use DistributedStrategy in fleet.init(). The strategy here is only for compatibility. If the strategy in fleet.distributed_optimizer() is not None, then it will overwrite the DistributedStrategy in fleet.init(), which will take effect in distributed training.
+I0728 06:53:42.118103 18105 fuse_pass_base.cc:59] ---  detected 33 subgraphs
+I0728 06:53:42.205384 18105 fuse_pass_base.cc:59] ---  detected 33 subgraphs
+I0728 06:53:42.610867 18105 fuse_pass_base.cc:59] ---  detected 16 subgraphs
+I0728 06:53:42.643941 18105 fuse_pass_base.cc:59] ---  detected 16 subgraphs
+I0728 06:53:44.287643 18105 interpretercore.cc:237] New Executor is Running.
+[2023/07/28 06:53:44] ppcls WARNING: Only support FP16 evaluation when AMP O2 is enabled.
+I0728 06:53:46.695127 18105 interpreter_util.cc:518] Standalone Executor is Used.
+[2023/07/28 06:53:58] ppcls INFO: epoch:0   train step:10   lr: 0.100000, loss:  9.1266 top1:  0.0000 top5:  0.0000 batch_cost: 0.19934 s, reader_cost: 0.00054 s, ips: 1284.25548 samples/sec.
+[2023/07/28 06:54:00] ppcls INFO: epoch:0   train step:20   lr: 0.100000, loss:  7.5344 top1:  0.0039 top5:  0.0039 batch_cost: 0.18624 s, reader_cost: 0.00055 s, ips: 1374.56075 samples/sec.
+[2023/07/28 06:54:01] ppcls INFO: epoch:0   train step:30   lr: 0.100000, loss:  7.5215 top1:  0.0000 top5:  0.0078 batch_cost: 0.18323 s, reader_cost: 0.00056 s, ips: 1397.14765 samples/sec.
+[2023/07/28 06:54:03] ppcls INFO: epoch:0   train step:40   lr: 0.100000, loss:  7.2960 top1:  0.0000 top5:  0.0000 batch_cost: 0.18178 s, reader_cost: 0.00055 s, ips: 1408.28337 samples/sec.
+[2023/07/28 06:54:05] ppcls INFO: epoch:0   train step:50   lr: 0.100000, loss:  6.9823 top1:  0.0039 top5:  0.0039 batch_cost: 0.18097 s, reader_cost: 0.00056 s, ips: 1414.58638 samples/sec.
+[2023/07/28 06:54:07] ppcls INFO: epoch:0   train step:60   lr: 0.100000, loss:  6.9570 top1:  0.0000 top5:  0.0000 batch_cost: 0.18043 s, reader_cost: 0.00056 s, ips: 1418.83510 samples/sec.
+[2023/07/28 06:54:08] ppcls INFO: epoch:0   train step:70   lr: 0.100000, loss:  6.9093 top1:  0.0039 top5:  0.0039 batch_cost: 0.18004 s, reader_cost: 0.00057 s, ips: 1421.90677 samples/sec.
+[2023/07/28 06:54:10] ppcls INFO: epoch:0   train step:80   lr: 0.100000, loss:  6.9532 top1:  0.0000 top5:  0.0000 batch_cost: 0.17973 s, reader_cost: 0.00057 s, ips: 1424.33111 samples/sec.
+[2023/07/28 06:54:12] ppcls INFO: epoch:0   train step:90   lr: 0.100000, loss:  6.8969 top1:  0.0039 top5:  0.0039 batch_cost: 0.17953 s, reader_cost: 0.00057 s, ips: 1425.97547 samples/sec.
+[2023/07/28 06:54:14] ppcls INFO: epoch:0   train step:100  lr: 0.100000, loss:  6.8837 top1:  0.0039 top5:  0.0078 batch_cost: 0.17934 s, reader_cost: 0.00058 s, ips: 1427.46471 samples/sec.
+[2023/07/28 06:54:16] ppcls INFO: epoch:0   train step:110  lr: 0.100000, loss:  6.8911 top1:  0.0000 top5:  0.0039 batch_cost: 0.17920 s, reader_cost: 0.00057 s, ips: 1428.55973 samples/sec.
+[2023/07/28 06:54:17] ppcls INFO: epoch:0   train step:120  lr: 0.100000, loss:  6.9124 top1:  0.0039 top5:  0.0117 batch_cost: 0.17913 s, reader_cost: 0.00058 s, ips: 1429.10617 samples/sec.
+[2023/07/28 06:54:19] ppcls INFO: epoch:0   train step:130  lr: 0.100000, loss:  6.9199 top1:  0.0000 top5: -0.0039 batch_cost: 0.17901 s, reader_cost: 0.00057 s, ips: 1430.06830 samples/sec.
+[2023/07/28 06:54:21] ppcls INFO: epoch:0   train step:140  lr: 0.100000, loss:  6.9014 top1:  0.0000 top5:  0.0078 batch_cost: 0.17895 s, reader_cost: 0.00057 s, ips: 1430.56381 samples/sec.
+[2023/07/28 06:54:23] ppcls INFO: epoch:0   train step:150  lr: 0.100000, loss:  6.8843 top1:  0.0000 top5:  0.0117 batch_cost: 0.17888 s, reader_cost: 0.00058 s, ips: 1431.16041 samples/sec.
+[2023/07/28 06:54:24] ppcls INFO: epoch:0   train step:160  lr: 0.100000, loss:  6.9068 top1:  0.0000 top5:  0.0117 batch_cost: 0.17882 s, reader_cost: 0.00058 s, ips: 1431.64047 samples/sec.
+[2023/07/28 06:54:26] ppcls INFO: epoch:0   train step:170  lr: 0.100000, loss:  6.9043 top1:  0.0000 top5:  0.0000 batch_cost: 0.17877 s, reader_cost: 0.00057 s, ips: 1432.02298 samples/sec.
+[2023/07/28 06:54:28] ppcls INFO: epoch:0   train step:180  lr: 0.100000, loss:  6.9122 top1:  0.0000 top5:  0.0039 batch_cost: 0.17873 s, reader_cost: 0.00057 s, ips: 1432.33535 samples/sec.
+[2023/07/28 06:54:30] ppcls INFO: epoch:0   train step:190  lr: 0.100000, loss:  6.8952 top1:  0.0039 top5:  0.0078 batch_cost: 0.17868 s, reader_cost: 0.00057 s, ips: 1432.73550 samples/sec.
+[2023/07/28 06:54:32] ppcls INFO: epoch:0   train step:200  lr: 0.100000, loss:  6.9091 top1:  0.0039 top5:  0.0156 batch_cost: 0.17864 s, reader_cost: 0.00057 s, ips: 1433.04061 samples/sec.
+[2023/07/28 06:54:33] ppcls INFO: epoch:0   train step:210  lr: 0.100000, loss:  6.9067 top1:  0.0000 top5: -0.0039 batch_cost: 0.17861 s, reader_cost: 0.00057 s, ips: 1433.31546 samples/sec.
+[2023/07/28 06:54:35] ppcls INFO: epoch:0   train step:220  lr: 0.100000, loss:  6.8926 top1:  0.0039 top5:  0.0156 batch_cost: 0.17859 s, reader_cost: 0.00057 s, ips: 1433.43774 samples/sec.
+[2023/07/28 06:54:37] ppcls INFO: epoch:0   train step:230  lr: 0.100000, loss:  6.8954 top1:  0.0000 top5:  0.0117 batch_cost: 0.17858 s, reader_cost: 0.00057 s, ips: 1433.53286 samples/sec.
+[2023/07/28 06:54:39] ppcls INFO: epoch:0   train step:240  lr: 0.100000, loss:  6.8724 top1:  0.0000 top5:  0.0039 batch_cost: 0.17855 s, reader_cost: 0.00057 s, ips: 1433.77376 samples/sec.
+[2023/07/28 06:54:41] ppcls INFO: epoch:0   train step:250  lr: 0.100000, loss:  6.8846 top1:  0.0039 top5: -0.0078 batch_cost: 0.17853 s, reader_cost: 0.00057 s, ips: 1433.93716 samples/sec.
+[2023/07/28 06:54:42] ppcls INFO: epoch:0   train step:260  lr: 0.100000, loss:  6.8766 top1:  0.0000 top5:  0.0000 batch_cost: 0.17851 s, reader_cost: 0.00058 s, ips: 1434.08578 samples/sec.
+[2023/07/28 06:54:44] ppcls INFO: epoch:0   train step:270  lr: 0.100000, loss:  6.8662 top1:  0.0039 top5:  0.0117 batch_cost: 0.17850 s, reader_cost: 0.00058 s, ips: 1434.19223 samples/sec.
+[2023/07/28 06:54:46] ppcls INFO: epoch:0   train step:280  lr: 0.100000, loss:  6.8578 top1:  0.0000 top5:  0.0156 batch_cost: 0.17849 s, reader_cost: 0.00058 s, ips: 1434.26805 samples/sec.
+[2023/07/28 06:54:48] ppcls INFO: epoch:0   train step:290  lr: 0.100000, loss:  6.8328 top1:  0.0039 top5:  0.0078 batch_cost: 0.17849 s, reader_cost: 0.00058 s, ips: 1434.28942 samples/sec.
+[2023/07/28 06:54:49] ppcls INFO: epoch:0   train step:300  lr: 0.100000, loss:  6.8604 top1:  0.0000 top5:  0.0000 batch_cost: 0.17848 s, reader_cost: 0.00057 s, ips: 1434.33587 samples/sec.
+[2023/07/28 06:54:51] ppcls INFO: epoch:0   train step:310  lr: 0.100000, loss:  6.8607 top1:  0.0000 top5:  0.0039 batch_cost: 0.17847 s, reader_cost: 0.00057 s, ips: 1434.42054 samples/sec.
+[2023/07/28 06:54:53] ppcls INFO: epoch:0   train step:320  lr: 0.100000, loss:  6.8758 top1:  0.0039 top5: -0.0156 batch_cost: 0.17847 s, reader_cost: 0.00057 s, ips: 1434.43867 samples/sec.
+[2023/07/28 06:54:55] ppcls INFO: epoch:0   train step:330  lr: 0.100000, loss:  6.7996 top1:  0.0039 top5:  0.0117 batch_cost: 0.17846 s, reader_cost: 0.00057 s, ips: 1434.46495 samples/sec.
+[2023/07/28 06:54:57] ppcls INFO: epoch:0   train step:340  lr: 0.100000, loss:  6.7859 top1:  0.0039 top5:  0.0195 batch_cost: 0.17846 s, reader_cost: 0.00057 s, ips: 1434.49330 samples/sec.
+[2023/07/28 06:54:58] ppcls INFO: epoch:0   train step:350  lr: 0.100000, loss:  6.7643 top1:  0.0000 top5:  0.0117 batch_cost: 0.17847 s, reader_cost: 0.00057 s, ips: 1434.44585 samples/sec.
+[2023/07/28 06:55:00] ppcls INFO: epoch:0   train step:360  lr: 0.100000, loss:  6.7962 top1:  0.0078 top5: -0.0234 batch_cost: 0.17846 s, reader_cost: 0.00057 s, ips: 1434.50677 samples/sec.
+[2023/07/28 06:55:02] ppcls INFO: epoch:0   train step:370  lr: 0.100000, loss:  6.7443 top1:  0.0000 top5:  0.0078 batch_cost: 0.17845 s, reader_cost: 0.00057 s, ips: 1434.56532 samples/sec.
+[2023/07/28 06:55:04] ppcls INFO: epoch:0   train step:380  lr: 0.100000, loss:  6.7455 top1:  0.0000 top5:  0.0273 batch_cost: 0.17845 s, reader_cost: 0.00057 s, ips: 1434.61038 samples/sec.
+[2023/07/28 06:55:05] ppcls INFO: epoch:0   train step:390  lr: 0.100000, loss:  6.7521 top1:  0.0117 top5:  0.0234 batch_cost: 0.17845 s, reader_cost: 0.00057 s, ips: 1434.60999 samples/sec.
+[2023/07/28 06:55:07] ppcls INFO: epoch:0   train step:400  lr: 0.100000, loss:  6.7702 top1:  0.0000 top5:  0.0156 batch_cost: 0.17845 s, reader_cost: 0.00057 s, ips: 1434.61028 samples/sec.
+[2023/07/28 06:55:09] ppcls INFO: epoch:0   train step:410  lr: 0.100000, loss:  6.7362 top1:  0.0117 top5:  0.0234 batch_cost: 0.17844 s, reader_cost: 0.00057 s, ips: 1434.64307 samples/sec.
+[2023/07/28 06:55:11] ppcls INFO: epoch:0   train step:420  lr: 0.100000, loss:  6.7701 top1:  0.0000 top5:  0.0156 batch_cost: 0.17844 s, reader_cost: 0.00057 s, ips: 1434.63902 samples/sec.
+[2023/07/28 06:55:13] ppcls INFO: epoch:0   train step:430  lr: 0.100000, loss:  6.7853 top1:  0.0078 top5:  0.0117 batch_cost: 0.17844 s, reader_cost: 0.00057 s, ips: 1434.66946 samples/sec.
+[2023/07/28 06:55:14] ppcls INFO: epoch:0   train step:440  lr: 0.100000, loss:  6.7203 top1:  0.0117 top5: -0.0312 batch_cost: 0.17844 s, reader_cost: 0.00057 s, ips: 1434.65528 samples/sec.
+[2023/07/28 06:55:16] ppcls INFO: epoch:0   train step:450  lr: 0.100000, loss:  6.6774 top1:  0.0039 top5:  0.0352 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.76415 samples/sec.
+[2023/07/28 06:55:18] ppcls INFO: epoch:0   train step:460  lr: 0.100000, loss:  6.7317 top1:  0.0078 top5:  0.0156 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.70296 samples/sec.
+[2023/07/28 06:55:20] ppcls INFO: epoch:0   train step:470  lr: 0.100000, loss:  6.6872 top1:  0.0078 top5:  0.0273 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.72419 samples/sec.
+[2023/07/28 06:55:22] ppcls INFO: epoch:0   train step:480  lr: 0.100000, loss:  6.7638 top1:  0.0000 top5:  0.0078 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.76830 samples/sec.
+[2023/07/28 06:55:23] ppcls INFO: epoch:0   train step:490  lr: 0.100000, loss:  6.6495 top1:  0.0078 top5: -0.0234 batch_cost: 0.17842 s, reader_cost: 0.00056 s, ips: 1434.79083 samples/sec.
+[2023/07/28 06:55:25] ppcls INFO: epoch:0   train step:500  lr: 0.100000, loss:  6.6520 top1:  0.0078 top5:  0.0234 batch_cost: 0.17842 s, reader_cost: 0.00056 s, ips: 1434.84254 samples/sec.
+[2023/07/28 06:55:27] ppcls INFO: epoch:0   train step:510  lr: 0.100000, loss:  6.6551 top1:  0.0039 top5:  0.0117 batch_cost: 0.17842 s, reader_cost: 0.00056 s, ips: 1434.84169 samples/sec.
+[2023/07/28 06:55:29] ppcls INFO: epoch:0   train step:520  lr: 0.100000, loss:  6.5852 top1:  0.0039 top5:  0.0195 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.77506 samples/sec.
+[2023/07/28 06:55:30] ppcls INFO: epoch:0   train step:530  lr: 0.100000, loss:  6.6489 top1:  0.0039 top5:  0.0234 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.70696 samples/sec.
+[2023/07/28 06:55:32] ppcls INFO: epoch:0   train step:540  lr: 0.100000, loss:  6.5457 top1:  0.0078 top5:  0.0273 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.73903 samples/sec.
+[2023/07/28 06:55:34] ppcls INFO: epoch:0   train step:550  lr: 0.100000, loss:  6.6628 top1:  0.0000 top5:  0.0156 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.72427 samples/sec.
+[2023/07/28 06:55:36] ppcls INFO: epoch:0   train step:560  lr: 0.100000, loss:  6.5226 top1:  0.0234 top5:  0.0391 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.70916 samples/sec.
+[2023/07/28 06:55:38] ppcls INFO: epoch:0   train step:570  lr: 0.100000, loss:  6.5737 top1:  0.0078 top5:  0.0352 batch_cost: 0.17844 s, reader_cost: 0.00056 s, ips: 1434.68681 samples/sec.
+[2023/07/28 06:55:39] ppcls INFO: epoch:0   train step:580  lr: 0.100000, loss:  6.5381 top1:  0.0078 top5:  0.0273 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.70124 samples/sec.
+[2023/07/28 06:55:41] ppcls INFO: epoch:0   train step:590  lr: 0.100000, loss:  6.5827 top1:  0.0000 top5:  0.0312 batch_cost: 0.17843 s, reader_cost: 0.00056 s, ips: 1434.73116 samples/sec.
+[2023/07/28 06:55:43] ppcls INFO: epoch:0   train step:600  lr: 0.100000, loss:  6.5720 top1:  0.0117 top5:  0.0312 batch_cost: 0.17844 s, reader_cost: 0.00056 s, ips: 1434.65348 samples/sec.
+[2023/07/28 06:55:45] ppcls INFO: epoch:0   train step:610  lr: 0.100000, loss:  6.5388 top1:  0.0117 top5:  0.0352 batch_cost: 0.17844 s, reader_cost: 0.00056 s, ips: 1434.68385 samples/sec.
+[2023/07/28 06:55:47] ppcls INFO: epoch:0   train step:620  lr: 0.100000, loss:  6.4991 top1:  0.0117 top5: -0.0312 batch_cost: 0.17844 s, reader_cost: 0.00056 s, ips: 1434.67975 samples/sec.
+[2023/07/28 06:55:48] ppcls INFO: epoch:0   train step:630  lr: 0.100000, loss:  6.5712 top1:  0.0000 top5: -0.0195 batch_cost: 0.17844 s, reader_cost: 0.00056 s, ips: 1434.63513 samples/sec.
+[2023/07/28 06:55:50] ppcls INFO: epoch:0   train step:640  lr: 0.100000, loss:  6.4852 top1:  0.0039 top5:  0.0273 batch_cost: 0.17844 s, reader_cost: 0.00056 s, ips: 1434.64052 samples/sec.
+[2023/07/28 06:55:52] ppcls INFO: epoch:0   train step:650  lr: 0.100000, loss:  6.4884 top1:  0.0000 top5:  0.0312 batch_cost: 0.17845 s, reader_cost: 0.00056 s, ips: 1434.59955 samples/sec.
+[2023/07/28 06:55:54] ppcls INFO: epoch:0   train step:660  lr: 0.100000, loss:  6.4830 top1:  0.0078 top5:  0.0352 batch_cost: 0.17845 s, reader_cost: 0.00055 s, ips: 1434.58645 samples/sec.
+[2023/07/28 06:55:55] ppcls INFO: epoch:0   train step:670  lr: 0.100000, loss:  6.5060 top1:  0.0156 top5:  0.0430 batch_cost: 0.17845 s, reader_cost: 0.00055 s, ips: 1434.57894 samples/sec.
+[2023/07/28 06:55:57] ppcls INFO: epoch:0   train step:680  lr: 0.100000, loss:  6.4109 top1:  0.0039 top5:  0.0430 batch_cost: 0.17845 s, reader_cost: 0.00055 s, ips: 1434.57312 samples/sec.
+[2023/07/28 06:55:59] ppcls INFO: epoch:0   train step:690  lr: 0.100000, loss:  6.4716 top1:  0.0000 top5:  0.0156 batch_cost: 0.17845 s, reader_cost: 0.00055 s, ips: 1434.56022 samples/sec.
+[2023/07/28 06:56:01] ppcls INFO: epoch:0   train step:700  lr: 0.100000, loss:  6.4989 top1:  0.0117 top5: -0.0469 batch_cost: 0.17845 s, reader_cost: 0.00055 s, ips: 1434.57299 samples/sec.
+[2023/07/28 06:56:03] ppcls INFO: epoch:0   train step:710  lr: 0.100000, loss:  6.3852 top1:  0.0195 top5:  0.0742 batch_cost: 0.17845 s, reader_cost: 0.00055 s, ips: 1434.55368 samples/sec.
+[2023/07/28 06:56:04] ppcls INFO: epoch:0   train step:720  lr: 0.100000, loss:  6.5475 top1:  0.0156 top5:  0.0430 batch_cost: 0.17846 s, reader_cost: 0.00055 s, ips: 1434.51771 samples/sec.
+[2023/07/28 06:56:06] ppcls INFO: epoch:0   train step:730  lr: 0.100000, loss:  6.4397 top1:  0.0156 top5:  0.0508 batch_cost: 0.17846 s, reader_cost: 0.00055 s, ips: 1434.48135 samples/sec.
+[2023/07/28 06:56:08] ppcls INFO: epoch:0   train step:740  lr: 0.100000, loss:  6.4273 top1:  0.0117 top5:  0.0352 batch_cost: 0.17846 s, reader_cost: 0.00055 s, ips: 1434.47126 samples/sec.
+[2023/07/28 06:56:10] ppcls INFO: epoch:0   train step:750  lr: 0.100000, loss:  6.3837 top1:  0.0312 top5:  0.0703 batch_cost: 0.17846 s, reader_cost: 0.00055 s, ips: 1434.49395 samples/sec.
+[2023/07/28 06:56:12] ppcls INFO: epoch:0   train step:760  lr: 0.100000, loss:  6.3854 top1:  0.0117 top5: -0.0430 batch_cost: 0.17846 s, reader_cost: 0.00055 s, ips: 1434.47965 samples/sec.
+[2023/07/28 06:56:13] ppcls INFO: epoch:0   train step:770  lr: 0.100000, loss:  6.3966 top1:  0.0078 top5:  0.0352 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.43795 samples/sec.
+[2023/07/28 06:56:15] ppcls INFO: epoch:0   train step:780  lr: 0.100000, loss:  6.3942 top1:  0.0078 top5:  0.0469 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.40185 samples/sec.
+[2023/07/28 06:56:17] ppcls INFO: epoch:0   train step:790  lr: 0.100000, loss:  6.3517 top1:  0.0039 top5:  0.0430 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.41660 samples/sec.
+[2023/07/28 06:56:19] ppcls INFO: epoch:0   train step:800  lr: 0.100000, loss:  6.4429 top1:  0.0078 top5: -0.0391 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.39691 samples/sec.
+[2023/07/28 06:56:20] ppcls INFO: epoch:0   train step:810  lr: 0.100000, loss:  6.3813 top1:  0.0078 top5:  0.0547 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.42193 samples/sec.
+[2023/07/28 06:56:22] ppcls INFO: epoch:0   train step:820  lr: 0.100000, loss:  6.2811 top1:  0.0078 top5:  0.0547 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.39224 samples/sec.
+[2023/07/28 06:56:24] ppcls INFO: epoch:0   train step:830  lr: 0.100000, loss:  6.4174 top1:  0.0195 top5:  0.0312 batch_cost: 0.17847 s, reader_cost: 0.00055 s, ips: 1434.38421 samples/sec.
+[2023/07/28 06:56:26] ppcls INFO: epoch:0   train step:840  lr: 0.100000, loss:  6.2737 top1:  0.0195 top5:  0.0625 batch_cost: 0.17848 s, reader_cost: 0.00055 s, ips: 1434.37400 samples/sec.
+[2023/07/28 06:56:28] ppcls INFO: epoch:0   train step:850  lr: 0.100000, loss:  6.2690 top1:  0.0195 top5: -0.0547 batch_cost: 0.17848 s, reader_cost: 0.00055 s, ips: 1434.34837 samples/sec.
+[2023/07/28 06:56:29] ppcls INFO: epoch:0   train step:860  lr: 0.100000, loss:  6.3205 top1:  0.0039 top5: -0.0430 batch_cost: 0.17848 s, reader_cost: 0.00055 s, ips: 1434.32927 samples/sec.
+[2023/07/28 06:56:31] ppcls INFO: epoch:0   train step:870  lr: 0.100000, loss:  6.2885 top1:  0.0156 top5:  0.0469 batch_cost: 0.17848 s, reader_cost: 0.00055 s, ips: 1434.32625 samples/sec.
+[2023/07/28 06:56:33] ppcls INFO: epoch:0   train step:880  lr: 0.100000, loss:  6.2949 top1:  0.0117 top5:  0.0703 batch_cost: 0.17849 s, reader_cost: 0.00055 s, ips: 1434.29206 samples/sec.
+[2023/07/28 06:56:35] ppcls INFO: epoch:0   train step:890  lr: 0.100000, loss:  6.2913 top1:  0.0117 top5: -0.0664 batch_cost: 0.17849 s, reader_cost: 0.00055 s, ips: 1434.28127 samples/sec.
+[2023/07/28 06:56:37] ppcls INFO: epoch:0   train step:900  lr: 0.100000, loss:  6.2609 top1:  0.0312 top5:  0.0664 batch_cost: 0.17849 s, reader_cost: 0.00055 s, ips: 1434.25941 samples/sec.
+[2023/07/28 06:56:38] ppcls INFO: epoch:0   train step:910  lr: 0.100000, loss:  6.2618 top1:  0.0078 top5:  0.0469 batch_cost: 0.17849 s, reader_cost: 0.00055 s, ips: 1434.21565 samples/sec.
+[2023/07/28 06:56:40] ppcls INFO: epoch:0   train step:920  lr: 0.100000, loss:  6.2738 top1:  0.0156 top5:  0.0508 batch_cost: 0.17849 s, reader_cost: 0.00055 s, ips: 1434.21453 samples/sec.
+[2023/07/28 06:56:42] ppcls INFO: epoch:0   train step:930  lr: 0.100000, loss:  6.2443 top1:  0.0273 top5: -0.0703 batch_cost: 0.17850 s, reader_cost: 0.00055 s, ips: 1434.19106 samples/sec.
+[2023/07/28 06:56:44] ppcls INFO: epoch:0   train step:940  lr: 0.100000, loss:  6.1911 top1:  0.0234 top5:  0.0508 batch_cost: 0.17850 s, reader_cost: 0.00055 s, ips: 1434.17635 samples/sec.
+[2023/07/28 06:56:46] ppcls INFO: epoch:0   train step:950  lr: 0.100000, loss:  6.2760 top1:  0.0195 top5: -0.0547 batch_cost: 0.17850 s, reader_cost: 0.00055 s, ips: 1434.16421 samples/sec.
+[2023/07/28 06:56:47] ppcls INFO: epoch:0   train step:960  lr: 0.100000, loss:  6.2195 top1:  0.0273 top5: -0.0781 batch_cost: 0.17850 s, reader_cost: 0.00055 s, ips: 1434.16087 samples/sec.
+[2023/07/28 06:56:49] ppcls INFO: epoch:0   train step:970  lr: 0.100000, loss:  6.1731 top1:  0.0156 top5:  0.0781 batch_cost: 0.17850 s, reader_cost: 0.00054 s, ips: 1434.16301 samples/sec.
+[2023/07/28 06:56:51] ppcls INFO: epoch:0   train step:980  lr: 0.100000, loss:  6.0805 top1:  0.0273 top5: -0.0625 batch_cost: 0.17851 s, reader_cost: 0.00054 s, ips: 1434.10994 samples/sec.
+[2023/07/28 06:56:53] ppcls INFO: epoch:0   train step:990  lr: 0.100000, loss:  6.1867 top1:  0.0352 top5:  0.0625 batch_cost: 0.17851 s, reader_cost: 0.00054 s, ips: 1434.11793 samples/sec.
+[2023/07/28 06:56:54] ppcls INFO: epoch:0   train step:1000 lr: 0.100000, loss:  6.1025 top1:  0.0156 top5:  0.0664 batch_cost: 0.17851 s, reader_cost: 0.00054 s, ips: 1434.10408 samples/sec.
+[2023/07/28 06:56:56] ppcls INFO: epoch:0   train step:1010 lr: 0.100000, loss:  6.1611 top1:  0.0273 top5:  0.0625 batch_cost: 0.17851 s, reader_cost: 0.00054 s, ips: 1434.10322 samples/sec.
+[2023/07/28 06:56:58] ppcls INFO: epoch:0   train step:1020 lr: 0.100000, loss:  6.1065 top1:  0.0273 top5:  0.0625 batch_cost: 0.17851 s, reader_cost: 0.00054 s, ips: 1434.06974 samples/sec.
+[2023/07/28 06:57:00] ppcls INFO: epoch:0   train step:1030 lr: 0.100000, loss:  6.0945 top1:  0.0312 top5:  0.0742 batch_cost: 0.17852 s, reader_cost: 0.00054 s, ips: 1434.04375 samples/sec.
+[2023/07/28 06:57:02] ppcls INFO: epoch:0   train step:1040 lr: 0.100000, loss:  6.1770 top1:  0.0156 top5:  0.0703 batch_cost: 0.17852 s, reader_cost: 0.00054 s, ips: 1434.04112 samples/sec.
+[2023/07/28 06:57:03] ppcls INFO: epoch:0   train step:1050 lr: 0.100000, loss:  6.1235 top1:  0.0156 top5:  0.0508 batch_cost: 0.17853 s, reader_cost: 0.00054 s, ips: 1433.97176 samples/sec.
+[2023/07/28 06:57:05] ppcls INFO: epoch:0   train step:1060 lr: 0.100000, loss:  6.1556 top1:  0.0117 top5:  0.0508 batch_cost: 0.17853 s, reader_cost: 0.00054 s, ips: 1433.92800 samples/sec.
+[2023/07/28 06:57:07] ppcls INFO: epoch:0   train step:1070 lr: 0.100000, loss:  6.0780 top1:  0.0312 top5:  0.0938 batch_cost: 0.17853 s, reader_cost: 0.00054 s, ips: 1433.95686 samples/sec.
+[2023/07/28 06:57:09] ppcls INFO: epoch:0   train step:1080 lr: 0.100000, loss:  6.0816 top1:  0.0117 top5:  0.0586 batch_cost: 0.17853 s, reader_cost: 0.00054 s, ips: 1433.92998 samples/sec.
+[2023/07/28 06:57:11] ppcls INFO: epoch:0   train step:1090 lr: 0.100000, loss:  5.9557 top1:  0.0195 top5:  0.0898 batch_cost: 0.17853 s, reader_cost: 0.00054 s, ips: 1433.91108 samples/sec.
+[2023/07/28 06:57:12] ppcls INFO: epoch:0   train step:1100 lr: 0.100000, loss:  5.8733 top1:  0.0391 top5:  0.0898 batch_cost: 0.17853 s, reader_cost: 0.00054 s, ips: 1433.90397 samples/sec.
+[2023/07/28 06:57:14] ppcls INFO: epoch:0   train step:1110 lr: 0.100000, loss:  6.1853 top1:  0.0273 top5:  0.0664 batch_cost: 0.17854 s, reader_cost: 0.00054 s, ips: 1433.88251 samples/sec.
+[2023/07/28 06:57:16] ppcls INFO: epoch:0   train step:1120 lr: 0.100000, loss:  5.8743 top1:  0.0391 top5:  0.1094 batch_cost: 0.17854 s, reader_cost: 0.00054 s, ips: 1433.84973 samples/sec.
+[2023/07/28 06:57:18] ppcls INFO: epoch:0   train step:1130 lr: 0.100000, loss:  6.0026 top1:  0.0234 top5:  0.0859 batch_cost: 0.17854 s, reader_cost: 0.00054 s, ips: 1433.82682 samples/sec.
+[2023/07/28 06:57:20] ppcls INFO: epoch:0   train step:1140 lr: 0.100000, loss:  6.1660 top1:  0.0195 top5: -0.0703 batch_cost: 0.17855 s, reader_cost: 0.00055 s, ips: 1433.79704 samples/sec.
+[2023/07/28 06:57:21] ppcls INFO: epoch:0   train step:1150 lr: 0.100000, loss:  5.9815 top1:  0.0117 top5: -0.0859 batch_cost: 0.17855 s, reader_cost: 0.00055 s, ips: 1433.80430 samples/sec.
+[2023/07/28 06:57:23] ppcls INFO: epoch:0   train step:1160 lr: 0.100000, loss:  6.0457 top1:  0.0312 top5: -0.0898 batch_cost: 0.17855 s, reader_cost: 0.00055 s, ips: 1433.78523 samples/sec.
+[2023/07/28 06:57:25] ppcls INFO: epoch:0   train step:1170 lr: 0.100000, loss:  6.0035 top1:  0.0078 top5:  0.0703 batch_cost: 0.17855 s, reader_cost: 0.00055 s, ips: 1433.74874 samples/sec.
+[2023/07/28 06:57:27] ppcls INFO: epoch:0   train step:1180 lr: 0.100000, loss:  6.0887 top1:  0.0352 top5: -0.0859 batch_cost: 0.17856 s, reader_cost: 0.00055 s, ips: 1433.69371 samples/sec.
+[2023/07/28 06:57:28] ppcls INFO: epoch:0   train step:1190 lr: 0.100000, loss:  6.0213 top1:  0.0273 top5:  0.0664 batch_cost: 0.17856 s, reader_cost: 0.00055 s, ips: 1433.66712 samples/sec.
+[2023/07/28 06:57:30] ppcls INFO: epoch:0   train step:1200 lr: 0.100000, loss:  5.8696 top1:  0.0234 top5:  0.0859 batch_cost: 0.17857 s, reader_cost: 0.00055 s, ips: 1433.63262 samples/sec.
+[2023/07/28 06:57:32] ppcls INFO: epoch:0   train step:1210 lr: 0.100000, loss:  5.8488 top1:  0.0234 top5:  0.0859 batch_cost: 0.17857 s, reader_cost: 0.00055 s, ips: 1433.63091 samples/sec.
+[2023/07/28 06:57:34] ppcls INFO: epoch:0   train step:1220 lr: 0.100000, loss:  6.0671 top1:  0.0234 top5:  0.0820 batch_cost: 0.17857 s, reader_cost: 0.00055 s, ips: 1433.59543 samples/sec.
+[2023/07/28 06:57:36] ppcls INFO: epoch:0   train step:1230 lr: 0.100000, loss:  5.9950 top1:  0.0234 top5:  0.0938 batch_cost: 0.17857 s, reader_cost: 0.00055 s, ips: 1433.58879 samples/sec.
+[2023/07/28 06:57:37] ppcls INFO: epoch:0   train step:1240 lr: 0.100000, loss:  5.9430 top1:  0.0234 top5:  0.0781 batch_cost: 0.17858 s, reader_cost: 0.00055 s, ips: 1433.55297 samples/sec.
+[2023/07/28 06:57:39] ppcls INFO: epoch:0   train step:1250 lr: 0.100000, loss:  5.9226 top1:  0.0156 top5:  0.0898 batch_cost: 0.17858 s, reader_cost: 0.00055 s, ips: 1433.50813 samples/sec.
+[2023/07/28 06:57:41] ppcls INFO: epoch:0   train step:1260 lr: 0.100000, loss:  5.8203 top1:  0.0508 top5:  0.1133 batch_cost: 0.17859 s, reader_cost: 0.00054 s, ips: 1433.45941 samples/sec.
+[2023/07/28 06:57:43] ppcls INFO: epoch:0   train step:1270 lr: 0.100000, loss:  5.8431 top1:  0.0352 top5:  0.1094 batch_cost: 0.17859 s, reader_cost: 0.00054 s, ips: 1433.42880 samples/sec.
+[2023/07/28 06:57:45] ppcls INFO: epoch:0   train step:1280 lr: 0.100000, loss:  5.8549 top1:  0.0273 top5: -0.0977 batch_cost: 0.17860 s, reader_cost: 0.00054 s, ips: 1433.37911 samples/sec.
+[2023/07/28 06:57:46] ppcls INFO: epoch:0   train step:1290 lr: 0.100000, loss:  5.8108 top1:  0.0391 top5:  0.1250 batch_cost: 0.17860 s, reader_cost: 0.00054 s, ips: 1433.33722 samples/sec.
+[2023/07/28 06:57:48] ppcls INFO: epoch:0   train step:1300 lr: 0.100000, loss:  5.9377 top1:  0.0273 top5:  0.0859 batch_cost: 0.17861 s, reader_cost: 0.00054 s, ips: 1433.30516 samples/sec.
+[2023/07/28 06:57:50] ppcls INFO: epoch:0   train step:1310 lr: 0.100000, loss:  5.7341 top1:  0.0469 top5:  0.1172 batch_cost: 0.17861 s, reader_cost: 0.00054 s, ips: 1433.26585 samples/sec.
+[2023/07/28 06:57:52] ppcls INFO: epoch:0   train step:1320 lr: 0.100000, loss:  5.7566 top1:  0.0703 top5:  0.1367 batch_cost: 0.17862 s, reader_cost: 0.00054 s, ips: 1433.21111 samples/sec.
+[2023/07/28 06:57:54] ppcls INFO: epoch:0   train step:1330 lr: 0.100000, loss:  5.8244 top1:  0.0273 top5: -0.0977 batch_cost: 0.17862 s, reader_cost: 0.00054 s, ips: 1433.17695 samples/sec.
+[2023/07/28 06:57:55] ppcls INFO: epoch:0   train step:1340 lr: 0.100000, loss:  5.9033 top1:  0.0273 top5:  0.0898 batch_cost: 0.17863 s, reader_cost: 0.00054 s, ips: 1433.11985 samples/sec.
+[2023/07/28 06:57:57] ppcls INFO: epoch:0   train step:1350 lr: 0.100000, loss:  5.8997 top1:  0.0234 top5:  0.0938 batch_cost: 0.17864 s, reader_cost: 0.00054 s, ips: 1433.06957 samples/sec.
+[2023/07/28 06:57:59] ppcls INFO: epoch:0   train step:1360 lr: 0.100000, loss:  5.8943 top1:  0.0391 top5:  0.1133 batch_cost: 0.17864 s, reader_cost: 0.00054 s, ips: 1433.01230 samples/sec.
+[2023/07/28 06:58:01] ppcls INFO: epoch:0   train step:1370 lr: 0.100000, loss:  5.5941 top1:  0.0508 top5:  0.1094 batch_cost: 0.17865 s, reader_cost: 0.00054 s, ips: 1432.97155 samples/sec.
+[2023/07/28 06:58:03] ppcls INFO: epoch:0   train step:1380 lr: 0.100000, loss:  5.8314 top1:  0.0352 top5:  0.0781 batch_cost: 0.17866 s, reader_cost: 0.00054 s, ips: 1432.92577 samples/sec.
+[2023/07/28 06:58:04] ppcls INFO: epoch:0   train step:1390 lr: 0.100000, loss:  5.7911 top1:  0.0273 top5:  0.0977 batch_cost: 0.17866 s, reader_cost: 0.00054 s, ips: 1432.85635 samples/sec.
+[2023/07/28 06:58:06] ppcls INFO: epoch:0   train step:1400 lr: 0.100000, loss:  5.6945 top1:  0.0508 top5:  0.1328 batch_cost: 0.17867 s, reader_cost: 0.00054 s, ips: 1432.81947 samples/sec.
+[2023/07/28 06:58:08] ppcls INFO: epoch:0   train step:1410 lr: 0.100000, loss:  5.7682 top1:  0.0234 top5:  0.0938 batch_cost: 0.17867 s, reader_cost: 0.00054 s, ips: 1432.78913 samples/sec.
+[2023/07/28 06:58:10] ppcls INFO: epoch:0   train step:1420 lr: 0.100000, loss:  5.7824 top1:  0.0391 top5:  0.0859 batch_cost: 0.17868 s, reader_cost: 0.00054 s, ips: 1432.75196 samples/sec.
+[2023/07/28 06:58:12] ppcls INFO: epoch:0   train step:1430 lr: 0.100000, loss:  5.8152 top1:  0.0430 top5:  0.1172 batch_cost: 0.17868 s, reader_cost: 0.00054 s, ips: 1432.72054 samples/sec.
+[2023/07/28 06:58:13] ppcls INFO: epoch:0   train step:1440 lr: 0.100000, loss:  5.7440 top1:  0.0352 top5:  0.1094 batch_cost: 0.17868 s, reader_cost: 0.00054 s, ips: 1432.70172 samples/sec.
+[2023/07/28 06:58:15] ppcls INFO: epoch:0   train step:1450 lr: 0.100000, loss:  5.6930 top1:  0.0391 top5: -0.1211 batch_cost: 0.17869 s, reader_cost: 0.00054 s, ips: 1432.67557 samples/sec.
+[2023/07/28 06:58:17] ppcls INFO: epoch:0   train step:1460 lr: 0.100000, loss:  5.6768 top1:  0.0508 top5: -0.1172 batch_cost: 0.17869 s, reader_cost: 0.00054 s, ips: 1432.64301 samples/sec.
+[2023/07/28 06:58:19] ppcls INFO: epoch:0   train step:1470 lr: 0.100000, loss:  5.7323 top1:  0.0273 top5:  0.1328 batch_cost: 0.17869 s, reader_cost: 0.00054 s, ips: 1432.60906 samples/sec.
+[2023/07/28 06:58:20] ppcls INFO: epoch:0   train step:1480 lr: 0.100000, loss:  5.6689 top1:  0.0625 top5:  0.1602 batch_cost: 0.17870 s, reader_cost: 0.00054 s, ips: 1432.57950 samples/sec.
+[2023/07/28 06:58:22] ppcls INFO: epoch:0   train step:1490 lr: 0.100000, loss:  5.6721 top1:  0.0508 top5:  0.1367 batch_cost: 0.17870 s, reader_cost: 0.00054 s, ips: 1432.52987 samples/sec.
+[2023/07/28 06:58:24] ppcls INFO: epoch:0   train step:1500 lr: 0.100000, loss:  5.6214 top1:  0.0352 top5:  0.1094 batch_cost: 0.17871 s, reader_cost: 0.00054 s, ips: 1432.48905 samples/sec.
+[2023/07/28 06:58:26] ppcls INFO: epoch:0   train step:1510 lr: 0.100000, loss:  5.6064 top1:  0.0469 top5:  0.1367 batch_cost: 0.17871 s, reader_cost: 0.00054 s, ips: 1432.45334 samples/sec.
+[2023/07/28 06:58:28] ppcls INFO: epoch:0   train step:1520 lr: 0.100000, loss:  5.6393 top1:  0.0508 top5: -0.1250 batch_cost: 0.17872 s, reader_cost: 0.00054 s, ips: 1432.43424 samples/sec.
+[2023/07/28 06:58:29] ppcls INFO: epoch:0   train step:1530 lr: 0.100000, loss:  5.6457 top1:  0.0273 top5:  0.1250 batch_cost: 0.17872 s, reader_cost: 0.00054 s, ips: 1432.38630 samples/sec.
+[2023/07/28 06:58:31] ppcls INFO: epoch:0   train step:1540 lr: 0.100000, loss:  5.7083 top1:  0.0312 top5:  0.1172 batch_cost: 0.17873 s, reader_cost: 0.00054 s, ips: 1432.36200 samples/sec.
+[2023/07/28 06:58:33] ppcls INFO: epoch:0   train step:1550 lr: 0.100000, loss:  5.6904 top1:  0.0820 top5: -0.1719 batch_cost: 0.17873 s, reader_cost: 0.00054 s, ips: 1432.33146 samples/sec.
+[2023/07/28 06:58:35] ppcls INFO: epoch:0   train step:1560 lr: 0.100000, loss:  5.4633 top1:  0.0430 top5:  0.1562 batch_cost: 0.17873 s, reader_cost: 0.00054 s, ips: 1432.29687 samples/sec.
+[2023/07/28 06:58:37] ppcls INFO: epoch:0   train step:1570 lr: 0.100000, loss:  5.6265 top1:  0.0391 top5:  0.1445 batch_cost: 0.17874 s, reader_cost: 0.00054 s, ips: 1432.26402 samples/sec.
+[2023/07/28 06:58:38] ppcls INFO: epoch:0   train step:1580 lr: 0.100000, loss:  5.5720 top1:  0.0469 top5:  0.1641 batch_cost: 0.17874 s, reader_cost: 0.00054 s, ips: 1432.22389 samples/sec.
+[2023/07/28 06:58:40] ppcls INFO: epoch:0   train step:1590 lr: 0.100000, loss:  5.5359 top1:  0.0352 top5: -0.1445 batch_cost: 0.17875 s, reader_cost: 0.00054 s, ips: 1432.18499 samples/sec.
+[2023/07/28 06:58:42] ppcls INFO: epoch:0   train step:1600 lr: 0.100000, loss:  5.5346 top1:  0.0430 top5: -0.1250 batch_cost: 0.17875 s, reader_cost: 0.00054 s, ips: 1432.15123 samples/sec.
+[2023/07/28 06:58:44] ppcls INFO: epoch:0   train step:1610 lr: 0.100000, loss:  5.4593 top1:  0.0469 top5:  0.1484 batch_cost: 0.17875 s, reader_cost: 0.00054 s, ips: 1432.12983 samples/sec.
+[2023/07/28 06:58:46] ppcls INFO: epoch:0   train step:1620 lr: 0.100000, loss:  5.7115 top1:  0.0469 top5: -0.1289 batch_cost: 0.17876 s, reader_cost: 0.00054 s, ips: 1432.10120 samples/sec.
+[2023/07/28 06:58:47] ppcls INFO: epoch:0   train step:1630 lr: 0.100000, loss:  5.6058 top1:  0.0156 top5: -0.1094 batch_cost: 0.17876 s, reader_cost: 0.00054 s, ips: 1432.07007 samples/sec.
+[2023/07/28 06:58:49] ppcls INFO: epoch:0   train step:1640 lr: 0.100000, loss:  5.4054 top1:  0.0508 top5:  0.1641 batch_cost: 0.17876 s, reader_cost: 0.00054 s, ips: 1432.05125 samples/sec.
+[2023/07/28 06:58:51] ppcls INFO: epoch:0   train step:1650 lr: 0.100000, loss:  5.5343 top1:  0.0352 top5:  0.1328 batch_cost: 0.17877 s, reader_cost: 0.00054 s, ips: 1432.03187 samples/sec.
+[2023/07/28 06:58:53] ppcls INFO: epoch:0   train step:1660 lr: 0.100000, loss:  5.4826 top1:  0.0391 top5:  0.1367 batch_cost: 0.17877 s, reader_cost: 0.00054 s, ips: 1432.00325 samples/sec.
+[2023/07/28 06:58:55] ppcls INFO: epoch:0   train step:1670 lr: 0.100000, loss:  5.4598 top1:  0.0938 top5:  0.1680 batch_cost: 0.17877 s, reader_cost: 0.00054 s, ips: 1431.98550 samples/sec.
+[2023/07/28 06:58:56] ppcls INFO: epoch:0   train step:1680 lr: 0.100000, loss:  5.5807 top1:  0.0312 top5:  0.1289 batch_cost: 0.17878 s, reader_cost: 0.00054 s, ips: 1431.96306 samples/sec.
+[2023/07/28 06:58:58] ppcls INFO: epoch:0   train step:1690 lr: 0.100000, loss:  5.5009 top1:  0.0664 top5: -0.1641 batch_cost: 0.17878 s, reader_cost: 0.00054 s, ips: 1431.91920 samples/sec.
+[2023/07/28 06:59:00] ppcls INFO: epoch:0   train step:1700 lr: 0.100000, loss:  5.4185 top1:  0.0273 top5:  0.1211 batch_cost: 0.17878 s, reader_cost: 0.00054 s, ips: 1431.89727 samples/sec.
+[2023/07/28 06:59:02] ppcls INFO: epoch:0   train step:1710 lr: 0.100000, loss:  5.6387 top1:  0.0469 top5:  0.1523 batch_cost: 0.17878 s, reader_cost: 0.00054 s, ips: 1431.89416 samples/sec.
+[2023/07/28 06:59:04] ppcls INFO: epoch:0   train step:1720 lr: 0.100000, loss:  5.3677 top1:  0.0625 top5:  0.1641 batch_cost: 0.17879 s, reader_cost: 0.00054 s, ips: 1431.87453 samples/sec.
+[2023/07/28 06:59:05] ppcls INFO: epoch:0   train step:1730 lr: 0.100000, loss:  5.3553 top1:  0.0898 top5:  0.1758 batch_cost: 0.17879 s, reader_cost: 0.00054 s, ips: 1431.84992 samples/sec.
+[2023/07/28 06:59:07] ppcls INFO: epoch:0   train step:1740 lr: 0.100000, loss:  5.5336 top1:  0.0391 top5: -0.1562 batch_cost: 0.17879 s, reader_cost: 0.00054 s, ips: 1431.83054 samples/sec.
+[2023/07/28 06:59:09] ppcls INFO: epoch:0   train step:1750 lr: 0.100000, loss:  5.4494 top1:  0.0430 top5:  0.1641 batch_cost: 0.17879 s, reader_cost: 0.00054 s, ips: 1431.81724 samples/sec.
+[2023/07/28 06:59:11] ppcls INFO: epoch:0   train step:1760 lr: 0.100000, loss:  5.4389 top1:  0.0625 top5:  0.1445 batch_cost: 0.17880 s, reader_cost: 0.00054 s, ips: 1431.78844 samples/sec.
+[2023/07/28 06:59:13] ppcls INFO: epoch:0   train step:1770 lr: 0.100000, loss:  5.1158 top1:  0.0742 top5: -0.2188 batch_cost: 0.17880 s, reader_cost: 0.00054 s, ips: 1431.76259 samples/sec.
+[2023/07/28 06:59:14] ppcls INFO: epoch:0   train step:1780 lr: 0.100000, loss:  5.4015 top1:  0.0469 top5:  0.1484 batch_cost: 0.17880 s, reader_cost: 0.00054 s, ips: 1431.74616 samples/sec.
+[2023/07/28 06:59:16] ppcls INFO: epoch:0   train step:1790 lr: 0.100000, loss:  5.4488 top1:  0.0781 top5:  0.1797 batch_cost: 0.17880 s, reader_cost: 0.00054 s, ips: 1431.73150 samples/sec.
+[2023/07/28 06:59:18] ppcls INFO: epoch:0   train step:1800 lr: 0.100000, loss:  5.2465 top1:  0.0625 top5:  0.1680 batch_cost: 0.17881 s, reader_cost: 0.00054 s, ips: 1431.71242 samples/sec.
+[2023/07/28 06:59:20] ppcls INFO: epoch:0   train step:1810 lr: 0.100000, loss:  5.3592 top1:  0.0469 top5:  0.1562 batch_cost: 0.17881 s, reader_cost: 0.00054 s, ips: 1431.69338 samples/sec.
+[2023/07/28 06:59:21] ppcls INFO: epoch:0   train step:1820 lr: 0.100000, loss:  5.3100 top1:  0.0586 top5: -0.2031 batch_cost: 0.17881 s, reader_cost: 0.00054 s, ips: 1431.68213 samples/sec.
+[2023/07/28 06:59:23] ppcls INFO: epoch:0   train step:1830 lr: 0.100000, loss:  5.2461 top1:  0.0664 top5:  0.2031 batch_cost: 0.17881 s, reader_cost: 0.00054 s, ips: 1431.65802 samples/sec.
+[2023/07/28 06:59:25] ppcls INFO: epoch:0   train step:1840 lr: 0.100000, loss:  5.2692 top1:  0.0938 top5:  0.1914 batch_cost: 0.17882 s, reader_cost: 0.00054 s, ips: 1431.63177 samples/sec.
+[2023/07/28 06:59:27] ppcls INFO: epoch:0   train step:1850 lr: 0.100000, loss:  5.5882 top1:  0.0430 top5: -0.1641 batch_cost: 0.17882 s, reader_cost: 0.00054 s, ips: 1431.60893 samples/sec.
+[2023/07/28 06:59:29] ppcls INFO: epoch:0   train step:1860 lr: 0.100000, loss:  5.0919 top1:  0.0742 top5:  0.2227 batch_cost: 0.17882 s, reader_cost: 0.00054 s, ips: 1431.58886 samples/sec.
+[2023/07/28 06:59:30] ppcls INFO: epoch:0   train step:1870 lr: 0.100000, loss:  5.1822 top1:  0.0625 top5: -0.2109 batch_cost: 0.17882 s, reader_cost: 0.00054 s, ips: 1431.57636 samples/sec.
+[2023/07/28 06:59:32] ppcls INFO: epoch:0   train step:1880 lr: 0.100000, loss:  5.3067 top1:  0.0898 top5:  0.1914 batch_cost: 0.17883 s, reader_cost: 0.00054 s, ips: 1431.56378 samples/sec.
+[2023/07/28 06:59:34] ppcls INFO: epoch:0   train step:1890 lr: 0.100000, loss:  5.2416 top1:  0.0625 top5:  0.1758 batch_cost: 0.17883 s, reader_cost: 0.00054 s, ips: 1431.54572 samples/sec.
+[2023/07/28 06:59:36] ppcls INFO: epoch:0   train step:1900 lr: 0.100000, loss:  5.1704 top1:  0.0508 top5:  0.1836 batch_cost: 0.17883 s, reader_cost: 0.00054 s, ips: 1431.51973 samples/sec.
+[2023/07/28 06:59:38] ppcls INFO: epoch:0   train step:1910 lr: 0.100000, loss:  5.3350 top1:  0.0664 top5:  0.1992 batch_cost: 0.17884 s, reader_cost: 0.00053 s, ips: 1431.48086 samples/sec.
+[2023/07/28 06:59:39] ppcls INFO: epoch:0   train step:1920 lr: 0.100000, loss:  5.3667 top1:  0.0742 top5:  0.1719 batch_cost: 0.17884 s, reader_cost: 0.00053 s, ips: 1431.45942 samples/sec.
+[2023/07/28 06:59:41] ppcls INFO: epoch:0   train step:1930 lr: 0.100000, loss:  5.4766 top1:  0.0547 top5:  0.1523 batch_cost: 0.17884 s, reader_cost: 0.00053 s, ips: 1431.45609 samples/sec.
+[2023/07/28 06:59:43] ppcls INFO: epoch:0   train step:1940 lr: 0.100000, loss:  5.1598 top1:  0.1172 top5:  0.2109 batch_cost: 0.17884 s, reader_cost: 0.00054 s, ips: 1431.43754 samples/sec.
+[2023/07/28 06:59:45] ppcls INFO: epoch:0   train step:1950 lr: 0.100000, loss:  5.2500 top1:  0.1016 top5:  0.1914 batch_cost: 0.17884 s, reader_cost: 0.00054 s, ips: 1431.42405 samples/sec.
+[2023/07/28 06:59:47] ppcls INFO: epoch:0   train step:1960 lr: 0.100000, loss:  5.4046 top1:  0.0430 top5:  0.1523 batch_cost: 0.17885 s, reader_cost: 0.00054 s, ips: 1431.39649 samples/sec.
+[2023/07/28 06:59:48] ppcls INFO: epoch:0   train step:1970 lr: 0.100000, loss:  5.1974 top1:  0.0781 top5: -0.2070 batch_cost: 0.17885 s, reader_cost: 0.00053 s, ips: 1431.35782 samples/sec.
+[2023/07/28 06:59:50] ppcls INFO: epoch:0   train step:1980 lr: 0.100000, loss:  5.1044 top1:  0.0742 top5:  0.2461 batch_cost: 0.17885 s, reader_cost: 0.00053 s, ips: 1431.33669 samples/sec.
+[2023/07/28 06:59:52] ppcls INFO: epoch:0   train step:1990 lr: 0.100000, loss:  5.3098 top1:  0.0742 top5:  0.1797 batch_cost: 0.17886 s, reader_cost: 0.00053 s, ips: 1431.30996 samples/sec.
+[2023/07/28 06:59:54] ppcls INFO: epoch:0   train step:2000 lr: 0.100000, loss:  5.3260 top1:  0.0391 top5:  0.1914 batch_cost: 0.17886 s, reader_cost: 0.00053 s, ips: 1431.28924 samples/sec.
+[2023/07/28 06:59:56] ppcls INFO: epoch:0   train step:2010 lr: 0.100000, loss:  5.2015 top1:  0.0781 top5: -0.2031 batch_cost: 0.17886 s, reader_cost: 0.00053 s, ips: 1431.26667 samples/sec.
+[2023/07/28 06:59:57] ppcls INFO: epoch:0   train step:2020 lr: 0.100000, loss:  5.2298 top1:  0.0586 top5:  0.1680 batch_cost: 0.17886 s, reader_cost: 0.00053 s, ips: 1431.25904 samples/sec.
+[2023/07/28 06:59:59] ppcls INFO: epoch:0   train step:2030 lr: 0.100000, loss:  5.3135 top1:  0.0938 top5:  0.2031 batch_cost: 0.17887 s, reader_cost: 0.00053 s, ips: 1431.22105 samples/sec.
+[2023/07/28 07:00:01] ppcls INFO: epoch:0   train step:2040 lr: 0.100000, loss:  4.8826 top1:  0.0703 top5:  0.2695 batch_cost: 0.17887 s, reader_cost: 0.00053 s, ips: 1431.21704 samples/sec.
+[2023/07/28 07:00:03] ppcls INFO: epoch:0   train step:2050 lr: 0.100000, loss:  5.2749 top1:  0.0703 top5:  0.1758 batch_cost: 0.17887 s, reader_cost: 0.00053 s, ips: 1431.19971 samples/sec.
+[2023/07/28 07:00:05] ppcls INFO: epoch:0   train step:2060 lr: 0.100000, loss:  5.4656 top1:  0.0430 top5: -0.1406 batch_cost: 0.17888 s, reader_cost: 0.00053 s, ips: 1431.16693 samples/sec.
+[2023/07/28 07:00:06] ppcls INFO: epoch:0   train step:2070 lr: 0.100000, loss:  5.1416 top1:  0.0898 top5:  0.2070 batch_cost: 0.17888 s, reader_cost: 0.00053 s, ips: 1431.11778 samples/sec.
+[2023/07/28 07:00:08] ppcls INFO: epoch:0   train step:2080 lr: 0.100000, loss:  5.1657 top1:  0.0703 top5:  0.2070 batch_cost: 0.17888 s, reader_cost: 0.00053 s, ips: 1431.10166 samples/sec.
+[2023/07/28 07:00:10] ppcls INFO: epoch:0   train step:2090 lr: 0.100000, loss:  5.2546 top1:  0.0625 top5:  0.1992 batch_cost: 0.17889 s, reader_cost: 0.00053 s, ips: 1431.08269 samples/sec.
+[2023/07/28 07:00:12] ppcls INFO: epoch:0   train step:2100 lr: 0.100000, loss:  5.1766 top1:  0.0781 top5:  0.1602 batch_cost: 0.17889 s, reader_cost: 0.00053 s, ips: 1431.05948 samples/sec.
+[2023/07/28 07:00:14] ppcls INFO: epoch:0   train step:2110 lr: 0.100000, loss:  5.2143 top1:  0.0703 top5:  0.1953 batch_cost: 0.17889 s, reader_cost: 0.00053 s, ips: 1431.02850 samples/sec.
+[2023/07/28 07:00:15] ppcls INFO: epoch:0   train step:2120 lr: 0.100000, loss:  5.0322 top1:  0.1133 top5: -0.2266 batch_cost: 0.17890 s, reader_cost: 0.00053 s, ips: 1431.00314 samples/sec.
+[2023/07/28 07:00:17] ppcls INFO: epoch:0   train step:2130 lr: 0.100000, loss:  4.9396 top1:  0.1211 top5:  0.2266 batch_cost: 0.17890 s, reader_cost: 0.00053 s, ips: 1430.99113 samples/sec.
+[2023/07/28 07:00:19] ppcls INFO: epoch:0   train step:2140 lr: 0.100000, loss:  5.1196 top1:  0.0938 top5:  0.1914 batch_cost: 0.17890 s, reader_cost: 0.00053 s, ips: 1430.96620 samples/sec.
+[2023/07/28 07:00:21] ppcls INFO: epoch:0   train step:2150 lr: 0.100000, loss:  4.9457 top1:  0.1289 top5:  0.2578 batch_cost: 0.17890 s, reader_cost: 0.00053 s, ips: 1430.93889 samples/sec.
+[2023/07/28 07:00:23] ppcls INFO: epoch:0   train step:2160 lr: 0.100000, loss:  4.9495 top1:  0.0898 top5: -0.2500 batch_cost: 0.17891 s, reader_cost: 0.00053 s, ips: 1430.92145 samples/sec.
+[2023/07/28 07:00:24] ppcls INFO: epoch:0   train step:2170 lr: 0.100000, loss:  4.8992 top1:  0.1172 top5:  0.2773 batch_cost: 0.17891 s, reader_cost: 0.00053 s, ips: 1430.90116 samples/sec.
+[2023/07/28 07:00:26] ppcls INFO: epoch:0   train step:2180 lr: 0.100000, loss:  5.2502 top1:  0.0859 top5:  0.2188 batch_cost: 0.17891 s, reader_cost: 0.00053 s, ips: 1430.88633 samples/sec.
+[2023/07/28 07:00:28] ppcls INFO: epoch:0   train step:2190 lr: 0.100000, loss:  5.1960 top1:  0.0547 top5: -0.2109 batch_cost: 0.17891 s, reader_cost: 0.00053 s, ips: 1430.86691 samples/sec.
+[2023/07/28 07:00:30] ppcls INFO: epoch:0   train step:2200 lr: 0.100000, loss:  5.0338 top1:  0.1094 top5: -0.2188 batch_cost: 0.17891 s, reader_cost: 0.00053 s, ips: 1430.85416 samples/sec.
+[2023/07/28 07:00:31] ppcls INFO: epoch:0   train step:2210 lr: 0.100000, loss:  5.0762 top1:  0.0508 top5:  0.2266 batch_cost: 0.17892 s, reader_cost: 0.00053 s, ips: 1430.83912 samples/sec.
+[2023/07/28 07:00:33] ppcls INFO: epoch:0   train step:2220 lr: 0.100000, loss:  4.8573 top1:  0.1172 top5:  0.2852 batch_cost: 0.17892 s, reader_cost: 0.00053 s, ips: 1430.81365 samples/sec.
+[2023/07/28 07:00:35] ppcls INFO: epoch:0   train step:2230 lr: 0.100000, loss:  4.9837 top1:  0.0859 top5: -0.2266 batch_cost: 0.17892 s, reader_cost: 0.00053 s, ips: 1430.79091 samples/sec.
+[2023/07/28 07:00:37] ppcls INFO: epoch:0   train step:2240 lr: 0.100000, loss:  5.1472 top1:  0.0664 top5:  0.2148 batch_cost: 0.17893 s, reader_cost: 0.00053 s, ips: 1430.76221 samples/sec.
+[2023/07/28 07:00:39] ppcls INFO: epoch:0   train step:2250 lr: 0.100000, loss:  5.0097 top1:  0.1016 top5:  0.2383 batch_cost: 0.17893 s, reader_cost: 0.00053 s, ips: 1430.74736 samples/sec.
+[2023/07/28 07:00:40] ppcls INFO: epoch:0   train step:2260 lr: 0.100000, loss:  5.0493 top1:  0.0859 top5: -0.2227 batch_cost: 0.17893 s, reader_cost: 0.00053 s, ips: 1430.71530 samples/sec.
+[2023/07/28 07:00:42] ppcls INFO: epoch:0   train step:2270 lr: 0.100000, loss:  4.9386 top1:  0.0977 top5: -0.2617 batch_cost: 0.17893 s, reader_cost: 0.00054 s, ips: 1430.69229 samples/sec.
+[2023/07/28 07:00:44] ppcls INFO: epoch:0   train step:2280 lr: 0.100000, loss:  4.8345 top1:  0.0977 top5:  0.2383 batch_cost: 0.17893 s, reader_cost: 0.00054 s, ips: 1430.68998 samples/sec.
+[2023/07/28 07:00:46] ppcls INFO: epoch:0   train step:2290 lr: 0.100000, loss:  4.9346 top1:  0.1016 top5:  0.2930 batch_cost: 0.17894 s, reader_cost: 0.00054 s, ips: 1430.66256 samples/sec.
+[2023/07/28 07:00:48] ppcls INFO: epoch:0   train step:2300 lr: 0.100000, loss:  4.9098 top1:  0.1133 top5:  0.2461 batch_cost: 0.17894 s, reader_cost: 0.00054 s, ips: 1430.65200 samples/sec.
+[2023/07/28 07:00:49] ppcls INFO: epoch:0   train step:2310 lr: 0.100000, loss:  5.1853 top1:  0.1016 top5:  0.2227 batch_cost: 0.17894 s, reader_cost: 0.00054 s, ips: 1430.63370 samples/sec.
+[2023/07/28 07:00:51] ppcls INFO: epoch:0   train step:2320 lr: 0.100000, loss:  4.9881 top1:  0.0703 top5:  0.2109 batch_cost: 0.17894 s, reader_cost: 0.00054 s, ips: 1430.61218 samples/sec.
+[2023/07/28 07:00:53] ppcls INFO: epoch:0   train step:2330 lr: 0.100000, loss:  4.9214 top1:  0.0664 top5:  0.2344 batch_cost: 0.17895 s, reader_cost: 0.00054 s, ips: 1430.60112 samples/sec.
+[2023/07/28 07:00:55] ppcls INFO: epoch:0   train step:2340 lr: 0.100000, loss:  5.0828 top1:  0.1172 top5:  0.2227 batch_cost: 0.17895 s, reader_cost: 0.00054 s, ips: 1430.57677 samples/sec.
+[2023/07/28 07:00:57] ppcls INFO: epoch:0   train step:2350 lr: 0.100000, loss:  4.8321 top1:  0.0898 top5:  0.2539 batch_cost: 0.17895 s, reader_cost: 0.00054 s, ips: 1430.56594 samples/sec.
+[2023/07/28 07:00:58] ppcls INFO: epoch:0   train step:2360 lr: 0.100000, loss:  4.9851 top1:  0.0820 top5:  0.2148 batch_cost: 0.17895 s, reader_cost: 0.00054 s, ips: 1430.54431 samples/sec.
+[2023/07/28 07:01:00] ppcls INFO: epoch:0   train step:2370 lr: 0.100000, loss:  4.8207 top1:  0.0859 top5:  0.2500 batch_cost: 0.17896 s, reader_cost: 0.00054 s, ips: 1430.51919 samples/sec.
+[2023/07/28 07:01:02] ppcls INFO: epoch:0   train step:2380 lr: 0.100000, loss:  4.8843 top1:  0.0977 top5:  0.2578 batch_cost: 0.17896 s, reader_cost: 0.00054 s, ips: 1430.51200 samples/sec.
+[2023/07/28 07:01:04] ppcls INFO: epoch:0   train step:2390 lr: 0.100000, loss:  4.7798 top1:  0.1289 top5:  0.2695 batch_cost: 0.17896 s, reader_cost: 0.00054 s, ips: 1430.49323 samples/sec.
+[2023/07/28 07:01:06] ppcls INFO: epoch:0   train step:2400 lr: 0.100000, loss:  4.7046 top1:  0.0938 top5: -0.3008 batch_cost: 0.17896 s, reader_cost: 0.00054 s, ips: 1430.47496 samples/sec.
+[2023/07/28 07:01:07] ppcls INFO: epoch:0   train step:2410 lr: 0.100000, loss:  4.8283 top1:  0.0977 top5: -0.2617 batch_cost: 0.17896 s, reader_cost: 0.00054 s, ips: 1430.45555 samples/sec.
+[2023/07/28 07:01:09] ppcls INFO: epoch:0   train step:2420 lr: 0.100000, loss:  4.9103 top1:  0.0977 top5: -0.3008 batch_cost: 0.17897 s, reader_cost: 0.00054 s, ips: 1430.43439 samples/sec.
+[2023/07/28 07:01:11] ppcls INFO: epoch:0   train step:2430 lr: 0.100000, loss:  4.9637 top1:  0.0977 top5:  0.2461 batch_cost: 0.17897 s, reader_cost: 0.00054 s, ips: 1430.42246 samples/sec.
+[2023/07/28 07:01:13] ppcls INFO: epoch:0   train step:2440 lr: 0.100000, loss:  4.9326 top1:  0.1055 top5:  0.2539 batch_cost: 0.17897 s, reader_cost: 0.00054 s, ips: 1430.40090 samples/sec.
+[2023/07/28 07:01:15] ppcls INFO: epoch:0   train step:2450 lr: 0.100000, loss:  4.9412 top1:  0.1133 top5:  0.2500 batch_cost: 0.17897 s, reader_cost: 0.00054 s, ips: 1430.38291 samples/sec.
+[2023/07/28 07:01:16] ppcls INFO: epoch:0   train step:2460 lr: 0.100000, loss:  4.8690 top1:  0.0781 top5:  0.2383 batch_cost: 0.17898 s, reader_cost: 0.00054 s, ips: 1430.35440 samples/sec.
+[2023/07/28 07:01:18] ppcls INFO: epoch:0   train step:2470 lr: 0.100000, loss:  4.8309 top1:  0.1445 top5:  0.2930 batch_cost: 0.17898 s, reader_cost: 0.00054 s, ips: 1430.34356 samples/sec.
+[2023/07/28 07:01:20] ppcls INFO: epoch:0   train step:2480 lr: 0.100000, loss:  4.8927 top1:  0.1094 top5: -0.2266 batch_cost: 0.17898 s, reader_cost: 0.00054 s, ips: 1430.32221 samples/sec.
+[2023/07/28 07:01:22] ppcls INFO: epoch:0   train step:2490 lr: 0.100000, loss:  4.8629 top1:  0.1406 top5:  0.2656 batch_cost: 0.17898 s, reader_cost: 0.00054 s, ips: 1430.30561 samples/sec.
+[2023/07/28 07:01:24] ppcls INFO: epoch:0   train step:2500 lr: 0.100000, loss:  4.7623 top1:  0.0859 top5:  0.2734 batch_cost: 0.17899 s, reader_cost: 0.00054 s, ips: 1430.28555 samples/sec.
+[2023/07/28 07:01:25] ppcls INFO: epoch:0   train step:2510 lr: 0.100000, loss:  4.9814 top1:  0.0938 top5: -0.2500 batch_cost: 0.17899 s, reader_cost: 0.00054 s, ips: 1430.27414 samples/sec.
+[2023/07/28 07:01:27] ppcls INFO: epoch:0   train step:2520 lr: 0.100000, loss:  5.0132 top1:  0.0820 top5:  0.2344 batch_cost: 0.17899 s, reader_cost: 0.00054 s, ips: 1430.25061 samples/sec.
+[2023/07/28 07:01:29] ppcls INFO: epoch:0   train step:2530 lr: 0.100000, loss:  4.8089 top1:  0.1211 top5:  0.2852 batch_cost: 0.17899 s, reader_cost: 0.00054 s, ips: 1430.23919 samples/sec.
+[2023/07/28 07:01:31] ppcls INFO: epoch:0   train step:2540 lr: 0.100000, loss:  4.7540 top1:  0.1094 top5: -0.3125 batch_cost: 0.17899 s, reader_cost: 0.00054 s, ips: 1430.20856 samples/sec.
+[2023/07/28 07:01:33] ppcls INFO: epoch:0   train step:2550 lr: 0.100000, loss:  5.0254 top1:  0.1016 top5:  0.2383 batch_cost: 0.17900 s, reader_cost: 0.00054 s, ips: 1430.18747 samples/sec.
+[2023/07/28 07:01:34] ppcls INFO: epoch:0   train step:2560 lr: 0.100000, loss:  4.7660 top1:  0.1016 top5: -0.2500 batch_cost: 0.17900 s, reader_cost: 0.00054 s, ips: 1430.16356 samples/sec.
+[2023/07/28 07:01:36] ppcls INFO: epoch:0   train step:2570 lr: 0.100000, loss:  4.7870 top1:  0.1094 top5:  0.2773 batch_cost: 0.17900 s, reader_cost: 0.00054 s, ips: 1430.15036 samples/sec.
+[2023/07/28 07:01:38] ppcls INFO: epoch:0   train step:2580 lr: 0.100000, loss:  4.9158 top1:  0.0977 top5:  0.2461 batch_cost: 0.17900 s, reader_cost: 0.00054 s, ips: 1430.13244 samples/sec.
+[2023/07/28 07:01:40] ppcls INFO: epoch:0   train step:2590 lr: 0.100000, loss:  4.8485 top1:  0.1250 top5:  0.2344 batch_cost: 0.17900 s, reader_cost: 0.00054 s, ips: 1430.12888 samples/sec.
+[2023/07/28 07:01:42] ppcls INFO: epoch:0   train step:2600 lr: 0.100000, loss:  4.6223 top1:  0.1172 top5:  0.3125 batch_cost: 0.17901 s, reader_cost: 0.00054 s, ips: 1430.10711 samples/sec.
+[2023/07/28 07:01:43] ppcls INFO: epoch:0   train step:2610 lr: 0.100000, loss:  4.5707 top1:  0.1484 top5:  0.3008 batch_cost: 0.17901 s, reader_cost: 0.00054 s, ips: 1430.10300 samples/sec.
+[2023/07/28 07:01:45] ppcls INFO: epoch:0   train step:2620 lr: 0.100000, loss:  4.7061 top1:  0.0977 top5:  0.2617 batch_cost: 0.17901 s, reader_cost: 0.00054 s, ips: 1430.07812 samples/sec.
+[2023/07/28 07:01:47] ppcls INFO: epoch:0   train step:2630 lr: 0.100000, loss:  5.0163 top1:  0.0703 top5: -0.2305 batch_cost: 0.17901 s, reader_cost: 0.00054 s, ips: 1430.06700 samples/sec.
+[2023/07/28 07:01:49] ppcls INFO: epoch:0   train step:2640 lr: 0.100000, loss:  4.6496 top1:  0.1445 top5:  0.3164 batch_cost: 0.17901 s, reader_cost: 0.00054 s, ips: 1430.05029 samples/sec.
+[2023/07/28 07:01:51] ppcls INFO: epoch:0   train step:2650 lr: 0.100000, loss:  4.7890 top1:  0.1055 top5:  0.2812 batch_cost: 0.17902 s, reader_cost: 0.00054 s, ips: 1430.04515 samples/sec.
+[2023/07/28 07:01:52] ppcls INFO: epoch:0   train step:2660 lr: 0.100000, loss:  4.5956 top1:  0.1211 top5:  0.3164 batch_cost: 0.17902 s, reader_cost: 0.00054 s, ips: 1430.02342 samples/sec.
+[2023/07/28 07:01:54] ppcls INFO: epoch:0   train step:2670 lr: 0.100000, loss:  4.7343 top1:  0.1133 top5:  0.2930 batch_cost: 0.17902 s, reader_cost: 0.00054 s, ips: 1430.01090 samples/sec.
+[2023/07/28 07:01:56] ppcls INFO: epoch:0   train step:2680 lr: 0.100000, loss:  4.7381 top1:  0.1094 top5:  0.2812 batch_cost: 0.17902 s, reader_cost: 0.00054 s, ips: 1430.00187 samples/sec.
+[2023/07/28 07:01:58] ppcls INFO: epoch:0   train step:2690 lr: 0.100000, loss:  4.5898 top1:  0.1367 top5:  0.2852 batch_cost: 0.17902 s, reader_cost: 0.00054 s, ips: 1429.98156 samples/sec.
+[2023/07/28 07:02:00] ppcls INFO: epoch:0   train step:2700 lr: 0.100000, loss:  4.8357 top1:  0.0938 top5:  0.2461 batch_cost: 0.17902 s, reader_cost: 0.00054 s, ips: 1429.97229 samples/sec.
+[2023/07/28 07:02:01] ppcls INFO: epoch:0   train step:2710 lr: 0.100000, loss:  4.8929 top1:  0.1094 top5:  0.2461 batch_cost: 0.17903 s, reader_cost: 0.00054 s, ips: 1429.96637 samples/sec.
+[2023/07/28 07:02:03] ppcls INFO: epoch:0   train step:2720 lr: 0.100000, loss:  4.6590 top1:  0.1172 top5:  0.2812 batch_cost: 0.17903 s, reader_cost: 0.00054 s, ips: 1429.94745 samples/sec.
+[2023/07/28 07:02:05] ppcls INFO: epoch:0   train step:2730 lr: 0.100000, loss:  4.9243 top1:  0.0625 top5:  0.2422 batch_cost: 0.17903 s, reader_cost: 0.00054 s, ips: 1429.93707 samples/sec.
+[2023/07/28 07:02:07] ppcls INFO: epoch:0   train step:2740 lr: 0.100000, loss:  4.5871 top1:  0.1406 top5:  0.3359 batch_cost: 0.17903 s, reader_cost: 0.00055 s, ips: 1429.91819 samples/sec.
+[2023/07/28 07:02:08] ppcls INFO: epoch:0   train step:2750 lr: 0.100000, loss:  4.3942 top1:  0.1641 top5:  0.3359 batch_cost: 0.17903 s, reader_cost: 0.00054 s, ips: 1429.90348 samples/sec.
+[2023/07/28 07:02:10] ppcls INFO: epoch:0   train step:2760 lr: 0.100000, loss:  4.6359 top1:  0.1484 top5:  0.3398 batch_cost: 0.17903 s, reader_cost: 0.00054 s, ips: 1429.88807 samples/sec.
+[2023/07/28 07:02:12] ppcls INFO: epoch:0   train step:2770 lr: 0.100000, loss:  4.7291 top1:  0.1367 top5: -0.2812 batch_cost: 0.17904 s, reader_cost: 0.00054 s, ips: 1429.87724 samples/sec.
+[2023/07/28 07:02:14] ppcls INFO: epoch:0   train step:2780 lr: 0.100000, loss:  4.6360 top1:  0.1172 top5: -0.3008 batch_cost: 0.17904 s, reader_cost: 0.00054 s, ips: 1429.86036 samples/sec.
+[2023/07/28 07:02:16] ppcls INFO: epoch:0   train step:2790 lr: 0.100000, loss:  4.7056 top1:  0.1328 top5:  0.2930 batch_cost: 0.17904 s, reader_cost: 0.00054 s, ips: 1429.84206 samples/sec.
+[2023/07/28 07:02:17] ppcls INFO: epoch:0   train step:2800 lr: 0.100000, loss:  4.8164 top1:  0.1094 top5:  0.2227 batch_cost: 0.17904 s, reader_cost: 0.00054 s, ips: 1429.81803 samples/sec.
+[2023/07/28 07:02:19] ppcls INFO: epoch:0   train step:2810 lr: 0.100000, loss:  4.8310 top1:  0.1133 top5:  0.3281 batch_cost: 0.17904 s, reader_cost: 0.00054 s, ips: 1429.81595 samples/sec.
+[2023/07/28 07:02:21] ppcls INFO: epoch:0   train step:2820 lr: 0.100000, loss:  4.6981 top1:  0.1172 top5:  0.2773 batch_cost: 0.17905 s, reader_cost: 0.00054 s, ips: 1429.80406 samples/sec.
+[2023/07/28 07:02:23] ppcls INFO: epoch:0   train step:2830 lr: 0.100000, loss:  4.6707 top1:  0.1016 top5: -0.2969 batch_cost: 0.17905 s, reader_cost: 0.00054 s, ips: 1429.78713 samples/sec.
+[2023/07/28 07:02:25] ppcls INFO: epoch:0   train step:2840 lr: 0.100000, loss:  4.7432 top1:  0.1445 top5:  0.3320 batch_cost: 0.17905 s, reader_cost: 0.00054 s, ips: 1429.76902 samples/sec.
+[2023/07/28 07:02:26] ppcls INFO: epoch:0   train step:2850 lr: 0.100000, loss:  4.6792 top1:  0.1016 top5: -0.2617 batch_cost: 0.17905 s, reader_cost: 0.00054 s, ips: 1429.74926 samples/sec.
+[2023/07/28 07:02:28] ppcls INFO: epoch:0   train step:2860 lr: 0.100000, loss:  4.3290 top1:  0.1641 top5:  0.3906 batch_cost: 0.17905 s, reader_cost: 0.00054 s, ips: 1429.72859 samples/sec.
+[2023/07/28 07:02:30] ppcls INFO: epoch:0   train step:2870 lr: 0.100000, loss:  4.5162 top1:  0.1250 top5:  0.3086 batch_cost: 0.17906 s, reader_cost: 0.00054 s, ips: 1429.71751 samples/sec.
+[2023/07/28 07:02:32] ppcls INFO: epoch:0   train step:2880 lr: 0.100000, loss:  4.4910 top1:  0.1836 top5:  0.3516 batch_cost: 0.17906 s, reader_cost: 0.00054 s, ips: 1429.71302 samples/sec.
+[2023/07/28 07:02:34] ppcls INFO: epoch:0   train step:2890 lr: 0.100000, loss:  4.5398 top1:  0.1055 top5:  0.3047 batch_cost: 0.17906 s, reader_cost: 0.00054 s, ips: 1429.69102 samples/sec.
+[2023/07/28 07:02:35] ppcls INFO: epoch:0   train step:2900 lr: 0.100000, loss:  4.4181 top1:  0.1602 top5:  0.3750 batch_cost: 0.17906 s, reader_cost: 0.00054 s, ips: 1429.67313 samples/sec.
+[2023/07/28 07:02:37] ppcls INFO: epoch:0   train step:2910 lr: 0.100000, loss:  4.7180 top1:  0.1211 top5: -0.3047 batch_cost: 0.17906 s, reader_cost: 0.00054 s, ips: 1429.65226 samples/sec.
+[2023/07/28 07:02:39] ppcls INFO: epoch:0   train step:2920 lr: 0.100000, loss:  4.5920 top1:  0.1367 top5:  0.3086 batch_cost: 0.17907 s, reader_cost: 0.00054 s, ips: 1429.63944 samples/sec.
+[2023/07/28 07:02:41] ppcls INFO: epoch:0   train step:2930 lr: 0.100000, loss:  4.5574 top1:  0.1523 top5: -0.3242 batch_cost: 0.17907 s, reader_cost: 0.00054 s, ips: 1429.62591 samples/sec.
+[2023/07/28 07:02:43] ppcls INFO: epoch:0   train step:2940 lr: 0.100000, loss:  4.3960 top1:  0.1445 top5:  0.3516 batch_cost: 0.17907 s, reader_cost: 0.00054 s, ips: 1429.60791 samples/sec.
+[2023/07/28 07:02:44] ppcls INFO: epoch:0   train step:2950 lr: 0.100000, loss:  4.4343 top1:  0.1680 top5: -0.3594 batch_cost: 0.17907 s, reader_cost: 0.00055 s, ips: 1429.60410 samples/sec.
+[2023/07/28 07:02:46] ppcls INFO: epoch:0   train step:2960 lr: 0.100000, loss:  4.4124 top1:  0.1328 top5:  0.3516 batch_cost: 0.17907 s, reader_cost: 0.00055 s, ips: 1429.58764 samples/sec.
+[2023/07/28 07:02:48] ppcls INFO: epoch:0   train step:2970 lr: 0.100000, loss:  4.5396 top1:  0.1562 top5:  0.3555 batch_cost: 0.17907 s, reader_cost: 0.00055 s, ips: 1429.57828 samples/sec.
+[2023/07/28 07:02:50] ppcls INFO: epoch:0   train step:2980 lr: 0.100000, loss:  4.5287 top1:  0.1562 top5:  0.2930 batch_cost: 0.17907 s, reader_cost: 0.00055 s, ips: 1429.56953 samples/sec.
+[2023/07/28 07:02:52] ppcls INFO: epoch:0   train step:2990 lr: 0.100000, loss:  4.5120 top1:  0.1641 top5: -0.3359 batch_cost: 0.17908 s, reader_cost: 0.00055 s, ips: 1429.55443 samples/sec.
+[2023/07/28 07:02:53] ppcls INFO: epoch:0   train step:3000 lr: 0.100000, loss:  4.4496 top1:  0.1445 top5:  0.3203 batch_cost: 0.17908 s, reader_cost: 0.00055 s, ips: 1429.53880 samples/sec.
+[2023/07/28 07:02:55] ppcls INFO: epoch:0   train step:3010 lr: 0.100000, loss:  4.4217 top1:  0.1289 top5:  0.3047 batch_cost: 0.17908 s, reader_cost: 0.00055 s, ips: 1429.53181 samples/sec.
+[2023/07/28 07:02:57] ppcls INFO: epoch:0   train step:3020 lr: 0.100000, loss:  4.4417 top1:  0.1523 top5:  0.3164 batch_cost: 0.17908 s, reader_cost: 0.00055 s, ips: 1429.51450 samples/sec.
+[2023/07/28 07:02:59] ppcls INFO: epoch:0   train step:3030 lr: 0.100000, loss:  4.5533 top1:  0.1055 top5:  0.2930 batch_cost: 0.17908 s, reader_cost: 0.00055 s, ips: 1429.49934 samples/sec.
+[2023/07/28 07:03:01] ppcls INFO: epoch:0   train step:3040 lr: 0.100000, loss:  4.2987 top1:  0.1758 top5:  0.3750 batch_cost: 0.17908 s, reader_cost: 0.00055 s, ips: 1429.49296 samples/sec.
+[2023/07/28 07:03:02] ppcls INFO: epoch:0   train step:3050 lr: 0.100000, loss:  4.5878 top1:  0.1328 top5:  0.2930 batch_cost: 0.17909 s, reader_cost: 0.00055 s, ips: 1429.47044 samples/sec.
+[2023/07/28 07:03:04] ppcls INFO: epoch:0   train step:3060 lr: 0.100000, loss:  4.4741 top1:  0.1641 top5:  0.3477 batch_cost: 0.17909 s, reader_cost: 0.00055 s, ips: 1429.44454 samples/sec.
+[2023/07/28 07:03:06] ppcls INFO: epoch:0   train step:3070 lr: 0.100000, loss:  4.3197 top1:  0.1562 top5:  0.3867 batch_cost: 0.17909 s, reader_cost: 0.00055 s, ips: 1429.42667 samples/sec.
+[2023/07/28 07:03:08] ppcls INFO: epoch:0   train step:3080 lr: 0.100000, loss:  4.4717 top1:  0.1289 top5: -0.3203 batch_cost: 0.17909 s, reader_cost: 0.00055 s, ips: 1429.41999 samples/sec.
+[2023/07/28 07:03:10] ppcls INFO: epoch:0   train step:3090 lr: 0.100000, loss:  4.6430 top1:  0.1250 top5:  0.2969 batch_cost: 0.17909 s, reader_cost: 0.00055 s, ips: 1429.41042 samples/sec.
+[2023/07/28 07:03:11] ppcls INFO: epoch:0   train step:3100 lr: 0.100000, loss:  4.7688 top1:  0.1094 top5:  0.2891 batch_cost: 0.17910 s, reader_cost: 0.00055 s, ips: 1429.40331 samples/sec.
+[2023/07/28 07:03:13] ppcls INFO: epoch:0   train step:3110 lr: 0.100000, loss:  4.4871 top1:  0.1484 top5:  0.3555 batch_cost: 0.17910 s, reader_cost: 0.00055 s, ips: 1429.38700 samples/sec.
+[2023/07/28 07:03:15] ppcls INFO: epoch:0   train step:3120 lr: 0.100000, loss:  4.5848 top1:  0.1211 top5: -0.3125 batch_cost: 0.17910 s, reader_cost: 0.00055 s, ips: 1429.37094 samples/sec.
+[2023/07/28 07:03:17] ppcls INFO: epoch:0   train step:3130 lr: 0.100000, loss:  4.4971 top1:  0.1562 top5: -0.3164 batch_cost: 0.17910 s, reader_cost: 0.00055 s, ips: 1429.36089 samples/sec.
+[2023/07/28 07:03:19] ppcls INFO: epoch:0   train step:3140 lr: 0.100000, loss:  4.3953 top1:  0.1367 top5:  0.3281 batch_cost: 0.17910 s, reader_cost: 0.00055 s, ips: 1429.34201 samples/sec.
+[2023/07/28 07:03:20] ppcls INFO: epoch:0   train step:3150 lr: 0.100000, loss:  4.4323 top1:  0.1367 top5: -0.3320 batch_cost: 0.17910 s, reader_cost: 0.00055 s, ips: 1429.33573 samples/sec.
+[2023/07/28 07:03:22] ppcls INFO: epoch:0   train step:3160 lr: 0.100000, loss:  4.4692 top1:  0.1445 top5:  0.3555 batch_cost: 0.17911 s, reader_cost: 0.00055 s, ips: 1429.32269 samples/sec.
+[2023/07/28 07:03:24] ppcls INFO: epoch:0   train step:3170 lr: 0.100000, loss:  4.4350 top1:  0.1445 top5:  0.3203 batch_cost: 0.17911 s, reader_cost: 0.00055 s, ips: 1429.30259 samples/sec.
+[2023/07/28 07:03:26] ppcls INFO: epoch:0   train step:3180 lr: 0.100000, loss:  4.6108 top1:  0.1328 top5: -0.2891 batch_cost: 0.17911 s, reader_cost: 0.00055 s, ips: 1429.28727 samples/sec.
+[2023/07/28 07:03:28] ppcls INFO: epoch:0   train step:3190 lr: 0.100000, loss:  4.6236 top1:  0.1211 top5:  0.2891 batch_cost: 0.17911 s, reader_cost: 0.00055 s, ips: 1429.27890 samples/sec.
+[2023/07/28 07:03:29] ppcls INFO: epoch:0   train step:3200 lr: 0.100000, loss:  4.4883 top1:  0.1641 top5: -0.3281 batch_cost: 0.17911 s, reader_cost: 0.00055 s, ips: 1429.26560 samples/sec.
+[2023/07/28 07:03:31] ppcls INFO: epoch:0   train step:3210 lr: 0.100000, loss:  4.4948 top1:  0.1289 top5:  0.3125 batch_cost: 0.17912 s, reader_cost: 0.00055 s, ips: 1429.24887 samples/sec.
+[2023/07/28 07:03:33] ppcls INFO: epoch:0   train step:3220 lr: 0.100000, loss:  4.5224 top1:  0.1445 top5:  0.3125 batch_cost: 0.17912 s, reader_cost: 0.00055 s, ips: 1429.23863 samples/sec.
+
+

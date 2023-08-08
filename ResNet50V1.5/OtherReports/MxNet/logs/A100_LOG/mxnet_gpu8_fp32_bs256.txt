@@ -1,279 +1,429 @@
-[1,0]<stdout>:DLL 2023-01-06 05:34:20.654950 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0, 1, 2, 3, 4, 5, 6, 7]  kv_store : horovod  dtype : float32  amp : False  batch_size : 2048  num_epochs : 3  run_epochs : -1  lr : 2.048  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-8,256  workspace : ./  logdir : None  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 4  dali_validation_threads : 10  dali_prefetch_queue : 2  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  dali_nvjpeg_width_hint : 5980  dali_nvjpeg_height_hint : 6430  dali_dont_use_mmap : False  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
-[1,6]<stderr>:[05:34:29] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
-[1,6]<stderr>:[[1,6]<stderr>:05:34:29] ../src/storage/storage.cc:[1,6]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
-[1,6]<stderr>:2023-01-06 05:34:29,109:INFO: starting epoch 0
-[1,1]<stderr>:[[1,1]<stderr>:05:34:29] ../src/storage/storage.cc:[1,1]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
-[1,2]<stderr>:[[1,2]<stderr>:05:34:29] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
-[1,1]<stderr>:[[1,1]<stderr>:05:34:29] [1,1]<stderr>:../src/storage/storage.cc:199: Using Pooled (Naive)[1,1]<stderr>: StorageManager for CPU
-[1,2]<stderr>:[05:34:29] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-[1,7]<stderr>:[[1,7]<stderr>:05:34:29] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
-[1,4]<stderr>:[05:34:29] ../src/storage/storage.cc:[1,4]<stderr>:199: Using Pooled (Naive) StorageManager for GPU
-[1,1]<stderr>:2023-01-06 05:34:29,354:INFO: starting epoch 0
-[1,2]<stderr>:2023-01-06 05:34:29,367:INFO: starting epoch 0
-[1,7]<stderr>:[05:34:29] ../src/storage/storage.cc:199[1,7]<stderr>:: Using Pooled (Naive) StorageManager for CPU
-[1,4]<stderr>:[[1,4]<stderr>:05:34:29] ../src/storage/storage.cc:[1,4]<stderr>:199: Using Pooled (Naive) StorageManager for CPU
-[1,7]<stderr>:2023-01-06 05:34:29,393:INFO: starting epoch 0
-[1,4]<stderr>:2023-01-06 05:34:29,415:INFO: starting epoch 0
-[1,3]<stderr>:[05:34:29] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU
-[1,3]<stderr>:[[1,3]<stderr>:05:34:29[1,3]<stderr>:] [1,3]<stderr>:../src/storage/storage.cc[1,3]<stderr>::[1,3]<stderr>:199[1,3]<stderr>:: [1,3]<stderr>:Using [1,3]<stderr>:Pooled (Naive)[1,3]<stderr>: StorageManager for [1,3]<stderr>:CPU[1,3]<stderr>:
-[1,3]<stderr>:2023-01-06 05:34:29,539:INFO: starting epoch 0
-[1,5]<stderr>:[[1,5]<stderr>:05:34:30] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for GPU[1,5]<stderr>:
-[1,5]<stderr>:[05:34:30] ../src/storage/storage.cc:199: Using Pooled (Naive) StorageManager for CPU
-[1,0]<stderr>:[05:34:30] ../src/storage/storage.cc:199: Using [1,0]<stderr>:Pooled (Naive) StorageManager for GPU
-[1,5]<stderr>:2023-01-06 05:34:30,190:INFO: starting epoch 0
-[1,0]<stderr>:2023-01-06 05:34:30,217:INFO: starting epoch 0
-[1,0]<stderr>:[[1,0]<stderr>:05:34:30[1,0]<stderr>:] [1,0]<stderr>:../src/storage/storage.cc[1,0]<stderr>::[1,0]<stderr>:199[1,0]<stderr>:: [1,0]<stderr>:Using [1,0]<stderr>:Pooled (Naive)[1,0]<stderr>: StorageManager for [1,0]<stderr>:CPU[1,0]<stderr>:
-[1,7]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,7]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,7]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,7]<stderr>:  _iterator_deprecation_warning()
-[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,7]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,7]<stderr>:2023-01-06 05:34:39,920:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,7]<stderr>:2023-01-06 05:34:39,920:INFO: Starting epoch 0
-[1,6]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,6]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,6]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,6]<stderr>:  _iterator_deprecation_warning()
-[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,6]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,6]<stderr>:2023-01-06 05:34:39,978:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,6]<stderr>:2023-01-06 05:34:39,978:INFO: Starting epoch 0
-[1,2]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stdout>:DLL 2023-07-31 13:14:22.484750 - PARAMETER arch : resnetv15  num_layers : 50  num_groups : 32  num_classes : 1000  batchnorm_eps : 1e-05  batchnorm_mom : 0.9  fuse_bn_relu : 0  fuse_bn_add_relu : 0  mode : train  seed : None  gpus : [0, 1, 2, 3, 4, 5, 6, 7]  kv_store : horovod  dtype : float32  amp : False  batch_size : 2048  num_epochs : 3  run_epochs : -1  lr : 2.048  lr_schedule : cosine  lr_factor : 0.256  lr_steps : []  warmup_epochs : 5  optimizer : sgd  mom : 0.875  wd : 3.0517578125e-05  label_smoothing : 0.1  mixup : 0  disp_batches : 20  model_prefix : model  save_frequency : -1  begin_epoch : 0  load : None  test_io : False  test_io_mode : train  log : log.log  dllogger_log : benchmark_report_fp32.json-8,256  workspace : ./  logdir : None  no_metrics : True  benchmark_iters : 500  data_train : /data/imagenet/train-val-recordio-passthrough/train.rec  data_train_idx : /data/imagenet/train-val-recordio-passthrough/train.idx  data_val : /data/imagenet/train-val-recordio-passthrough/val.rec  data_val_idx : /data/imagenet/train-val-recordio-passthrough/val.idx  data_pred : None  data_backend : dali-gpu  image_shape : [3, 224, 224]  rgb_mean : [123.68, 116.779, 103.939]  rgb_std : [58.393, 57.12, 57.375]  input_layout : NCHW  conv_layout : NCHW  batchnorm_layout : NCHW  pooling_layout : NCHW  num_examples : 32000  data_val_resize : 256  dali_separ_val : False  dali_threads : 6  dali_validation_threads : 10  dali_prefetch_queue : 5  dali_nvjpeg_memory_padding : 64  dali_fuse_decoder : 1  dali_nvjpeg_width_hint : 5980  dali_nvjpeg_height_hint : 6430  dali_dont_use_mmap : False  data_mxnet_threads : 40  random_crop : 0  random_mirror : 1  max_random_h : 0  max_random_s : 0  max_random_l : 0  min_random_aspect_ratio : 0.75  max_random_aspect_ratio : 1.33  max_random_rotate_angle : 0  max_random_shear_ratio : 0  max_random_scale : 1  min_random_scale : 1  max_random_area : 1  min_random_area : 0.05  min_crop_size : -1  max_crop_size : -1  brightness : 0  contrast : 0  saturation : 0  pca_noise : 0  random_resized_crop : 1 
+[1,3]<stderr>:[[1,3]<stderr>:13:14:22] ../src/storage/storage.cc:196: Using Pooled (Naive) StorageManager for CPU
+[1,6]<stderr>:[[1,6]<stderr>:13:14:22] ../src/storage/storage.cc[1,6]<stderr>::196[1,6]<stderr>:: Using Pooled (Naive) StorageManager for CPU
+[1,2]<stderr>:[[1,2]<stderr>:13:14:22] ../src/storage/storage.cc[1,2]<stderr>::196: Using Pooled (Naive) StorageManager for CPU
+[1,4]<stderr>:[[1,4]<stderr>:13:14:22] ../src/storage/storage.cc:[1,4]<stderr>:196: Using Pooled (Naive)[1,4]<stderr>: StorageManager for CPU
+[1,1]<stderr>:[[1,1]<stderr>:13:14:22] ../src/storage/storage.cc:196: Using [1,1]<stderr>:Pooled (Naive) StorageManager for CPU
+[1,7]<stderr>:[[1,7]<stderr>:13:14:22] ../src/storage/storage.cc:[1,7]<stderr>:196: Using Pooled (Naive) StorageManager for CPU
+[1,0]<stderr>:[[1,0]<stderr>:13:14:22] ../src/storage/storage.cc[1,0]<stderr>::196: Using Pooled (Naive) StorageManager for CPU
+[1,5]<stderr>:[[1,5]<stderr>:13:14:22] ../src/storage/storage.cc:[1,5]<stderr>:196: Using Pooled (Naive) StorageManager for CPU[1,5]<stderr>:
+[1,1]<stderr>:2023-07-31 13:14:22,566:INFO: starting epoch 0
+[1,3]<stderr>:2023-07-31 13:14:22,567:INFO: starting epoch 0
+[1,6]<stderr>:2023-07-31 13:14:22,567:INFO: starting epoch 0
+[1,2]<stderr>:2023-07-31 13:14:22,567:INFO: starting epoch 0
+[1,0]<stderr>:2023-07-31 13:14:22,568:INFO: starting epoch 0
+[1,7]<stderr>:2023-07-31 13:14:22,569:INFO: starting epoch 0
+[1,5]<stderr>:2023-07-31 13:14:22,569:INFO: starting epoch 0
+[1,4]<stderr>:2023-07-31 13:14:22,578:INFO: starting epoch 0
+[1,2]<stderr>:[13:14:32] ../src/storage/storage.cc:196: Using Pooled (Naive) StorageManager for GPU
+[1,1]<stderr>:[[1,1]<stderr>:13:14:32] ../src/storage/storage.cc:[1,1]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,5]<stderr>:[[1,5]<stderr>:13:14:32] ../src/storage/storage.cc:[1,5]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,3]<stderr>:[[1,3]<stderr>:13:14:32] ../src/storage/storage.cc:[1,3]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,4]<stderr>:[[1,4]<stderr>:13:14:32] ../src/storage/storage.cc:[1,4]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,6]<stderr>:[[1,6]<stderr>:13:14:32] ../src/storage/storage.cc:[1,6]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,0]<stderr>:[[1,0]<stderr>:13:14:32] ../src/storage/storage.cc:[1,0]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,7]<stderr>:[13:14:32] ../src/storage/storage.cc:[1,7]<stderr>:196: Using Pooled (Naive) StorageManager for GPU
+[1,2]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
 [1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,2]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
 [1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,2]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
 [1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,2]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,2]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
 [1,2]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,2]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,2]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,2]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,2]<stderr>:functionality to allow for backward compatibility.
+[1,2]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,2]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,2]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,2]<stderr>:functionality to allow for backward compatibility.
+[1,2]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,2]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,2]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,2]<stderr>:functionality to allow for backward compatibility.
+[1,2]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,2]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,2]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,2]<stderr>:functionality to allow for backward compatibility.
+[1,2]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
 [1,2]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
 [1,2]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
 [1,2]<stderr>:  _iterator_deprecation_warning()
-[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,2]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,2]<stderr>:2023-01-06 05:34:40,044:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,2]<stderr>:2023-01-06 05:34:40,045:INFO: Starting epoch 0
-[1,1]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,1]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,1]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,1]<stderr>:  _iterator_deprecation_warning()
-[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,1]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,1]<stderr>:2023-01-06 05:34:40,265:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,1]<stderr>:2023-01-06 05:34:40,266:INFO: Starting epoch 0
-[1,3]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,3]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,3]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,3]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,3]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,3]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,3]<stderr>:  _iterator_deprecation_warning()
-[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,3]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,3]<stderr>:2023-01-06 05:34:40,559:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,3]<stderr>:2023-01-06 05:34:40,559:INFO: Starting epoch 0
-[1,4]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
-[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,4]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
-[1,4]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
-[1,4]<stderr>:  _iterator_deprecation_warning()
-[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,4]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,4]<stderr>:2023-01-06 05:34:41,033:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,4]<stderr>:2023-01-06 05:34:41,033:INFO: Starting epoch 0
-[1,5]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,2]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,2]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,2]<stderr>:2023-07-31 13:14:36,760:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,2]<stderr>:2023-07-31 13:14:36,760:INFO: Starting epoch 0
+[1,5]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
 [1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,5]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
 [1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,5]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
 [1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,5]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,5]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
 [1,5]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,5]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,5]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,5]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,5]<stderr>:functionality to allow for backward compatibility.
+[1,5]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,5]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,5]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,5]<stderr>:functionality to allow for backward compatibility.
+[1,5]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,5]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,5]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,5]<stderr>:functionality to allow for backward compatibility.
+[1,5]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,5]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,5]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,5]<stderr>:functionality to allow for backward compatibility.
+[1,5]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
 [1,5]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
 [1,5]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
 [1,5]<stderr>:  _iterator_deprecation_warning()
-[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,5]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,5]<stderr>:2023-01-06 05:34:41,622:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,5]<stderr>:2023-01-06 05:34:41,622:INFO: Starting epoch 0
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 6457, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 5233, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 4785, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 6009, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 15553, errno = 1
-[1,0]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,5]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,5]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,5]<stderr>:2023-07-31 13:14:36,918:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,5]<stderr>:2023-07-31 13:14:36,919:INFO: Starting epoch 0
+[1,3]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,3]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,3]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,3]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,3]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,3]<stderr>:functionality to allow for backward compatibility.
+[1,3]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,3]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,3]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,3]<stderr>:functionality to allow for backward compatibility.
+[1,3]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,3]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,3]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,3]<stderr>:functionality to allow for backward compatibility.
+[1,3]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,3]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,3]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,3]<stderr>:functionality to allow for backward compatibility.
+[1,3]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,3]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,3]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
+[1,3]<stderr>:  _iterator_deprecation_warning()
+[1,3]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,3]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,3]<stderr>:2023-07-31 13:14:36,982:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,3]<stderr>:2023-07-31 13:14:36,982:INFO: Starting epoch 0
+[1,0]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
 [1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
 [1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'output_dtype' for operator 'CropMirrorNormalize' is now deprecated. Use 'dtype' instead.
+[1,0]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
 [1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
-[1,0]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: Argument 'image_type' for operator 'CropMirrorNormalize' is now deprecated. The argument is no longer used and should be removed.
+[1,0]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
 [1,0]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,0]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,0]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,0]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,0]<stderr>:functionality to allow for backward compatibility.
+[1,0]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,0]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,0]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,0]<stderr>:functionality to allow for backward compatibility.
+[1,0]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,0]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,0]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,0]<stderr>:functionality to allow for backward compatibility.
+[1,0]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,0]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,0]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,0]<stderr>:functionality to allow for backward compatibility.
+[1,0]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
 [1,0]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
 [1,0]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
-[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:156: Warning: Please set `reader_name` and don't set last_batch_padded and size manually  whenever possible. This may lead, in some situations, to miss some  samples or return duplicated ones. Check the Sharding section of the documentation for more details.
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
 [1,0]<stderr>:  _iterator_deprecation_warning()
-[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:84: Warning: Please do not use `fill_last_batch` and use `last_batch_policy` instead.
-[1,0]<stderr>:  _DaliBaseIterator.__init__(self, pipelines, size, reader_name, auto_reset,
-[1,0]<stderr>:2023-01-06 05:34:42,551:WARNING: DALI iterator does not support resetting while epoch is not finished. Ignoring...
-[1,0]<stderr>:2023-01-06 05:34:42,551:INFO: Starting epoch 0
-[1,3]<stderr>:[05:34:43] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,7]<stderr>:[05:34:43] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: [1,7]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,6]<stderr>:[[1,6]<stderr>:05:34:43] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:[1,6]<stderr>:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,0]<stderr>:[[1,0]<stderr>:05:34:43[1,0]<stderr>:] [1,0]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,0]<stderr>::[1,0]<stderr>:120[1,0]<stderr>:: [1,0]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,0]<stderr>:
-[1,2]<stderr>:[05:34:43] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,5]<stderr>:[[1,5]<stderr>:05:34:44[1,5]<stderr>:] [1,5]<stderr>:../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h[1,5]<stderr>::[1,5]<stderr>:120[1,5]<stderr>:: [1,5]<stderr>:Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,5]<stderr>:
-[1,4]<stderr>:[[1,4]<stderr>:05:34:44] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:[1,4]<stderr>:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)
-[1,1]<stderr>:[05:34:44[1,1]<stderr>:] ../src/operator/nn/./cudnn/./cudnn_algoreg-inl.h:120: Running performance tests to find the best convolution algorithm, this can take a while... (set the environment variable MXNET_CUDNN_AUTOTUNE_DEFAULT to 0 to disable)[1,1]<stderr>:
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 5857, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 6561, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 4649, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 8433, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 10017, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 4985, errno = 1
-[1,0]<stderr>:[5c4067e65362:17066] Read -1, expected 14945, errno = 1
-[1,0]<stdout>:DLL 2023-01-06 05:35:16.022663 - Epoch: 0 Iteration: 19  train.loss : 6.945975804328919  train.ips : 1223.7406136225493 images/s train.lr : 0.4864 
-[1,0]<stdout>:DLL 2023-01-06 05:35:21.796980 - Epoch: 0 Iteration: 39  train.loss : 6.692278647422791  train.ips : 7094.224189680022 images/s train.lr : 0.9984 
-[1,0]<stdout>:DLL 2023-01-06 05:35:27.557914 - Epoch: 0 Iteration: 59  train.loss : 6.574675917625427  train.ips : 7111.058141372969 images/s train.lr : 1.5104000000000002 
-[1,0]<stdout>:DLL 2023-01-06 05:35:33.322711 - Epoch: 0 Iteration: 79  train.loss : 6.40570023059845  train.ips : 7108.064497363748 images/s train.lr : 2.0224 
-[1,0]<stdout>:DLL 2023-01-06 05:35:39.067696 - Epoch: 0 Iteration: 99  train.loss : 6.35640926361084  train.ips : 7130.328533011307 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:35:44.824452 - Epoch: 0 Iteration: 119  train.loss : 6.354640913009644  train.ips : 7115.512226348901 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:35:50.579711 - Epoch: 0 Iteration: 139  train.loss : 6.361517524719238  train.ips : 7117.494987265056 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:35:56.332131 - Epoch: 0 Iteration: 159  train.loss : 6.347368812561035  train.ips : 7120.799684328153 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:02.084941 - Epoch: 0 Iteration: 179  train.loss : 6.350193834304809  train.ips : 7120.287937021361 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:07.846423 - Epoch: 0 Iteration: 199  train.loss : 6.333928036689758  train.ips : 7109.725915909759 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:13.600717 - Epoch: 0 Iteration: 219  train.loss : 6.342794942855835  train.ips : 7118.715674466361 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:19.350153 - Epoch: 0 Iteration: 239  train.loss : 6.367941904067993  train.ips : 7124.675591102714 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:25.093337 - Epoch: 0 Iteration: 259  train.loss : 6.330979800224304  train.ips : 7132.251458033438 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:30.846496 - Epoch: 0 Iteration: 279  train.loss : 6.356903791427612  train.ips : 7120.064255131997 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:36.602972 - Epoch: 0 Iteration: 299  train.loss : 6.341582155227661  train.ips : 7116.066910757629 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:42.347154 - Epoch: 0 Iteration: 319  train.loss : 6.333404850959778  train.ips : 7131.002741181647 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:48.096616 - Epoch: 0 Iteration: 339  train.loss : 6.336392951011658  train.ips : 7124.8324880237205 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:53.837571 - Epoch: 0 Iteration: 359  train.loss : 6.358177304267883  train.ips : 7135.096896848805 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:36:59.589688 - Epoch: 0 Iteration: 379  train.loss : 6.359276175498962  train.ips : 7121.19638336635 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:37:05.343612 - Epoch: 0 Iteration: 399  train.loss : 6.357320666313171  train.ips : 7119.191794020571 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:37:11.088237 - Epoch: 0 Iteration: 419  train.loss : 6.341706585884094  train.ips : 7131.167317055109 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:37:16.842883 - Epoch: 0 Iteration: 439  train.loss : 6.362065267562866  train.ips : 7118.131379332004 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:37:22.585343 - Epoch: 0 Iteration: 459  train.loss : 6.347025656700135  train.ips : 7133.2233795460115 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:37:28.338141 - Epoch: 0 Iteration: 479  train.loss : 6.361623930931091  train.ips : 7120.4419847003 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:37:34.095768 - Epoch: 0 Iteration: 499  train.loss : 6.365435075759888  train.ips : 7114.562802645577 images/s train.lr : 0 
-[1,6]<stderr>:2023-01-06 05:37:34,225:INFO: Starting epoch 1
-[1,2]<stderr>:2023-01-06 05:37:34,247:INFO: Starting epoch 1
-[1,7]<stderr>:2023-01-06 05:37:34,262:INFO: Starting epoch 1
-[1,3]<stderr>:2023-01-06 05:37:34,264:INFO: Starting epoch 1
-[1,1]<stderr>:2023-01-06 05:37:34,268:INFO: Starting epoch 1
-[1,4]<stderr>:2023-01-06 05:37:34,269:INFO: Starting epoch 1
-[1,5]<stderr>:2023-01-06 05:37:34,277:INFO: Starting epoch 1
-[1,0]<stdout>:DLL 2023-01-06 05:37:34.301676 - Epoch: 0  train.loss : 6.399412801742554  train.ips : 7121.049662539813 images/s
-[1,0]<stderr>:2023-01-06 05:37:34,302:INFO: Starting epoch 1
-[1,0]<stdout>:DLL 2023-01-06 05:37:40.017940 - Epoch: 1 Iteration: 19  train.loss : 6.338844847679138  train.ips : 7165.7870786527865 images/s train.lr : 0.8960000000000001 
-[1,0]<stdout>:DLL 2023-01-06 05:37:45.769211 - Epoch: 1 Iteration: 39  train.loss : 6.2136828899383545  train.ips : 7122.2565304604195 images/s train.lr : 1.408 
-[1,0]<stdout>:DLL 2023-01-06 05:37:51.528894 - Epoch: 1 Iteration: 59  train.loss : 6.191846418380737  train.ips : 7112.046376525531 images/s train.lr : 1.92 
-[1,0]<stdout>:DLL 2023-01-06 05:37:57.265545 - Epoch: 1 Iteration: 79  train.loss : 6.106643962860107  train.ips : 7140.6797288898515 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:03.018341 - Epoch: 1 Iteration: 99  train.loss : 6.10149040222168  train.ips : 7120.238064775844 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:08.768473 - Epoch: 1 Iteration: 119  train.loss : 6.101189994812012  train.ips : 7124.475564936232 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:14.513378 - Epoch: 1 Iteration: 139  train.loss : 6.1142594575881954  train.ips : 7130.440102996215 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:20.270874 - Epoch: 1 Iteration: 159  train.loss : 6.105702829360962  train.ips : 7114.527152625701 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:26.006065 - Epoch: 1 Iteration: 179  train.loss : 6.065673995018005  train.ips : 7142.230235327885 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:31.746622 - Epoch: 1 Iteration: 199  train.loss : 6.080577039718628  train.ips : 7135.641894710933 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:37.489153 - Epoch: 1 Iteration: 219  train.loss : 6.111712551116943  train.ips : 7133.29772082759 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:43.232426 - Epoch: 1 Iteration: 239  train.loss : 6.109919500350952  train.ips : 7132.163814512844 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:48.972034 - Epoch: 1 Iteration: 259  train.loss : 6.12018392086029  train.ips : 7136.777203780261 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:38:54.704269 - Epoch: 1 Iteration: 279  train.loss : 6.100913715362549  train.ips : 7146.0777920963865 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:00.447950 - Epoch: 1 Iteration: 299  train.loss : 6.084814786911011  train.ips : 7131.597144549857 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:06.190267 - Epoch: 1 Iteration: 319  train.loss : 6.110239505767822  train.ips : 7133.417084771965 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:11.928419 - Epoch: 1 Iteration: 339  train.loss : 6.0959755182266235  train.ips : 7138.470166826238 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:17.668019 - Epoch: 1 Iteration: 359  train.loss : 6.127442717552185  train.ips : 7136.619483892199 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:23.415880 - Epoch: 1 Iteration: 379  train.loss : 6.094286012649536  train.ips : 7126.555854101615 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:29.150677 - Epoch: 1 Iteration: 399  train.loss : 6.100647974014282  train.ips : 7142.915308702062 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:34.903636 - Epoch: 1 Iteration: 419  train.loss : 6.110217475891114  train.ips : 7120.138027288986 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:40.637634 - Epoch: 1 Iteration: 439  train.loss : 6.108253908157349  train.ips : 7143.76448317797 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:46.375805 - Epoch: 1 Iteration: 459  train.loss : 6.095484495162964  train.ips : 7138.725559911171 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:52.123609 - Epoch: 1 Iteration: 479  train.loss : 6.081332707405091  train.ips : 7126.559401590114 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:39:57.871167 - Epoch: 1 Iteration: 499  train.loss : 6.107176518440246  train.ips : 7126.915350891039 images/s train.lr : 0 
-[1,2]<stderr>:2023-01-06 05:39:58,052:INFO: Starting epoch 2
-[1,7]<stderr>:2023-01-06 05:39:58,058:INFO: Starting epoch 2
-[1,0]<stdout>:DLL 2023-01-06 05:39:58.073050 - Epoch: 1  train.loss : 6.119140525817871  train.ips : 7128.37808055671 images/s
-[1,0]<stderr>:2023-01-06 05:39:58,073:INFO: Starting epoch 2
-[1,3]<stderr>:2023-01-06 05:39:58,075:INFO: Starting epoch 2
-[1,6]<stderr>:2023-01-06 05:39:58,082:INFO: Starting epoch 2
-[1,1]<stderr>:2023-01-06 05:39:58,107:INFO: Starting epoch 2
-[1,5]<stderr>:2023-01-06 05:39:58,160:INFO: Starting epoch 2
-[1,4]<stderr>:2023-01-06 05:39:58,233:INFO: Starting epoch 2
-[1,0]<stdout>:DLL 2023-01-06 05:40:03.813251 - Epoch: 2 Iteration: 19  train.loss : 6.1312648296356205  train.ips : 7135.856775368995 images/s train.lr : 1.3056 
-[1,0]<stdout>:DLL 2023-01-06 05:40:09.557004 - Epoch: 2 Iteration: 39  train.loss : 5.985869240760803  train.ips : 7131.611354608002 images/s train.lr : 1.8176 
-[1,0]<stdout>:DLL 2023-01-06 05:40:15.304327 - Epoch: 2 Iteration: 59  train.loss : 5.990576529502869  train.ips : 7127.2710400676 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:21.045672 - Epoch: 2 Iteration: 79  train.loss : 5.970576000213623  train.ips : 7134.869913054428 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:26.784870 - Epoch: 2 Iteration: 99  train.loss : 5.936390590667725  train.ips : 7137.450852896558 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:32.516207 - Epoch: 2 Iteration: 119  train.loss : 5.962757682800293  train.ips : 7147.189961441491 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:38.258924 - Epoch: 2 Iteration: 139  train.loss : 5.925152087211609  train.ips : 7132.85376940562 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:43.998270 - Epoch: 2 Iteration: 159  train.loss : 5.9632773160934445  train.ips : 7137.16352836799 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:49.735447 - Epoch: 2 Iteration: 179  train.loss : 5.944961786270142  train.ips : 7139.826539959686 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:40:55.480092 - Epoch: 2 Iteration: 199  train.loss : 5.972980380058289  train.ips : 7130.557003675627 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:01.231385 - Epoch: 2 Iteration: 219  train.loss : 5.9611447811126705  train.ips : 7122.428675464439 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:06.991634 - Epoch: 2 Iteration: 239  train.loss : 5.9628560781478885  train.ips : 7111.258003537609 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:12.737223 - Epoch: 2 Iteration: 259  train.loss : 5.946947693824768  train.ips : 7129.351187168431 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:18.482517 - Epoch: 2 Iteration: 279  train.loss : 5.981876087188721  train.ips : 7129.7225056011075 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:24.216748 - Epoch: 2 Iteration: 299  train.loss : 5.958707785606384  train.ips : 7143.609424713019 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:29.954569 - Epoch: 2 Iteration: 319  train.loss : 5.953205609321595  train.ips : 7138.989574294821 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:35.701995 - Epoch: 2 Iteration: 339  train.loss : 5.967711281776428  train.ips : 7127.100139257462 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:41.440754 - Epoch: 2 Iteration: 359  train.loss : 5.930567979812622  train.ips : 7137.7749732414495 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:47.175845 - Epoch: 2 Iteration: 379  train.loss : 5.954476380348206  train.ips : 7142.547959997103 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:52.918666 - Epoch: 2 Iteration: 399  train.loss : 5.9645476818084715  train.ips : 7132.862061520781 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:41:58.655322 - Epoch: 2 Iteration: 419  train.loss : 5.9753755807876585  train.ips : 7140.622150769275 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:42:04.412646 - Epoch: 2 Iteration: 439  train.loss : 5.984196376800537  train.ips : 7114.945252605672 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:42:10.160549 - Epoch: 2 Iteration: 459  train.loss : 5.974810481071472  train.ips : 7126.655480746766 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:42:15.900515 - Epoch: 2 Iteration: 479  train.loss : 5.968138360977173  train.ips : 7136.368391612319 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:42:21.648996 - Epoch: 2 Iteration: 499  train.loss : 5.94713864326477  train.ips : 7125.7887926665035 images/s train.lr : 0 
-[1,0]<stdout>:DLL 2023-01-06 05:42:21.855145 - Epoch: 2  train.loss : 5.968620289802551  train.ips : 7130.544998025035 images/s
-[1,0]<stdout>:DLL 2023-01-06 05:42:21.968186 - Summary: train.loss : 5.968620289802551  train.ips : 7126.657580373852 images/s
-Traceback (most recent call last):
-  File "benchmark.py", line 84, in <module>
-    epochs_report = list(filter(lambda x: len(x['step']) == 1, log_data))
-  File "benchmark.py", line 84, in <lambda>
-    epochs_report = list(filter(lambda x: len(x['step']) == 1, log_data))
-KeyError: 'step'
+[1,0]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,0]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,0]<stderr>:2023-07-31 13:14:37,704:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,0]<stderr>:2023-07-31 13:14:37,704:INFO: Starting epoch 0
+[1,1]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,1]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,1]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,1]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,1]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,1]<stderr>:functionality to allow for backward compatibility.
+[1,1]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,1]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,1]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,1]<stderr>:functionality to allow for backward compatibility.
+[1,1]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,1]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,1]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,1]<stderr>:functionality to allow for backward compatibility.
+[1,1]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,1]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,1]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,1]<stderr>:functionality to allow for backward compatibility.
+[1,1]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,1]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,1]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
+[1,1]<stderr>:  _iterator_deprecation_warning()
+[1,1]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,1]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,1]<stderr>:2023-07-31 13:14:37,735:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,1]<stderr>:2023-07-31 13:14:37,735:INFO: Starting epoch 0
+[1,4]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,4]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,4]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,4]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,4]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,4]<stderr>:functionality to allow for backward compatibility.
+[1,4]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,4]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,4]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,4]<stderr>:functionality to allow for backward compatibility.
+[1,4]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,4]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,4]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,4]<stderr>:functionality to allow for backward compatibility.
+[1,4]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,4]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,4]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,4]<stderr>:functionality to allow for backward compatibility.
+[1,4]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,4]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,4]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
+[1,4]<stderr>:  _iterator_deprecation_warning()
+[1,4]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,4]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,4]<stderr>:2023-07-31 13:14:37,779:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,4]<stderr>:2023-07-31 13:14:37,779:INFO: Starting epoch 0
+[1,6]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,6]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,6]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,6]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,6]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,6]<stderr>:functionality to allow for backward compatibility.
+[1,6]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,6]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,6]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,6]<stderr>:functionality to allow for backward compatibility.
+[1,6]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,6]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,6]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,6]<stderr>:functionality to allow for backward compatibility.
+[1,6]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,6]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,6]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,6]<stderr>:functionality to allow for backward compatibility.
+[1,6]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,6]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,6]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
+[1,6]<stderr>:  _iterator_deprecation_warning()
+[1,6]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,6]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,6]<stderr>:2023-07-31 13:14:37,807:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,6]<stderr>:2023-07-31 13:14:37,808:INFO: Starting epoch 0
+[1,7]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:83: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``output_dtype`` is a deprecated alias for ``dtype``. Use ``dtype`` instead.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/workspace/rn50/dali.py:128: DeprecationWarning: The argument ``image_type`` is no longer used and will be removed in a future release.
+[1,7]<stderr>:  self.cmnp = ops.CropMirrorNormalize(device="gpu",
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `coin_flip` is now deprecated. Use `random.coin_flip` instead.
+[1,7]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,7]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,7]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,7]<stderr>:functionality to allow for backward compatibility.
+[1,7]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder_random_crop` is now deprecated. Use `decoders.image_random_crop` instead.
+[1,7]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,7]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,7]<stderr>:functionality to allow for backward compatibility.
+[1,7]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `mxnet_reader` is now deprecated. Use `readers.mxnet` instead.
+[1,7]<stderr>:In DALI 1.0 all readers were moved into a dedicated :mod:`~nvidia.dali.fn.readers`
+[1,7]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,7]<stderr>:functionality to allow for backward compatibility.
+[1,7]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/ops.py:649: DeprecationWarning: WARNING: `image_decoder` is now deprecated. Use `decoders.image` instead.
+[1,7]<stderr>:In DALI 1.0 all decoders were moved into a dedicated :mod:`~nvidia.dali.fn.decoders`
+[1,7]<stderr>:submodule and renamed to follow a common pattern. This is a placeholder operator with identical
+[1,7]<stderr>:functionality to allow for backward compatibility.
+[1,7]<stderr>:  op_instances.append(_OperatorInstance(input_set, self, **kwargs))
+[1,7]<stderr>:/workspace/rn50/dali.py:209: UserWarning: 32000 training examples will be used, although full training set contains 1281167 examples
+[1,7]<stderr>:  warnings.warn("{} training examples will be used, although full training set contains {} examples".format(args.num_examples, trainpipes[0].epoch_size("Reader")))
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/base_iterator.py:192: Warning: Please set `reader_name` and don't set last_batch_padded and size manually whenever possible. This may lead, in some situations, to missing some samples or returning duplicated ones. Check the Sharding section of the documentation for more details.
+[1,7]<stderr>:  _iterator_deprecation_warning()
+[1,7]<stderr>:/usr/local/lib/python3.8/dist-packages/nvidia/dali/plugin/mxnet.py:95: Warning: Please do not use `fill_last_batch` and use `last_batch_policy`                            instead.
+[1,7]<stderr>:  _DaliBaseIterator.__init__(self,
+[1,7]<stderr>:2023-07-31 13:14:37,810:WARNING: DALI iterator does not support resetting while epoch is not finished.                              Ignoring...
+[1,7]<stderr>:2023-07-31 13:14:37,810:INFO: Starting epoch 0
+[1,0]<stdout>:DLL 2023-07-31 13:14:51.237133 - Epoch: 0 Iteration: 19  train.loss : 6.942690038681031  train.ips : 3026.65633954734 images/s train.lr : 0.4864 
+[1,0]<stdout>:DLL 2023-07-31 13:14:56.320981 - Epoch: 0 Iteration: 39  train.loss : 6.695049595832825  train.ips : 8057.647222262089 images/s train.lr : 0.9984 
+[1,0]<stdout>:DLL 2023-07-31 13:15:01.504751 - Epoch: 0 Iteration: 59  train.loss : 6.570419478416443  train.ips : 7902.558587361357 images/s train.lr : 1.5104000000000002 
+[1,0]<stdout>:DLL 2023-07-31 13:15:06.614031 - Epoch: 0 Iteration: 79  train.loss : 6.409635782241821  train.ips : 8017.756986002327 images/s train.lr : 2.0224 
+[1,0]<stdout>:DLL 2023-07-31 13:15:11.737327 - Epoch: 0 Iteration: 99  train.loss : 6.3550145626068115  train.ips : 7995.596702940797 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:16.847823 - Epoch: 0 Iteration: 119  train.loss : 6.3538083791732785  train.ips : 8015.690522936807 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:21.941062 - Epoch: 0 Iteration: 139  train.loss : 6.361100172996521  train.ips : 8042.701915254369 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:27.092576 - Epoch: 0 Iteration: 159  train.loss : 6.350255799293518  train.ips : 7951.794716607774 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:33.444253 - Epoch: 0 Iteration: 179  train.loss : 6.350095725059509  train.ips : 6448.976340710347 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:40.806540 - Epoch: 0 Iteration: 199  train.loss : 6.332493305206299  train.ips : 5563.70642435839 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:49.225273 - Epoch: 0 Iteration: 219  train.loss : 6.339492416381836  train.ips : 4865.517870067367 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:15:56.587677 - Epoch: 0 Iteration: 239  train.loss : 6.372793054580688  train.ips : 5563.652370637539 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:01.752760 - Epoch: 0 Iteration: 259  train.loss : 6.335229539871216  train.ips : 7930.744584409662 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:06.861027 - Epoch: 0 Iteration: 279  train.loss : 6.3518976926803585  train.ips : 8019.080695484575 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:11.999774 - Epoch: 0 Iteration: 299  train.loss : 6.3355512619018555  train.ips : 7971.693120701262 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:17.121396 - Epoch: 0 Iteration: 319  train.loss : 6.3395524501800535  train.ips : 7997.798765564345 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:22.237793 - Epoch: 0 Iteration: 339  train.loss : 6.332620739936829  train.ips : 8006.138202842229 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:27.364630 - Epoch: 0 Iteration: 359  train.loss : 6.362139010429383  train.ips : 7989.947836126131 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:32.461849 - Epoch: 0 Iteration: 379  train.loss : 6.362401366233826  train.ips : 8036.03669942772 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:37.566665 - Epoch: 0 Iteration: 399  train.loss : 6.347583675384522  train.ips : 8024.160278544171 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:42.666828 - Epoch: 0 Iteration: 419  train.loss : 6.350705933570862  train.ips : 8031.685091218291 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:47.769465 - Epoch: 0 Iteration: 439  train.loss : 6.366347551345825  train.ips : 8027.595506100995 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:52.858229 - Epoch: 0 Iteration: 459  train.loss : 6.34178593158722  train.ips : 8049.383099577718 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:16:57.969899 - Epoch: 0 Iteration: 479  train.loss : 6.356054663658142  train.ips : 8013.515603175336 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:03.058904 - Epoch: 0 Iteration: 499  train.loss : 6.367200756072998  train.ips : 8049.09949849699 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:03.061485 - Epoch: 0  train.loss : 6.399276755332947  train.ips : 7421.156687164209 images/s
+[1,0]<stderr>:2023-07-31 13:17:03,061:INFO: Starting epoch 1
+[1,4]<stderr>:2023-07-31 13:17:03,061:INFO: Starting epoch 1
+[1,5]<stderr>:2023-07-31 13:17:03,061:INFO: Starting epoch 1
+[1,2]<stderr>:2023-07-31 13:17:03,061:INFO: Starting epoch 1
+[1,6]<stderr>:2023-07-31 13:17:03,062:INFO: Starting epoch 1
+[1,3]<stderr>:2023-07-31 13:17:03,062:INFO: Starting epoch 1
+[1,7]<stderr>:2023-07-31 13:17:03,062:INFO: Starting epoch 1
+[1,1]<stderr>:2023-07-31 13:17:03,063:INFO: Starting epoch 1
+[1,0]<stdout>:DLL 2023-07-31 13:17:08.182852 - Epoch: 1 Iteration: 19  train.loss : 6.297816514968872  train.ips : 7998.131637120608 images/s train.lr : 0.8960000000000001 
+[1,0]<stdout>:DLL 2023-07-31 13:17:13.320985 - Epoch: 1 Iteration: 39  train.loss : 6.21312940120697  train.ips : 7972.774847495156 images/s train.lr : 1.408 
+[1,0]<stdout>:DLL 2023-07-31 13:17:18.434127 - Epoch: 1 Iteration: 59  train.loss : 6.160740065574646  train.ips : 8011.387814698267 images/s train.lr : 1.92 
+[1,0]<stdout>:DLL 2023-07-31 13:17:23.532362 - Epoch: 1 Iteration: 79  train.loss : 6.102208185195923  train.ips : 8034.719787013764 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:28.654233 - Epoch: 1 Iteration: 99  train.loss : 6.102019023895264  train.ips : 7997.352746224795 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:33.781066 - Epoch: 1 Iteration: 119  train.loss : 6.1023622274398805  train.ips : 7989.734175613369 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:38.914600 - Epoch: 1 Iteration: 139  train.loss : 6.120510983467102  train.ips : 7979.218382698582 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:44.012771 - Epoch: 1 Iteration: 159  train.loss : 6.1020103931427006  train.ips : 8034.589772843394 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:49.154490 - Epoch: 1 Iteration: 179  train.loss : 6.060831212997437  train.ips : 7966.684160117288 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:54.252510 - Epoch: 1 Iteration: 199  train.loss : 6.068605828285217  train.ips : 8034.97156052075 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:17:59.353584 - Epoch: 1 Iteration: 219  train.loss : 6.111349153518677  train.ips : 8030.216834800028 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:04.454720 - Epoch: 1 Iteration: 239  train.loss : 6.112906479835511  train.ips : 8029.883914477627 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:09.564482 - Epoch: 1 Iteration: 259  train.loss : 6.110881209373474  train.ips : 8016.435209702069 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:14.670664 - Epoch: 1 Iteration: 279  train.loss : 6.107083344459534  train.ips : 8022.009603417869 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:19.763512 - Epoch: 1 Iteration: 299  train.loss : 6.079146766662598  train.ips : 8043.015189242165 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:24.883867 - Epoch: 1 Iteration: 319  train.loss : 6.108370280265808  train.ips : 8000.070959959014 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:30.068255 - Epoch: 1 Iteration: 339  train.loss : 6.101524353027344  train.ips : 7900.871173796943 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:35.174311 - Epoch: 1 Iteration: 359  train.loss : 6.136751508712768  train.ips : 8022.248968236602 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:40.292737 - Epoch: 1 Iteration: 379  train.loss : 6.084602189064026  train.ips : 8002.748897168086 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:45.383487 - Epoch: 1 Iteration: 399  train.loss : 6.103086018562317  train.ips : 8046.4089226455535 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:50.492368 - Epoch: 1 Iteration: 419  train.loss : 6.099115705490112  train.ips : 8017.804507729889 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:18:55.602429 - Epoch: 1 Iteration: 439  train.loss : 6.114670181274414  train.ips : 8015.876401150171 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:00.720745 - Epoch: 1 Iteration: 459  train.loss : 6.101237964630127  train.ips : 8002.9162811720735 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:05.816455 - Epoch: 1 Iteration: 479  train.loss : 6.0831382274627686  train.ips : 8038.5382925097565 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:10.915934 - Epoch: 1 Iteration: 499  train.loss : 6.109320116043091  train.ips : 8032.523638499085 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:10.919096 - Epoch: 1  train.loss : 6.115736693382263  train.ips : 7691.052541254605 images/s
+[1,5]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,2]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,1]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,7]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,6]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,4]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,0]<stderr>:2023-07-31 13:19:10,919:INFO: Starting epoch 2
+[1,3]<stderr>:2023-07-31 13:19:10,921:INFO: Starting epoch 2
+[1,0]<stdout>:DLL 2023-07-31 13:19:16.011933 - Epoch: 2 Iteration: 19  train.loss : 6.200546169281006  train.ips : 8042.943646157222 images/s train.lr : 1.3056 
+[1,0]<stdout>:DLL 2023-07-31 13:19:21.212540 - Epoch: 2 Iteration: 39  train.loss : 6.016625881195068  train.ips : 7876.211594064299 images/s train.lr : 1.8176 
+[1,0]<stdout>:DLL 2023-07-31 13:19:26.332014 - Epoch: 2 Iteration: 59  train.loss : 6.009420323371887  train.ips : 8001.2293409642725 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:31.424488 - Epoch: 2 Iteration: 79  train.loss : 6.00173671245575  train.ips : 8044.174364566256 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:36.535045 - Epoch: 2 Iteration: 99  train.loss : 5.973940372467041  train.ips : 8014.99832397551 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:41.625597 - Epoch: 2 Iteration: 119  train.loss : 5.982698440551758  train.ips : 8046.562309109312 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:46.743671 - Epoch: 2 Iteration: 139  train.loss : 5.957358193397522  train.ips : 8003.40169709745 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:51.841858 - Epoch: 2 Iteration: 159  train.loss : 5.980938458442688  train.ips : 8034.6577855117275 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:19:56.953512 - Epoch: 2 Iteration: 179  train.loss : 5.972879004478455  train.ips : 8013.287598475449 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:02.064184 - Epoch: 2 Iteration: 199  train.loss : 5.983304286003113  train.ips : 8015.110877633331 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:07.167373 - Epoch: 2 Iteration: 219  train.loss : 5.987024807929993  train.ips : 8026.765487897433 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:12.286476 - Epoch: 2 Iteration: 239  train.loss : 5.995349049568176  train.ips : 8001.681755789142 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:17.379818 - Epoch: 2 Iteration: 259  train.loss : 5.976583433151245  train.ips : 8042.277226990463 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:22.485580 - Epoch: 2 Iteration: 279  train.loss : 5.997785568237305  train.ips : 8022.723619596534 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:27.578268 - Epoch: 2 Iteration: 299  train.loss : 5.983570575714111  train.ips : 8043.358990345695 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:32.690179 - Epoch: 2 Iteration: 319  train.loss : 5.96852741241455  train.ips : 8013.0984765528565 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:37.794635 - Epoch: 2 Iteration: 339  train.loss : 5.989597487449646  train.ips : 8025.050860665231 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:42.913834 - Epoch: 2 Iteration: 359  train.loss : 5.963943266868592  train.ips : 8001.544237139632 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:48.056906 - Epoch: 2 Iteration: 379  train.loss : 5.988713192939758  train.ips : 7964.520241787615 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:53.182129 - Epoch: 2 Iteration: 399  train.loss : 5.990818834304809  train.ips : 7992.284355547153 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:20:58.281971 - Epoch: 2 Iteration: 419  train.loss : 6.002313661575317  train.ips : 8032.144712110874 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:21:03.369018 - Epoch: 2 Iteration: 439  train.loss : 6.004673647880554  train.ips : 8052.5919742607575 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:21:08.471593 - Epoch: 2 Iteration: 459  train.loss : 6.000764083862305  train.ips : 8027.903102752101 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:21:13.580964 - Epoch: 2 Iteration: 479  train.loss : 5.994938611984253  train.ips : 8017.050587694415 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:21:18.707764 - Epoch: 2 Iteration: 499  train.loss : 5.9675309419631954  train.ips : 7989.75869954386 images/s train.lr : 0 
+[1,0]<stdout>:DLL 2023-07-31 13:21:18.710264 - Epoch: 2  train.loss : 5.995663296699524  train.ips : 8011.9173433287115 images/s
+[1,0]<stdout>:DLL 2023-07-31 13:21:18.879054 - Summary: train.loss : 5.995663296699524  train.ips : 7708.042190582509 images/s
 train.ips
            |    256    |
 ------------------------
-     8     |    nan    |
+     8     |   7848.2  |
 
