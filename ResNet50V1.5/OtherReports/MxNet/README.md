@@ -27,14 +27,14 @@
   - 系统：CentOS release 7.5 (Final)
   - GPU：Tesla V100-SXM2-32GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6271C CPU @ 2.60GHz * 80
-  - Driver Version: 515.57
+  - Driver Version: 525.60.11
   - 内存：630 GB
 
 - 单机A100（单卡、8卡）
   - 系统：CentOS release 7.5 (Final)
   - GPU：NVIDIA A100-SXM4-40GB * 8
   - CPU：Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz * 160
-  - Driver Version: 515.48.07
+  - Driver Version: 525.60.13
   - 内存：1510 GB
 
 - 多机（32卡）
@@ -48,8 +48,8 @@
 
 我们使用 NGC MxNet 的代码仓库提供的Dockerfile制作镜像：
 
-- Docker: nvcr.io/nvidia/mxnet:20.12-py3
-- MxNet：1.8.0
+- Docker: nvcr.io/nvidia/mxnet:22.10-py3
+- MxNet：1.9.0
 - 模型代码：[NVIDIA/DeepLearningExamples/MxNet](https://github.com/NVIDIA/DeepLearningExamples/tree/master/MxNet/Classification/RN50v1.5)
 - CUDA：11.1
 - cuDNN：8.05
@@ -66,7 +66,7 @@
    git clone https://github.com/NVIDIA/DeepLearningExamples
    cd DeepLearningExamples/MxNet/Classification/RN50v1.5
    # 本次测试是在如下版本下完成的：
-   git checkout cfdbf4eda13bafa6c56abd9d0f94aceb01280d55
+   git checkout fc9c09b08d6d39fb13c79c8a7e08f85b03dbf3d1
    ```
 
 - 制作Docker镜像
@@ -118,23 +118,23 @@
 
 - V100上训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=96) | AMP(BS=192)|
+|卡数 | FP32(BS=128) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|
-|1 | 382.806  |  1362.92 |
-|8 | 2978.38  |  10553.3 |
+|1 | 389.54  |  1471.9 |
+|8 | 2957.8 | 10336 |
 |32 | - | - | - |
 
 - A100上训练吞吐率(images/sec)如下:
 
-|卡数 | FP32(BS=96) | AMP(BS=192)|
+|卡数 | FP32(BS=256) | AMP(BS=256)|
 |:-----:|:-----:|:-----:|
-|1 | 907.194  |  2695.3 |
-|8 | 7129.73  |  19304.1 |
+|1 | 1015.8 |  3046.4 |
+|8 | 7848.2  |  22690 |
 
 ## 五、日志数据
 ### V100 
-- [V100-1卡FP32 BS=256 日志](./logs/V100_LOG/mxnet_gpu1_fp32_bs256.txt)
-- [V100-8卡 FP32 BS=256 日志](./logs/V100_LOG/mxnet_gpu8_fp32_bs256.txt)
+- [V100-1卡FP32 BS=256 日志](./logs/V100_LOG/mxnet_gpu1_fp32_bs128.txt)
+- [V100-8卡 FP32 BS=256 日志](./logs/V100_LOG/mxnet_gpu8_fp32_bs128.txt)
 - [V100-1卡 AMP BS=256 日志](./logs/V100_LOG/mxnet_gpu1_amp_bs256.txt)
 - [V100-8卡 AMP BS=256 日志](./logs/V100_LOG/mxnet_gpu8_amp_bs256.txt)
 ### A100 
